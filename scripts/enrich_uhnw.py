@@ -41,6 +41,11 @@ if os.path.exists(f"{EN}/wd_match.csv"):
         wd_by_name[r["name"]].add(q)
         wd_desc[q] = r.get("description", "")
 props = load_json(f"{EN}/wd_props.json", {})
+research = {}
+if os.path.exists("data/research_results.jsonl"):
+    for line in open("data/research_results.jsonl", encoding="utf-8"):
+        rr = json.loads(line)
+        research[rr["id"]] = rr
 wp = load_json(f"{EN}/wp_summaries.json", {})
 
 
@@ -127,6 +132,22 @@ for r in rows:
             contacts.append(handle_url(kind, v))
     stats["has contact" if contacts else "no contact"] += 1
 
+    # agent research (data/research_results.jsonl) overrides automated fields where it found something
+    rr = research.get(r.get("person_id", ""), {})
+    researched = bool(rr)
+    if rr.get("alive") == "no":
+        stats["research says deceased"] += 1
+    if rr.get("profile"):
+        profile, psrc = rr["profile"], "research"
+    if rr.get("interesting_fact"):
+        interesting = rr["interesting_fact"]
+    if rr.get("deep_cut_fact"):
+        deep = rr["deep_cut_fact"]
+    rc = [f"{c.get('type')}: {c.get('value')}" for c in rr.get("public_contacts") or [] if c.get("value")]
+    rc_src = sorted({c.get("source_url", "") for c in rr.get("public_contacts") or [] if c.get("source_url")})
+    if rc:
+        contacts = rc + [c for c in contacts if not any(c in x for x in rc)]
+
     age = ""
     born = info.get("birthDate") or ((pr.get("born") or [""])[0][:10])
     if born and re.match(r"\d{4}-\d{2}-\d{2}", born) and not born.startswith("1900"):
@@ -149,8 +170,13 @@ for r in rows:
         "profile_source": psrc,
         "interesting_fact": interesting,
         "deep_cut_fact": deep,
+        "current_role": rr.get("current_role", ""),
+        "interesting_fact_source": rr.get("interesting_fact_source", "") or ("Forbes profile" if about else ""),
+        "deep_cut_fact_source": rr.get("deep_cut_fact_source", "") or ("Forbes profile" if about and deep in about else ""),
         "public_contact": " | ".join(contacts),
-        "public_contact_source": f"https://www.wikidata.org/wiki/{qid}" if contacts else "",
+        "public_contact_source": " ".join(rc_src) if rc else (f"https://www.wikidata.org/wiki/{qid}" if contacts else ""),
+        "research_status": ("researched" if researched else "automated only") + (" (identity uncertain)" if rr.get("identity_confirmed") == "uncertain" else "") + (" (deceased per research)" if rr.get("alive") == "no" else ""),
+        "research_notes": rr.get("notes", ""),
         "wikipedia_url": article,
         "wikidata_url": r["wikidata_url"] or (f"http://www.wikidata.org/entity/{qid}" if qid else ""),
     })
