@@ -24,7 +24,7 @@ NOT_ENERGY = re.compile(r"palm oil|edible oil|energy drink|vegas|power strip|gas
 
 rows = list(csv.DictReader(open("data/uhnw_individuals.csv", encoding="utf-8")))
 done = set()
-for f in glob.glob(os.path.join(out_dir, "wave*", "lane_*.jsonl")):
+for f in glob.glob(os.path.join(out_dir, "wave*", "lane_*.jsonl")):  # already assigned to a lane
     for line in open(f, encoding="utf-8"):
         done.add(json.loads(line)["id"])
 
@@ -49,7 +49,7 @@ def nw(r):
 
 people = []
 for i, r in enumerate(rows):
-    pid = f"P{i:05d}"
+    pid = r.get("person_id") or f"P{i:05d}"
     if pid in done:
         continue
     tags = focus(r)
