@@ -14,6 +14,7 @@ Paths to the downloaded sources are set in SOURCES below.
 """
 import csv
 import glob
+import html
 import json
 import os
 import re
@@ -131,7 +132,42 @@ def fnum(x):
 records = []  # dicts: name, nw_usd_m, as_of, country, wealth_source, industry, list, year, uri, wikidata, deceased
 
 
+CURRENT_SRC = ""
+
+
+FAMILY_SUFFIX = re.compile(r"\s*(,\s*)?(\(|&|\band\b)\s*(his |her )?(family|siblings|sons|daughters|children)\)?\s*$", re.I)
+
+
+def split_joint(name):
+    """'David and Simon Reuben' -> ['David Reuben', 'Simon Reuben']; 'Liu Zaiwang & Fu Haixia' -> both;
+    'Schwab, Charles R.' -> ['Charles R. Schwab']."""
+    n = html.unescape(name or "").strip()
+    n = FAMILY_SUFFIX.sub("", n).strip(" ,")
+    if "," in n and not re.search(r"、|&|\band\b", n) and n.count(",") == 1:
+        last, first = [x.strip() for x in n.split(",")]
+        if first.lower().rstrip(".") in ("jr", "sr", "ii", "iii"):
+            return [n]
+        return [f"{first} {last}".strip()]
+    parts = [x.strip(" ,") for x in re.split(r"\s*[、·]\s*|\s+&\s+|\s+and\s+|\s*;\s*", n) if x.strip(" ,")]
+    if len(parts) <= 1:
+        return [n]
+    last_toks = parts[-1].split()
+    if len(last_toks) >= 2:
+        surname = last_toks[-1]
+        return [p + " " + surname if len(p.split()) == 1 else p for p in parts[:-1]] + [parts[-1]]
+    return parts
+
+
 def add(**kw):
+    kw.setdefault("src", CURRENT_SRC)
+    names = split_joint(kw.get("name", ""))
+    if len(names) > 1 and not kw.get("_split"):
+        for nm in names:
+            others = [o for o in names if o != nm]
+            add(**{**kw, "name": nm, "_split": True, "joint_with": kw.get("joint_with") or ", ".join(others)})
+        return
+    if names:
+        kw["name"] = names[0]
     if not (kw.get("name") or "").strip():
         return
     kw["name"] = re.sub(r"\s+", " ", kw["name"]).strip()
@@ -140,6 +176,7 @@ def add(**kw):
 
 
 # 1. Forbes real-time current list
+CURRENT_SRC = "rtb-current"
 cur_files = sorted(glob.glob(f"{RTB}/list/rtb/20*"))
 cur = json.load(open(cur_files[-1], encoding="utf-8"))
 current_uris = set()
@@ -151,6 +188,7 @@ for r in cur["list"]:
 
 # 2. Forbes real-time profiles of people no longer on the list
 deceased_uris = set(json.load(open(f"{RTB}/filter/deceased", encoding="utf-8"))) if os.path.exists(f"{RTB}/filter/deceased") else set()
+CURRENT_SRC = "rtb-profiles"
 for d in glob.glob(f"{RTB}/profile/*/"):
     uri = os.path.basename(d.rstrip("/"))
     if uri in current_uris or not os.path.exists(d + "info"):
@@ -168,6 +206,7 @@ for d in glob.glob(f"{RTB}/profile/*/"):
 
 # 3. Forbes annual lists 1996-2025
 for f in glob.glob(f"{DS}/FilesUploader_Forbes-Billionaire-List/*.csv"):
+    CURRENT_SRC = f
     year = int(re.search(r"(\d{4})", os.path.basename(f)).group(1))
     for r in csv.DictReader(open(f, encoding="utf-8-sig", errors="replace")):
         w = fnum(r.get("Wealth (in $1B USD)"))
@@ -177,6 +216,7 @@ for f in glob.glob(f"{DS}/FilesUploader_Forbes-Billionaire-List/*.csv"):
 
 # 4. Hurun Global Rich List CSVs 2014-2024
 for f in glob.glob(f"{DS}/FilesUploader_Hurun-GRL/*.csv"):
+    CURRENT_SRC = f
     year = int(re.search(r"(\d{4})", os.path.basename(f)).group(1))
     for r in csv.DictReader(open(f, encoding="utf-8-sig", errors="replace")):
         w = fnum(r.get("Wealth (in $1B USD)"))
@@ -198,6 +238,7 @@ def hv(r, suffix):
 INR_CRORE_USD_M = 0.12  # 1 crore INR ~ $0.12M (approximate)
 for sub, label in HURUN_LABEL.items():
     for f in glob.glob(f"{DS}/hurun/{sub}/*.json"):
+        CURRENT_SRC = f
         d = json.load(open(f, encoding="utf-8"))
         label_year = re.search(r"(\d{4})", d["label"])
         for r in d["rows"]:
@@ -225,7 +266,26 @@ for sub, label in HURUN_LABEL.items():
                     name_cn=c.get("hs_Character_Fullname_Cn") or "",
                     joint_with=", ".join(others), **common)
 
+# 5b. Hurun Global Unicorn Index: founders of private companies valued at $1B+. Their personal net worth is not
+# published; they are included as likely UHNW (basis = unicorn founder) with no net-worth figure.
+for f in sorted(glob.glob(f"{DS}/hurun/unicorn/*.json")):
+    CURRENT_SRC = f
+    d = json.load(open(f, encoding="utf-8"))
+    for r in d["rows"]:
+        year = fnum(hv(r, "Year"))
+        names = re.split(r"\s*[,、;/]\s*|\s+&\s+|\s+and\s+", hv(r, "ChaName_En") or "")
+        val = fnum(hv(r, "Wealth_USD"))
+        company = hv(r, "ComName_En") or hv(r, "ComName_Cn") or ""
+        hq = (hv(r, "ComHeadquarters_En") or "").split("-")[0]
+        for nm in names:
+            if len(nm.split()) < 2 and not re.search(r"[一-鿿]", nm):
+                continue  # skip single tokens / placeholders
+            add(name=nm, nw_usd_m=None, as_of=str(int(year)) if year else "", country="",  # HQ != founder's country
+                wealth_source=f"{company} (founder; company valued ${val:,.0f}B)" if val else f"{company} (founder)",
+                industry=hv(r, "Industry_En") or "", list="Hurun Unicorn founders", year=int(year) if year else None)
+
 # 6. Sunday Times Rich List 2020
+CURRENT_SRC = "sunday-times-2020"
 f = f"{DS}/harveydevereux_TimesRichList2020/resources/TimesRichList2020.csv"
 if os.path.exists(f):
     for r in csv.DictReader(open(f, encoding="utf-8-sig", errors="replace")):
@@ -235,6 +295,7 @@ if os.path.exists(f):
             list="Sunday Times Rich List", year=2020)
 
 # 7. Wikidata (living people with a net worth statement)
+CURRENT_SRC = "wikidata"
 wd_best = {}
 for r in csv.DictReader(open(f"{DS}/wikidata/wd_networth.csv", encoding="utf-8")):
     unit = r["unit"].rsplit("/", 1)[-1]
@@ -271,6 +332,7 @@ def words(s):
 
 
 sec_stats = Counter()
+CURRENT_SRC = "sec"
 if os.path.exists(SEC_FILE):
     idx = defaultdict(list)  # (surname, first initial) -> [(first token, name, wealth words)]
     for r in records:
@@ -331,23 +393,131 @@ for r in records:
 people = []
 for k, rs in by_name.items():
     countries = Counter(r["country"] for r in rs if r["country"])
-    # Only treat a shared name as several people when one source lists it more than once in the same
-    # year (e.g. two different "Wang Wei"s); otherwise country differences are just citizenship vs residence.
-    same_list_dupes = max(Counter((r["list"], r.get("year")) for r in rs).values()) > 1
-    if len(countries) <= 1 or not same_list_dupes:
+    # Split only when a single list names this person more than once in the same year with different
+    # countries, i.e. the source itself says these are different people (e.g. several "Wang Wei"s).
+    by_key = defaultdict(set)
+    for r in rs:
+        if r["country"]:
+            by_key[(r["src"], r.get("year"))].add(r["country"])
+    dup_countries = set().union(*[c for c in by_key.values() if len(c) > 1]) if by_key else set()
+    if len(dup_countries) < 2:
         groups = [rs]
     else:
-        main = countries.most_common(1)[0][0]
+        main = max(dup_countries, key=lambda c: countries[c])
         groups_d = defaultdict(list)
         for r in rs:
-            groups_d[r["country"] or main].append(r)
+            groups_d[r["country"] if r["country"] in dup_countries else main].append(r)
         groups = list(groups_d.values())
     people.extend(groups)
+
+# ---- second pass: merge name variants of the same person ----
+# e.g. "Jen Hsun Huang" / "Jensen Huang", "Lawrence Ellison" / "Larry Ellison", "Yiming Zhang" / "Zhang Yiming".
+# Two groups merge when they share a surname, their first names are equivalent (nickname, prefix, or initial for
+# SEC-style names) AND they share a company word; or when their name tokens are the same set in a different order
+# AND they share a company word or country.
+NICK = {}
+for canon, alts in {
+    "william": "bill billy will willy", "robert": "bob bobby rob robbie bert", "richard": "dick rick ricky rich",
+    "james": "jim jimmy jamie", "john": "jack johnny jon", "jonathan": "jon jonny", "michael": "mike mick mikey",
+    "thomas": "tom tommy", "charles": "chuck charlie chas", "lawrence": "larry laurence", "jeffrey": "jeff geoffrey",
+    "stephen": "steve steven stevie", "daniel": "dan danny", "david": "dave davey", "kenneth": "ken kenny",
+    "anthony": "tony", "edward": "ed eddie ted ned", "joseph": "joe joey", "samuel": "sam sammy", "benjamin": "ben benny",
+    "andrew": "andy drew", "christopher": "chris kit", "patrick": "pat paddy", "ronald": "ron ronnie",
+    "donald": "don donnie", "nicholas": "nick nicky", "matthew": "matt", "alexander": "alex sasha alec",
+    "gregory": "greg", "peter": "pete", "henry": "hank harry", "frederick": "fred freddie", "gerald": "gerry jerry",
+    "timothy": "tim timmy", "philip": "phil", "phillip": "phil", "leonard": "len lenny leo", "theodore": "ted teddy theo",
+    "elizabeth": "liz beth betsy betty eliza lisa", "katherine": "kate kathy katie catherine kathryn",
+    "margaret": "maggie meg peggy", "jennifer": "jen jenny", "susan": "sue susie", "deborah": "deb debbie",
+    "patricia": "pat patty trish", "rebecca": "becky", "victoria": "vicky tori", "abigail": "abby", "jensen": "jen",
+}.items():
+    for a in alts.split() + [canon]:
+        NICK.setdefault(a, canon)
+
+
+def first_equiv(a, b):
+    if a == b or NICK.get(a, a) == NICK.get(b, b):
+        return True
+    return False
+
+
+def gkey(g):
+    nm = norm_name(min(g, key=lambda r: LIST_PRIORITY_PRE.get(r["list"], 9))["name"])
+    return nm.split()
+
+
+LIST_PRIORITY_PRE = {"Forbes real-time": 0, "Forbes real-time (former)": 1, "Forbes annual": 2}
+ginfo = []
+for g in people:
+    toks = gkey(g)
+    ww = set()
+    for r in g:
+        ww |= words(r.get("wealth_source", ""))
+    ginfo.append((toks, ww, {r["country"] for r in g if r["country"]}, {(r["src"], r.get("year")) for r in g}))
+
+parent = list(range(len(people)))
+
+
+def find(i):
+    while parent[i] != i:
+        parent[i] = parent[parent[i]]
+        i = parent[i]
+    return i
+
+
+blocks = defaultdict(list)
+SUFFIXES = {"jr", "sr", "ii", "iii", "iv", "v"}
+for i, (toks, ww, cs, srcs) in enumerate(ginfo):
+    core = [t for t in toks if t not in SUFFIXES]
+    if len(core) >= 2:
+        blocks[("s", core[-1])].append(i)                 # surname last (Western order)
+        blocks[("s", core[0])].append(i)                  # surname first (Chinese / SEC order)
+merged_pairs = 0
+for key, idxs in blocks.items():
+    if len(idxs) < 2 or len(idxs) > 400:
+        continue
+    for a_i in range(len(idxs)):
+        for b_i in range(a_i + 1, len(idxs)):
+            a, b = idxs[a_i], idxs[b_i]
+            if find(a) == find(b):
+                continue
+            ta, wa, ca, sa = ginfo[a]
+            tb, wb, cb, sb = ginfo[b]
+            if sa & sb:
+                continue  # the same list names both in the same year -> different people (e.g. father/son)
+            if {t for t in ta if t in SUFFIXES} != {t for t in tb if t in SUFFIXES}:
+                continue  # III vs IV, Jr vs none
+            shared_company = bool(wa & wb)
+            if sorted(ta) == sorted(tb):
+                ok = shared_company or bool(ca & cb)
+            else:
+                # surname = the block key; compare the given names on each side
+                sur = key[1]
+                fa = [t for t in ta if t != sur and len(t) > 1 and t not in ("and", "jr", "sr", "ii", "iii")]
+                fb = [t for t in tb if t != sur and len(t) > 1 and t not in ("and", "jr", "sr", "ii", "iii")]
+                ok = bool(fa and fb) and shared_company and first_equiv(fa[0], fb[0])
+            if ok:
+                parent[find(a)] = find(b)
+                merged_pairs += 1
+MERGE_LOG = []
+merged = defaultdict(list)
+for i, g in enumerate(people):
+    merged[find(i)].extend(g)
+import random
+random.seed(1)
+_names = defaultdict(set)
+for i, g in enumerate(people):
+    _names[find(i)].add(min(g, key=lambda r: LIST_PRIORITY_PRE.get(r["list"], 9))["name"])
+_multi = [sorted(v) for v in _names.values() if len(v) > 1]
+with open("/tmp/claude-0/-home-user-anna/11e881aa-a635-56c4-ac1a-08b9de9b2955/scratchpad/merge_sample.txt", "w") as fh:
+    for v in random.sample(_multi, min(60, len(_multi))):
+        fh.write(" | ".join(v) + "\n")
+print(f"name-variant merges: {merged_pairs} ({len(people)} -> {len(merged)} groups)")
+people = list(merged.values())
 
 LIST_PRIORITY = {"Forbes real-time": 0, "Forbes real-time (former)": 1, "Forbes annual": 2, "Hurun Global": 3,
                  "Hurun China": 3, "Hurun India": 3, "Hurun Self-Made Women": 4, "Hurun Global U40": 4,
                  "Hurun China U40": 4, "Sunday Times Rich List": 5, "Wikidata": 6,
-                 "SEC insider holdings": 7}
+                 "SEC insider holdings": 7, "Hurun Unicorn founders": 8}
 
 
 def as_of_key(r):
