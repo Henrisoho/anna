@@ -187,28 +187,43 @@ for f in glob.glob(f"{DS}/FilesUploader_Hurun-GRL/*.csv"):
 # 5. hurun.net downloads (China, India, Global, women, U40 lists)
 HURUN_LABEL = {"china": "Hurun China", "india": "Hurun India", "global": "Hurun Global",
                "cwomen": "Hurun Self-Made Women", "gu40": "Hurun Global U40", "u40": "Hurun China U40"}
+def hv(r, suffix):
+    """Value of hs_Rank_<List>_<suffix>; each Hurun list uses its own <List> prefix (Rich, India, Global, ...)."""
+    for k, v in r.items():
+        if re.fullmatch(r"hs_Rank_[A-Za-z0-9]+_" + suffix, k) and v not in (None, ""):
+            return v
+    return None
+
+
+INR_CRORE_USD_M = 0.12  # 1 crore INR ~ $0.12M (approximate)
 for sub, label in HURUN_LABEL.items():
     for f in glob.glob(f"{DS}/hurun/{sub}/*.json"):
         d = json.load(open(f, encoding="utf-8"))
+        label_year = re.search(r"(\d{4})", d["label"])
         for r in d["rows"]:
-            year = fnum(r.get("hs_Rank_Rich_Year"))
-            year = int(year) if year else int(re.search(r"(\d{4})", d["label"]).group(1)) if re.search(r"\d{4}", d["label"]) else None
-            chars = r.get("hs_Character") or []
-            name = r.get("hs_Rank_Rich_ChaName_En") or " & ".join(c.get("hs_Character_Fullname_En", "") for c in chars)
-            if not (name or "").strip():
-                name = r.get("hs_Rank_Rich_ChaName_Cn") or ""
-            usd = fnum(r.get("hs_Rank_Rich_Wealth_USD"))
-            country = ""
-            for c in chars:
-                country = c.get("hs_Character_Permanent_En") or c.get("hs_Character_NativePlace_En") or ""
-                if country:
-                    break
-            if not country:
-                country = r.get("hs_Rank_Rich_Permanent_En") or ("China" if sub in ("china", "u40") else "India" if sub == "india" else "")
-            add(name=name, nw_usd_m=usd, as_of=str(year or ""), country=country,
-                wealth_source=r.get("hs_Rank_Rich_ComName_En") or r.get("hs_Rank_Rich_ComName_Cn") or "",
-                industry=r.get("hs_Rank_Rich_Industry_En") or "", list=label, year=year,
-                name_cn=r.get("hs_Rank_Rich_ChaName_Cn") or "")
+            year = fnum(hv(r, "Year"))
+            year = int(year) if year else (int(label_year.group(1)) if label_year else None)
+            chars = [c for c in (r.get("hs_Character") or []) if (c.get("hs_Character_Fullname_En") or c.get("hs_Character_Fullname_Cn"))]
+            usd = fnum(hv(r, "Wealth_USD"))
+            if usd is not None and sub in ("global", "gu40", "cwomen") and usd < 1000:
+                usd *= 1000  # these billionaire lists give USD in billions, not millions
+            if usd is None and fnum(hv(r, "Wealth_INR")) is not None:
+                usd = fnum(hv(r, "Wealth_INR")) * INR_CRORE_USD_M
+            default_country = hv(r, "Permanent_En") or ("China" if sub in ("china", "u40") else "India" if sub == "india" else "")
+            common = dict(nw_usd_m=usd, as_of=str(year or ""), list=label, year=year,
+                          wealth_source=hv(r, "ComName_En") or hv(r, "ComName_Cn") or "",
+                          industry=hv(r, "Industry_En") or "")
+            if not chars:  # no per-person records: fall back to the entry name
+                add(name=hv(r, "ChaName_En") or hv(r, "ChaName_Cn") or "",
+                    country=default_country, name_cn=hv(r, "ChaName_Cn") or "", **common)
+                continue
+            # one record per person; joint entries (couples, families) share the listed wealth
+            names = [c.get("hs_Character_Fullname_En") or c.get("hs_Character_Fullname_Cn") for c in chars]
+            for c, nm in zip(chars, names):
+                others = [o for o in names if o != nm]
+                add(name=nm, country=c.get("hs_Character_Permanent_En") or default_country,
+                    name_cn=c.get("hs_Character_Fullname_Cn") or "",
+                    joint_with=", ".join(others), **common)
 
 # 6. Sunday Times Rich List 2020
 f = f"{DS}/harveydevereux_TimesRichList2020/resources/TimesRichList2020.csv"
@@ -244,6 +259,12 @@ wd_dead_names = set()
 dead_file = f"{DS}/wikidata/wd_dead.csv"
 if os.path.exists(dead_file):
     wd_dead_names = {norm_name(r["pLabel"]) for r in csv.DictReader(open(dead_file, encoding="utf-8"))}
+# Exact-name matches against Wikidata businesspeople with a death date (checked for names not listed since 2024)
+dead_file2 = f"{DS}/wikidata/wd_dead_by_name.csv"
+if os.path.exists(dead_file2):
+    wd_dead_names |= {norm_name(r["name"]) for r in csv.DictReader(open(dead_file2, encoding="utf-8"))}
+RECENT_YEAR = 2025
+dropped = Counter()
 
 # ---- merge: group by normalised name, split by country where they clearly differ ----
 by_name = defaultdict(list)
@@ -255,7 +276,10 @@ for r in records:
 people = []
 for k, rs in by_name.items():
     countries = Counter(r["country"] for r in rs if r["country"])
-    if len(countries) <= 1:
+    # Only treat a shared name as several people when one source lists it more than once in the same
+    # year (e.g. two different "Wang Wei"s); otherwise country differences are just citizenship vs residence.
+    same_list_dupes = max(Counter((r["list"], r.get("year")) for r in rs).values()) > 1
+    if len(countries) <= 1 or not same_list_dupes:
         groups = [rs]
     else:
         main = countries.most_common(1)[0][0]
@@ -272,7 +296,7 @@ LIST_PRIORITY = {"Forbes real-time": 0, "Forbes real-time (former)": 1, "Forbes 
 
 def as_of_key(r):
     a = str(r.get("as_of") or "")
-    return (a + "-12-31") if len(a) == 4 else a
+    return (a + "-06-30") if len(a) == 4 else a  # year-only lists: mid-year, so a dated real-time figure from later that year wins
 
 
 out_rows = []
@@ -300,15 +324,25 @@ for g in people:
     ws = best.get("wealth_source") or next((r["wealth_source"] for r in g_sorted if r.get("wealth_source")), "")
     ind = best.get("industry") or next((r["industry"] for r in g_sorted if r.get("industry")), "")
     name_cn = next((r["name_cn"] for r in g if r.get("name_cn")), "")
-    if deceased:
-        continue
+    joint = best.get("joint_with") or ""
     nw = best.get("nw_usd_m")
+    last_year = max(years) if years else 0
+    if deceased:
+        dropped["deceased (Forbes)"] += 1
+        continue
+    if norm_name(display) in wd_dead_names and last_year < RECENT_YEAR:
+        dropped["deceased (Wikidata, not listed since 2024)"] += 1
+        continue
+    if nw is not None and nw < UHNW_MIN_USD_M:
+        dropped["last known net worth under $30M"] += 1
+        continue
     out_rows.append({
         "name": display,
         "name_chinese": name_cn,
         "latest_net_worth_usd_m": round(nw, 1) if nw is not None else "",
         "net_worth_as_of": best.get("as_of", ""),
         "net_worth_source": best["list"],
+        "net_worth_shared_with": joint,
         "country": country_name(country),
         "country_code": country,
         "source_of_wealth": ws,
@@ -316,7 +350,7 @@ for g in people:
         "appears_on": "; ".join(appears),
         "first_listed_year": min(years) if years else "",
         "last_listed_year": max(years) if years else "",
-        "possibly_deceased": "yes" if norm_name(display) in wd_dead_names else "",
+        "possibly_deceased": "yes" if norm_name(display) in wd_dead_names else "",  # still on a recent list
         "forbes_profile_url": f"https://www.forbes.com/profile/{uri}/" if uri else "",
         "wikidata_url": wd,
     })
@@ -330,4 +364,5 @@ with open(out, "w", newline="", encoding="utf-8") as f:
 
 print(f"input records: {len(records)}")
 print("records by list:", dict(Counter(r["list"] for r in records)))
+print("dropped:", dict(dropped))
 print(f"unique living individuals written: {len(out_rows)} -> {out}")
