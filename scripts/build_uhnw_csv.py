@@ -255,8 +255,63 @@ for v in wd_best.values():
     if v["nw_usd_m"] >= UHNW_MIN_USD_M and not re.fullmatch(r"Q\d+", v["name"]):
         add(**v)
 
+# 8. SEC insider holdings (scripts/sec_insiders.py). Names are matched to people already on a rich list by
+# surname + first initial + (company-word overlap or same first 3 letters of first name). Unmatched people whose
+# SEC estimate exceeds $1B are dropped: Forbes/Hurun track essentially every public-stock billionaire, so such
+# rows are price/unit errors (foreign-currency or ADR mismatches) or name variants of someone already listed.
+SEC_FILE = "data/sec_insiders_30m.csv"
+GENERIC = {"inc", "corp", "corporation", "co", "company", "holdings", "holding", "group", "the", "ltd", "plc", "sa",
+           "nv", "llc", "lp", "de", "technologies", "technology", "international", "and", "of", "com", "class",
+           "partners", "trust", "financial", "bancorp", "industries", "systems", "global", "brands", "energy"}
+
+
+def words(s):
+    return {w for w in re.sub(r"[^a-z0-9 ]", " ", unicodedata.normalize("NFKD", s or "").encode("ascii", "ignore").decode().lower()).split()
+            if len(w) > 2 and w not in GENERIC}
+
+
+sec_stats = Counter()
+if os.path.exists(SEC_FILE):
+    idx = defaultdict(list)  # (surname, first initial) -> [(first token, name, wealth words)]
+    for r in records:
+        toks = norm_name(r["name"]).split()
+        if len(toks) >= 2:
+            idx[(toks[-1], toks[0][0])].append((toks[0], r["name"], words(r.get("wealth_source", ""))))
+            idx[(toks[0], toks[-1][0])].append((toks[-1], r["name"], words(r.get("wealth_source", ""))))  # surname-first (e.g. Chinese) names
+    sec_rows = list(csv.DictReader(open(SEC_FILE, encoding="utf-8")))
+    pending, unmatched_big_by_issuer = [], Counter()
+    for s in sec_rows:
+        st = norm_name(s["sec_name"]).split()  # SEC order: LAST FIRST MIDDLE
+        if len(st) < 2:
+            continue
+        surname, first = st[0], st[1]
+        cw = words(re.sub(r"\(.*?\)|-.*?(;|$)", " ", s["companies"]))
+        match = None
+        for ftok, nm, ww in idx.get((surname, first[0]), []):
+            if (cw & ww) or ftok[:3] == first[:3]:
+                match = nm
+                break
+        val = float(s["est_public_holdings_usd_m"])
+        if match is None and val > 1000:
+            for ik in s["issuer_ciks"].split(";"):
+                unmatched_big_by_issuer[ik] += 1
+            sec_stats["dropped: unmatched SEC estimate > $1B"] += 1
+            continue
+        pending.append((s, match, val))
+    bad_issuers = {ik for ik, n in unmatched_big_by_issuer.items() if n >= 2}
+    for s, match, val in pending:
+        iks = set(s["issuer_ciks"].split(";"))
+        if match is None and iks and iks <= bad_issuers:
+            sec_stats["dropped: company with implausible insider values"] += 1
+            continue
+        sec_stats["matched to rich list" if match else "added (SEC only)"] += 1
+        add(name=match or s["name"], nw_usd_m=val, as_of=s["as_of"], country="" if not match else None,
+            wealth_source=s["companies"], industry="", list="SEC insider holdings", year=int(s["as_of"][:4]),
+            sec_cik=s["owner_cik"])
+    print("SEC:", dict(sec_stats))
+
 wd_dead_names = set()
-dead_file = f"{DS}/wikidata/wd_dead.csv"
+dead_file =f"{DS}/wikidata/wd_dead.csv"
 if os.path.exists(dead_file):
     wd_dead_names = {norm_name(r["pLabel"]) for r in csv.DictReader(open(dead_file, encoding="utf-8"))}
 # Exact-name matches against Wikidata businesspeople with a death date (checked for names not listed since 2024)
@@ -291,7 +346,8 @@ for k, rs in by_name.items():
 
 LIST_PRIORITY = {"Forbes real-time": 0, "Forbes real-time (former)": 1, "Forbes annual": 2, "Hurun Global": 3,
                  "Hurun China": 3, "Hurun India": 3, "Hurun Self-Made Women": 4, "Hurun Global U40": 4,
-                 "Hurun China U40": 4, "Sunday Times Rich List": 5, "Wikidata": 6}
+                 "Hurun China U40": 4, "Sunday Times Rich List": 5, "Wikidata": 6,
+                 "SEC insider holdings": 7}
 
 
 def as_of_key(r):
@@ -302,7 +358,9 @@ def as_of_key(r):
 out_rows = []
 for g in people:
     g_sorted = sorted(g, key=lambda r: (as_of_key(r), -LIST_PRIORITY.get(r["list"], 9)), reverse=True)
-    best = next((r for r in g_sorted if r.get("nw_usd_m") is not None), g_sorted[0])
+    # rich-list estimates beat the SEC figure (which only counts public stock in companies where they are insiders)
+    best = next((r for r in g_sorted if r.get("nw_usd_m") is not None and r["list"] != "SEC insider holdings"), None) \
+        or next((r for r in g_sorted if r.get("nw_usd_m") is not None), g_sorted[0])
     display = min(g, key=lambda r: LIST_PRIORITY.get(r["list"], 9))["name"]
     lists = defaultdict(set)
     for r in g:
@@ -320,6 +378,8 @@ for g in people:
     deceased = any(r.get("deceased") for r in g)
     uri = next((r["uri"] for r in g if r.get("uri")), "")
     wd = next((r["wikidata"] for r in g if r.get("wikidata")), "")
+    sec_cik = next((r["sec_cik"] for r in g if r.get("sec_cik")), "")
+    sec_companies = next((r["wealth_source"] for r in g if r.get("sec_cik")), "")
     country = best["country"] or next((r["country"] for r in g if r["country"]), "")
     ws = best.get("wealth_source") or next((r["wealth_source"] for r in g_sorted if r.get("wealth_source")), "")
     ind = best.get("industry") or next((r["industry"] for r in g_sorted if r.get("industry")), "")
@@ -353,6 +413,8 @@ for g in people:
         "possibly_deceased": "yes" if norm_name(display) in wd_dead_names else "",  # still on a recent list
         "forbes_profile_url": f"https://www.forbes.com/profile/{uri}/" if uri else "",
         "wikidata_url": wd,
+        "sec_insider_companies": sec_companies,
+        "sec_filings_url": f"https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK={sec_cik}&type=4" if sec_cik else "",
     })
 
 out_rows.sort(key=lambda r: -(r["latest_net_worth_usd_m"] or 0))
