@@ -22,6 +22,10 @@ person and append one JSON line per person to your output file. This is research
   The network is open, so `curl -sL --max-time 20 <url>` also works for reading a page (pipe through
   `python3 -c` / `sed` to strip HTML). Budget roughly 3–6 searches/fetches per person; move on rather than stall.
 
+## Tips for Chinese names (from earlier lanes)
+- Hurun's own list data is the best way to decode its English company labels: `https://www.hurun.net/en-US/Rank/HsRankDetailsList?num=<list code>&search=<name>&offset=0&limit=20` (send header `X-Requested-With: XMLHttpRequest`) returns the Chinese name, Chinese company name, city and birth year.
+- Exchange filings: eastmoney announcement PDFs (`pdf.dfcfw.com`) and SEC full-text search work when Baidu/cninfo/Sogou are blocked. Toutiao search (`so.toutiao.com`) and 360 search (`m.so.com`) work for Chinese news.
+
 ## For each person, produce
 1. **identity check** — confirm who they are (the listed company/source of wealth should match). If the name is
    ambiguous and you can't tell which person it is, say so and keep the rest minimal.
