@@ -24,6 +24,7 @@ person and append one JSON line per person to your output file. This is research
 
 ## Tips for Chinese names (from earlier lanes)
 - Hurun's own list data is the best way to decode its English company labels: `https://www.hurun.net/en-US/Rank/HsRankDetailsList?num=<list code>&search=<name>&offset=0&limit=20` (send header `X-Requested-With: XMLHttpRequest`) returns the Chinese name, Chinese company name, city and birth year.
+- cninfo full-text search works via POST to `http://www.cninfo.com.cn/new/fulltextSearch/full` (form fields `searchkey=<Chinese name>`, `sdate`, `edate`, `isfulltext=true`, `sortName=pubdate`, `sortType=desc`, `pageNum=1`) — it searches inside annual reports and prospectuses.
 - Exchange filings: eastmoney announcement PDFs (`pdf.dfcfw.com`) and SEC full-text search work when Baidu/cninfo/Sogou are blocked. Toutiao search (`so.toutiao.com`) and 360 search (`m.so.com`) work for Chinese news.
 
 ## For each person, produce
