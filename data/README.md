@@ -31,6 +31,21 @@ Built by `scripts/build_uhnw_csv.py` (SEC part: `scripts/sec_insiders.py`).
 - Currency conversions for Wikidata, Sunday Times and Hurun India values are approximate.
 - No contact details or addresses are included. The SEC data contains mailing addresses; they are deliberately not used.
 
+## `uhnw_enriched.csv` — the same people with profiles, facts and published contacts
+Built by `scripts/enrich_uhnw.py` from `uhnw_individuals.csv` plus:
+- Forbes profile bios and "about" facts (≈5,000 Forbes-tracked people),
+- Wikidata (description, education, awards, official website, public social accounts) and Wikipedia summaries,
+- agent deep research (`research_results.jsonl`, see `research/`), which overrides the automated fields.
+
+Extra columns: `age`, `title_and_organization`, `self_made`, `self_made_score_1to10`, `home_city` (city only),
+`education`, `current_role`, `profile` (+ `profile_source`), `interesting_fact` (+ source), `deep_cut_fact`
+(+ source), `public_contact` (+ `public_contact_source`), `research_status`, `research_notes`, `wikipedia_url`.
+
+`public_contact` only contains channels published by the person or their organisation (company press/IR inboxes,
+family-office or foundation inboxes, contact forms, official websites and verified social accounts), each with the
+page it was found on. No guessed emails, no home addresses, no personal phone numbers.
+Read `research_notes` before outreach: it flags sanctions, legal issues, retirements, deaths and identity doubts.
+
 ## Other files
 - `billionaires_all.csv` — Forbes real-time list (2026-11-16) with energy / data-center relevance tags.
 - `energy_datacenter_pilot.csv` — 25 energy and data-center billionaires with published press contacts.
