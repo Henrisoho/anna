@@ -12,6 +12,7 @@ Writes the removed rows to data/uhnw_weeded_out.csv with a reason, so nothing is
 Usage: python3 scripts/build_outreach.py [min_age=40] [max_age_exclusive=90]
 """
 import csv
+import json
 import sys
 
 MIN_AGE = int(sys.argv[1]) if len(sys.argv) > 1 else 40
@@ -25,6 +26,15 @@ for line in open("data/research_results.jsonl", encoding="utf-8"):
     research[r["id"]] = r
 
 PERSONAL = {"personal_email", "x", "linkedin", "instagram", "substack", "podcast"}
+# founders listed only via Hurun's unicorn index have no country; use their company's HQ to spot Chinese ones
+UNICORN_HQ = json.load(open("data/unicorn_founder_hq.json", encoding="utf-8"))
+
+
+def is_mainland_china(r):
+    if r.get("country_code") == "CN":
+        return True
+    return not r.get("country_code") and UNICORN_HQ.get(r["name"].lower()) == "China"
+
 keep, removed = [], []
 for r in rows:
     rr = research.get(r["person_id"], {})
@@ -40,7 +50,7 @@ for r in rows:
         reason = "deceased (per research)"
     if not reason and rr.get("identity_confirmed") == "no":
         reason = "not an identifiable individual (per research)"
-    if not reason and r.get("country_code") == "CN":
+    if not reason and is_mainland_china(r):
         personal = any(x.get("type") in PERSONAL for x in rr.get("public_contacts") or [])
         if not (r.get("wikipedia_url") or personal):
             reason = "China, little international visibility"
