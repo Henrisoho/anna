@@ -1,0 +1,2210 @@
+INSTITUTIONAL DEAL PLAYBOOKS
+
+
+
+
+The Bible on
+Due Diligence
+How to build, check, and attack a private market deal at
+the depth of an institutional data room.
+
+
+
+
+VERSION 1.0
+
+US legal and regulatory context. Figures in US dollars.
+THE BIBLE ON DUE DILIGENCE
+
+
+
+
+How to use this book
+This is a build-to-institutional-depth playbook set. Each chapter gives a data room index, a diligence request
+list by workstream, metrics with cited acceptable ranges, real failure cases with the specific check that
+catches each, red flags, and hard questions. The bar is a lender or sponsor data room, not a blog checklist.
+
+     THE SPINE
+
+     Verify the sponsor, verify the cash, verify the collateral or the earnings, verify the legal title, and
+     separate what you confirmed from what you could not.
+
+The single most repeated failure mode across real estate, funds, and credit is one person controlling money
+movement with no independent administrator, custodian, or proof of cash. That one structural check would
+have caught Madoff, Drive Planning, and most of the 2024 real estate Ponzi cases.
+THREE USES
+• The standard. Every posted deal is built and checked against the relevant chapter.
+• The first pass. Chapter 0 plus the deal-type chapter is the brief for an AI first-pass review.
+• The red team. Appendix A holds the prompt for attacking a draft deck before members see it.
+
+READING THE MARKS
+•   WEAK marks a figure that rests on vendor, aggregator, or practitioner-only sourcing. Confirm it before it
+    anchors a posted deal.
+• CHECK: marks the specific test that catches a failure mode.
+• Sources appear in parentheses beside each claim and in full at the back. Practitioner and institutional
+    sources outrank marketing content.
+
+
+
+
+                                                        2
+THE BIBLE ON DUE DILIGENCE
+
+
+
+
+Contents
+0 The Master Playbook                                                                                                                7
+     0.1 How top firms run a diligence process . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 8
+     0.2 Sponsor and management background checks . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 8
+     0.3 KYC, AML, and sanctions . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 9
+     0.4 Fraud detection: the universal red flags . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 9
+     0.5 Verification of funds and assets . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 10
+     0.6 Valuation methods across assets . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 10
+     0.7 The IC memo skeleton . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 10
+     0.8 The universal deck order . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 11
+     0.9 Master reading list . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 11
+
+
+1 Real Estate                                                                                                                      12
+     1.1 How it works . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 13
+     1.2 Regulatory anchor: supervisory LTV limits . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 13
+     1.3 Data room index . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 13
+     1.4 Diligence checklist by workstream . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 14
+     1.5 The numbers . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 15
+     1.6 Third parties . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 15
+     1.7 Legal and structure . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 16
+     1.8 Failure modes and the check that catches each . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 16
+     1.9 Red flags and automatic passes . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 17
+     1.10 Hard questions . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 17
+
+
+2 Tech and Venture                                                                                                                 18
+     2.1 How it works . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 19
+     2.2 Data room index . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 19
+     2.3 Diligence checklist by workstream . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 19
+     2.4 The numbers: SaaS benchmarks . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 20
+     2.5 Third parties . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 21
+     2.6 Legal and structure . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 21
+     2.7 Failure modes . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 21
+     2.8 Red flags . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 21
+
+
+
+                                                                  3
+THE BIBLE ON DUE DILIGENCE
+
+
+
+
+     2.9 Hard questions . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 21
+
+
+3 Debt to Businesses                                                                                                               22
+     3.1 How it works . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 23
+     3.2 Data room index . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 23
+     3.3 Diligence checklist by workstream . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 23
+     3.4 The numbers . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 24
+     3.5 Third parties . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 25
+     3.6 Legal and structure . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 25
+     3.7 Failure modes . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 25
+     3.8 Red flags . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 25
+     3.9 Hard questions . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 26
+
+
+4 Credit of All Kinds                                                                                                              27
+     4.1 How it works . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 28
+     4.2 Diligence by sub-strategy: what changes . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 28
+     4.3 The numbers . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 28
+     4.4 Third parties . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 29
+     4.5 Failure modes . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 29
+     4.6 Red flags . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 29
+
+
+5 Private Equity and M&A                                                                                                           30
+     5.1 How it works . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 31
+     5.2 Data room index . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 31
+     5.3 Diligence by workstream: the full institutional set . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 31
+     5.4 The numbers . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 32
+     5.5 Third parties . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 33
+     5.6 Legal and structure . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 33
+     5.7 Failure modes . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 33
+     5.8 Red flags . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 33
+     5.9 Hard questions . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 33
+
+
+6 Energy and Infrastructure                                                                                                        34
+     6.1 How it works . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 35
+     6.2 The contract suite and what each protects . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 35
+     6.3 Data room index . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 36
+
+
+                                                                  4
+THE BIBLE ON DUE DILIGENCE
+
+
+
+
+     6.4 Diligence checklist . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 36
+     6.5 The numbers . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 37
+     6.6 Third parties . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 38
+     6.7 Failure modes . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 38
+     6.8 Red flags . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 39
+     6.9 Hard questions . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 39
+
+
+7 CPG and Consumer Brands                                                                                                          40
+     7.1 How it works . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 41
+     7.2 Diligence checklist . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 41
+     7.3 The numbers . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 41
+     7.4 Failure modes . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 42
+     7.5 Red flags . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 42
+
+
+8 Cannabis and Hemp                                                                                                                43
+     8.1 How it works . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 44
+     8.2 The 280E anchor . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 44
+     8.3 Diligence checklist . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 44
+     8.4 Failure modes . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 45
+     8.5 Red flags . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 45
+
+
+9 Operating Company Growth Equity                                                                                                  46
+     9.1 How it works . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 47
+     9.2 Diligence checklist . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 47
+     9.3 The numbers . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 47
+     9.4 Red flags . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 47
+
+
+10 Funds and Co-Investments                                                                                                        48
+     10.1 How it works . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 49
+     10.2 The ILPA DDQ 2.0 baseline . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 49
+     10.3 Operational due diligence: the section that catches frauds . . . . . . . . . . . . . . . . . . . . . . . . . . . . 49
+     10.4 Diligence checklist . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 50
+     10.5 The numbers . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 50
+     10.6 Failure modes . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 50
+     10.7 Red flags . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 50
+
+
+
+
+                                                                  5
+THE BIBLE ON DUE DILIGENCE
+
+
+
+
+11 Further Categories and Niches                                                                                                 51
+     11.1 Crypto and digital assets . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 52
+
+
+A Templates                                                                                                                      53
+     A.1 One-page deck template . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 54
+     A.2 Diligence report template . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 54
+     A.3 Red-team prompt . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 54
+
+
+B Open Gaps and Interview Guide                                                                                                  56
+     B.1 Open gaps . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 57
+     B.2 Core interview guide . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 57
+     B.3 Note on process . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 57
+
+
+C Sources                                                                                                                        58
+
+
+
+
+                                                                 6
+CHAPTER
+
+
+
+
+0
+The Master Playbook
+Universal diligence that applies to every deal
+THE BIBLE ON DUE DILIGENCE                                                                                 THE MASTER PLAYBOOK
+
+
+
+
+     THE SPINE
+
+     Verify the sponsor. Verify the cash. Verify the collateral or the earnings. Verify the legal title.
+     Then separate what you confirmed from what you could not.
+
+
+
+0.1 How top firms run a diligence process
+The sequence is the same at every institutional shop. What changes by deal type is the depth of each
+workstream.
+
+
+
+       1                     2             3                  4                  5                6                 7
+     Screen            LOI or term     Confirmatory       Third-party       IC memo and         Docs and         Monitoring
+                         sheet           diligence          reports             vote             funding
+
+
+
+
+FIGURE 1 The institutional diligence sequence. Steps 3 and 4 are where deals are won or lost.
+
+1     Screen. One-page thesis, kill tests, mandate fit. Reject fast.
+2     Indication of interest, LOI, or term sheet with exclusivity.
+3     Confirmatory diligence in parallel workstreams: financial, commercial, legal, tax, operational,
+      technical, management and background, regulatory, insurance, environmental, ESG, IT and cyber.
+4     Third-party reports commissioned: QoE, appraisal, environmental, independent engineer,
+      background checks.
+5     Investment committee memo and vote.
+6     Final documentation, conditions precedent, funding.
+7     Post-close monitoring and covenant tracking.
+Buyout confirmatory diligence typically runs weeks 9 to 16 of a process and covers Quality of Earnings,
+legal, tax, IT, commercial, environmental, and insurance (ctacquisitions.com). Leveraged transactions often
+run 60 to 90 days between signing and closing to accommodate lender underwriting (windsordrake.com).
+
+
+0.2 Sponsor and management background checks
+• Identity verification: government ID, entity formation documents.
+• Full background check: criminal, civil litigation, bankruptcy, regulatory (SEC, FINRA BrokerCheck,
+    state securities), judgments and liens, adverse news.
+• Prior track record verified independently, not from the sponsor's own deck. Confirm claimed exits,
+    AUM, and prior deal outcomes.
+• Resume verification. In the Drive Planning and Toltec Capital SEC cases, the principals inflated their
+    resumes to lure investors (therealdeal.com; SEC). Resume inflation is a documented fraud precursor.
+
+
+                                                               8
+THE BIBLE ON DUE DILIGENCE                                                                                 THE MASTER PLAYBOOK
+
+
+
+
+• Reference calls: former investors, lenders, partners, employees, customers.
+• Litigation search on the sponsor entity and on each principal.
+
+
+0.3 KYC, AML, and sanctions
+Applies to every investor and every counterparty.
+• Customer identification (CIP): government ID or entity formation documents, proof of address.
+• Beneficial ownership: identify and verify every natural person owning or controlling 25% or more of
+    an entity investor, plus any control person (FinCEN CDD Rule, 31 CFR 1010.230).
+• Sanctions screening: every investor and beneficial owner against OFAC SDN and sectoral lists, plus
+    UN, EU, and UK lists for international parties, at onboarding and continuously (getcaruso.com;
+    carta.com).
+• PEP and adverse-media screening.
+• Source of funds AND source of wealth. These are different. A single bank statement is not a
+    source-of-wealth narrative.
+• Accredited investor or qualified purchaser verification. Under Rule 506(c), actual documentary
+    evidence is required (tax returns, W-2s, bank statements, or a licensed professional's letter), not
+    self-certification. Third-party verification letters are generally current for only 90 days
+    (augment.market; checkfile.ai).
+
+
+0.4 Fraud detection: the universal red flags
+
+   RED FLAG: ONE PERSON                                              CLEAN: SEPARATED                  + independent auditor
+
+
+
+                                GP                                       Manager        Bank / custodian     Administrator
+
+
+
+
+        Decides              Moves cash      Reports                     Decides          Moves cash           Reports
+
+
+
+FIGURE 2 Segregation of duties. When one person decides, moves cash, and reports, nothing else in the file can be trusted.
+
+• One person controls investment decisions, cash movement, and reporting. No segregation of duties is
+    the single most consistent precursor to operational failure and fraud (thomasmurray.com).
+• No independent administrator, custodian, or auditor, or an auditor too small for the mandate. Madoff's
+    auditor, Friehling and Horowitz, was a two-partner firm with no peer review (academia.edu;
+    thehedgefundjournal.com).
+• Guaranteed or fixed above-market returns. Drive Planning promised 10% every six months on a "bridge
+    loan." The Adam brothers promised up to 13.5% monthly (SEC 2024-97, 2024-107).
+• Refusal to allow on-site diligence or direct contact with the administrator, auditor, or prime broker.
+• Statements produced by the manager rather than an independent third party.
+
+
+
+                                                              9
+THE BIBLE ON DUE DILIGENCE                                                                         THE MASTER PLAYBOOK
+
+
+
+
+• New-investor money paying old-investor returns. This is the definition of a Ponzi. Verify with proof of
+      cash.
+• Commingling of personal and fund accounts.
+
+       THE ONE CHECK
+
+       Segregation of duties plus independent verification would have caught Madoff, Drive Planning,
+       and most of the 2024 real estate Ponzi cases.
+
+
+
+0.5 Verification of funds and assets
+• Proof of cash. Reconcile reported revenue and earnings back to bank statements. Standard in QoE. It
+      catches what the P&L hides, which is why the data request asks for 36 months of statements, not a trial
+      balance (notveryprivateequity.com; duedilio.com).
+• Independent confirmation of bank balances, custody statements, and asset existence directly from the
+      third party, unsolicited.
+• Title and lien search for real assets. UCC search for personal property.
+• For funds: call the administrator, auditor, and prime broker directly (dealroom.net).
+
+
+0.6 Valuation methods across assets
+    Asset                           Primary methods
+
+    Operating companies             DCF, trading comparables, precedent transactions
+
+    Buyouts                         LBO and sponsor return model (IRR, MOIC)
+
+    Venture                         Venture capital method, scorecard
+
+    Real estate                     Direct capitalization (NOI / cap rate), DCF, sales comps, replacement cost
+
+    Credit                          Recovery and liquidation analysis, loss given default
+
+
+Where sources disagree, present both positions. Do not average them.
+
+
+0.7 The IC memo skeleton
+1      Executive summary and recommendation.
+2      The ask: amount, instrument, use of proceeds, structure.
+3      Sponsor or management, and track record.
+4      Market and thesis.
+5      The numbers: historicals, projections, base and downside, sensitivities.
+
+
+
+                                                         10
+THE BIBLE ON DUE DILIGENCE                                                                 THE MASTER PLAYBOOK
+
+
+
+
+6     Return attribution. For buyouts, split the base-case return into earnings growth, debt paydown, and
+      multiple change. A memo that cannot separate these is asking the committee to approve a hope
+      (goreuben.com).
+7     Diligence findings by workstream, including what was NOT verified.
+8     Risks and mitigants.
+9     Legal structure, security, covenants.
+10    Terms and conditions precedent.
+
+
+0.8 The universal deck order
+What investors read, in the order they read it.
+1     One line: what it is and the ask.
+2     Problem or opportunity.
+3     The asset or business.
+4     Sponsor and track record.
+5     Market.
+6     The numbers. Historical first, then projection.
+7     Structure, use of proceeds, security.
+8     Returns with sensitivities.
+9     Risks and mitigants.
+10    Terms.
+
+
+0.9 Master reading list
+• Private equity: HBS MGMT E-2790 Private Equity (Cendrowski et al., Private Equity: History,
+     Governance, and Operations; HBS "A Note on Private Equity Securities" 9-200-027). Wharton and
+     Wall Street Prep PE Certificate. Roberto Ippolito, Private Capital Investing.
+• Venture and entrepreneurial finance: Yale MGT 635 (Sahlman, JFE 1990). MIT OCW 15.431
+     Entrepreneurial Finance (Walnut Venture Associates and Metapath cases). Stanford E145.
+• Judgement: Kahneman, Thinking, Fast and Slow. Kellogg KIEI-926, "Down and Dirty Due Diligence."
+• Primary standards: OCC Comptroller's Handbook (CRE Lending; Asset-Based Lending). ILPA DDQ
+     2.0. NVCA Model Legal Documents. FDIC and Fed interagency real estate lending standards (12 CFR
+     Part 34 / 365).
+
+
+
+
+                                                        11
+CHAPTER
+
+
+
+
+1
+Real Estate
+Construction loans, bridge loans, development, and syndications
+THE BIBLE ON DUE DILIGENCE                                                                                      REAL ESTATE
+
+
+
+
+Sub-playbooks: small construction loans ($1M to $2M), bridge loans, ground-up development, value-add,
+multifamily, commercial, land and entitlement, hospitality, industrial, equity syndications and JVs.
+
+
+1.1 How it works
+• Debt deals. The lender advances against collateral. The borrower pays interest, often interest-only for
+    bridge and construction. Repayment comes at sale or refinance (the takeout). Construction loans fund
+    through draws tied to completed work.
+• Equity and syndication. The sponsor (GP) raises LP equity, buys or builds, operates, and distributes
+    cash flow and sale proceeds through a waterfall, usually after a preferred return and a promote.
+
+
+1.2 Regulatory anchor: supervisory LTV limits
+These are bank supervisory ceilings under 12 CFR Part 34 / 365 (Interagency Guidelines). Private lenders
+vary, but these are the reference points.
+
+
+                                        Raw land                                              65%
+
+                              Land development                                                        75%
+
+          Commercial / multifamily construction                                                           80%
+
+               1-4 family residential construction                                                          85%
+
+                              Improved property                                                             85%
+
+                                                     0%            25%               50%            75%              100%
+
+FIGURE 3 Supervisory loan-to-value ceilings by property type (12 CFR Part 365, Appendix A).
+
+Source: eCFR 12 CFR Part 365 Appendix A; FDIC; Fed SR 93-33. For multi-phase projects the limit applies
+to the final phase. Aggregate loans above these limits should not exceed 100% of a bank's total capital.
+
+
+1.3 Data room index
+SPONSOR AND ENTITY
+• Org chart, formation documents, operating agreement, good standing.
+• Sponsor track record schedule: every prior deal, with outcomes. References.
+• Background and credit checks on principals and guarantors.
+
+PROPERTY
+• PSA, title commitment, ALTA survey.
+• Current rent roll. T-12 and trailing-36 operating statements.
+• Leases and estoppels. Service contracts.
+• MAI appraisal with prospective "as-complete" and "as-stabilized" values.
+
+
+                                                              13
+THE BIBLE ON DUE DILIGENCE                                                                     REAL ESTATE
+
+
+
+
+• Environmental Phase I (Phase II if triggered).
+• Property condition or engineering report.
+• Zoning, entitlements, permits, certificate of occupancy.
+• Insurance: property, liability, builder's risk, flood. Tax bills.
+
+CONSTRUCTION AND DEVELOPMENT
+• Full project budget with hard and soft cost lines and contingency.
+• GMP or fixed-price construction contract. Contractor qualifications and bonding.
+• Draw schedule and sources-and-uses.
+• Architect and engineer contracts and plans.
+• Pro forma with absorption and lease-up.
+
+FINANCIAL
+• Debt terms, existing financing, payoff letters.
+• Underwriting model.
+• Sponsor co-invest proof and liquidity. Verify the funds.
+
+
+1.4 Diligence checklist by workstream
+FINANCIAL
+• Rebuild the pro forma. Do not accept sponsor NOI.
+• Verify the rent roll against actual leases and bank deposits.
+• Check the exit cap assumption against the current market. An aggressive exit cap is the most common
+    equity-killer.
+• Confirm the construction budget has sufficient funds for completion. Approving a loan to finance
+    partial construction without committed completion funds is a flagged unsafe practice (OCC CRE
+    Handbook).
+• Developer profit should be funded only by sales, by construction loan funds upon completion and
+    lease-up, or by subsequent term financing (OCC).
+
+COMMERCIAL AND MARKET
+• Independent sales and rent comps.
+• Submarket vacancy and absorption.
+
+LEGAL AND TITLE
+• Title commitment, lien search, UCC, judgments.
+• Survey review for encroachments and easements.
+• Confirm zoning and entitlement independently with the municipality.
+
+
+
+
+                                                        14
+THE BIBLE ON DUE DILIGENCE                                                                                      REAL ESTATE
+
+
+
+
+CONSTRUCTION AND TECHNICAL
+• Independent review of plans, budget, and schedule.
+• Confirm GC bonding and insurance.
+• Draw disbursement commensurate with improvements as of the inspection date (OCC).
+
+INSURANCE AND ENVIRONMENTAL
+• Phase I ESA.
+• Builder's risk and flood coverage for construction.
+
+MANAGEMENT AND BACKGROUND
+• Guarantor financial statements and liquidity verification. Recourse is only as good as the guarantor.
+
+
+1.5 The numbers
+  Metric                                Cited range                                    Strength
+
+  DSCR, stabilized income               1.20x to 1.35x minimum                         Practitioner standard.
+  property                                                                             Corroborate per deal.
+
+  Loan-to-cost, construction            70% to 80% of total project cost               WEAK until confirmed per
+                                                                                       lender
+
+  Preferred return                      6% to 9%, then promote to GP                   Practitioner. Verify per deal.
+
+  Construction and bridge sizing        To as-complete value and takeout DSCR          Practitioner
+
+
+
+STRESS CASES TO RUN ON EVERY MODEL
+
+
+
+           EXIT CAP                     COST OVERRUN                  LEASE-UP DELAY                    RATES
+
+     +50 to +100 bps                  +10% to +20%                  6 to 12 months              Interest rate shock
+
+FIGURE 4 The four standard real estate stress cases.
+
+
+
+1.6 Third parties
+• MAI appraiser, with prospective values for construction.
+• Phase I environmental consultant.
+• Property condition or construction consultant, and an ongoing draw inspector.
+• Title company. Surveyor. Insurance broker. Real estate counsel.
+
+
+
+
+                                                             15
+THE BIBLE ON DUE DILIGENCE                                                                                    REAL ESTATE
+
+
+
+
+1.7 Legal and structure
+• Loan agreement, promissory note, mortgage or deed of trust.
+• Assignment of rents and leases. UCC-1.
+• Personal or corporate guaranty. Recourse versus non-recourse carve-outs ("bad boy" guaranties).
+• Title insurance (lender's policy), with endorsements and date-downs at each draw for construction.
+• Intercreditor or subordination agreement if mezzanine is present.
+• For syndications: operating agreement, PPM, subscription documents, Reg D filing.
+
+
+1.8 Failure modes and the check that catches each
+
+     CASE FILE                                                                  LAND-DEVELOPMENT "BRIDGE LOAN" PONZI
+
+     Drive Planning
+     Raised over $372M on "Real Estate Acceleration Loans" promising 10% per six months. New money paid old
+     investors (SEC 2024-97; Bisnow).
+
+     THE CHECK Proof of cash. Independent verification that loan proceeds actually funded the named projects. The
+     guaranteed-return red flag.
+
+
+     CASE FILE                                                                    FAKE PORTFOLIO AND MISAPPROPRIATION
+
+     Wells Real Estate Investment
+     Claimed a $450M portfolio. Only about $11M of $56M raised was used to buy property (SEC, August 2024).
+
+     THE CHECK Independent title and asset confirmation of every claimed property.
+
+
+
+     CASE FILE                                                                   UNDERSTATED COSTS INFLATING RETURNS
+
+     Location Ventures (Rishi Kapoor)
+     A $93M fraud. Entities paid excessive fees and higher returns were represented by understating cost estimates
+     (SEC 2024-2).
+
+     THE CHECK Independent construction budget review and a fee-flow trace.
+
+
+• Development overrun, lien and completion risk. The OCC notes risk of loss due to fraud and
+    construction liens. CHECK: completion guaranty, funded interest reserve, lien waivers at each draw, title
+    date-downs.
+• Guarantor illiquidity at the moment of recourse. CHECK: verify guarantor liquidity, not just net worth.
+
+
+
+
+                                                          16
+THE BIBLE ON DUE DILIGENCE                                                                  REAL ESTATE
+
+
+
+
+1.9 Red flags and automatic passes
+• Guaranteed returns, "can't lose," pooled funds with no segregation.
+• Exit cap at or below the going-in cap in a rising-rate market.
+• No independent appraisal, or an appraisal ordered only by the sponsor.
+• Sponsor cannot prove co-invest funds.
+• Round-number budgets with thin or no contingency.
+• Related-party construction contracts at above-market pricing.
+
+
+1.10 Hard questions
+• What is the takeout, and what happens if it is not there at maturity?
+• Who controls the draw, and who inspects before each disbursement?
+• What is your real basis, and what are the related-party markups?
+• Show me the signed leases behind this rent roll and the bank deposits behind this T-12.
+
+
+
+
+                                                    17
+CHAPTER
+
+
+
+
+2
+Tech and Venture
+Seed to growth, SaaS, games, AI, hardware, marketplace, fintech
+THE BIBLE ON DUE DILIGENCE                                                                     TECH AND VENTURE
+
+
+
+
+2.1 How it works
+Equity in a priced round, or a SAFE or convertible note before one. The investor gets preferred stock with a
+liquidation preference, protective provisions, and pro rata rights. The return comes at exit: acquisition or
+IPO.
+
+
+2.2 Data room index
+• Core: pitch deck, 3 to 5 year financial model, fully diluted cap table (every share, option, SAFE, warrant,
+    and side letter).
+• Corporate: charter, bylaws, board consents, prior financing documents including every SAFE and side
+    letter, 83(b) elections.
+• IP: assignments from every founder and contractor, patents, trademarks, open-source usage.
+• Commercial: top customer contracts, cohort and retention data, pipeline.
+• Financials: historicals, bank statements, revenue recognition policy.
+• Team: org chart, key employee agreements, option plan, vesting.
+• Data and privacy: data map, security posture, incident history.
+• Legal: litigation, material contracts, regulatory.
+
+
+2.3 Diligence checklist by workstream
+FINANCIAL AND METRICS
+• Rebuild ARR and MRR from contracts and billings, not the deck.
+• Verify revenue against bank deposits.
+• Validate churn, NRR, CAC, and gross margin from raw data.
+
+COMMERCIAL
+• Customer reference calls. Cohort retention analysis. Concentration.
+
+LEGAL AND CORPORATE
+• Reconcile the cap table to signed documents, including every SAFE and side letter. This is the single
+    biggest preventable mess.
+• Walk the IP assignment chain. Confirm every founder and contractor assigned IP to the company. A
+    missing assignment is a deal-killer.
+
+TEAM
+• Founder vesting status, key-person risk, references, background checks.
+
+TECH AND CYBER
+• Code and architecture review. Security review. Open-source license exposure.
+
+
+
+
+                                                       19
+THE BIBLE ON DUE DILIGENCE                                                                                    TECH AND VENTURE
+
+
+
+
+• AI model and data provenance. NVCA 2025 added national-security and OISP representations: confirm
+    foreign-person links, data categories, and compute locations.
+
+
+2.4 The numbers: SaaS benchmarks
+
+   RULE OF 40                                 NET REVENUE RETENTION                  CAC PAYBACK
+
+
+
+   40%+                                       >110%                                  <18 mo
+   growth + margin                            >120% is strong                        <12 mo for PLG
+
+
+
+   MAGIC NUMBER                               BURN MULTIPLE                          LTV : CAC
+
+
+
+   >0.75                                      <1.5x                                  >3:1
+   sales efficiency                           >3x is trouble                         lifetime value to cost
+
+FIGURE 5 SaaS health at a glance. Sources in the table that follows.
+
+  Metric                                Benchmark                                     Source
+
+  Rule of 40 (growth + margin)          40% or more. Median 38% in Q1 2026.           networkcraft.net; cxcash.com;
+                                        Target 50%+ above $10M ARR.                   designrevision.com
+
+  Net revenue retention                 Above 110% minimum, above 120% strong.        networkcraft.net;
+                                        Median about 117% in 2026.                    cfoadvisors.com
+
+  CAC payback                           Under 18 months healthy. Under 12 months      re-cap.com
+                                        for PLG.
+
+  Magic number                          Above 0.75 is efficient                       re-cap.com; David Skok
+
+  Burn multiple                         Under 1.5x efficient. Above 3x is trouble.    vcbeast.com
+
+  LTV:CAC                               Above 3:1                                     jumpstartpartners.finance
+
+  Gross margin                          Above 70% to 75%                              Practitioner
+
+  ARR growth                            100%+ early, 40% to 60% later                 re-cap.com; KeyBanc and
+                                                                                      Bessemer referenced
+
+
+ICONIQ calls the Rule of 40 the strongest predictor of valuation.
+
+
+
+
+                                                                20
+THE BIBLE ON DUE DILIGENCE                                                                     TECH AND VENTURE
+
+
+
+
+2.5 Third parties
+Tech and security diligence firm. QoE provider for growth-stage rounds. IP counsel. Background-check
+provider.
+
+
+2.6 Legal and structure
+• NVCA model suite: Term Sheet, Stock Purchase Agreement, Amended Charter, Investors' Rights
+    Agreement, Voting Agreement, ROFR and Co-Sale, plus Management Rights Letter and
+    Indemnification Agreement. Free at nvca.org.
+• NVCA updated five models in October 2025 (tranched financing, national-security reps) and revised the
+    ROFR (April 2026) and voting agreement (June 2026) (1752.vc).
+• Liquidation preference: 1x non-participating is founder-friendly. 2x participating is not.
+• Anti-dilution: broad-based weighted average is standard. Full ratchet is punitive.
+• Also watch board composition, drag-along, and protective provisions (vcbeast.com).
+
+
+2.7 Failure modes
+• Cap-table disasters from unpapered pre-seed SAFEs and grants surfacing at Series A. CHECK: reconcile
+    every instrument before the term sheet.
+• Missing IP assignment. A founder or contractor who never assigned IP. CHECK: full assignment chain.
+• Revenue-quality fiction. "ARR" that is non-recurring or not collected. CHECK: proof of cash and a
+    contract-level rebuild.
+• Metric gaming. NRR that excludes churned logos. Blended CAC that hides paid CAC. CHECK: recompute
+    from raw cohorts.
+
+
+2.8 Red flags
+• Founder will not give raw data room access. "Trust the deck" metrics.
+• Unreconciled cap table. Side letters surfacing late.
+• Concentrated revenue (one customer above 25%) presented as ARR.
+• No IP assignments.
+
+
+2.9 Hard questions
+• Show the cohort data behind NRR, by month.
+• Which founders or contractors have NOT assigned IP?
+• What is paid CAC, unblended, and the payback by segment?
+• What is the real cash position and the default-alive runway?
+
+
+
+
+                                                     21
+CHAPTER
+
+
+
+
+3
+Debt to Businesses
+Senior, mezzanine, unitranche, ABL, venture debt, revenue-based
+financing
+THE BIBLE ON DUE DILIGENCE                                                                      DEBT TO BUSINESSES
+
+
+
+
+3.1 How it works
+The lender advances principal. The borrower pays interest, fixed or floating over SOFR, and repays
+principal through amortization or at maturity. The loan is secured by collateral, cash flow, or both. Priority
+is set by lien and intercreditor agreement.
+
+
+                                                  Senior secured / first lien
+
+
+                                                          Unitranche
+ Paid first. Lowest return.                                                             Absorbs losses first.
+                                                                                        Highest return.
+                                                   Second lien / mezzanine
+
+
+                                                       Preferred equity
+
+
+                                                        Common equity
+                  Paid last
+
+FIGURE 6 The capital stack. Lien and intercreditor terms decide who is paid first.
+
+
+
+3.2 Data room index
+• Financials for 3 years plus TTM, audited if available. Monthly management accounts.
+• AR and AP agings, customer concentration, borrowing-base detail (ABL).
+• Debt schedule, existing liens (UCC search), intercreditor agreements.
+• Sponsor model and projections.
+• Collateral appraisals and field exam (ABL).
+• Material contracts, legal, tax.
+
+
+3.3 Diligence checklist by workstream
+FINANCIAL AND CREDIT
+• Independent QoE: adjusted EBITDA, add-back validation, proof of cash, net working capital.
+• Leverage and coverage at entry. Projections stress-tested. Equity cushion.
+
+COLLATERAL (ABL)
+• Field exam before booking and periodically after (OCC ABL Handbook).
+• Third-party appraisal of inventory (NOLV) and equipment.
+• Borrowing-base eligibility rules and reserves.
+
+LEGAL
+• Loan agreement, security agreement, UCC-1 perfection, guaranties, intercreditor.
+• Scrutinize the EBITDA definition and its add-back caps.
+
+
+
+                                                               23
+THE BIBLE ON DUE DILIGENCE                                                                                     DEBT TO BUSINESSES
+
+
+
+
+3.4 The numbers
+CASH-FLOW LENDING AND PRIVATE CREDIT
+
+  Metric                                    Cited figure                                     Source
+
+  Unitranche leverage, stable               4.0x to 5.5x EBITDA                              coyotewealth.com
+  sponsor-backed
+
+  Median private-credit                     5.0x EBITDA (3.2x for leveraged loans)           Federal Reserve data via
+  borrower debt                                                                              botminds.ai
+
+  Median interest cover                     2.2x (3.7x for leveraged loans)                  Federal Reserve data via
+                                                                                             botminds.ai
+
+  Leverage covenant cushion                 25% to 35% to sponsor-model EBITDA               Sidley; coyotewealth.com
+
+  Unitranche pricing                        About SOFR + 475 to 650 bps                      coyotewealth.com
+
+  Supervisory "leveraged"                   Total debt above 4.0x or senior above 3.0x       Fed SR 13-3 via
+  threshold                                 EBITDA                                           ctacquisitions.com
+
+
+
+ASSET-BASED LENDING ADVANCE RATES (OCC ABL Handbook and practitioners)
+
+
+                    Eligible receivables                                          80% to 85% typical
+
+                  Inventory, % of book                                                            up to 65%
+
+                  Inventory, % of NOLV                                                                        about 80%
+
+           Equipment, appraised value                                                                         50% to 80%
+
+                                           0%                   25%                50%                 75%                 100%
+
+FIGURE 7 Asset-based lending advance rates by collateral type. The OCC range for receivables is 70% to 85%.
+
+• Single-customer concentration caps: typically 15% to 25% of the AR pool (OCC notes 10% to 20%).
+• Over-advance: most banks cap at 10% to 15% of the borrowing base (OCC).
+
+VENTURE DEBT AND REVENUE-BASED FINANCING
+
+  Term                                      Cited figure                                     Source
+
+  Venture debt size                         25% to 35% of the last equity round              ratiotech.com;
+                                                                                             founderpath.com
+
+  Venture debt interest                     About SOFR + 700 to 950 bps, or Prime +          ctacquisitions.com; Stifel
+                                            25 to 100 bps at banks
+
+  Warrant coverage                          0.5% to 2% equity                                founderpath.com; Stifel
+
+
+
+
+                                                                  24
+THE BIBLE ON DUE DILIGENCE                                                                     DEBT TO BUSINESSES
+
+
+
+
+  Term                            Cited figure                                 Source
+
+  Lender all-in target            12% to 25% via interest plus warrants        Wikipedia, sourced to industry
+
+  Recurring-revenue advance       3x to 12x MRR                                beancount.io
+
+  RBF repayment                   5% to 15% revenue share to a cap of about    kadenwoodgroup.com
+                                  1.2x to 1.6x
+
+
+
+
+3.5 Third parties
+QoE accountant. ABL field examiner. Inventory and equipment appraiser. Lender's counsel.
+Background-check provider.
+
+
+3.6 Legal and structure
+• Credit agreement, security agreement, UCC filings, guaranties.
+• Intercreditor and subordination agreements.
+• Deposit account control agreements (DACA) and lockbox for ABL.
+• Maintenance covenants (leverage, coverage) versus covenant-lite.
+
+
+3.7 Failure modes
+• EBITDA inflated by aggressive add-backs, so real leverage is higher than underwritten. CHECK: QoE
+    with validated add-backs, and caps in the EBITDA definition.
+• Borrowing-base fraud and phantom receivables. CHECK: field exam, verification calls to account
+    debtors, lockbox.
+• Equity cure abuse. The sponsor cures a covenant breach with equity counted as EBITDA, hiding a
+    trend. CHECK: limit consecutive cures and watch the trend (botminds.ai).
+• Covenant-lite with no maintenance test. 48% of larger deals in 2025 per Proskauer, via botminds.ai.
+    CHECK: demand at least one maintenance covenant with a defined cushion and step-downs.
+
+
+
+3.8 Red flags
+• EBITDA definition with uncapped, vague add-backs.
+• No field exam and no appraisal on an ABL.
+• Receivables concentration above caps presented as fully eligible.
+• Second lien without an intercreditor.
+
+
+
+
+                                                      25
+THE BIBLE ON DUE DILIGENCE                                                   DEBT TO BUSINESSES
+
+
+
+
+3.9 Hard questions
+• What is leverage on unadjusted EBITDA, and on the lender's own number?
+• Is there a maintenance covenant, at what cushion, and does it step down?
+• What is the equity cushion in a downside case, and who funds a cure?
+
+
+
+
+                                                  26
+CHAPTER
+
+
+
+
+4
+Credit of All Kinds
+Direct lending, specialty finance, receivables, trade, litigation,
+royalties, structured
+THE BIBLE ON DUE DILIGENCE                                                                            CREDIT OF ALL KINDS
+
+
+
+
+4.1 How it works
+Non-bank lenders originate and hold loans (direct lending), or buy and finance pools of receivables,
+royalties, legal claims, or structured tranches. The return comes from spread, fees, and recovery. Private
+credit now exceeds $1.7 trillion globally (coyotewealth.com).
+
+
+4.2 Diligence by sub-strategy: what changes
+  Strategy                         What to verify
+
+  Direct lending                   As Chapter 3. Sponsor quality, documentation, covenants, EBITDA definition,
+                                   leverage cushion.
+
+  Factoring and receivables        Receivables exist and are collectible. Debtor creditworthiness. Dilution history.
+                                   Notification vs non-notification. Recourse vs non-recourse. Advance rates 70%
+                                   to 90% of eligible AR.
+
+  Trade finance                    Underlying goods, shipping documents, letters of credit, counterparty and
+                                   country risk.
+
+  Equipment finance                Collateral value, residual, lessee credit, lien perfection.
+
+  Litigation finance               Case merits (independent legal opinion), duration, capital adequacy to see cases
+                                   through, portfolio diversification, non-recourse to claimant.
+
+  Royalty finance                  The royalty stream itself (music, pharma, mineral), title to the royalty, payor
+                                   creditworthiness, duration and decline curve.
+
+  Consumer credit                  Pool stratification, FICO bands, charge-off and delinquency vintages, servicer
+                                   quality.
+
+  Structured credit                Tranche attachment and detachment, underlying collateral, waterfall,
+                                   rating-agency assumptions, correlation.
+
+  Distressed and special           Capital structure map, fulcrum security, recovery and liquidation analysis,
+  situations                       bankruptcy process, collateral valuation.
+
+
+
+
+4.3 The numbers
+• Direct lending: as Chapter 3.
+• Specialty finance: focus on loss rates, net yield after losses, advance rates, and overcollateralization.
+• Factoring versus ABL cost: factoring runs 18% to 36% equivalent, against about 10% to 18% for ABL on
+    average usage (ranfunding.com).
+
+
+
+
+                                                         28
+THE BIBLE ON DUE DILIGENCE                                                                               CREDIT OF ALL KINDS
+
+
+
+
+4.4 Third parties
+Collateral or portfolio auditor. Servicer review. Independent legal opinion (litigation finance). Rating
+agency (structured). Valuation firm.
+
+
+4.5 Failure modes
+• Fake or over-pledged collateral. The "market maker loan and dump" pattern is the crypto analog. The
+    general lesson is independent verification of what secures the loan.
+
+     CASE FILE                                                                         A LENDING POOL THAT DID NOT EXIST
+
+     The Adam brothers
+     Promised up to 13.5% monthly from a "lending pool" (SEC 2024-107).
+
+     THE CHECK Independent verification that the loan assets exist. Proof of cash. The guaranteed-return red flag.
+
+
+• Servicer failure and commingling in specialty finance. CHECK: backup servicer and segregated collection
+    accounts.
+
+
+4.6 Red flags
+• Yields far above the risk-free rate with "no risk."
+• No independent audit of the loan tape or collateral.
+• Manager also services, values, and reports, with no third party.
+
+
+
+
+                                                           29
+CHAPTER
+
+
+
+
+5
+Private Equity and M&A
+LBOs, lower middle market, search funds, roll-ups, carve-outs, growth
+equity
+THE BIBLE ON DUE DILIGENCE                                                                                    PRIVATE EQUITY AND M&A
+
+
+
+
+5.1 How it works
+The sponsor acquires a company using equity plus debt (an LBO), improves it, and exits in 3 to 7 years. The
+return comes from three places.
+
+                                                                                                       Schematic. Shape only, not data.
+
+
+                                                                                     Multiple change
+                                                             Debt paydown
+
+                              EBITDA growth
+
+
+                                                                                                                    Exit equity
+
+
+     Entry equity
+
+
+
+
+FIGURE 8 Return attribution. An IC memo must split the return into these three sources.
+
+
+
+5.2 Data room index
+• CIM. 3 to 5 years of financials plus TTM. Monthly management accounts, trial balances, tax returns.
+• Sell-side QoE if any. EBITDA bridge and add-back schedule.
+• Customer and supplier lists, contracts, concentration.
+• Org chart, management bios, employment and compensation, option and phantom plans.
+• Legal: corporate records, litigation, IP, real estate, permits, compliance.
+• IT systems and cyber posture.
+• Insurance, environmental, ESG.
+
+
+5.3 Diligence by workstream: the full institutional set
+FINANCIAL AND QOE
+
+
+
+  Reported net income                 Reported EBITDA                       Adjusted EBITDA                  Pro forma EBITDA
+       from the books                 + interest, tax, D&A             +/- validated add-backs               +/- pro forma items
+
+
+
+FIGURE 9 The Quality of Earnings walk. Each step must be independently validated.
+
+• Independent QoE walking reported net income to reported EBITDA to adjusted EBITDA to pro forma
+    EBITDA.
+• A 3-year EBITDA bridge showing each adjustment category. Every management add-back
+    independently validated, not accepted (v7labs.com).
+• Proof of cash: reconcile bank deposits to reported revenue for 36 months (notveryprivateequity.com).
+
+
+                                                                  31
+THE BIBLE ON DUE DILIGENCE                                                                     PRIVATE EQUITY AND M&A
+
+
+
+
+• Net working capital peg. Set from a trailing 12-month average of normalized NWC. The SPA trues up
+    the price dollar for dollar against it. It is negotiated, not measured, and it quietly moves a turn of value
+    (v7labs.com; modusalliance.com).
+• NWC = current assets minus current liabilities, excluding cash, debt, and income tax.
+• Revenue recognition policy documented and compared with prior years.
+• Related parties listed, with arm's-length testing.
+
+COMMERCIAL
+• Customer interviews, market study, competitive position, pricing power, pipeline.
+• In middle-market deals, commercial diligence happens on management calls, not just in documents
+    (f2.ai).
+
+TAX
+• Historical returns, deferred liabilities, transfer pricing, structuring.
+
+LEGAL
+• Confirmatory: corporate, contracts, litigation, IP, employment, real estate, permits.
+
+OTHER WORKSTREAMS
+• IT and cyber. HR and benefits. Insurance. Environmental. ESG.
+
+
+5.4 The numbers
+  Metric                            Cited figure                                 Source
+
+  Entry multiples, middle market    6x to 10x EBITDA. Higher for strategic or    soferadvisors.com
+                                    growth targets.
+
+  Direct lender share of            About 70% in 2024                            Bain via ctacquisitions.com
+  middle-market LBOs
+
+  "Leveraged" threshold             Above 4.0x total or 3.0x senior              Fed SR 13-3
+
+  When a QoE is commissioned        Above about $5M EBITDA or $20M to            modusalliance.com
+                                    $30M enterprise value
+
+  LMM diligence timeline            60 to 90 days from LOI to close              ctacquisitions.com
+
+
+Model: a full LBO with base and downside cases. The downside is built to test the debt package and the
+covenants.
+
+
+
+
+                                                        32
+THE BIBLE ON DUE DILIGENCE                                                              PRIVATE EQUITY AND M&A
+
+
+
+
+5.5 Third parties
+QoE from a Big Four firm or A&M or Grant Thornton (ctacquisitions.com). Commercial diligence firm.
+Legal, tax, IT and cyber, environmental, and insurance advisors. R&W insurance broker. Background
+checks.
+
+
+5.6 Legal and structure
+• Purchase agreement (SPA or APA), reps and warranties, disclosure schedules.
+• Indemnities, escrow or holdback, earnouts, R&W insurance.
+• NWC true-up mechanism.
+• Debt commitment papers, equity rollover, management incentive plan.
+• Reference the ABA deal points studies for market terms.
+
+
+5.7 Failure modes
+• Buying inflated EBITDA. Weak add-backs mean the buyer underwrites $7M on $8M marketed, which
+    changes debt capacity and price (privateequitybro.com). CHECK: independent QoE with a bridge.
+• NWC peg set on a favorable month, requiring a Day 1 cash injection. CHECK: peg from a genuine TTM
+    average with seasonality modeled.
+• Unrecorded liabilities: deferred revenue, accrued PTO, gift cards, warranty. CHECK: balance-sheet
+    diligence and proof of cash.
+• Customer concentration and key-person risk surfacing after close. CHECK: commercial diligence and
+    reference calls.
+
+
+5.8 Red flags
+• Adjusted EBITDA with no bridge.
+• Cash-basis books, no audited or reviewed financials, inconsistent monthly close.
+• Seller refuses a buy-side QoE or customer calls.
+• Retrade risk: valuation and financing not qualified before the LOI.
+
+
+5.9 Hard questions
+• Which reported earnings survive the close? Show the bridge.
+• How was the NWC peg built, and what was excluded?
+• Split the return: how much is growth, paydown, and multiple?
+• What happens to the debt in the downside case?
+
+
+
+
+                                                     33
+CHAPTER
+
+
+
+
+6
+Energy and Infrastructure
+Power generation, turbines, gensets, data centers, project finance
+THE BIBLE ON DUE DILIGENCE                                                                        ENERGY AND INFRASTRUCTURE
+
+
+
+
+This is live deal flow: data center power islands, gensets, and gas-to-power.
+
+
+6.1 How it works
+In project finance, a special-purpose entity (SPV) borrows non-recourse against the project's contracted
+cash flows. Equity plus senior debt fund construction. The project repays from offtake revenue (a PPA or
+lease). Lenders rely on the contract suite and an independent engineer.
+
+
+6.2 The contract suite and what each protects
+
+                                                       PPA / offtake
+                    EPC contract                           Revenue                         Interconnection
+                  Cost and schedule                                                          Grid access
+
+
+
+
+                                                           PROJECT
+                                                            SPV
+
+
+                  O&M agreement                                                              Fuel supply
+                      Availability                      Lenders + IE                          Fuel cost
+
+                                                    Debt, draw certification
+
+
+
+FIGURE 10 The project finance contract suite. Each agreement moves one risk off the SPV.
+
+• EPC (turnkey, fixed-price). Transfers cost and schedule overrun to a creditworthy contractor. Mintz
+    calls the EPC contractor's creditworthiness and experience "a critical factor" in lenders' willingness to
+    finance (International Project Finance Fundamentals).
+• O&M agreement. A reputable, experienced operator maintains availability and performance (Mintz).
+• PPA or offtake. "The single most important document in the file" (ibinterviewquestions.com). Watch
+    the merchant tail: a 12-year PPA against an 18-year loan leaves 6 years uncontracted.
+• Fuel supply agreement. Secures fuel cost and availability. Critical for gas and thermal.
+• Interconnection agreement. Secures grid access and queue position.
+• Independent Engineer (IE) report. Lenders require it to confirm that the technology is commercially
+    viable, budget assumptions are reasonable, there are no serious environmental issues, permits are in
+    order, and projections are realistic (Wilson Sonsini, Project Finance Primer). The IE is selected by the
+    lender but paid by the developer, and certifies each construction drawdown against physical progress.
+
+
+
+
+                                                              35
+THE BIBLE ON DUE DILIGENCE                                                                          ENERGY AND INFRASTRUCTURE
+
+
+
+
+6.3 Data room index
+• Site control: land lease or ownership.
+• Interconnection agreement and queue position (LGIA, facilities study).
+• PPA, offtake, or hyperscaler lease.
+• EPC contract. O&M agreement. Fuel supply agreement.
+• Permits and environmental.
+• IE report. Financial model.
+• Equipment supply contracts and warranties. Insurance.
+
+
+6.4 Diligence checklist
+TECHNICAL
+• IE review of technology, budget, schedule, availability, and heat rate.
+
+POWER AND GRID
+• Verify an executed interconnection agreement (LGIA) backed by funded substation commitments, not
+    an early-stage queue filing.
+• Stress the energization timeline against debt-service covenants (plausity.com).
+• Grid interconnection queues in major US markets now run years: a reported 8 to 12 years in primary
+    hubs per Goldman Sachs via gi-advisors.com. Verify per market.
+
+OFFTAKE
+• PPA or lease tenor versus debt tenor (the merchant tail).
+• Offtaker or tenant creditworthiness. For data centers the hyperscaler lease is the collateral. An
+    investment-grade tenant supports high leverage.
+
+FUEL
+• Supply agreement, price, flare or direct-line gas feasibility.
+
+EQUIPMENT PROCUREMENT: VERIFY LEAD TIMES AND PROVENANCE
+
+
+                New heavy gas turbine                                                                              3 to 7 years
+
+                Aeroderivative turbine                                       18 to 36 months
+
+           Diesel genset above 2.5 MW                            18 to 24 months
+
+                Gensets, industry-wide                            toward ~107 weeks
+
+
+                                         0       12         24          36          48         60   72        84           96
+                                                                                                                      months
+FIGURE 11 Power equipment lead times. A reservation slot is not a firm order.
+
+
+
+
+                                                                 36
+THE BIBLE ON DUE DILIGENCE                                                                                    ENERGY AND INFRASTRUCTURE
+
+
+
+
+• New gas turbine lead times now run 3 to 7 years. OEMs are booking into 2028 to 2029 (nextlerllc.com;
+    semianalysis.com). Aeroderivatives run 18 to 36 months (semianalysis.com).
+• One major OEM sold out of high-horsepower gensets through 2028 (February 2026 capacity
+    announcement, via savrn.com). Large diesel gensets above 2.5 MW run 18 to 24 months (safeguard.sh).
+    Industry-wide genset lead times stretch toward about 107 weeks (Power Magazine 2026, via savrn.com).
+• Secondary and "grey market." Used gas turbines run about $1.5M per MW against $2M+ new
+    (Reuters, via startupfortune.com). A secondary market is emerging from canceled and speculative orders
+    tied to failed projects (semianalysis.com). One large buyer canceled about 13 GW of reservations and
+    took a reported loss of about $3.7B (Tom's Hardware).
+• CHECK provenance. A slot reservation is a paid option, not firm or installed equipment (Yahoo Finance).
+    Verify the FAT (factory acceptance test per ISO 8528-5), the load-bank test certificate with serial
+    number, and warranty terms for new-surplus versus refurbished (depco.com; cigroup-us.com).
+
+
+6.5 The numbers
+DEBT SERVICE COVERAGE IN PROJECT FINANCE
+
+
+             Contracted renewables                              1.20x to 1.35x
+
+              Contracted cash flows                                    1.40x minimum
+
+                    Partly merchant                                                     1.40x to 1.75x
+
+                      Fully merchant                                                                          2.00x and above
+
+                                       1x            1.2x       1.4x          1.6x      1.8x             2x          2.2x         2.4x
+
+FIGURE 12 Minimum DSCR rises with merchant exposure.
+
+  Benchmark                                 Figure                                             Source
+
+  S&P illustrative minimum                  1.70x                                              S&P Global Ratings project
+  senior DSCR                                                                                  finance criteria
+
+  S&P illustrative minimum total            1.20x. At least 1.05x generally for 'BB'.          S&P Global Ratings
+  DSCR
+
+  Contracted cash flows                     1.40x minimum                                      Credit Agricole CIB Project
+                                                                                               Bond Focus
+
+  Merchant cash flows                       2.00x minimum                                      Credit Agricole CIB
+
+  Contracted renewables                     1.20x to 1.35x                                     gridlines.com
+  (practitioner)
+
+  Partly merchant (practitioner)            1.40x to 1.75x                                     gridlines.com
+
+  Debt service reserve account              6 to 12 months                                     Credit Agricole CIB
+
+
+
+
+                                                                  37
+THE BIBLE ON DUE DILIGENCE                                                                   ENERGY AND INFRASTRUCTURE
+
+
+
+
+A digest of agency scorecards puts power projects above 1.4x to avoid sub-investment-grade, and contracted
+solar with a PPA above 1.2x for investment grade (publicenterprise.org digest of Moody's and Fitch). WEAK:
+verify against primary criteria.
+Gearing. Senior debt about 60% to 80% of project cost. Equity about 20% to 40%, pushed to 20% to 30% for
+merchant (uspeglobal.com; jakenenergy.com). WEAK, vendor-sourced.
+
+OPERATING METRICS
+
+  Metric                             Figure                                        Source
+
+  Capacity factor, gas peaker        About 10% historical average utilization      EIA AEO 2022
+
+  Capacity factor, combined cycle    About 30% to 90% by dispatch                  EIA
+
+  Heat rate, combined cycle          About 6,150 to 7,500 Btu/kWh                  Lazard; EIA; World Bank
+
+  Heat rate, simple-cycle turbine    About 8,000 to 10,450 Btu/kWh                 Lazard; EIA; World Bank
+
+  Heat rate, lean-burn               About 7,000 to 8,100 Btu/kWh                  Lazard; EIA; World Bank
+  reciprocating engine
+
+  Simple-cycle efficiency            Recip 42% to 49%. Aeroderivative 38% to       Prismecs (vendor)
+                                     42%. Older heavy frame 33% to 36%.
+
+  LCOE, gas combined cycle           About $39 to $101 per MWh                     Lazard LCOE+ v16, 2023
+
+  Availability guarantee, LTSA       About 95% to 98%                              Practitioner. GAP, WEAK.
+  or O&M
+
+
+
+
+6.6 Third parties
+Independent engineer. Environmental consultant. Interconnection and grid consultant. Fuel and market
+advisor. Insurance advisor. Equipment inspector (FAT). Project-finance counsel.
+
+
+6.7 Failure modes
+
+     CASE FILE                                                                   MERCHANT POWER WITHOUT AN OFFTAKE
+
+     Panda Temple I
+     A 758 MW ERCOT combined-cycle plant financed with about $377M of debt and $375M of equity. Filed
+     Chapter 11 in April 2017 after breaching its debt-service reserve covenant. Low spark spreads despite a
+     revenue-put hedge (Pillsbury; Utility Dive).
+
+     THE CHECK Contracted offtake. Merchant-tail stress. DSRA sizing.
+
+
+
+
+                                                         38
+THE BIBLE ON DUE DILIGENCE                                                          ENERGY AND INFRASTRUCTURE
+
+
+
+
+     CASE FILE                                                                             MERCHANT COAL
+
+     Homer City Generation
+     Chapter 11 in January 2017 (Cole Schotz).
+
+     THE CHECK Merchant exposure and fuel economics.
+
+
+• Interconnection delay destroying economics. About 20% of the US data center pipeline faces power
+    and grid delays (plausity.com). CHECK: executed LGIA with funded upgrades.
+• Speculative and canceled equipment orders. CHECK: slot reservation versus firm order. Equipment
+    provenance and FAT.
+
+
+6.8 Red flags
+• A queue position filing presented as secured power.
+• A slot reservation presented as owned turbines.
+• A merchant project with contracted-level DSCR.
+• Used or refurbished gensets with no FAT, no serialized load-bank certificate, and unclear warranty.
+• No independent engineer report.
+
+
+6.9 Hard questions
+• Show the executed interconnection agreement and the substation funding.
+• Is the power contracted, for how long, and against what debt tenor?
+• Is the equipment firm-ordered and inspected, or a reservation?
+• What is the DSCR in the merchant or downside case, and what is the DSRA?
+
+
+
+
+                                                       39
+CHAPTER
+
+
+
+
+7
+CPG and Consumer Brands
+DTC, food and beverage, retail, franchise
+THE BIBLE ON DUE DILIGENCE                                                               CPG AND CONSUMER BRANDS
+
+
+
+
+7.1 How it works
+The brand sells product through DTC, marketplaces, and wholesale or retail. Returns come from volume
+times contribution margin. Equity value comes from velocity, distribution, and durable margin.
+
+
+7.2 Diligence checklist
+FINANCIAL
+• Revenue recognition.
+• Gross-to-net: trade spend, deductions, chargebacks, returns.
+• Normalized EBITDA, inventory, working capital, cash conversion.
+
+COMMERCIAL
+• Category growth, velocity, repeat rate, customer and retailer concentration, channel economics.
+• Reconcile ACV distribution with door count, retailer authorizations, velocity against the category set,
+    and repeat (auxocapitaladvisors.com).
+• ACV growth alone is not enough. It must connect to velocity and repeat.
+
+
+7.3 The numbers
+Compare channels on contribution margin, not gross margin.
+
+
+                   DTC                                                                   35% to 55%
+
+          Marketplace                                          single digits to ~34%
+
+            Wholesale                                          about 33%
+
+
+                         0%       10%       20%          30%        40%            50%       60%           70%
+
+FIGURE 13 Contribution margin by channel.
+
+• Velocity = units sold divided by number of stores (or per $MM ACV). The clearest demand signal
+    (trustcultivar.com; marginvelocity.com).
+• ACV distribution = weighted percentage of retail volume where the SKU sells (alloy.ai).
+• LTV:CAC for DTC above 3:1. Track CAC payback by channel.
+• Gross margin: emerging brands often target 30% to 40% early, higher at scale (trustcultivar.com).
+• Watch trade spend as a percentage of revenue, inventory turns, and spoilage for perishables.
+
+
+
+
+                                                    41
+THE BIBLE ON DUE DILIGENCE                                                          CPG AND CONSUMER BRANDS
+
+
+
+
+7.4 Failure modes
+• Headline gross margin hiding thin contribution after trade spend and CAC. CHECK: contribution
+    margin by channel.
+• Revenue growth from promoted volume that loses money. CHECK: promo lift measured net of
+    baseline.
+• ACV growth with weak velocity: distribution that will be delisted. CHECK: velocity and repeat by
+    retailer.
+• Channel mix masking: blending high-margin DTC with low-margin marketplace sales. CHECK:
+    channel-level P&Ls.
+
+
+7.5 Red flags
+• Only blended metrics. No channel-level contribution.
+• Distribution wins with no velocity data.
+• Trade spend and deductions not disclosed.
+
+
+
+
+                                                  42
+CHAPTER
+
+
+
+
+8
+Cannabis and Hemp
+Licensing, 280E, state compliance, cultivation, retail
+THE BIBLE ON DUE DILIGENCE                                                                              CANNABIS AND HEMP
+
+
+
+
+8.1 How it works
+State-licensed cultivation, processing, distribution, and retail. Adult-use remains federally Schedule I, so
+banking and tax are constrained.
+
+
+8.2 The 280E anchor
+This is the central diligence issue.
+
+                     NORMAL BUSINESS                                          UNDER 280E
+
+
+
+
+                             COGS                                                 COGS
+
+
+
+
+                     Operating expenses                                     Operating expenses   Taxed federally: opex is
+                                                                                                 not deductible
+                                           Taxed federally
+                             Profit                                               Profit
+
+
+FIGURE 14 How 280E changes the federal tax base. Schematic, not to scale.
+
+• IRC 280E denies all ordinary business deductions and credits to a business "trafficking" in a Schedule I
+    or II controlled substance. Only COGS under IRC 471 is deductible (cannabisindustrylawyer.com;
+    greengrowthcpas.com). Effective federal rates can exceed 70% (peasebell.com).
+• Harborside (Tax Court 2018, 9th Cir. 2021): 280E applies to state-legal cannabis. COGS is limited to
+    471(a) direct costs. 263A is not available (greengrowthcpas.com; cannabizguide.com).
+• April 2026: FDA-approved marijuana products and marijuana under a state medical license moved to
+    Schedule III, which can lift 280E for medical-only operators. Adult-use remains Schedule I and under
+    280E (getmeadow.com; greengrowthcpas.com). Verify current federal status and IRS guidance per deal.
+• State conformity varies. Some states (for example California) conform to 280E. Others (Colorado,
+    Oregon, New York, New Jersey, Minnesota) decouple and allow state deductions (bluecloudcpa.com;
+    greengrowthcpas.com).
+
+
+8.3 Diligence checklist
+• License. Verify it is real, current, in good standing, and transferable. Confirm with the state regulator.
+    Check ownership-change approval requirements.
+• 280E tax exposure. Model the real effective tax. Verify COGS methodology under 471. Check dual
+    medical and adult-use apportionment.
+• State compliance. Seed-to-sale tracking, testing, packaging and labeling, security.
+• Banking. How cash is handled. Banking relationship or cash-management risk.
+• Real estate. Local approval, zoning, landlord consent.
+
+
+
+
+                                                             44
+THE BIBLE ON DUE DILIGENCE                                                                CANNABIS AND HEMP
+
+
+
+
+8.4 Failure modes
+• License not transferable or not in good standing. CHECK: regulator confirmation.
+• 280E understated in projections, deducting operating expenses it cannot. CHECK: rebuild tax at Schedule
+    I treatment.
+• COGS overstated beyond 471 by claiming 263A. CHECK: the Harborside standard.
+
+
+8.5 Red flags
+• Projections that deduct normal opex federally.
+• License in a name different from the operating entity.
+• No seed-to-sale compliance trail.
+
+
+
+
+                                                   45
+CHAPTER
+
+
+
+
+9
+Operating Company
+Growth Equity
+The catch-all for inbound raises
+THE BIBLE ON DUE DILIGENCE                                                        OPERATING COMPANY GROWTH EQUITY
+
+
+
+
+9.1 How it works
+Minority or control equity into a small or mid-size private company for growth. The return comes from
+growth and an eventual exit.
+
+
+9.2 Diligence checklist
+• Financial: QoE-lite, proof of cash, revenue quality, margins, unit economics, working capital.
+• Commercial: market, customers, concentration, pipeline, competition.
+• Legal and corporate: cap table, charter, prior financings, IP, material contracts, litigation.
+• Management: references, background checks, key-person risk.
+• Use of proceeds and the path to the next round or to profitability.
+
+
+9.3 The numbers
+Match to the sector: SaaS metrics in Chapter 2, CPG in Chapter 7, and so on. Always: default-alive runway,
+burn, growth, gross margin, retention.
+
+
+9.4 Red flags
+• No clean cap table. Unpapered instruments.
+• Revenue not reconciled to cash.
+• Founder will not provide references or raw data.
+• Related-party revenue or expenses undisclosed.
+
+
+
+
+                                                      47
+CHAPTER
+
+
+
+
+10
+Funds and Co-Investments
+LP diligence on GPs, operational due diligence, ILPA, SPVs
+THE BIBLE ON DUE DILIGENCE                                                                         FUNDS AND CO-INVESTMENTS
+
+
+
+
+10.1 How it works
+The LP commits to a fund. The GP calls capital, invests, and returns distributions through the LPA
+waterfall. A co-investment is a direct stake alongside the GP, usually with no fee or a low fee.
+
+
+10.2 The ILPA DDQ 2.0 baseline
+• 20 sections: Firm, Fund, Succession and Key Persons, Investment Strategy, Co-Investments, GP-Led
+    Secondaries, Credit Facilities, Investment Process, Team, Alignment of Interests, Market Environment,
+    Fund Terms, Firm Governance / Risk / Compliance, Track Record, Accounting and Valuation,
+    Reporting, Legal, Data Security and Technology, ESG, DEI (ilpa.org DDQ 2.0).
+• Appendix A lists 89 requested documents (mattercite.com).
+• LPs spend the most time on Track Record, Fund Terms, and Governance / Risk / Compliance, where a
+    first-time manager's story holds together or falls apart (angelinvestorsnetwork.com).
+
+
+10.3 Operational due diligence: the section that catches frauds
+
+   THE MADOFF STRUCTURE                                            THE INSTITUTIONAL STRUCTURE
+
+
+                                                                                                    Administrator
+                             Manager
+                        Broker-dealer                                                                    Custodian
+                                                                        You (LP)
+                             Custodian
+                                                                    Call each directly,                 Prime broker
+                        Administrator
+                                                                       unsolicited
+       One firm. Two-partner auditor. No independent NAV.                                                 Auditor
+
+
+FIGURE 15 Operational due diligence compares the structure you are shown with the structure you need.
+
+• Independent administrator and NAV verification. The red flag is self-administration, or an
+    administrator using the manager's own records (dealroom.net).
+• Auditor quality. The red flag is a firm too small for the mandate, a qualified opinion, late statements, or
+    an unexplained auditor change.
+• Cash controls and segregation of duties. The red flag is one person able to initiate and approve a wire.
+• Service-provider verification. Call the administrator, auditor, and prime broker directly and
+    unsolicited (ryanoconnellfinance.com; dealroom.net).
+
+     THE MADOFF LESSON
+
+     Madoff served as manager, broker-dealer, custodian, and administrator at once, with a
+     two-partner auditor and no independent NAV. Every structural red flag was present and visible.
+
+
+
+
+                                                            49
+THE BIBLE ON DUE DILIGENCE                                                              FUNDS AND CO-INVESTMENTS
+
+
+
+
+10.4 Diligence checklist
+• Track record: gross-to-net, PME, loss ratio, DPI and TVPI, attribution to the current team, realized
+    versus unrealized marks.
+• Fund terms versus ILPA Principles: fees, carry, waterfall (deal-by-deal versus whole-fund), clawback,
+    GP commit, key-person and no-fault-divorce provisions.
+• Alignment: GP commitment size, team compensation and retention.
+• Governance: valuation policy, conflicts, LPAC, subscription-line usage and its effect on reported IRR.
+• Operations: administrator, auditor, custody, cyber, business continuity.
+
+
+10.5 The numbers
+• Scrutinize IRR with and without the subscription credit facility. A facility can inflate reported IRR
+    materially.
+• Benchmark the track record against vintage-year peers and a PME.
+• Do not accept gross IRR alone.
+
+
+10.6 Failure modes
+• Self-administration and no independent NAV (Madoff). CHECK: independent administrator, and call
+    them.
+• Subscription-line-inflated IRR. CHECK: recompute without the facility.
+• Style drift: strategy not matching 13F filings or the stated mandate. CHECK: reconcile holdings to strategy.
+
+
+10.7 Red flags
+• No independent administrator or custodian.
+• Auditor too small or recently changed.
+• Refusal of direct service-provider contact or an on-site visit.
+• Guaranteed or suspiciously smooth returns.
+
+
+
+
+                                                     50
+CHAPTER
+
+
+
+
+11
+Further Categories and
+Niches
+Each uses Chapter 0 plus the nearest sector playbook
+THE BIBLE ON DUE DILIGENCE                                                                     FURTHER CATEGORIES AND NICHES
+
+
+
+
+  Category                           What the diligence must cover
+
+  Healthcare services                Licensing, reimbursement and payor mix, Stark and anti-kickback compliance,
+                                     billing quality. QoE must test payor concentration and revenue-cycle quality.
+
+  Life sciences and biotech          IP and patent runway, clinical trial stage and data, FDA pathway,
+                                     reimbursement. Expert scientific diligence.
+
+  Industrials and manufacturing      Capex, maintenance backlog, environmental (Phase I and II), customer
+                                     concentration, supply chain, equipment condition.
+
+  Financial services and specialty   Loan tape audit, loss reserves, funding stability, licensing.
+  lenders
+
+  Sports, media, entertainment       Rights contracts, revenue durability, talent and key-person risk, residuals and
+                                     royalties.
+
+  Shipping and logistics             Asset surveys, charter contracts, counterparty risk, flag and registry, cyclicality.
+
+  Agriculture                        Land and water rights, commodity price exposure, crop and weather risk,
+                                     offtake.
+
+  Secondaries                        NAV validation, underlying asset marks, GP consent, discount rationale.
+
+  Distressed and special             See Chapter 4.2.
+  situations
+
+
+
+
+11.1 Crypto and digital assets
+• Custody and key management. Smart-contract audit.
+• Token distribution and lockups.
+• Wash-trading detection. Exchange and liquidity reality.
+• Patterns to screen for, per the "Fraud 2026" file: fake market-making through 15 to 25 wallets,
+    speculative "anchor swaps," self-dealt liquidity, bundled launches, and rug pulls.
+• CHECK: on-chain verification of liquidity depth and holder distribution, independent custody, audited
+    contracts.
+
+
+
+
+                                                           52
+APPENDIX
+
+
+
+
+A
+Templates
+The deck, the diligence report, and the red-team prompt
+THE BIBLE ON DUE DILIGENCE                                                                           TEMPLATES
+
+
+
+
+A.1 One-page deck template
+1     What it is, and the ask, in one line.
+2     Sponsor and track record (verified).
+3     Asset or business, and market.
+4     The numbers: historical, then projection.
+5     Structure, use of proceeds, security.
+6     Returns and sensitivities.
+7     Top 3 risks and mitigants.
+8     Terms.
+
+
+A.2 Diligence report template
+This is the PDF that ships with each deal.
+• Deal summary and structure.
+• What was checked, by workstream, and the evidence reviewed.
+• What was verified independently, and by whom.
+• What could NOT be verified. An explicit list.
+• Open concerns and unresolved questions.
+• Red flags found and their status.
+• Third-party reports obtained. Sponsor background-check summary.
+• Numbers: the model, base and downside, sensitivities.
+• Recommendation and conditions.
+
+
+A.3 Red-team prompt
+For an AI reviewer, per deal type.
+
+     PROMPT
+
+     You are a skeptical institutional investor attacking this deck. Use the failure modes, red flags, and
+     hard questions for [deal type].
+
+1     List every claim presented as fact that is not independently sourced.
+2     Identify every metric that could be gamed (NRR, adjusted EBITDA, ACV, DSCR, IRR) and demand
+      the raw recomputation.
+3     Name the single check that, if it fails, kills the deal.
+4     Flag any guaranteed return, missing third-party report, missing independent administrator, appraiser,
+      or engineer, or unreconciled cap table or borrowing base.
+
+
+
+                                                           54
+THE BIBLE ON DUE DILIGENCE                                                                          TEMPLATES
+
+
+
+
+5     Separate what the sponsor verified from what they assert. Produce the list of documents the sponsor
+      rarely has ready and should be asked for first.
+6     State what a good answer to each hard question looks like, and treat evasion as a red flag.
+
+
+
+
+                                                       55
+APPENDIX
+
+
+
+
+B
+Open Gaps and Interview
+Guide
+What the research could not settle
+THE BIBLE ON DUE DILIGENCE                                                            OPEN GAPS AND INTERVIEW GUIDE
+
+
+
+
+B.1 Open gaps
+Resolve these by interviewing 3 to 5 lenders or investors per deal type.
+• Real estate LTC and DSCR cutoffs, and promote terms, by deal size (WEAK).
+• Energy availability-guarantee benchmarks from a primary OEM LTSA.
+• Moody's and Fitch DSCR scorecard thresholds against primary criteria.
+• Credit and specialty advance-rate and loss-rate norms by sub-strategy.
+• How venture investors weight the Rule of 40 against NRR by stage.
+
+
+B.2 Core interview guide
+1     What are the first three things you look at, and what makes you stop reading?
+2     What do you ask for that sponsors rarely have ready?
+3     What does a deck get wrong most often here?
+4     Which numbers do you rebuild yourself, and which do you take from the sponsor?
+5     Tell me about a deal that looked clean and went bad. What did you miss?
+6     What third-party reports do you require?
+7     What terms are non-negotiable?
+8     What would make you trust diligence done by someone else?
+
+
+B.3 Note on process
+This is Version 1.0, built from primary and institutional sources (OCC, FDIC, Federal Reserve, SEC
+enforcement filings, ILPA, NVCA, EIA, Lazard, World Bank, S&P, Credit Agricole CIB, the law firms
+Mintz, Wilson Sonsini, Sidley, Pillsbury, and Cole Schotz, and practitioner QoE and ODD guidance), plus a
+dedicated energy project-finance research pass.
+Items marked WEAK rest on vendor, aggregator, or practitioner-only sourcing. Confirm them against a
+primary source or a live practitioner interview before they anchor a posted deal.
+The structure is modular, so each chapter can be expanded into its own standalone volume as deal flow in
+that category grows.
+
+
+
+
+                                                      57
+APPENDIX
+
+
+
+
+C
+Sources
+Every source cited in this volume
+THE BIBLE ON DUE DILIGENCE                                                                                              SOURCES
+
+
+
+
+1 Bisnow: SEC charges over $372M Ponzi scheme
+https://www.bisnow.com/national/news/commercial-real-estate/real-estate-firms-executives-hit-with-sec-charges-over-372m-ponzi-sc
+heme-132575
+2 SEC press release 2024-107
+https://www.sec.gov/newsroom/press-releases/2024-107
+3 SEC press release 2024-2
+https://www.sec.gov/newsroom/press-releases/2024-2
+4 OCC Comptroller's Handbook: Commercial Real Estate Lending
+https://occ.gov/publications-and-resources/publications/comptrollers-handbook/files/commercial-real-estate-lending/pub-ch-comm
+ercial-real-estate-previous.pdf
+5 OCC Comptroller's Handbook: Asset-Based Lending
+https://www.occ.treas.gov/publications-and-resources/publications/comptrollers-handbook/files/asset-based-lending/pub-ch-asset-b
+ased-lending.pdf
+6 1752.vc: Venture capital deal documents
+https://www.1752.vc/learn/venture-capital-deal-documents-explained
+7 vcbeast: NVCA model legal documents
+https://vcbeast.com/nvca-model-legal-documents-startup-forms
+8 networkcraft: 2026 SaaS metrics benchmarks
+https://networkcraft.net/2026-saas-metrics-benchmarks/
+9 cxcash: SaaS metrics
+https://cxcash.com/metrics/saas
+10 designrevision: SaaS growth benchmarks
+https://designrevision.com/blog/saas-growth-benchmarks
+11 coyotewealth: Private credit funds
+https://coyotewealth.com/guides/private-credit-funds
+12 botminds: Private credit deal screening
+https://www.botminds.ai/solutions/private-credit-deal-screening/guide
+13 Sidley: Financial covenants in private credit
+https://www.sidley.com/en/insights/newsupdates/2026/03/financial-covenants-in-private-credit-transactions
+14 ctacquisitions: LBO meaning
+https://ctacquisitions.com/lbo-meaning/
+15 ctacquisitions: Lower middle market private equity 2026
+https://ctacquisitions.com/lower-middle-market-private-equity-2026/
+16 ctacquisitions: Venture debt financing
+https://ctacquisitions.com/what-is-venture-debt-financing/
+17 Stifel: Venture debt webinar slides
+https://www.stifel.com/Newsletters/AdGraphics/FlipBooks/_GRP/Macolino-WMG/Past-Events/VentureDebtWebinarSlides.pdf
+18 founderpath: Venture debt
+https://founderpath.com/blog/venture-debt
+19 Wikipedia: Venture debt
+https://en.wikipedia.org/wiki/Venture_debt
+20 beancount: Venture debt and recurring revenue loans
+https://beancount.io/blog/2026/05/14/venture-debt-recurring-revenue-loans-series-a-b-startups-runway-extension-warrant-coverage-
+mrr-financing-non-dilutive-growth-capital-guide
+21 kadenwoodgroup: RBF vs venture debt
+https://kadenwoodgroup.com/perspectives/revenue-based-financing-vs-venture-debt
+22 ranfunding: Asset-based lending
+https://ranfunding.com/asset-based-lending/
+23 donclarkeenterprises: What is asset-based lending
+https://www.donclarkeenterprises.com/blog/what-is-asset-based-lending/
+24 eqfunding: ABL in the lower middle market
+https://www.eqfunding.com/blog/asset-based-lending-lower-middle-market
+25 stacking.capital: Quality of earnings guide
+https://www.stacking.capital/articles/quality-of-earnings-qoe-complete-guide-2026.html
+26 modusalliance: Buy-side vs sell-side QoE
+https://modusalliance.com/insights/buy-side-vs-sell-side-qoe/
+
+
+
+
+                                                                59
+THE BIBLE ON DUE DILIGENCE                                                                                                  SOURCES
+
+
+
+
+27 v7labs: Quality of earnings analysis
+https://www.v7labs.com/blog/quality-of-earnings-analysis
+28 f2.ai: Diligence-to-close playbook
+https://f2.ai/blog/how-ai-is-rewriting-the-diligence-to-close-playbook-for-pe-deal-teams
+29 soferadvisors: LBO structure explained
+https://soferadvisors.com/insights/blog/what-is-a-leveraged-buyout-lbo-structure-explained/
+30 goreuben: IC memo, buyout
+https://www.goreuben.com/templates/ic-memo-buyout
+31 privateequitybro: Lower middle market
+https://privateequitybro.com/top-lower-middle-market-investment-banks-to-watch-in-2026/
+32 ibinterviewquestions: Project finance explained
+https://ibinterviewquestions.com/blog/project-finance-explained
+33 Wilson Sonsini: Project Finance Primer
+https://www.wsgr.com/PDFSearch/ctp_guide.pdf
+34 plausity: AI infrastructure financing diligence
+https://plausity.com/en/news/ai-infrastructure-financing-diligence-hyperscaler-power-supply
+35 plausity: AI data center power due diligence
+https://plausity.com/en/news/ai-data-center-power-due-diligence-grid-cooling-energy-risk
+36 gi-advisors: Data center project finance
+https://gi-advisors.com/data-center-project-finance-development-commercial-structuring-power-constraints-and-bankability/
+37 underridge: Data center infrastructure underwriting
+https://www.underridge.com/underwriting/data-center-infrastructure
+38 semianalysis: How AI labs are solving the power problem
+https://newsletter.semianalysis.com/p/how-ai-labs-are-solving-the-power
+39 savrn: AI data center supply chain
+https://savrn.com/blog/ai-data-center-supply-chain
+40 S&P project finance criteria (Maalot host)
+https://maalot.co.il/Publications/MT20171116151537.pdf
+41 publicenterprise.org: Project Finance, September 2024
+https://publicenterprise.org/wp-content/uploads/Project-Finance-September-2024.pdf
+42 Credit Agricole CIB: Project Bond Focus
+https://www.ca-cib.com/sites/default/files/2020-10/Project%20Bond%20Focus%20-%20Wind%202020%20VF.pdf
+43 uspeglobal: Independent power producer models
+https://uspeglobal.com/articles/what-is-an-independent-power-producer-ipp-business-models/
+44 jakenenergy: Merchant power plant financing
+https://jakenenergy.com/knowledge/merchant-power-plant-financing.html
+45 EIA: Annual Energy Outlook, electricity generation
+https://www.eia.gov/outlooks/aeo/pdf/electricity_generation.pdf
+46 Prismecs: Gas turbine vs combustion engine
+https://prismecs.com/blog/technical-comparison-between-the-gas-turbine-and-combustion-engine
+47 Lazard LCOE+ (April 2023)
+https://www.lazard.com/media/2ozoovyg/lazards-lcoeplus-april-2023.pdf
+48 Utility Dive: Panda Temple bankruptcy
+https://www.utilitydive.com/news/panda-temple-bankruptcy-could-chill-new-gas-plant-buildout-in-ercot-market/442582/
+49 Cole Schotz: Homer City Generation Chapter 11
+https://www.coleschotz.com/new-delaware-chapter-11-filing-homer-city-generation-l-p/
+50 auxocapitaladvisors: CPG M&A advisory
+https://auxocapitaladvisors.com/cpg-m-and-a-advisory/
+51 logicagencyinc: CPG channel economics
+https://www.logicagencyinc.com/guides/cpg-channel-economics
+52 trustcultivar: CPG financial KPIs
+https://www.trustcultivar.com/resources/cpg-financial-kpis-emerging-brands
+53 alloy.ai: CPG analytics
+https://alloy.ai/cpg-analytics
+54 greengrowthcpas: IRC 280E cannabis tax guide
+https://greengrowthcpas.com/irc-280e-cannabis-tax-guide/
+
+
+
+
+                                                                  60
+THE BIBLE ON DUE DILIGENCE                                                                         SOURCES
+
+
+
+
+55 cannabizguide: 280E tax basics
+https://cannabizguide.com/guides/280e-tax-basics
+56 peasebell: Cannabis 280E deductions 2026
+https://www.peasebell.com/insights/cannabis-280e-deductions-2026/
+57 getmeadow: Cannabis 280E tax
+https://getmeadow.com/blog/cannabis-280e-tax
+58 mattercite: ILPA DDQ
+https://mattercite.com/ilpa-ddq
+59 angelinvestorsnetwork: ILPA DDQ 2.0 guide
+https://angelinvestorsnetwork.com/capital-raising/ilpa-ddq-2-0-guide-vet-first-time-fund-manager
+60 dealroom: Hedge fund due diligence
+https://dealroom.net/blog/hedge-fund-due-diligence
+61 ryanoconnellfinance: Hedge fund due diligence
+https://ryanoconnellfinance.com/hedge-fund-due-diligence/
+
+
+
+
+                                                                61
+
