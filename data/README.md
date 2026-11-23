@@ -46,6 +46,12 @@ family-office or foundation inboxes, contact forms, official websites and verifi
 page it was found on. No guessed emails, no home addresses, no personal phone numbers.
 Read `research_notes` before outreach: it flags sanctions, legal issues, retirements, deaths and identity doubts.
 
+## `uhnw_outreach.csv` — the outreach list
+`uhnw_enriched.csv` minus people unlikely to engage (built by `scripts/build_outreach.py`): known age under 40 or 90+,
+people research found to have died, and records that are not an identifiable individual. Unknown ages are kept.
+Removed rows, with the reason, are in `uhnw_weeded_out.csv`. Ages come from Forbes, Wikidata or Hurun birth years
+(`age_source`; Hurun ages are approximate).
+
 ## Other files
 - `billionaires_all.csv` — Forbes real-time list (2026-11-16) with energy / data-center relevance tags.
 - `energy_datacenter_pilot.csv` — 25 energy and data-center billionaires with published press contacts.

@@ -42,6 +42,17 @@ if os.path.exists(f"{EN}/wd_match.csv"):
         wd_desc[q] = r.get("description", "")
 props = load_json(f"{EN}/wd_props.json", {})
 research = {}
+# Hurun birth years (by Chinese name, then English name); used only when every listing agrees within 2 years
+_hb = load_json(f"{EN}/hurun_birthyears.json", {"cn": {}, "en": {}})
+
+
+def hurun_birth_year(row):
+    for key, table in ((row.get("name_chinese", "").strip(), _hb.get("cn", {})),
+                       (re.sub(r"\s+", " ", row.get("name", "").lower()).strip(), _hb.get("en", {}))):
+        years = table.get(key) if key else None
+        if years and max(years) - min(years) <= 2:
+            return round(sum(years) / len(years))
+    return None
 if os.path.exists("data/research_results.jsonl"):
     for line in open("data/research_results.jsonl", encoding="utf-8"):
         rr = json.loads(line)
@@ -148,12 +159,17 @@ for r in rows:
     if rc:
         contacts = rc + [c for c in contacts if not any(c in x for x in rc)]
 
-    age = ""
+    age, age_source = "", ""
     born = info.get("birthDate") or ((pr.get("born") or [""])[0][:10])
     if born and re.match(r"\d{4}-\d{2}-\d{2}", born) and not born.startswith("1900"):
         b = date.fromisoformat(born[:10])
         t = date.today()
         age = t.year - b.year - ((t.month, t.day) < (b.month, b.day))
+        age_source = "Forbes" if info.get("birthDate") else "Wikidata"
+    else:
+        hy = hurun_birth_year(r)
+        if hy:
+            age, age_source = date.today().year - hy, "Hurun (birth year, approx.)"
     org = info.get("organization") or {}
     sm = info.get("selfMade") or {}
     res = info.get("residence") or {}
@@ -161,6 +177,7 @@ for r in rows:
     out.append({
         **r,
         "age": age,
+        "age_source": age_source,
         "title_and_organization": (f"{org.get('title')}, {org.get('name')}" if org.get("title") else org.get("name", "")) if org else "",
         "self_made": ("yes" if sm.get("_is") else "no") if sm else "",
         "self_made_score_1to10": sm.get("rank", "") if sm else "",
