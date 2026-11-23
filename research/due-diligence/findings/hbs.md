@@ -126,3 +126,183 @@ Tags: [NEW] new content; [STRENGTHENS x.y]; [CONTRADICTS x.y]; [RESOLVES WEAK/GA
 ## 2.6 Legal and structure (investor veto rights)
 
 - Failure case: Zync v. Porsche (Del. Ch. May 2026, pleading stage). Porsche's venture arm held 5% via a $2.9M convertible note, one of three board seats, and a director-approval right over new debt. Its designee voted down a $10M Series A, Porsche withheld a promised bridge after obtaining a confidential competitor agreement, and conditioned a $50M PE offer on indemnities; the company shut down. Claims for director disloyalty, aiding and abetting, and breach of the implied covenant survived; exculpation did not cover bad faith. Lesson for investors (and for diligence of a cap table): veto rights used to harm the company create liability; directing your board designee is risky; strategic investors with vetoes over financing are a "catch-and-kill" risk for other investors. CHECK: in a venture data room, list every investor veto over financing and M&A and who holds it; treat a strategic with a financing veto as a red flag. [NEW] [STRENGTHENS 2.6, 2.8] (HLS Forum, "Chancery Finds Potential Liability for Blocking Company Financings Despite Contractual Veto Rights", 2026, https://corpgov.law.harvard.edu/2026/07/20/chancery-finds-potential-liability-for-blocking-company-financings-despite-contractual-veto-rights/)
+- Failure case: Footprint (Guilbeau v. Footprint, Del. Ch. May 2026, pleading stage). A near-insolvent packaging company raised $500M of new Class F preferred, $450M (about 90%) from three insider funds that each had a board designee; the pre-money valuation was allegedly about half of what the funds' own earlier bridge loans implied, higher-valuation alternatives were set aside, Class A holders had three weeks to decide, and disclosures omitted the valuation, insider benefits and rejected offers. Entire-fairness review applied and aiding-and-abetting claims against the funds survived. Lesson for anyone leading or joining an insider down-round or rescue financing: price it against your own recent marks and bridges, document every rejected alternative, give non-participants real time and data access, and disclose insider benefits. [NEW] [STRENGTHENS 2.6; 9.2] (HLS Forum, "Chancery Finds Funds Liable for Aiding Directors' Fiduciary Breaches", 2026, https://corpgov.law.harvard.edu/2026/06/17/chancery-finds-funds-liable-for-aiding-directors-fiduciary-breaches/)
+
+## 10.4 Diligence checklist (GP succession and LP remedies)
+
+- GP succession: about 6% of GP leaders transition over five years (versus more than 50% turnover for public-company CEOs); fewer than half of GPs have a formal transition plan; 96% of LPs say succession readiness is decisive for re-ups. Ask: who actually makes investment decisions; who owns the LP relationship; what happens economically if a founder steps back and has carry already moved; has the successor led at scale; is governance strong enough to manage post-transition conflict. [NEW] [STRENGTHENS 10.4 key-person] (HLS Forum, "Succession Planning in Private Equity", 2026, https://corpgov.law.harvard.edu/2026/02/21/succession-planning-in-private-equity-a-strategic-imperative-for-gps-and-lps/)
+- Firm break-ups following concentrated economics: Weston Presidio suspended fundraising (2014) after partners left; Doughty Hanson wound down (2015) with an investor citing concentration of power and economics at the top; Charterhouse faced friction (2015) over profit split and succession. In the Ivashina-Lerner data, senior partners who stayed held 16% carry and 23% ownership versus 9% and 13% for those who left; departures are associated with a smaller next fund. [NEW] [STRENGTHENS 10.6] (HBS Working Knowledge, "Is Greed Ruining Private Equity Firms?", https://www.library.hbs.edu/working-knowledge/is-greed-ruining-private-equity-firms)
+- Do not count on litigation as an LP remedy: of 153 lawsuits over four decades against the top and bottom 50 PE firms, only 6 (4%) were filed by fund investors and 3 (2%) by institutions; LPAs carry broad GP indemnification, exculpation, mandatory arbitration and limited information rights, and LPs fear losing allocations. A rare exception: the Abu Dhabi Investment Council sued a US PE firm in Delaware Chancery (Dec 2025) over a continuation-fund transaction. Implication: the protection you get is what you negotiate before signing (information rights, LPAC composition, no-fault removal, consent rights on GP-leds and NAV loans). [NEW] [STRENGTHENS 10.4; 10.7] (HLS Forum, "Opting Out of Court? Reputation and Informal Norms in Private Equity", 2026, https://corpgov.law.harvard.edu/2026/06/29/opting-out-of-court-reputation-and-informal-norms-in-private-equity/)
+
+## 3.6 Legal and structure (lender counsel)
+
+- Sponsor-designated lenders' counsel is the norm in US mid- and large-cap LBOs: the sponsor picks (and the borrower pays) the lenders' lawyers, who run one central diligence process shared with all lenders. Designated counsel face pressure not to "over-lawyer" to keep future designations, which may tilt terms toward sponsors. CHECK: for any LBO loan or unitranche you join, ask who chose lender counsel, and have your own counsel review the baskets, EBITDA definition and unrestricted-subsidiary provisions independently. [NEW] [STRENGTHENS 3.6] (HLS Forum, "Sponsor-Designated Lenders' Counsel", 2026, https://corpgov.law.harvard.edu/2026/04/16/sponsor-designated-lenders-counsel/)
+
+## 0.4 / 5.3 Public-target and carve-out diligence: text-diff the filings
+
+- "Lazy Prices": firms that materially change the language of their 10-K/10-Q (especially risk factors, management discussion, litigation, CEO/CFO language, more negative words) subsequently see lower earnings, profitability and returns and higher bankruptcy risk; a short-changers/long-non-changers portfolio earned up to 188 bps a month, accruing for up to 18 months with no announcement reaction (1995-2014). CHECK: for any public target, take-private, carve-out from a public parent, or public borrower, diff the last 8 quarters of filings (risk factors, MD&A, legal proceedings) and require management to explain each material edit. [NEW] [STRENGTHENS 0.4, 5.3] (Cohen, Malloy, Nguyen, "Lazy Prices", JF 2020, NBER WP 25084, https://www.nber.org/papers/w25084)
+
+## NEW: Evergreen, semi-liquid and retail private-market vehicles
+
+- Proposed new section (between 10 and 11). Context: a 2025 executive order directed the SEC and DOL to open 401(k) plans (about $10T) to private assets, likely via target-date funds; managers are pushing retail capital because of higher rates, an exit backlog and institutional allocation limits. Harvard Forum authors argue retail access tends to erode the illiquidity and contracting advantages that made PE work, keeps higher fees, and creates liquidity mismatch. Section should cover: valuation frequency and who values (independent valuation agent?); redemption gates, queues and proration; NAV smoothing (see Stafford); all-in fee load including fund-of-fund layers vs a levered small-value index; dependence of manager pay on inflows; use of subscription lines/NAV loans to meet redemptions; whether new money funds old redemptions (Ponzi-like dynamics under stress). [NEW] (HLS Forum, "Private Equity for All: The Paradoxical Push to Democratize Private Markets", 2026, https://corpgov.law.harvard.edu/2026/02/28/private-equity-for-all-the-paradoxical-push-to-democratize-private-markets/)
+
+## 11.1 Crypto and digital assets
+
+- Failure case: Terra/Luna (May 2022). Anchor paid a 19.5% yield on UST deposits, funded by a subsidy that reached about $6M a day by April 2022; LUNA peaked at $119.18 on April 5; the run began May 7 when two large addresses pulled 375M UST from Anchor; LUNA supply went from about 1 billion to 6 trillion in three days as UST holders swapped out, a death spiral. Wealthier, sophisticated wallets exited first with small losses; retail ran late and lost more; Alameda Research made the most UST-LUNA swaps, linked to its privileged access via FTX. Pre-run on-chain signals were visible: falling LUNA value relative to UST, a sharp drop in Anchor entries and rise in exits in late April, and a growing subsidy. CHECKS: (1) decompose any yield into organic income vs subsidy/emissions and require the subsidy runway; (2) for any stablecoin, identify what backs the peg (reserves vs a volatile sister token) and stress the redemption path; (3) monitor large-holder flows on-chain; (4) ask who has privileged exit routes. [NEW] [STRENGTHENS 11.1] (HLS Forum, "Anatomy of a Run: The Terra Luna Crash", 2023, https://corpgov.law.harvard.edu/2023/05/22/anatomy-of-a-run-the-terra-luna-crash/)
+- Stablecoin reserve test under the GENIUS Act (2025): payment stablecoins must be backed 1:1 by high-quality liquid assets (cash, demand deposits, short-dated Treasuries, repo, certain money-market funds), held for holders' benefit, audited, and not lent, pledged or rehypothecated. CHECK: for any stablecoin exposure or issuer investment, obtain the reserve attestation, its date and auditor, the custodian list, and confirm no encumbrance; an unregulated or offshore coin that cannot show this is a different (and higher) risk class. [NEW] [STRENGTHENS 11.1] (Circle Internet Group FY2025 annual report describing GENIUS Act requirements, https://www.sec.gov/Archives/edgar/data/1876042/000187604226000116/a2025annualreport0331.pdf; HLS Forum, "Financial Institutions M&A Key Trends and Outlook", 2026, https://corpgov.law.harvard.edu/2026/04/24/financial-institutions-ma-key-trends-and-outlook-2/) [partly outside Harvard lane]
+- Crypto fraud waves (Soltes): ICOs, then NFTs, now pump-and-dump dynamics in tokens whose prices move on touting rather than utility; telling some investors that something is a pump-and-dump can attract them ("lottery-ticket" behavior). Red flags: no identifiable product or cash flow, returns marketed as high with "no additional risk", price moves unexplained by fundamentals, heavy social-media/crowd promotion. [NEW] [STRENGTHENS 11.1] (HBS Working Knowledge, Soltes 2025, https://www.library.hbs.edu/working-knowledge/ai-schemes-could-make-bernie-madoffs-fraud-look-trivial-eugene-soltes)
+- FTX governance baseline for any crypto company equity: FTX raised nearly $2B from VCs with no internal audit function and no experienced finance, accounting, HR or security leadership, while customer funds were diverted to an affiliated trading firm (Alameda). CHECK: segregation of customer assets verified on-chain and by an independent auditor; related-party trading firm exposure; who controls keys; existence of a CFO, controller and audit committee. [NEW] [STRENGTHENS 11.1] (HLS Forum, "Untamed Unicorns", 2026, https://corpgov.law.harvard.edu/2026/11/04/untamed-unicorns-why-startup-finance-is-broken-and-how-to-fix-it/)
+
+## 1 Real Estate (limited in this lane)
+
+- Private real estate funds: measured against investors' own portfolios, real estate funds showed no risk-adjusted outperformance for US public pensions (1995-2018). Treat value-add and opportunistic real estate fund return claims as needing a levered public-REIT comparison, and remember appraisal-based marks smooth volatility (see Stafford in 10). [NEW] [STRENGTHENS 1.5] (HLS Forum, "Private Equity for Pension Plans?", 2025, https://corpgov.law.harvard.edu/2025/02/03/private-equity-for-pension-plans-evaluating-private-equity-performance-from-an-investors-perspective/)
+- Real estate sponsors are subject to the same fee and expense findings as PE sponsors (SEC exam deficiencies: unauthorized fees, failure to step down fees after write-downs, extensions without consent, related-party property management or construction fees without LPAC consent). Add to 1.4: obtain the schedule of all affiliate fees (acquisition, development, construction management, property management, leasing, refinancing, disposition) and LPAC approvals. [NEW] [STRENGTHENS 1.4, 1.7] (HLS Forum, SEC private fund deficiencies 2022, https://corpgov.law.harvard.edu/2022/02/17/sec-identifies-private-fund-deficiencies-signifying-increased-industry-scrutiny/)
+- HBS teaching resource: Nori Gerardo Lietz (HBS Senior Lecturer) teaches Real Estate Private Equity and Starting a Private Investment Firm; the free sources found do not publish her frameworks, so the bible's promote and LTC/DSCR WEAK items remain unresolved from this lane. [GAP remains: B.1 real estate LTC/DSCR/promote] (Harvard GSD Exec Ed bio, https://execed.gsd.harvard.edu/instructors/nori-gerardo-lietz/)
+
+## 9 Operating Company Growth Equity
+
+- Growth equity sits inside the Gompers-Kaplan-Mukharlyamov PE survey (about 75% of respondents invest in growth equity): use the same benchmarks (20% management-forecast haircut; 22% to 25% target gross IRR; about 2.5x MOIC; exits about 50% strategic, 30% sponsor, under 20% IPO). Growth deals carry less leverage, so return attribution must come from revenue growth and exit multiple; the memo should show the multiple at which the deal still returns 2x. [NEW] [STRENGTHENS 9.3] (https://www.nber.org/papers/w21133)
+- Minority growth investors are exposed to insider-led recapitalizations and investor vetoes (Footprint, Zync above): diligence the existing preference stack, who can block or lead future rounds, and what happened in every prior bridge or down-round. [NEW] [STRENGTHENS 9.2, 9.4]
+
+## 7 CPG and 8 Cannabis
+
+- No CPG- or cannabis-specific diligence material was found in freely available HBS / HLS Forum / HKS sources within this run. General items that apply: earnout benchmarks (5.6 above; revenue-based earnouts common in brand acquisitions), Akorn-style regulated-manufacturing data-integrity audit for food and supplements (5 above), and Lazy Prices filing-diff for public cannabis MSOs (above). [GAP]
+
+## 0.7 IC memo skeleton (additions)
+
+- Add a "Base rates" line to item 5: state the relevant prior before the case-specific argument (VC: about 75% of venture-backed companies never return cash, 30% to 40% lose most or all; buyouts: 69% of deals change CEO during the hold; most sponsors haircut management EBITDA forecasts by about 20%; RWI claim rates mid-to-high teens). A memo that does not state the base rate cannot explain why this deal beats it. [NEW] [STRENGTHENS 0.7] (Ghosh WK; HLS CEO study; Gompers et al. 2016; Griffith 2019, all cited above)
+- Add to item 7 ("what was NOT verified"): a dated list of statute-of-limitations and indemnity-survival deadlines, and for each unverified fact, the specific rep or indemnity that covers it (Cloudbreak lesson). [NEW] [STRENGTHENS 0.7]
+- Add to item 5: show the exit multiple vs entry multiple and a case at entry minus 1 to 2 turns; show leverage at close vs maximum permitted leverage under the baskets (Ivashina-Vallee). [NEW]
+
+## A.3 Red-team prompt (additions)
+
+- Add: "Diff the target's last eight quarterly and annual filings or management letters; list every changed risk factor or legal disclosure and require an explanation." (Lazy Prices)
+- Add: "Compute maximum permitted senior secured leverage including all baskets, ratio debt and add-backs; compare with closing leverage." (Weak Credit Covenants)
+- Add: "For every 'hint' in the data room (references to lost customers, cancellation letters, volume declines), name the written question asked, who asked it, and the answer received." (Paragon Metals)
+- Add: "Identify every third party the sponsor cites as validator, partner, customer or co-investor, and record whether we contacted each directly." (Theranos) [NEW all] (sources above)
+
+## B.2 Interview guide (additions)
+
+- "When did you last call a target's whistleblower hotline, and what happened?" (Soltes hotlines)
+- "How do you size the haircut you apply to management's forecast, and how has it compared with outcomes?" (Gompers et al. 20% median)
+- "How do you decide whether to take a co-invest the GP offers you, given evidence that co-invests underperform the main fund?" (Fang, Ivashina, Lerner)
+- "Who chose lender counsel on your last three LBO loans, and what did your own counsel change?" (Sponsor-designated counsel)
+- "What share of your last ten deals changed CEO, and when did you first know?" (HLS CEO study) [NEW all]
+
+## NEW: proposed sections
+
+- NEW 0.10 Leadership diligence as a workstream: base rates (69% CEO change; 60% of exit CEOs appointed after year 2; top-quintile CEOs +9 pts a year), the four entry questions, succession bench, and reference protocol (VC norm about 10 references, 13 late-stage). (HLS CEO study; Gompers et al. 2020)
+- NEW 0.11 Compliance and misconduct diligence: internal investigations log, hotline test call, hotline statistics, DOJ compliance-program expectations, FCPA successor-liability disclosure decision, False Claims Act exposure in government-reimbursed businesses. (Soltes; DOJ via HLS; Secondary liability post)
+- NEW 0.12 Preserving remedies: Delaware fraud-claim lessons (Paragon, Cloudbreak), anti-reliance clause limits, limitations periods, documentation of diligence questions and answers, R&W policy exclusions for known issues. (HLS Forum posts above)
+- NEW 10.8 GP-led secondaries, NAV loans and continuation funds: pricing conflict (GP on both sides), LPAC consent, status-quo option, fairness opinion and competing bids, carry crystallization, ADIC v. US PE firm (Dec 2025) as litigation marker. (HLS NAV debt post; Opting Out of Court post)
+- NEW 10.9 Evergreen / retail private-market vehicles (see above).
+- NEW 11.x Insider rounds and investor-control conflicts in venture and growth (Footprint, Zync).
+
+## 0.9 Reading list (correction)
+
+- "HBS MGMT E-2790 Private Equity" appears to be a Harvard Extension School course code (MGMT E- prefix), not an HBS MBA course; relabel as Harvard Extension School to avoid overstating the source. [CONTRADICTS 0.9] (course-code convention; confirm on extension.harvard.edu) WEAK until confirmed.
+
+---
+
+## Reading list additions
+
+Academic (free working-paper versions):
+- Gompers, Kaplan, Mukharlyamov, "What Do Private Equity Firms Say They Do?" JFE 2016. https://www.nber.org/papers/w21133
+- Gompers, Gornall, Kaplan, Strebulaev, "How Do Venture Capitalists Make Decisions?" JFE 2020. https://www.nber.org/papers/w22587
+- Ivashina and Vallee, "Weak Credit Covenants." https://www.nber.org/papers/w27316
+- Fang, Ivashina, Lerner, "The Disintermediation of Financial Markets: Direct Investing in Private Equity." https://www.nber.org/papers/w19299
+- Lerner, Mao, Schoar, Zhang, "Investing Outside the Box." https://www.nber.org/papers/w24941
+- Ivashina and Lerner, "Pay Now or Pay Later?" https://www.nber.org/papers/w22660 ; and their book Patient Capital: The Challenges and Promises of Long-Term Investing (Princeton UP, 2019).
+- Begenau and Siriwardane, "Fee Variation in Private Equity." https://www.nber.org/papers/w29887
+- Stafford, "Replicating Private Equity with Value Investing, Homemade Leverage, and Hold-to-Maturity Accounting." RFS 2022.
+- Davis, Haltiwanger, Handley, Lipsius, Lerner, Miranda, "The (Heterogenous) Economic Effects of Private Equity Buyouts." https://www.nber.org/papers/w26371
+- Bernstein, Lerner, Mezzanotti, "Private Equity and Financial Fragility during the Crisis." https://www.nber.org/papers/w23626
+- Cohen, Malloy, Nguyen, "Lazy Prices." https://www.nber.org/papers/w25084
+- Soltes, "The Frequency of Corporate Misconduct" (J. Financial Crime 2019); "The Difficulty of Being Good: The Efficacy of Integrity Hotlines" (2018).
+- Lerner, Schoar, Wongsunwai, "Smart Institutions, Foolish Choices?" https://www.nber.org/papers/w11136
+- Gompers, Kovner, Lerner, Scharfstein, "Performance Persistence in Entrepreneurship." JFE 2010.
+- Nanda and Rhodes-Kropf, "Investment Cycles and Startup Innovation." JFE 2013.
+- Lerner and Nanda, "Venture Capital's Role in Financing Innovation." JEP 2020. https://www.nber.org/papers/w27492
+
+Books and practitioner:
+- Eugene Soltes, Why They Do It: Inside the Mind of the White-Collar Criminal (PublicAffairs, 2016).
+- Richard Ruback and Royce Yudkoff, HBR Guide to Buying a Small Business (2017) (HBS Entrepreneurship Through Acquisition course; relevant to 5 lower middle market and search funds).
+- Jose Gomez-Ibanez, Regulating Infrastructure: Monopoly, Contracts, and Discretion (Harvard UP, 2003).
+- Josh Lerner, Ann Leamon, Felda Hardymon, Venture Capital, Private Equity, and the Financing of Entrepreneurship (Wiley).
+- William Sahlman, "How to Write a Great Business Plan" (HBR 1997) and HBS note "A Method for Valuing High-Risk, Long-Term Investments: The Venture Capital Method" (HBS 9-288-006; paid case, cite by title).
+
+Ongoing free feeds:
+- Harvard Law School Forum on Corporate Governance, tags "due diligence" and "private equity": https://corpgov.law.harvard.edu/tag/due-diligence/ ; https://corpgov.law.harvard.edu/tag/private-equity/
+- HBS Working Knowledge, Finance and Investing; Regulation and Compliance: https://www.library.hbs.edu/working-knowledge
+
+---
+
+## Sources
+
+1. Gompers, Kaplan, Mukharlyamov, What Do Private Equity Firms Say They Do? NBER WP 21133. https://www.nber.org/papers/w21133
+2. HLS Forum summary of the same. https://corpgov.law.harvard.edu/2016/09/21/what-do-private-equity-firms-say-they-do/
+3. Gompers, Gornall, Kaplan, Strebulaev, How Do Venture Capitalists Make Decisions? (PDF) https://leeds-faculty.colorado.edu/bhagat/vc-decisions.pdf ; NBER https://www.nber.org/papers/w22587
+4. HLS Forum summary, How Do VCs Make Decisions? https://corpgov.law.harvard.edu/2019/08/20/how-do-venture-capitalists-make-decisions/
+5. Fang, Ivashina, Lerner, Disintermediation of Financial Markets. https://www.nber.org/papers/w19299
+6. Ivashina and Vallee, Weak Credit Covenants. https://www.nber.org/papers/w27316
+7. Soltes, The Frequency of Corporate Misconduct. https://papers.ssrn.com/abstract=3347159
+8. Soltes, The Difficulty of Being Good: Efficacy of Integrity Hotlines. https://www.stern.nyu.edu/sites/default/files/assets/documents/Eugene%20Soltes%20-%20The%20Difficulty%20of%20Being%20Good%20The%20Efficacy%20of%20Integrity%20Hotlines.pdf
+9. HBS WK, Bernie Madoff Explains Himself. https://www.library.hbs.edu/working-knowledge/bernie-madoff-explains-himself
+10. HBS WK, AI Schemes Could Make Bernie Madoff's Fraud Look Trivial. https://www.library.hbs.edu/working-knowledge/ai-schemes-could-make-bernie-madoffs-fraud-look-trivial-eugene-soltes
+11. HBS WK, How Private Debt Became a $2 Trillion Industry. https://library.hbs.edu/working-knowledge/how-private-debt-became-2-trillion-industry
+12. HLS Forum, Are Hints Disclosures? (Paragon Metals v. Smith). https://corpgov.law.harvard.edu/2026/07/30/are-hints-disclosures-delaware-supreme-court-revives-ma-fraud-claim-despite-buyers-red-flags/
+13. HLS Forum, The Looming Specter: Post-Closing Fraud Claims. https://corpgov.law.harvard.edu/2017/07/19/the-looming-specter-post-closing-fraud-claims-in-private-company-ma-litigation/
+14. Skadden, Analyzing Akorn. https://www.skadden.com/insights/publications/2018/10/analyzing-akorn ; Akorn v. Fresenius opinion https://law.justia.com/cases/delaware/court-of-chancery/2018/ca-2018-0300-jtl.html
+15. Lerner, Mao, Schoar, Zhang, Investing Outside the Box. https://www.nber.org/papers/w24941
+16. Lerner, Schoar, Wongsunwai, Smart Institutions, Foolish Choices? https://www.nber.org/papers/w11136
+17. Ivashina and Lerner, Pay Now or Pay Later? https://nber.org/system/files/working_papers/w22660/w22660.pdf
+18. HBS WK, Is Greed Ruining Private Equity Firms? https://www.library.hbs.edu/working-knowledge/is-greed-ruining-private-equity-firms
+19. HLS Forum, Private Equity and Net Asset Value Debt. https://corpgov.law.harvard.edu/2024/07/15/private-equity-and-net-asset-value-loans-ticking-time-bomb-or-ticking-all-the-right-boxes/
+20. HLS Forum, The Year in Review: SEC Enforcement Actions Against Investment Advisers (2016). https://corpgov.law.harvard.edu/2016/12/19/the-year-in-review-sec-enforcement-actions-against-investment-advisers/
+21. HLS Forum, Fund Advisers and Fee Disclosure in SEC Enforcement Action. https://corpgov.law.harvard.edu/2015/10/30/fund-advisers-and-fee-disclosure-in-sec-enforcement-action/
+22. HLS Forum, Griffith, Deal Insurance: R&W Insurance in M&A Contracting. https://corpgov.law.harvard.edu/2019/07/01/deal-insurance-representation-warranty-insurance-in-ma-contracting/
+23. Aon, 2026 Transaction Solutions Global Claims Study. https://www.aon.com/insights/reports/2026-transaction-solutions-global-claims-study
+24. HLS Forum, The Art and Science of Earn-Outs in M&A. https://corpgov.law.harvard.edu/2025/07/11/the-art-and-science-of-earn-outs-in-ma/
+25. HLS Forum, Drafting Guidance from Delaware Supreme Court on Earnouts, Efforts Obligations, and Fraud. https://corpgov.law.harvard.edu/2026/02/10/drafting-guidance-from-delaware-supreme-court-on-earnouts-efforts-obligations-and-fraud/
+26. HBS WK, Why Companies Fail and How Their Founders Can Bounce Back (Ghosh). https://www.library.hbs.edu/working-knowledge/why-companies-failand-how-their-founders-can-bounce-back
+27. HLS Forum, Investment Cycles and Startup Innovation. https://corpgov.law.harvard.edu/2011/11/28/investment-cycles-and-startup-innovation/
+28. HLS Forum, The Impact of Venture Capital Monitoring. https://corpgov.law.harvard.edu/2014/01/30/the-impact-of-venture-capital-monitoring/
+29. HBS WK, How to Write a Great Business Plan (Sahlman). https://www.library.hbs.edu/working-knowledge/how-to-write-a-great-business-plan
+30. HLS Forum, Untamed Unicorns. https://corpgov.law.harvard.edu/2026/11/04/untamed-unicorns-why-startup-finance-is-broken-and-how-to-fix-it/
+31. HLS Forum, Performance Persistence in Entrepreneurship and VC. https://corpgov.law.harvard.edu/2010/04/16/performance-persistence-in-entrepreneurship-and-venture-capital/
+32. HLS Forum, Fee Variation in Private Equity. https://corpgov.law.harvard.edu/2024/05/10/fee-variation-in-private-equity/
+33. HBS WK, Rethinking Risk: Why Pension Funds Are Betting on Alternative Assets. https://www.library.hbs.edu/working-knowledge/rethinking-risk-why-pension-funds-are-betting-on-alternative-assets
+34. HBS WK / Stafford, Replicating Private Equity. https://hbswk.hbs.edu/item/replicating-private-equity-with-value-investing-homemade-leverage-and-hold-to-maturity-accounting
+35. HLS Forum, Private Equity for Pension Plans? https://corpgov.law.harvard.edu/2025/02/03/private-equity-for-pension-plans-evaluating-private-equity-performance-from-an-investors-perspective/
+36. HLS Forum, Valuing Private Equity. https://corpgov.law.harvard.edu/2014/01/12/valuing-private-equity/
+37. HLS Forum, FinCEN Permanently Eliminates BOI Reporting for US Companies. https://corpgov.law.harvard.edu/2026/08/27/fincen-permanently-eliminates-boi-reporting-requirements-for-us-companies-and-us-persons/
+38. HLS Forum, Corporate Transparency Act Update (2025). https://corpgov.law.harvard.edu/2025/04/30/corporate-transparency-act-update-no-reporting-for-us-entities-and-new-deadlines-for-foreign-entities/
+39. FinCEN, Investment Adviser Rule postponed to 2028. https://www.fincen.gov/news/news-releases/fincen-issues-final-rule-postpone-effective-date-investment-adviser-rule-2028
+40. HBS WK, Blaming Data Centers for Higher Electric Bills? https://library.hbs.edu/working-knowledge/blaming-data-centers-for-higher-electric-bills-its-not-that-simple
+41. HBS AI Institute, The AI-Energy Nexus (Serafeim et al., HBS WP 26-096). https://aiinstitute.hbs.edu/forget-the-algorithms-follow-the-electricity/
+42. Gomez-Ibanez, Regulating Infrastructure (HKS). https://www.hks.harvard.edu/publications/regulating-infrastructure-monopoly-contracts-and-discretion ; World Bank concessions review https://documents1.worldbank.org/curated/en/678041468765605224/pdf/288160PAPER0Granting010renegotiating.pdf
+43. Davis et al., Economic Effects of PE Buyouts. https://www.nber.org/papers/w26371
+44. Bernstein, Lerner, Mezzanotti, PE and Financial Fragility. https://www.nber.org/papers/w23626
+45. HLS Forum, Chancery Decision Doubles Down on Due Diligence (Cloudbreak). https://corpgov.law.harvard.edu/2025/08/26/chancery-decision-doubles-down-on-due-diligence/
+46. HLS Forum, Justice Department Updates Guidance on Corporate Compliance Programs. https://corpgov.law.harvard.edu/2020/06/29/justice-department-updates-its-guidance-on-corporate-compliance-programs/
+47. HLS Forum, Theranos: The Limits of "Fake It Till You Make It". https://corpgov.law.harvard.edu/2022/01/30/theranos-the-limits-of-the-fake-it-till-you-make-it-strategy/
+48. HLS Forum, SEC Identifies Private Fund Deficiencies. https://corpgov.law.harvard.edu/2022/02/17/sec-identifies-private-fund-deficiencies-signifying-increased-industry-scrutiny/
+49. HLS Forum, Understanding Communications by Private Fund Managers. https://corpgov.law.harvard.edu/2026/10/14/understanding-communications-by-private-fund-managers/
+50. HLS Forum, The CEO Decision. https://corpgov.law.harvard.edu/2026/09/23/the-ceo-decision-how-pe-investors-select-and-reassess-leaders-from-entry-to-exit/
+51. HLS Forum, Secondary Liability Risks for Private Funds. https://corpgov.law.harvard.edu/2019/10/09/secondary-liability-risks-for-private-funds-recent-developments/
+52. HLS Forum, FCPA Successor Liability. https://corpgov.law.harvard.edu/2018/08/14/fcpa-successor-liability/
+53. HLS Forum, Zync v. Porsche (blocking financings). https://corpgov.law.harvard.edu/2026/07/20/chancery-finds-potential-liability-for-blocking-company-financings-despite-contractual-veto-rights/
+54. HLS Forum, Guilbeau v. Footprint (funds aiding fiduciary breaches). https://corpgov.law.harvard.edu/2026/06/17/chancery-finds-funds-liable-for-aiding-directors-fiduciary-breaches/
+55. HLS Forum, Succession Planning in Private Equity. https://corpgov.law.harvard.edu/2026/02/21/succession-planning-in-private-equity-a-strategic-imperative-for-gps-and-lps/
+56. HLS Forum, Opting Out of Court? Reputation and Informal Norms in PE. https://corpgov.law.harvard.edu/2026/06/29/opting-out-of-court-reputation-and-informal-norms-in-private-equity/
+57. HLS Forum, Sponsor-Designated Lenders' Counsel. https://corpgov.law.harvard.edu/2026/04/16/sponsor-designated-lenders-counsel/
+58. Cohen, Malloy, Nguyen, Lazy Prices. https://www.nber.org/papers/w25084
+59. HLS Forum, Private Equity for All. https://corpgov.law.harvard.edu/2026/02/28/private-equity-for-all-the-paradoxical-push-to-democratize-private-markets/
+60. HLS Forum, Anatomy of a Run: The Terra Luna Crash. https://corpgov.law.harvard.edu/2023/05/22/anatomy-of-a-run-the-terra-luna-crash/
+61. Circle Internet Group FY2025 Annual Report (GENIUS Act reserve description). https://www.sec.gov/Archives/edgar/data/1876042/000187604226000116/a2025annualreport0331.pdf
+62. HLS Forum, Financial Institutions M&A Key Trends and Outlook (2026). https://corpgov.law.harvard.edu/2026/04/24/financial-institutions-ma-key-trends-and-outlook-2/
+63. Lerner and Nanda, Venture Capital's Role in Financing Innovation. https://www.nber.org/papers/w27492
+64. Harvard GSD Exec Ed, Nori Gerardo Lietz bio. https://execed.gsd.harvard.edu/instructors/nori-gerardo-lietz/
+65. HLS Forum tag archives used for discovery: https://corpgov.law.harvard.edu/tag/due-diligence/ ; https://corpgov.law.harvard.edu/tag/private-equity/ ; https://corpgov.law.harvard.edu/tag/blockchain/
+
+Note on coverage: the shared web-search budget for this run was exhausted partway through; later material was gathered by fetching known URLs and HLS Forum tag archives. Not covered and worth a follow-up pass: Bernstein and Sheen (PE and restaurant operations), Srinivasan's accounting-fraud and director-consequence papers, Ruback's capital cash flow valuation, Michael Chu (impact/microfinance), Lerner's GP-led secondaries work, HBS course syllabi for Real Property and Investment Management.
