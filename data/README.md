@@ -48,7 +48,10 @@ Read `research_notes` before outreach: it flags sanctions, legal issues, retirem
 
 ## `uhnw_outreach.csv` — the outreach list
 `uhnw_enriched.csv` minus people unlikely to engage (built by `scripts/build_outreach.py`): known age under 40 or 90+,
-people research found to have died, and records that are not an identifiable individual. Unknown ages are kept.
+people research found to have died, records that are not an identifiable individual, and mainland-China entries
+without international visibility (kept only with an English Wikipedia article or a personal public channel).
+Duplicates of the same Chinese entrepreneur under English and pinyin names (e.g. Jack Ma / Ma Yun) are merged.
+Unknown ages are kept.
 Removed rows, with the reason, are in `uhnw_weeded_out.csv`. Ages come from Forbes, Wikidata or Hurun birth years
 (`age_source`; Hurun ages are approximate).
 
