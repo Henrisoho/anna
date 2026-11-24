@@ -39,6 +39,11 @@ Run the CLI from anywhere: `python3 <skill-dir>/scripts/dd.py <command>`. `dd.py
    NAV loan: `fund,nav-lending`). If you pick no subtype, every subtype's items are included, so pick them when known.
 3. **Build.** `dd.py packet --type <types> --subtype <subtypes> --conditions <conditions> --deal "<name>" --sponsor "<name>" --out <dir>`.
    Each library filters by its own subtypes only; a library with none of its subtypes chosen includes everything.
+   Add `--parts 4` (or 2, 3, 6) to also split the sponsor list into separately sendable parts. After a first build,
+   read the list and drop items that plainly do not fit this deal (e.g. fund-sponsor items for an operating company,
+   or the same document requested by two libraries) with `--exclude ID,ID`; the exclusions are recorded in the tracker.
+   When two libraries both apply (e.g. an operator buying a target), say in the cover note which items refer to the
+   issuer and which to the target.
    This writes:
    - `01_request_list.md`: the sponsor-facing list, ordered by stage (screen, term sheet, confirmatory,
      third party, closing, monitoring), with priority, workstream and the evidence format, plus the management

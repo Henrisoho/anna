@@ -6,7 +6,7 @@ Standard library only. If `openpyxl` is installed, packets also get an Excel tra
 Commands
   types                                   list deal types and subtypes
   intake   --type T[,T2]                  print intake questions for a deal type
-  packet   --type T[,T2] [--subtype a,b] [--conditions c,d] --deal NAME [--sponsor NAME] [--out DIR]
+  packet   --type T[,T2] [--subtype a,b] [--conditions c,d] [--parts 4] --deal NAME [--sponsor NAME] [--out DIR]
                                           build the request packet, reviewer checklist and tracker
   update   --tracker FILE --id ID --status S [--evidence TEXT] [--note TEXT] [--by NAME]
                                           record a review result for one item
@@ -42,6 +42,19 @@ STAGE_TITLES = {
     "monitoring": "Stage 6. Post-close reporting and monitoring",
 }
 PRIORITIES = ["gating", "core", "supporting"]
+# --parts N splits the sponsor-facing list into N sendable parts (stage groupings).
+PART_GROUPS = {
+    2: [("Screen and term sheet", ["screen", "term-sheet"]),
+        ("Confirmatory diligence, third-party reports, closing and monitoring",
+         ["confirmatory", "third-party", "closing", "monitoring"])],
+    3: [("Screen and term sheet", ["screen", "term-sheet"]),
+        ("Confirmatory diligence and third-party reports", ["confirmatory", "third-party"]),
+        ("Closing and post-close monitoring", ["closing", "monitoring"])],
+    4: [("Screen", ["screen"]), ("Pre-term-sheet diligence and management questionnaire", ["term-sheet"]),
+        ("Confirmatory diligence and third-party reports", ["confirmatory", "third-party"]),
+        ("Closing deliverables and post-close reporting", ["closing", "monitoring"])],
+    6: [(STAGE, [STAGE]) for STAGE in STAGES],
+}
 WORKSTREAMS = [
     "Sponsor & Background", "KYC/AML & Sanctions", "Corporate & Legal", "Financial", "Tax",
     "Commercial & Market", "Operational", "Technical", "Collateral & Title", "Regulatory & Compliance",
@@ -130,6 +143,13 @@ def cmd_packet(a):
     subtypes = [s for s in (a.subtype or "").split(",") if s]
     conditions = [s for s in (a.conditions or "").split(",") if s]
     libs, d = assemble(types, subtypes, conditions)
+    exclude = {x for x in (a.exclude or "").split(",") if x}
+    if exclude:
+        known = {i["id"] for k in ("requests", "kill_tests", "red_flags", "hard_questions") for i in d[k]}
+        if exclude - known:
+            sys.exit(f"--exclude ids not in this packet: {sorted(exclude - known)}")
+        for k in ("requests", "kill_tests", "red_flags", "hard_questions"):
+            d[k] = [i for i in d[k] if i["id"] not in exclude]
     slug = "".join(c if c.isalnum() else "-" for c in a.deal.lower()).strip("-")
     out = Path(a.out or f"dd-{slug}")
     out.mkdir(parents=True, exist_ok=True)
@@ -168,6 +188,8 @@ def cmd_packet(a):
             L.append(f"{i}. {q['question']}  `{q['id']}`")
         L.append("")
     (out / "01_request_list.md").write_text("\n".join(L))
+    if a.parts:
+        write_parts(out, a, d, names, subtypes, sponsor, today)
 
     # Internal reviewer checklist with pass criteria
     R = [f"# Reviewer checklist (internal): {a.deal}", "",
@@ -210,7 +232,7 @@ def cmd_packet(a):
             items.append({**{k: v for k, v in it.items() if not k.startswith("_")}, "deal_type": it["_type"],
                           "kind": kind, "status": default, "evidence": "", "note": "", "by": "", "date": ""})
     tracker = {"deal": a.deal, "sponsor": a.sponsor or "", "types": types, "subtypes": subtypes,
-               "conditions": conditions,
+               "conditions": conditions, "excluded": sorted(exclude),
                "created": today, "metrics": d["metrics"], "third_party_reports": d["third_party_reports"],
                "chapters": chapters, "items": items}
     tp = out / "tracker.json"
@@ -222,6 +244,41 @@ def cmd_packet(a):
     print(f"  tracker.json            review state; update with: dd.py update --tracker {tp} --id ID --status S")
     if xl:
         print(f"  03_tracker.xlsx         spreadsheet request tracker")
+
+
+def write_parts(out, a, d, names, subtypes, sponsor, today):
+    if a.parts not in PART_GROUPS:
+        sys.exit(f"--parts must be one of {sorted(PART_GROUPS)}")
+    groups = PART_GROUPS[a.parts]
+    num = {r["id"]: i for i, r in enumerate(d["requests"], 1)}
+    q_part = next((i for i, (_, sts) in enumerate(groups) if "term-sheet" in sts), 0)
+    for i, (title, sts) in enumerate(groups):
+        items = [r for r in d["requests"] if r.get("stage") in sts]
+        g = sum(r["priority"] == "gating" for r in items)
+        P = [f"# Due Diligence Request Packet, Part {i + 1} of {len(groups)}: {title}", "",
+             f"Deal: {a.deal}  |  Deal type: {names}" + (f" ({', '.join(subtypes)})" if subtypes else ""),
+             f"Prepared for: {sponsor}  |  Date: {today}", "",
+             f"{len(items)} requests ({g} gating). "
+             + ("Part 1 goes out with our first reply. " if i == 0 else
+                f"We send Part {i + 1} once Part {i} has been reviewed and cleared. ")
+             + "Gating items must be satisfied for the deal to proceed; core items are required; supporting items "
+               "are requested (tell us if one does not exist). Upload each document to the data room in a folder "
+               "named with its request number. Write \"N/A\" with a one-line reason for anything that does not "
+               "apply. We verify bank statements, confirmations and third-party documents directly with the issuer.", ""]
+        for st in sts:
+            rs = [r for r in items if r.get("stage") == st]
+            if not rs:
+                continue
+            P += [f"## {STAGE_TITLES[st]}", "", "| # | Ref | Priority | Workstream | Request | What we need to see |",
+                  "|---|---|---|---|---|---|"]
+            P += [f"| {num[r['id']]} | {r['id']} | {r['priority'].upper()} | {md_escape(r['workstream'])} | "
+                  f"{md_escape(r['request'])} | {md_escape(r.get('format'))} |" for r in rs] + [""]
+        if i == q_part and d["hard_questions"]:
+            P += ["## Management questionnaire", "",
+                  "Answer each question in writing before the management call.", ""]
+            P += [f"{k}. {q['question']}  `{q['id']}`" for k, q in enumerate(d["hard_questions"], 1)] + [""]
+        (out / f"01_part{i + 1}_{'-'.join(sts)}.md").write_text("\n".join(P))
+        print(f"  01_part{i + 1}_{'-'.join(sts)}.md  {len(items)} requests ({g} gating)")
 
 
 def write_xlsx(path, deal, d):
@@ -487,6 +544,8 @@ def main():
     s = sp.add_parser("packet"); s.add_argument("--type", required=True); s.add_argument("--subtype")
     s.add_argument("--conditions", help="universal deal conditions, e.g. operating-company,levered-vehicle")
     s.add_argument("--deal", required=True); s.add_argument("--sponsor"); s.add_argument("--out")
+    s.add_argument("--exclude", help="comma-separated item ids that do not apply to this deal (recorded in tracker)")
+    s.add_argument("--parts", type=int, help="also split the sponsor list into 2, 3, 4 or 6 sendable parts")
     s = sp.add_parser("update"); s.add_argument("--tracker", required=True); s.add_argument("--id", required=True)
     s.add_argument("--status", required=True); s.add_argument("--evidence"); s.add_argument("--note"); s.add_argument("--by")
     s = sp.add_parser("bulk"); s.add_argument("--tracker", required=True); s.add_argument("--json", required=True)
