@@ -204,42 +204,6 @@
       "id": "RE-SB-001",
       "order": 20,
       "stage": "screen",
-      "priority": "gating",
-      "workstream": "Sponsor & Background",
-      "request": "Real estate track record schedule: every prior deal by the sponsor and principals (property, type, strategy, dates, equity raised, debt, realized or current IRR and multiple, losses, current status), with three references from lenders or LPs on those deals.",
-      "format": "Excel schedule, one row per deal, covering every deal including failed, foreclosed, deed-in-lieu and abandoned deals; reference contact details.",
-      "why": "Selective track records hide the deals that failed.",
-      "pass": "Schedule ties to county recorder and lender records for a sample of at least 5 deals (or all if fewer); no undisclosed deal found in public-record searches; references confirm outcomes.",
-      "fail": "Deals found in public records that are missing from the schedule; references unreachable or contradicting outcomes.",
-      "verify": "Search county recorder, UCC and litigation records for the sponsor and every affiliate entity and compare with the schedule; call references we source independently, not only those supplied.",
-      "applies_to": [
-        "all"
-      ],
-      "ref": "1.3",
-      "weak": false
-    },
-    {
-      "id": "RE-SB-002",
-      "order": 30,
-      "stage": "screen",
-      "priority": "core",
-      "workstream": "Sponsor & Background",
-      "request": "Forecast-miss history: for every prior deal, the original underwriting pro forma (NOI, exit cap, hold, IRR) set against actual results.",
-      "format": "Original offering memoranda or IC models as dated at the time, plus actual operating statements or final distribution statements.",
-      "why": "Repeated optimistic misses are a fraud precursor and the best predictor of this deal's miss.",
-      "pass": "Original pro formas produced for at least 80% of prior deals; misses explained deal by deal; no pattern of NOI or exit-value misses in the same direction on a majority of deals without disclosure.",
-      "fail": "Pro formas 'not retained'; systematic optimistic misses; actuals that cannot be tied to distribution records.",
-      "verify": "Ask former LPs or lenders for the offering documents they received and compare with the sponsor's copies.",
-      "applies_to": [
-        "all"
-      ],
-      "ref": "1.3, 1.4, 0.2",
-      "weak": false
-    },
-    {
-      "id": "RE-SB-003",
-      "order": 40,
-      "stage": "screen",
       "priority": "core",
       "workstream": "Sponsor & Background",
       "request": "Schedule of every loan extension, modification, forbearance and workout on the sponsor's prior deals, stating for each whether it was a documented workout under the June 2023 interagency CRE accommodations and workouts policy statement.",
@@ -255,44 +219,8 @@
       "weak": false
     },
     {
-      "id": "RE-SB-004",
-      "order": 50,
-      "stage": "screen",
-      "priority": "gating",
-      "workstream": "Sponsor & Background",
-      "request": "Every marketing deck, PPM excerpt, investor letter and solicitation script used for this deal and the sponsor's current offerings that states a target, projected or promised return.",
-      "format": "Complete copies as sent to investors, with distribution dates.",
-      "why": "Guaranteed or 'can't lose' returns, and returns smooth relative to the strategy, are Ponzi signatures (Drive Planning, First Liberty).",
-      "pass": "No guaranteed, 'can't lose', collateral-backed-guarantee or fixed-periodic-return language; projected returns are labelled as projections with stated assumptions.",
-      "fail": "Any guaranteed return, return 'backed by collateral' representation, or fixed high return per period (for example 10% per six months).",
-      "verify": "Obtain the same materials independently from an existing investor or placement agent and compare with what the sponsor supplied.",
-      "applies_to": [
-        "all"
-      ],
-      "ref": "1.8, 1.9",
-      "weak": false
-    },
-    {
-      "id": "RE-SB-005",
-      "order": 60,
-      "stage": "screen",
-      "priority": "core",
-      "workstream": "Sponsor & Background",
-      "request": "List of every person in the placement chain for this offering and the sponsor's prior offerings: COO, managing partners, sales agents, finders and broker-dealers, with roles and compensation.",
-      "format": "Named list with entity, role, compensation basis and registration (CRD) number where applicable; feeds the universal background-check workflow.",
-      "why": "Second-tier executives and sales agents were also defendants in Drive Planning.",
-      "pass": "Every named person is cleared by the universal background check; every person paid transaction-based compensation is a registered broker-dealer representative.",
-      "fail": "Unregistered sales agents paid on commission; any person with prior securities or fraud findings; refusal to name the chain.",
-      "verify": "Run FINRA BrokerCheck and SEC action searches on each name; ask investors who solicited them and match against the list.",
-      "applies_to": [
-        "all"
-      ],
-      "ref": "1.3, 1.4, 1.8",
-      "weak": false
-    },
-    {
       "id": "RE-VAL-001",
-      "order": 70,
+      "order": 30,
       "stage": "screen",
       "priority": "gating",
       "workstream": "Valuation & Model",
@@ -324,7 +252,7 @@
     },
     {
       "id": "RE-FIN-001",
-      "order": 80,
+      "order": 40,
       "stage": "screen",
       "priority": "gating",
       "workstream": "Financial",
@@ -342,7 +270,7 @@
     },
     {
       "id": "RE-ST-002",
-      "order": 90,
+      "order": 50,
       "stage": "screen",
       "priority": "core",
       "workstream": "Structure & Terms",
@@ -359,26 +287,8 @@
       "weak": false
     },
     {
-      "id": "RE-VAL-002",
-      "order": 10,
-      "stage": "term-sheet",
-      "priority": "gating",
-      "workstream": "Valuation & Model",
-      "request": "Complete underwriting model in live spreadsheet form with every formula, assumption and source tab.",
-      "format": "Native Excel file (no hard-coded outputs), with a version date.",
-      "why": "A model we cannot rebuild cannot be challenged.",
-      "pass": "We can rebuild NOI and cash flow from the rent roll and T-12 within 2%; no hard-coded outputs; every assumption sourced.",
-      "fail": "PDF-only model, hard-coded NOI, or assumptions without source.",
-      "verify": "Rebuild the pro forma independently from leases, rent roll and bank-reconciled T-12; do not accept sponsor NOI.",
-      "applies_to": [
-        "all"
-      ],
-      "ref": "1.3, 1.4",
-      "weak": false
-    },
-    {
       "id": "RE-FIN-002",
-      "order": 20,
+      "order": 10,
       "stage": "term-sheet",
       "priority": "gating",
       "workstream": "Financial",
@@ -396,7 +306,7 @@
     },
     {
       "id": "RE-FIN-003",
-      "order": 30,
+      "order": 20,
       "stage": "term-sheet",
       "priority": "gating",
       "workstream": "Financial",
@@ -414,7 +324,7 @@
     },
     {
       "id": "RE-FIN-004",
-      "order": 40,
+      "order": 30,
       "stage": "term-sheet",
       "priority": "core",
       "workstream": "Financial",
@@ -435,7 +345,7 @@
     },
     {
       "id": "RE-FIN-005",
-      "order": 50,
+      "order": 40,
       "stage": "term-sheet",
       "priority": "gating",
       "workstream": "Financial",
@@ -465,7 +375,7 @@
     },
     {
       "id": "RE-FIN-006",
-      "order": 60,
+      "order": 50,
       "stage": "term-sheet",
       "priority": "core",
       "workstream": "Financial",
@@ -494,8 +404,8 @@
       "weak": false
     },
     {
-      "id": "RE-VAL-003",
-      "order": 70,
+      "id": "RE-VAL-002",
+      "order": 60,
       "stage": "term-sheet",
       "priority": "gating",
       "workstream": "Valuation & Model",
@@ -512,8 +422,8 @@
       "weak": false
     },
     {
-      "id": "RE-VAL-004",
-      "order": 80,
+      "id": "RE-VAL-003",
+      "order": 70,
       "stage": "term-sheet",
       "priority": "core",
       "workstream": "Valuation & Model",
@@ -530,8 +440,8 @@
       "weak": false
     },
     {
-      "id": "RE-VAL-005",
-      "order": 90,
+      "id": "RE-VAL-004",
+      "order": 80,
       "stage": "term-sheet",
       "priority": "core",
       "workstream": "Valuation & Model",
@@ -540,7 +450,7 @@
       "why": "Appraisal marks lag public markets; aggressive exit caps are the most common equity-killer.",
       "pass": "All three numbers shown; exit cap is at or above the highest of them, or each gap above 50 bp is explained by documented growth or risk differences.",
       "fail": "Exit cap below the framework rate and REIT-implied cap with no documented reason.",
-      "verify": "We recompute each input independently and write the three numbers into the IC memo.",
+      "verify": "We recompute each input independently and write the three numbers into the IC memo. Generic request also in universal U-VAL-018; this item sets the real estate pass criteria.",
       "applies_to": [
         "stabilized",
         "value-add",
@@ -562,49 +472,8 @@
       "weak": false
     },
     {
-      "id": "RE-VAL-006",
-      "order": 100,
-      "stage": "term-sheet",
-      "priority": "core",
-      "workstream": "Valuation & Model",
-      "request": "Rent and value growth assumptions with support; any growth above inflation must cite a documented supply constraint.",
-      "format": "Assumptions tab with sources.",
-      "why": "Long-run real US home prices and real construction costs show little trend outside booms.",
-      "pass": "Value growth at or below inflation unless a specific, documented supply constraint is evidenced.",
-      "fail": "Real appreciation underwritten as a return driver without a documented supply constraint.",
-      "verify": "Compare with local permitting and supply pipeline data we pull.",
-      "applies_to": [
-        "all"
-      ],
-      "ref": "1.4",
-      "weak": false
-    },
-    {
-      "id": "RE-VAL-007",
-      "order": 110,
-      "stage": "term-sheet",
-      "priority": "core",
-      "workstream": "Valuation & Model",
-      "request": "Credit-cycle overlay: the 3-year change in household debt to GDP for the market (BIS or Fed Z.1) and, if in the top third of history, a downside case with revenue growth 2 points lower for 3 years.",
-      "format": "Model tab plus the data series and date.",
-      "why": "A one-standard-deviation rise in household debt (6.2 points over 3 years) predicts 2.1 points lower GDP growth over the next 3.",
-      "pass": "Overlay computed; downside run where triggered and debt still repaid.",
-      "fail": "Overlay omitted for a housing or consumer-demand-driven asset.",
-      "verify": "Pull the BIS or Z.1 series ourselves.",
-      "applies_to": [
-        "multifamily",
-        "sfr-dscr",
-        "hospitality",
-        "retail",
-        "construction",
-        "development"
-      ],
-      "ref": "1.4, Chapter 0",
-      "weak": false
-    },
-    {
-      "id": "RE-VAL-008",
-      "order": 120,
+      "id": "RE-VAL-005",
+      "order": 90,
       "stage": "term-sheet",
       "priority": "core",
       "workstream": "Valuation & Model",
@@ -621,8 +490,8 @@
       "weak": false
     },
     {
-      "id": "RE-VAL-009",
-      "order": 130,
+      "id": "RE-VAL-006",
+      "order": 100,
       "stage": "term-sheet",
       "priority": "core",
       "workstream": "Valuation & Model",
@@ -641,7 +510,7 @@
     },
     {
       "id": "RE-ST-003",
-      "order": 140,
+      "order": 110,
       "stage": "term-sheet",
       "priority": "core",
       "workstream": "Structure & Terms",
@@ -663,44 +532,8 @@
       "weak": true
     },
     {
-      "id": "RE-ST-004",
-      "order": 150,
-      "stage": "term-sheet",
-      "priority": "gating",
-      "workstream": "Structure & Terms",
-      "request": "Schedule of every affiliate and related-party fee and contract (acquisition, development, construction management, general contracting, property management, leasing, refinancing, disposition) with the rate, the market comparison, and the LPAC or investor approval for each.",
-      "format": "Schedule plus executed agreements and LPAC minutes or investor consents.",
-      "why": "Unauthorized fees, no step-down after write-downs, and related-party fees without consent are standard SEC exam findings.",
-      "pass": "Every affiliate fee is disclosed, approved by the LPAC or investors in writing, and at or below the market comparison.",
-      "fail": "Any affiliate fee without consent; related-party construction contracts above market.",
-      "verify": "Trace fee payments through bank statements and compare with the schedule (see affiliate fee trace).",
-      "applies_to": [
-        "all"
-      ],
-      "ref": "1.3, 1.4, 1.7, 1.9",
-      "weak": false
-    },
-    {
       "id": "RE-FIN-007",
-      "order": 160,
-      "stage": "term-sheet",
-      "priority": "core",
-      "workstream": "Financial",
-      "request": "Sources and uses for the transaction, including closing costs, reserves (interest, capex, tenant improvement and leasing), fees to affiliates and the sponsor's cash equity.",
-      "format": "Signed schedule tied to the PSA, loan term sheet and budget.",
-      "why": "Hidden fees and thin reserves surface in sources and uses first.",
-      "pass": "Uses tie to PSA price, budget and lender closing statement; reserves funded at closing; equity from verified sources.",
-      "fail": "Plug lines, unexplained 'other' uses, affiliate fees not on the fee schedule.",
-      "verify": "Tie to the title company closing statement at closing.",
-      "applies_to": [
-        "all"
-      ],
-      "ref": "1.3",
-      "weak": false
-    },
-    {
-      "id": "RE-FIN-008",
-      "order": 170,
+      "order": 120,
       "stage": "term-sheet",
       "priority": "core",
       "workstream": "Financial",
@@ -709,7 +542,7 @@
       "why": "GGP: thin fund reserves and short-term debt made owners the most vulnerable.",
       "pass": "Reserves counted only where cash is verified and not pledged elsewhere; fund-level debt included in the maturity ladder.",
       "fail": "Asset-level-only view; reserves that are committed to other assets.",
-      "verify": "Confirm reserve balances directly with the bank.",
+      "verify": "Confirm reserve balances directly with the bank. Generic request also in universal U-FND-002; this item sets the real estate pass criteria.",
       "applies_to": [
         "all"
       ],
@@ -717,8 +550,8 @@
       "weak": false
     },
     {
-      "id": "RE-FIN-009",
-      "order": 180,
+      "id": "RE-FIN-008",
+      "order": 130,
       "stage": "term-sheet",
       "priority": "core",
       "workstream": "Financial",
@@ -742,7 +575,7 @@
     },
     {
       "id": "RE-CL-001",
-      "order": 190,
+      "order": 140,
       "stage": "term-sheet",
       "priority": "core",
       "workstream": "Corporate & Legal",
@@ -761,7 +594,7 @@
     },
     {
       "id": "RE-CL-002",
-      "order": 200,
+      "order": 150,
       "stage": "term-sheet",
       "priority": "core",
       "workstream": "Corporate & Legal",
@@ -779,7 +612,7 @@
       "weak": false
     },
     {
-      "id": "RE-FIN-010",
+      "id": "RE-FIN-009",
       "order": 10,
       "stage": "confirmatory",
       "priority": "gating",
@@ -809,7 +642,7 @@
       "weak": false
     },
     {
-      "id": "RE-FIN-011",
+      "id": "RE-FIN-010",
       "order": 20,
       "stage": "confirmatory",
       "priority": "gating",
@@ -839,7 +672,7 @@
       "weak": false
     },
     {
-      "id": "RE-FIN-012",
+      "id": "RE-FIN-011",
       "order": 30,
       "stage": "confirmatory",
       "priority": "gating",
@@ -869,7 +702,7 @@
       "weak": false
     },
     {
-      "id": "RE-FIN-013",
+      "id": "RE-FIN-012",
       "order": 40,
       "stage": "confirmatory",
       "priority": "gating",
@@ -897,7 +730,7 @@
       "weak": false
     },
     {
-      "id": "RE-FIN-014",
+      "id": "RE-FIN-013",
       "order": 50,
       "stage": "confirmatory",
       "priority": "core",
@@ -974,7 +807,7 @@
       "weak": false
     },
     {
-      "id": "RE-FIN-015",
+      "id": "RE-FIN-014",
       "order": 80,
       "stage": "confirmatory",
       "priority": "core",
@@ -1022,7 +855,7 @@
       "weak": false
     },
     {
-      "id": "RE-FIN-016",
+      "id": "RE-FIN-015",
       "order": 100,
       "stage": "confirmatory",
       "priority": "gating",
@@ -1040,7 +873,7 @@
       "weak": false
     },
     {
-      "id": "RE-FIN-017",
+      "id": "RE-FIN-016",
       "order": 110,
       "stage": "confirmatory",
       "priority": "core",
@@ -1058,7 +891,7 @@
       "weak": false
     },
     {
-      "id": "RE-FIN-018",
+      "id": "RE-FIN-017",
       "order": 120,
       "stage": "confirmatory",
       "priority": "core",
@@ -1081,27 +914,8 @@
       "weak": false
     },
     {
-      "id": "RE-FIN-019",
-      "order": 130,
-      "stage": "confirmatory",
-      "priority": "gating",
-      "workstream": "Financial",
-      "request": "Income verification for residential credit, DSCR and single-family rental pools: IRS transcripts (Form 4506-C), payroll records or bank-deposit verification on a statistically meaningful sample, plus pool income growth compared with local IRS SOI income growth.",
-      "format": "Third-party verification results and a sample design memo.",
-      "why": "In the worst 2002-05 zip codes application income ran about 90% above IRS income.",
-      "pass": "Verified income within tolerance on the sample; pool income growth not faster than local IRS income growth.",
-      "fail": "Stated-income pools with no verification; stated income growing faster than local IRS income.",
-      "verify": "Order transcripts through an approved IVES vendor ourselves.",
-      "applies_to": [
-        "sfr-dscr",
-        "note-purchase"
-      ],
-      "ref": "1.4, 1.9",
-      "weak": false
-    },
-    {
       "id": "RE-COL-001",
-      "order": 140,
+      "order": 130,
       "stage": "confirmatory",
       "priority": "gating",
       "workstream": "Collateral & Title",
@@ -1110,7 +924,7 @@
       "why": "Drive Planning raised $372M and new money paid old investors.",
       "pass": "Every disbursement traces to a named project and recorded deed or mortgage; no investor-to-investor flows.",
       "fail": "Proceeds to sponsor or other investors; projects without recorded interests.",
-      "verify": "Confirm with the title companies and county recorder.",
+      "verify": "Confirm with the title companies and county recorder. Generic request also in universal U-STR-002; this item sets the real estate pass criteria.",
       "applies_to": [
         "bridge",
         "development",
@@ -1122,8 +936,8 @@
       "weak": false
     },
     {
-      "id": "RE-FIN-020",
-      "order": 150,
+      "id": "RE-FIN-018",
+      "order": 140,
       "stage": "confirmatory",
       "priority": "gating",
       "workstream": "Financial",
@@ -1142,8 +956,8 @@
       "weak": false
     },
     {
-      "id": "RE-FIN-021",
-      "order": 160,
+      "id": "RE-FIN-019",
+      "order": 150,
       "stage": "confirmatory",
       "priority": "gating",
       "workstream": "Financial",
@@ -1161,8 +975,8 @@
       "weak": false
     },
     {
-      "id": "RE-FIN-022",
-      "order": 170,
+      "id": "RE-FIN-020",
+      "order": 160,
       "stage": "confirmatory",
       "priority": "core",
       "workstream": "Financial",
@@ -1181,7 +995,7 @@
     },
     {
       "id": "RE-CL-003",
-      "order": 180,
+      "order": 170,
       "stage": "confirmatory",
       "priority": "gating",
       "workstream": "Corporate & Legal",
@@ -1200,8 +1014,8 @@
       "weak": false
     },
     {
-      "id": "RE-FIN-023",
-      "order": 190,
+      "id": "RE-FIN-021",
+      "order": 180,
       "stage": "confirmatory",
       "priority": "core",
       "workstream": "Financial",
@@ -1221,7 +1035,7 @@
     },
     {
       "id": "RE-TEC-001",
-      "order": 200,
+      "order": 190,
       "stage": "confirmatory",
       "priority": "core",
       "workstream": "Technical",
@@ -1240,7 +1054,7 @@
     },
     {
       "id": "RE-COM-003",
-      "order": 210,
+      "order": 200,
       "stage": "confirmatory",
       "priority": "core",
       "workstream": "Commercial & Market",
@@ -1261,7 +1075,7 @@
     },
     {
       "id": "RE-REG-001",
-      "order": 220,
+      "order": 210,
       "stage": "confirmatory",
       "priority": "gating",
       "workstream": "Regulatory & Compliance",
@@ -1280,7 +1094,7 @@
     },
     {
       "id": "RE-COM-004",
-      "order": 230,
+      "order": 220,
       "stage": "confirmatory",
       "priority": "core",
       "workstream": "Commercial & Market",
@@ -1297,29 +1111,8 @@
       "weak": true
     },
     {
-      "id": "RE-CL-004",
-      "order": 240,
-      "stage": "confirmatory",
-      "priority": "gating",
-      "workstream": "Corporate & Legal",
-      "request": "Construction or bridge lender profile: lender identity, funding mix (deposits, uninsured share, warehouse), CRE concentration, and the loan provisions that keep the draw commitment alive if the lender fails (replacement lender, assignment rights).",
-      "format": "Lender's latest call report or financials and the loan agreement sections.",
-      "why": "First Republic lost $25B of deposits in a day; a failed lender stops funding draws.",
-      "pass": "Draw commitment survives lender failure through assignment or replacement-lender provisions; lender's CRE concentration and funding reviewed.",
-      "fail": "No survival provisions with a lender showing high uninsured deposits or CRE concentration above 300%.",
-      "verify": "Pull call report data (FFIEC) ourselves.",
-      "applies_to": [
-        "construction",
-        "development",
-        "bridge",
-        "value-add"
-      ],
-      "ref": "1.3, 1.4, 1.8, 1.11",
-      "weak": false
-    },
-    {
       "id": "RE-COM-005",
-      "order": 250,
+      "order": 230,
       "stage": "confirmatory",
       "priority": "core",
       "workstream": "Commercial & Market",
@@ -1337,7 +1130,7 @@
     },
     {
       "id": "RE-COM-006",
-      "order": 260,
+      "order": 240,
       "stage": "confirmatory",
       "priority": "core",
       "workstream": "Commercial & Market",
@@ -1355,7 +1148,7 @@
     },
     {
       "id": "RE-COM-007",
-      "order": 270,
+      "order": 250,
       "stage": "confirmatory",
       "priority": "core",
       "workstream": "Commercial & Market",
@@ -1373,7 +1166,7 @@
     },
     {
       "id": "RE-COM-008",
-      "order": 280,
+      "order": 260,
       "stage": "confirmatory",
       "priority": "core",
       "workstream": "Commercial & Market",
@@ -1391,7 +1184,7 @@
     },
     {
       "id": "RE-COM-009",
-      "order": 290,
+      "order": 270,
       "stage": "confirmatory",
       "priority": "core",
       "workstream": "Commercial & Market",
@@ -1408,27 +1201,8 @@
       "weak": true
     },
     {
-      "id": "RE-ENV-001",
-      "order": 300,
-      "stage": "confirmatory",
-      "priority": "gating",
-      "workstream": "Environmental & ESG",
-      "request": "Water certainty package for Phoenix, Las Vegas and Denver Front Range development: will-serve letter, water source, seniority of rights (senior or junior), and water cost at post-2026 tiered pricing.",
-      "format": "Will-serve letter from the utility; water-rights documents; tariff schedule.",
-      "why": "Colorado River flows average about 12.5M acre-feet against 16.5M allocated; further 20% to 30% declines projected.",
-      "pass": "Unconditional will-serve letter; source and seniority documented; cost underwritten at tiered pricing.",
-      "fail": "No will-serve letter; junior rights on a stressed source; water cost at legacy rates.",
-      "verify": "Water-rights counsel or engineer confirms.",
-      "applies_to": [
-        "construction",
-        "development"
-      ],
-      "ref": "1.3, 1.13",
-      "weak": false
-    },
-    {
-      "id": "RE-CL-005",
-      "order": 310,
+      "id": "RE-CL-004",
+      "order": 280,
       "stage": "confirmatory",
       "priority": "gating",
       "workstream": "Corporate & Legal",
@@ -1457,16 +1231,16 @@
     },
     {
       "id": "RE-COL-002",
-      "order": 320,
+      "order": 290,
       "stage": "confirmatory",
       "priority": "gating",
       "workstream": "Collateral & Title",
-      "request": "Title commitment with copies of every exception document, plus lien, UCC, judgment and litigation searches on the property and owner.",
+      "request": "Title commitment with copies of every exception document for each property.",
       "format": "Commitment from a national title insurer; search results dated within 30 days.",
       "why": "Undisclosed liens and judgments prime or cloud the collateral.",
       "pass": "Only permitted exceptions remain; all liens to be paid at closing identified; no judgments against owner or guarantors.",
       "fail": "Mechanics liens, tax liens or judgments not cleared.",
-      "verify": "Title company and search vendor engaged by us.",
+      "verify": "Title company and search vendor engaged by us. Generic request also in universal U-COL-006; this item sets the real estate pass criteria.",
       "applies_to": [
         "all"
       ],
@@ -1475,7 +1249,7 @@
     },
     {
       "id": "RE-COL-003",
-      "order": 330,
+      "order": 300,
       "stage": "confirmatory",
       "priority": "core",
       "workstream": "Collateral & Title",
@@ -1503,7 +1277,7 @@
     },
     {
       "id": "RE-REG-002",
-      "order": 340,
+      "order": 310,
       "stage": "confirmatory",
       "priority": "gating",
       "workstream": "Regulatory & Compliance",
@@ -1520,26 +1294,8 @@
       "weak": false
     },
     {
-      "id": "RE-COL-004",
-      "order": 350,
-      "stage": "confirmatory",
-      "priority": "gating",
-      "workstream": "Collateral & Title",
-      "request": "Confirmation of every claimed property and LP interest: deeds for each property the sponsor or fund claims, and the entity records showing each claimed LP interest.",
-      "format": "Recorded deeds and entity capital account records.",
-      "why": "Wells Real Estate claimed $450M of property but bought about $11M; LeFever Mattson sold $46M of fake LP interests.",
-      "pass": "Every claimed property confirmed at the county recorder in the claimed owner's name; every LP interest confirmed against the entity's own records.",
-      "fail": "Any property or interest not confirmed.",
-      "verify": "County recorder search and direct confirmation with the entity's administrator.",
-      "applies_to": [
-        "all"
-      ],
-      "ref": "1.4, 1.8",
-      "weak": false
-    },
-    {
-      "id": "RE-CL-006",
-      "order": 360,
+      "id": "RE-CL-005",
+      "order": 320,
       "stage": "confirmatory",
       "priority": "core",
       "workstream": "Corporate & Legal",
@@ -1556,26 +1312,8 @@
       "weak": false
     },
     {
-      "id": "RE-CL-007",
-      "order": 370,
-      "stage": "confirmatory",
-      "priority": "core",
-      "workstream": "Corporate & Legal",
-      "request": "Formation documents, operating agreement, good standing and org chart for every property-owning, borrower, guarantor and managing entity in the deal.",
-      "format": "Certified copies; good standing certificates dated within 30 days.",
-      "why": "Wrong entity or authority makes documents unenforceable.",
-      "pass": "Chart ties to formation documents; signatories authorized; all entities in good standing.",
-      "fail": "Entities not in good standing or authority gaps.",
-      "verify": "Secretary of State searches by us.",
-      "applies_to": [
-        "all"
-      ],
-      "ref": "1.3",
-      "weak": false
-    },
-    {
       "id": "RE-TEC-002",
-      "order": 380,
+      "order": 330,
       "stage": "confirmatory",
       "priority": "gating",
       "workstream": "Technical",
@@ -1592,8 +1330,8 @@
       "weak": false
     },
     {
-      "id": "RE-ENV-002",
-      "order": 390,
+      "id": "RE-ENV-001",
+      "order": 340,
       "stage": "confirmatory",
       "priority": "gating",
       "workstream": "Environmental & ESG",
@@ -1602,7 +1340,7 @@
       "why": "Environmental liability can exceed the property value.",
       "pass": "No RECs, or Phase II completed with remediation costed and funded.",
       "fail": "RECs without Phase II; no reliance letter.",
-      "verify": "Consultant engaged by us or reliance letter issued to us.",
+      "verify": "Consultant engaged by us or reliance letter issued to us. Generic request also in universal U-ESG-003; this item sets the real estate pass criteria.",
       "applies_to": [
         "all"
       ],
@@ -1611,7 +1349,7 @@
     },
     {
       "id": "RE-INS-001",
-      "order": 400,
+      "order": 350,
       "stage": "confirmatory",
       "priority": "gating",
       "workstream": "Insurance",
@@ -1620,7 +1358,7 @@
       "why": "Premiums rose about 33% 2020-23 nationally (Florida +90%, Texas +50% vs 2018); last year's bill is not the cost.",
       "pass": "Underwritten insurance equals the bound quote; deductibles and cat terms modelled; 2x premium stress repays debt in catastrophe-exposed markets; exit value stressed for capitalized higher premiums.",
       "fail": "Insurance held flat in a coastal or wildfire market; indication only; terms not modelled.",
-      "verify": "Our broker obtains quotes independently.",
+      "verify": "Our broker obtains quotes independently. Generic request also in universal U-INS-002; this item sets the real estate pass criteria.",
       "applies_to": [
         "all"
       ],
@@ -1629,16 +1367,16 @@
     },
     {
       "id": "RE-INS-002",
-      "order": 410,
+      "order": 360,
       "stage": "confirmatory",
       "priority": "gating",
       "workstream": "Insurance",
-      "request": "Insurability evidence for the full hold: bindable quotes or broker letter on availability for the hold period, any dependence on a state insurer of last resort, and confirmation that the takeout lender will lend at the coverage actually available.",
+      "request": "Insurability evidence for the full hold: broker letter on whether coverage depends on a state insurer of last resort, and written confirmation that the takeout lender will lend at the coverage actually available.",
       "format": "Broker letter and takeout lender confirmation.",
       "why": "Banks will not lend against uninsurable property; an uninsurable asset has no takeout.",
       "pass": "Coverage available from admitted or surplus-lines carriers at a bindable price; takeout lender accepts the coverage.",
       "fail": "Coverage only from a state insurer of last resort; takeout lender will not accept available coverage.",
-      "verify": "Our broker and a takeout lender confirm.",
+      "verify": "Our broker and a takeout lender confirm. Generic request also in universal U-INS-002; this item sets the real estate pass criteria.",
       "applies_to": [
         "all"
       ],
@@ -1647,7 +1385,7 @@
     },
     {
       "id": "RE-INS-003",
-      "order": 420,
+      "order": 370,
       "stage": "confirmatory",
       "priority": "core",
       "workstream": "Insurance",
@@ -1665,17 +1403,17 @@
       "weak": false
     },
     {
-      "id": "RE-FIN-024",
-      "order": 430,
+      "id": "RE-FIN-022",
+      "order": 380,
       "stage": "confirmatory",
       "priority": "core",
       "workstream": "Financial",
-      "request": "Bank counterparty test for any bank that is the construction lender, co-lender, A-note holder or note seller: CRE loans to total capital, uninsured share of deposits, unrealized securities losses against equity, and a 30-day outflow test.",
+      "request": "Bank counterparty CRE test for any bank that is the construction lender, co-lender, A-note holder or note seller: CRE loans to total capital against the 300% supervisory threshold, the property types and vintages it is concentrated in, and our classification of the bank as a likely forced seller (opportunity) or slow enforcer (risk for a co-lender or B-note holder).",
       "format": "Call report extracts and our analysis.",
       "why": "Regional banks extend rather than enforce and can fail mid-draw; 54.8% of regional banks exceed the 300% CRE threshold.",
       "pass": "CRE concentration below 300% of total capital or the risk is mitigated; uninsured deposits and unrealized losses do not threaten solvency in the 30-day test; we classify the bank as forced seller or slow enforcer.",
       "fail": "Concentration above 500%, high uninsured deposits, or unrealized losses exceeding equity, with no mitigant.",
-      "verify": "Compute from FFIEC call report data ourselves.",
+      "verify": "Compute from FFIEC call report data ourselves. Generic request also in universal U-FIN-026; this item sets the real estate pass criteria.",
       "applies_to": [
         "note-purchase",
         "construction",
@@ -1686,8 +1424,8 @@
       "weak": false
     },
     {
-      "id": "RE-VAL-010",
-      "order": 440,
+      "id": "RE-VAL-007",
+      "order": 390,
       "stage": "confirmatory",
       "priority": "gating",
       "workstream": "Valuation & Model",
@@ -1705,29 +1443,8 @@
       "weak": false
     },
     {
-      "id": "RE-VAL-011",
-      "order": 450,
-      "stage": "confirmatory",
-      "priority": "core",
-      "workstream": "Valuation & Model",
-      "request": "Facility renewal stress where the borrower or fund relies on bank or warehouse facilities concentrated in a boomed asset class: advance-rate cuts and non-renewal at the same time as the asset-price decline.",
-      "format": "Model tab.",
-      "why": "After a median real estate bust, systemic risk of banks with unfavourable characteristics rises by almost 70% of the median.",
-      "pass": "Liquidity survives facility non-renewal combined with the 30% value decline.",
-      "fail": "Dependence on facility renewal with no backstop.",
-      "verify": "Rerun in our model.",
-      "applies_to": [
-        "re-fund",
-        "note-purchase",
-        "bridge",
-        "sfr-dscr"
-      ],
-      "ref": "1.11",
-      "weak": false
-    },
-    {
-      "id": "RE-COL-005",
-      "order": 460,
+      "id": "RE-COL-004",
+      "order": 400,
       "stage": "confirmatory",
       "priority": "gating",
       "workstream": "Collateral & Title",
@@ -1744,46 +1461,8 @@
       "weak": false
     },
     {
-      "id": "RE-COL-006",
-      "order": 470,
-      "stage": "confirmatory",
-      "priority": "gating",
-      "workstream": "Collateral & Title",
-      "request": "Borrower-level payment history for every loan, traced to bank deposits.",
-      "format": "Servicer payment histories and collection account bank statements.",
-      "why": "First Liberty claimed 'few defaults'; most loans had defaulted.",
-      "pass": "Payments in the tape trace to deposits from the borrower (not from the seller or affiliates) for every loan in a sample of at least 25%, and all loans above 5% of the pool.",
-      "fail": "Payments from seller-related accounts; missing deposits.",
-      "verify": "Collection account statements obtained directly from the bank.",
-      "applies_to": [
-        "note-purchase",
-        "bridge"
-      ],
-      "ref": "1.3, 1.8",
-      "weak": false
-    },
-    {
-      "id": "RE-COL-007",
-      "order": 480,
-      "stage": "confirmatory",
-      "priority": "gating",
-      "workstream": "Collateral & Title",
-      "request": "Modification, extension and forbearance history for each loan in the tape, plus a delinquency roll (current, 30, 60, 90+, REO) for the last 24 months.",
-      "format": "Loan-level history from the servicer; executed modifications.",
-      "why": "Extensions hide distress; 'few defaults' claims need a delinquency roll.",
-      "pass": "Every modification documented; delinquency roll ties to servicer records.",
-      "fail": "Undisclosed modifications; no roll.",
-      "verify": "Servicer confirms; compare with recorded modifications.",
-      "applies_to": [
-        "note-purchase",
-        "bridge"
-      ],
-      "ref": "1.3, 1.8, 1.9",
-      "weak": false
-    },
-    {
-      "id": "RE-VAL-012",
-      "order": 490,
+      "id": "RE-VAL-008",
+      "order": 410,
       "stage": "confirmatory",
       "priority": "gating",
       "workstream": "Valuation & Model",
@@ -1800,8 +1479,8 @@
       "weak": false
     },
     {
-      "id": "RE-COL-008",
-      "order": 500,
+      "id": "RE-COL-005",
+      "order": 420,
       "stage": "confirmatory",
       "priority": "core",
       "workstream": "Collateral & Title",
@@ -1818,8 +1497,8 @@
       "weak": false
     },
     {
-      "id": "RE-VAL-013",
-      "order": 510,
+      "id": "RE-VAL-009",
+      "order": 430,
       "stage": "confirmatory",
       "priority": "core",
       "workstream": "Valuation & Model",
@@ -1837,8 +1516,8 @@
       "weak": false
     },
     {
-      "id": "RE-FIN-025",
-      "order": 520,
+      "id": "RE-FIN-023",
+      "order": 440,
       "stage": "confirmatory",
       "priority": "gating",
       "workstream": "Financial",
@@ -1855,7 +1534,7 @@
       "weak": false
     },
     {
-      "id": "RE-VAL-014",
+      "id": "RE-VAL-010",
       "order": 10,
       "stage": "third-party",
       "priority": "gating",
@@ -1893,26 +1572,8 @@
       "weak": false
     },
     {
-      "id": "RE-INS-004",
+      "id": "RE-ENV-002",
       "order": 30,
-      "stage": "third-party",
-      "priority": "core",
-      "workstream": "Insurance",
-      "request": "Insurance broker report: bound quotes, three-year premium history and a catastrophe-model view for the property.",
-      "format": "Report from a broker engaged by us.",
-      "why": "The insurance reset is a standing underwriting line.",
-      "pass": "Broker view consistent with underwritten premium and the 2x stress.",
-      "fail": "Broker quote materially above underwritten expense.",
-      "verify": "Broker engaged by us.",
-      "applies_to": [
-        "all"
-      ],
-      "ref": "1.6, 1.13",
-      "weak": false
-    },
-    {
-      "id": "RE-ENV-003",
-      "order": 40,
       "stage": "third-party",
       "priority": "core",
       "workstream": "Environmental & ESG",
@@ -1930,8 +1591,8 @@
       "weak": false
     },
     {
-      "id": "RE-VAL-015",
-      "order": 50,
+      "id": "RE-VAL-011",
+      "order": 40,
       "stage": "third-party",
       "priority": "core",
       "workstream": "Valuation & Model",
@@ -1948,8 +1609,8 @@
       "weak": false
     },
     {
-      "id": "RE-CL-008",
-      "order": 60,
+      "id": "RE-CL-006",
+      "order": 50,
       "stage": "third-party",
       "priority": "core",
       "workstream": "Corporate & Legal",
@@ -1966,8 +1627,8 @@
       "weak": false
     },
     {
-      "id": "RE-COL-009",
-      "order": 70,
+      "id": "RE-COL-006",
+      "order": 60,
       "stage": "third-party",
       "priority": "core",
       "workstream": "Collateral & Title",
@@ -1984,7 +1645,7 @@
       "weak": false
     },
     {
-      "id": "RE-CL-009",
+      "id": "RE-CL-007",
       "order": 10,
       "stage": "closing",
       "priority": "gating",
@@ -2009,7 +1670,7 @@
       "weak": false
     },
     {
-      "id": "RE-CL-010",
+      "id": "RE-CL-008",
       "order": 20,
       "stage": "closing",
       "priority": "gating",
@@ -2033,7 +1694,7 @@
       "weak": false
     },
     {
-      "id": "RE-CL-011",
+      "id": "RE-CL-009",
       "order": 30,
       "stage": "closing",
       "priority": "gating",
@@ -2057,7 +1718,7 @@
       "weak": false
     },
     {
-      "id": "RE-FIN-026",
+      "id": "RE-FIN-024",
       "order": 40,
       "stage": "closing",
       "priority": "gating",
@@ -2076,7 +1737,7 @@
       "weak": false
     },
     {
-      "id": "RE-COL-010",
+      "id": "RE-COL-007",
       "order": 50,
       "stage": "closing",
       "priority": "gating",
@@ -2094,7 +1755,7 @@
       "weak": false
     },
     {
-      "id": "RE-CL-012",
+      "id": "RE-CL-010",
       "order": 60,
       "stage": "closing",
       "priority": "core",
@@ -2116,7 +1777,7 @@
       "weak": false
     },
     {
-      "id": "RE-CL-013",
+      "id": "RE-CL-011",
       "order": 70,
       "stage": "closing",
       "priority": "gating",
@@ -2135,7 +1796,7 @@
       "weak": false
     },
     {
-      "id": "RE-CL-014",
+      "id": "RE-CL-012",
       "order": 80,
       "stage": "closing",
       "priority": "core",
@@ -2161,7 +1822,7 @@
       "weak": false
     },
     {
-      "id": "RE-INS-005",
+      "id": "RE-INS-004",
       "order": 90,
       "stage": "closing",
       "priority": "gating",
@@ -2179,26 +1840,8 @@
       "weak": false
     },
     {
-      "id": "RE-FIN-027",
+      "id": "RE-CL-013",
       "order": 100,
-      "stage": "closing",
-      "priority": "gating",
-      "workstream": "Financial",
-      "request": "Closing funds-flow memo and settlement statement, tied to sources and uses and to the payoff letters.",
-      "format": "Title company settlement statement and wire confirmations.",
-      "why": "Funds that leave closing to the wrong party are the start of a Ponzi.",
-      "pass": "Every dollar ties to sources and uses; payoffs match payoff letters; affiliate fees match the approved schedule.",
-      "fail": "Unexplained disbursements.",
-      "verify": "Title company confirms wires.",
-      "applies_to": [
-        "all"
-      ],
-      "ref": "1.3, 1.8",
-      "weak": false
-    },
-    {
-      "id": "RE-CL-015",
-      "order": 110,
       "stage": "closing",
       "priority": "gating",
       "workstream": "Corporate & Legal",
@@ -2216,7 +1859,7 @@
       "weak": false
     },
     {
-      "id": "RE-COL-011",
+      "id": "RE-COL-008",
       "order": 10,
       "stage": "monitoring",
       "priority": "gating",
@@ -2236,7 +1879,7 @@
       "weak": false
     },
     {
-      "id": "RE-FIN-028",
+      "id": "RE-FIN-025",
       "order": 20,
       "stage": "monitoring",
       "priority": "gating",
@@ -2266,7 +1909,7 @@
       "weak": false
     },
     {
-      "id": "RE-FIN-029",
+      "id": "RE-FIN-026",
       "order": 30,
       "stage": "monitoring",
       "priority": "gating",
@@ -2276,7 +1919,7 @@
       "why": "Covenant breaches caught early preserve recovery.",
       "pass": "All covenants met with calculations tied to the monthly packages.",
       "fail": "Breach, or calculation using pro forma income.",
-      "verify": "Recompute from monthly packages.",
+      "verify": "Recompute from monthly packages. Generic request also in universal U-FIN-033; this item sets the real estate pass criteria.",
       "applies_to": [
         "all"
       ],
@@ -2313,7 +1956,7 @@
       "why": "Investors learn of problems after they are irreversible.",
       "pass": "Every listed event noticed within 5 business days.",
       "fail": "Events discovered from third parties.",
-      "verify": "Monitor court, county and lender records.",
+      "verify": "Monitor court, county and lender records. Generic request also in universal U-REG-020; this item sets the real estate pass criteria.",
       "applies_to": [
         "all"
       ],
@@ -2339,26 +1982,8 @@
       "weak": false
     },
     {
-      "id": "RE-INS-006",
+      "id": "RE-FIN-027",
       "order": 70,
-      "stage": "monitoring",
-      "priority": "core",
-      "workstream": "Insurance",
-      "request": "Annual insurance renewal package: bound renewal, premium against underwriting, deductible and cat terms, and any move to a state insurer of last resort.",
-      "format": "Binder and broker letter 30 days before expiry.",
-      "why": "Insurance resets arrive at renewal.",
-      "pass": "Coverage renewed on approved terms; budget updated; 2x stress rerun if premium rises more than 25%.",
-      "fail": "Non-renewal, lapse, or move to insurer of last resort.",
-      "verify": "Broker confirms.",
-      "applies_to": [
-        "all"
-      ],
-      "ref": "1.13",
-      "weak": false
-    },
-    {
-      "id": "RE-FIN-030",
-      "order": 80,
       "stage": "monitoring",
       "priority": "core",
       "workstream": "Financial",
@@ -2375,8 +2000,8 @@
       "weak": false
     },
     {
-      "id": "RE-FIN-031",
-      "order": 90,
+      "id": "RE-FIN-028",
+      "order": 80,
       "stage": "monitoring",
       "priority": "core",
       "workstream": "Financial",
@@ -2394,7 +2019,7 @@
     },
     {
       "id": "RE-COM-010",
-      "order": 100,
+      "order": 90,
       "stage": "monitoring",
       "priority": "core",
       "workstream": "Commercial & Market",
@@ -2419,8 +2044,8 @@
       "weak": false
     },
     {
-      "id": "RE-FIN-032",
-      "order": 110,
+      "id": "RE-FIN-029",
+      "order": 100,
       "stage": "monitoring",
       "priority": "supporting",
       "workstream": "Financial",
@@ -2449,8 +2074,8 @@
       "weak": false
     },
     {
-      "id": "RE-VAL-016",
-      "order": 120,
+      "id": "RE-VAL-012",
+      "order": 110,
       "stage": "monitoring",
       "priority": "core",
       "workstream": "Valuation & Model",
@@ -2470,29 +2095,8 @@
       "weak": false
     },
     {
-      "id": "RE-FIN-033",
-      "order": 130,
-      "stage": "monitoring",
-      "priority": "supporting",
-      "workstream": "Financial",
-      "request": "Quarterly lender and counterparty health check for the construction or bridge lender or A-note holder: CRE concentration, deposit trends, unrealized losses, rating or CDS.",
-      "format": "Our monitoring from call reports.",
-      "why": "Lenders fail at the moment draws are needed.",
-      "pass": "No deterioration, or replacement lender plan triggered.",
-      "fail": "Deterioration with no plan.",
-      "verify": "FFIEC data.",
-      "applies_to": [
-        "construction",
-        "development",
-        "bridge",
-        "note-purchase"
-      ],
-      "ref": "1.8, 1.11",
-      "weak": false
-    },
-    {
       "id": "RE-TAX-002",
-      "order": 140,
+      "order": 120,
       "stage": "monitoring",
       "priority": "supporting",
       "workstream": "Tax",
@@ -2528,15 +2132,7 @@
     },
     {
       "id": "RE-K03",
-      "test": "Marketing or documents promise guaranteed, 'can't lose' or collateral-guaranteed returns, or a fixed high return per period.",
-      "ref": "1.8, 1.9",
-      "applies_to": [
-        "all"
-      ]
-    },
-    {
-      "id": "RE-K04",
-      "test": "Rent roll or T-12 cannot be reconciled to bank-issued deposit records, or the sponsor refuses direct bank confirmation.",
+      "test": "Rent roll or T-12 cannot be reconciled to bank-issued deposit records unit by unit.",
       "ref": "1.4, 1.10",
       "applies_to": [
         "stabilized",
@@ -2555,7 +2151,7 @@
       ]
     },
     {
-      "id": "RE-K05",
+      "id": "RE-K04",
       "test": "Any claimed property or LP interest cannot be confirmed at the county recorder or in the entity's own records.",
       "ref": "1.4, 1.8",
       "applies_to": [
@@ -2563,7 +2159,7 @@
       ]
     },
     {
-      "id": "RE-K06",
+      "id": "RE-K05",
       "test": "Debt is sized on anticipated leases or market rent rather than leases in place, and the sponsor will not resize.",
       "ref": "1.4, 1.9, 1.14",
       "applies_to": [
@@ -2583,7 +2179,7 @@
       ]
     },
     {
-      "id": "RE-K07",
+      "id": "RE-K06",
       "test": "Construction lacks committed funds sufficient for completion.",
       "ref": "1.4",
       "applies_to": [
@@ -2592,15 +2188,15 @@
       ]
     },
     {
-      "id": "RE-K08",
-      "test": "The asset cannot obtain bindable insurance at a price the takeout lender will accept.",
+      "id": "RE-K07",
+      "test": "The takeout lender will not lend at the insurance coverage actually available for the asset.",
       "ref": "1.13",
       "applies_to": [
         "all"
       ]
     },
     {
-      "id": "RE-K09",
+      "id": "RE-K08",
       "test": "Sponsor cannot prove co-invest funds.",
       "ref": "1.9",
       "applies_to": [
@@ -2614,7 +2210,7 @@
       ]
     },
     {
-      "id": "RE-K10",
+      "id": "RE-K09",
       "test": "Note or portfolio purchase where borrower-level payments cannot be traced to bank deposits, or a 'few defaults' claim has no delinquency roll.",
       "ref": "1.3, 1.8, 1.9",
       "applies_to": [
@@ -2623,7 +2219,7 @@
       ]
     },
     {
-      "id": "RE-K11",
+      "id": "RE-K10",
       "test": "Investor or loan proceeds cannot be traced to the named projects.",
       "ref": "1.8",
       "applies_to": [
@@ -2635,7 +2231,7 @@
       ]
     },
     {
-      "id": "RE-K12",
+      "id": "RE-K11",
       "test": "Unconfirmed zoning, missing certificates of occupancy, or open violations that prevent the business plan.",
       "ref": "1.4",
       "applies_to": [
@@ -2643,7 +2239,7 @@
       ]
     },
     {
-      "id": "RE-K13",
+      "id": "RE-K12",
       "test": "Unconditional will-serve letter unavailable for Sun Belt development dependent on a stressed water source.",
       "ref": "1.13",
       "applies_to": [
@@ -2655,24 +2251,6 @@
   "red_flags": [
     {
       "id": "RE-RF01",
-      "flag": "Guaranteed returns, 'can't lose', pooled funds with no segregation.",
-      "check": "Read every marketing document; confirm segregated property accounts with the bank.",
-      "ref": "1.9",
-      "applies_to": [
-        "all"
-      ]
-    },
-    {
-      "id": "RE-RF02",
-      "flag": "Returns smooth relative to the strategy at any level, not only above-market returns.",
-      "check": "Compare the return series volatility with a levered public REIT benchmark.",
-      "ref": "1.9, 0.4",
-      "applies_to": [
-        "all"
-      ]
-    },
-    {
-      "id": "RE-RF03",
       "flag": "Exit cap at or below the going-in cap in a rising-rate market.",
       "check": "Cap-rate reconciliation against framework, REIT-implied and appraisal caps.",
       "ref": "1.9, 1.12",
@@ -2695,7 +2273,7 @@
       ]
     },
     {
-      "id": "RE-RF04",
+      "id": "RE-RF02",
       "flag": "No independent appraisal, or an appraisal ordered only by the sponsor.",
       "check": "Order our own MAI appraisal.",
       "ref": "1.9",
@@ -2704,7 +2282,7 @@
       ]
     },
     {
-      "id": "RE-RF05",
+      "id": "RE-RF03",
       "flag": "Sponsor cannot prove co-invest funds.",
       "check": "Bank confirmation of the co-invest wire into the deal account.",
       "ref": "1.9",
@@ -2713,7 +2291,7 @@
       ]
     },
     {
-      "id": "RE-RF06",
+      "id": "RE-RF04",
       "flag": "Round-number budgets with thin or no contingency.",
       "check": "Construction consultant line-by-line budget review.",
       "ref": "1.9",
@@ -2724,7 +2302,7 @@
       ]
     },
     {
-      "id": "RE-RF07",
+      "id": "RE-RF05",
       "flag": "Related-party construction contracts at above-market pricing.",
       "check": "Obtain third-party bids and compare.",
       "ref": "1.9",
@@ -2735,7 +2313,7 @@
       ]
     },
     {
-      "id": "RE-RF08",
+      "id": "RE-RF06",
       "flag": "Affiliate fees (acquisition, development, property management, refinancing, disposition) with no LPAC consent.",
       "check": "Affiliate fee schedule and bank trace against approvals.",
       "ref": "1.9, 1.4",
@@ -2744,28 +2322,7 @@
       ]
     },
     {
-      "id": "RE-RF09",
-      "flag": "DSCR built on anticipated leases or market rent rather than leases in place.",
-      "check": "Recompute DSCR from signed leases.",
-      "ref": "1.9, 1.14",
-      "applies_to": [
-        "stabilized",
-        "value-add",
-        "bridge",
-        "multifamily",
-        "office",
-        "industrial",
-        "retail",
-        "hospitality",
-        "sfr-dscr",
-        "net-lease",
-        "note-purchase",
-        "syndication",
-        "re-fund"
-      ]
-    },
-    {
-      "id": "RE-RF10",
+      "id": "RE-RF07",
       "flag": "Interest-only for the full term on a transitional or office asset.",
       "check": "Require amortization.",
       "ref": "1.9, 1.14",
@@ -2778,7 +2335,7 @@
       ]
     },
     {
-      "id": "RE-RF11",
+      "id": "RE-RF08",
       "flag": "LTV held flat while the market's cap rates compressed.",
       "check": "Compare stated LTV with third-party stressed LTV by vintage.",
       "ref": "1.9, 1.14",
@@ -2787,7 +2344,7 @@
       ]
     },
     {
-      "id": "RE-RF12",
+      "id": "RE-RF09",
       "flag": "Class B office underwritten at historical occupancy, or a conversion exit with no costed plan.",
       "check": "Post-rollover occupancy case and costed conversion estimate.",
       "ref": "1.9, 1.4",
@@ -2796,7 +2353,7 @@
       ]
     },
     {
-      "id": "RE-RF13",
+      "id": "RE-RF10",
       "flag": "Insurance expense held flat in a coastal or wildfire market.",
       "check": "Bound quote and 2x premium stress.",
       "ref": "1.9, 1.13",
@@ -2805,7 +2362,7 @@
       ]
     },
     {
-      "id": "RE-RF14",
+      "id": "RE-RF11",
       "flag": "Cap rate quoted without saying NOI or cash flow, or current or forward year.",
       "check": "Require the basis in writing.",
       "ref": "1.9, 1.12",
@@ -2828,7 +2385,7 @@
       ]
     },
     {
-      "id": "RE-RF15",
+      "id": "RE-RF12",
       "flag": "A 'few defaults' claim on a bridge-loan program with no delinquency roll.",
       "check": "Demand a 24-month delinquency roll tied to servicer and bank records.",
       "ref": "1.9, 1.8",
@@ -2839,34 +2396,7 @@
       ]
     },
     {
-      "id": "RE-RF16",
-      "flag": "A government or anchor lease presented as 14-year locked income with no ETO analysis.",
-      "check": "Lease-by-lease ETO schedule; first-date exercise case.",
-      "ref": "1.9, 1.8",
-      "applies_to": [
-        "stabilized",
-        "value-add",
-        "bridge",
-        "office",
-        "industrial",
-        "retail",
-        "net-lease",
-        "note-purchase",
-        "office"
-      ]
-    },
-    {
-      "id": "RE-RF17",
-      "flag": "Stated-income borrower or tenant pools with no IRS-transcript or bank-deposit verification.",
-      "check": "4506-C or bank-deposit verification sample.",
-      "ref": "1.9, 1.4",
-      "applies_to": [
-        "sfr-dscr",
-        "note-purchase"
-      ]
-    },
-    {
-      "id": "RE-RF18",
+      "id": "RE-RF13",
       "flag": "Comps set mainly by levered investor buyers financed by a lender class that has since pulled back.",
       "check": "Pull deed and mortgage records for each comp.",
       "ref": "1.9, 1.4",
@@ -2875,7 +2405,7 @@
       ]
     },
     {
-      "id": "RE-RF19",
+      "id": "RE-RF14",
       "flag": "Serial loan extensions in the sponsor's track record with no documented workout.",
       "check": "Extension history checked against recorded modifications.",
       "ref": "1.9, 1.2",
@@ -2884,7 +2414,7 @@
       ]
     },
     {
-      "id": "RE-RF20",
+      "id": "RE-RF15",
       "flag": "Spreads compressing while LTVs rise and recourse falls (underpriced non-recourse put).",
       "check": "Ask what the loan is worth if values fall 30%.",
       "ref": "1.8, 1.14",
@@ -2893,7 +2423,7 @@
       ]
     },
     {
-      "id": "RE-RF21",
+      "id": "RE-RF16",
       "flag": "A new, less experienced buyer or lender class outbidding the incumbent credit police.",
       "check": "Identify the marginal buyer and lender class for the asset type.",
       "ref": "1.14",
@@ -2902,7 +2432,7 @@
       ]
     },
     {
-      "id": "RE-RF22",
+      "id": "RE-RF17",
       "flag": "Rising IO share, or agency or third-party stressed metrics diverging from underwritten metrics.",
       "check": "Underwrite to the stressed numbers.",
       "ref": "1.14",
@@ -2911,7 +2441,7 @@
       ]
     },
     {
-      "id": "RE-RF23",
+      "id": "RE-RF18",
       "flag": "Three or four of Xiong's bubble features present at entry (innovation story, frenzied trading and new investors, coming supply, sudden bursts).",
       "check": "IC memo must name the exit buyer and price once supply arrives.",
       "ref": "1.14",
@@ -2920,7 +2450,7 @@
       ]
     },
     {
-      "id": "RE-RF24",
+      "id": "RE-RF19",
       "flag": "Lender or note seller is a regional bank with CRE above 300% of total capital, high uninsured deposits or large unrealized securities losses.",
       "check": "Bank counterparty test; draw survival provisions.",
       "ref": "1.11, 1.2",
@@ -2932,7 +2462,7 @@
       ]
     },
     {
-      "id": "RE-RF25",
+      "id": "RE-RF20",
       "flag": "Loan bought from or partnered with a bank presented at par or on payment status.",
       "check": "Re-mark the collateral; assume the loan was extended to delay loss.",
       "ref": "1.8, 1.11",
@@ -2941,7 +2471,7 @@
       ]
     },
     {
-      "id": "RE-RF26",
+      "id": "RE-RF21",
       "flag": "Value depends on an unfunded off-site dependency (transit, infrastructure) or a single anchor sector.",
       "check": "'Link delayed' case.",
       "ref": "1.4, 1.8",
@@ -2950,26 +2480,7 @@
       ]
     },
     {
-      "id": "RE-RF27",
-      "flag": "Coverage dependent on a state insurer of last resort.",
-      "check": "Broker letter on market availability; takeout lender acceptance.",
-      "ref": "1.13",
-      "applies_to": [
-        "all"
-      ]
-    },
-    {
-      "id": "RE-RF28",
-      "flag": "Draw commitment from a lender with no replacement-lender or assignment provisions.",
-      "check": "Require survival provisions.",
-      "ref": "1.8",
-      "applies_to": [
-        "construction",
-        "development"
-      ]
-    },
-    {
-      "id": "RE-RF29",
+      "id": "RE-RF22",
       "flag": "Guarantor with net worth but no verified liquidity.",
       "check": "Verify liquid assets with banks and custodians.",
       "ref": "1.8",
@@ -2982,7 +2493,7 @@
       ]
     },
     {
-      "id": "RE-RF30",
+      "id": "RE-RF23",
       "flag": "Real appreciation underwritten without a documented supply constraint.",
       "check": "Hold growth at inflation.",
       "ref": "1.4",
@@ -2991,7 +2502,7 @@
       ]
     },
     {
-      "id": "RE-RF31",
+      "id": "RE-RF24",
       "flag": "Placement chain includes unregistered sales agents paid on commission.",
       "check": "BrokerCheck every name.",
       "ref": "1.8",
@@ -3003,7 +2514,7 @@
       ]
     },
     {
-      "id": "RE-RF32",
+      "id": "RE-RF25",
       "flag": "Sale-leaseback proceeds used for dividends while rents escalate against an operating business.",
       "check": "Trace proceeds; tenant rent coverage after escalators.",
       "ref": "1.8",

@@ -198,30 +198,12 @@
       "stage": "screen",
       "priority": "gating",
       "workstream": "Financial",
-      "request": "Monthly return series since inception (gross and net) and every marketing statement of target or historical yield.",
-      "format": "Administrator-produced return series; marketing materials as sent.",
-      "why": "Yields far above risk-free with 'no risk', and returns smooth relative to the strategy, signal a mark not taken or insurance premium not yet paid out (Adam brothers promised 13.5% monthly).",
-      "pass": "No 'no risk' or guaranteed language; volatility consistent with the strategy; benchmarked against a levered index put-writing strategy for short-volatility credit.",
-      "fail": "Guaranteed or 'no risk' yields; returns smoother than the underlying assets could produce.",
-      "verify": "Return series from the administrator directly; compare with public credit indices.",
-      "applies_to": [
-        "all"
-      ],
-      "ref": "4.1, 4.5, 4.6",
-      "weak": false
-    },
-    {
-      "id": "CR-FIN-002",
-      "order": 30,
-      "stage": "screen",
-      "priority": "gating",
-      "workstream": "Financial",
       "request": "Financing stack: every financing line (warehouse, repo, subscription line, NAV facility, asset-based facility, forward flow, total return swap) with lender, limit, drawn balance, haircut or advance rate, margin-call mechanics and triggers, eligibility criteria, and term or renewal date.",
       "format": "Schedule signed by the CFO plus each facility agreement.",
       "why": "Specialty lenders and levered credit funds fail through their funding before their assets.",
       "pass": "Every line listed; margin-call triggers disclosed; renewal dates staggered; schedule reconciles to financial statements and the UCC sweep.",
       "fail": "A leverage stack with no disclosed margin-call triggers; lines found later that were not listed.",
-      "verify": "Confirm each facility with the lender; UCC search on the vehicle and originator.",
+      "verify": "Confirm each facility with the lender; UCC search on the vehicle and originator. Generic request also in universal U-FIN-020; this item sets the credit pass criteria.",
       "applies_to": [
         "specialty-finance",
         "consumer",
@@ -240,7 +222,7 @@
     },
     {
       "id": "CR-SB-001",
-      "order": 40,
+      "order": 30,
       "stage": "screen",
       "priority": "gating",
       "workstream": "Sponsor & Background",
@@ -249,7 +231,7 @@
       "why": "A manager that also services, values and reports with no third party controls every number we see.",
       "pass": "Independent custodian, administrator or valuation agent, and backup servicer in place, each with a direct engagement.",
       "fail": "Manager performs all functions with no third party.",
-      "verify": "Call each third party to confirm engagement and scope.",
+      "verify": "Call each third party to confirm engagement and scope. Generic request also in universal U-FND-009; this item sets the credit pass criteria.",
       "applies_to": [
         "all"
       ],
@@ -257,52 +239,8 @@
       "weak": false
     },
     {
-      "id": "CR-FIN-003",
-      "order": 50,
-      "stage": "screen",
-      "priority": "core",
-      "workstream": "Financial",
-      "request": "Track record with the default definition used (covenant plus payment, payment only, realized loss) and realized losses by vintage.",
-      "format": "Track record tables with definitions.",
-      "why": "Headline default rates differ by definition; covenant defaults often lead to renegotiation.",
-      "pass": "Definition stated; realized losses shown by vintage and reconcilable to fund financials; direct lending losses near the 1% a year long-run benchmark or explained.",
-      "fail": "Default rate with no definition; no realized loss data.",
-      "verify": "Reconcile realized losses to audited financial statements.",
-      "applies_to": [
-        "all"
-      ],
-      "ref": "3.4, 4.3, 4.6",
-      "weak": false
-    },
-    {
       "id": "CR-SB-002",
-      "order": 60,
-      "stage": "screen",
-      "priority": "supporting",
-      "workstream": "Sponsor & Background",
-      "request": "Current-year deployment target and capital raised awaiting deployment.",
-      "format": "Manager statement and fund reports.",
-      "why": "Very large deployment targets make selective underwriting hard and mark a late-cycle entrant.",
-      "pass": "Target consistent with origination capacity and historical selection rates.",
-      "fail": "Deployment target large relative to the pipeline.",
-      "verify": "Compare with prior years' origination.",
-      "applies_to": [
-        "direct-lending",
-        "semi-liquid",
-        "clo",
-        "distressed",
-        "specialty-finance",
-        "litigation-finance",
-        "royalty-finance",
-        "nav-lending",
-        "insurer-affiliated"
-      ],
-      "ref": "4.1, 4.6",
-      "weak": false
-    },
-    {
-      "id": "CR-SB-003",
-      "order": 70,
+      "order": 40,
       "stage": "screen",
       "priority": "supporting",
       "workstream": "Sponsor & Background",
@@ -377,7 +315,7 @@
       "why": "Repo haircuts went from about zero to nearly 50% in 2007-08; some classes became unfinanceable.",
       "pass": "Unencumbered liquidity covers the stressed margin call and non-renewal without forced sales that breach other covenants.",
       "fail": "Liquidity shortfall in the stress; no unencumbered liquidity.",
-      "verify": "Confirm unencumbered assets with the custodian.",
+      "verify": "Confirm unencumbered assets with the custodian. Generic request also in universal U-VAL-023, U-VAL-026; this item sets the credit pass criteria.",
       "applies_to": [
         "specialty-finance",
         "consumer",
@@ -453,7 +391,7 @@
       "weak": false
     },
     {
-      "id": "CR-SB-004",
+      "id": "CR-SB-003",
       "order": 70,
       "stage": "term-sheet",
       "priority": "core",
@@ -597,7 +535,7 @@
       "weak": false
     },
     {
-      "id": "CR-FIN-004",
+      "id": "CR-FIN-002",
       "order": 150,
       "stage": "term-sheet",
       "priority": "gating",
@@ -607,7 +545,7 @@
       "why": "Shadow reinsurance cut average RBC by about 53 points when consolidated (about 3 notches); AIG's reinvested collateral needed $37.8B of Fed lending.",
       "pass": "Consolidated RBC adequate after captives; affiliated placements independently valued; designations from recognized sources; posting triggers survivable.",
       "fail": "Capital adequate only before consolidation; affiliated placements valued by the manager.",
-      "verify": "NAIC filings and state exam reports pulled by us.",
+      "verify": "NAIC filings and state exam reports pulled by us. Generic request also in universal U-FIN-027; this item sets the credit pass criteria.",
       "applies_to": [
         "insurer-affiliated"
       ],
@@ -615,7 +553,7 @@
       "weak": false
     },
     {
-      "id": "CR-FIN-005",
+      "id": "CR-FIN-003",
       "order": 160,
       "stage": "term-sheet",
       "priority": "gating",
@@ -625,7 +563,7 @@
       "why": "SVB: 94% uninsured deposits and a $17B unrealized loss against $15B equity, visible in filings.",
       "pass": "Unrealized losses well below equity; 30-day outflow covered; collateral pre-positioned; CRE below 300%; no limits raised to fit positions; CRO independent.",
       "fail": "Unrealized loss above equity; outflow uncovered; recent CRO replacement by a dealmaker.",
-      "verify": "Compute from public filings ourselves.",
+      "verify": "Compute from public filings ourselves. Generic request also in universal U-FIN-026; this item sets the credit pass criteria.",
       "applies_to": [
         "bank-like"
       ],
@@ -667,7 +605,7 @@
       "why": "First Liberty and the Adam brothers: loans and payments that did not exist.",
       "pass": "Payments trace to borrower deposits for a statistically meaningful sample plus all loans above 1% of the pool; no payments from originator or affiliate accounts.",
       "fail": "Payments sourced from the originator; missing deposits.",
-      "verify": "Collection account statements obtained directly from the bank.",
+      "verify": "Collection account statements obtained directly from the bank. Generic request also in universal U-FIN-018; this item sets the credit pass criteria.",
       "applies_to": [
         "consumer",
         "specialty-finance",
@@ -714,7 +652,7 @@
       "why": "Tricolor booked charged-off loans as current through a fictitious portfolio company.",
       "pass": "Zero unexplained differences.",
       "fail": "Charged-off loans appearing as current in reports.",
-      "verify": "Trustee reports obtained from the trustee.",
+      "verify": "Trustee reports obtained from the trustee. Generic request also in universal U-COL-005; this item sets the credit pass criteria.",
       "applies_to": [
         "consumer",
         "specialty-finance",
@@ -736,7 +674,7 @@
       "why": "Forbearance and stale marks hide losses.",
       "pass": "Every modification documented and reflected in status and marks.",
       "fail": "Undisclosed modifications; modified loans reported as current without disclosure.",
-      "verify": "Sample executed documents.",
+      "verify": "Sample executed documents. Generic request also in universal U-FIN-036; this item sets the credit pass criteria.",
       "applies_to": [
         "consumer",
         "specialty-finance",
@@ -783,7 +721,7 @@
       "why": "Collateral pledged without custodial possession can be pledged twice.",
       "pass": "Receipt for 100% of pledged loans.",
       "fail": "Originals held by the originator.",
-      "verify": "Custodian confirms directly.",
+      "verify": "Custodian confirms directly. Generic request also in universal U-COL-004; this item sets the credit pass criteria.",
       "applies_to": [
         "consumer",
         "specialty-finance",
@@ -828,7 +766,7 @@
       "why": "Tricolor: about 40% of roughly 70,000 loans shared VINs or attributes; ~$2.2B pledged against ~$1.4B real collateral.",
       "pass": "Zero duplicates across all facilities.",
       "fail": "Any duplicate; any facility excluded.",
-      "verify": "Independent agent obtains files directly.",
+      "verify": "Independent agent obtains files directly. Generic request also in universal U-COL-007; this item sets the credit pass criteria.",
       "applies_to": [
         "consumer",
         "specialty-finance",
@@ -841,33 +779,8 @@
       "weak": false
     },
     {
-      "id": "CR-COL-009",
-      "order": 100,
-      "stage": "confirmatory",
-      "priority": "gating",
-      "workstream": "Collateral & Title",
-      "request": "UCC sweep across the originator, all affiliates and principals' personally owned entities.",
-      "format": "Search results from a provider engaged by us.",
-      "why": "Off-structure financing hides double pledges.",
-      "pass": "All filings matched to listed facilities.",
-      "fail": "Unexplained filings.",
-      "verify": "Our search provider.",
-      "applies_to": [
-        "consumer",
-        "specialty-finance",
-        "factoring",
-        "equipment-finance",
-        "abs",
-        "trade-finance",
-        "direct-lending",
-        "specialty-finance"
-      ],
-      "ref": "3.12",
-      "weak": false
-    },
-    {
       "id": "CR-VAL-008",
-      "order": 110,
+      "order": 100,
       "stage": "confirmatory",
       "priority": "gating",
       "workstream": "Valuation & Model",
@@ -876,7 +789,7 @@
       "why": "Low-doc loans just above 620 defaulted 10% to 25% more than those just below.",
       "pass": "No bunching just above a cutoff and no performance jump at the cutoff.",
       "fail": "Bunch or jump at any cutoff.",
-      "verify": "We plot from the tape.",
+      "verify": "We plot from the tape. Generic request also in universal U-FIN-017; this item sets the credit pass criteria.",
       "applies_to": [
         "consumer",
         "specialty-finance",
@@ -887,8 +800,8 @@
       "weak": false
     },
     {
-      "id": "CR-FIN-006",
-      "order": 120,
+      "id": "CR-FIN-004",
+      "order": 110,
       "stage": "confirmatory",
       "priority": "gating",
       "workstream": "Financial",
@@ -897,7 +810,7 @@
       "why": "Application income ran about 90% above IRS income in the worst zip codes, which defaulted most.",
       "pass": "Verified income within tolerance; pool income growth not above local IRS and BLS growth.",
       "fail": "Stated-income pools; income growth outrunning local IRS income.",
-      "verify": "IVES vendor engaged by us.",
+      "verify": "IVES vendor engaged by us. Generic request also in universal U-FIN-016; this item sets the credit pass criteria.",
       "applies_to": [
         "consumer",
         "specialty-finance",
@@ -909,7 +822,7 @@
     },
     {
       "id": "CR-VAL-009",
-      "order": 130,
+      "order": 120,
       "stage": "confirmatory",
       "priority": "gating",
       "workstream": "Valuation & Model",
@@ -931,28 +844,7 @@
     },
     {
       "id": "CR-VAL-010",
-      "order": 140,
-      "stage": "confirmatory",
-      "priority": "core",
-      "workstream": "Valuation & Model",
-      "request": "Cycle test: 3-year change in household debt to GDP for the pool's markets, and a downside with 2 points lower growth for 3 years if in the top third of history.",
-      "format": "Data series and model tab.",
-      "why": "Household credit booms predict lower growth and higher consumer losses.",
-      "pass": "Test run; downside losses within the structure's protection.",
-      "fail": "Not run for a consumer pool.",
-      "verify": "Pull BIS or Fed Z.1 data.",
-      "applies_to": [
-        "consumer",
-        "abs",
-        "specialty-finance",
-        "note-purchase"
-      ],
-      "ref": "4.2, 4.8",
-      "weak": false
-    },
-    {
-      "id": "CR-VAL-011",
-      "order": 150,
+      "order": 130,
       "stage": "confirmatory",
       "priority": "core",
       "workstream": "Valuation & Model",
@@ -971,8 +863,8 @@
       "weak": false
     },
     {
-      "id": "CR-COL-010",
-      "order": 160,
+      "id": "CR-COL-009",
+      "order": 140,
       "stage": "confirmatory",
       "priority": "core",
       "workstream": "Collateral & Title",
@@ -989,8 +881,8 @@
       "weak": false
     },
     {
-      "id": "CR-COL-011",
-      "order": 170,
+      "id": "CR-COL-010",
+      "order": 150,
       "stage": "confirmatory",
       "priority": "gating",
       "workstream": "Collateral & Title",
@@ -999,7 +891,7 @@
       "why": "First Brands: purported receivables sold to factors allegedly did not exist.",
       "pass": "Every notification-deal debtor has acknowledged; dilution within reserve; debtors creditworthy.",
       "fail": "Missing acknowledgments; rising dilution.",
-      "verify": "Confirm acknowledgments and invoices directly with debtors.",
+      "verify": "Confirm acknowledgments and invoices directly with debtors. Generic request also in universal U-COL-008; this item sets the credit pass criteria.",
       "applies_to": [
         "factoring"
       ],
@@ -1008,7 +900,7 @@
     },
     {
       "id": "CR-COM-001",
-      "order": 180,
+      "order": 160,
       "stage": "confirmatory",
       "priority": "core",
       "workstream": "Commercial & Market",
@@ -1026,8 +918,8 @@
       "weak": false
     },
     {
-      "id": "CR-COL-012",
-      "order": 190,
+      "id": "CR-COL-011",
+      "order": 170,
       "stage": "confirmatory",
       "priority": "gating",
       "workstream": "Collateral & Title",
@@ -1044,8 +936,8 @@
       "weak": false
     },
     {
-      "id": "CR-COL-013",
-      "order": 200,
+      "id": "CR-COL-012",
+      "order": 180,
       "stage": "confirmatory",
       "priority": "core",
       "workstream": "Collateral & Title",
@@ -1062,8 +954,8 @@
       "weak": false
     },
     {
-      "id": "CR-COL-014",
-      "order": 210,
+      "id": "CR-COL-013",
+      "order": 190,
       "stage": "confirmatory",
       "priority": "core",
       "workstream": "Collateral & Title",
@@ -1081,7 +973,7 @@
     },
     {
       "id": "CR-CL-002",
-      "order": 220,
+      "order": 200,
       "stage": "confirmatory",
       "priority": "gating",
       "workstream": "Corporate & Legal",
@@ -1098,166 +990,8 @@
       "weak": false
     },
     {
-      "id": "CR-VAL-012",
-      "order": 230,
-      "stage": "confirmatory",
-      "priority": "gating",
-      "workstream": "Valuation & Model",
-      "request": "Valuation of Level 3 assets: valuation policy, who has write access to pricing inputs, the independent valuation agent's price on a sample, and the same loans' marks in other managers' or BDCs' books, with observable index marks where they exist.",
-      "format": "Policy, access log, valuation reports and BDC filing extracts.",
-      "why": "Stale marks hide losses; 'third-party pricing' can be gamed (Infinity Q).",
-      "pass": "Inputs controlled outside the deal team; agent prices within tolerance; marks consistent with other holders and indices.",
-      "fail": "Deal team controls inputs; marks above other holders.",
-      "verify": "Call the valuation agent; pull BDC filings.",
-      "applies_to": [
-        "direct-lending",
-        "semi-liquid",
-        "specialty-finance",
-        "litigation-finance",
-        "royalty-finance",
-        "distressed",
-        "nav-lending",
-        "insurer-affiliated",
-        "tokenized",
-        "clo",
-        "abs"
-      ],
-      "ref": "4.5, 4.6, 4.7, 3.13",
-      "weak": false
-    },
-    {
-      "id": "CR-VAL-013",
-      "order": 240,
-      "stage": "confirmatory",
-      "priority": "gating",
-      "workstream": "Valuation & Model",
-      "request": "Direct engagement letter with the valuation firm and our confirmation call that it performed the work.",
-      "format": "Engagement letter on the firm's letterhead.",
-      "why": "SQN Capital cited an independent valuation it could not evidence.",
-      "pass": "Letter produced; firm confirms scope and work performed.",
-      "fail": "Firm cannot confirm.",
-      "verify": "We call the firm using contact details we source.",
-      "applies_to": [
-        "direct-lending",
-        "semi-liquid",
-        "specialty-finance",
-        "litigation-finance",
-        "royalty-finance",
-        "distressed",
-        "nav-lending",
-        "insurer-affiliated",
-        "tokenized",
-        "clo",
-        "abs"
-      ],
-      "ref": "4.4, 4.6",
-      "weak": false
-    },
-    {
-      "id": "CR-FIN-007",
-      "order": 250,
-      "stage": "confirmatory",
-      "priority": "gating",
-      "workstream": "Financial",
-      "request": "Cash location for the lender, fund and its operating companies: banks, share above insured limits, any single-bank covenant, and look-through of any money market or 'cash management' vehicle to its holdings.",
-      "format": "Bank statements and MMF holdings reports.",
-      "why": "Reserve Primary broke the buck holding Lehman paper; SVB depositors faced a $42B run.",
-      "pass": "Cash spread across banks, in insured sweeps or Treasury MMFs; any pooled cash vehicle modelled with a 6 to 24 month gate.",
-      "fail": "Concentrated uninsured cash; 'cash' vehicles holding credit.",
-      "verify": "Bank confirmations; MMF holdings from the fund.",
-      "applies_to": [
-        "all"
-      ],
-      "ref": "4.5, 4.12",
-      "weak": false
-    },
-    {
-      "id": "CR-FIN-008",
-      "order": 260,
-      "stage": "confirmatory",
-      "priority": "core",
-      "workstream": "Financial",
-      "request": "ISDA hedges: counterparties, close-out netting and collateral terms.",
-      "format": "ISDAs and CSAs.",
-      "why": "Lehman's counterparties terminated en masse.",
-      "pass": "Counterparties mapped; netting enforceable; collateral terms survivable.",
-      "fail": "Concentrated or weak counterparties.",
-      "verify": "Counterparty confirmations.",
-      "applies_to": [
-        "specialty-finance",
-        "consumer",
-        "factoring",
-        "equipment-finance",
-        "abs",
-        "clo",
-        "direct-lending",
-        "semi-liquid",
-        "nav-lending",
-        "bank-like",
-        "trade-finance"
-      ],
-      "ref": "4.9, 3.3",
-      "weak": false
-    },
-    {
-      "id": "CR-FIN-009",
-      "order": 270,
-      "stage": "confirmatory",
-      "priority": "core",
-      "workstream": "Financial",
-      "request": "Counterparty plan for prime brokers, custodians and large bank counterparties: CDS, deposit and AUM outflow monitoring, shareholder support, and a documented plan to move assets and novate trades.",
-      "format": "Policy and contingency plan.",
-      "why": "Credit Suisse drew CHF 48B standing and CHF 120B emergency facilities before the UBS takeover.",
-      "pass": "Monitoring in place and a tested plan to move assets.",
-      "fail": "No plan.",
-      "verify": "Review plan test records.",
-      "applies_to": [
-        "direct-lending",
-        "semi-liquid",
-        "clo",
-        "distressed",
-        "specialty-finance",
-        "litigation-finance",
-        "royalty-finance",
-        "nav-lending",
-        "insurer-affiliated",
-        "bank-like",
-        "specialty-finance"
-      ],
-      "ref": "4.5, 4.12",
-      "weak": false
-    },
-    {
-      "id": "CR-FIN-010",
-      "order": 280,
-      "stage": "confirmatory",
-      "priority": "core",
-      "workstream": "Financial",
-      "request": "Bank counterparty test for any bank that is a warehouse lender, depository or co-lender: uninsured deposits, unrealized losses to equity, 30-day outflow, CRE concentration.",
-      "format": "Call report extracts.",
-      "why": "Lenders are under stress when you need them (bank-financed bubbles).",
-      "pass": "Counterparty passes or exposure is mitigated.",
-      "fail": "Weak counterparty with no mitigant.",
-      "verify": "FFIEC data.",
-      "applies_to": [
-        "specialty-finance",
-        "consumer",
-        "factoring",
-        "equipment-finance",
-        "abs",
-        "clo",
-        "direct-lending",
-        "semi-liquid",
-        "nav-lending",
-        "bank-like",
-        "trade-finance"
-      ],
-      "ref": "4.9, 4.12",
-      "weak": false
-    },
-    {
       "id": "CR-FO-002",
-      "order": 290,
+      "order": 210,
       "stage": "confirmatory",
       "priority": "core",
       "workstream": "Fund Operations",
@@ -1276,7 +1010,7 @@
     },
     {
       "id": "CR-FO-003",
-      "order": 300,
+      "order": 220,
       "stage": "confirmatory",
       "priority": "core",
       "workstream": "Fund Operations",
@@ -1295,7 +1029,7 @@
     },
     {
       "id": "CR-FO-004",
-      "order": 310,
+      "order": 230,
       "stage": "confirmatory",
       "priority": "core",
       "workstream": "Fund Operations",
@@ -1315,7 +1049,7 @@
     },
     {
       "id": "CR-CL-003",
-      "order": 320,
+      "order": 240,
       "stage": "confirmatory",
       "priority": "core",
       "workstream": "Corporate & Legal",
@@ -1335,7 +1069,7 @@
     },
     {
       "id": "CR-REG-001",
-      "order": 330,
+      "order": 250,
       "stage": "confirmatory",
       "priority": "core",
       "workstream": "Regulatory & Compliance",
@@ -1352,7 +1086,7 @@
       "weak": true
     },
     {
-      "id": "CR-COL-015",
+      "id": "CR-COL-014",
       "order": 10,
       "stage": "third-party",
       "priority": "gating",
@@ -1376,7 +1110,7 @@
       "weak": false
     },
     {
-      "id": "CR-COL-016",
+      "id": "CR-COL-015",
       "order": 20,
       "stage": "third-party",
       "priority": "gating",
@@ -1423,7 +1157,7 @@
       "weak": false
     },
     {
-      "id": "CR-COL-017",
+      "id": "CR-COL-016",
       "order": 40,
       "stage": "third-party",
       "priority": "gating",
@@ -1464,7 +1198,7 @@
       "weak": false
     },
     {
-      "id": "CR-VAL-014",
+      "id": "CR-VAL-011",
       "order": 60,
       "stage": "third-party",
       "priority": "core",
@@ -1483,34 +1217,8 @@
       "weak": false
     },
     {
-      "id": "CR-VAL-015",
+      "id": "CR-FIN-005",
       "order": 70,
-      "stage": "third-party",
-      "priority": "core",
-      "workstream": "Valuation & Model",
-      "request": "Independent valuation firm report on Level 3 assets with direct engagement letter.",
-      "format": "Report.",
-      "why": "SQN.",
-      "pass": "Engagement confirmed by call; prices within tolerance.",
-      "fail": "Not confirmable.",
-      "verify": "Call the firm.",
-      "applies_to": [
-        "direct-lending",
-        "semi-liquid",
-        "specialty-finance",
-        "litigation-finance",
-        "royalty-finance",
-        "distressed",
-        "nav-lending",
-        "insurer-affiliated",
-        "tokenized"
-      ],
-      "ref": "4.4",
-      "weak": false
-    },
-    {
-      "id": "CR-FIN-011",
-      "order": 80,
       "stage": "third-party",
       "priority": "core",
       "workstream": "Financial",
@@ -1527,8 +1235,8 @@
       "weak": false
     },
     {
-      "id": "CR-FIN-012",
-      "order": 90,
+      "id": "CR-FIN-006",
+      "order": 80,
       "stage": "third-party",
       "priority": "core",
       "workstream": "Financial",
@@ -1545,7 +1253,7 @@
       "weak": false
     },
     {
-      "id": "CR-COL-018",
+      "id": "CR-COL-017",
       "order": 10,
       "stage": "closing",
       "priority": "gating",
@@ -1591,7 +1299,7 @@
       "weak": false
     },
     {
-      "id": "CR-COL-019",
+      "id": "CR-COL-018",
       "order": 30,
       "stage": "closing",
       "priority": "gating",
@@ -1627,7 +1335,7 @@
       "weak": false
     },
     {
-      "id": "CR-COL-020",
+      "id": "CR-COL-019",
       "order": 50,
       "stage": "closing",
       "priority": "gating",
@@ -1650,7 +1358,7 @@
       "weak": false
     },
     {
-      "id": "CR-FIN-013",
+      "id": "CR-FIN-007",
       "order": 60,
       "stage": "closing",
       "priority": "core",
@@ -1678,7 +1386,7 @@
       "weak": false
     },
     {
-      "id": "CR-COL-021",
+      "id": "CR-COL-020",
       "order": 10,
       "stage": "monitoring",
       "priority": "gating",
@@ -1701,7 +1409,7 @@
       "weak": false
     },
     {
-      "id": "CR-COL-022",
+      "id": "CR-COL-021",
       "order": 20,
       "stage": "monitoring",
       "priority": "core",
@@ -1724,7 +1432,7 @@
       "weak": false
     },
     {
-      "id": "CR-COL-023",
+      "id": "CR-COL-022",
       "order": 30,
       "stage": "monitoring",
       "priority": "core",
@@ -1734,7 +1442,7 @@
       "why": "Double pledging can start after closing.",
       "pass": "Zero duplicates; no new unexplained filings.",
       "fail": "Any duplicate or new filing.",
-      "verify": "Agent and search provider.",
+      "verify": "Agent and search provider. Generic request also in universal U-COL-009; this item sets the credit pass criteria.",
       "applies_to": [
         "consumer",
         "specialty-finance",
@@ -1747,36 +1455,8 @@
       "weak": false
     },
     {
-      "id": "CR-FIN-014",
-      "order": 40,
-      "stage": "monitoring",
-      "priority": "gating",
-      "workstream": "Financial",
-      "request": "Financing-line report: haircut or advance-rate changes, margin calls received and met, renewal status and unencumbered liquidity.",
-      "format": "Monthly report and lender notices.",
-      "why": "Funding runs come before asset losses.",
-      "pass": "No unmet calls; liquidity covers stressed call.",
-      "fail": "Rising haircuts with falling liquidity; non-renewal notice.",
-      "verify": "Lender confirmations.",
-      "applies_to": [
-        "specialty-finance",
-        "consumer",
-        "factoring",
-        "equipment-finance",
-        "abs",
-        "clo",
-        "direct-lending",
-        "semi-liquid",
-        "nav-lending",
-        "bank-like",
-        "trade-finance"
-      ],
-      "ref": "4.9",
-      "weak": false
-    },
-    {
       "id": "CR-FO-005",
-      "order": 50,
+      "order": 40,
       "stage": "monitoring",
       "priority": "core",
       "workstream": "Fund Operations",
@@ -1793,57 +1473,8 @@
       "weak": false
     },
     {
-      "id": "CR-VAL-016",
-      "order": 60,
-      "stage": "monitoring",
-      "priority": "core",
-      "workstream": "Valuation & Model",
-      "request": "Quarterly marks with independent agent prices and cross-holder comparison.",
-      "format": "Valuation reports.",
-      "why": "Stale marks.",
-      "pass": "Within tolerance.",
-      "fail": "Divergence.",
-      "verify": "BDC filings.",
-      "applies_to": [
-        "direct-lending",
-        "semi-liquid",
-        "specialty-finance",
-        "litigation-finance",
-        "royalty-finance",
-        "distressed",
-        "nav-lending",
-        "insurer-affiliated",
-        "tokenized",
-        "clo",
-        "abs"
-      ],
-      "ref": "3.13, 4.11",
-      "weak": false
-    },
-    {
-      "id": "CR-CL-006",
-      "order": 70,
-      "stage": "monitoring",
-      "priority": "core",
-      "workstream": "Corporate & Legal",
-      "request": "Amendment, PIK, extension and forbearance log by loan.",
-      "format": "Quarterly log.",
-      "why": "Forbearance hides losses.",
-      "pass": "All logged and reflected in marks.",
-      "fail": "Unlogged changes.",
-      "verify": "Sample documents.",
-      "applies_to": [
-        "direct-lending",
-        "note-purchase",
-        "specialty-finance",
-        "semi-liquid"
-      ],
-      "ref": "3.13, 4.5",
-      "weak": false
-    },
-    {
-      "id": "CR-FIN-015",
-      "order": 80,
+      "id": "CR-FIN-008",
+      "order": 50,
       "stage": "monitoring",
       "priority": "core",
       "workstream": "Financial",
@@ -1860,8 +1491,8 @@
       "weak": false
     },
     {
-      "id": "CR-FIN-016",
-      "order": 90,
+      "id": "CR-FIN-009",
+      "order": 60,
       "stage": "monitoring",
       "priority": "core",
       "workstream": "Financial",
@@ -1878,36 +1509,8 @@
       "weak": false
     },
     {
-      "id": "CR-FIN-017",
-      "order": 100,
-      "stage": "monitoring",
-      "priority": "supporting",
-      "workstream": "Financial",
-      "request": "Quarterly counterparty watch: CDS, outflows and shareholder support for prime brokers, custodians and warehouse banks.",
-      "format": "Monitoring log.",
-      "why": "Credit Suisse.",
-      "pass": "No trigger breached, or plan executed.",
-      "fail": "Trigger breached with no action.",
-      "verify": "Market data.",
-      "applies_to": [
-        "direct-lending",
-        "semi-liquid",
-        "clo",
-        "distressed",
-        "specialty-finance",
-        "litigation-finance",
-        "royalty-finance",
-        "nav-lending",
-        "insurer-affiliated",
-        "bank-like",
-        "specialty-finance"
-      ],
-      "ref": "4.5, 4.12",
-      "weak": false
-    },
-    {
-      "id": "CR-CL-007",
-      "order": 110,
+      "id": "CR-CL-006",
+      "order": 70,
       "stage": "monitoring",
       "priority": "supporting",
       "workstream": "Corporate & Legal",
@@ -1941,19 +1544,6 @@
     },
     {
       "id": "CR-K02",
-      "test": "Duplicate collateral (VIN, invoice, serial number) found across facilities.",
-      "ref": "4.5, 4.8",
-      "applies_to": [
-        "consumer",
-        "specialty-finance",
-        "factoring",
-        "equipment-finance",
-        "abs",
-        "trade-finance"
-      ]
-    },
-    {
-      "id": "CR-K03",
       "test": "Originator refuses a cross-facility dedupe or custodial possession of original titles and notes.",
       "ref": "4.5, 4.6",
       "applies_to": [
@@ -1967,7 +1557,7 @@
       ]
     },
     {
-      "id": "CR-K04",
+      "id": "CR-K03",
       "test": "Charged-off loans appear as current in lender or trustee reports.",
       "ref": "4.5",
       "applies_to": [
@@ -1979,41 +1569,7 @@
       ]
     },
     {
-      "id": "CR-K05",
-      "test": "Yield marketed as 'no risk' or guaranteed.",
-      "ref": "4.6",
-      "applies_to": [
-        "all"
-      ]
-    },
-    {
-      "id": "CR-K06",
-      "test": "Manager services, values and reports with no independent third party and will not appoint one.",
-      "ref": "4.6",
-      "applies_to": [
-        "all"
-      ]
-    },
-    {
-      "id": "CR-K07",
-      "test": "Claimed independent valuation cannot be evidenced by the valuation firm.",
-      "ref": "4.4, 4.6",
-      "applies_to": [
-        "direct-lending",
-        "semi-liquid",
-        "specialty-finance",
-        "litigation-finance",
-        "royalty-finance",
-        "distressed",
-        "nav-lending",
-        "insurer-affiliated",
-        "tokenized",
-        "clo",
-        "abs"
-      ]
-    },
-    {
-      "id": "CR-K08",
+      "id": "CR-K04",
       "test": "Unencumbered liquidity does not cover the margin call under stressed haircuts plus a 20% to 30% collateral decline.",
       "ref": "4.9",
       "applies_to": [
@@ -2031,7 +1587,7 @@
       ]
     },
     {
-      "id": "CR-K09",
+      "id": "CR-K05",
       "test": "Redemption cap exceeds liquidity coverage with no gate or in-kind provision.",
       "ref": "4.11",
       "applies_to": [
@@ -2039,7 +1595,7 @@
       ]
     },
     {
-      "id": "CR-K10",
+      "id": "CR-K06",
       "test": "Unrealized securities losses exceed equity at a deposit-funded lender with a large uninsured funding share.",
       "ref": "4.12",
       "applies_to": [
@@ -2047,7 +1603,7 @@
       ]
     },
     {
-      "id": "CR-K11",
+      "id": "CR-K07",
       "test": "Account debtors on a notification deal refuse acknowledgment or deny invoices.",
       "ref": "4.2, 4.5",
       "applies_to": [
@@ -2055,7 +1611,7 @@
       ]
     },
     {
-      "id": "CR-K12",
+      "id": "CR-K08",
       "test": "Token conveys no enforceable claim on the underlying loans or the custodian is not bankruptcy remote.",
       "ref": "4.2",
       "applies_to": [
@@ -2066,24 +1622,6 @@
   "red_flags": [
     {
       "id": "CR-RF01",
-      "flag": "Yields far above the risk-free rate with 'no risk'.",
-      "check": "Ask what risk is being paid for; benchmark against put-writing.",
-      "ref": "4.6",
-      "applies_to": [
-        "all"
-      ]
-    },
-    {
-      "id": "CR-RF02",
-      "flag": "Returns smooth relative to the strategy at any level (insurance premium not yet paid out or a mark not taken).",
-      "check": "Compare volatility with indices; benchmark to levered put-writing.",
-      "ref": "4.6, 4.1",
-      "applies_to": [
-        "all"
-      ]
-    },
-    {
-      "id": "CR-RF03",
       "flag": "No independent audit of the loan tape or collateral.",
       "check": "Engage a loan-tape and collateral auditor.",
       "ref": "4.6",
@@ -2098,30 +1636,7 @@
       ]
     },
     {
-      "id": "CR-RF04",
-      "flag": "Manager also services, values and reports, with no third party.",
-      "check": "Require independent administrator, valuation agent and backup servicer.",
-      "ref": "4.6",
-      "applies_to": [
-        "all"
-      ]
-    },
-    {
-      "id": "CR-RF05",
-      "flag": "Borrower or originator with several warehouse lenders or factors, none of whom sees all the collateral.",
-      "check": "Independent cross-facility dedupe.",
-      "ref": "4.6",
-      "applies_to": [
-        "consumer",
-        "specialty-finance",
-        "factoring",
-        "equipment-finance",
-        "abs",
-        "trade-finance"
-      ]
-    },
-    {
-      "id": "CR-RF06",
+      "id": "CR-RF02",
       "flag": "Collateral pledged without custodial possession of titles or notes.",
       "check": "Independent custodian.",
       "ref": "4.6",
@@ -2134,31 +1649,7 @@
       ]
     },
     {
-      "id": "CR-RF07",
-      "flag": "Bunching of loans just above an eligibility cutoff, or a performance jump at the cutoff.",
-      "check": "Plot the tape around every cutoff.",
-      "ref": "4.6, 4.8",
-      "applies_to": [
-        "consumer",
-        "specialty-finance",
-        "abs",
-        "note-purchase"
-      ]
-    },
-    {
-      "id": "CR-RF08",
-      "flag": "Stated-income consumer pools whose income growth outruns local IRS income growth.",
-      "check": "4506-C sample; IRS SOI comparison.",
-      "ref": "4.6, 4.8",
-      "applies_to": [
-        "consumer",
-        "specialty-finance",
-        "abs",
-        "note-purchase"
-      ]
-    },
-    {
-      "id": "CR-RF09",
+      "id": "CR-RF03",
       "flag": "'Few defaults' with no delinquency roll or static-pool data.",
       "check": "Demand roll rates and static pool.",
       "ref": "4.6",
@@ -2174,24 +1665,7 @@
       ]
     },
     {
-      "id": "CR-RF10",
-      "flag": "'Independent valuation' the manager cannot evidence with the valuation firm's engagement letter.",
-      "check": "Call the valuation firm.",
-      "ref": "4.6",
-      "applies_to": [
-        "direct-lending",
-        "semi-liquid",
-        "specialty-finance",
-        "litigation-finance",
-        "royalty-finance",
-        "distressed",
-        "nav-lending",
-        "insurer-affiliated",
-        "tokenized"
-      ]
-    },
-    {
-      "id": "CR-RF11",
+      "id": "CR-RF04",
       "flag": "Labels ('alternative assets', 'multi-strategy income') that hide private-loan exposure.",
       "check": "Look through to holdings and how marks are set.",
       "ref": "4.6, 4.1",
@@ -2200,7 +1674,7 @@
       ]
     },
     {
-      "id": "CR-RF12",
+      "id": "CR-RF05",
       "flag": "Lender leverage stack (subscription line, NAV facility, asset-based facility, repo) with no disclosed margin-call triggers.",
       "check": "Obtain every facility agreement.",
       "ref": "4.6, 4.9",
@@ -2219,7 +1693,7 @@
       ]
     },
     {
-      "id": "CR-RF13",
+      "id": "CR-RF06",
       "flag": "Redemption-funded vehicle whose redemption cap exceeds its liquidity coverage.",
       "check": "Compute cash + NII + maturities against the cap.",
       "ref": "4.6, 4.11",
@@ -2228,7 +1702,7 @@
       ]
     },
     {
-      "id": "CR-RF14",
+      "id": "CR-RF07",
       "flag": "Insurer-affiliated platform lending policyholder money into its own deals with no independent valuation of affiliated placements.",
       "check": "Independent valuation; affiliated-transaction approval review.",
       "ref": "4.6, 4.10",
@@ -2237,44 +1711,7 @@
       ]
     },
     {
-      "id": "CR-RF15",
-      "flag": "Default rate quoted without a definition.",
-      "check": "Ask the definition and realized losses.",
-      "ref": "4.6",
-      "applies_to": [
-        "all"
-      ]
-    },
-    {
-      "id": "CR-RF16",
-      "flag": "Very large deployment targets.",
-      "check": "Compare with origination capacity.",
-      "ref": "4.6, 4.1",
-      "applies_to": [
-        "direct-lending",
-        "semi-liquid",
-        "clo",
-        "distressed",
-        "specialty-finance",
-        "litigation-finance",
-        "royalty-finance",
-        "nav-lending",
-        "insurer-affiliated"
-      ]
-    },
-    {
-      "id": "CR-RF17",
-      "flag": "Complex, illiquid product marketed to unsophisticated investors (late-cycle signal).",
-      "check": "Weigh cycle position; ask who the marginal investor is.",
-      "ref": "4.1",
-      "applies_to": [
-        "semi-liquid",
-        "tokenized",
-        "direct-lending"
-      ]
-    },
-    {
-      "id": "CR-RF18",
+      "id": "CR-RF08",
       "flag": "Bank lending to the vehicle growing quickly with renewal concentrated in one period.",
       "check": "Stagger renewals; stress non-renewal.",
       "ref": "4.1, 4.9",
@@ -2293,7 +1730,7 @@
       ]
     },
     {
-      "id": "CR-RF19",
+      "id": "CR-RF09",
       "flag": "Fund leverage rising as net outflows rise, or growing repurchases payable.",
       "check": "Leverage-redemption loop analysis.",
       "ref": "4.11",
@@ -2302,7 +1739,7 @@
       ]
     },
     {
-      "id": "CR-RF20",
+      "id": "CR-RF10",
       "flag": "Marks lagging other BDCs and leveraged-loan indices after a market decline.",
       "check": "Mark-lag test.",
       "ref": "4.11, 3.13",
@@ -2312,7 +1749,7 @@
       ]
     },
     {
-      "id": "CR-RF21",
+      "id": "CR-RF11",
       "flag": "Gate, suspension or in-kind provisions the manager says it will 'never use'.",
       "check": "Assume they will be used.",
       "ref": "4.11",
@@ -2321,7 +1758,7 @@
       ]
     },
     {
-      "id": "CR-RF22",
+      "id": "CR-RF12",
       "flag": "Sponsor support (insiders buying in) presented as a liquidity backstop.",
       "check": "Treat as discretionary; exclude from coverage.",
       "ref": "4.11",
@@ -2330,7 +1767,7 @@
       ]
     },
     {
-      "id": "CR-RF23",
+      "id": "CR-RF13",
       "flag": "Consolidated RBC much lower than reported once affiliated captives are included.",
       "check": "Recompute consolidated RBC.",
       "ref": "4.10",
@@ -2339,7 +1776,7 @@
       ]
     },
     {
-      "id": "CR-RF24",
+      "id": "CR-RF14",
       "flag": "Cash collateral reinvested in credit, or rating-downgrade collateral-posting triggers.",
       "check": "Map reinvestments and triggers.",
       "ref": "4.10, 4.5",
@@ -2350,17 +1787,7 @@
       ]
     },
     {
-      "id": "CR-RF25",
-      "flag": "Limits raised to fit positions, or the CRO replaced by a dealmaker.",
-      "check": "Review 24-month limit-breach log and CRO history.",
-      "ref": "4.12",
-      "applies_to": [
-        "bank-like",
-        "specialty-finance"
-      ]
-    },
-    {
-      "id": "CR-RF26",
+      "id": "CR-RF15",
       "flag": "Lender lacks collateral pre-positioned at the Fed.",
       "check": "Confirm pre-positioning.",
       "ref": "4.12",
@@ -2369,16 +1796,7 @@
       ]
     },
     {
-      "id": "CR-RF27",
-      "flag": "'Cash' or 'cash management' vehicles holding credit.",
-      "check": "Look through; model a 6 to 24 month gate.",
-      "ref": "4.5",
-      "applies_to": [
-        "all"
-      ]
-    },
-    {
-      "id": "CR-RF28",
+      "id": "CR-RF16",
       "flag": "Token redeemable faster than the underlying assets can pay.",
       "check": "Match redemption terms to asset liquidity.",
       "ref": "4.2",
@@ -2387,7 +1805,7 @@
       ]
     },
     {
-      "id": "CR-RF29",
+      "id": "CR-RF17",
       "flag": "CLO with obligor limits above 2% or industry above 15%.",
       "check": "Recompute AAA break-even.",
       "ref": "4.3",
@@ -2396,7 +1814,7 @@
       ]
     },
     {
-      "id": "CR-RF30",
+      "id": "CR-RF18",
       "flag": "Distressed fulcrum priced before considering LMEs the documents allow.",
       "check": "Map prime and strip capacity.",
       "ref": "4.2, 3.11",
@@ -2405,7 +1823,7 @@
       ]
     },
     {
-      "id": "CR-RF31",
+      "id": "CR-RF19",
       "flag": "Litigation funder control rights inconsistent with state ethics rules.",
       "check": "Counsel review.",
       "ref": "4.2",
