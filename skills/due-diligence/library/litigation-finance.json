@@ -1,0 +1,1008 @@
+{
+  "type": "litigation-finance",
+  "name": "Litigation Finance",
+  "summary": "Non-recourse funding of single cases or portfolios for claimants or law firms, LP positions in litigation-finance funds, and lending to funders or law firms. The bible chapter is outline-level: it supports structure and the regulatory baseline (no federal statute, no nationwide disclosure rule, some state consumer caps, case-by-case court disclosure; GAO-23-105210) but not market numbers or case files. The spine is: independent merits opinion; damages and collectability; duration stress (IRR at 1.5x and 2x expected duration); funder capital adequacy through trial and appeal; who controls settlement; portfolio diversification; and Level 3 case marks (marks above cost without a judgment are a red flag). GAPS listed in 18.10: market size and growth from a primary source; realized returns, win/loss rates and duration distributions by case type; named failure case files; current federal and state disclosure rules beyond GAO (Dec. 2022) and the Delaware standing orders; state champerty, usury and ethics rules on funder control; fair-value accounting practice and auditor approaches; insurance products (judgment-preservation, after-the-event) and their underwriting effect; secondary market for case interests and its pricing. Resolve by interviewing 3 to 5 funders, litigation counsel and fund LPs (B.1).",
+  "chapters": [
+    "18-litigation-finance.md"
+  ],
+  "one_check": "Underwrite collection and duration, not just merits: ask what the IRR is if the case takes twice as long and the defendant pays late, and who funds the case until then.",
+  "subtypes": [
+    {
+      "id": "single-case",
+      "name": "Direct single-case funding",
+      "description": "Non-recourse funding of one claim for a claimant or law firm."
+    },
+    {
+      "id": "portfolio",
+      "name": "Portfolio funding",
+      "description": "Funding of a portfolio of claims, often for a law firm, with cross-collateralization."
+    },
+    {
+      "id": "fund-lp",
+      "name": "LP in a litigation-finance fund",
+      "description": "Commitment to a funder's fund; apply fund.json ODD plus this chapter."
+    },
+    {
+      "id": "lender",
+      "name": "Lender to a funder or law firm",
+      "description": "Credit to a funder or law firm secured on case interests; apply credit diligence plus this chapter."
+    }
+  ],
+  "intake_questions": [
+    {
+      "id": "LF-Q01",
+      "question": "Are we funding a single case, a portfolio, investing as an LP in a funder's fund, or lending to a funder or law firm?",
+      "why": "Selects subtype.",
+      "sets_subtype": true
+    },
+    {
+      "id": "LF-Q02",
+      "question": "Is the claim commercial or consumer, and what case type (commercial, patent, international arbitration, mass tort)?",
+      "why": "Consumer funding faces state caps; data gaps vary by type.",
+      "sets_subtype": false
+    },
+    {
+      "id": "LF-Q03",
+      "question": "Is the defendant a sovereign or located in a different jurisdiction from the forum?",
+      "why": "Collectability and enforcement risk.",
+      "sets_subtype": false
+    },
+    {
+      "id": "LF-Q04",
+      "question": "Which jurisdictions' champerty, usury and ethics rules apply?",
+      "why": "Enforceability and funder-control limits.",
+      "sets_subtype": false
+    },
+    {
+      "id": "LF-Q05",
+      "question": "Does any court disclosure order apply?",
+      "why": "Disclosure exposure.",
+      "sets_subtype": false
+    }
+  ],
+  "requests": [
+    {
+      "id": "LF-STR-001",
+      "order": 10,
+      "stage": "screen",
+      "priority": "gating",
+      "workstream": "Structure & Terms",
+      "request": "Funding agreement(s): return waterfall (multiple of capital versus percentage of proceeds, whichever greater), priority against counsel's contingency fee and any insurer, termination and withdrawal rights.",
+      "format": "Executed or final-draft agreement.",
+      "why": "Returns depend on the waterfall and priority; non-recourse to the claimant.",
+      "pass": "Waterfall, priority and termination rights explicit; funding non-recourse to claimant.",
+      "fail": "Priority behind counsel and insurer undefined; funder may withdraw at will.",
+      "verify": "Counsel review.",
+      "applies_to": [
+        "single-case",
+        "portfolio"
+      ],
+      "ref": "18.1, 18.2 item 1, 18.6",
+      "weak": false
+    },
+    {
+      "id": "LF-COM-001",
+      "order": 20,
+      "stage": "screen",
+      "priority": "gating",
+      "workstream": "Commercial & Market",
+      "request": "Case summary and procedural history, with expected and stressed duration including appeals.",
+      "format": "Docket extracts and counsel timeline.",
+      "why": "Duration blowouts collapse IRR while MOIC looks fine.",
+      "pass": "Duration distribution with appeal scenarios provided.",
+      "fail": "Single-point duration estimate.",
+      "verify": "Check docket independently.",
+      "applies_to": [
+        "single-case",
+        "portfolio"
+      ],
+      "ref": "18.2 item 4, 18.3",
+      "weak": false
+    },
+    {
+      "id": "LF-FIN-001",
+      "order": 30,
+      "stage": "screen",
+      "priority": "gating",
+      "workstream": "Financial",
+      "request": "For a funder or fund: portfolio list with cost, current mark, status and expected resolution date for every case.",
+      "format": "Schedule tied to the fund's financial statements.",
+      "why": "Single-case concentration and marks above cost.",
+      "pass": "Complete list; concentration within stated limits.",
+      "fail": "One case dominates NAV.",
+      "verify": "Tie to audited schedule of investments.",
+      "applies_to": [
+        "fund-lp",
+        "lender",
+        "portfolio"
+      ],
+      "ref": "18.2 item 7, 18.3",
+      "weak": false
+    },
+    {
+      "id": "LF-FIN-002",
+      "order": 40,
+      "stage": "screen",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Returns reported as both MOIC and IRR, with duration, for every realized case.",
+      "format": "Realized-case schedule.",
+      "why": "MOIC alone hides duration risk; returns quoted in MOIC only are a red flag.",
+      "pass": "Both MOIC and IRR reported with dates.",
+      "fail": "MOIC only.",
+      "verify": "Recompute IRR from dated cash flows.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "18.4, 18.8",
+      "weak": false
+    },
+    {
+      "id": "LF-REG-001",
+      "order": 50,
+      "stage": "screen",
+      "priority": "core",
+      "workstream": "Regulatory & Compliance",
+      "request": "Any court disclosure orders or standing orders that apply to the case(s), including the District of Delaware standing orders since 2022.",
+      "format": "Orders and counsel note.",
+      "why": "Court-level disclosure is spreading; no nationwide requirement (GAO-23-105210).",
+      "pass": "Applicable disclosure rules identified and complied with.",
+      "fail": "Unassessed disclosure exposure.",
+      "verify": "Verify current federal rulemaking status.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "18.1, 18.2 item 8, 18.3",
+      "weak": true
+    },
+    {
+      "id": "LF-STR-002",
+      "order": 10,
+      "stage": "term-sheet",
+      "priority": "gating",
+      "workstream": "Structure & Terms",
+      "request": "Control provisions: who controls litigation strategy and settlement decisions.",
+      "format": "Funding-agreement clauses.",
+      "why": "A funder that controls settlement creates ethics and enforceability problems.",
+      "pass": "Claimant and counsel control strategy and settlement, consistent with state ethics rules.",
+      "fail": "Funder controls settlement.",
+      "verify": "Counsel review against state rules (state-by-state analysis required; GAP).",
+      "applies_to": [
+        "single-case",
+        "portfolio"
+      ],
+      "ref": "18.3, 18.7, 18.8, 18.9 Q4",
+      "weak": false
+    },
+    {
+      "id": "LF-FIN-003",
+      "order": 20,
+      "stage": "term-sheet",
+      "priority": "gating",
+      "workstream": "Financial",
+      "request": "Budget to trial and through appeal, and who funds overruns.",
+      "format": "Counsel budget by phase.",
+      "why": "Cases left unfunded mid-stream.",
+      "pass": "Budget covers trial and appeal; overrun responsibility defined.",
+      "fail": "No appeal budget; overruns unallocated.",
+      "verify": "Compare with counsel's billing history.",
+      "applies_to": [
+        "single-case",
+        "portfolio"
+      ],
+      "ref": "18.2 item 5, 18.7",
+      "weak": false
+    },
+    {
+      "id": "LF-LEG-001",
+      "order": 30,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Corporate & Legal",
+      "request": "Engagement letter between claimant and counsel: contingency terms and conflicts.",
+      "format": "Executed engagement letter.",
+      "why": "Counsel's contingency fee competes with the funder's priority.",
+      "pass": "Contingency terms consistent with funding-agreement priority; no conflicts.",
+      "fail": "Conflicting priorities.",
+      "verify": "Counsel review.",
+      "applies_to": [
+        "single-case",
+        "portfolio"
+      ],
+      "ref": "18.2 item 6, 18.6",
+      "weak": false
+    },
+    {
+      "id": "LF-LEG-002",
+      "order": 40,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Corporate & Legal",
+      "request": "Champerty, usury and state ethics analysis for each jurisdiction involved.",
+      "format": "Counsel memo.",
+      "why": "Primary sources were not retrieved in the bible (GAP); state-by-state analysis required.",
+      "pass": "Memo concludes the agreement is enforceable in each jurisdiction.",
+      "fail": "Enforceability doubtful.",
+      "verify": "Our counsel review.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "18.6, 18.10",
+      "weak": false
+    },
+    {
+      "id": "LF-STR-003",
+      "order": 50,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Structure & Terms",
+      "request": "Cross-collateralization terms across cases in a portfolio deal or fund facility.",
+      "format": "Agreement clauses.",
+      "why": "Single-case concentration; one loss wipes out the fund.",
+      "pass": "Cross-collateralization disclosed and diversification adequate.",
+      "fail": "Undisclosed cross-collateralization.",
+      "verify": "Counsel review.",
+      "applies_to": [
+        "portfolio",
+        "lender",
+        "fund-lp"
+      ],
+      "ref": "18.2 item 7, 18.3",
+      "weak": false
+    },
+    {
+      "id": "LF-FIN-004",
+      "order": 60,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Consumer funding: applicable state fee or rate caps.",
+      "format": "Counsel memo.",
+      "why": "Some states cap fees or rates in consumer funding.",
+      "pass": "Pricing within caps.",
+      "fail": "Pricing exceeds caps.",
+      "verify": "Counsel review.",
+      "applies_to": [
+        "single-case",
+        "portfolio"
+      ],
+      "ref": "18.1, 18.6",
+      "weak": false
+    },
+    {
+      "id": "LF-COM-002",
+      "order": 10,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Commercial & Market",
+      "request": "Damages model.",
+      "format": "Expert-supported model.",
+      "why": "Overstated damages inflate expected recovery.",
+      "pass": "Model independently reviewed by a damages expert.",
+      "fail": "Unreviewed model.",
+      "verify": "Damages expert in third-party stage.",
+      "applies_to": [
+        "single-case",
+        "portfolio"
+      ],
+      "ref": "18.2 item 3, 18.3",
+      "weak": false
+    },
+    {
+      "id": "LF-COM-003",
+      "order": 20,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Commercial & Market",
+      "request": "Collectability analysis of the defendant: assets, insurance, jurisdiction and sovereign status.",
+      "format": "Asset searches and enforcement analysis.",
+      "why": "Win but cannot collect: judgment-proof or sovereign defendants.",
+      "pass": "Collectible assets or insurance identified in enforceable jurisdictions.",
+      "fail": "Judgment-proof or sovereign defendant without enforcement plan.",
+      "verify": "Enforcement counsel review.",
+      "applies_to": [
+        "single-case",
+        "portfolio"
+      ],
+      "ref": "18.2 item 3, 18.3, 18.7, 18.9 Q2",
+      "weak": false
+    },
+    {
+      "id": "LF-FIN-005",
+      "order": 30,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Financial",
+      "request": "IRR at 1.5x and 2x the expected duration with late payment by the defendant.",
+      "format": "Our model.",
+      "why": "THE ONE CHECK: underwrite collection and duration, not just merits.",
+      "pass": "Return acceptable at 1.5x duration (heuristic) and positive at 2x.",
+      "fail": "Return collapses at 1.5x duration.",
+      "verify": "Rebuild.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "18.3, 18.7 THE ONE CHECK, 18.9 Q3",
+      "weak": true
+    },
+    {
+      "id": "LF-FIN-006",
+      "order": 40,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Financial",
+      "request": "Funder capital adequacy: commitments to cases versus uncalled capital and liquidity.",
+      "format": "Funder financials and commitment schedule.",
+      "why": "Funder liquidity squeeze leaves cases unfunded.",
+      "pass": "Committed capital covers every case through trial and appeal.",
+      "fail": "Commitments exceed uncalled capital.",
+      "verify": "Confirm capital with administrator or LPs.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "18.2 item 7, 18.3, 18.7, 18.8, 18.9 Q6",
+      "weak": false
+    },
+    {
+      "id": "LF-VAL-001",
+      "order": 50,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Valuation & Model",
+      "request": "Valuation policy for case assets and the auditor's approach to Level 3 case marks.",
+      "format": "Policy and auditor's memo or audit footnotes.",
+      "why": "Marks move with headlines; marks above cost without a judgment.",
+      "pass": "Cases without a judgment carried at or near cost unless policy-based evidence; auditor tests marks.",
+      "fail": "Marks above cost on unresolved cases.",
+      "verify": "Discuss with auditor.",
+      "applies_to": [
+        "fund-lp",
+        "lender",
+        "portfolio"
+      ],
+      "ref": "18.2 item 7, 18.3, 18.7, 18.8, 18.9 Q5",
+      "weak": false
+    },
+    {
+      "id": "LF-VAL-002",
+      "order": 60,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Valuation & Model",
+      "request": "Mark-versus-cost schedule for every unresolved case, with reason for any mark above cost.",
+      "format": "Schedule.",
+      "why": "Level 3 marks above cost on unresolved cases.",
+      "pass": "No uplift without a judgment or binding settlement.",
+      "fail": "Uplifts on headlines.",
+      "verify": "Recompute.",
+      "applies_to": [
+        "fund-lp",
+        "lender",
+        "portfolio"
+      ],
+      "ref": "18.7, 18.8",
+      "weak": false
+    },
+    {
+      "id": "LF-FOP-001",
+      "order": 70,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Fund Operations",
+      "request": "ODD on the funder or fund: who has write access to marks, independent valuation, administrator and auditor.",
+      "format": "Chapter 10 ODD request set.",
+      "why": "Infinity Q and SQN lessons apply to Level 3 case marks.",
+      "pass": "Fund-level ODD items in fund.json pass.",
+      "fail": "ODD failures.",
+      "verify": "Apply fund.json requests.",
+      "applies_to": [
+        "fund-lp",
+        "lender",
+        "portfolio"
+      ],
+      "ref": "18.1, 18.3",
+      "weak": false
+    },
+    {
+      "id": "LF-COM-004",
+      "order": 80,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Commercial & Market",
+      "request": "Portfolio diversification analysis by case, case type, defendant, jurisdiction and counsel.",
+      "format": "Concentration table.",
+      "why": "Single-case concentration.",
+      "pass": "No single case above a level whose loss the portfolio survives.",
+      "fail": "One case could wipe out the fund.",
+      "verify": "Recompute.",
+      "applies_to": [
+        "portfolio",
+        "fund-lp",
+        "lender"
+      ],
+      "ref": "18.3, 18.7",
+      "weak": false
+    },
+    {
+      "id": "LF-COM-005",
+      "order": 90,
+      "stage": "confirmatory",
+      "priority": "supporting",
+      "workstream": "Commercial & Market",
+      "request": "Win/loss history and realized duration of the funder's prior cases by case type.",
+      "format": "Schedule.",
+      "why": "Win rates, loss rates and duration distributions were not sourced (GAP).",
+      "pass": "Funder provides realized history by case type.",
+      "fail": "No history.",
+      "verify": "Check outcomes on dockets.",
+      "applies_to": [
+        "fund-lp",
+        "lender",
+        "portfolio"
+      ],
+      "ref": "18.4, 18.10",
+      "weak": false
+    },
+    {
+      "id": "LF-INS-001",
+      "order": 100,
+      "stage": "confirmatory",
+      "priority": "supporting",
+      "workstream": "Insurance",
+      "request": "Insurance in the structure (judgment-preservation, after-the-event cover) and its priority.",
+      "format": "Policies.",
+      "why": "Insurance products' effect on underwriting not sourced (GAP).",
+      "pass": "Cover and priority understood.",
+      "fail": "Unclear insurer priority.",
+      "verify": "Broker review.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "18.6, 18.10",
+      "weak": false
+    },
+    {
+      "id": "LF-COM-006",
+      "order": 110,
+      "stage": "confirmatory",
+      "priority": "supporting",
+      "workstream": "Commercial & Market",
+      "request": "Secondary-market activity in case interests and pricing evidence.",
+      "format": "Funder statement.",
+      "why": "Secondary market and pricing not sourced (GAP).",
+      "pass": "Any secondary transfers disclosed.",
+      "fail": "Undisclosed transfers.",
+      "verify": "Ask the funder.",
+      "applies_to": [
+        "fund-lp",
+        "lender",
+        "portfolio"
+      ],
+      "ref": "18.10",
+      "weak": false
+    },
+    {
+      "id": "LF-LEG-003",
+      "order": 10,
+      "stage": "third-party",
+      "priority": "gating",
+      "workstream": "Corporate & Legal",
+      "request": "Independent merits opinion by counsel not involved in the case.",
+      "format": "Opinion letter addressed to us.",
+      "why": "Merits opinion from the counsel running the case is a red flag.",
+      "pass": "Independent counsel with no role in the case supports merits.",
+      "fail": "Opinion from case counsel.",
+      "verify": "Confirm counsel independence.",
+      "applies_to": [
+        "single-case",
+        "portfolio"
+      ],
+      "ref": "18.2 item 2, 18.3, 18.5, 18.8, 18.9 Q1",
+      "weak": false
+    },
+    {
+      "id": "LF-COM-007",
+      "order": 20,
+      "stage": "third-party",
+      "priority": "core",
+      "workstream": "Commercial & Market",
+      "request": "Damages expert review.",
+      "format": "Expert report.",
+      "why": "Overstated damages.",
+      "pass": "Expert supports damages range.",
+      "fail": "Material reduction.",
+      "verify": "Expert engaged by us.",
+      "applies_to": [
+        "single-case",
+        "portfolio"
+      ],
+      "ref": "18.5",
+      "weak": false
+    },
+    {
+      "id": "LF-LEG-004",
+      "order": 30,
+      "stage": "third-party",
+      "priority": "core",
+      "workstream": "Corporate & Legal",
+      "request": "Collection and enforcement counsel opinion (especially cross-border or sovereign).",
+      "format": "Opinion.",
+      "why": "Win but cannot collect.",
+      "pass": "Enforcement path credible.",
+      "fail": "No path.",
+      "verify": "Counsel engaged by us.",
+      "applies_to": [
+        "single-case",
+        "portfolio"
+      ],
+      "ref": "18.5, 18.7",
+      "weak": false
+    },
+    {
+      "id": "LF-VAL-003",
+      "order": 40,
+      "stage": "third-party",
+      "priority": "core",
+      "workstream": "Valuation & Model",
+      "request": "Valuation agent and auditor confirmation of case marks.",
+      "format": "Direct confirmations.",
+      "why": "Level 3 marks.",
+      "pass": "Confirmed.",
+      "fail": "Not confirmed.",
+      "verify": "Unsolicited calls.",
+      "applies_to": [
+        "fund-lp",
+        "lender",
+        "portfolio"
+      ],
+      "ref": "18.5",
+      "weak": false
+    },
+    {
+      "id": "LF-FOP-002",
+      "order": 50,
+      "stage": "third-party",
+      "priority": "core",
+      "workstream": "Fund Operations",
+      "request": "Independent ODD report on the funder or fund.",
+      "format": "ODD provider report.",
+      "why": "Operational risk at the funder.",
+      "pass": "No high-severity findings.",
+      "fail": "High-severity findings.",
+      "verify": "Provider engaged by us.",
+      "applies_to": [
+        "fund-lp",
+        "lender",
+        "portfolio"
+      ],
+      "ref": "18.5",
+      "weak": false
+    },
+    {
+      "id": "LF-STR-004",
+      "order": 10,
+      "stage": "closing",
+      "priority": "gating",
+      "workstream": "Structure & Terms",
+      "request": "Executed funding agreement conforming to agreed waterfall, priority and control terms.",
+      "format": "Execution version and redline.",
+      "why": "Late changes.",
+      "pass": "As agreed.",
+      "fail": "Changes.",
+      "verify": "Counsel confirmation.",
+      "applies_to": [
+        "single-case",
+        "portfolio"
+      ],
+      "ref": "18.2",
+      "weak": false
+    },
+    {
+      "id": "LF-LEG-005",
+      "order": 20,
+      "stage": "closing",
+      "priority": "core",
+      "workstream": "Corporate & Legal",
+      "request": "Acknowledgement of funding-agreement priority by counsel and any insurer.",
+      "format": "Signed acknowledgements.",
+      "why": "Priority disputes at recovery.",
+      "pass": "Signed.",
+      "fail": "Missing.",
+      "verify": "Counsel confirmation.",
+      "applies_to": [
+        "single-case",
+        "portfolio"
+      ],
+      "ref": "18.6",
+      "weak": false
+    },
+    {
+      "id": "LF-REG-002",
+      "order": 30,
+      "stage": "closing",
+      "priority": "core",
+      "workstream": "Regulatory & Compliance",
+      "request": "Any required court disclosure filed.",
+      "format": "Filing.",
+      "why": "Disclosure orders.",
+      "pass": "Filed where required.",
+      "fail": "Not filed.",
+      "verify": "Docket check.",
+      "applies_to": [
+        "single-case",
+        "portfolio"
+      ],
+      "ref": "18.3",
+      "weak": false
+    },
+    {
+      "id": "LF-COM-008",
+      "order": 10,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Commercial & Market",
+      "request": "Quarterly case status report with budget-to-actual and revised duration.",
+      "format": "Report.",
+      "why": "Duration blowout.",
+      "pass": "Delivered; duration within stressed range.",
+      "fail": "Duration beyond stress.",
+      "verify": "Docket check.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "18.3",
+      "weak": false
+    },
+    {
+      "id": "LF-VAL-004",
+      "order": 20,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Valuation & Model",
+      "request": "Quarterly marks with cost comparison for every unresolved case.",
+      "format": "Mark schedule.",
+      "why": "Marks moving with headlines.",
+      "pass": "No uplift without judgment.",
+      "fail": "Unsupported uplift.",
+      "verify": "Recompute.",
+      "applies_to": [
+        "fund-lp",
+        "lender",
+        "portfolio"
+      ],
+      "ref": "18.7",
+      "weak": false
+    },
+    {
+      "id": "LF-FIN-007",
+      "order": 30,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Quarterly funder capital report: commitments versus uncalled capital.",
+      "format": "Report.",
+      "why": "Funder liquidity squeeze.",
+      "pass": "Commitments covered.",
+      "fail": "Shortfall.",
+      "verify": "LP or administrator confirmation.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "18.7",
+      "weak": false
+    },
+    {
+      "id": "LF-FOP-003",
+      "order": 40,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Fund Operations",
+      "request": "Annual audited financial statements of the fund or funder.",
+      "format": "Signed audit.",
+      "why": "Level 3 valuation risk.",
+      "pass": "Unqualified and on time.",
+      "fail": "Late or qualified.",
+      "verify": "Auditor confirmation.",
+      "applies_to": [
+        "fund-lp",
+        "lender",
+        "portfolio"
+      ],
+      "ref": "18.3",
+      "weak": false
+    },
+    {
+      "id": "LF-COM-009",
+      "order": 50,
+      "stage": "monitoring",
+      "priority": "supporting",
+      "workstream": "Commercial & Market",
+      "request": "Notice of any settlement offer and the decision process.",
+      "format": "Notice.",
+      "why": "Funder control of settlement.",
+      "pass": "Decision by claimant and counsel.",
+      "fail": "Funder-driven decision.",
+      "verify": "Counsel confirmation.",
+      "applies_to": [
+        "single-case",
+        "portfolio"
+      ],
+      "ref": "18.3",
+      "weak": false
+    }
+  ],
+  "kill_tests": [
+    {
+      "id": "LF-K01",
+      "test": "Merits opinion only from the counsel running the case.",
+      "ref": "18.8",
+      "applies_to": [
+        "single-case",
+        "portfolio"
+      ]
+    },
+    {
+      "id": "LF-K02",
+      "test": "No credible collection path (judgment-proof or sovereign defendant without enforcement plan).",
+      "ref": "18.7",
+      "applies_to": [
+        "single-case",
+        "portfolio"
+      ]
+    },
+    {
+      "id": "LF-K03",
+      "test": "Funder commitments exceed uncalled capital so cases cannot be funded through trial and appeal.",
+      "ref": "18.7, 18.8",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "LF-K04",
+      "test": "Funder controls settlement decisions contrary to applicable state ethics rules.",
+      "ref": "18.3, 18.8",
+      "applies_to": [
+        "single-case",
+        "portfolio"
+      ]
+    }
+  ],
+  "red_flags": [
+    {
+      "id": "LF-RF01",
+      "flag": "Marks above cost on cases without a judgment.",
+      "check": "Mark-versus-cost schedule.",
+      "ref": "18.8",
+      "applies_to": [
+        "fund-lp",
+        "lender",
+        "portfolio"
+      ]
+    },
+    {
+      "id": "LF-RF02",
+      "flag": "Returns quoted in MOIC only.",
+      "check": "Recompute IRR with duration.",
+      "ref": "18.8",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "LF-RF03",
+      "flag": "Single-case concentration.",
+      "check": "Diversification analysis.",
+      "ref": "18.8",
+      "applies_to": [
+        "portfolio",
+        "fund-lp",
+        "lender"
+      ]
+    },
+    {
+      "id": "LF-RF04",
+      "flag": "A funder that also controls settlement decisions.",
+      "check": "Control provisions.",
+      "ref": "18.8",
+      "applies_to": [
+        "single-case",
+        "portfolio"
+      ]
+    },
+    {
+      "id": "LF-RF05",
+      "flag": "Merits opinion from the counsel running the case.",
+      "check": "Independent merits opinion.",
+      "ref": "18.8",
+      "applies_to": [
+        "single-case",
+        "portfolio"
+      ]
+    },
+    {
+      "id": "LF-RF06",
+      "flag": "Funder whose commitments exceed its uncalled capital.",
+      "check": "Capital adequacy.",
+      "ref": "18.8",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "LF-RF07",
+      "flag": "No appeal budget or undefined overrun responsibility.",
+      "check": "Budget to trial and appeal.",
+      "ref": "18.2, 18.7",
+      "applies_to": [
+        "single-case",
+        "portfolio"
+      ]
+    }
+  ],
+  "metrics": [
+    {
+      "id": "LF-M01",
+      "metric": "Commercial vs consumer deal size",
+      "acceptable": "Commercial deals in the millions; consumer advances usually under $10,000",
+      "source": "GAO-23-105210 (Dec. 2022)",
+      "weak": false,
+      "ref": "18.1, 18.4",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "LF-M02",
+      "metric": "Duration stress (our test)",
+      "acceptable": "IRR at 1.5x expected duration (general-lane heuristic, not sourced to data) and at 2x",
+      "source": "Bible 18.3, 18.9",
+      "weak": true,
+      "ref": "18.3, 18.9",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "LF-M03",
+      "metric": "Return reporting",
+      "acceptable": "Both MOIC and IRR with duration; MOIC alone hides duration risk",
+      "source": "Bible 18.4 (general lane)",
+      "weak": false,
+      "ref": "18.4",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "LF-M04",
+      "metric": "Market size, win rates, loss rates, durations, realized returns",
+      "acceptable": "Not sourced; GAO found public data too limited (GAP)",
+      "source": "GAO-23-105210",
+      "weak": true,
+      "ref": "18.4, 18.10",
+      "applies_to": [
+        "all"
+      ]
+    }
+  ],
+  "third_party_reports": [
+    {
+      "id": "LF-T01",
+      "report": "Independent merits opinion",
+      "provider": "Counsel not involved in the case",
+      "required_when": "Always for case funding",
+      "ref": "18.5"
+    },
+    {
+      "id": "LF-T02",
+      "report": "Damages review",
+      "provider": "Damages expert",
+      "required_when": "Case funding",
+      "ref": "18.5"
+    },
+    {
+      "id": "LF-T03",
+      "report": "Collection and enforcement opinion",
+      "provider": "Enforcement counsel (especially cross-border or sovereign)",
+      "required_when": "Case funding",
+      "ref": "18.5"
+    },
+    {
+      "id": "LF-T04",
+      "report": "Valuation of Level 3 case marks and audit",
+      "provider": "Valuation agent and auditor",
+      "required_when": "Fund, funder or portfolio positions",
+      "ref": "18.5"
+    },
+    {
+      "id": "LF-T05",
+      "report": "Operational due diligence on funder or fund",
+      "provider": "ODD provider (Chapter 10.3)",
+      "required_when": "Fund, funder or lender positions",
+      "ref": "18.5"
+    }
+  ],
+  "hard_questions": [
+    {
+      "id": "LF-HQ01",
+      "question": "Who wrote the merits opinion, and do they have any role in the case?",
+      "good_answer": "Independent counsel with no role in the case.",
+      "ref": "18.9 Q1"
+    },
+    {
+      "id": "LF-HQ02",
+      "question": "If you win, how and from what assets do you collect?",
+      "good_answer": "Named assets or insurance in enforceable jurisdictions with an enforcement plan.",
+      "ref": "18.9 Q2"
+    },
+    {
+      "id": "LF-HQ03",
+      "question": "What is the IRR at 1.5x and 2x the expected duration?",
+      "good_answer": "A modelled answer showing acceptable returns at 1.5x and positive at 2x.",
+      "ref": "18.9 Q3"
+    },
+    {
+      "id": "LF-HQ04",
+      "question": "Who decides whether to settle?",
+      "good_answer": "The claimant with counsel, consistent with state ethics rules.",
+      "ref": "18.9 Q4"
+    },
+    {
+      "id": "LF-HQ05",
+      "question": "How are unresolved cases marked, and who signs the valuation?",
+      "good_answer": "At or near cost without a judgment; independent valuation agent signs.",
+      "ref": "18.9 Q5"
+    },
+    {
+      "id": "LF-HQ06",
+      "question": "Can the funder fund every case through trial and appeal from committed capital?",
+      "good_answer": "Yes, with a commitment-versus-capital schedule.",
+      "ref": "18.9 Q6"
+    }
+  ],
+  "failure_cases": [
+    {
+      "case": "Win but cannot collect (generic)",
+      "year": "No named case sourced (GAP)",
+      "what_happened": "Judgment against a judgment-proof or sovereign defendant.",
+      "check": "Collectability analysis; enforcement counsel.",
+      "ref": "18.7"
+    },
+    {
+      "case": "Duration blowout (generic)",
+      "year": "No named case sourced (GAP)",
+      "what_happened": "IRR collapses while MOIC looks fine.",
+      "check": "Duration distribution with appeals; IRR at stressed duration.",
+      "ref": "18.7"
+    },
+    {
+      "case": "Marks move with headlines (generic)",
+      "year": "No named case sourced (GAP)",
+      "what_happened": "Level 3 marks above cost on unresolved cases.",
+      "check": "Valuation policy; marks vs cost without a judgment; auditor approach.",
+      "ref": "18.7"
+    },
+    {
+      "case": "Funder liquidity squeeze (generic)",
+      "year": "No named case sourced (GAP)",
+      "what_happened": "Cases left unfunded mid-stream.",
+      "check": "Funder commitments vs uncalled capital; budget to trial.",
+      "ref": "18.7"
+    },
+    {
+      "case": "Funder controls settlement (generic)",
+      "year": "No named case sourced (GAP)",
+      "what_happened": "Ethics and enforceability problems; conflict with claimant.",
+      "check": "Read control provisions against state rules.",
+      "ref": "18.7"
+    },
+    {
+      "case": "Single-case concentration (generic)",
+      "year": "No named case sourced (GAP)",
+      "what_happened": "One loss wipes out the fund.",
+      "check": "Portfolio diversification; cross-collateralization terms.",
+      "ref": "18.7"
+    }
+  ]
+}

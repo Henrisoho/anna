@@ -1,0 +1,1849 @@
+{
+  "type": "healthcare",
+  "name": "Healthcare Services and Physician Practice Roll-Ups",
+  "summary": "Physician practice management platforms and MSO/friendly-PC structures, nursing homes and senior care, behavioral health, home health and hospital sale-leasebacks. Revenue is set by payors, so diligence centers on reimbursement durability (payor mix, contracts, fee schedules, out-of-network exposure), revenue traced from 835 remittances to bank deposits, independent per-provider coding audits, fraud-and-abuse compliance (Anti-Kickback Statute, Stark, False Claims Act reaching sponsors), FMV support for every referral-source arrangement, corporate practice of medicine and state PE-healthcare notice laws (Oregon SB 951 as the strictest template), antitrust risk of serial sub-HSR add-ons, sale-leaseback rent coverage, and for nursing homes the staffing and quality evidence (PE ownership raised short-term mortality about 10% to 11%). Behavioral health and home health are named as roll-up platforms but not treated separately in the bible; numeric revenue-cycle and productivity thresholds were not sourced (GAP).",
+  "chapters": [
+    "17-healthcare-rollups.md"
+  ],
+  "one_check": "Rebuild revenue from remittances and bank deposits and run an independent coding audit per provider before close; payor-set revenue that cannot be traced to cash, or that depends on outlier coding or above-FMV referral arrangements, is the liability, not the asset.",
+  "subtypes": [
+    {
+      "id": "physician-rollup",
+      "name": "Physician practice roll-up",
+      "description": "Platform practice plus add-ons (dermatology, anesthesia, GI, dental and similar) with centralized billing."
+    },
+    {
+      "id": "mso-pc",
+      "name": "MSO / friendly-PC structure",
+      "description": "Sponsor-owned MSO contracting with a physician-owned professional entity where CPOM applies."
+    },
+    {
+      "id": "nursing-home",
+      "name": "Nursing homes / senior care / post-acute",
+      "description": "Skilled nursing and post-acute facilities; government payors about 75% of revenue; staffing and quality evidence."
+    },
+    {
+      "id": "behavioral-health",
+      "name": "Behavioral health",
+      "description": "Behavioral-health practice or facility roll-up (named platform type; general items applied)."
+    },
+    {
+      "id": "home-health",
+      "name": "Home health",
+      "description": "Home-health agency roll-up (named platform type; general items applied)."
+    }
+  ],
+  "intake_questions": [
+    {
+      "id": "HC-Q01",
+      "question": "Is the target a physician practice roll-up, an MSO/friendly-PC structure, nursing homes or senior care, behavioral health, or home health?",
+      "why": "Selects subtype.",
+      "sets_subtype": true
+    },
+    {
+      "id": "HC-Q02",
+      "question": "In which states does the business operate, and do any have CPOM or PE-healthcare notice laws?",
+      "why": "Drives state CPOM and notice workstreams.",
+      "sets_subtype": false
+    },
+    {
+      "id": "HC-Q03",
+      "question": "What share of revenue is Medicare, Medicaid, commercial and out-of-network?",
+      "why": "Reimbursement durability and No Surprises Act exposure.",
+      "sets_subtype": false
+    },
+    {
+      "id": "HC-Q04",
+      "question": "Has the business done a sale-leaseback or does it plan one?",
+      "why": "Rent-coverage and proceeds tracing.",
+      "sets_subtype": false
+    },
+    {
+      "id": "HC-Q05",
+      "question": "How many add-ons has the platform done, and have they been integrated onto one billing system?",
+      "why": "Integration test and antitrust risk.",
+      "sets_subtype": false
+    },
+    {
+      "id": "HC-Q06",
+      "question": "When was the last external coding audit?",
+      "why": "No audit in three years is a red flag.",
+      "sets_subtype": false
+    }
+  ],
+  "requests": [
+    {
+      "id": "HC-FIN-001",
+      "order": 10,
+      "stage": "screen",
+      "priority": "gating",
+      "workstream": "Financial",
+      "request": "Payor mix by revenue and by visit for 36 months (Medicare, Medicaid, commercial by payor, self-pay, out-of-network).",
+      "format": "Billing-system report tied to remittances.",
+      "why": "Payors set price; government payors are about 75% of nursing-home revenue.",
+      "pass": "Mix reported monthly and ties to 835 remittances; no single payor dominance unaddressed.",
+      "fail": "Mix only from gross charges or not tied to remittances.",
+      "verify": "Rebuild from 835 files in confirmatory.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "17.1, 17.2 item 1",
+      "weak": false
+    },
+    {
+      "id": "HC-COM-001",
+      "order": 20,
+      "stage": "screen",
+      "priority": "core",
+      "workstream": "Commercial & Market",
+      "request": "Top payor contracts with rates, escalators and renewal dates.",
+      "format": "Executed contracts and fee schedules.",
+      "why": "Payor rate cuts and renewals drive EBITDA.",
+      "pass": "Renewal dates known; no top-payor renewal inside 12 months without a plan.",
+      "fail": "Top payor renewal imminent with rate risk.",
+      "verify": "Confirm in-network status with the payor portal.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "17.2 item 1, 17.3, 17.9 Q1",
+      "weak": false
+    },
+    {
+      "id": "HC-FIN-002",
+      "order": 30,
+      "stage": "screen",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "CPT-level volume and reimbursement trend for 36 months.",
+      "format": "Billing-system export.",
+      "why": "Coding shifts and fee-schedule changes.",
+      "pass": "Trends explained by volume, not coding mix shift.",
+      "fail": "Unexplained shift to higher-level codes.",
+      "verify": "Coding audit.",
+      "applies_to": [
+        "physician-rollup",
+        "mso-pc",
+        "behavioral-health",
+        "home-health"
+      ],
+      "ref": "17.2 item 2",
+      "weak": false
+    },
+    {
+      "id": "HC-FIN-003",
+      "order": 40,
+      "stage": "screen",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Monthly revenue-cycle KPIs for 36 months: days in A/R, initial denial rate, net collection rate, A/R over 90 days.",
+      "format": "Billing-system reports.",
+      "why": "Revenue-cycle quality; specific numeric thresholds were not sourced (GAP).",
+      "pass": "KPIs stable or improving and benchmarked against HFMA MAP Keys peer data.",
+      "fail": "Deteriorating trends or no KPIs tracked.",
+      "verify": "Rebuild from remittance data.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "17.2 item 3, 17.4",
+      "weak": true
+    },
+    {
+      "id": "HC-REG-001",
+      "order": 50,
+      "stage": "screen",
+      "priority": "gating",
+      "workstream": "Regulatory & Compliance",
+      "request": "Licenses, DEA registrations and accreditations for every site and provider.",
+      "format": "Copies with expiry dates; state board lookups.",
+      "why": "Operating without licenses voids reimbursement.",
+      "pass": "All current; none under restriction.",
+      "fail": "Lapsed or restricted.",
+      "verify": "State board and DEA lookups.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "17.2 item 9",
+      "weak": false
+    },
+    {
+      "id": "HC-LEG-001",
+      "order": 60,
+      "stage": "screen",
+      "priority": "gating",
+      "workstream": "Corporate & Legal",
+      "request": "Legal structure chart: MSO, professional entities (friendly-physician PCs), ownership and the management agreements between them.",
+      "format": "Chart with ownership percentages and contracts.",
+      "why": "CPOM bars non-physician ownership in many states.",
+      "pass": "Structure CPOM-compliant in each state.",
+      "fail": "Sponsor directly owns practices in CPOM states.",
+      "verify": "Healthcare counsel review.",
+      "applies_to": [
+        "physician-rollup",
+        "mso-pc",
+        "behavioral-health"
+      ],
+      "ref": "17.1, 17.3",
+      "weak": false
+    },
+    {
+      "id": "HC-REG-002",
+      "order": 70,
+      "stage": "screen",
+      "priority": "gating",
+      "workstream": "Regulatory & Compliance",
+      "request": "State footprint with state CPOM analysis and state PE-healthcare transaction-notice or approval requirements.",
+      "format": "Counsel memo by state.",
+      "why": "Oregon SB 951 is the strictest CPOM template; several states enacted notice or oversight laws in 2024-25.",
+      "pass": "Every state analyzed; notice requirements and timelines listed.",
+      "fail": "No state analysis.",
+      "verify": "Verify current statutes per deal.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "17.2 item 12, 17.6, 17.9 Q5",
+      "weak": false
+    },
+    {
+      "id": "HC-COM-002",
+      "order": 80,
+      "stage": "screen",
+      "priority": "core",
+      "workstream": "Commercial & Market",
+      "request": "Add-on acquisition history: each add-on, price multiple, date, and the platform multiple.",
+      "format": "Schedule.",
+      "why": "The platform-versus-add-on multiple spread is the thesis.",
+      "pass": "Add-on multiples and integration status disclosed.",
+      "fail": "Thesis rests on arbitrage with no integration.",
+      "verify": "Tie to purchase agreements.",
+      "applies_to": [
+        "physician-rollup",
+        "mso-pc",
+        "behavioral-health",
+        "home-health"
+      ],
+      "ref": "17.1, 17.3",
+      "weak": false
+    },
+    {
+      "id": "HC-COL-001",
+      "order": 90,
+      "stage": "screen",
+      "priority": "core",
+      "workstream": "Collateral & Title",
+      "request": "Real estate: leases, sale-leaseback agreements, landlord identity and relationships.",
+      "format": "Executed leases and agreements.",
+      "why": "Sale-leasebacks funding dividends weakened Steward.",
+      "pass": "Landlords unaffiliated or disclosed; rents at market.",
+      "fail": "Related-party landlords or escalating rents.",
+      "verify": "Title and landlord ownership search.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "17.2 item 13, 17.3",
+      "weak": false
+    },
+    {
+      "id": "HC-REG-003",
+      "order": 100,
+      "stage": "screen",
+      "priority": "gating",
+      "workstream": "Regulatory & Compliance",
+      "request": "Nursing-home and post-acute quality file: staffing ratios, CMS Five-Star history, survey deficiencies.",
+      "format": "CMS Care Compare data and state survey reports for 5 years.",
+      "why": "PE ownership raised short-term mortality about 10% to 11% and cut nursing-assistant hours about 3%.",
+      "pass": "Staffing ratios and Five-Star stable or improving after prior acquisitions; no immediate-jeopardy citations.",
+      "fail": "Falling staffing or star ratings after acquisition.",
+      "verify": "Pull CMS data directly.",
+      "applies_to": [
+        "nursing-home"
+      ],
+      "ref": "17.1, 17.2 item 14, 17.3",
+      "weak": false
+    },
+    {
+      "id": "HC-LEG-002",
+      "order": 10,
+      "stage": "term-sheet",
+      "priority": "gating",
+      "workstream": "Corporate & Legal",
+      "request": "MSO management services agreement and fee formula.",
+      "format": "Executed agreement.",
+      "why": "Percentage-of-collections MSO fees are a known AKS risk area.",
+      "pass": "Flat or cost-plus fee supported by FMV.",
+      "fail": "Fee as a percentage of collections without counsel support.",
+      "verify": "Healthcare counsel review.",
+      "applies_to": [
+        "physician-rollup",
+        "mso-pc",
+        "behavioral-health"
+      ],
+      "ref": "17.2 item 8, 17.3, 17.8",
+      "weak": false
+    },
+    {
+      "id": "HC-LEG-003",
+      "order": 20,
+      "stage": "term-sheet",
+      "priority": "gating",
+      "workstream": "Corporate & Legal",
+      "request": "Friendly-physician ownership agreements, stock transfer restriction and succession agreements.",
+      "format": "Executed agreements.",
+      "why": "CPOM structure unwinds if the friendly physician leaves.",
+      "pass": "Succession agreement allows prompt substitution compliant with state law.",
+      "fail": "No succession agreement.",
+      "verify": "Counsel review against state CPOM law.",
+      "applies_to": [
+        "mso-pc",
+        "behavioral-health"
+      ],
+      "ref": "17.2 item 8, 17.3, 17.9 Q6",
+      "weak": false
+    },
+    {
+      "id": "HC-LEG-004",
+      "order": 30,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Corporate & Legal",
+      "request": "Escrow or special indemnity for pre-close billing liabilities and R&W insurance exclusions.",
+      "format": "Term sheet provisions.",
+      "why": "Upcoding and kickback liabilities survive closing.",
+      "pass": "Escrow or special indemnity sized to coding-audit findings.",
+      "fail": "Known billing issues excluded from R&W with no special indemnity.",
+      "verify": "Counsel review.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "17.3, 17.6",
+      "weak": false
+    },
+    {
+      "id": "HC-HRM-001",
+      "order": 40,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "HR & Management",
+      "request": "Provider employment agreements: compensation formulas, noncompetes and term.",
+      "format": "Executed agreements.",
+      "why": "Compensation tied to referrals implicates Stark; noncompetes void in some states.",
+      "pass": "Compensation FMV-supported and not referral-based; noncompetes enforceable where relied on.",
+      "fail": "Referral-linked pay or void noncompetes relied on.",
+      "verify": "Counsel review.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "17.2 item 7, 17.3",
+      "weak": false
+    },
+    {
+      "id": "HC-STR-001",
+      "order": 50,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Structure & Terms",
+      "request": "Physician rollover equity and vesting terms tied to tenure.",
+      "format": "Term sheet.",
+      "why": "Physicians leave after earn-outs.",
+      "pass": "Rollover with vesting tied to tenure.",
+      "fail": "Full cash-out with no retention.",
+      "verify": "Counsel review.",
+      "applies_to": [
+        "physician-rollup",
+        "mso-pc",
+        "behavioral-health"
+      ],
+      "ref": "17.3, 17.7",
+      "weak": false
+    },
+    {
+      "id": "HC-STR-002",
+      "order": 60,
+      "stage": "term-sheet",
+      "priority": "supporting",
+      "workstream": "Structure & Terms",
+      "request": "Fund ownership structure analysis for ERISA multiemployer withdrawal liability (80% common control) and control-person exposure.",
+      "format": "Counsel memo.",
+      "why": "Sun Capital funds held to be a trade or business under common control.",
+      "pass": "Ownership structured below 80% common control where withdrawal liability exists; formalities observed.",
+      "fail": "Unanalyzed exposure.",
+      "verify": "Counsel review.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "17.6",
+      "weak": false
+    },
+    {
+      "id": "HC-INS-001",
+      "order": 70,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Insurance",
+      "request": "D&O coverage at fund and company level.",
+      "format": "Policy schedules.",
+      "why": "FCA liability can reach the sponsor.",
+      "pass": "Coverage at both levels with regulatory exclusions understood.",
+      "fail": "No fund-level coverage.",
+      "verify": "Broker review.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "17.3",
+      "weak": false
+    },
+    {
+      "id": "HC-REG-004",
+      "order": 80,
+      "stage": "term-sheet",
+      "priority": "gating",
+      "workstream": "Regulatory & Compliance",
+      "request": "Timeline for state transaction notices or approvals and any antitrust filings.",
+      "format": "Counsel filing plan.",
+      "why": "State notice laws and FTC scrutiny of serial add-ons.",
+      "pass": "All filings scheduled before closing.",
+      "fail": "Unscheduled filings.",
+      "verify": "Counsel review.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "17.3, 17.6",
+      "weak": false
+    },
+    {
+      "id": "HC-FIN-004",
+      "order": 10,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Financial",
+      "request": "Remittance files (835) and bank deposits for 36 months, for a revenue rebuild.",
+      "format": "Raw 835 files from the clearinghouse and bank statements from the bank.",
+      "why": "THE ONE CHECK: payor-set revenue that cannot be traced to cash is the liability.",
+      "pass": "Net revenue rebuilt from remittances ties to reported net revenue and to deposits within 2%.",
+      "fail": "Gaps between remittances, deposits and reported revenue.",
+      "verify": "Obtain 835s from the clearinghouse directly.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "17.2 item 4, 17.3, 17.7 THE ONE CHECK",
+      "weak": false
+    },
+    {
+      "id": "HC-FIN-005",
+      "order": 20,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Contractual-allowance estimates tested against cash collected.",
+      "format": "Allowance methodology and lookback.",
+      "why": "Overstated net revenue via allowance assumptions.",
+      "pass": "Allowances true up to cash within 2%.",
+      "fail": "Allowances consistently understated.",
+      "verify": "QoE lookback.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "17.3",
+      "weak": false
+    },
+    {
+      "id": "HC-COM-003",
+      "order": 30,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Commercial & Market",
+      "request": "Payor concentration: largest commercial payor as % of revenue and renewal date.",
+      "format": "Schedule.",
+      "why": "Payor rate cuts.",
+      "pass": "Concentration and renewal risk modelled.",
+      "fail": "Unmodelled dependency.",
+      "verify": "Remittance data.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "17.3, 17.9 Q1",
+      "weak": false
+    },
+    {
+      "id": "HC-FIN-006",
+      "order": 40,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Impact analysis of the latest annual CMS Medicare physician fee schedule rule on revenue.",
+      "format": "Analysis by CPT.",
+      "why": "Medicare fee-schedule changes.",
+      "pass": "Impact quantified in the model.",
+      "fail": "Not modelled.",
+      "verify": "Recompute.",
+      "applies_to": [
+        "physician-rollup",
+        "mso-pc"
+      ],
+      "ref": "17.3",
+      "weak": false
+    },
+    {
+      "id": "HC-FIN-007",
+      "order": 50,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "In-network status by payor and share of revenue from out-of-network billing, with No Surprises Act arbitration exposure.",
+      "format": "Payor list and revenue split.",
+      "why": "Out-of-network economics changed with the No Surprises Act process from 2022 (not primary-sourced).",
+      "pass": "Out-of-network revenue small and declining.",
+      "fail": "Large out-of-network revenue.",
+      "verify": "Payor portal checks.",
+      "applies_to": [
+        "physician-rollup",
+        "mso-pc"
+      ],
+      "ref": "17.3, 17.8",
+      "weak": true
+    },
+    {
+      "id": "HC-REG-005",
+      "order": 60,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Regulatory & Compliance",
+      "request": "Billing and coding audit results for the last 3 years.",
+      "format": "Internal and external audit reports.",
+      "why": "No billing audit in three years is a red flag.",
+      "pass": "External audit within 3 years with remediated findings.",
+      "fail": "No audit, or unremediated findings.",
+      "verify": "Independent coding audit in third-party stage.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "17.2 item 5, 17.8, 17.9 Q2",
+      "weak": false
+    },
+    {
+      "id": "HC-REG-006",
+      "order": 70,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Regulatory & Compliance",
+      "request": "Compliance program documents and hotline log.",
+      "format": "Program, policies, hotline log for 3 years.",
+      "why": "DOJ asks whether the acquirer did pre-acquisition compliance diligence.",
+      "pass": "Program with compliance officer, training and investigated hotline reports.",
+      "fail": "No program or uninvestigated reports.",
+      "verify": "Interview compliance officer.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "17.2 item 5, 17.3",
+      "weak": false
+    },
+    {
+      "id": "HC-REG-007",
+      "order": 80,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Regulatory & Compliance",
+      "request": "Prior self-disclosures and overpayment refunds, with dates identified and refunded.",
+      "format": "Log and correspondence.",
+      "why": "Overpayments must be refunded within 60 days.",
+      "pass": "All identified overpayments refunded within 60 days.",
+      "fail": "Late or unrefunded overpayments.",
+      "verify": "Payor correspondence.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "17.2 item 5, 17.3",
+      "weak": false
+    },
+    {
+      "id": "HC-REG-008",
+      "order": 90,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Regulatory & Compliance",
+      "request": "OIG exclusion (LEIE) and SAM screening results for every provider and employee.",
+      "format": "Screening reports with dates.",
+      "why": "Providers with prior exclusions.",
+      "pass": "No excluded individuals; monthly screening.",
+      "fail": "Any excluded provider.",
+      "verify": "Run our own LEIE and SAM checks.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "17.2 item 6, 17.3, 17.8",
+      "weak": false
+    },
+    {
+      "id": "HC-FIN-008",
+      "order": 100,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Production by provider and the number of providers producing the top 50% of revenue.",
+      "format": "Billing data.",
+      "why": "Physicians leaving after earn-outs.",
+      "pass": "Revenue not concentrated in a few providers without retention.",
+      "fail": "Few providers produce most revenue with no retention.",
+      "verify": "Billing data analysis.",
+      "applies_to": [
+        "physician-rollup",
+        "mso-pc",
+        "behavioral-health"
+      ],
+      "ref": "17.2 item 7, 17.3",
+      "weak": false
+    },
+    {
+      "id": "HC-HRM-002",
+      "order": 110,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "HR & Management",
+      "request": "Post-close provider compensation compared with pre-close compensation.",
+      "format": "Schedule by provider.",
+      "why": "Pay cuts drive departures.",
+      "pass": "Changes modelled with retention plan.",
+      "fail": "Large cuts without retention.",
+      "verify": "Interview providers.",
+      "applies_to": [
+        "physician-rollup",
+        "mso-pc"
+      ],
+      "ref": "17.3",
+      "weak": false
+    },
+    {
+      "id": "HC-LEG-005",
+      "order": 120,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Corporate & Legal",
+      "request": "Noncompete enforceability by state, including Oregon SB 951 voiding of noncompetition, nondisclosure and nondisparagement agreements.",
+      "format": "Counsel memo.",
+      "why": "Noncompetes are void in some states.",
+      "pass": "Model does not rely on unenforceable noncompetes.",
+      "fail": "Model relies on void noncompetes.",
+      "verify": "Counsel review.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "17.3, 17.6",
+      "weak": false
+    },
+    {
+      "id": "HC-LEG-006",
+      "order": 130,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Corporate & Legal",
+      "request": "Add-on purchase agreements with fair-market-value opinions.",
+      "format": "Agreements and FMV opinions.",
+      "why": "Paying above FMV for a referral source implicates AKS and Stark.",
+      "pass": "Every add-on price supported by an independent FMV opinion.",
+      "fail": "No FMV support.",
+      "verify": "FMV appraiser review.",
+      "applies_to": [
+        "physician-rollup",
+        "mso-pc",
+        "behavioral-health",
+        "home-health"
+      ],
+      "ref": "17.2 item 11, 17.3",
+      "weak": false
+    },
+    {
+      "id": "HC-REG-009",
+      "order": 140,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Regulatory & Compliance",
+      "request": "Medical directorships and all other referral-source arrangements with FMV and commercial-reasonableness support.",
+      "format": "Agreements, time logs, FMV reports.",
+      "why": "Above-FMV directorships are kickback-tainted.",
+      "pass": "Every arrangement in writing, FMV-supported, commercially reasonable, with time records.",
+      "fail": "Unwritten or above-FMV arrangements.",
+      "verify": "FMV appraiser review.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "17.2 item 11, 17.3, 17.9 Q3",
+      "weak": false
+    },
+    {
+      "id": "HC-REG-010",
+      "order": 150,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Regulatory & Compliance",
+      "request": "AKS and Stark analysis of the MSO fee structure.",
+      "format": "Counsel memo.",
+      "why": "Percentage-of-revenue fees are a known risk area.",
+      "pass": "Structure fits a safe harbor or counsel concludes low risk.",
+      "fail": "High-risk structure.",
+      "verify": "Counsel review.",
+      "applies_to": [
+        "mso-pc"
+      ],
+      "ref": "17.3, 17.6",
+      "weak": false
+    },
+    {
+      "id": "HC-INS-002",
+      "order": 160,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Insurance",
+      "request": "Malpractice claims history and tail coverage.",
+      "format": "Loss runs 5 years; policies.",
+      "why": "Unfunded claims.",
+      "pass": "Tail coverage in place for departing providers and pre-close acts.",
+      "fail": "No tail.",
+      "verify": "Broker review.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "17.2 item 10",
+      "weak": false
+    },
+    {
+      "id": "HC-OPS-001",
+      "order": 170,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Operational",
+      "request": "Integration test for each add-on: billing system and payor contracts consolidated.",
+      "format": "System inventory by entity.",
+      "why": "Add-ons never integrated; add-ons on separate billing systems years after acquisition.",
+      "pass": "All add-ons older than 12 months on one billing system and platform payor contracts.",
+      "fail": "Separate systems persist.",
+      "verify": "System walkthrough.",
+      "applies_to": [
+        "physician-rollup",
+        "mso-pc",
+        "behavioral-health",
+        "home-health"
+      ],
+      "ref": "17.3, 17.7, 17.8, 17.9 Q4",
+      "weak": false
+    },
+    {
+      "id": "HC-COM-004",
+      "order": 180,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Commercial & Market",
+      "request": "Local market share by specialty and price changes after each add-on.",
+      "format": "Market-share analysis.",
+      "why": "Price-driven EBITDA in concentrated markets drew the FTC suit against USAP and Welsh Carson.",
+      "pass": "No dominant local share; EBITDA growth not price-driven.",
+      "fail": "Price increases after add-ons in concentrated markets.",
+      "verify": "Antitrust counsel analysis.",
+      "applies_to": [
+        "physician-rollup",
+        "mso-pc",
+        "behavioral-health",
+        "home-health"
+      ],
+      "ref": "17.3, 17.7, 17.8",
+      "weak": false
+    },
+    {
+      "id": "HC-REG-011",
+      "order": 190,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Regulatory & Compliance",
+      "request": "History of serial add-ons below HSR thresholds and any FTC or state inquiries.",
+      "format": "Schedule and correspondence.",
+      "why": "HSR thresholds are not a safe harbor.",
+      "pass": "Antitrust risk assessed.",
+      "fail": "Unassessed roll-up.",
+      "verify": "Antitrust counsel review.",
+      "applies_to": [
+        "physician-rollup",
+        "mso-pc",
+        "behavioral-health",
+        "home-health"
+      ],
+      "ref": "17.3, 17.6",
+      "weak": false
+    },
+    {
+      "id": "HC-FIN-009",
+      "order": 200,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Financial",
+      "request": "Rent coverage after any sale-leaseback, with escalators, and a trace of where the proceeds went.",
+      "format": "Model and funds-flow records.",
+      "why": "Steward's $1.25B sale-leaseback funded dividends and left escalating rents.",
+      "pass": "Rent coverage adequate through escalators; proceeds reinvested, not dividended.",
+      "fail": "Proceeds paid as dividends; coverage falls with escalators.",
+      "verify": "Trace funds through bank statements.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "17.3, 17.7, 17.8, 17.9 Q7",
+      "weak": false
+    },
+    {
+      "id": "HC-COL-002",
+      "order": 210,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Collateral & Title",
+      "request": "Related-party landlord review: friendly physician or sponsor affiliate as landlord.",
+      "format": "Ownership of landlord entities.",
+      "why": "Friendly physician owning the MSO's landlord is a red flag.",
+      "pass": "No related-party landlords, or at FMV with disclosure.",
+      "fail": "Undisclosed related-party landlord.",
+      "verify": "Entity searches.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "17.3, 17.8",
+      "weak": false
+    },
+    {
+      "id": "HC-OPS-002",
+      "order": 220,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Operational",
+      "request": "Nursing-assistant hours per patient-day and staffing ratios by facility, before and after prior acquisitions.",
+      "format": "Payroll-based journal data.",
+      "why": "PE ownership cut frontline staffing about 3%.",
+      "pass": "Staffing stable or rising.",
+      "fail": "Falling staffing after acquisition.",
+      "verify": "CMS PBJ data.",
+      "applies_to": [
+        "nursing-home"
+      ],
+      "ref": "17.3, 17.8, 17.9 Q8",
+      "weak": false
+    },
+    {
+      "id": "HC-FIN-010",
+      "order": 230,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Fees, leases and interest paid to related parties or landlords by each facility.",
+      "format": "Schedule.",
+      "why": "Costs shifted to monitoring fees, interest and lease payments.",
+      "pass": "Related-party payments at FMV and small.",
+      "fail": "Large related-party fees and rents.",
+      "verify": "Tie to ledgers.",
+      "applies_to": [
+        "nursing-home",
+        "home-health",
+        "behavioral-health"
+      ],
+      "ref": "17.1, 17.3, 17.8",
+      "weak": false
+    },
+    {
+      "id": "HC-FIN-011",
+      "order": 240,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Government payor share and exposure to Medicaid and Medicare rate changes.",
+      "format": "Payor mix and rate analysis.",
+      "why": "Government payors about 75% of nursing-home revenue.",
+      "pass": "Rate sensitivity modelled.",
+      "fail": "Not modelled.",
+      "verify": "Recompute.",
+      "applies_to": [
+        "nursing-home",
+        "home-health",
+        "behavioral-health"
+      ],
+      "ref": "17.1, 17.4",
+      "weak": false
+    },
+    {
+      "id": "HC-REG-012",
+      "order": 250,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Regulatory & Compliance",
+      "request": "Compliance-diligence scope and gaps memo for the IC.",
+      "format": "Memo.",
+      "why": "DOJ Evaluation of Corporate Compliance Programs.",
+      "pass": "Scope and gaps documented.",
+      "fail": "No documentation.",
+      "verify": "IC review.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "17.3",
+      "weak": false
+    },
+    {
+      "id": "HC-REG-013",
+      "order": 260,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Regulatory & Compliance",
+      "request": "100-day compliance integration plan.",
+      "format": "Plan.",
+      "why": "DOJ expects prompt integration and post-close audits.",
+      "pass": "Plan in the value-creation plan.",
+      "fail": "No plan.",
+      "verify": "Board review.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "17.3",
+      "weak": false
+    },
+    {
+      "id": "HC-REG-014",
+      "order": 270,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Regulatory & Compliance",
+      "request": "Statement of sponsor involvement in billing, marketing and referral practices of portfolio companies.",
+      "format": "Sponsor statement and board minutes.",
+      "why": "DOJ named Riordan Lewis & Haden for financing a kickback scheme ($21.36M, 2019).",
+      "pass": "No sponsor direction of marketing or referral practices.",
+      "fail": "Sponsor involvement in marketing practices.",
+      "verify": "Read board minutes.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "17.1, 17.7",
+      "weak": false
+    },
+    {
+      "id": "HC-REG-015",
+      "order": 280,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Regulatory & Compliance",
+      "request": "Peer-benchmark outlier billing analysis by provider.",
+      "format": "Analysis against public Medicare utilization data.",
+      "why": "Upcoding or medically unnecessary services inflating EBITDA.",
+      "pass": "No outlier providers, or outliers explained.",
+      "fail": "Outlier billing.",
+      "verify": "Run against public data.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "17.3, 17.7",
+      "weak": false
+    },
+    {
+      "id": "HC-HRM-003",
+      "order": 290,
+      "stage": "confirmatory",
+      "priority": "supporting",
+      "workstream": "HR & Management",
+      "request": "Provider productivity in wRVUs per FTE against MGMA benchmarks.",
+      "format": "Billing data.",
+      "why": "Provider productivity (thresholds not sourced; GAP).",
+      "pass": "Productivity benchmarked.",
+      "fail": "Unexplained outliers.",
+      "verify": "MGMA data.",
+      "applies_to": [
+        "physician-rollup",
+        "mso-pc"
+      ],
+      "ref": "17.4",
+      "weak": true
+    },
+    {
+      "id": "HC-REG-016",
+      "order": 10,
+      "stage": "third-party",
+      "priority": "gating",
+      "workstream": "Regulatory & Compliance",
+      "request": "Healthcare regulatory counsel memo on AKS, Stark, CPOM and state notice laws.",
+      "format": "Memo by our counsel.",
+      "why": "Fraud-and-abuse and ownership-law exposure.",
+      "pass": "No unmitigated high-risk findings.",
+      "fail": "High-risk findings.",
+      "verify": "Counsel engaged by us.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "17.5",
+      "weak": false
+    },
+    {
+      "id": "HC-REG-017",
+      "order": 20,
+      "stage": "third-party",
+      "priority": "gating",
+      "workstream": "Regulatory & Compliance",
+      "request": "Independent coding audit on a statistically valid sample per provider.",
+      "format": "Auditor report.",
+      "why": "THE ONE CHECK: outlier coding is the liability.",
+      "pass": "Error rate low with no systematic upcoding; findings feed escrow.",
+      "fail": "Systematic upcoding.",
+      "verify": "Auditor engaged by us.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "17.3, 17.5, 17.7",
+      "weak": false
+    },
+    {
+      "id": "HC-VAL-001",
+      "order": 30,
+      "stage": "third-party",
+      "priority": "gating",
+      "workstream": "Valuation & Model",
+      "request": "FMV and commercial-reasonableness appraisal of physician compensation and add-on prices.",
+      "format": "Appraisal report.",
+      "why": "Above-FMV referral payments.",
+      "pass": "All within FMV.",
+      "fail": "Above FMV.",
+      "verify": "Appraiser engaged by us.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "17.5",
+      "weak": false
+    },
+    {
+      "id": "HC-FIN-012",
+      "order": 40,
+      "stage": "third-party",
+      "priority": "gating",
+      "workstream": "Financial",
+      "request": "Revenue-cycle QoE with remittance-to-cash rebuild.",
+      "format": "QoE report.",
+      "why": "Revenue not traceable to cash.",
+      "pass": "Rebuild ties within 2%.",
+      "fail": "Gaps.",
+      "verify": "Provider engaged by us.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "17.5",
+      "weak": false
+    },
+    {
+      "id": "HC-LEG-007",
+      "order": 50,
+      "stage": "third-party",
+      "priority": "core",
+      "workstream": "Corporate & Legal",
+      "request": "Antitrust counsel analysis of serial add-ons.",
+      "format": "Memo.",
+      "why": "FTC v. USAP and Welsh Carson.",
+      "pass": "Low risk.",
+      "fail": "High risk.",
+      "verify": "Counsel engaged by us.",
+      "applies_to": [
+        "physician-rollup",
+        "mso-pc",
+        "behavioral-health",
+        "home-health"
+      ],
+      "ref": "17.5",
+      "weak": false
+    },
+    {
+      "id": "HC-COL-003",
+      "order": 60,
+      "stage": "third-party",
+      "priority": "core",
+      "workstream": "Collateral & Title",
+      "request": "Real estate appraisal and lease review for sale-leasebacks.",
+      "format": "Appraisal and lease abstract.",
+      "why": "Escalating rents.",
+      "pass": "Market rents and coverage adequate.",
+      "fail": "Above-market rents.",
+      "verify": "Appraiser engaged by us.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "17.5",
+      "weak": false
+    },
+    {
+      "id": "HC-INS-003",
+      "order": 70,
+      "stage": "third-party",
+      "priority": "core",
+      "workstream": "Insurance",
+      "request": "Malpractice and tail-coverage broker review.",
+      "format": "Broker report.",
+      "why": "Uninsured claims.",
+      "pass": "Adequate limits and tail.",
+      "fail": "Gaps.",
+      "verify": "Broker engaged by us.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "17.5",
+      "weak": false
+    },
+    {
+      "id": "HC-LEG-008",
+      "order": 10,
+      "stage": "closing",
+      "priority": "gating",
+      "workstream": "Corporate & Legal",
+      "request": "Executed escrow or special indemnity for pre-close billing.",
+      "format": "Executed agreement.",
+      "why": "Pre-close billing liability.",
+      "pass": "Executed and sized to audit findings.",
+      "fail": "Missing.",
+      "verify": "Counsel confirmation.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "17.6",
+      "weak": false
+    },
+    {
+      "id": "HC-REG-018",
+      "order": 20,
+      "stage": "closing",
+      "priority": "gating",
+      "workstream": "Regulatory & Compliance",
+      "request": "Evidence that all state notices were filed and waiting periods expired or approvals obtained.",
+      "format": "Filings and approvals.",
+      "why": "State PE-healthcare laws.",
+      "pass": "All complete.",
+      "fail": "Outstanding.",
+      "verify": "Counsel confirmation.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "17.6",
+      "weak": false
+    },
+    {
+      "id": "HC-INS-004",
+      "order": 30,
+      "stage": "closing",
+      "priority": "core",
+      "workstream": "Insurance",
+      "request": "Bound tail coverage for pre-close acts.",
+      "format": "Binder.",
+      "why": "Uninsured claims.",
+      "pass": "Bound.",
+      "fail": "Not bound.",
+      "verify": "Broker confirmation.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "17.2 item 10",
+      "weak": false
+    },
+    {
+      "id": "HC-LEG-009",
+      "order": 40,
+      "stage": "closing",
+      "priority": "gating",
+      "workstream": "Corporate & Legal",
+      "request": "Executed friendly-physician succession and stock-transfer agreements.",
+      "format": "Executed agreements.",
+      "why": "CPOM unwind.",
+      "pass": "Executed.",
+      "fail": "Missing.",
+      "verify": "Counsel confirmation.",
+      "applies_to": [
+        "mso-pc",
+        "behavioral-health"
+      ],
+      "ref": "17.3",
+      "weak": false
+    },
+    {
+      "id": "HC-HRM-004",
+      "order": 50,
+      "stage": "closing",
+      "priority": "core",
+      "workstream": "HR & Management",
+      "request": "Executed provider agreements and rollover equity documents.",
+      "format": "Executed agreements.",
+      "why": "Provider departures.",
+      "pass": "Executed.",
+      "fail": "Missing.",
+      "verify": "Counsel confirmation.",
+      "applies_to": [
+        "physician-rollup",
+        "mso-pc",
+        "behavioral-health"
+      ],
+      "ref": "17.3",
+      "weak": false
+    },
+    {
+      "id": "HC-FIN-013",
+      "order": 10,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Monthly revenue-cycle KPI report.",
+      "format": "KPI package.",
+      "why": "Revenue-cycle deterioration.",
+      "pass": "Stable against HFMA peer data.",
+      "fail": "Deteriorating.",
+      "verify": "Remittance tie-out.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "17.2 item 3",
+      "weak": true
+    },
+    {
+      "id": "HC-COM-005",
+      "order": 20,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Commercial & Market",
+      "request": "Quarterly payor-mix and contract-renewal report.",
+      "format": "Report.",
+      "why": "Rate cuts.",
+      "pass": "No surprises.",
+      "fail": "Unplanned rate cuts.",
+      "verify": "Remittance data.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "17.3",
+      "weak": false
+    },
+    {
+      "id": "HC-REG-019",
+      "order": 30,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Regulatory & Compliance",
+      "request": "Annual external coding audit.",
+      "format": "Audit report.",
+      "why": "No billing audit in three years.",
+      "pass": "Annual audit with remediation.",
+      "fail": "No audit.",
+      "verify": "Auditor confirmation.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "17.8",
+      "weak": false
+    },
+    {
+      "id": "HC-REG-020",
+      "order": 40,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Regulatory & Compliance",
+      "request": "Monthly OIG/SAM rescreening confirmation.",
+      "format": "Screening log.",
+      "why": "Excluded providers.",
+      "pass": "No exclusions.",
+      "fail": "Exclusion found.",
+      "verify": "Spot-check.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "17.3",
+      "weak": false
+    },
+    {
+      "id": "HC-REG-021",
+      "order": 50,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Regulatory & Compliance",
+      "request": "Quarterly compliance report: hotline, overpayment refunds, self-disclosures.",
+      "format": "Report.",
+      "why": "Unrefunded overpayments.",
+      "pass": "Refunds within 60 days.",
+      "fail": "Late refunds.",
+      "verify": "Compliance officer interview.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "17.3",
+      "weak": false
+    },
+    {
+      "id": "HC-OPS-003",
+      "order": 60,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Operational",
+      "request": "Quarterly staffing ratios and Five-Star ratings by facility.",
+      "format": "CMS data.",
+      "why": "Quality decline.",
+      "pass": "Stable or improving.",
+      "fail": "Decline.",
+      "verify": "CMS Care Compare.",
+      "applies_to": [
+        "nursing-home"
+      ],
+      "ref": "17.3",
+      "weak": false
+    },
+    {
+      "id": "HC-REG-022",
+      "order": 70,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Regulatory & Compliance",
+      "request": "Post-close compliance audit of each acquired entity within 12 months.",
+      "format": "Audit report.",
+      "why": "DOJ expects post-close audits.",
+      "pass": "Completed with remediation.",
+      "fail": "Not done.",
+      "verify": "Board review.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "17.3",
+      "weak": false
+    },
+    {
+      "id": "HC-FIN-014",
+      "order": 80,
+      "stage": "monitoring",
+      "priority": "supporting",
+      "workstream": "Financial",
+      "request": "Annual rent-coverage report.",
+      "format": "Report.",
+      "why": "Escalating rents.",
+      "pass": "Adequate coverage.",
+      "fail": "Falling coverage.",
+      "verify": "Recompute.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "17.3",
+      "weak": false
+    },
+    {
+      "id": "HC-REG-023",
+      "order": 90,
+      "stage": "monitoring",
+      "priority": "supporting",
+      "workstream": "Regulatory & Compliance",
+      "request": "Annual update of state CPOM and PE-healthcare law changes affecting the footprint.",
+      "format": "Counsel memo.",
+      "why": "Oregon-style laws spreading.",
+      "pass": "Structure remains compliant.",
+      "fail": "New law affects structure.",
+      "verify": "Counsel review.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "17.6",
+      "weak": false
+    }
+  ],
+  "kill_tests": [
+    {
+      "id": "HC-K01",
+      "test": "Net revenue cannot be traced from 835 remittances to bank deposits within 2%.",
+      "ref": "17.7 THE ONE CHECK",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "HC-K02",
+      "test": "Independent coding audit shows systematic upcoding not covered by escrow or special indemnity.",
+      "ref": "17.7",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "HC-K03",
+      "test": "Any provider currently excluded by OIG or SAM.",
+      "ref": "17.3, 17.8",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "HC-K04",
+      "test": "Referral-source arrangements or add-on prices without FMV support that counsel cannot cure before close.",
+      "ref": "17.3, 17.7",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "HC-K05",
+      "test": "Ownership structure violates a state's CPOM law (e.g. Oregon SB 951 control prohibitions).",
+      "ref": "17.6",
+      "applies_to": [
+        "physician-rollup",
+        "mso-pc",
+        "behavioral-health"
+      ]
+    },
+    {
+      "id": "HC-K06",
+      "test": "Sale-leaseback proceeds paid as dividends with rent coverage failing under escalators.",
+      "ref": "17.7",
+      "applies_to": [
+        "all"
+      ]
+    }
+  ],
+  "red_flags": [
+    {
+      "id": "HC-RF01",
+      "flag": "EBITDA growth driven by price in concentrated local markets.",
+      "check": "Market share and post-add-on pricing.",
+      "ref": "17.8",
+      "applies_to": [
+        "physician-rollup",
+        "mso-pc",
+        "behavioral-health",
+        "home-health"
+      ]
+    },
+    {
+      "id": "HC-RF02",
+      "flag": "MSO fee as a % of collections.",
+      "check": "MSO agreement and AKS analysis.",
+      "ref": "17.8",
+      "applies_to": [
+        "mso-pc",
+        "physician-rollup",
+        "behavioral-health"
+      ]
+    },
+    {
+      "id": "HC-RF03",
+      "flag": "No billing audit in three years.",
+      "check": "Coding audit history.",
+      "ref": "17.8",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "HC-RF04",
+      "flag": "Large out-of-network revenue.",
+      "check": "In-network status and OON share.",
+      "ref": "17.8",
+      "applies_to": [
+        "physician-rollup",
+        "mso-pc"
+      ]
+    },
+    {
+      "id": "HC-RF05",
+      "flag": "Providers with prior exclusions.",
+      "check": "OIG/SAM screening.",
+      "ref": "17.8",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "HC-RF06",
+      "flag": "Friendly physician who also owns the MSO's landlord.",
+      "check": "Landlord ownership search.",
+      "ref": "17.8",
+      "applies_to": [
+        "mso-pc"
+      ]
+    },
+    {
+      "id": "HC-RF07",
+      "flag": "Sale-leaseback proceeds used for dividends; escalating rents.",
+      "check": "Proceeds trace; rent coverage.",
+      "ref": "17.8",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "HC-RF08",
+      "flag": "Staffing ratios falling after acquisition; Five-Star rating declining.",
+      "check": "CMS data.",
+      "ref": "17.8",
+      "applies_to": [
+        "nursing-home"
+      ]
+    },
+    {
+      "id": "HC-RF09",
+      "flag": "Fees, interest and rent paid to sponsor affiliates or related landlords.",
+      "check": "Related-party payment schedule.",
+      "ref": "17.8",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "HC-RF10",
+      "flag": "Add-ons on separate billing systems years after acquisition.",
+      "check": "Integration test.",
+      "ref": "17.8",
+      "applies_to": [
+        "physician-rollup",
+        "mso-pc",
+        "behavioral-health",
+        "home-health"
+      ]
+    },
+    {
+      "id": "HC-RF11",
+      "flag": "Serial add-ons below HSR thresholds in one local market.",
+      "check": "Antitrust review.",
+      "ref": "17.3, 17.7",
+      "applies_to": [
+        "physician-rollup",
+        "mso-pc",
+        "behavioral-health",
+        "home-health"
+      ]
+    },
+    {
+      "id": "HC-RF12",
+      "flag": "Overpayments identified but not refunded within 60 days.",
+      "check": "Overpayment log.",
+      "ref": "17.3",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "HC-RF13",
+      "flag": "Sponsor involvement in marketing or referral practices.",
+      "check": "Board minutes; sponsor statement.",
+      "ref": "17.7",
+      "applies_to": [
+        "all"
+      ]
+    }
+  ],
+  "metrics": [
+    {
+      "id": "HC-M01",
+      "metric": "Government payor share, nursing homes",
+      "acceptable": "About 75% of revenue",
+      "source": "Gupta, Howell, Yannelis and Gupta, NBER w28474",
+      "weak": false,
+      "ref": "17.1, 17.4",
+      "applies_to": [
+        "nursing-home"
+      ]
+    },
+    {
+      "id": "HC-M02",
+      "metric": "PE nursing-home mortality effect",
+      "acceptable": "About +10% to +11% short-term mortality (about 1.7 pp)",
+      "source": "Gupta et al., NBER w28474",
+      "weak": false,
+      "ref": "17.1, 17.4",
+      "applies_to": [
+        "nursing-home"
+      ]
+    },
+    {
+      "id": "HC-M03",
+      "metric": "Frontline staffing effect",
+      "acceptable": "Nursing-assistant hours per patient-day about -3%; ours must not fall post-acquisition",
+      "source": "Gupta et al., NBER w28474",
+      "weak": false,
+      "ref": "17.1, 17.4",
+      "applies_to": [
+        "nursing-home"
+      ]
+    },
+    {
+      "id": "HC-M04",
+      "metric": "Nursing-home study sample",
+      "acceptable": "1,674 acquisitions in 128 deals among about 12,400 for-profit homes",
+      "source": "Gupta et al.",
+      "weak": false,
+      "ref": "17.4",
+      "applies_to": [
+        "nursing-home"
+      ]
+    },
+    {
+      "id": "HC-M05",
+      "metric": "Killer acquisitions (pharma)",
+      "acceptable": "About 6% (6.4% WP); up to about 50 a year; cluster just below HSR thresholds",
+      "source": "Cunningham, Ederer and Ma, JPE 2021",
+      "weak": false,
+      "ref": "17.3, 17.4",
+      "applies_to": [
+        "physician-rollup",
+        "mso-pc",
+        "behavioral-health",
+        "home-health"
+      ]
+    },
+    {
+      "id": "HC-M06",
+      "metric": "Riordan, Lewis & Haden / Diabetic Care Rx FCA settlement",
+      "acceptable": "$21.36M, 2019 per HLS Forum (general lane said 2021; confirm on justice.gov)",
+      "source": "HLS Forum 2019",
+      "weak": false,
+      "ref": "17.1, 17.4",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "HC-M07",
+      "metric": "Steward Massachusetts sale-leaseback",
+      "acceptable": "$1.25B to MPT (2016); Chapter 11 May 2024",
+      "source": "Brookings via Wharton lane",
+      "weak": false,
+      "ref": "17.4, 17.7",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "HC-M08",
+      "metric": "Revenue-cycle benchmarks",
+      "acceptable": "Days in A/R and denial rates against HFMA MAP Keys peer data; numeric thresholds not sourced (GAP)",
+      "source": "Practitioner standard",
+      "weak": true,
+      "ref": "17.4",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "HC-M09",
+      "metric": "Provider productivity",
+      "acceptable": "wRVUs per FTE against MGMA benchmarks; thresholds not sourced (GAP)",
+      "source": "Practitioner",
+      "weak": true,
+      "ref": "17.4",
+      "applies_to": [
+        "physician-rollup",
+        "mso-pc"
+      ]
+    },
+    {
+      "id": "HC-M10",
+      "metric": "Overpayment refund deadline",
+      "acceptable": "Within 60 days of identification",
+      "source": "Bible 17.3",
+      "weak": false,
+      "ref": "17.3",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "HC-M11",
+      "metric": "Revenue rebuild tolerance (our test)",
+      "acceptable": "Remittance-based net revenue within 2% of reported and of deposits",
+      "source": "Library standard (derived from 17.3 rebuild requirement)",
+      "weak": false,
+      "ref": "17.3",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "HC-M12",
+      "metric": "ERISA common-control threshold",
+      "acceptable": "Keep fund ownership below 80% common control where withdrawal liability exists",
+      "source": "Sun Capital (D. Mass. 2018) via HLS Forum 2019",
+      "weak": false,
+      "ref": "17.6",
+      "applies_to": [
+        "all"
+      ]
+    }
+  ],
+  "third_party_reports": [
+    {
+      "id": "HC-T01",
+      "report": "Regulatory memo (AKS, Stark, CPOM, state notice laws)",
+      "provider": "Healthcare regulatory counsel",
+      "required_when": "Always",
+      "ref": "17.5"
+    },
+    {
+      "id": "HC-T02",
+      "report": "Independent coding audit",
+      "provider": "Independent coding auditor (statistically valid sample per provider)",
+      "required_when": "Always",
+      "ref": "17.5"
+    },
+    {
+      "id": "HC-T03",
+      "report": "FMV and commercial-reasonableness appraisal",
+      "provider": "FMV appraiser",
+      "required_when": "Any physician compensation, referral-source arrangement or add-on purchase",
+      "ref": "17.5"
+    },
+    {
+      "id": "HC-T04",
+      "report": "Revenue-cycle QoE",
+      "provider": "QoE provider (remittance-to-cash rebuild)",
+      "required_when": "Always",
+      "ref": "17.5"
+    },
+    {
+      "id": "HC-T05",
+      "report": "Antitrust analysis",
+      "provider": "Antitrust counsel",
+      "required_when": "Serial add-ons",
+      "ref": "17.5"
+    },
+    {
+      "id": "HC-T06",
+      "report": "Real estate appraisal and lease review",
+      "provider": "Real estate appraiser and lease reviewer",
+      "required_when": "Sale-leasebacks or material leases",
+      "ref": "17.5"
+    },
+    {
+      "id": "HC-T07",
+      "report": "Malpractice and tail review",
+      "provider": "Malpractice and tail-coverage broker",
+      "required_when": "Always",
+      "ref": "17.5"
+    }
+  ],
+  "hard_questions": [
+    {
+      "id": "HC-HQ01",
+      "question": "What share of revenue comes from the top payor, and when does that contract renew?",
+      "good_answer": "A precise share and date with a renewal plan and rate sensitivity.",
+      "ref": "17.9 Q1"
+    },
+    {
+      "id": "HC-HQ02",
+      "question": "What did the last external coding audit find?",
+      "good_answer": "A recent audit with low error rates and documented remediation.",
+      "ref": "17.9 Q2"
+    },
+    {
+      "id": "HC-HQ03",
+      "question": "Show FMV support for every arrangement with a referral source.",
+      "good_answer": "Written agreements with independent FMV and commercial-reasonableness opinions and time logs.",
+      "ref": "17.9 Q3"
+    },
+    {
+      "id": "HC-HQ04",
+      "question": "Which add-ons are still on separate billing systems?",
+      "good_answer": "None older than 12 months.",
+      "ref": "17.9 Q4"
+    },
+    {
+      "id": "HC-HQ05",
+      "question": "Which state laws require notice or approval for this deal, and does any state's CPOM law reach the MSO structure?",
+      "good_answer": "A state-by-state counsel memo with filings scheduled.",
+      "ref": "17.9 Q5"
+    },
+    {
+      "id": "HC-HQ06",
+      "question": "Who is the friendly physician, and what happens if he or she leaves?",
+      "good_answer": "A named physician with an executed succession agreement allowing prompt substitution.",
+      "ref": "17.9 Q6"
+    },
+    {
+      "id": "HC-HQ07",
+      "question": "After the sale-leaseback, what is rent coverage, and where did the proceeds go?",
+      "good_answer": "Adequate coverage through escalators and proceeds reinvested, not dividended.",
+      "ref": "17.9 Q7"
+    },
+    {
+      "id": "HC-HQ08",
+      "question": "What happened to staffing ratios and quality ratings at prior acquisitions?",
+      "good_answer": "Stable or improving, from CMS data.",
+      "ref": "17.9 Q8"
+    }
+  ],
+  "failure_cases": [
+    {
+      "case": "Steward Health Care / Cerberus",
+      "year": "2016 sale-leaseback; Chapter 11 May 2024",
+      "what_happened": "Sale-leaseback of hospital real estate to MPT ($1.25B for Massachusetts) funded dividends and left escalating rents.",
+      "check": "Model rent coverage after any sale-leaseback; trace where the proceeds went.",
+      "ref": "17.7"
+    },
+    {
+      "case": "Riordan, Lewis & Haden / Diabetic Care Rx",
+      "year": "Settled 2019 (HLS Forum)",
+      "what_happened": "DOJ named the PE sponsor alongside its portfolio pharmacy for financing a kickback scheme; $21.36M.",
+      "check": "Pre-close billing and referral diligence; sponsor involvement in marketing practices.",
+      "ref": "17.1, 17.7"
+    },
+    {
+      "case": "U.S. Anesthesia Partners / Welsh Carson",
+      "year": "FTC suit 2023 (dates and order terms weak; verify on ftc.gov)",
+      "what_happened": "Serial roll-up of Texas anesthesia practices followed by price increases; Welsh Carson later entered an FTC consent order requiring prior notice of certain acquisitions.",
+      "check": "Local market share by specialty; price increases after add-ons; state notice requirements.",
+      "ref": "17.7"
+    },
+    {
+      "case": "PE-owned nursing homes (aggregate)",
+      "year": "NBER w28474 study period",
+      "what_happened": "Mortality up about 10% to 11%; staffing down about 3%; costs shifted to fees, interest, leases.",
+      "check": "Staffing ratios; Five-Star trend; related-party fees and leases; rent coverage.",
+      "ref": "17.7"
+    },
+    {
+      "case": "Sun Capital (ERISA withdrawal liability)",
+      "year": "D. Mass. 2018",
+      "what_happened": "PE funds held to be a trade or business under common control with a bankrupt portfolio company because of active management and control.",
+      "check": "Structure fund ownership below 80% common control; observe formalities.",
+      "ref": "17.6"
+    },
+    {
+      "case": "Upcoding or medically unnecessary services (generic)",
+      "year": "Recurring",
+      "what_happened": "EBITDA inflated by coding.",
+      "check": "Independent coding audit and peer-benchmark outlier analysis before close; escrow or special indemnity.",
+      "ref": "17.7"
+    },
+    {
+      "case": "Kickback-tainted referral relationships (generic)",
+      "year": "Recurring",
+      "what_happened": "Above-FMV medical directorships, MSO percentage fees.",
+      "check": "FMV opinions; healthcare regulatory counsel review.",
+      "ref": "17.7"
+    },
+    {
+      "case": "Payor rate cuts or out-of-network revenue collapse (generic)",
+      "year": "Recurring",
+      "what_happened": "Revenue falls with payor action.",
+      "check": "In-network status by payor; out-of-network share of revenue.",
+      "ref": "17.7"
+    },
+    {
+      "case": "Physicians leaving after earn-outs (generic)",
+      "year": "Recurring",
+      "what_happened": "Production walks out.",
+      "check": "Rollover equity and vesting tied to tenure; production concentration.",
+      "ref": "17.7"
+    },
+    {
+      "case": "Antitrust or state-law block of add-ons (generic)",
+      "year": "Recurring",
+      "what_happened": "Roll-up thesis blocked.",
+      "check": "Local share by specialty; state notice requirements.",
+      "ref": "17.7"
+    },
+    {
+      "case": "Add-ons never integrated (generic)",
+      "year": "Recurring",
+      "what_happened": "Arbitrage without integration.",
+      "check": "One billing system and one payor contract test.",
+      "ref": "17.7"
+    },
+    {
+      "case": "CPOM structure unwinds (generic)",
+      "year": "Recurring; Oregon SB 951 (2025)",
+      "what_happened": "Friendly physician leaves or an Oregon-style law voids control.",
+      "check": "Friendly-physician succession agreements; state-by-state CPOM analysis.",
+      "ref": "17.7"
+    }
+  ]
+}

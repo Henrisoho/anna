@@ -964,24 +964,6 @@
     },
     {
       "id": "EV-FOP-005",
-      "order": 30,
-      "stage": "closing",
-      "priority": "supporting",
-      "workstream": "Fund Operations",
-      "request": "Subscription wire instructions verified with the transfer agent by call-back.",
-      "format": "Call-back confirmation.",
-      "why": "Wire diversion.",
-      "pass": "Verified.",
-      "fail": "Unverified.",
-      "verify": "Call-back.",
-      "applies_to": [
-        "all"
-      ],
-      "ref": "15.5",
-      "weak": false
-    },
-    {
-      "id": "EV-FOP-006",
       "order": 10,
       "stage": "monitoring",
       "priority": "core",
@@ -1091,7 +1073,7 @@
       "weak": false
     },
     {
-      "id": "EV-FOP-007",
+      "id": "EV-FOP-006",
       "order": 70,
       "stage": "monitoring",
       "priority": "gating",
@@ -1127,7 +1109,7 @@
       "weak": false
     },
     {
-      "id": "EV-FOP-008",
+      "id": "EV-FOP-007",
       "order": 90,
       "stage": "monitoring",
       "priority": "core",

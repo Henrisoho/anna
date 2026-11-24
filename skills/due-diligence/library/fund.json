@@ -1856,26 +1856,8 @@
       "weak": false
     },
     {
-      "id": "FD-KYC-001",
-      "order": 440,
-      "stage": "confirmatory",
-      "priority": "core",
-      "workstream": "KYC/AML & Sanctions",
-      "request": "Statement of the manager's investor AML program: whether one is voluntarily run, which administrator performs investor KYC, and whether the administrator files SARs.",
-      "format": "AML policy and administrator's KYC service description.",
-      "why": "The Investment Adviser AML rule is delayed to Jan. 1, 2028; until then adviser AML is contractual and voluntary.",
-      "pass": "Voluntary AML program or administrator-performed investor KYC with SAR filing.",
-      "fail": "No program and no administrator KYC.",
-      "verify": "Confirm KYC scope with the administrator.",
-      "applies_to": [
-        "all"
-      ],
-      "ref": "10.15",
-      "weak": false
-    },
-    {
       "id": "FD-LEG-003",
-      "order": 450,
+      "order": 440,
       "stage": "confirmatory",
       "priority": "core",
       "workstream": "Corporate & Legal",
@@ -1893,7 +1875,7 @@
     },
     {
       "id": "FD-LEG-004",
-      "order": 460,
+      "order": 450,
       "stage": "confirmatory",
       "priority": "supporting",
       "workstream": "Corporate & Legal",
@@ -1913,7 +1895,7 @@
     },
     {
       "id": "FD-HRM-004",
-      "order": 470,
+      "order": 460,
       "stage": "confirmatory",
       "priority": "gating",
       "workstream": "HR & Management",
@@ -1935,7 +1917,7 @@
     },
     {
       "id": "FD-HRM-005",
-      "order": 480,
+      "order": 470,
       "stage": "confirmatory",
       "priority": "core",
       "workstream": "HR & Management",
@@ -1953,7 +1935,7 @@
     },
     {
       "id": "FD-HRM-006",
-      "order": 490,
+      "order": 480,
       "stage": "confirmatory",
       "priority": "supporting",
       "workstream": "HR & Management",
@@ -1971,7 +1953,7 @@
     },
     {
       "id": "FD-HRM-007",
-      "order": 500,
+      "order": 490,
       "stage": "confirmatory",
       "priority": "core",
       "workstream": "HR & Management",
@@ -1989,7 +1971,7 @@
     },
     {
       "id": "FD-FOP-004",
-      "order": 510,
+      "order": 500,
       "stage": "confirmatory",
       "priority": "gating",
       "workstream": "Fund Operations",
@@ -2007,7 +1989,7 @@
     },
     {
       "id": "FD-FOP-005",
-      "order": 520,
+      "order": 510,
       "stage": "confirmatory",
       "priority": "gating",
       "workstream": "Fund Operations",
@@ -2025,7 +2007,7 @@
     },
     {
       "id": "FD-FOP-006",
-      "order": 530,
+      "order": 520,
       "stage": "confirmatory",
       "priority": "core",
       "workstream": "Fund Operations",
@@ -2044,7 +2026,7 @@
     },
     {
       "id": "FD-FOP-007",
-      "order": 540,
+      "order": 530,
       "stage": "confirmatory",
       "priority": "gating",
       "workstream": "Fund Operations",
@@ -2062,7 +2044,7 @@
     },
     {
       "id": "FD-FOP-008",
-      "order": 550,
+      "order": 540,
       "stage": "confirmatory",
       "priority": "core",
       "workstream": "Fund Operations",
@@ -2080,7 +2062,7 @@
     },
     {
       "id": "FD-FOP-009",
-      "order": 560,
+      "order": 550,
       "stage": "confirmatory",
       "priority": "core",
       "workstream": "Fund Operations",
@@ -2098,7 +2080,7 @@
     },
     {
       "id": "FD-FOP-010",
-      "order": 570,
+      "order": 560,
       "stage": "confirmatory",
       "priority": "gating",
       "workstream": "Fund Operations",
@@ -2116,7 +2098,7 @@
     },
     {
       "id": "FD-FOP-011",
-      "order": 580,
+      "order": 570,
       "stage": "confirmatory",
       "priority": "gating",
       "workstream": "Fund Operations",
@@ -2134,7 +2116,7 @@
     },
     {
       "id": "FD-FOP-012",
-      "order": 590,
+      "order": 580,
       "stage": "confirmatory",
       "priority": "supporting",
       "workstream": "Fund Operations",
@@ -2153,7 +2135,7 @@
     },
     {
       "id": "FD-ITC-001",
-      "order": 600,
+      "order": 590,
       "stage": "confirmatory",
       "priority": "core",
       "workstream": "IT & Cyber",
@@ -2171,7 +2153,7 @@
     },
     {
       "id": "FD-SPN-003",
-      "order": 610,
+      "order": 600,
       "stage": "confirmatory",
       "priority": "core",
       "workstream": "Sponsor & Background",
@@ -2189,7 +2171,7 @@
     },
     {
       "id": "FD-FOP-013",
-      "order": 620,
+      "order": 610,
       "stage": "confirmatory",
       "priority": "core",
       "workstream": "Fund Operations",
@@ -2211,7 +2193,7 @@
     },
     {
       "id": "FD-FIN-016",
-      "order": 630,
+      "order": 620,
       "stage": "confirmatory",
       "priority": "core",
       "workstream": "Financial",
@@ -2233,7 +2215,7 @@
     },
     {
       "id": "FD-FIN-017",
-      "order": 640,
+      "order": 630,
       "stage": "confirmatory",
       "priority": "core",
       "workstream": "Financial",
@@ -2255,7 +2237,7 @@
     },
     {
       "id": "FD-FOP-014",
-      "order": 650,
+      "order": 640,
       "stage": "confirmatory",
       "priority": "core",
       "workstream": "Fund Operations",
@@ -2276,7 +2258,7 @@
     },
     {
       "id": "FD-FIN-018",
-      "order": 660,
+      "order": 650,
       "stage": "confirmatory",
       "priority": "core",
       "workstream": "Financial",
@@ -2295,7 +2277,7 @@
     },
     {
       "id": "FD-REG-012",
-      "order": 670,
+      "order": 660,
       "stage": "confirmatory",
       "priority": "core",
       "workstream": "Regulatory & Compliance",
@@ -2314,7 +2296,7 @@
     },
     {
       "id": "FD-COM-007",
-      "order": 680,
+      "order": 670,
       "stage": "confirmatory",
       "priority": "gating",
       "workstream": "Commercial & Market",
@@ -2332,7 +2314,7 @@
     },
     {
       "id": "FD-LEG-005",
-      "order": 690,
+      "order": 680,
       "stage": "confirmatory",
       "priority": "core",
       "workstream": "Corporate & Legal",
@@ -2350,7 +2332,7 @@
     },
     {
       "id": "FD-FIN-019",
-      "order": 700,
+      "order": 690,
       "stage": "confirmatory",
       "priority": "core",
       "workstream": "Financial",
@@ -2368,7 +2350,7 @@
     },
     {
       "id": "FD-COM-008",
-      "order": 710,
+      "order": 700,
       "stage": "confirmatory",
       "priority": "core",
       "workstream": "Commercial & Market",
@@ -2386,7 +2368,7 @@
     },
     {
       "id": "FD-FOP-015",
-      "order": 720,
+      "order": 710,
       "stage": "confirmatory",
       "priority": "core",
       "workstream": "Fund Operations",
@@ -2404,7 +2386,7 @@
     },
     {
       "id": "FD-LEG-006",
-      "order": 730,
+      "order": 720,
       "stage": "confirmatory",
       "priority": "supporting",
       "workstream": "Corporate & Legal",
@@ -2423,7 +2405,7 @@
     },
     {
       "id": "FD-COM-009",
-      "order": 740,
+      "order": 730,
       "stage": "confirmatory",
       "priority": "supporting",
       "workstream": "Commercial & Market",
@@ -2441,7 +2423,7 @@
     },
     {
       "id": "FD-STR-028",
-      "order": 750,
+      "order": 740,
       "stage": "confirmatory",
       "priority": "core",
       "workstream": "Structure & Terms",
@@ -2459,7 +2441,7 @@
     },
     {
       "id": "FD-FIN-020",
-      "order": 760,
+      "order": 750,
       "stage": "confirmatory",
       "priority": "core",
       "workstream": "Financial",
@@ -2477,7 +2459,7 @@
     },
     {
       "id": "FD-FIN-021",
-      "order": 770,
+      "order": 760,
       "stage": "confirmatory",
       "priority": "gating",
       "workstream": "Financial",
@@ -2495,7 +2477,7 @@
     },
     {
       "id": "FD-HRM-008",
-      "order": 780,
+      "order": 770,
       "stage": "confirmatory",
       "priority": "core",
       "workstream": "HR & Management",
@@ -2513,7 +2495,7 @@
     },
     {
       "id": "FD-HRM-009",
-      "order": 790,
+      "order": 780,
       "stage": "confirmatory",
       "priority": "core",
       "workstream": "HR & Management",
@@ -2531,7 +2513,7 @@
     },
     {
       "id": "FD-COM-010",
-      "order": 800,
+      "order": 790,
       "stage": "confirmatory",
       "priority": "core",
       "workstream": "Commercial & Market",
@@ -2549,7 +2531,7 @@
     },
     {
       "id": "FD-FIN-022",
-      "order": 810,
+      "order": 800,
       "stage": "confirmatory",
       "priority": "core",
       "workstream": "Financial",
@@ -2567,7 +2549,7 @@
     },
     {
       "id": "FD-FIN-023",
-      "order": 820,
+      "order": 810,
       "stage": "confirmatory",
       "priority": "core",
       "workstream": "Financial",
@@ -2585,7 +2567,7 @@
     },
     {
       "id": "FD-VAL-022",
-      "order": 830,
+      "order": 820,
       "stage": "confirmatory",
       "priority": "core",
       "workstream": "Valuation & Model",
@@ -2603,7 +2585,7 @@
     },
     {
       "id": "FD-COM-011",
-      "order": 840,
+      "order": 830,
       "stage": "confirmatory",
       "priority": "supporting",
       "workstream": "Commercial & Market",
@@ -2621,7 +2603,7 @@
     },
     {
       "id": "FD-COM-012",
-      "order": 850,
+      "order": 840,
       "stage": "confirmatory",
       "priority": "supporting",
       "workstream": "Commercial & Market",
@@ -2877,26 +2859,8 @@
       "weak": false
     },
     {
-      "id": "FD-FOP-020",
-      "order": 30,
-      "stage": "closing",
-      "priority": "core",
-      "workstream": "Fund Operations",
-      "request": "Capital-call wire instructions confirmed by call-back to the administrator.",
-      "format": "Administrator-issued instructions confirmed by phone at an independently sourced number.",
-      "why": "Wire diversion and instructions that do not match the administrator's records.",
-      "pass": "Instructions match the administrator's records and the fund's bank account.",
-      "fail": "Instructions differ or come only from the manager.",
-      "verify": "Call-back.",
-      "applies_to": [
-        "all"
-      ],
-      "ref": "10.3",
-      "weak": false
-    },
-    {
       "id": "FD-SPN-005",
-      "order": 40,
+      "order": 30,
       "stage": "closing",
       "priority": "core",
       "workstream": "Sponsor & Background",
@@ -2914,7 +2878,7 @@
     },
     {
       "id": "FD-STR-031",
-      "order": 50,
+      "order": 40,
       "stage": "closing",
       "priority": "supporting",
       "workstream": "Structure & Terms",
@@ -2936,7 +2900,7 @@
     },
     {
       "id": "FD-STR-032",
-      "order": 60,
+      "order": 50,
       "stage": "closing",
       "priority": "core",
       "workstream": "Structure & Terms",
@@ -2993,7 +2957,7 @@
       "weak": false
     },
     {
-      "id": "FD-FOP-021",
+      "id": "FD-FOP-020",
       "order": 30,
       "stage": "monitoring",
       "priority": "core",
@@ -3011,7 +2975,7 @@
       "weak": false
     },
     {
-      "id": "FD-FOP-022",
+      "id": "FD-FOP-021",
       "order": 40,
       "stage": "monitoring",
       "priority": "gating",
@@ -3165,7 +3129,7 @@
       "weak": false
     },
     {
-      "id": "FD-FOP-023",
+      "id": "FD-FOP-022",
       "order": 120,
       "stage": "monitoring",
       "priority": "core",
@@ -3183,7 +3147,7 @@
       "weak": false
     },
     {
-      "id": "FD-FOP-024",
+      "id": "FD-FOP-023",
       "order": 130,
       "stage": "monitoring",
       "priority": "core",
