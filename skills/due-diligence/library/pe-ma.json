@@ -1,0 +1,3292 @@
+{
+  "type": "pe-ma",
+  "name": "Private Equity and M&A",
+  "summary": "Covers control and minority private-equity transactions and corporate M&A: LBOs and buyouts, add-on acquisitions and roll-ups, carve-outs and take-privates, minority stakes, and de-SPAC mergers and PIPEs. The spine: buy earnings proven to cash (independent QoE walking net income to reported, adjusted and pro forma EBITDA, every add-back validated, proof of cash on every account, intra-period balances, off-balance-sheet factoring added to leverage), at a multiple you would accept at exit, with leverage the downside case can carry. Whatever diligence finds is uninsured under R&W, so price it or get a specific indemnity; whatever it misses will be claimed at the deal multiple. Every IC memo splits the return into revenue growth, margin change, debt paydown, multiple change and recaps, and shows how much survives flat margins and exit at entry.",
+  "chapters": [
+    "05-private-equity-ma.md"
+  ],
+  "one_check": "Recompute the return with exit multiple equal to entry, margins flat and management's forecast haircut about 20%, on EBITDA proven to cash by an independent QoE, and read the R&W policy exclusions against the diligence reports: if the deal no longer clears the hurdle, or known findings are neither priced nor specifically indemnified, it does not pass.",
+  "subtypes": [
+    {
+      "id": "buyout",
+      "name": "Buyout / LBO (platform)",
+      "description": "Control acquisition of a platform company with acquisition debt. Full institutional workstream set, LBO base and downside cases testing the debt package and covenants, maximum permitted leverage under baskets, NWC peg, R&W insurance and indemnity package, management incentive plan."
+    },
+    {
+      "id": "add-on",
+      "name": "Add-on / roll-up acquisition",
+      "description": "Bolt-on acquisitions by an existing platform. Synergy and dis-synergy table, antitrust on serial sub-HSR add-ons, integration of compliance within 100 days, earnouts and seller notes, franchise and staffing no-poach review."
+    },
+    {
+      "id": "carve-out",
+      "name": "Carve-out / take-private",
+      "description": "Division carved out of a parent or a public company taken private. Parent segment disclosures and last 8 quarters of filings diffed (Lazy Prices), standalone cost base, employment change base rates (public-to-private employment falls about 12% over two years)."
+    },
+    {
+      "id": "minority",
+      "name": "Minority stake / co-investment",
+      "description": "Non-control equity alongside a sponsor. Diligence the sponsor as well as the target: sponsor liability channels, fee agreements charged to the target, board designee conduct, sponsor pace and reserves, minority information and consent rights."
+    },
+    {
+      "id": "de-spac",
+      "name": "De-SPAC / PIPE",
+      "description": "A target taking SPAC stock, a PIPE investor, or a lender or co-investor in a de-SPACed company. Net cash per share after redemptions, promote, warrants and fees; diligence the counterparty as hard as a target; NVCA 2025 model PIPE documents; diarized fraud limitations and indemnity survival dates (Cloudbreak)."
+    }
+  ],
+  "intake_questions": [
+    {
+      "id": "PE-Q01",
+      "question": "Is this a platform buyout/LBO, an add-on to an existing platform, a carve-out or take-private, a minority stake or co-investment, or a de-SPAC/PIPE?",
+      "why": "Sets the subtype and which workstreams apply.",
+      "sets_subtype": true
+    },
+    {
+      "id": "PE-Q02",
+      "question": "What are TTM revenue, EBITDA and enterprise value, and is a QoE (sell-side or buy-side) available?",
+      "why": "QoE is customarily commissioned above about $5M EBITDA or $20M to $30M EV (WEAK); deals under $100M are overrepresented in R&W claims.",
+      "sets_subtype": false
+    },
+    {
+      "id": "PE-Q03",
+      "question": "Will R&W insurance be bound, and is this a walk-away (no-survival) deal or traditional indemnity?",
+      "why": "Drives the indemnity, escrow and survival items and the policy-exclusion review.",
+      "sets_subtype": false
+    },
+    {
+      "id": "PE-Q04",
+      "question": "Does consideration include an earnout, seller note, rollover equity or buyer stock?",
+      "why": "Triggers the earnout drafting checklist and buyer-side diligence (Fortis v. J&J; Cloudbreak).",
+      "sets_subtype": false
+    },
+    {
+      "id": "PE-Q05",
+      "question": "Is the target public, or a division of a public parent?",
+      "why": "Triggers the 8-quarter filing diff (Lazy Prices).",
+      "sets_subtype": true
+    },
+    {
+      "id": "PE-Q06",
+      "question": "Is the target in a regulated manufacturing sector (pharma, food, supplements, devices) or government-reimbursed healthcare?",
+      "why": "Triggers data-integrity audit (Akorn), billing and referral diligence and FCA exposure (Riordan, Lewis & Haden), staffing and quality metrics (nursing homes).",
+      "sets_subtype": false
+    },
+    {
+      "id": "PE-Q07",
+      "question": "Does the target have foreign agents, government customers or foreign licences?",
+      "why": "Triggers FCPA agent diligence and the pre-signing disclosure decision.",
+      "sets_subtype": false
+    },
+    {
+      "id": "PE-Q08",
+      "question": "Does the target have unionized employees or multiemployer pension participation?",
+      "why": "Triggers withdrawal-liability and common-control analysis (Sun Capital).",
+      "sets_subtype": false
+    },
+    {
+      "id": "PE-Q09",
+      "question": "Is the target a franchise, staffing or multi-unit business?",
+      "why": "Triggers FDD Item 17 and no-poach review.",
+      "sets_subtype": false
+    },
+    {
+      "id": "PE-Q10",
+      "question": "Who is the lead sponsor, how was the deal sourced, and did a banker run a process with a deadline?",
+      "why": "Sourcing and deadline pressure drive adverse selection and auction fever.",
+      "sets_subtype": false
+    },
+    {
+      "id": "PE-Q11",
+      "question": "Are we an equity co-investor, a lender into the LBO, or both?",
+      "why": "Lender role triggers lenders' counsel, baskets, EBITDA definition and J.Crew blocker review; holding both raises the 'wrong twice' issue.",
+      "sets_subtype": false
+    },
+    {
+      "id": "PE-Q12",
+      "question": "Is revenue or cost in a currency different from the acquisition debt, or tied to a currency peg?",
+      "why": "Triggers the currency-mismatch test (Blackstone Argentina).",
+      "sets_subtype": false
+    }
+  ],
+  "requests": [
+    {
+      "id": "PE-FIN-001",
+      "order": 10,
+      "stage": "screen",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Provide the confidential information memorandum (CIM).",
+      "format": "Final CIM as distributed.",
+      "why": "Marketing claims accepted without testing.",
+      "pass": "Every quantitative claim traceable to the data room.",
+      "fail": "Claims not supported by data-room documents.",
+      "verify": "Cross-check each claim.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "5.2",
+      "weak": false
+    },
+    {
+      "id": "PE-FIN-002",
+      "order": 20,
+      "stage": "screen",
+      "priority": "gating",
+      "workstream": "Financial",
+      "request": "Provide 3 to 5 years of annual financial statements plus TTM, audited or reviewed where available.",
+      "format": "Audited or reviewed statements with accountant's reports; TTM management accounts.",
+      "why": "Cash-basis or unreviewed books.",
+      "pass": "Accrual-basis statements; audited or reviewed for at least the last fiscal year, or QoE converts to accrual.",
+      "fail": "Cash-basis books, no audited or reviewed financials, inconsistent close.",
+      "verify": "Call the auditor; tie to tax returns.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "5.2, 5.8",
+      "weak": false
+    },
+    {
+      "id": "PE-FIN-003",
+      "order": 30,
+      "stage": "screen",
+      "priority": "gating",
+      "workstream": "Financial",
+      "request": "Provide the sell-side QoE report, its engagement letter and its scope section, if one exists.",
+      "format": "Full report and engagement letter including procedures not performed.",
+      "why": "A QoE carries no assurance; scope decides what was tested.",
+      "pass": "Engagement type stated (SSAE 19 AUP or CS 100); procedures not performed listed; proof of cash covered every account in the bank confirmations.",
+      "fail": "No engagement letter; proof of cash on a subset of accounts.",
+      "verify": "Read the letter; confirm account list against bank confirmations.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "5.2, 5.3",
+      "weak": false
+    },
+    {
+      "id": "PE-FIN-004",
+      "order": 40,
+      "stage": "screen",
+      "priority": "gating",
+      "workstream": "Financial",
+      "request": "Provide a 3-year EBITDA bridge from reported net income to reported EBITDA, adjusted EBITDA and pro forma EBITDA, with an add-back schedule and support for every adjustment.",
+      "format": "Spreadsheet with each adjustment, amount by year and supporting documents.",
+      "why": "Buying inflated EBITDA ($8M marketed becoming $7M changes debt and price; claims at the deal multiple).",
+      "pass": "Every add-back independently validated; validated adjusted EBITDA within the range used for price.",
+      "fail": "Adjusted EBITDA with no bridge; unsupported add-backs.",
+      "verify": "Buy-side QoE validates each adjustment.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "5.2, 5.3, 5.7, 5.8",
+      "weak": false
+    },
+    {
+      "id": "PE-FIN-005",
+      "order": 50,
+      "stage": "screen",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Provide the last three years of budgets with actuals for the same periods.",
+      "format": "Board-approved budgets and actuals.",
+      "why": "Optimistic misses are a fraud precursor (about a quarter of AAER misstatements began as optimistic errors).",
+      "pass": "Misses not consistently optimistic; variances explained.",
+      "fail": "Pattern of optimistic misses.",
+      "verify": "Tie budgets to board minutes.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "5.2, 5.3, 5.8",
+      "weak": false
+    },
+    {
+      "id": "PE-FIN-006",
+      "order": 60,
+      "stage": "screen",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Provide management's forecast with its scenario ranges.",
+      "format": "Native model.",
+      "why": "Forecasts padded; ranges too narrow.",
+      "pass": "We can apply a 20% haircut and widen ranges about 2x.",
+      "fail": "Forecast with no ranges.",
+      "verify": "Our base case haircuts 20%.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "5.3, 5.4",
+      "weak": false
+    },
+    {
+      "id": "PE-COM-001",
+      "order": 70,
+      "stage": "screen",
+      "priority": "core",
+      "workstream": "Commercial & Market",
+      "request": "Provide the process description: banker, list of parties contacted, timetable and any seller-imposed deadline.",
+      "format": "Process letter and timetable.",
+      "why": "Auction fever and deadline-driven diligence cuts.",
+      "pass": "Timetable allows full diligence (LMM benchmark 60 to 90 days LOI to close, WEAK) and a cooling-off period before final bid.",
+      "fail": "Deadline used to cut diligence scope.",
+      "verify": "Ask the banker directly; confirm with other bidders where possible.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "5.1, 5.3, 5.8, 5.4",
+      "weak": true
+    },
+    {
+      "id": "PE-SPN-001",
+      "order": 80,
+      "stage": "screen",
+      "priority": "core",
+      "workstream": "Sponsor & Background",
+      "request": "Provide the sponsor's deal log: opportunities screened, deeply investigated, LOIs and closes per year, and investment-team headcount per year.",
+      "format": "Sponsor CRM export and team list.",
+      "why": "Sponsors that do not screen, and pace outrunning the operating bench.",
+      "pass": "Funnel consistent with about 6 closes per 100 considered; deal pace growing no faster than team.",
+      "fail": "Close rate far above benchmark; deal volume doubled without team growth.",
+      "verify": "Compare with fund reports and public deal records.",
+      "applies_to": [
+        "minority",
+        "buyout",
+        "add-on",
+        "carve-out"
+      ],
+      "ref": "5.1, 5.8",
+      "weak": false
+    },
+    {
+      "id": "PE-SPN-002",
+      "order": 90,
+      "stage": "screen",
+      "priority": "core",
+      "workstream": "Sponsor & Background",
+      "request": "Provide the owning fund's uncalled capital, reserve policy and reserves allocated to this company.",
+      "format": "Fund capital account statement and reserve memo.",
+      "why": "Sponsor unable to support the company in a downturn.",
+      "pass": "Reserves sufficient to fund a downside equity cure.",
+      "fail": "No reserves; fund nearly fully called.",
+      "verify": "Confirm with fund administrator.",
+      "applies_to": [
+        "minority",
+        "buyout",
+        "add-on",
+        "carve-out"
+      ],
+      "ref": "5.1, 5.9",
+      "weak": false
+    },
+    {
+      "id": "PE-VAL-001",
+      "order": 100,
+      "stage": "screen",
+      "priority": "gating",
+      "workstream": "Valuation & Model",
+      "request": "Provide the walk-away price, the conservative cash flows behind it, the date it was set and who set it.",
+      "format": "Dated memo.",
+      "why": "Diligence run to confirm an answer already chosen.",
+      "pass": "Walk-away price set before bidding by someone outside the deal team.",
+      "fail": "No walk-away price; set by the deal champion.",
+      "verify": "Check memo date against bid dates.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "5.3, 5.8",
+      "weak": false
+    },
+    {
+      "id": "PE-STR-001",
+      "order": 10,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Structure & Terms",
+      "request": "Provide the LOI with valuation basis, financing sources and conditions.",
+      "format": "Executed or draft LOI with sources and uses.",
+      "why": "Retrade risk: valuation and financing not qualified before the LOI.",
+      "pass": "Valuation stated on validated (not marketed) EBITDA; financing sources named with indicative terms before signing.",
+      "fail": "LOI priced on unvalidated adjusted EBITDA or with no identified financing.",
+      "verify": "Confirm lender interest directly with named lenders.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "5.8",
+      "weak": false
+    },
+    {
+      "id": "PE-VAL-002",
+      "order": 20,
+      "stage": "term-sheet",
+      "priority": "gating",
+      "workstream": "Valuation & Model",
+      "request": "Provide the full LBO model with base and downside cases that test the debt package and covenants.",
+      "format": "Native model with live formulas, debt schedule and covenant tests by quarter.",
+      "why": "Leverage the downside cannot carry.",
+      "pass": "Downside case services all debt (including factoring and SCF) and passes every covenant test with stated headroom.",
+      "fail": "Covenant breach or payment default in the downside case.",
+      "verify": "We rebuild the base and downside cases ourselves from validated EBITDA.",
+      "applies_to": [
+        "buyout",
+        "add-on",
+        "carve-out"
+      ],
+      "ref": "5.4",
+      "weak": false
+    },
+    {
+      "id": "PE-VAL-003",
+      "order": 30,
+      "stage": "term-sheet",
+      "priority": "gating",
+      "workstream": "Valuation & Model",
+      "request": "Provide the base case: margins flat at current (plus only named, costed drivers), management forecast haircut about 20%, exit multiple equal to or below entry.",
+      "format": "Model tab with the haircut and exit assumption shown explicitly.",
+      "why": "Committee asked to approve a hope.",
+      "pass": "Base case clears the hurdle (target gross IRR about 22%, range 20% to 25%; MOIC about 2.5x).",
+      "fail": "Base case below hurdle, or base case uses multiple expansion or unnamed margin expansion.",
+      "verify": "Rebuild independently and compare.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "5.14, 5.4, 5.3",
+      "weak": false
+    },
+    {
+      "id": "PE-VAL-004",
+      "order": 40,
+      "stage": "term-sheet",
+      "priority": "gating",
+      "workstream": "Valuation & Model",
+      "request": "Provide the attribution test: the return recomputed with margins flat and exit equal to entry, and the share of the sponsor-case return that survives.",
+      "format": "Model tab and one-line summary.",
+      "why": "Returns driven mostly by multiple expansion (about 80% of search-fund exit value).",
+      "pass": "Attribution test still clears the hurdle; share surviving reported.",
+      "fail": "Most of the sponsor-case return disappears.",
+      "verify": "Recompute ourselves (red-team step).",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "5.14",
+      "weak": false
+    },
+    {
+      "id": "PE-VAL-005",
+      "order": 50,
+      "stage": "term-sheet",
+      "priority": "gating",
+      "workstream": "Valuation & Model",
+      "request": "Provide the downside case: margins flat or lower, exit at entry minus 1 to 2 turns, revenue from base rates, management ranges widened about 2x, a secular-decline case where relevant, and an extended hold if a CEO change is likely.",
+      "format": "Model tab with assumptions listed.",
+      "why": "Sponsor scenario tabs understate risk (Toys 'R' Us).",
+      "pass": "Debt serviced and equity not wiped out, or the loss is explicitly accepted by IC in writing.",
+      "fail": "Downside not built, or copied from the sponsor's scenario tab.",
+      "verify": "Build our own downside from base rates.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "5.4, 5.14, 5.3",
+      "weak": false
+    },
+    {
+      "id": "PE-VAL-006",
+      "order": 60,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Valuation & Model",
+      "request": "Provide the return attribution split: revenue growth, margin change, debt paydown, multiple change and recap or dividend proceeds.",
+      "format": "Table in the IC memo tied to the model.",
+      "why": "Recap-driven IRR presented as earnings growth.",
+      "pass": "All five components shown and summing to the total return.",
+      "fail": "Components not separable, or recap proceeds blended into growth.",
+      "verify": "Recompute from the model.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "5.1, 5.14, 5.6",
+      "weak": false
+    },
+    {
+      "id": "PE-VAL-007",
+      "order": 70,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Valuation & Model",
+      "request": "Provide the synergy table: cost synergies separate from revenue synergies, each with probability and timing, plus a dis-synergy line for lost customers and talent.",
+      "format": "Table with owner and assumption per line.",
+      "why": "Overpaying for unweighted synergies (Tyson-Hillshire; premium-driven write-downs).",
+      "pass": "Every line probability-weighted; cost synergies timed 1 to 2 years, revenue 2 to 3+ years; dis-synergies included.",
+      "fail": "Unweighted synergies or no dis-synergy line.",
+      "verify": "Test each line with operators and customers.",
+      "applies_to": [
+        "add-on",
+        "buyout"
+      ],
+      "ref": "5.3",
+      "weak": false
+    },
+    {
+      "id": "PE-VAL-008",
+      "order": 80,
+      "stage": "term-sheet",
+      "priority": "supporting",
+      "workstream": "Valuation & Model",
+      "request": "Provide any option or abandonment-value analysis used to support price, with explicit ranged assumptions.",
+      "format": "Model tab.",
+      "why": "Pure DCF underbids, but option value can also rationalize a price.",
+      "pass": "Assumptions explicit and ranged; price stays at or below walk-away.",
+      "fail": "Option value used to justify a price above walk-away.",
+      "verify": "Review assumptions against the walk-away memo.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "5.3",
+      "weak": false
+    },
+    {
+      "id": "PE-VAL-009",
+      "order": 90,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Valuation & Model",
+      "request": "Provide the value-creation plan with the share of value from each lever: revenue growth, incentives, add-ons, exit, governance, buying cheap, cost reduction.",
+      "format": "Plan document with quantified levers.",
+      "why": "Plans leaning on industry's weaker levers.",
+      "pass": "Plan led by revenue growth and incentives; cost cuts and multiple arbitrage not the majority of value.",
+      "fail": "Mostly cost cuts and multiple expansion.",
+      "verify": "Compare with sponsor survey lever ratings (cost reduction important pre-deal in 36%).",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "5.1, 5.14",
+      "weak": false
+    },
+    {
+      "id": "PE-VAL-010",
+      "order": 100,
+      "stage": "term-sheet",
+      "priority": "supporting",
+      "workstream": "Valuation & Model",
+      "request": "Provide the exit analysis: buyer universe by route (strategic, financial, IPO) and the exit multiple basis.",
+      "format": "Memo naming likely buyers.",
+      "why": "IPO-dependent exits (IPO under 20% of exits).",
+      "pass": "Exit achievable by strategic or financial buyer; exit multiple at or below entry.",
+      "fail": "Exit depends on an IPO or on multiple expansion.",
+      "verify": "Compare with exit-route base rates (about 50/30/under 20).",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "5.1",
+      "weak": false
+    },
+    {
+      "id": "PE-STR-002",
+      "order": 110,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Structure & Terms",
+      "request": "Provide debt commitment papers and term sheets.",
+      "format": "Signed commitment letters with conditions.",
+      "why": "Financing failure or off-market terms.",
+      "pass": "Committed financing matches the LBO model's sources, pricing and covenants.",
+      "fail": "Uncommitted financing or conditions outside buyer control.",
+      "verify": "Confirm directly with lenders.",
+      "applies_to": [
+        "buyout",
+        "add-on",
+        "carve-out"
+      ],
+      "ref": "5.6",
+      "weak": false
+    },
+    {
+      "id": "PE-STR-003",
+      "order": 120,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Structure & Terms",
+      "request": "Provide the computation of maximum permitted senior secured leverage under the credit agreement (sum of incurrence baskets, ratio debt and EBITDA add-backs) beside closing leverage.",
+      "format": "Worksheet citing credit-agreement sections.",
+      "why": "Loose covenants let leverage rise later (over 70% permit above 5x).",
+      "pass": "Permitted leverage computed; gap to closing leverage acceptable for our position.",
+      "fail": "Permitted leverage far above closing with no lender protections.",
+      "verify": "Our counsel recomputes from the credit agreement.",
+      "applies_to": [
+        "buyout",
+        "add-on",
+        "carve-out"
+      ],
+      "ref": "5.4",
+      "weak": false
+    },
+    {
+      "id": "PE-STR-004",
+      "order": 130,
+      "stage": "term-sheet",
+      "priority": "supporting",
+      "workstream": "Structure & Terms",
+      "request": "Provide the leverage rationale tied to the target's historical cash-flow volatility.",
+      "format": "Memo with 5-year cash-flow volatility.",
+      "why": "Leverage set at what lenders will provide.",
+      "pass": "Leverage justified by volatility; total leverage at or below 6x (SR 13-3 concern level) unless specifically justified.",
+      "fail": "Rationale is 'as much as the market will bear'.",
+      "verify": "Compare with volatility and SR 13-3.",
+      "applies_to": [
+        "buyout",
+        "add-on",
+        "carve-out"
+      ],
+      "ref": "5.4",
+      "weak": false
+    },
+    {
+      "id": "PE-STR-005",
+      "order": 140,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Structure & Terms",
+      "request": "Provide every sponsor and affiliate fee agreement charged to the target (transaction, monitoring, director, exit fees) and the LPA fee-offset terms.",
+      "format": "Executed agreements and LPA excerpts.",
+      "why": "Monitoring-fee acceleration on exit (SEC fines 2015-2016).",
+      "pass": "Monitoring fees within 1% to 5% of EBITDA, offset to LPs (typically 80/20); no acceleration on exit.",
+      "fail": "Acceleration on exit; undisclosed fees.",
+      "verify": "Read agreements and LPA directly.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "5.2, 5.6, 5.8",
+      "weak": false
+    },
+    {
+      "id": "PE-STR-006",
+      "order": 150,
+      "stage": "term-sheet",
+      "priority": "supporting",
+      "workstream": "Structure & Terms",
+      "request": "Provide the management incentive plan, equity rollover terms and proposed board composition.",
+      "format": "Term sheets and plan summary.",
+      "why": "Misaligned incentives and weak governance.",
+      "pass": "Management and employees near 17% of equity (CEO about 8%; 15% and 6% at larger firms); board 5 to 7 members with 1 to 2 outsiders.",
+      "fail": "No incentive plan, or no outside directors.",
+      "verify": "Compare with Gompers et al. benchmarks.",
+      "applies_to": [
+        "buyout",
+        "carve-out",
+        "add-on"
+      ],
+      "ref": "5.4, 5.6",
+      "weak": false
+    },
+    {
+      "id": "PE-STR-007",
+      "order": 160,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Structure & Terms",
+      "request": "Provide the R&W insurance proposal or binder with draft exclusions, limit, retention and premium.",
+      "format": "Broker proposal and draft policy.",
+      "why": "Assuming coverage for known issues.",
+      "pass": "Limit 10% to 20% of deal value; retention about 1%; premium about 2% to 3% of limit; every exclusion mapped to a diligence finding.",
+      "fail": "Exclusions on financial-statement, material-contract or compliance reps, unmapped.",
+      "verify": "Our broker reviews exclusions against diligence reports.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "5.10",
+      "weak": false
+    },
+    {
+      "id": "PE-STR-008",
+      "order": 170,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Structure & Terms",
+      "request": "Provide the proposed indemnity package: survival period, basket, cap, escrow or holdback and specific indemnities.",
+      "format": "Term sheet or SPA draft.",
+      "why": "Survival too short (51% of claims arrive after 12 months, 24% after 24).",
+      "pass": "Key reps survive at least 24 months where reps survive; basket 0.5% to 1% deductible; PPA escrow about 1%; uninsured cap near 10% of deal value; specific indemnity for every known issue.",
+      "fail": "12-month survival on key reps; no specific indemnities.",
+      "verify": "Compare with ABA 2025 and SRS 2025 market data.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "5.10, 5.6",
+      "weak": false
+    },
+    {
+      "id": "PE-STR-009",
+      "order": 180,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Structure & Terms",
+      "request": "Provide earnout terms: metric definitions with worked examples, efforts standard or fixed spend, reporting and audit rights, cost allocation, staffing and working-capital rules, acceleration triggers, expert-not-arbitrator scope and record-keeping.",
+      "format": "Draft earnout provisions.",
+      "why": "Earnout disputes (Fortis v. J&J).",
+      "pass": "Every checklist item present; efforts definition applies to every milestone, not only the first.",
+      "fail": "Vague metrics, or efforts calibrated only to the first payment.",
+      "verify": "Counsel review against the 5.11 checklist.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "5.11",
+      "weak": false
+    },
+    {
+      "id": "PE-STR-010",
+      "order": 190,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Structure & Terms",
+      "request": "If the buyer has an overlapping product: provide development-effort covenants protecting milestone payments.",
+      "format": "Draft covenants.",
+      "why": "Killer acquisitions shelve the asset (about 6% of pharma deals).",
+      "pass": "Specific development commitments with spend or diligence obligations per milestone.",
+      "fail": "No development covenant.",
+      "verify": "Counsel review.",
+      "applies_to": [
+        "add-on"
+      ],
+      "ref": "5.11, 5.3",
+      "weak": false
+    },
+    {
+      "id": "PE-STR-011",
+      "order": 200,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Structure & Terms",
+      "request": "Where customer relationships are personal to the selling owner: provide seller-note or earnout terms tied to customer retention.",
+      "format": "Draft seller note or earnout provisions with retention metric.",
+      "why": "Owner-held relationships leave with the seller.",
+      "pass": "Deferred consideration of a meaningful share of price conditioned on retention of named customers over at least 24 months.",
+      "fail": "All consideration paid at close despite owner-dependent customers.",
+      "verify": "Customer calls confirm who holds the relationship.",
+      "applies_to": [
+        "buyout",
+        "add-on"
+      ],
+      "ref": "5.11",
+      "weak": false
+    },
+    {
+      "id": "PE-STR-012",
+      "order": 210,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Structure & Terms",
+      "request": "For minority positions: provide the information rights, board or observer seat, consent rights and transfer rights offered.",
+      "format": "Draft shareholder agreement.",
+      "why": "Minority holder unable to monitor or exit.",
+      "pass": "Monthly information rights, board or observer seat, tag-along and pre-emptive rights at minimum.",
+      "fail": "No information rights or no exit path.",
+      "verify": "Counsel review.",
+      "applies_to": [
+        "minority"
+      ],
+      "ref": "5.12, 2.11",
+      "weak": false
+    },
+    {
+      "id": "PE-FIN-007",
+      "order": 220,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Provide a currency schedule: revenue, cost and debt by currency, and any reliance on a currency peg.",
+      "format": "Schedule with hedge contracts.",
+      "why": "Dollar debt against a currency peg (Blackstone Argentina).",
+      "pass": "No material unhedged mismatch; debt service covered after a peg break stress.",
+      "fail": "Material unhedged mismatch.",
+      "verify": "Stress test with a peg break.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "5.3, 5.7",
+      "weak": false
+    },
+    {
+      "id": "PE-FIN-008",
+      "order": 10,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Provide monthly management accounts and trial balances for 36 months.",
+      "format": "GL and TB exports from the accounting system.",
+      "why": "Inconsistent monthly close hides adjustments.",
+      "pass": "Monthly TBs roll forward and tie to annual statements; no unexplained top-side entries.",
+      "fail": "Missing months or year-end adjustments that reverse monthly results.",
+      "verify": "Tie to statements and tax returns.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "5.2, 5.8",
+      "weak": false
+    },
+    {
+      "id": "PE-FIN-009",
+      "order": 20,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Financial",
+      "request": "Provide bank statements and bank confirmations for every account for 36 months for the QoE proof of cash.",
+      "format": "Bank-issued statements, direct confirmations, complete account list.",
+      "why": "Revenue that exists only on the P&L.",
+      "pass": "Deposits reconcile to reported revenue each month for 36 months on every account in the confirmations.",
+      "fail": "Accounts omitted, or unreconciled gaps.",
+      "verify": "Confirmations sent directly to our QoE provider.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "5.2, 5.3",
+      "weak": false
+    },
+    {
+      "id": "PE-FIN-010",
+      "order": 30,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Provide average daily or intra-quarter balances of debt, cash and receivables, not only period-end.",
+      "format": "Daily balance reports from banks and lenders.",
+      "why": "Window dressing (Repo 105 moved up to $50B off balance sheet).",
+      "pass": "Period-end balances within normal range of intra-period averages; no financing that unwinds just after period-end.",
+      "fail": "Sharp period-end divergence.",
+      "verify": "Obtain daily data from banks.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "5.2, 5.3, 5.8",
+      "weak": false
+    },
+    {
+      "id": "PE-FIN-011",
+      "order": 40,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Financial",
+      "request": "Provide every factoring, supply-chain finance and receivables-sale agreement with outstanding balances.",
+      "format": "Executed agreements and monthly balances.",
+      "why": "Hidden leverage (First Brands: about 20x, not 5x).",
+      "pass": "Every facility added to leverage; adjusted leverage within model and covenant limits.",
+      "fail": "Any facility excluded from leverage.",
+      "verify": "UCC search and bank inquiry.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "5.2, 5.3, 5.7",
+      "weak": false
+    },
+    {
+      "id": "PE-COL-001",
+      "order": 50,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Collateral & Title",
+      "request": "Provide UCC search results across all secured parties and jurisdictions.",
+      "format": "Official search reports dated within 30 days.",
+      "why": "Double-pledged collateral.",
+      "pass": "Every lien matches a disclosed facility; no duplicate pledges of the same receivables or inventory.",
+      "fail": "Undisclosed liens or overlapping pledges.",
+      "verify": "Order searches ourselves and dedupe item-level collateral.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "5.2, 5.7",
+      "weak": false
+    },
+    {
+      "id": "PE-FIN-012",
+      "order": 60,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Provide net working capital monthly for 24 to 36 months and the proposed peg build.",
+      "format": "Monthly NWC schedule and peg methodology.",
+      "why": "Peg set on a favorable month forcing a Day 1 cash injection.",
+      "pass": "Peg equals the trailing 12-month average of normalized NWC with seasonality modeled; NWC defined as current assets less current liabilities excluding cash, debt and income tax.",
+      "fail": "Peg based on a single or favorable month.",
+      "verify": "QoE recomputes the peg.",
+      "applies_to": [
+        "buyout",
+        "add-on",
+        "carve-out",
+        "minority"
+      ],
+      "ref": "5.3, 5.7",
+      "weak": false
+    },
+    {
+      "id": "PE-FIN-013",
+      "order": 70,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Provide schedules of deferred revenue, accrued PTO, gift cards, warranty and other accrued liabilities.",
+      "format": "Schedules tied to the GL and underlying contracts.",
+      "why": "Unrecorded liabilities.",
+      "pass": "Every liability recorded, tied to GL and included in NWC or debt-like items.",
+      "fail": "Unrecorded or understated liabilities.",
+      "verify": "Balance-sheet diligence and proof of cash.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "5.7",
+      "weak": false
+    },
+    {
+      "id": "PE-FIN-014",
+      "order": 80,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Provide the revenue recognition policy with changes over prior years, and invoice and shipping logs for 30 days either side of each period-end.",
+      "format": "Policy and logs.",
+      "why": "Revenue pulled forward.",
+      "pass": "Policy unchanged or changes disclosed; no revenue recognized before delivery at period-ends.",
+      "fail": "Policy changes that flatter results or late cut-off.",
+      "verify": "QoE cut-off testing.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "5.3, 5.5",
+      "weak": false
+    },
+    {
+      "id": "PE-FIN-015",
+      "order": 90,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Provide the related-party list and every related-party transaction with terms.",
+      "format": "Schedule and contracts.",
+      "why": "Off-market related-party dealings.",
+      "pass": "Each transaction at arm's length against market benchmarks, or normalized in the bridge.",
+      "fail": "Off-market terms not normalized.",
+      "verify": "Compare with market pricing.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "5.3",
+      "weak": false
+    },
+    {
+      "id": "PE-COM-002",
+      "order": 100,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Commercial & Market",
+      "request": "Provide top-10 customer revenue by period and authorization to compare with each customer's purchase, inventory and AP trends.",
+      "format": "Revenue by customer; customer filings or confirmations.",
+      "why": "Revenue fraud visible in customer data (customer-inventory/AP signal about half the power of the Dechow model).",
+      "pass": "Sales to each customer move with that customer's purchases; no sharp jumps in customer inventory or payables.",
+      "fail": "Supplier sales growth diverges from customers' purchase growth.",
+      "verify": "Customer confirmations and public filings.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "5.3",
+      "weak": false
+    },
+    {
+      "id": "PE-FIN-016",
+      "order": 110,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Provide the existing debt schedule, credit agreements and covenant compliance certificates.",
+      "format": "Executed agreements and certificates for 3 years.",
+      "why": "Hidden debt and covenant breaches.",
+      "pass": "All debt scheduled; no breaches or waivers undisclosed.",
+      "fail": "Breaches or undisclosed waivers.",
+      "verify": "Lender confirmations.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "5.2, 5.4",
+      "weak": false
+    },
+    {
+      "id": "PE-FIN-017",
+      "order": 120,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Provide capex history split between maintenance and growth, and the capex needed to stay competitive.",
+      "format": "Fixed-asset register and capex plan.",
+      "why": "Underinvestment before debt service (Toys 'R' Us).",
+      "pass": "Maintenance and competitive capex funded before debt service in the downside.",
+      "fail": "Capex deferred to service debt.",
+      "verify": "Site visits and operator interviews.",
+      "applies_to": [
+        "buyout",
+        "add-on",
+        "carve-out"
+      ],
+      "ref": "5.7",
+      "weak": false
+    },
+    {
+      "id": "PE-FIN-018",
+      "order": 130,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Provide every sale-leaseback and dividend recap with a trace of proceeds and the resulting rent schedule.",
+      "format": "Agreements and funds flows.",
+      "why": "Proceeds extracted, escalating rents left (Steward).",
+      "pass": "Rent coverage adequate in the downside; proceeds traced; recap IRR split from earnings growth.",
+      "fail": "Thin rent coverage or untraced proceeds.",
+      "verify": "Model rent coverage ourselves.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "5.6, 5.7",
+      "weak": false
+    },
+    {
+      "id": "PE-COM-003",
+      "order": 140,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Commercial & Market",
+      "request": "Provide customer and supplier lists, contracts and concentration.",
+      "format": "Lists with revenue and spend; executed contracts.",
+      "why": "Concentration surfacing after close.",
+      "pass": "Concentration quantified and reflected in price and downside; change-of-control clauses identified.",
+      "fail": "Undisclosed concentration or change-of-control terminations.",
+      "verify": "Customer and supplier calls.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "5.2, 5.7",
+      "weak": false
+    },
+    {
+      "id": "PE-COM-004",
+      "order": 150,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Commercial & Market",
+      "request": "Provide customer-level volume forecasts for the top customers and all correspondence on volume reductions, cancellations or rebates.",
+      "format": "Customer forecasts and correspondence files, including executive email.",
+      "why": "Undisclosed volume cuts (Paragon).",
+      "pass": "Forecasts obtained directly from customers and consistent with the model.",
+      "fail": "Volume cuts, cancellation letters or rebates not reflected in the model.",
+      "verify": "Ask customers directly.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "5.2, 5.3, 5.7",
+      "weak": false
+    },
+    {
+      "id": "PE-COM-005",
+      "order": 160,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Commercial & Market",
+      "request": "Provide written answers to every item in our question log, including every data-room hint, and access to customers to ask them.",
+      "format": "Q&A log with dates and responders.",
+      "why": "Hints nobody asked about.",
+      "pass": "Every hint has a written question, asker, answer and model update.",
+      "fail": "Any hint open at signing.",
+      "verify": "Ask the questions in customer meetings and record answers.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "5.3, 5.7, 5.8",
+      "weak": false
+    },
+    {
+      "id": "PE-COM-006",
+      "order": 170,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Commercial & Market",
+      "request": "Provide access for customer interviews, plus the market study and pipeline.",
+      "format": "Contacts and documents.",
+      "why": "Commercial claims unverified; middle-market commercial diligence happens on calls.",
+      "pass": "Interviews completed with customers we select; commercial thesis confirmed.",
+      "fail": "Refusal of access, or customers contradict thesis.",
+      "verify": "Commercial diligence firm.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "5.3",
+      "weak": false
+    },
+    {
+      "id": "PE-COM-007",
+      "order": 180,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Commercial & Market",
+      "request": "Provide contacts for former employees, vendors and customers so we can ask whether they were ever asked to do something with invoices, payments or records that felt wrong.",
+      "format": "Contact list; we add our own sources.",
+      "why": "43% of frauds detected by tips.",
+      "pass": "Interviews completed with no credible concerns.",
+      "fail": "Credible concerns raised.",
+      "verify": "Source contacts independently.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "5.3",
+      "weak": false
+    },
+    {
+      "id": "PE-HR-001",
+      "order": 190,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "HR & Management",
+      "request": "Provide the org chart, management bios, employment and compensation agreements, option and phantom plans.",
+      "format": "Executed agreements.",
+      "why": "Key-person, change-of-control and incentive risk.",
+      "pass": "Every key manager under agreement; change-of-control payments quantified.",
+      "fail": "Unquantified change-of-control payouts.",
+      "verify": "Interview management.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "5.2",
+      "weak": false
+    },
+    {
+      "id": "PE-HR-002",
+      "order": 200,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "HR & Management",
+      "request": "Provide a CEO and leadership assessment against four questions: can the incumbent execute this plan, can gaps be closed fast enough, who are credible internal and external successors, how requirements change across the hold.",
+      "format": "Assessment memo.",
+      "why": "69% of buyouts change CEO; top-quintile CEOs deliver about 9 points a year above peers.",
+      "pass": "Named successors; extended-hold downside if a change is likely.",
+      "fail": "No successor view.",
+      "verify": "Leadership interviews and references.",
+      "applies_to": [
+        "buyout",
+        "carve-out",
+        "minority",
+        "add-on"
+      ],
+      "ref": "5.3",
+      "weak": false
+    },
+    {
+      "id": "PE-HR-003",
+      "order": 210,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "HR & Management",
+      "request": "Provide the list of everyone with authority to release wires, and consents for background checks on the CFO, controller and wire releasers.",
+      "format": "Bank mandates and signed consents.",
+      "why": "Executive and collusive fraud (owner/executive median loss $475,000).",
+      "pass": "No adverse findings.",
+      "fail": "Undisclosed adverse findings.",
+      "verify": "Background-check provider.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "5.3, 5.5",
+      "weak": false
+    },
+    {
+      "id": "PE-HR-004",
+      "order": 220,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "HR & Management",
+      "request": "Provide union contracts, open grievances, and multiemployer pension participation with withdrawal-liability estimates.",
+      "format": "Contracts and fund estimates.",
+      "why": "Withdrawal liability (Sun Capital).",
+      "pass": "Liability estimated by the fund and priced; workable union agreement.",
+      "fail": "Unpriced liability or no workable union agreement.",
+      "verify": "Request estimates from the pension fund.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "5.2, 5.3, 5.12",
+      "weak": false
+    },
+    {
+      "id": "PE-HR-005",
+      "order": 230,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "HR & Management",
+      "request": "Provide the fund ownership structure analysis for common-control exposure where withdrawal liability exists.",
+      "format": "Structure chart and counsel memo.",
+      "why": "Funds held liable under common control.",
+      "pass": "No fund holds 80% or more common control where withdrawal liability exists.",
+      "fail": "Common control at 80% or more.",
+      "verify": "Counsel review.",
+      "applies_to": [
+        "buyout",
+        "add-on",
+        "carve-out"
+      ],
+      "ref": "5.12",
+      "weak": false
+    },
+    {
+      "id": "PE-HR-006",
+      "order": 240,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "HR & Management",
+      "request": "Provide every franchise agreement, FDD Item 17, employment agreement and vendor contract with no-poach, non-solicit or wage-fixing provisions, and non-compete enforceability by state for key employees.",
+      "format": "Clause extract and counsel memo.",
+      "why": "No-poach antitrust liability (58% of 2016 franchise agreements).",
+      "pass": "No such clauses, or removed with no open AG or class-action exposure.",
+      "fail": "Live clauses or open exposure.",
+      "verify": "Counsel review.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "5.2, 5.3",
+      "weak": false
+    },
+    {
+      "id": "PE-HR-007",
+      "order": 250,
+      "stage": "confirmatory",
+      "priority": "supporting",
+      "workstream": "HR & Management",
+      "request": "Provide HR and benefits plan documents and funding status.",
+      "format": "Plan documents and actuarial reports.",
+      "why": "Benefit liabilities.",
+      "pass": "Plans funded and compliant; liabilities in debt-like items.",
+      "fail": "Underfunded plans not in price.",
+      "verify": "Benefits advisor.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "5.3",
+      "weak": false
+    },
+    {
+      "id": "PE-TAX-001",
+      "order": 260,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Tax",
+      "request": "Provide historical tax returns for all entities for 3 to 5 years.",
+      "format": "Filed returns with notices.",
+      "why": "Tax exposure (tax is 19% of AIG W&I claims by count).",
+      "pass": "Returns tie to financials; no open audits undisclosed.",
+      "fail": "Unfiled returns or unreconciled differences.",
+      "verify": "Tax advisor review.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "5.2, 5.3, 5.10",
+      "weak": false
+    },
+    {
+      "id": "PE-TAX-002",
+      "order": 270,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Tax",
+      "request": "Provide deferred tax liabilities, transfer-pricing documentation and the proposed structuring memo.",
+      "format": "Schedules, studies and memo.",
+      "why": "Tax leakage.",
+      "pass": "Transfer pricing documented; structure reviewed by our tax advisor.",
+      "fail": "Missing transfer-pricing documentation.",
+      "verify": "Tax advisor.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "5.3",
+      "weak": false
+    },
+    {
+      "id": "PE-COR-001",
+      "order": 280,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Corporate & Legal",
+      "request": "Provide corporate records, permits, real estate documents and an IP schedule.",
+      "format": "Certified records and schedules.",
+      "why": "Title, permit and IP defects (IP 11% of RWI paid loss).",
+      "pass": "Records complete; permits current and transferable; IP owned.",
+      "fail": "Defects or non-transferable permits.",
+      "verify": "Counsel review and registry searches.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "5.2, 5.3",
+      "weak": false
+    },
+    {
+      "id": "PE-COR-002",
+      "order": 290,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Corporate & Legal",
+      "request": "Provide the litigation schedule and a contingent-liability model including mass-tort and successor exposure.",
+      "format": "Schedule, pleadings and model.",
+      "why": "Underestimated litigation (Bayer/Monsanto; BofA/Countrywide).",
+      "pass": "Each exposure priced or specifically indemnified.",
+      "fail": "Unpriced exposure.",
+      "verify": "Counsel review and docket search.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "5.3, 5.7",
+      "weak": false
+    },
+    {
+      "id": "PE-REG-001",
+      "order": 300,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Regulatory & Compliance",
+      "request": "Provide the internal investigations log and how each matter closed.",
+      "format": "Log for 3 to 5 years.",
+      "why": "A clean public search is weak evidence (internal records about 64x public databases).",
+      "pass": "Every substantiated matter closed with remediation.",
+      "fail": "No log, or open serious matters.",
+      "verify": "Interview the compliance officer.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "5.2, 5.3",
+      "weak": false
+    },
+    {
+      "id": "PE-REG-002",
+      "order": 310,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Regulatory & Compliance",
+      "request": "Provide the whistleblower hotline log for three years (volumes, categories, resolution times) and the hotline contact so we can test it.",
+      "format": "Log and contact details.",
+      "why": "Non-functional hotlines (one-fifth of firms).",
+      "pass": "Hotline responds to our test; log shows timely resolution.",
+      "fail": "Non-functional hotline or no log.",
+      "verify": "Call or email it ourselves during diligence.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "5.2, 5.3, 5.8",
+      "weak": false
+    },
+    {
+      "id": "PE-REG-003",
+      "order": 320,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Regulatory & Compliance",
+      "request": "Provide the compliance program documents and a 100-day compliance integration and audit plan.",
+      "format": "Program documents and plan.",
+      "why": "DOJ judges pre-acquisition compliance diligence and post-close integration.",
+      "pass": "Scope and gaps documented in IC memo; 100-day plan in the value-creation plan.",
+      "fail": "No plan.",
+      "verify": "Counsel review.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "5.3, 5.12",
+      "weak": false
+    },
+    {
+      "id": "PE-REG-004",
+      "order": 330,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Regulatory & Compliance",
+      "request": "Provide a list of foreign agents, government customers and foreign licences, with agent contracts and payments.",
+      "format": "Schedules, contracts and payment ledgers.",
+      "why": "FCPA successor liability.",
+      "pass": "Agent diligence clean; disclosure decision planned before signing.",
+      "fail": "Unexplained payments to agents.",
+      "verify": "FCPA provider.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "5.3, 5.12",
+      "weak": false
+    },
+    {
+      "id": "PE-REG-005",
+      "order": 340,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Regulatory & Compliance",
+      "request": "Provide FDA 483s, warning letters, quality-system audit trails and raw lab data.",
+      "format": "Complete regulatory file and raw data.",
+      "why": "Falsified data (Akorn).",
+      "pass": "Raw data matches reported data; all 483s closed.",
+      "fail": "Mismatches or open warning letters.",
+      "verify": "Independent data-integrity auditor.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "5.2, 5.3, 5.7",
+      "weak": false
+    },
+    {
+      "id": "PE-REG-006",
+      "order": 350,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Regulatory & Compliance",
+      "request": "For public targets, take-privates and carve-outs: provide the last 8 quarters of 10-K/10-Q filings or parent segment disclosures, with an explanation of each material edit to risk factors, MD&A and legal proceedings.",
+      "format": "Filings and redline.",
+      "why": "Changed filing language predicts lower earnings and higher bankruptcy risk (Lazy Prices).",
+      "pass": "Every material edit explained and reflected in the model.",
+      "fail": "Unexplained edits.",
+      "verify": "Diff the filings ourselves.",
+      "applies_to": [
+        "carve-out",
+        "de-spac"
+      ],
+      "ref": "5.2, 5.3",
+      "weak": false
+    },
+    {
+      "id": "PE-REG-007",
+      "order": 360,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Regulatory & Compliance",
+      "request": "For serial add-ons: provide local market shares by product or specialty and HSR and state notice analysis.",
+      "format": "Counsel memo.",
+      "why": "Sub-HSR roll-ups face antitrust suits (USAP/Welsh Carson).",
+      "pass": "No problematic local concentration; required filings planned.",
+      "fail": "High local share without analysis.",
+      "verify": "Antitrust counsel.",
+      "applies_to": [
+        "add-on"
+      ],
+      "ref": "5.3, 5.12",
+      "weak": false
+    },
+    {
+      "id": "PE-REG-008",
+      "order": 370,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Regulatory & Compliance",
+      "request": "For healthcare and government-contract targets: provide billing and referral practices, FMV support for referral-source arrangements, coding audits and staffing and quality metrics.",
+      "format": "Policies, FMV opinions, audits and staffing data.",
+      "why": "Sponsor FCA exposure (Riordan, Lewis & Haden); patient harm.",
+      "pass": "Referral arrangements at FMV; coding error rates acceptable; staffing stable.",
+      "fail": "Kickback indicators or staffing cuts.",
+      "verify": "Healthcare counsel and coding auditor.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "5.3, 5.12",
+      "weak": false
+    },
+    {
+      "id": "PE-IT-001",
+      "order": 380,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "IT & Cyber",
+      "request": "Provide IT systems inventory, cyber posture, incident history and breach disclosures before signing.",
+      "format": "Reports and incident register.",
+      "why": "Undisclosed breaches (Verizon/Yahoo $350M).",
+      "pass": "No undisclosed breaches; no open critical vulnerabilities.",
+      "fail": "Undisclosed incidents.",
+      "verify": "IT and cyber advisor.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "5.2, 5.3",
+      "weak": false
+    },
+    {
+      "id": "PE-INS-001",
+      "order": 390,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Insurance",
+      "request": "Provide insurance policies, loss runs and D&O coverage at portfolio and fund level.",
+      "format": "Policies and 5-year loss runs.",
+      "why": "Uncovered liabilities.",
+      "pass": "Coverage adequate for identified risks; D&O at both levels.",
+      "fail": "Gaps in D&O or key lines.",
+      "verify": "Insurance advisor.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "5.2, 5.12",
+      "weak": false
+    },
+    {
+      "id": "PE-ENV-001",
+      "order": 400,
+      "stage": "confirmatory",
+      "priority": "supporting",
+      "workstream": "Environmental & ESG",
+      "request": "Provide environmental reports and ESG disclosures.",
+      "format": "Reports for every site.",
+      "why": "Environmental liabilities.",
+      "pass": "No unpriced environmental liabilities.",
+      "fail": "Contamination or open notices.",
+      "verify": "Environmental advisor.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "5.2, 5.3",
+      "weak": false
+    },
+    {
+      "id": "PE-SPN-003",
+      "order": 410,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Sponsor & Background",
+      "request": "For minority and co-investments: provide the sponsor's history of portfolio-level liability matters (FCA, ERISA, securities, veil piercing, FCPA, board designee claims, antitrust).",
+      "format": "Sponsor disclosure.",
+      "why": "Control brings liability.",
+      "pass": "No unresolved matters.",
+      "fail": "Undisclosed matters.",
+      "verify": "Docket search.",
+      "applies_to": [
+        "minority"
+      ],
+      "ref": "5.12",
+      "weak": false
+    },
+    {
+      "id": "PE-SPN-004",
+      "order": 420,
+      "stage": "confirmatory",
+      "priority": "supporting",
+      "workstream": "Sponsor & Background",
+      "request": "Provide the sponsor's policy on directing board designees, observing corporate formalities and documenting conflicts.",
+      "format": "Policy.",
+      "why": "Board designee liability (Zync, Footprint); veil piercing.",
+      "pass": "Designees not directed; separate accounts and boards; conflicts documented.",
+      "fail": "No policy.",
+      "verify": "Interview the sponsor.",
+      "applies_to": [
+        "minority"
+      ],
+      "ref": "5.12",
+      "weak": false
+    },
+    {
+      "id": "PE-VAL-011",
+      "order": 430,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Valuation & Model",
+      "request": "Provide the net cash per share computation: (trust cash after expected redemptions minus merger costs minus warrant value) divided by shares outstanding including sponsor promote.",
+      "format": "Worksheet with trust statements.",
+      "why": "Headline EV unreliable ($4.10 average per $10 share).",
+      "pass": "Computed and used for valuation in place of headline EV.",
+      "fail": "Headline EV used.",
+      "verify": "Trust statements and redemption data.",
+      "applies_to": [
+        "de-spac"
+      ],
+      "ref": "5.13",
+      "weak": false
+    },
+    {
+      "id": "PE-FIN-019",
+      "order": 440,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Financial",
+      "request": "Provide the counterparty's financial statements, auditor contacts and auditor history for three years, and access for our own QoE on the counterparty.",
+      "format": "Statements and contacts.",
+      "why": "Undiligenced buyer stock (Cloudbreak).",
+      "pass": "Own QoE completed; auditors called; no unexplained auditor change.",
+      "fail": "Auditor resigned or access refused.",
+      "verify": "Call both current and prior auditors.",
+      "applies_to": [
+        "de-spac",
+        "add-on"
+      ],
+      "ref": "5.13, 5.7",
+      "weak": false
+    },
+    {
+      "id": "PE-COR-003",
+      "order": 450,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Corporate & Legal",
+      "request": "Identify who prepared each projection and what duty they owe us, and provide specific reps on facts we cannot verify.",
+      "format": "Statement and draft reps.",
+      "why": "Banker disclaimers defeat fraud claims.",
+      "pass": "Specific reps in the agreement for each unverifiable fact.",
+      "fail": "Reliance on presentations only.",
+      "verify": "Counsel review.",
+      "applies_to": [
+        "de-spac"
+      ],
+      "ref": "5.13",
+      "weak": false
+    },
+    {
+      "id": "PE-COR-004",
+      "order": 460,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Corporate & Legal",
+      "request": "Provide PIPE documents and state the NVCA model version used.",
+      "format": "Draft documents.",
+      "why": "Off-market PIPE terms.",
+      "pass": "Based on NVCA 2025 model PIPE sets in force at signing.",
+      "fail": "Unexplained deviations.",
+      "verify": "Compare with nvca.org.",
+      "applies_to": [
+        "de-spac"
+      ],
+      "ref": "5.13",
+      "weak": false
+    },
+    {
+      "id": "PE-FIN-020",
+      "order": 10,
+      "stage": "third-party",
+      "priority": "gating",
+      "workstream": "Financial",
+      "request": "Provide our QoE provider access for a buy-side QoE covering proof of cash on every account, NWC and revenue cut-off under a stated SSAE 19 AUP or CS 100 engagement.",
+      "format": "Data and management access.",
+      "why": "Seller-QoE reliance.",
+      "pass": "Report with no unreconciled items; scope covers what the R&W underwriter needs.",
+      "fail": "Restricted scope or accounts excluded.",
+      "verify": "QoE provider engaged by us.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "5.5, 5.3",
+      "weak": false
+    },
+    {
+      "id": "PE-FIN-021",
+      "order": 20,
+      "stage": "third-party",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Provide access for forensic revenue testing.",
+      "format": "Transaction-level data access.",
+      "why": "HP/Autonomy-type accounting.",
+      "pass": "No exceptions in sampled transactions.",
+      "fail": "Exceptions.",
+      "verify": "Forensic accountant engaged by us.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "5.3",
+      "weak": false
+    },
+    {
+      "id": "PE-REG-009",
+      "order": 30,
+      "stage": "third-party",
+      "priority": "core",
+      "workstream": "Regulatory & Compliance",
+      "request": "Provide site and system access for an independent data-integrity audit of quality systems.",
+      "format": "Access letter.",
+      "why": "Falsified lab data (Akorn).",
+      "pass": "Audit finds raw data consistent with reported.",
+      "fail": "Falsified or missing data.",
+      "verify": "Auditor engaged by us.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "5.3, 5.5",
+      "weak": false
+    },
+    {
+      "id": "PE-IT-002",
+      "order": 40,
+      "stage": "third-party",
+      "priority": "core",
+      "workstream": "IT & Cyber",
+      "request": "Provide access for our cyber advisor before signing.",
+      "format": "System and personnel access.",
+      "why": "Late breach discovery.",
+      "pass": "No critical findings.",
+      "fail": "Undisclosed breach.",
+      "verify": "Cyber advisor engaged by us.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "5.3, 5.5",
+      "weak": false
+    },
+    {
+      "id": "PE-INS-002",
+      "order": 50,
+      "stage": "third-party",
+      "priority": "core",
+      "workstream": "Insurance",
+      "request": "Provide the R&W underwriter with the buy-side QoE, legal and tax reports and join the underwriting call.",
+      "format": "Reports and call.",
+      "why": "Scope bought sets coverage received.",
+      "pass": "Policy issued with exclusions limited to findings.",
+      "fail": "Broad exclusions for un-diligenced areas.",
+      "verify": "Broker.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "5.5, 5.10",
+      "weak": false
+    },
+    {
+      "id": "PE-COR-005",
+      "order": 10,
+      "stage": "closing",
+      "priority": "core",
+      "workstream": "Corporate & Legal",
+      "request": "Deliver the executed purchase agreement (SPA or APA) with disclosure schedules.",
+      "format": "Executed agreement.",
+      "why": "Terms drift; anti-reliance clauses limit remedies.",
+      "pass": "Matches the negotiated package; findings in price, model and specific indemnities rather than litigation.",
+      "fail": "Deviations or reliance on litigation as remedy.",
+      "verify": "Counsel comparison.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "5.6",
+      "weak": false
+    },
+    {
+      "id": "PE-STR-013",
+      "order": 20,
+      "stage": "closing",
+      "priority": "gating",
+      "workstream": "Structure & Terms",
+      "request": "Deliver specific indemnities, closing conditions or price adjustments for every known regulatory issue and every diligence finding excluded by the R&W policy.",
+      "format": "Executed provisions mapped to findings.",
+      "why": "Known findings are uninsured (Akorn; Griffith).",
+      "pass": "Every finding covered by a price change, specific indemnity or closing condition.",
+      "fail": "Any finding uncovered.",
+      "verify": "Map findings to provisions line by line.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "5.6, 5.10",
+      "weak": false
+    },
+    {
+      "id": "PE-INS-003",
+      "order": 30,
+      "stage": "closing",
+      "priority": "core",
+      "workstream": "Insurance",
+      "request": "Deliver the bound R&W policy with exclusions mapped to diligence findings.",
+      "format": "Bound policy.",
+      "why": "Exclusion surprises.",
+      "pass": "Each exclusion mapped to a finding and covered elsewhere.",
+      "fail": "Unmapped exclusions.",
+      "verify": "Broker review.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "5.10",
+      "weak": false
+    },
+    {
+      "id": "PE-STR-014",
+      "order": 40,
+      "stage": "closing",
+      "priority": "core",
+      "workstream": "Structure & Terms",
+      "request": "Deliver the escrow or holdback agreement and the NWC true-up mechanism.",
+      "format": "Executed agreements.",
+      "why": "Unsecured indemnity and peg disputes.",
+      "pass": "PPA escrow about 1% of value; dollar-for-dollar true-up against the peg.",
+      "fail": "No escrow or no true-up.",
+      "verify": "Counsel review.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "5.6, 5.10",
+      "weak": false
+    },
+    {
+      "id": "PE-STR-015",
+      "order": 50,
+      "stage": "closing",
+      "priority": "core",
+      "workstream": "Structure & Terms",
+      "request": "Deliver the remedies diary: fraud limitations periods and indemnity survival deadlines, naming the rep or indemnity covering each unverified fact.",
+      "format": "Dated schedule.",
+      "why": "Time-barred claims (Cloudbreak).",
+      "pass": "Every unverified fact mapped to a rep or indemnity with deadline.",
+      "fail": "Missing diary or unmapped facts.",
+      "verify": "Counsel review.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "5.6, 5.13",
+      "weak": false
+    },
+    {
+      "id": "PE-STR-016",
+      "order": 60,
+      "stage": "closing",
+      "priority": "core",
+      "workstream": "Structure & Terms",
+      "request": "For lenders: deliver credit documents reviewed by our own counsel (baskets, EBITDA definition, unrestricted subsidiaries) with a J.Crew blocker, and disclose who chose lenders' counsel.",
+      "format": "Credit agreement and counsel memo.",
+      "why": "IP stripped to unrestricted subsidiaries (J.Crew).",
+      "pass": "J.Crew blocker present; baskets and EBITDA definition acceptable.",
+      "fail": "No blocker or sponsor-designated counsel only.",
+      "verify": "Our counsel.",
+      "applies_to": [
+        "buyout",
+        "add-on",
+        "carve-out"
+      ],
+      "ref": "5.6",
+      "weak": false
+    },
+    {
+      "id": "PE-STR-017",
+      "order": 70,
+      "stage": "closing",
+      "priority": "core",
+      "workstream": "Structure & Terms",
+      "request": "Deliver the executed earnout agreement.",
+      "format": "Executed agreement.",
+      "why": "Earnout disputes.",
+      "pass": "All 5.11 checklist items present.",
+      "fail": "Missing items.",
+      "verify": "Counsel review.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "5.11",
+      "weak": false
+    },
+    {
+      "id": "PE-FIN-022",
+      "order": 80,
+      "stage": "closing",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Deliver the closing NWC estimate against the peg.",
+      "format": "Closing statement with support.",
+      "why": "Day 1 cash injection.",
+      "pass": "Estimate within agreed tolerance of the peg.",
+      "fail": "Shortfall requiring a cash injection.",
+      "verify": "QoE review.",
+      "applies_to": [
+        "buyout",
+        "add-on",
+        "carve-out"
+      ],
+      "ref": "5.3",
+      "weak": false
+    },
+    {
+      "id": "PE-REG-010",
+      "order": 10,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Regulatory & Compliance",
+      "request": "Deliver evidence of the 100-day compliance integration and the post-close audit of the acquired entity.",
+      "format": "Plan status report and audit report.",
+      "why": "DOJ judges post-close integration.",
+      "pass": "Integration completed within 100 days; audit performed.",
+      "fail": "Not done.",
+      "verify": "Review reports.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "5.3, 5.12",
+      "weak": false
+    },
+    {
+      "id": "PE-FIN-023",
+      "order": 20,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Deliver monthly management accounts, NWC and covenant compliance.",
+      "format": "Monthly pack and certificates.",
+      "why": "Covenant drift.",
+      "pass": "All covenants compliant with headroom.",
+      "fail": "Breach or waiver.",
+      "verify": "Lender certificates.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "5.4",
+      "weak": false
+    },
+    {
+      "id": "PE-HR-008",
+      "order": 30,
+      "stage": "monitoring",
+      "priority": "supporting",
+      "workstream": "HR & Management",
+      "request": "Deliver an annual CEO and leadership reassessment.",
+      "format": "Board memo.",
+      "why": "CEO change base rate 69%.",
+      "pass": "Reassessment completed annually with successor list updated.",
+      "fail": "Not done.",
+      "verify": "Board minutes.",
+      "applies_to": [
+        "buyout",
+        "carve-out",
+        "minority"
+      ],
+      "ref": "5.3",
+      "weak": false
+    },
+    {
+      "id": "PE-STR-018",
+      "order": 40,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Structure & Terms",
+      "request": "Deliver earnout reporting and allow audit rights each period.",
+      "format": "Earnout statements.",
+      "why": "Disputes.",
+      "pass": "Statements delivered on time with records of efforts.",
+      "fail": "Withheld or late.",
+      "verify": "Exercise audit rights.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "5.11",
+      "weak": false
+    },
+    {
+      "id": "PE-INS-004",
+      "order": 50,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Insurance",
+      "request": "Maintain an R&W claims diary through at least 24 months after closing.",
+      "format": "Claim diary.",
+      "why": "Late claims (51% after 12 months; 24% after 24).",
+      "pass": "Diary maintained; notices given before deadlines.",
+      "fail": "Missed notices.",
+      "verify": "Broker check-ins.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "5.10",
+      "weak": false
+    },
+    {
+      "id": "PE-STR-019",
+      "order": 60,
+      "stage": "monitoring",
+      "priority": "supporting",
+      "workstream": "Structure & Terms",
+      "request": "Report all sponsor fees charged to the company annually with LP offsets.",
+      "format": "Annual fee report.",
+      "why": "Fee leakage.",
+      "pass": "Fees match agreements and offsets applied.",
+      "fail": "Undisclosed fees.",
+      "verify": "Audit against agreements.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "5.6",
+      "weak": false
+    },
+    {
+      "id": "PE-REG-011",
+      "order": 70,
+      "stage": "monitoring",
+      "priority": "supporting",
+      "workstream": "Regulatory & Compliance",
+      "request": "Deliver quarterly hotline statistics and internal investigations updates.",
+      "format": "Quarterly report.",
+      "why": "Late fraud detection.",
+      "pass": "Delivered quarterly; hotline tested annually.",
+      "fail": "Not delivered.",
+      "verify": "Test the hotline ourselves.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "5.3",
+      "weak": false
+    }
+  ],
+  "kill_tests": [
+    {
+      "id": "PE-K01",
+      "test": "Seller refuses a buy-side QoE, proof of cash on every bank account, or customer calls.",
+      "ref": "5.8, 5.3",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "PE-K02",
+      "test": "Adjusted EBITDA presented with no bridge from reported net income, or add-backs that cannot be independently validated and the price is not reset to validated EBITDA.",
+      "ref": "5.3, 5.8",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "PE-K03",
+      "test": "The return does not clear the hurdle with margins flat, the forecast haircut about 20% and exit multiple equal to entry, and the case depends on multiple expansion or margin expansion with no named cost line.",
+      "ref": "5.14, 5.8",
+      "applies_to": [
+        "buyout",
+        "add-on",
+        "carve-out",
+        "minority"
+      ]
+    },
+    {
+      "id": "PE-K04",
+      "test": "Downside case breaches debt covenants or cannot service debt, including all factoring and supply-chain finance added to leverage.",
+      "ref": "5.4, 5.3",
+      "applies_to": [
+        "buyout",
+        "add-on",
+        "carve-out"
+      ]
+    },
+    {
+      "id": "PE-K05",
+      "test": "A known regulatory or data-integrity defect is handled only by the general MAE, with no specific indemnity, closing condition or price adjustment.",
+      "ref": "5.6, 5.7",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "PE-K06",
+      "test": "Stock consideration or merger partner not diligenced (no independent QoE on the counterparty, auditor not called), or counterparty's auditor resigned recently without explanation.",
+      "ref": "5.13, 5.8",
+      "applies_to": [
+        "de-spac",
+        "add-on"
+      ]
+    },
+    {
+      "id": "PE-K07",
+      "test": "Data-room hints (volume declines, cancellation letters, rebates) remain unasked or unanswered at signing.",
+      "ref": "5.3, 5.7",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "PE-K08",
+      "test": "Net cash per share after expected redemptions, promote, warrants and fees cannot be computed or the deal is valued off headline EV.",
+      "ref": "5.13",
+      "applies_to": [
+        "de-spac"
+      ]
+    }
+  ],
+  "red_flags": [
+    {
+      "id": "PE-RF01",
+      "flag": "Adjusted EBITDA with no bridge.",
+      "check": "Require 3-year bridge from net income to reported, adjusted and pro forma EBITDA with every add-back supported.",
+      "ref": "5.8, 5.3",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "PE-RF02",
+      "flag": "Cash-basis books, no audited or reviewed financials, inconsistent monthly close.",
+      "check": "QoE with accrual conversion; monthly close history; proof of cash.",
+      "ref": "5.8",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "PE-RF03",
+      "flag": "Seller refuses a buy-side QoE or customer calls.",
+      "check": "Treat as kill test.",
+      "ref": "5.8",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "PE-RF04",
+      "flag": "Retrade risk: valuation and financing not qualified before the LOI.",
+      "check": "Confirm financing commitments and valuation basis before LOI.",
+      "ref": "5.8",
+      "applies_to": [
+        "buyout",
+        "add-on",
+        "carve-out"
+      ]
+    },
+    {
+      "id": "PE-RF05",
+      "flag": "A seller-imposed deadline used to cut diligence.",
+      "check": "Hold the diligence floor; cooling-off period; walk if scope cannot be completed.",
+      "ref": "5.8, 5.3",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "PE-RF06",
+      "flag": "Deal champion also owns the valuation model.",
+      "check": "Separate valuation team; walk-away price set by someone off the deal team.",
+      "ref": "5.8, 5.3",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "PE-RF07",
+      "flag": "A history of budgets missed optimistically.",
+      "check": "Compare last three budgets with actuals; treat as fraud precursor.",
+      "ref": "5.8, 5.3",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "PE-RF08",
+      "flag": "Factoring or supply-chain finance excluded from leverage.",
+      "check": "Add every facility to leverage; UCC sweep across all secured parties.",
+      "ref": "5.8, 5.3",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "PE-RF09",
+      "flag": "Period-end balances that differ sharply from intra-quarter averages.",
+      "check": "Average daily balances of cash, debt and receivables; flag financing unwinding after period-end (Repo 105).",
+      "ref": "5.8, 5.3",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "PE-RF10",
+      "flag": "References in the data room to volume declines, cancellation letters or rebates nobody has asked about.",
+      "check": "Written question log; ask in customer meetings; re-run the model.",
+      "ref": "5.8, 5.7",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "PE-RF11",
+      "flag": "A non-functional whistleblower hotline, or no hotline log.",
+      "check": "Call or email the hotline during diligence; request 3-year hotline log.",
+      "ref": "5.8, 5.3",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "PE-RF12",
+      "flag": "A known regulatory defect handled only by the general MAE.",
+      "check": "Specific indemnity or closing condition for each known issue.",
+      "ref": "5.8, 5.6",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "PE-RF13",
+      "flag": "Monitoring agreement with fee acceleration on exit.",
+      "check": "Read sponsor fee agreements; require removal or full disclosure and LPA offset.",
+      "ref": "5.8, 5.6",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "PE-RF14",
+      "flag": "A return case that needs exit multiple above entry, or margin expansion with no named cost line.",
+      "check": "Run the attribution test (flat margins, exit at entry).",
+      "ref": "5.8, 5.14",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "PE-RF15",
+      "flag": "Stock consideration from a buyer whose auditor recently resigned.",
+      "check": "Call the counterparty's auditors; own QoE on the counterparty.",
+      "ref": "5.8, 5.13",
+      "applies_to": [
+        "de-spac",
+        "add-on"
+      ]
+    },
+    {
+      "id": "PE-RF16",
+      "flag": "No-poach clauses in franchise or vendor agreements.",
+      "check": "Clause review; confirm removal; open AG or class-action exposure.",
+      "ref": "5.8, 5.3",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "PE-RF17",
+      "flag": "Sponsor doubling deal pace without doubling its operating bench.",
+      "check": "Chart sponsor deals per year against team size.",
+      "ref": "5.8, 5.1",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "PE-RF18",
+      "flag": "Sponsor claims to close a much larger share of opportunities than about 6 per 100, or calls a banked deal proprietary.",
+      "check": "Ask who else saw it and whether a banker ran a process.",
+      "ref": "5.1",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "PE-RF19",
+      "flag": "Value-creation plan that relies mainly on cost cuts or multiple arbitrage.",
+      "check": "Lever split against sponsors' own ratings (cost reduction important in only 36% of deals pre-deal).",
+      "ref": "5.1, 5.14",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "PE-RF20",
+      "flag": "IPO-dependent exit.",
+      "check": "IPOs are under 20% of exits; model strategic and financial-buyer exits.",
+      "ref": "5.1",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "PE-RF21",
+      "flag": "Leverage set at 'as much as the market will bear' rather than by cash-flow volatility.",
+      "check": "Justify leverage from cash-flow volatility; compare to SR 13-3 6x concern level.",
+      "ref": "5.4",
+      "applies_to": [
+        "buyout",
+        "add-on",
+        "carve-out"
+      ]
+    },
+    {
+      "id": "PE-RF22",
+      "flag": "Revenue in one currency and debt in another, or reliance on a currency peg.",
+      "check": "Currency-mismatch stress test.",
+      "ref": "5.3, 5.7",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "PE-RF23",
+      "flag": "Sale-leaseback or dividend recap proceeds paid out with escalating rent left behind.",
+      "check": "Model rent coverage post-leaseback; trace proceeds (Steward).",
+      "ref": "5.6, 5.7",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "PE-RF24",
+      "flag": "Clean public search used as evidence of no misconduct.",
+      "check": "Request internal investigations log; public databases capture about 1/64 of substantiated misconduct.",
+      "ref": "5.3",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "PE-RF25",
+      "flag": "Insured buyer reduces diligence because R&W is in place.",
+      "check": "Hold the same diligence floor; insurer excludes what is known and disputes what should have been found.",
+      "ref": "5.10",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "PE-RF26",
+      "flag": "Lenders' counsel designated by the sponsor and no independent review of baskets, EBITDA definition or unrestricted subsidiaries.",
+      "check": "Own counsel review; require J.Crew blocker.",
+      "ref": "5.6",
+      "applies_to": [
+        "buyout",
+        "add-on",
+        "carve-out"
+      ]
+    },
+    {
+      "id": "PE-RF27",
+      "flag": "Buying more debt in a company where we already hold equity.",
+      "check": "Do not be wrong twice; separate credit decision.",
+      "ref": "5.3",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "PE-RF28",
+      "flag": "Healthcare or government-reimbursed target with falling staffing hours or rising fee, lease and interest leakage to the sponsor or landlord.",
+      "check": "Model staffing and quality metrics and fee, lease and interest leakage.",
+      "ref": "5.3",
+      "applies_to": [
+        "all"
+      ]
+    }
+  ],
+  "metrics": [
+    {
+      "id": "PE-M01",
+      "metric": "Entry multiple, middle market",
+      "acceptable": "6x to 10x EBITDA; higher for strategic or growth targets.",
+      "source": "soferadvisors.com (advisor blog; no GF Data or PitchBook-LCD primary)",
+      "weak": true,
+      "ref": "5.4",
+      "applies_to": [
+        "buyout",
+        "add-on",
+        "carve-out"
+      ]
+    },
+    {
+      "id": "PE-M02",
+      "metric": "Small-company acquisition anchor",
+      "acceptable": "Median international search-fund acquisition: $12M price, $8M revenue, 26% EBITDA margin, 5.7x EBITDA, 1.4x revenue (2026).",
+      "source": "IESE, International Search Funds 2026",
+      "weak": false,
+      "ref": "5.4",
+      "applies_to": [
+        "buyout",
+        "add-on"
+      ]
+    },
+    {
+      "id": "PE-M03",
+      "metric": "Direct lender share of middle-market LBOs",
+      "acceptable": "About 70% in 2024.",
+      "source": "Bain via ctacquisitions.com",
+      "weak": true,
+      "ref": "5.4",
+      "applies_to": [
+        "buyout"
+      ]
+    },
+    {
+      "id": "PE-M04",
+      "metric": "Private credit vs leveraged loans leverage (2025 issuance)",
+      "acceptable": "Private-credit borrowers median debt/EBITDA 5.0x, interest coverage 2.2x; leveraged-loan borrowers 3.2x and 3.7x.",
+      "source": "Federal Reserve FEDS Note, Aug. 11, 2026",
+      "weak": false,
+      "ref": "5.4",
+      "applies_to": [
+        "buyout",
+        "add-on",
+        "carve-out"
+      ]
+    },
+    {
+      "id": "PE-M05",
+      "metric": "Leveraged threshold",
+      "acceptable": "Above 4.0x total or 3.0x senior is a common definition of leveraged (not a cap); 6x total leverage raises supervisory concern for most industries. Confirm wording against the SR letter text.",
+      "source": "Federal Reserve SR 13-3 (March 2013)",
+      "weak": false,
+      "ref": "5.4",
+      "applies_to": [
+        "buyout",
+        "add-on",
+        "carve-out"
+      ]
+    },
+    {
+      "id": "PE-M06",
+      "metric": "Survey leverage (2012 market)",
+      "acceptable": "Median target debt/total capital 60%, debt/EBITDA 4.0x (vs 70% and 5.2x in Axelson et al. 2013 data); about two-thirds set leverage 'as much as the market will bear'.",
+      "source": "Gompers, Kaplan, Mukharlyamov, NBER w21133",
+      "weak": false,
+      "ref": "5.4",
+      "applies_to": [
+        "buyout"
+      ]
+    },
+    {
+      "id": "PE-M07",
+      "metric": "Historic buyout structure",
+      "acceptable": "About three dollars of debt per dollar of equity (Blackstone 2008); dated.",
+      "source": "Schwarzman, Yale ECON 252 lecture 20",
+      "weak": false,
+      "ref": "5.4",
+      "applies_to": [
+        "buyout"
+      ]
+    },
+    {
+      "id": "PE-M08",
+      "metric": "Permitted vs closing leverage",
+      "acceptable": "About half of borrowers close below 5x, yet over 70% of contracts permit later senior secured debt above 5x; over three-quarters of 5x borrowers can exceed 6x. Average credit agreement: 79 carve-outs, debt basket above 2.3x EBITDA.",
+      "source": "Ivashina and Vallee, NBER w27316",
+      "weak": false,
+      "ref": "5.4",
+      "applies_to": [
+        "buyout",
+        "add-on",
+        "carve-out"
+      ]
+    },
+    {
+      "id": "PE-M09",
+      "metric": "QoE commissioning threshold",
+      "acceptable": "Above about $5M EBITDA or $20M to $30M enterprise value.",
+      "source": "modusalliance.com (advisor)",
+      "weak": true,
+      "ref": "5.4",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "PE-M10",
+      "metric": "LMM diligence timeline",
+      "acceptable": "60 to 90 days from LOI to close.",
+      "source": "ctacquisitions.com (advisor)",
+      "weak": true,
+      "ref": "5.4",
+      "applies_to": [
+        "buyout",
+        "add-on"
+      ]
+    },
+    {
+      "id": "PE-M11",
+      "metric": "Management forecast haircut",
+      "acceptable": "20% median and mean PE discount to management EBITDA forecast.",
+      "source": "Gompers, Kaplan, Mukharlyamov, NBER w21133",
+      "weak": false,
+      "ref": "5.3, 5.4",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "PE-M12",
+      "metric": "Target returns",
+      "acceptable": "Gross IRR about 22% (most 20% to 25%; survey median 25%); MOIC median 2.5x, mean 2.85x; net IRR marketed 20% to 25%.",
+      "source": "Gompers, Kaplan, Mukharlyamov, NBER w21133",
+      "weak": false,
+      "ref": "5.1, 5.4",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "PE-M13",
+      "metric": "Management equity",
+      "acceptable": "17% of equity to management and employees on average, about 8% to the CEO (15% and 6% at larger firms); public-company median CEO ownership about 1.6%.",
+      "source": "Gompers, Kaplan, Mukharlyamov",
+      "weak": false,
+      "ref": "5.4",
+      "applies_to": [
+        "buyout",
+        "carve-out"
+      ]
+    },
+    {
+      "id": "PE-M14",
+      "metric": "Portfolio board composition",
+      "acceptable": "Over 90% have 5 to 7 members: PE about 3, management 1 to 2, outsiders 1 to 2.",
+      "source": "Gompers, Kaplan, Mukharlyamov",
+      "weak": false,
+      "ref": "5.4",
+      "applies_to": [
+        "buyout",
+        "carve-out"
+      ]
+    },
+    {
+      "id": "PE-M15",
+      "metric": "CEO change during hold",
+      "acceptable": "69% of buyouts; a quarter of those more than once (2.4 transitions average); over 60% of exit CEOs appointed after year 2; holds 5.5 years with no change, 8.5 with two, 11.0 with four; 30% internal replacements; top-quintile CEOs about 9 points a year above peers.",
+      "source": "HLS Forum, The CEO Decision, 2026",
+      "weak": false,
+      "ref": "5.3, 5.4",
+      "applies_to": [
+        "buyout",
+        "carve-out",
+        "minority"
+      ]
+    },
+    {
+      "id": "PE-M16",
+      "metric": "Senior team recruitment",
+      "acceptable": "About 31% of PE firms recruit their own senior team before investing; about 50% after; 58% at some point.",
+      "source": "Gompers, Kaplan, Mukharlyamov",
+      "weak": false,
+      "ref": "5.3",
+      "applies_to": [
+        "buyout",
+        "carve-out"
+      ]
+    },
+    {
+      "id": "PE-M17",
+      "metric": "Exit routes",
+      "acceptable": "About 50% strategic, 30% financial, under 20% IPO (26% large firms, 11% small); realized 53/30/17.",
+      "source": "Gompers et al.; Stromberg 2008",
+      "weak": false,
+      "ref": "5.1, 5.4",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "PE-M18",
+      "metric": "M&A underperformance base rate",
+      "acceptable": "70% to 90% of acquisitions underperform their own expectations.",
+      "source": "Feldman and Chunduru, KaW 2025",
+      "weak": false,
+      "ref": "5.1, 5.4",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "PE-M19",
+      "metric": "PE deal funnel",
+      "acceptable": "Per 100 opportunities: fewer than 24 deeply investigated, fewer than 14 LOIs, about 6 closed.",
+      "source": "Gompers, Kaplan, Mukharlyamov, JFE 2016",
+      "weak": false,
+      "ref": "5.1",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "PE-M20",
+      "metric": "Deal sourcing",
+      "acceptable": "About 48% called proprietary (36% self-generated, 7.4% management, 8.6% executive network); 33% investment banks, 8.6% brokers, 4.3% other PE firms.",
+      "source": "Gompers, Kaplan, Mukharlyamov",
+      "weak": false,
+      "ref": "5.1",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "PE-M21",
+      "metric": "Sponsor valuation practice",
+      "acceptable": "Over 70% use comparable multiples; under 20% DCF/APV; about 96% 5-year horizon; under 30% perpetuity; 16% assume exit = entry.",
+      "source": "Gompers, Kaplan, Mukharlyamov",
+      "weak": false,
+      "ref": "5.1",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "PE-M22",
+      "metric": "Value-creation levers (pre-deal importance)",
+      "acceptable": "Revenue growth over 70%; incentives 61%; follow-on acquisitions over 50%; high-value exit about 50%; governance 47%; buying cheap 44% to 47%; cost reduction 36% (47% post-deal).",
+      "source": "Gompers, Kaplan, Mukharlyamov",
+      "weak": false,
+      "ref": "5.1, 5.14",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "PE-M23",
+      "metric": "Buyout vs public markets",
+      "acceptable": "Present all positions: buyouts positive risk-adjusted for 1995-2018 pensions but overall PE about zero (Korteweg et al.); replicable by levered small value stocks and underperformed after about 6% fees (Stafford, RFS 2022); owner-held PE no better than public equity (Moskowitz and Vissing-Jorgensen 2002; disputed by Kartashova 2011). Do not assume an illiquidity premium.",
+      "source": "Korteweg, Panageas, Systla 2025; Stafford 2022; Moskowitz and Vissing-Jorgensen 2002; Kartashova 2011",
+      "weak": false,
+      "ref": "5.1",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "PE-M24",
+      "metric": "Employment after buyouts",
+      "acceptable": "Falls about 12% over two years after public-to-private; rises about 15% after private-to-private.",
+      "source": "Davis et al., NBER w26371",
+      "weak": false,
+      "ref": "5.1",
+      "applies_to": [
+        "carve-out",
+        "buyout"
+      ]
+    },
+    {
+      "id": "PE-M25",
+      "metric": "Sponsor fees charged to targets",
+      "acceptable": "Monitoring fees 1% to 5% of EBITDA a year, typically offset 80/20 to LPs; about 80% of buyout LPAs share transaction fees; median PV of GP revenue $19.36 per $100 ($10.34 management fees, $5.35 carry, $1.44 entry transaction fees, $2.11 monitoring and exit fees); median lifetime management fees 12% of committed (IQR 10% to 13.5%); 93.1% have a hurdle (8% modal).",
+      "source": "Metrick and Yasuda, Wharton WP 2007 / RFS 2010",
+      "weak": false,
+      "ref": "5.4, 5.6",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "PE-M26",
+      "metric": "Synergy timing",
+      "acceptable": "Cost synergies 1 to 2 years; revenue synergies 2 to 3+ years.",
+      "source": "Feldman and Chunduru, KaW 2025",
+      "weak": false,
+      "ref": "5.3",
+      "applies_to": [
+        "add-on",
+        "buyout"
+      ]
+    },
+    {
+      "id": "PE-M27",
+      "metric": "RWI usage",
+      "acceptable": "Sources conflict, present both: 63% of deals (55% prior) in ABA 2025 (139 agreements); 42% of 2024 deals (44% in 2021) in SRS Acquiom 2025 (2,200+ deals).",
+      "source": "ABA 2025 Private Target Deal Points Study; SRS Acquiom 2025",
+      "weak": false,
+      "ref": "5.10",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "PE-M28",
+      "metric": "Reps survival",
+      "acceptable": "No survival in 41% of deals (30% prior) per ABA; 33% of 2024 deals per SRS; 57% of RWI deals vs 11% of traditional-indemnity deals (SRS). Where reps survive: 24 months most common (26%), then 12 (23%) and 18 (19%) per ABA; median 12 months per SRS. Prefer 24 months: half of claims arrive after 12.",
+      "source": "ABA 2025; SRS 2025; Aon 2026",
+      "weak": false,
+      "ref": "5.10",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "PE-M29",
+      "metric": "Indemnity basket",
+      "acceptable": "About two-thirds are true deductibles, typically 0.5% to 1% of transaction value.",
+      "source": "ABA 2025 (secondary summaries)",
+      "weak": false,
+      "ref": "5.10",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "PE-M30",
+      "metric": "Indemnity cap",
+      "acceptable": "Mean about 16.8% of transaction value (just over 6% in 2021), skewed by high-cap deals; use the median when published. Insured deals: seller indemnity tends to equal retention (about 1%); uninsured about 10% of deal value.",
+      "source": "ABA 2025; Griffith 2019",
+      "weak": false,
+      "ref": "5.10",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "PE-M31",
+      "metric": "Purchase-price-adjustment escrow",
+      "acceptable": "Median 0.98% of transaction value (1.00% in 2023).",
+      "source": "SRS Acquiom 2025",
+      "weak": false,
+      "ref": "5.10",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "PE-M32",
+      "metric": "RWI policy limit, retention and premium",
+      "acceptable": "Limit typically 10% to 20% of deal value; retention about 1%; premium about 2% to 3% of limit; over 95% buy-side.",
+      "source": "Griffith, HLS Forum 2019",
+      "weak": false,
+      "ref": "5.10",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "PE-M33",
+      "metric": "RWI claim frequency",
+      "acceptable": "About 18% of policies bound 2019-2023 had a claim notification (historical 16% to 20%); AIG about one in six; underwriters mid-to-high teens.",
+      "source": "Aon 2026; AIG; Griffith 2019",
+      "weak": false,
+      "ref": "5.10",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "PE-M34",
+      "metric": "RWI paid-loss drivers",
+      "acceptable": "Aon: financial statements 38% to 40%, material contracts 21%, compliance with laws 15.1%, IP 11%. AIG by count: financial statements 21%, tax 19%, compliance 16%. Marsh 2023: financial statements 13% of count but nearly half of dollars. QoE, contract review and compliance review explain about three-quarters of paid loss.",
+      "source": "Aon 2026; AIG; Marsh via Griffith",
+      "weak": false,
+      "ref": "5.10",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "PE-M35",
+      "metric": "RWI payments North America 2025",
+      "acceptable": "About $440M across about 40 payments; median about $8.2M; average about $10.4M; 41% eight-figure.",
+      "source": "Aon 2026",
+      "weak": false,
+      "ref": "5.10",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "PE-M36",
+      "metric": "RWI claim timing",
+      "acceptable": "51% notified more than 12 months after closing; 24% more than 24 months.",
+      "source": "Aon 2026",
+      "weak": false,
+      "ref": "5.10",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "PE-M37",
+      "metric": "Multiple-basis claims",
+      "acceptable": "20.6% of claims (2021-2025 policies); 68% of 2025 paid loss. A $10M EBITDA overstatement at 12x supports about $120M of loss.",
+      "source": "Aon 2026; Griffith 2019",
+      "weak": false,
+      "ref": "5.10",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "PE-M38",
+      "metric": "Small-deal claims",
+      "acceptable": "Deals under $100M were 41% of claims but 34% of deals.",
+      "source": "Aon 2026",
+      "weak": false,
+      "ref": "5.10",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "PE-M39",
+      "metric": "Earnout frequency and size",
+      "acceptable": "Outside life sciences about one in five private deals (15% 2019; peak 30% to 37% 2023; about 22% 2024); median earnout about 31% of closing payments; median period 24 months. Life sciences: over 80% of private pharma deals, median about 61% of consideration, 3 to 5 years. Revenue most common metric, then EBITDA.",
+      "source": "HLS Forum, The Art and Science of Earn-Outs, 2025",
+      "weak": false,
+      "ref": "5.11",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "PE-M40",
+      "metric": "Killer acquisitions",
+      "acceptable": "About 6% of pharma acquisitions (6.4% working paper), clustered below HSR thresholds.",
+      "source": "Cunningham, Ederer and Ma, JPE 2021",
+      "weak": false,
+      "ref": "5.11, 5.3",
+      "applies_to": [
+        "add-on"
+      ]
+    },
+    {
+      "id": "PE-M41",
+      "metric": "SPAC net cash per share",
+      "acceptable": "Mergers Jan 2019-Jun 2020: average $4.10 (median $5.70) per $10 share after redemptions, promote, warrants and fees ($7.50 before redemptions); later deals higher but far below $10. A Harvard Forum critique disputes how much this predicts returns (critique not retrieved, WEAK): present both.",
+      "source": "Klausner, Ohlrogge and Ruan, Yale J. on Reg. 2022; HLS Forum critique (WEAK)",
+      "weak": false,
+      "ref": "5.13",
+      "applies_to": [
+        "de-spac"
+      ]
+    },
+    {
+      "id": "PE-M42",
+      "metric": "Search fund returns",
+      "acceptable": "U.S./Canada aggregate pre-tax IRR 33.9%, ROI 4.75x across 382 acquisitions (Stanford 2026); international median acquisition 1.1x and about 21% of concluded funds lost money (IESE 2026). 2007 figures (about 37% IRR) superseded (WEAK, dated).",
+      "source": "Stanford GSB 2026 Search Fund Study via IESE; IESE 2026",
+      "weak": false,
+      "ref": "5.4",
+      "applies_to": [
+        "buyout",
+        "add-on"
+      ]
+    },
+    {
+      "id": "PE-M43",
+      "metric": "Search-fund value creation source",
+      "acceptable": "About 80% of EV gain from multiple expansion (6.3x to 15.6x), about 20% from EBITDA growth; margins fell 25% to 19%; holds about five years.",
+      "source": "Wasserstein and Thomas, Yale Insights, Apr. 2026",
+      "weak": false,
+      "ref": "5.14",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "PE-M44",
+      "metric": "Margin expansion with growth",
+      "acceptable": "None on average across 6,103 IPO firms (53,079 firm-years): hold EBITDA margin flat unless a line-by-line cost bridge names each efficiency.",
+      "source": "Thomas, Ertan and Lewellen, Yale Insights",
+      "weak": false,
+      "ref": "5.14",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "PE-M45",
+      "metric": "Forecast calibration",
+      "acceptable": "Realized outcomes inside CFOs' 80% intervals only 36% of the time: widen ranges about 2x.",
+      "source": "Ben-David, Graham and Harvey, QJE 2013",
+      "weak": false,
+      "ref": "5.4",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "PE-M46",
+      "metric": "Downside exit multiple",
+      "acceptable": "Entry minus 1 to 2 turns; base case at or below entry.",
+      "source": "Gompers, Kaplan, Mukharlyamov; Blumenthal",
+      "weak": false,
+      "ref": "5.4, 5.14",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "PE-M47",
+      "metric": "Fraud detection and loss",
+      "acceptable": "43% of occupational frauds detected by tips (over half from employees, almost a third from vendors and customers); owner/executive fraud median loss $475,000 (9x employee); 3+ perpetrators median $324,000 vs $55,000 for one.",
+      "source": "ACFE, Occupational Fraud 2026",
+      "weak": false,
+      "ref": "5.3",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "PE-M48",
+      "metric": "Hotline effectiveness",
+      "acceptable": "One-fifth of nearly 250 firms had a non-functional channel; tip-detected frauds median 17 months vs 24 (auditor) and 36 (law enforcement). Internal records show more than two substantiated misconduct instances per firm per week, about 64x public databases.",
+      "source": "Soltes, HBS 2018; Soltes, J. Financial Crime 2019",
+      "weak": false,
+      "ref": "5.3",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "PE-M49",
+      "metric": "Misstatement origin",
+      "acceptable": "About a quarter of misstatements in 49 AAER firms began as unintentional optimistic errors.",
+      "source": "Schrand and Zechman 2012",
+      "weak": false,
+      "ref": "5.3",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "PE-M50",
+      "metric": "Customer-side revenue-fraud signal",
+      "acceptable": "Gap between supplier sales growth and customers' purchase growth, and jumps in customers' inventory and payables, predict fraud; customer-inventory/AP signal alone about half the power of the 11-variable Dechow model (about 30,000 supplier-years).",
+      "source": "Zhang, Li and Li, Yale Insights",
+      "weak": false,
+      "ref": "5.3",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "PE-M51",
+      "metric": "Filing-language change signal",
+      "acceptable": "Short-changers/long-non-changers earned up to 188 bp a month for up to 18 months (1995-2014).",
+      "source": "Cohen, Malloy, Nguyen, Lazy Prices, JF 2020",
+      "weak": false,
+      "ref": "5.3",
+      "applies_to": [
+        "carve-out",
+        "de-spac"
+      ]
+    },
+    {
+      "id": "PE-M52",
+      "metric": "Remote-work misconduct effect",
+      "acceptable": "Remote-capable firms saw misconduct fall about 2 points more after 2020, roughly half the baseline.",
+      "source": "Barrios, Guo and Zhu, Yale Insights",
+      "weak": false,
+      "ref": "5.3",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "PE-M53",
+      "metric": "Nursing-home PE effects",
+      "acceptable": "Short-term mortality up about 10% to 11% (about 1.7 points within 15 days of discharge); frontline nursing-assistant hours down about 3%; government pays about 75% of revenue.",
+      "source": "Gupta, Howell, Yannelis and Gupta, NBER w28474",
+      "weak": false,
+      "ref": "5.3",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "PE-M54",
+      "metric": "Sponsor resources in crises",
+      "acceptable": "In 2008-2009 PE-backed firms raised more capital and gained share, most where the sponsor had more resources.",
+      "source": "Bernstein, Lerner, Mezzanotti, NBER w23626",
+      "weak": false,
+      "ref": "5.1",
+      "applies_to": [
+        "all"
+      ]
+    }
+  ],
+  "third_party_reports": [
+    {
+      "id": "PE-T01",
+      "report": "Buy-side quality of earnings (SSAE 19 AUP or CS 100 consulting) covering the EBITDA bridge, proof of cash on every account in the bank confirmations, NWC and revenue cut-off",
+      "provider": "Big Four, A&M or Grant Thornton class firm engaged by us (provider list WEAK; scope matters more than brand)",
+      "required_when": "Always for control deals; above about $5M EBITDA or $20M-$30M EV at minimum (WEAK)",
+      "ref": "5.5, 5.3"
+    },
+    {
+      "id": "PE-T02",
+      "report": "Forensic revenue testing of the target",
+      "provider": "Forensic accountant engaged by us",
+      "required_when": "Always; not reliance on the seller's QoE (HP/Autonomy)",
+      "ref": "5.3"
+    },
+    {
+      "id": "PE-T03",
+      "report": "Commercial diligence (market study, customer interviews, competitive position)",
+      "provider": "Commercial diligence firm",
+      "required_when": "Platform buyouts and carve-outs; add-ons where revenue synergies drive price",
+      "ref": "5.5, 5.3"
+    },
+    {
+      "id": "PE-T04",
+      "report": "Legal diligence report",
+      "provider": "Buyer's legal counsel",
+      "required_when": "Always",
+      "ref": "5.5"
+    },
+    {
+      "id": "PE-T05",
+      "report": "Tax diligence report and structuring memo",
+      "provider": "Tax advisor",
+      "required_when": "Always",
+      "ref": "5.5, 5.3"
+    },
+    {
+      "id": "PE-T06",
+      "report": "IT and cyber diligence before signing",
+      "provider": "IT and cyber advisor",
+      "required_when": "Always; budgeted before signing (Verizon/Yahoo)",
+      "ref": "5.5, 5.3"
+    },
+    {
+      "id": "PE-T07",
+      "report": "Environmental assessment",
+      "provider": "Environmental advisor",
+      "required_when": "Owned or leased operating sites",
+      "ref": "5.5"
+    },
+    {
+      "id": "PE-T08",
+      "report": "Insurance review (program adequacy, D&O at portfolio and fund level)",
+      "provider": "Insurance advisor",
+      "required_when": "Always",
+      "ref": "5.5, 5.12"
+    },
+    {
+      "id": "PE-T09",
+      "report": "R&W insurance placement and policy exclusion review",
+      "provider": "R&W insurance broker",
+      "required_when": "Whenever R&W insurance is used",
+      "ref": "5.5, 5.10"
+    },
+    {
+      "id": "PE-T10",
+      "report": "Background checks on management, CFO, controller and wire releasers",
+      "provider": "Background-check provider",
+      "required_when": "Always",
+      "ref": "5.5, 5.3"
+    },
+    {
+      "id": "PE-T11",
+      "report": "Independent data-integrity audit of quality systems",
+      "provider": "Independent data-integrity auditor and regulatory counsel",
+      "required_when": "Regulated manufacturing: pharma, food, supplements, devices",
+      "ref": "5.5, 5.3"
+    },
+    {
+      "id": "PE-T12",
+      "report": "FCPA and third-party agent diligence",
+      "provider": "FCPA/agent diligence provider",
+      "required_when": "Targets with foreign agents, government customers or licences",
+      "ref": "5.5, 5.3"
+    },
+    {
+      "id": "PE-T13",
+      "report": "Healthcare regulatory and coding audit (billing, referral FMV, staffing and quality metrics)",
+      "provider": "Healthcare regulatory counsel and coding auditor",
+      "required_when": "Government-reimbursed and healthcare targets",
+      "ref": "5.5, 5.3, 5.12"
+    },
+    {
+      "id": "PE-T14",
+      "report": "Counterparty QoE and auditor inquiry",
+      "provider": "QoE provider engaged by us on the buyer or merger counterparty",
+      "required_when": "Stock consideration or de-SPAC",
+      "ref": "5.13"
+    }
+  ],
+  "hard_questions": [
+    {
+      "id": "PE-HQ01",
+      "question": "Which reported earnings survive the close? Show the bridge.",
+      "good_answer": "A 3-year bridge from reported net income to reported, adjusted and pro forma EBITDA, each add-back documented and independently validated, reconciled to cash.",
+      "ref": "5.9"
+    },
+    {
+      "id": "PE-HQ02",
+      "question": "How was the NWC peg built, and what was excluded?",
+      "good_answer": "Trailing 12-month average of normalized NWC with seasonality modeled, definition excluding cash, debt and income tax, every exclusion listed.",
+      "ref": "5.9, 5.3"
+    },
+    {
+      "id": "PE-HQ03",
+      "question": "Split the return: how much is growth, paydown and multiple? How much is from recaps?",
+      "good_answer": "An attribution table separating revenue growth, margin change, debt paydown, multiple change and recap proceeds.",
+      "ref": "5.9, 5.14"
+    },
+    {
+      "id": "PE-HQ04",
+      "question": "What happens to the debt in the downside case?",
+      "good_answer": "Downside with flat or lower margins and exit at entry minus 1 to 2 turns that still services debt and passes covenants, with headroom stated.",
+      "ref": "5.9, 5.4"
+    },
+    {
+      "id": "PE-HQ05",
+      "question": "What is our walk-away price, who set it, and is that person on the deal team?",
+      "good_answer": "A walk-away price set from conservative cash flows before bidding by someone outside the deal team.",
+      "ref": "5.9, 5.3"
+    },
+    {
+      "id": "PE-HQ06",
+      "question": "Which synergies are cost and which are revenue? What is each one's probability and timing? What are the dis-synergies?",
+      "good_answer": "A synergy table with probability and timing per line and a dis-synergy line for lost customers and talent.",
+      "ref": "5.9, 5.3"
+    },
+    {
+      "id": "PE-HQ07",
+      "question": "What contingent liabilities (litigation, data breach, product) did diligence price, and how?",
+      "good_answer": "A contingent-liability model including mass-tort and successor exposure, with each item priced or specifically indemnified.",
+      "ref": "5.9, 5.3"
+    },
+    {
+      "id": "PE-HQ08",
+      "question": "What did the QoE engagement letter exclude, and which bank accounts were not in proof of cash?",
+      "good_answer": "The engagement letter scope section, a list of procedures not performed, and confirmation that every account in the bank confirmations was in proof of cash.",
+      "ref": "5.9, 5.3"
+    },
+    {
+      "id": "PE-HQ09",
+      "question": "How do the last three budgets compare with actuals?",
+      "good_answer": "Budget vs actual for three years showing misses that are not consistently optimistic, with explanations.",
+      "ref": "5.9, 5.3"
+    },
+    {
+      "id": "PE-HQ10",
+      "question": "For every hint in the data room, what question did we ask, who asked it, and what was the answer?",
+      "good_answer": "A written question log with each hint, the person who asked, the counterparty answer, and the model change.",
+      "ref": "5.9, 5.7"
+    },
+    {
+      "id": "PE-HQ11",
+      "question": "What is maximum permitted senior secured leverage under the baskets, against closing leverage?",
+      "good_answer": "A computation summing all incurrence baskets, ratio debt and EBITDA add-backs, compared with closing leverage.",
+      "ref": "5.9, 5.4"
+    },
+    {
+      "id": "PE-HQ12",
+      "question": "What does the return look like with exit multiple equal to entry and margins flat?",
+      "good_answer": "The attribution-test return and the share of the sponsor case that survives, still clearing the hurdle.",
+      "ref": "5.9, 5.14"
+    },
+    {
+      "id": "PE-HQ13",
+      "question": "Can this CEO execute this plan, and who is the successor?",
+      "good_answer": "An assessment against the four questions (execute this plan, close gaps fast, credible successors, changing requirements) with named internal and external successors and an extended-hold downside if a change is likely.",
+      "ref": "5.9, 5.3"
+    },
+    {
+      "id": "PE-HQ14",
+      "question": "What did diligence find that the R&W policy will therefore exclude, and how is it priced?",
+      "good_answer": "A list mapping each finding to the policy exclusion and to a price reduction or specific indemnity.",
+      "ref": "5.9, 5.10"
+    },
+    {
+      "id": "PE-HQ15",
+      "question": "When did we last call the hotline, and what happened?",
+      "good_answer": "A dated test of the hotline during diligence with a logged, timely response.",
+      "ref": "5.9, 5.3"
+    },
+    {
+      "id": "PE-HQ16",
+      "question": "How much uncalled capital does the owning fund hold for this company in a downturn?",
+      "good_answer": "Uncalled capital and reserve policy documented for the owning fund, sufficient for a downside equity cure.",
+      "ref": "5.9, 5.1"
+    },
+    {
+      "id": "PE-HQ17",
+      "question": "What is net cash per share after expected redemptions?",
+      "good_answer": "A computation: (trust cash after redemptions minus merger costs minus warrant value) divided by shares including promote.",
+      "ref": "5.13"
+    },
+    {
+      "id": "PE-HQ18",
+      "question": "Who prepared the projections, and who owes us a duty on them?",
+      "good_answer": "Projections prepared or tested by our own advisors, with specific reps from the counterparty on facts we cannot verify.",
+      "ref": "5.13"
+    },
+    {
+      "id": "PE-HQ19",
+      "question": "Has the counterparty's auditor changed in three years?",
+      "good_answer": "No; or a full explanation confirmed by calling both auditors.",
+      "ref": "5.13"
+    },
+    {
+      "id": "PE-HQ20",
+      "question": "When does our fraud claim expire?",
+      "good_answer": "A diary with the fraud limitations period and indemnity survival dates for every rep.",
+      "ref": "5.13, 5.6"
+    },
+    {
+      "id": "PE-HQ21",
+      "question": "Who else saw this deal, and did a banker run a process?",
+      "good_answer": "Names of the banker and other bidders, consistent with the funnel and sourcing base rates.",
+      "ref": "5.1"
+    },
+    {
+      "id": "PE-HQ22",
+      "question": "What is the efforts definition in the earnout, and how does it bind the buyer after the first milestone?",
+      "good_answer": "A commercially reasonable efforts definition that applies to every milestone, with spend commitments and reporting and audit rights.",
+      "ref": "5.11"
+    }
+  ],
+  "failure_cases": [
+    {
+      "case": "Paragon Metals Holdings v. Smith (Del. Supr.)",
+      "year": "2026",
+      "what_happened": "Sponsor paid $100M for an auto-parts maker; the day after closing learned two largest customers planned sharp volume cuts; defaulted on acquisition debt and injected $37M. The CEO withheld a customer letter, stripped volume-reduction terms, routed a $300K rebate through a foreign affiliate and destroyed his phone. The buyer saw hints but never asked its prepared questions in customer meetings and never updated the model.",
+      "check": "Convert every hint into a written question, ask it in customer meetings, document the answer, re-run the model; get customer-level volume forecasts directly from top customers.",
+      "ref": "5.7"
+    },
+    {
+      "case": "Fresenius / Akorn",
+      "year": "2017 to 2018",
+      "what_happened": "Fresenius's diligence flagged testing and manufacturing deficiencies; it signed anyway. Whistleblower letters led to findings of falsified data and FDA submissions. Chancery let Fresenius walk under the MAE (first such ruling) but noted no carve-out of diligence-disclosed matters; Akorn's CEO never read the audit reports.",
+      "check": "Independent data-integrity audit (raw lab data vs reported, 483s, warning letters, audit trails); specific closing conditions or indemnities for each known regulatory issue.",
+      "ref": "5.7, 5.6"
+    },
+    {
+      "case": "Cloudbreak Health / UpHealth de-SPAC (Edwards v. GigAcquisitions2, Del. Ch. July 2025)",
+      "year": "closed June 2021",
+      "what_happened": "Cloudbreak merged with a SPAC and five struggling healthcare companies on oral assurances and banker-prepared presentations that overstated revenue and contract value and omitted insolvency and an auditor resignation; the combined company went bankrupt. Fraud claim dismissed as time-barred; banker disclaimers should have prompted independent work.",
+      "check": "Independent diligence of the stock received; call the counterparty's auditors; diarize fraud limitations and indemnity survival dates.",
+      "ref": "5.13, 5.7"
+    },
+    {
+      "case": "Toys 'R' Us ($7.5B LBO by Bain, KKR, Vornado)",
+      "year": "2005; Chapter 11 Sept. 2017; liquidation",
+      "what_happened": "Debt service and 2018-2019 maturities combined with failure to adapt to e-commerce.",
+      "check": "Test the maturity wall against a secular-decline revenue case; count capex needed to stay competitive before debt service.",
+      "ref": "5.7"
+    },
+    {
+      "case": "Steward Health Care / Cerberus",
+      "year": "Chapter 11 May 2024",
+      "what_happened": "2016 sale-leaseback of hospital real estate to MPT ($1.25B for Massachusetts) funded dividends and left escalating rents.",
+      "check": "Model rent coverage after any sale-leaseback and trace where the proceeds went.",
+      "ref": "5.7, 5.6"
+    },
+    {
+      "case": "J.Crew (TPG and Leonard Green)",
+      "year": "2016 to 2017; Chapter 11 May 2020",
+      "what_happened": "Investment basket plus a carve-out used to move about $250M of brand IP to an unrestricted subsidiary backing new debt; senior loan prices fell.",
+      "check": "For lenders: read investments, unrestricted-subsidiary and IP-transfer provisions; require a J.Crew blocker.",
+      "ref": "5.7, 5.6"
+    },
+    {
+      "case": "Verizon / Yahoo",
+      "year": "2017",
+      "what_happened": "$350M price cut after late discovery of undisclosed data breaches.",
+      "check": "Cyber diligence before signing.",
+      "ref": "5.7, 5.3"
+    },
+    {
+      "case": "HP / Autonomy",
+      "year": "2011 to 2012",
+      "what_happened": "$11B purchase; $8.8B write-down over alleged accounting problems.",
+      "check": "Forensic revenue testing, not reliance on the seller's numbers.",
+      "ref": "5.7, 5.3"
+    },
+    {
+      "case": "Bayer / Monsanto",
+      "year": "2018",
+      "what_happened": "$63B deal; more than $50B of shareholder value erased on underestimated litigation.",
+      "check": "Contingent-liability model including mass tort.",
+      "ref": "5.7, 5.3"
+    },
+    {
+      "case": "BofA / Countrywide",
+      "year": "2008",
+      "what_happened": "About $4B deal; at least $17B of mortgage settlements.",
+      "check": "Successor-liability model.",
+      "ref": "5.7, 5.3"
+    },
+    {
+      "case": "Tyson / Hillshire",
+      "year": "2014",
+      "what_happened": "70% premium; about $2B destroyed against fair value near $47/share.",
+      "check": "Walk-away price set before bidding; probability-weighted synergies; dis-synergy line.",
+      "ref": "5.7"
+    },
+    {
+      "case": "GE / Alstom",
+      "year": "2015 onward",
+      "what_happened": "$22B impairment.",
+      "check": "Walk-away price; probability-weighted synergies.",
+      "ref": "5.7"
+    },
+    {
+      "case": "Kraft Heinz",
+      "year": "2015 onward",
+      "what_happened": "More than $28B of write-downs.",
+      "check": "Walk-away price; brand value tested against velocity, not cost cuts.",
+      "ref": "5.7"
+    },
+    {
+      "case": "Microsoft / Nokia",
+      "year": "2013 to 2015",
+      "what_happened": "$7.6B impairment on a $7.2B deal.",
+      "check": "Walk-away price; dis-synergy line.",
+      "ref": "5.7"
+    },
+    {
+      "case": "Sprint / Nextel",
+      "year": "2005 onward",
+      "what_happened": "Nearly $30B goodwill impairment.",
+      "check": "Walk-away price; integration and dis-synergy modeling.",
+      "ref": "5.7"
+    },
+    {
+      "case": "Quaker / Snapple",
+      "year": "1994 to 1997",
+      "what_happened": "Bought for $1.7B, sold for $300M.",
+      "check": "Walk-away price; distribution and repeat tested before paying for brand.",
+      "ref": "5.7"
+    },
+    {
+      "case": "Yahoo / Tumblr",
+      "year": "2013 to 2019",
+      "what_happened": "Bought for $1.1B, sold for about $3M.",
+      "check": "Walk-away price set before bidding.",
+      "ref": "5.7"
+    },
+    {
+      "case": "Frank / JPMorgan",
+      "year": "2021",
+      "what_happened": "Strategic acquirer paid $175M for a startup with fabricated users (4.25M claimed vs about 300,000).",
+      "check": "Sample live users in production systems with our own engineer.",
+      "ref": "5.7, 2.7"
+    },
+    {
+      "case": "Riordan, Lewis & Haden / Diabetic Care Rx",
+      "year": "settled 2019",
+      "what_happened": "DOJ named the PE sponsor alongside its portfolio pharmacy under the False Claims Act for financing a kickback scheme; $21.36M settlement.",
+      "check": "Pre-close billing and referral diligence; FMV support for referral-source arrangements.",
+      "ref": "5.12"
+    },
+    {
+      "case": "Sun Capital (multiemployer pension)",
+      "year": "D. Mass. 2018",
+      "what_happened": "Sun Capital funds held to be a trade or business under common control with a bankrupt portfolio company, exposing them to withdrawal liability.",
+      "check": "Map multiemployer exposure; structure ownership to avoid 80% common control.",
+      "ref": "5.12"
+    },
+    {
+      "case": "Och-Ziff (FCPA)",
+      "year": "2016",
+      "what_happened": "Sponsor-level FCPA enforcement.",
+      "check": "Agent and third-party diligence; disclosure decision before signing.",
+      "ref": "5.12"
+    },
+    {
+      "case": "SEC monitoring-fee acceleration actions",
+      "year": "2015 to 2016",
+      "what_happened": "Four affiliated PE advisers fined $12.5M plus $37.5M disgorgement for accelerating monitoring fees on exit without adequate disclosure.",
+      "check": "Read every sponsor fee agreement with the target; flag acceleration on exit.",
+      "ref": "5.6"
+    },
+    {
+      "case": "Lehman Repo 105",
+      "year": "2008",
+      "what_happened": "Up to $50B moved off balance sheet at quarter-ends; the auditor knew.",
+      "check": "Average daily or intra-quarter balances; flag financing that unwinds just after period-end.",
+      "ref": "5.3"
+    },
+    {
+      "case": "First Brands",
+      "year": "2025",
+      "what_happened": "Lenders thought leverage was about 5x; counting off-balance-sheet factoring and SCF it was closer to 20x; double-pledged collateral.",
+      "check": "Add every factoring and SCF facility to leverage; UCC sweep; item-level dedupe.",
+      "ref": "5.3, 5.7"
+    },
+    {
+      "case": "Blackstone Argentina investment",
+      "year": "pre-2008",
+      "what_happened": "Dollar debt against a currency peg; lost every dollar.",
+      "check": "Currency-mismatch test.",
+      "ref": "5.7, 5.3"
+    },
+    {
+      "case": "Fortis v. Johnson & Johnson (Auris Health)",
+      "year": "Del. Ch. 2024; Del. Supr. Jan. 2026",
+      "what_happened": "Earnout milestones for a robotic-surgery product; Chancery found breach of efforts obligations and fraudulent inducement of one milestone; Supreme Court partly reversed: the negotiated efforts definition let J&J calibrate effort for the first payment but not the rest.",
+      "check": "The efforts definition is the asset: read it before valuing any earnout receivable.",
+      "ref": "5.11"
+    },
+    {
+      "case": "Bank DCF false negative",
+      "year": "2011 example",
+      "what_happened": "A bank's $800M DCF cap lost to an $840M bid that abandonment value would have justified at $849M.",
+      "check": "Value core NPV plus growth option and abandonment value with explicit ranged assumptions, never to rationalize a price.",
+      "ref": "5.3"
+    },
+    {
+      "case": "PE-owned nursing homes",
+      "year": "study of 1,674 acquisitions",
+      "what_happened": "Short-term mortality rose about 10% to 11%; nursing-assistant hours fell about 3%; costs shifted to monitoring fees, interest and lease payments.",
+      "check": "Model regulatory and reputational exposure from staffing and quality metrics and fee, lease and interest leakage.",
+      "ref": "5.3"
+    }
+  ]
+}

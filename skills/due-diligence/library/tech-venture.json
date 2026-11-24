@@ -1,0 +1,3064 @@
+{
+  "type": "tech-venture",
+  "name": "Tech and Venture",
+  "summary": "Covers venture and venture-style equity in technology companies from pre-seed to late stage: priced rounds and SAFE or convertible-note financings in SaaS, marketplaces, consumer apps, deep tech and hardware, AI, games and fintech. The base case for a venture-backed company is failure (about 75% never return cash), so the diligence spine is: rebuild every metric (ARR, NRR, GRR, CAC, gross margin, cohorts) from raw contracts, billings and bank deposits; reconcile every instrument on the cap table to signed documents; walk the IP assignment chain; test the core technical claim and a sample of live users yourself; map every investor veto and insider conflict; and price the specific security being bought, not the headline post-money or the last round.",
+  "chapters": [
+    "02-tech-venture.md"
+  ],
+  "one_check": "If the company cannot produce customers acquired and total active customers (and, for non-subscription businesses, orders) by period, you cannot value it on fundamentals; rebuild cohort value (CBCV) from that file, reconciled to billings and bank deposits, before pricing.",
+  "subtypes": [
+    {
+      "id": "seed",
+      "name": "Pre-seed / seed",
+      "description": "SAFEs, convertible notes or a first priced round; little or no revenue. Diligence weight on founders (prior outcomes from cap tables), IP assignment, cap-table hygiene and runway to Series A at the 616-day seed-to-A cadence."
+    },
+    {
+      "id": "series-a",
+      "name": "Series A",
+      "description": "First institutional priced round on NVCA documents. Cap-table reconciliation of every pre-seed SAFE and grant before the term sheet; early cohort and retention data; runway of at least 24 months."
+    },
+    {
+      "id": "series-b-plus",
+      "name": "Series B and later / late stage / secondaries",
+      "description": "Growth and late-stage rounds and secondaries. Adds QoE (AUP scope), Rule of 40 as a primary screen above about $25M ARR, finance-function and audit requirements (named CFO and controller, internal audit, audit committee), down-round and 2021-mark repricing, and the security-level valuation of a preference stack."
+    },
+    {
+      "id": "saas",
+      "name": "SaaS / subscription software",
+      "description": "Recurring-revenue software. ARR rebuilt from contracts and billings; NRR and GRR from raw cohorts including churned logos; CAC payback, magic number, burn multiple and Rule of 40 benchmarks by ARR band."
+    },
+    {
+      "id": "marketplace",
+      "name": "Marketplace",
+      "description": "Two-sided or transactional platforms. Cohort inputs include orders or transactions per period; CBCV applies; live-transaction sampling in production systems."
+    },
+    {
+      "id": "consumer-app",
+      "name": "Consumer app / consumer subscription",
+      "description": "Consumer software, games and subscription apps. Live-user sampling through production systems (Frank / JPMorgan), cohort repeat curves against the category leader, share of revenue from new customers (Blue Apron, Wayfair)."
+    },
+    {
+      "id": "deep-tech",
+      "name": "Deep tech / hardware / life-science tools",
+      "description": "Companies whose value rests on a core scientific, hardware or device claim. Independent technical validation by an expert we hire, on our samples, in our presence; error rates, complaint logs, regulator correspondence; direct calls to every named validator, partner and government user (Theranos)."
+    },
+    {
+      "id": "ai",
+      "name": "AI / ML",
+      "description": "AI-first companies. Model and training-data provenance, NVCA 2025 national-security and OISP representations (foreign-person links, data categories, compute locations), independent validation of model performance claims, and theme-peak valuation discipline."
+    }
+  ],
+  "intake_questions": [
+    {
+      "id": "TV-Q01",
+      "question": "What is being sold: a priced preferred round, a SAFE, a convertible note, or a secondary sale of existing shares?",
+      "why": "Sets the instrument to value and which NVCA documents and conversion mechanics apply.",
+      "sets_subtype": false
+    },
+    {
+      "id": "TV-Q02",
+      "question": "What stage is the round: pre-seed/seed, Series A, or Series B and later?",
+      "why": "Drives stage subtype (seed, series-a, series-b-plus) and stage-specific checks (finance function, QoE, Rule of 40).",
+      "sets_subtype": true
+    },
+    {
+      "id": "TV-Q03",
+      "question": "What is the business model: SaaS/subscription, marketplace, consumer app, deep tech/hardware, or AI?",
+      "why": "Drives business-model subtypes and which metrics (ARR/NRR, orders per period, technical validation, model provenance) apply.",
+      "sets_subtype": true
+    },
+    {
+      "id": "TV-Q04",
+      "question": "What is current ARR (or annualized revenue)? Is it above about $25M?",
+      "why": "Below about $25M ARR underwrite growth plus NRR/GRR and burn; above it the Rule of 40 becomes a primary screen (ICONIQ 2025).",
+      "sets_subtype": false
+    },
+    {
+      "id": "TV-Q05",
+      "question": "Does the company's value depend on a core scientific, hardware, medical or model-performance claim that has not been independently validated?",
+      "why": "Triggers independent technical validation on our samples in our presence (Theranos).",
+      "sets_subtype": true
+    },
+    {
+      "id": "TV-Q06",
+      "question": "Who leads the round, which existing investors are participating, and are insiders on both sides of the price?",
+      "why": "Triggers the insider-round checklist (Footprint) and lead-investor diligence-effort benchmark.",
+      "sets_subtype": false
+    },
+    {
+      "id": "TV-Q07",
+      "question": "Is any strategic or corporate VC investor on the cap table, and does any investor hold a veto over financing, debt or M&A?",
+      "why": "Triggers the investor-rights map and catch-and-kill review (Zync v. Porsche).",
+      "sets_subtype": false
+    },
+    {
+      "id": "TV-Q08",
+      "question": "Was any prior round priced in 2021 or earlier, and is the proposed price justified by the last round?",
+      "why": "Triggers repricing against current comparables and a down-round model.",
+      "sets_subtype": false
+    },
+    {
+      "id": "TV-Q09",
+      "question": "Is the company in a theme that has recently peaked in media attention or fund launches (AI, crypto, space, climate)?",
+      "why": "Triggers theme-timing comparison of entry valuation (Ben-David et al.).",
+      "sets_subtype": false
+    },
+    {
+      "id": "TV-Q10",
+      "question": "Does the company process personal data, operate in a regulated domain, or have foreign-person investors or offshore compute?",
+      "why": "Triggers privacy, regulator correspondence and NVCA national-security/OISP representations.",
+      "sets_subtype": false
+    },
+    {
+      "id": "TV-Q11",
+      "question": "Where is the company's cash held, and is there any loan covenant requiring exclusive banking?",
+      "why": "Triggers the treasury map (SVB).",
+      "sets_subtype": false
+    }
+  ],
+  "requests": [
+    {
+      "id": "TV-COR-001",
+      "order": 10,
+      "stage": "screen",
+      "priority": "core",
+      "workstream": "Corporate & Legal",
+      "request": "Provide the pitch deck and all written investor materials as sent to other investors.",
+      "format": "Final PDF versions with send dates; any versions shown to other investors.",
+      "why": "Charisma bias: pitch delivery predicts funding but not outcomes.",
+      "pass": "Materials scored by at least two raters against a fixed rubric before any live pitch; every quantitative claim tagged to a data-room source.",
+      "fail": "Claims with no data-room source; materials that differ from versions sent to others.",
+      "verify": "We score independently before meeting; cross-check claims against data room.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "2.2, 2.3",
+      "weak": false
+    },
+    {
+      "id": "TV-FIN-001",
+      "order": 20,
+      "stage": "screen",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Provide the 3 to 5 year financial model with all assumptions and the scenario tab.",
+      "format": "Native spreadsheet with live formulas; monthly for 24 months, then annual.",
+      "why": "Padded projections: 90% to 95% of VC-backed companies miss a declared projection.",
+      "pass": "Model runs; every driver sourced; management's ranges are shown so we can widen them about 2x; margins flat unless a named cost line falls.",
+      "fail": "Hard-coded outputs, margin expansion with no named cost line, hockey-stick revenue with no acquisition and retention drivers.",
+      "verify": "We rebuild the base case from cohorts and widen ranges about 2x (Ben-David, Graham and Harvey).",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "2.2, 2.3",
+      "weak": false
+    },
+    {
+      "id": "TV-COR-002",
+      "order": 30,
+      "stage": "screen",
+      "priority": "gating",
+      "workstream": "Corporate & Legal",
+      "request": "Provide the fully diluted cap table listing every share, option, RSU, SAFE, warrant, convertible note, side letter and any benefit-fund issuance, with holder and terms.",
+      "format": "Native spreadsheet or cap-table platform export (e.g. Carta) with instrument-level detail and a conversion model for every SAFE and note at this round's price.",
+      "why": "Cap-table disasters from unpapered SAFEs and grants surfacing at Series A.",
+      "pass": "Every instrument listed with holder, date, amount, price or cap, discount, and conversion result; totals tie to the charter's authorized shares.",
+      "fail": "Instruments missing, conversion not modeled, or totals that do not tie.",
+      "verify": "Reconcile line by line to signed instruments (see confirmatory reconciliation item).",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "2.2, 2.3, 2.7",
+      "weak": false
+    },
+    {
+      "id": "TV-COR-003",
+      "order": 40,
+      "stage": "screen",
+      "priority": "gating",
+      "workstream": "Corporate & Legal",
+      "request": "Grant read-only access to the raw data room: contracts, billing-system exports, general ledger and bank portals.",
+      "format": "Virtual data room plus read-only credentials to billing system and bank portals.",
+      "why": "'Trust the deck' metrics.",
+      "pass": "Access granted before the term sheet; raw data, not summaries.",
+      "fail": "Founder refuses raw access or offers only summaries.",
+      "verify": "We log in ourselves and pull exports directly.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "2.8",
+      "weak": false
+    },
+    {
+      "id": "TV-COM-001",
+      "order": 50,
+      "stage": "screen",
+      "priority": "gating",
+      "workstream": "Commercial & Market",
+      "request": "Provide the customer-cohort input file: customers acquired per period and total active customers per period, by month or quarter since inception; for non-subscription businesses also orders or transactions per period.",
+      "format": "CSV export from the production database or billing system, with query text; monthly preferred.",
+      "why": "No cohort file, no valuation on fundamentals (THE ONE CHECK).",
+      "pass": "File delivered within days, covering every period since launch, and reconciling to reported revenue within 2%.",
+      "fail": "Company cannot or will not produce acquired and active counts by period.",
+      "verify": "Our engineer reruns the query against production; reconcile totals to billings.",
+      "applies_to": [
+        "saas",
+        "marketplace",
+        "consumer-app",
+        "ai",
+        "series-a",
+        "series-b-plus"
+      ],
+      "ref": "2.10, 2.2, 2.8",
+      "weak": false
+    },
+    {
+      "id": "TV-FIN-002",
+      "order": 60,
+      "stage": "screen",
+      "priority": "gating",
+      "workstream": "Financial",
+      "request": "Provide current cash position and default-alive runway: monthly burn for the trailing 12 months and forecast to the next round.",
+      "format": "Bank-confirmed balances at a stated date plus monthly cash-flow statement.",
+      "why": "Running out of cash before the next round at today's slower cadence.",
+      "pass": "Runway of at least 24 months to the next round (616-day seed-to-A median, 696 days between rounds, plus six months buffer), or a default-alive path.",
+      "fail": "Runway under 24 months with no default-alive path; burn that does not tie to bank outflows.",
+      "verify": "Tie burn to bank statements; recompute runway ourselves.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "2.1, 2.9",
+      "weak": false
+    },
+    {
+      "id": "TV-FIN-003",
+      "order": 70,
+      "stage": "screen",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Provide a treasury map: every bank and investment account with balance by institution, insured share, and any loan covenant requiring exclusive banking.",
+      "format": "Schedule plus month-end statements for each account.",
+      "why": "Uninsured cash stranded at a failed bank (SVB).",
+      "pass": "No more than one quarter of payroll uninsured at any single bank; balances above $250,000 spread across banks, insured sweeps or Treasury MMFs; no exclusive-banking covenant, or one waived.",
+      "fail": "More than one quarter of payroll uninsured at one bank; single-bank covenant.",
+      "verify": "Bank confirmations; read covenant text in loan agreements.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "2.2, 2.3, 2.8",
+      "weak": false
+    },
+    {
+      "id": "TV-COM-002",
+      "order": 80,
+      "stage": "screen",
+      "priority": "supporting",
+      "workstream": "Commercial & Market",
+      "request": "Provide a round-process statement: who sourced the deal, who else was offered the round, whether a banker ran it, and any competing term sheets.",
+      "format": "Written statement signed by the CEO, with names of investors approached.",
+      "why": "'Proprietary deal' assertions hide adverse selection.",
+      "pass": "Names of other investors approached and outcome; consistent with what co-investors tell us.",
+      "fail": "Refusal to say who else saw it.",
+      "verify": "Call one or two named investors who passed.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "2.3",
+      "weak": false
+    },
+    {
+      "id": "TV-SPN-001",
+      "order": 90,
+      "stage": "screen",
+      "priority": "core",
+      "workstream": "Sponsor & Background",
+      "request": "Provide the lead investor's diligence record for this round: days from first contact, hours of diligence, management in-person hours, sites visited and reference calls made.",
+      "format": "Written summary from the lead investor; reference-call list.",
+      "why": "A thin lead is not a diligence anchor; diligence falls in hot markets.",
+      "pass": "At or near benchmark: about 83 days, about 118 hours, about 10 reference calls (13 late-stage, 8 early-stage).",
+      "fail": "A fraction of benchmark effort; diligence shortened because the round is competitive.",
+      "verify": "Ask the lead directly; we hold our own diligence floor regardless.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "2.3",
+      "weak": false
+    },
+    {
+      "id": "TV-SPN-002",
+      "order": 100,
+      "stage": "screen",
+      "priority": "core",
+      "workstream": "Sponsor & Background",
+      "request": "Provide the lead investor's and named co-investors' deal-level track record, attributed to the leading partner, with and without the top one or two outcomes, stated as PME.",
+      "format": "Deal-level table with entry and exit dates, cash flows and leading partner.",
+      "why": "Persistence comes from access, not picking; a 'consistent singles' thesis contradicts the base rate.",
+      "pass": "Track record attributed to partners still at the firm; record reported without compounding IRR or comparing IRR with time-weighted indices.",
+      "fail": "Record attributable to departed partners; only compounded IRRs shown.",
+      "verify": "Cross-check against fund reports and Chapter 10 manager diligence.",
+      "applies_to": [
+        "series-a",
+        "series-b-plus"
+      ],
+      "ref": "2.12",
+      "weak": false
+    },
+    {
+      "id": "TV-SPN-003",
+      "order": 110,
+      "stage": "screen",
+      "priority": "supporting",
+      "workstream": "Sponsor & Background",
+      "request": "Provide the lead investor's monitoring capacity: board seats held by the deal partner, travel distance to the company, and partner bandwidth.",
+      "format": "List of the partner's current board seats and location.",
+      "why": "Monitoring matters: proximity raised odds of successful exit by 1.0 to 1.4 points.",
+      "pass": "Deal partner has capacity to attend board meetings in person.",
+      "fail": "Partner over-boarded or remote with no plan for monitoring.",
+      "verify": "Check partner's board list against public sources.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "2.3",
+      "weak": false
+    },
+    {
+      "id": "TV-HR-001",
+      "order": 120,
+      "stage": "screen",
+      "priority": "core",
+      "workstream": "HR & Management",
+      "request": "Provide each founder's prior companies with role and actual investor outcome, backed by cap tables, exit documents or filings.",
+      "format": "Cap tables or filings for each prior company.",
+      "why": "'Prior exit' is often inflated; prior success changes base rates (30% vs 18%).",
+      "pass": "Outcomes per filings and cap tables match the bio.",
+      "fail": "Bio outcome not supported by documents.",
+      "verify": "Search filings and call prior investors.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "2.3, 2.9",
+      "weak": false
+    },
+    {
+      "id": "TV-VAL-001",
+      "order": 130,
+      "stage": "screen",
+      "priority": "core",
+      "workstream": "Valuation & Model",
+      "request": "Provide the valuation rationale: comparables used, their dates, and how the price relates to the last round and to the sector's history.",
+      "format": "Memo with comparable set and sources.",
+      "why": "Marking off the last round or buying a theme at its peak.",
+      "pass": "Price supported by current comparables, not the last round; entry valuation compared with sector history and the theme's media and fund-launch peak.",
+      "fail": "Price justified only by the last round or theme momentum.",
+      "verify": "We pull our own comparables and theme timing data.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "2.1, 2.4, 2.8",
+      "weak": false
+    },
+    {
+      "id": "TV-VAL-002",
+      "order": 140,
+      "stage": "screen",
+      "priority": "supporting",
+      "workstream": "Valuation & Model",
+      "request": "Provide the investment thesis stating what makes this company different from the base rate (about 75% never return cash).",
+      "format": "Written thesis by the sponsor bringing the deal.",
+      "why": "IC memo must state the prior before the argument.",
+      "pass": "Thesis names evidenced differences (retention, unit economics, validated technology).",
+      "fail": "Thesis rests on team charisma or market size alone.",
+      "verify": "Test each claimed difference against data-room evidence.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "2.1, 2.12",
+      "weak": false
+    },
+    {
+      "id": "TV-STR-001",
+      "order": 10,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Structure & Terms",
+      "request": "Provide the draft term sheet, identifying the NVCA model version it is based on.",
+      "format": "Draft in Word with redline against the NVCA model term sheet in force at signing.",
+      "why": "Off-market terms hidden in non-standard drafting.",
+      "pass": "Based on the current nvca.org model set; deviations listed.",
+      "fail": "Non-NVCA drafting with unexplained deviations.",
+      "verify": "Compare against nvca.org model documents directly.",
+      "applies_to": [
+        "series-a",
+        "series-b-plus",
+        "saas",
+        "marketplace",
+        "consumer-app",
+        "deep-tech",
+        "ai"
+      ],
+      "ref": "2.6",
+      "weak": false
+    },
+    {
+      "id": "TV-STR-002",
+      "order": 20,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Structure & Terms",
+      "request": "Provide the SAFE or convertible-note form for this financing with valuation cap, discount, MFN and conversion terms.",
+      "format": "Executable form plus a conversion model at plausible next-round prices.",
+      "why": "Unmodeled SAFE dilution surfacing at the next priced round.",
+      "pass": "Conversion modeled at three next-round prices; dilution to our position stated.",
+      "fail": "Uncapped or stacked instruments with unmodeled conversion.",
+      "verify": "Model conversions ourselves.",
+      "applies_to": [
+        "seed"
+      ],
+      "ref": "2.1, 2.7",
+      "weak": false
+    },
+    {
+      "id": "TV-STR-003",
+      "order": 30,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Structure & Terms",
+      "request": "Provide the full preference stack: liquidation preference, participation, seniority and dividends for every series.",
+      "format": "Charter excerpt and a waterfall model at several exit values.",
+      "why": "Headline post-money overstates value when preferences, ratchets or participation exist.",
+      "pass": "Our security's value computed from the waterfall; 1x non-participating preferred; no senior 2x participating series.",
+      "fail": "2x participating preference or senior stacking that impairs our security.",
+      "verify": "Rebuild the waterfall from the charter text.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "2.4, 2.6",
+      "weak": false
+    },
+    {
+      "id": "TV-STR-004",
+      "order": 40,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Structure & Terms",
+      "request": "Provide anti-dilution terms for every series.",
+      "format": "Charter excerpt.",
+      "why": "Full ratchets punish later investors and founders.",
+      "pass": "Broad-based weighted average.",
+      "fail": "Full ratchet in any series.",
+      "verify": "Read the charter text.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "2.6",
+      "weak": false
+    },
+    {
+      "id": "TV-STR-005",
+      "order": 50,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Structure & Terms",
+      "request": "Provide the proposed board composition, protective provisions and drag-along terms.",
+      "format": "Term sheet sections and voting agreement draft.",
+      "why": "Control terms that block financing or exit.",
+      "pass": "Board not wholly founder-controlled at late stage; protective provisions standard per NVCA; drag-along with customary protections.",
+      "fail": "Board fully founder-controlled; protective provisions giving a single holder a financing or M&A veto.",
+      "verify": "Compare to NVCA voting agreement and charter models.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "2.6, 2.3",
+      "weak": false
+    },
+    {
+      "id": "TV-STR-006",
+      "order": 60,
+      "stage": "term-sheet",
+      "priority": "supporting",
+      "workstream": "Structure & Terms",
+      "request": "Provide pro rata, redemption, dividend, option-pool and vesting terms with a note on which points the lead negotiated hardest.",
+      "format": "Term sheet and negotiation summary from the lead.",
+      "why": "Atypical negotiation patterns signal hidden issues.",
+      "pass": "Negotiation pattern consistent with the VC map (least flexible on pro rata, preference, anti-dilution, valuation, board, vesting).",
+      "fail": "Lead concedes preference or board control but fights on dividends, without explanation.",
+      "verify": "Ask the lead directly.",
+      "applies_to": [
+        "series-a",
+        "series-b-plus"
+      ],
+      "ref": "2.6",
+      "weak": false
+    },
+    {
+      "id": "TV-VAL-003",
+      "order": 70,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Valuation & Model",
+      "request": "Provide a fully diluted share count including options, RSUs, warrants, SAFEs and benefit-fund issuance, and the implied price per fully diluted share.",
+      "format": "Schedule tying to the cap table.",
+      "why": "Implied valuation understated by ignoring dilution (one case moved from $1.25T to about $1.7T).",
+      "pass": "Fully diluted count ties to cap table; reverse valuation states the steady-state margin, growth and pricing power required, and they are achievable against comparables.",
+      "fail": "Basic share count used; required steady-state economics implausible.",
+      "verify": "Recompute from cap table and option ledger.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "2.3, 2.9",
+      "weak": false
+    },
+    {
+      "id": "TV-COR-004",
+      "order": 80,
+      "stage": "term-sheet",
+      "priority": "gating",
+      "workstream": "Corporate & Legal",
+      "request": "Provide an investor-rights map: every investor veto or consent right over financing, debt and M&A, who holds it, every board designee, and every time such a right has been exercised.",
+      "format": "Table citing the charter, voting agreement, IRA, notes and side letters by section.",
+      "why": "Vetoes used to block financings and catch-and-kill (Zync v. Porsche).",
+      "pass": "Complete map; no strategic investor holds a financing or M&A veto, or it is waived before closing.",
+      "fail": "Strategic holds a veto over financing or M&A; history of a right being used against the company.",
+      "verify": "Rebuild the map ourselves from the signed documents.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "2.2, 2.3, 2.11",
+      "weak": false
+    },
+    {
+      "id": "TV-COR-005",
+      "order": 90,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Corporate & Legal",
+      "request": "Provide every strategic and corporate VC investor's information, observer, ROFR and ROFN rights and any commercial agreements with the company.",
+      "format": "Signed agreements and side letters.",
+      "why": "Technology leakage and exit blocking; CVCs leave after a median four years.",
+      "pass": "No ROFR/ROFN on a sale of the company; information rights ring-fenced for competitively sensitive data; no reliance on CVC follow-on.",
+      "fail": "ROFR on company sale; unrestricted information rights to a competitor.",
+      "verify": "Read the signed documents.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "2.6, 2.11, 2.3",
+      "weak": false
+    },
+    {
+      "id": "TV-COR-006",
+      "order": 100,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Corporate & Legal",
+      "request": "Provide the voting-control structure: every share class's votes per share, any super-voting class and its sunset.",
+      "format": "Charter excerpts and voting agreements.",
+      "why": "Founder super-voting control without a sunset (Theranos: 100 votes per share).",
+      "pass": "Super-voting class, if any, has a time or event sunset, and is priced.",
+      "fail": "Super-voting control with no sunset.",
+      "verify": "Read charter text.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "2.2, 2.3, 2.8",
+      "weak": false
+    },
+    {
+      "id": "TV-COR-007",
+      "order": 110,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Corporate & Legal",
+      "request": "If insiders are on both sides of the round: provide the list of conflicted directors and the composition and mandate of any independent committee.",
+      "format": "Board resolution forming the committee; conflicts schedule.",
+      "why": "Entire-fairness exposure and dilution of non-insiders (Footprint).",
+      "pass": "Independent committee with its own advisors approved the terms.",
+      "fail": "No independent committee; conflicted designees voted.",
+      "verify": "Read minutes and resolutions.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "2.11",
+      "weak": false
+    },
+    {
+      "id": "TV-VAL-004",
+      "order": 120,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Valuation & Model",
+      "request": "If insiders are on both sides of the round: provide evidence of third-party price discovery (outside lead, competing term sheets) and the reasons any alternative was rejected.",
+      "format": "Term sheets received and board materials.",
+      "why": "Insider round priced below market.",
+      "pass": "At least one outside price signal or a documented market check.",
+      "fail": "Higher-valuation alternatives set aside without reasons.",
+      "verify": "Call the outside parties named.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "2.11",
+      "weak": false
+    },
+    {
+      "id": "TV-VAL-005",
+      "order": 130,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Valuation & Model",
+      "request": "If insiders are on both sides of the round: provide each insider fund's latest mark of the company and the conversion terms of any insider bridge.",
+      "format": "Fund-report excerpts and bridge notes.",
+      "why": "Round priced at about half the funds' own implied value (Footprint).",
+      "pass": "Round price not below insiders' latest marks or bridge-implied values, or the gap is explained.",
+      "fail": "Price materially below insiders' own marks.",
+      "verify": "Request marks from the funds' LP reports.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "2.11, 2.8",
+      "weak": false
+    },
+    {
+      "id": "TV-STR-007",
+      "order": 140,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Structure & Terms",
+      "request": "If insiders are on both sides of the round: provide the timeline and information package given to non-participating holders, and what happens to non-participants (pay-to-play, conversion to common, preference stacking).",
+      "format": "Notice to holders and data-room access logs.",
+      "why": "Three-week windows and missing disclosures support fiduciary claims.",
+      "pass": "Non-participants get weeks, the same information as insiders, and disclosure of valuation, insider benefits and rejected offers.",
+      "fail": "Short window, information asymmetry, punitive pay-to-play.",
+      "verify": "Review notices and data-room logs.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "2.11",
+      "weak": false
+    },
+    {
+      "id": "TV-COR-008",
+      "order": 150,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Corporate & Legal",
+      "request": "Provide the board minutes recording alternatives considered for this round and every prior bridge or down round.",
+      "format": "Signed minutes.",
+      "why": "No record of alternatives undermines the fairness record.",
+      "pass": "Minutes list each alternative and why it was rejected.",
+      "fail": "Minutes silent on alternatives.",
+      "verify": "Read minutes; compare with term sheets received.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "2.11",
+      "weak": false
+    },
+    {
+      "id": "TV-VAL-006",
+      "order": 160,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Valuation & Model",
+      "request": "Provide the history of every prior round, bridge and down round with price, lead and terms; for any 2021-vintage round provide current comparables.",
+      "format": "Financing history table with signed documents.",
+      "why": "Last-round marks are not marks (FTX $32B; Stripe about half its 2021 value).",
+      "pass": "Prior marks repriced to current comparables; a down-round case modeled.",
+      "fail": "Price justified by a 2021 mark.",
+      "verify": "Pull our own comparables.",
+      "applies_to": [
+        "series-a",
+        "series-b-plus"
+      ],
+      "ref": "2.4, 2.11",
+      "weak": false
+    },
+    {
+      "id": "TV-FIN-004",
+      "order": 170,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Provide use of proceeds and the milestones the round must reach before the next financing.",
+      "format": "Budget by function and milestone plan.",
+      "why": "Capital spent on irreversible commitments before demand is validated (Webvan).",
+      "pass": "Milestones evidence-based and reachable within runway; no large irreversible commitments before demand is validated.",
+      "fail": "Proceeds funding irreversible build-out ahead of demand evidence.",
+      "verify": "Compare budget to cohort and pipeline data.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "2.1",
+      "weak": false
+    },
+    {
+      "id": "TV-VAL-007",
+      "order": 180,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Valuation & Model",
+      "request": "Provide a downside case built from base rates, with management's ranges widened about 2x and, if the round is priced in a hot market, a wider downside still.",
+      "format": "Model tab with explicit assumptions.",
+      "why": "Hot-market startups are both likelier to fail and to be extreme successes; the round price is not validation.",
+      "pass": "Downside case exists, uses base-rate revenue and retention, and the round still survives (no wipe-out of our security at the downside exit value).",
+      "fail": "Only a sponsor case; downside narrower than management's own range.",
+      "verify": "We build our own downside from cohorts and base rates.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "2.1, 2.3",
+      "weak": false
+    },
+    {
+      "id": "TV-VAL-008",
+      "order": 190,
+      "stage": "term-sheet",
+      "priority": "supporting",
+      "workstream": "Valuation & Model",
+      "request": "Provide the long-run market model: expected steady-state market size, the company's share of it, and the path back to today, benchmarked against historical high-growth companies.",
+      "format": "Model tab and sources.",
+      "why": "DCFs that extrapolate history.",
+      "pass": "Path from steady state back to today is consistent with historical high-growth trajectories.",
+      "fail": "Valuation built by extrapolating recent growth.",
+      "verify": "Benchmark path against public high-growth histories.",
+      "applies_to": [
+        "series-b-plus",
+        "saas",
+        "ai"
+      ],
+      "ref": "2.4",
+      "weak": false
+    },
+    {
+      "id": "TV-VAL-009",
+      "order": 200,
+      "stage": "term-sheet",
+      "priority": "supporting",
+      "workstream": "Valuation & Model",
+      "request": "Provide the exit analysis: named likely acquirers or IPO path, any acquirer with an overlapping product, and HSR and antitrust considerations.",
+      "format": "Memo.",
+      "why": "Exit to a strategic with an overlapping product faces sub-HSR scrutiny and shelving risk (killer acquisitions).",
+      "pass": "Exit thesis does not rely on a single overlapping strategic; antitrust risk stated.",
+      "fail": "Exit depends on an overlapping strategic with no antitrust analysis.",
+      "verify": "Counsel review of overlap.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "2.6",
+      "weak": false
+    },
+    {
+      "id": "TV-COR-009",
+      "order": 210,
+      "stage": "term-sheet",
+      "priority": "supporting",
+      "workstream": "Corporate & Legal",
+      "request": "Provide the full set of contracts that shape the deal beyond the term sheet: investor, channel and employee agreements with change-of-control, exclusivity or economic terms.",
+      "format": "Executed contracts list with key terms.",
+      "why": "Sahlman: the deal is the full set of contracts, not just the term sheet.",
+      "pass": "No contract transfers material economics or control away from the company or new investors.",
+      "fail": "Undisclosed channel exclusivity or employee change-of-control payouts.",
+      "verify": "Counsel reads the contracts.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "2.1",
+      "weak": false
+    },
+    {
+      "id": "TV-COR-010",
+      "order": 10,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Corporate & Legal",
+      "request": "Provide the charter (certificate of incorporation) and bylaws with every amendment.",
+      "format": "Certified copies from the state of incorporation plus company copies.",
+      "why": "Unauthorized issuances; terms that differ from the summary.",
+      "pass": "Certified charter matches the cap table's classes and authorized shares.",
+      "fail": "Mismatch between charter and cap table.",
+      "verify": "Order certified copies from the Secretary of State.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "2.2",
+      "weak": false
+    },
+    {
+      "id": "TV-COR-011",
+      "order": 20,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Corporate & Legal",
+      "request": "Provide every board and stockholder consent and minutes since formation.",
+      "format": "Signed consents and minutes.",
+      "why": "Unapproved grants or financings.",
+      "pass": "Every issuance on the cap table has an approving consent.",
+      "fail": "Issuances without approval.",
+      "verify": "Match each consent to cap-table entries.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "2.2, 2.3",
+      "weak": false
+    },
+    {
+      "id": "TV-COR-012",
+      "order": 30,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Corporate & Legal",
+      "request": "Provide every prior financing document: each SAFE, convertible note, warrant, stock purchase agreement and side letter, fully executed.",
+      "format": "Executed PDFs.",
+      "why": "Unpapered or late-surfacing instruments.",
+      "pass": "Every instrument on the cap table has an executed document and vice versa.",
+      "fail": "Any instrument without a document, or a document not on the cap table.",
+      "verify": "Reconcile one to one.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "2.2, 2.3, 2.7",
+      "weak": false
+    },
+    {
+      "id": "TV-COR-013",
+      "order": 40,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Corporate & Legal",
+      "request": "Provide a line-by-line reconciliation of the cap table to signed documents, with an officer's certificate that the side-letter list is complete.",
+      "format": "Reconciliation workbook referencing each document; signed officer certificate.",
+      "why": "The single biggest preventable mess in venture.",
+      "pass": "Zero unreconciled items before the term sheet is signed.",
+      "fail": "Unreconciled items or side letters surfacing late.",
+      "verify": "Company counsel confirms; we re-perform a sample.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "2.3, 2.7, 2.8",
+      "weak": false
+    },
+    {
+      "id": "TV-COR-014",
+      "order": 50,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Corporate & Legal",
+      "request": "Provide each founder's and early employee's 83(b) election with proof of timely IRS filing.",
+      "format": "Copies with certified-mail receipt or IRS acknowledgement.",
+      "why": "Tax exposure on unvested founder stock.",
+      "pass": "Filed within 30 days of grant for every restricted-stock holder.",
+      "fail": "Missing or late 83(b) elections.",
+      "verify": "Check filing proof dates.",
+      "applies_to": [
+        "seed",
+        "series-a"
+      ],
+      "ref": "2.2",
+      "weak": false
+    },
+    {
+      "id": "TV-HR-002",
+      "order": 60,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "HR & Management",
+      "request": "Provide the equity incentive plan, every grant agreement, board approvals and 409A valuations.",
+      "format": "Executed plan and grants; 409A reports.",
+      "why": "Unapproved or mispriced grants.",
+      "pass": "Every grant approved and priced at or above the 409A in effect.",
+      "fail": "Grants below 409A or unapproved.",
+      "verify": "Tie grants to option ledger and consents.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "2.2, 2.3",
+      "weak": false
+    },
+    {
+      "id": "TV-COR-015",
+      "order": 70,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Corporate & Legal",
+      "request": "Provide all voting agreements, stockholder agreements and ROFR and co-sale agreements in force.",
+      "format": "Executed copies.",
+      "why": "Hidden control arrangements.",
+      "pass": "Agreements consistent with the investor-rights map.",
+      "fail": "Undisclosed voting arrangements.",
+      "verify": "Cross-check to investor-rights map.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "2.2, 2.6",
+      "weak": false
+    },
+    {
+      "id": "TV-COR-016",
+      "order": 80,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Corporate & Legal",
+      "request": "Provide executed IP assignment (CIIAA or equivalent) agreements from every founder.",
+      "format": "Executed agreements including pre-incorporation assignments.",
+      "why": "A founder who never assigned IP is a deal-killer.",
+      "pass": "Every founder has assigned all company-related IP, including pre-formation work.",
+      "fail": "Any founder without an assignment.",
+      "verify": "IP counsel review; compare to founders and early repository contributors.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "2.2, 2.3, 2.7",
+      "weak": false
+    },
+    {
+      "id": "TV-COR-017",
+      "order": 90,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Corporate & Legal",
+      "request": "Provide executed IP assignment agreements from every employee and contractor who contributed code, designs, data or inventions, with a list of all contributors.",
+      "format": "Executed agreements plus repository contributor list.",
+      "why": "Contractor-owned IP.",
+      "pass": "Every contributor on the repository and payroll/AP lists has a present-tense assignment.",
+      "fail": "Contributors without assignments.",
+      "verify": "Our tech reviewer extracts the contributor list from the repository; match to agreements.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "2.2, 2.3, 2.7",
+      "weak": false
+    },
+    {
+      "id": "TV-COR-018",
+      "order": 100,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Corporate & Legal",
+      "request": "Provide a schedule of patents, patent applications, trademarks and domain names with ownership and status.",
+      "format": "Schedule plus USPTO and registry records.",
+      "why": "IP held by founders or third parties.",
+      "pass": "Registered owner is the company for every item.",
+      "fail": "IP registered to a founder or affiliate.",
+      "verify": "Check USPTO assignment records.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "2.2",
+      "weak": false
+    },
+    {
+      "id": "TV-TEC-001",
+      "order": 110,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Technical",
+      "request": "Provide an open-source component inventory with licenses, generated by a scanning tool.",
+      "format": "SBOM or scan output (e.g. software composition analysis) for every shipped product.",
+      "why": "Copyleft license exposure in proprietary code.",
+      "pass": "No copyleft components in distributed proprietary code without compliance.",
+      "fail": "Undisclosed copyleft in distributed code.",
+      "verify": "Third-party tech diligence rescans the repository.",
+      "applies_to": [
+        "saas",
+        "marketplace",
+        "consumer-app",
+        "ai",
+        "deep-tech"
+      ],
+      "ref": "2.2, 2.3",
+      "weak": false
+    },
+    {
+      "id": "TV-COR-019",
+      "order": 120,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Corporate & Legal",
+      "request": "Provide material contracts: top customer contracts, partner, channel, supplier and licensing agreements.",
+      "format": "Executed copies with amendments.",
+      "why": "Contracts that differ from presented terms; termination rights.",
+      "pass": "Terms match ARR schedule; no undisclosed termination for convenience or change of control.",
+      "fail": "Material contract terms differ from the ARR schedule.",
+      "verify": "Read contracts against the ARR schedule.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "2.2, 2.3",
+      "weak": false
+    },
+    {
+      "id": "TV-COR-020",
+      "order": 130,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Corporate & Legal",
+      "request": "Provide a schedule of litigation, threatened claims and demand letters.",
+      "format": "Schedule plus pleadings; counsel letter.",
+      "why": "Undisclosed claims.",
+      "pass": "All matters disclosed and reserved.",
+      "fail": "Undisclosed matters found in docket searches.",
+      "verify": "Run our own docket searches.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "2.2",
+      "weak": false
+    },
+    {
+      "id": "TV-REG-001",
+      "order": 140,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Regulatory & Compliance",
+      "request": "Provide all regulator correspondence, inspection reports and filings for regulated products or activities.",
+      "format": "Complete correspondence file.",
+      "why": "Regulatory problems hidden behind claims of approval (Theranos).",
+      "pass": "No unresolved adverse findings; claimed approvals confirmed with the regulator.",
+      "fail": "Undisclosed adverse correspondence.",
+      "verify": "Search regulator databases and ask the regulator where possible.",
+      "applies_to": [
+        "deep-tech",
+        "ai"
+      ],
+      "ref": "2.2, 2.7",
+      "weak": false
+    },
+    {
+      "id": "TV-REG-002",
+      "order": 150,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Regulatory & Compliance",
+      "request": "Provide responses to NVCA 2025 national-security and OISP representations: foreign-person investors and links, sensitive data categories held, and compute and data-hosting locations.",
+      "format": "Completed questionnaire signed by an officer, with cloud contracts showing regions.",
+      "why": "CFIUS and outbound-investment exposure.",
+      "pass": "Reps can be given without exception, or exceptions are cleared by counsel.",
+      "fail": "Undisclosed foreign-person control links or sensitive data hosted offshore.",
+      "verify": "Counsel review; check cloud-provider region settings.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "2.3, 2.6",
+      "weak": false
+    },
+    {
+      "id": "TV-FIN-005",
+      "order": 160,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Financial",
+      "request": "Provide a contract-level ARR and MRR schedule: every customer, contract start and end, ACV, billing frequency, discounts and renewal status.",
+      "format": "Native spreadsheet tied to contract IDs.",
+      "why": "Revenue-quality fiction: ARR that is non-recurring or uncollected.",
+      "pass": "ARR rebuilt from contracts equals reported ARR within 2%; non-recurring items excluded.",
+      "fail": "Rebuilt ARR materially below reported; one-off revenue counted as ARR.",
+      "verify": "We rebuild from contracts ourselves.",
+      "applies_to": [
+        "saas",
+        "ai",
+        "series-a",
+        "series-b-plus"
+      ],
+      "ref": "2.3, 2.7",
+      "weak": false
+    },
+    {
+      "id": "TV-FIN-006",
+      "order": 170,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Financial",
+      "request": "Provide billing-system exports of every invoice and credit note for the trailing 24 months.",
+      "format": "Direct export from the billing system (Stripe, NetSuite, Chargebee or similar) with read-only access.",
+      "why": "Revenue that exists only in the deck.",
+      "pass": "Invoices tie to the ARR schedule and to cash collections.",
+      "fail": "Invoices missing for reported ARR.",
+      "verify": "Pull exports ourselves via read-only access.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "2.3",
+      "weak": false
+    },
+    {
+      "id": "TV-FIN-007",
+      "order": 180,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Financial",
+      "request": "Provide a monthly reconciliation of billings and collections to bank deposits for the trailing 24 months.",
+      "format": "Reconciliation workbook with bank statements.",
+      "why": "Revenue not collected in cash.",
+      "pass": "Deposits reconcile to billings within 2% each month; no unexplained related-party receipts.",
+      "fail": "Unreconciled gaps; collections well below billings.",
+      "verify": "Re-perform against bank-issued statements.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "2.3, 2.7, 2.10",
+      "weak": false
+    },
+    {
+      "id": "TV-FIN-008",
+      "order": 190,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Provide historical financial statements (audited if available) and monthly management accounts for the trailing 36 months or since inception.",
+      "format": "Audited statements with auditor's report; monthly P&L, balance sheet and cash flow.",
+      "why": "Unreliable books.",
+      "pass": "Statements tie to GL and bank; late stage audited by a firm sized for the company.",
+      "fail": "No financial statements, or numbers that change between versions.",
+      "verify": "Tie to GL and bank statements.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "2.2, 2.3",
+      "weak": false
+    },
+    {
+      "id": "TV-FIN-009",
+      "order": 200,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Provide the revenue recognition policy and any changes over time.",
+      "format": "Written policy approved by the CFO or auditor.",
+      "why": "Aggressive recognition inflating ARR.",
+      "pass": "Policy consistent with ASC 606 and consistently applied.",
+      "fail": "Policy changes that flatter recent periods.",
+      "verify": "Compare policy with contract terms.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "2.2",
+      "weak": false
+    },
+    {
+      "id": "TV-COM-003",
+      "order": 210,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Commercial & Market",
+      "request": "Provide a monthly customer-level revenue file since inception, including every churned customer, for NRR, GRR and churn rebuild.",
+      "format": "CSV from billing system.",
+      "why": "NRR that excludes churned logos.",
+      "pass": "Our rebuilt NRR and GRR match reported within one point; benchmark NRR against private median just above 100% (top quartile 117%) and GRR near 85% to 90%.",
+      "fail": "Reported NRR exceeds rebuilt NRR by more than one point; churned logos excluded.",
+      "verify": "Rebuild ourselves; reconcile cohort revenue to billings and deposits.",
+      "applies_to": [
+        "saas",
+        "ai",
+        "consumer-app",
+        "marketplace"
+      ],
+      "ref": "2.3, 2.4, 2.7, 2.10",
+      "weak": false
+    },
+    {
+      "id": "TV-COM-004",
+      "order": 220,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Commercial & Market",
+      "request": "Provide cumulative revenue and gross profit per acquisition cohort by period since acquisition.",
+      "format": "Cohort matrix from production data.",
+      "why": "Collapsing cohorts hidden by growth (Blue Apron).",
+      "pass": "Each new cohort at least as valuable as the last; curves flatten (Harry's, Dollar Shave Club pattern).",
+      "fail": "Each recent cohort worth less than the last.",
+      "verify": "Rebuild from the customer-level file.",
+      "applies_to": [
+        "saas",
+        "marketplace",
+        "consumer-app",
+        "ai"
+      ],
+      "ref": "2.10",
+      "weak": false
+    },
+    {
+      "id": "TV-COM-005",
+      "order": 230,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Commercial & Market",
+      "request": "Provide the share of each period's revenue that came from customers acquired in that period.",
+      "format": "Schedule by month or quarter.",
+      "why": "A hockey stick made entirely of acquisition (Wayfair).",
+      "pass": "Share of revenue from new customers stable or falling while repeat holds.",
+      "fail": "Rising share of revenue from new customers with flat repeat.",
+      "verify": "Recompute from cohort file.",
+      "applies_to": [
+        "saas",
+        "marketplace",
+        "consumer-app",
+        "ai"
+      ],
+      "ref": "2.3, 2.10",
+      "weak": false
+    },
+    {
+      "id": "TV-COM-006",
+      "order": 240,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Commercial & Market",
+      "request": "Provide spend per order and gross margin by cohort, and repeat-purchase rates by cohort age.",
+      "format": "Cohort-level schedule.",
+      "why": "Repeat rates below the category leader.",
+      "pass": "Repeat at each cohort age at or near the category leader at the same age.",
+      "fail": "Repeat materially below the category leader.",
+      "verify": "Compare to public category-leader disclosures.",
+      "applies_to": [
+        "marketplace",
+        "consumer-app"
+      ],
+      "ref": "2.10",
+      "weak": false
+    },
+    {
+      "id": "TV-FIN-010",
+      "order": 250,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Provide sales and marketing spend by channel by month, with new customers by channel, to compute paid CAC unblended and CAC payback by segment.",
+      "format": "Ad-platform exports, payroll for sales staff, GL detail.",
+      "why": "Blended CAC hiding paid CAC.",
+      "pass": "Paid CAC payback within SMB under 12, mid-market under 18, enterprise under 24 months (median 16, IQR 10 to 24); LTV:CAC above 3:1 recomputed from cohorts (WEAK).",
+      "fail": "Payback outside targets or only blended CAC available.",
+      "verify": "Recompute from ad-platform and GL data.",
+      "applies_to": [
+        "saas",
+        "consumer-app",
+        "marketplace",
+        "ai"
+      ],
+      "ref": "2.3, 2.4, 2.7, 2.9",
+      "weak": false
+    },
+    {
+      "id": "TV-FIN-011",
+      "order": 260,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Provide quarterly net new ARR, net burn and S&M spend to compute burn multiple and magic number.",
+      "format": "Quarterly schedule tied to GL and ARR schedule.",
+      "why": "Inefficient growth.",
+      "pass": "Burn multiple under 1.5x (above 3x is trouble) and magic number above 0.75 (both WEAK practitioner benchmarks).",
+      "fail": "Burn multiple above 3x.",
+      "verify": "Recompute from GL and ARR rebuild.",
+      "applies_to": [
+        "saas",
+        "ai"
+      ],
+      "ref": "2.4",
+      "weak": true
+    },
+    {
+      "id": "TV-FIN-012",
+      "order": 270,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Provide gross margin build: COGS detail (hosting, third-party fees, support, implementation) by month.",
+      "format": "GL detail and vendor invoices.",
+      "why": "Gross margin flattered by misclassifying COGS.",
+      "pass": "Gross margin toward 65% to 70% long-run, top performers 80%+ (v1 practitioner 70% to 75%).",
+      "fail": "Hosting or support costs below the line.",
+      "verify": "Tie to vendor invoices.",
+      "applies_to": [
+        "saas",
+        "ai"
+      ],
+      "ref": "2.3, 2.4",
+      "weak": false
+    },
+    {
+      "id": "TV-FIN-013",
+      "order": 280,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Provide, for companies above about $25M ARR, the Rule of 40 calculation (YoY ARR growth plus FCF margin) for the last eight quarters.",
+      "format": "Quarterly schedule tied to ARR rebuild and cash flow statement.",
+      "why": "Inefficient growth at scale.",
+      "pass": "40% or more (median 38% Q1 2026, WEAK); growth weighted about 2x margin.",
+      "fail": "Below 40% with no path.",
+      "verify": "Recompute from rebuilt ARR and bank-tied FCF.",
+      "applies_to": [
+        "series-b-plus",
+        "saas"
+      ],
+      "ref": "2.4",
+      "weak": false
+    },
+    {
+      "id": "TV-FIN-014",
+      "order": 290,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Provide a line-by-line cost bridge for any margin expansion in the plan, naming each cost line that falls as a share of revenue and the evidence (contracts, supplier quotes).",
+      "format": "Schedule with supporting contracts or quotes.",
+      "why": "Projected margin expansion with no named driver.",
+      "pass": "Each efficiency named and supported; otherwise base case holds margins flat.",
+      "fail": "Margin expansion with no named line.",
+      "verify": "Check quotes and contracts.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "2.3, 2.7, 2.9",
+      "weak": false
+    },
+    {
+      "id": "TV-FIN-015",
+      "order": 300,
+      "stage": "confirmatory",
+      "priority": "supporting",
+      "workstream": "Financial",
+      "request": "Provide management's forecast ranges (base, upside, downside) with the confidence they attach.",
+      "format": "Scenario tab and narrative.",
+      "why": "Overconfident ranges (36% hit rate on 80% intervals).",
+      "pass": "Ranges provided so we can widen them about 2x.",
+      "fail": "Single-point forecast only.",
+      "verify": "We widen ranges about 2x.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "2.3",
+      "weak": false
+    },
+    {
+      "id": "TV-COM-007",
+      "order": 310,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Commercial & Market",
+      "request": "Provide customer concentration: revenue by customer for the top 20 and share of total.",
+      "format": "Schedule tied to billing data.",
+      "why": "Concentrated revenue presented as ARR.",
+      "pass": "No single customer above 25% of revenue presented as ARR.",
+      "fail": "One customer above 25%.",
+      "verify": "Tie to invoices.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "2.3, 2.8",
+      "weak": false
+    },
+    {
+      "id": "TV-COM-008",
+      "order": 320,
+      "stage": "confirmatory",
+      "priority": "supporting",
+      "workstream": "Commercial & Market",
+      "request": "Provide the sales pipeline with stage, value, expected close and historical conversion rates.",
+      "format": "CRM export.",
+      "why": "Pipeline padding.",
+      "pass": "Historical conversion supports forecast.",
+      "fail": "Forecast conversion above history.",
+      "verify": "Pull CRM export directly.",
+      "applies_to": [
+        "saas",
+        "ai",
+        "deep-tech"
+      ],
+      "ref": "2.2",
+      "weak": false
+    },
+    {
+      "id": "TV-FIN-016",
+      "order": 330,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Provide all debt, venture-debt and loan agreements with covenants.",
+      "format": "Executed agreements.",
+      "why": "Exclusive-banking covenants and hidden leverage.",
+      "pass": "No exclusive-banking covenant without insured sweep; covenants in compliance.",
+      "fail": "Covenant breach or exclusive-banking requirement.",
+      "verify": "Read covenant text.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "2.2, 2.3",
+      "weak": false
+    },
+    {
+      "id": "TV-HR-003",
+      "order": 340,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "HR & Management",
+      "request": "Provide the finance-function roster: named CFO and controller with their prior public- or audited-company experience, internal audit or equivalent, and audit-committee composition.",
+      "format": "CVs, org chart, audit committee charter.",
+      "why": "Late-stage companies lacking a controller (FTX: no internal audit, no accounting department).",
+      "pass": "Named CFO and controller with audited-company experience; internal audit or equivalent; audit committee; board not wholly founder-controlled.",
+      "fail": "No controller; no internal audit; no audit committee at late stage.",
+      "verify": "Interview CFO and controller; call the auditor.",
+      "applies_to": [
+        "series-b-plus"
+      ],
+      "ref": "2.3, 2.7",
+      "weak": false
+    },
+    {
+      "id": "TV-HR-004",
+      "order": 350,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "HR & Management",
+      "request": "Provide a complete employee census reconciled to payroll.",
+      "format": "HRIS export and payroll register for the same date.",
+      "why": "No complete employee list (FTX).",
+      "pass": "Census ties to payroll one for one.",
+      "fail": "Employees on payroll not on census or vice versa.",
+      "verify": "Reconcile ourselves.",
+      "applies_to": [
+        "series-b-plus"
+      ],
+      "ref": "2.7",
+      "weak": false
+    },
+    {
+      "id": "TV-FIN-017",
+      "order": 360,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Provide the schedule of any customer assets, deposits or funds held for customers and show where they sit on the balance sheet.",
+      "format": "Balance-sheet detail and custodial agreements.",
+      "why": "Customer deposits held off the main balance sheet (FTX).",
+      "pass": "Customer assets and liabilities recorded on the balance sheet and segregated.",
+      "fail": "Customer funds off balance sheet or commingled.",
+      "verify": "Confirm with custodians.",
+      "applies_to": [
+        "series-b-plus",
+        "marketplace"
+      ],
+      "ref": "2.7",
+      "weak": false
+    },
+    {
+      "id": "TV-COM-009",
+      "order": 370,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Commercial & Market",
+      "request": "Provide a list of every named marquee customer, partner, validator and government user cited in investor materials, with permission to contact each directly.",
+      "format": "List with counterparty names; we source contacts independently.",
+      "why": "Fabricated endorsements (Theranos pharma logos; DoD medevac claim).",
+      "pass": "Every named counterparty confirms the relationship as described.",
+      "fail": "Company refuses contact or a counterparty denies the claim.",
+      "verify": "We call using contacts sourced independently, not via the company.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "2.3, 2.7, 2.8",
+      "weak": false
+    },
+    {
+      "id": "TV-COM-010",
+      "order": 380,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Commercial & Market",
+      "request": "Provide customer references sufficient for about 10 reference calls (13 late stage, 8 early stage), including churned customers.",
+      "format": "Names and contacts; we add customers chosen from the billing file.",
+      "why": "Reference lists curated by the company.",
+      "pass": "Calls completed at benchmark count, including customers we picked and at least one churned customer.",
+      "fail": "Company-picked references only.",
+      "verify": "Pick references ourselves from the customer file.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "2.3",
+      "weak": false
+    },
+    {
+      "id": "TV-TEC-002",
+      "order": 390,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Technical",
+      "request": "Grant our engineer supervised read access to production systems to test a random sample of claimed users or customers for live activity (logins, transactions, deliverable email).",
+      "format": "Live session with our engineer present; query logs retained.",
+      "why": "Fabricated users (Frank: 4M synthetic customers; about 70% of emails bounced).",
+      "pass": "Random sample shows live activity at rates consistent with reported active users.",
+      "fail": "Refusal, or sampled users inactive or non-existent.",
+      "verify": "Our engineer draws the sample and runs queries.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "2.3, 2.7",
+      "weak": false
+    },
+    {
+      "id": "TV-TEC-003",
+      "order": 400,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Technical",
+      "request": "Provide the test protocol for the core technical claim and agree to independent validation on our samples, in our presence, by an expert we hire.",
+      "format": "Written protocol, equipment list and acceptance criteria.",
+      "why": "Technology that does not do what is claimed (Theranos ran about a dozen of about 200 promised tests).",
+      "pass": "Validation meets the stated protocol on our samples.",
+      "fail": "Refusal, or results below claimed performance.",
+      "verify": "Our validator runs the test.",
+      "applies_to": [
+        "deep-tech",
+        "ai"
+      ],
+      "ref": "2.3, 2.7",
+      "weak": false
+    },
+    {
+      "id": "TV-TEC-004",
+      "order": 410,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Technical",
+      "request": "Provide error rates, test results and performance data for the product or model from production use.",
+      "format": "Raw logs or datasets, not summaries.",
+      "why": "Performance claims that differ from field reality.",
+      "pass": "Field error rates match claims.",
+      "fail": "Error rates withheld or worse than claimed.",
+      "verify": "Validator recomputes from raw data.",
+      "applies_to": [
+        "deep-tech",
+        "ai"
+      ],
+      "ref": "2.2, 2.7",
+      "weak": false
+    },
+    {
+      "id": "TV-TEC-005",
+      "order": 420,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Technical",
+      "request": "Provide customer complaint logs and the internal whistleblower or employee-concern log.",
+      "format": "Complete logs with resolution.",
+      "why": "Employees raised internal warnings at Theranos.",
+      "pass": "Complaints resolved; no pattern of unaddressed product or data-integrity concerns.",
+      "fail": "Recurring unresolved complaints or warnings.",
+      "verify": "Interview former employees.",
+      "applies_to": [
+        "deep-tech",
+        "ai",
+        "consumer-app"
+      ],
+      "ref": "2.2, 2.7",
+      "weak": false
+    },
+    {
+      "id": "TV-TEC-006",
+      "order": 430,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Technical",
+      "request": "Grant code-repository and architecture-documentation access for code and architecture review.",
+      "format": "Read-only repository access and architecture diagrams.",
+      "why": "Unscalable or fragile technology.",
+      "pass": "No critical defects unaddressed in the reviewer's report.",
+      "fail": "Critical architecture or code-quality issues.",
+      "verify": "Third-party tech diligence firm reviews.",
+      "applies_to": [
+        "saas",
+        "marketplace",
+        "consumer-app",
+        "ai",
+        "deep-tech"
+      ],
+      "ref": "2.3, 2.5",
+      "weak": false
+    },
+    {
+      "id": "TV-IT-001",
+      "order": 440,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "IT & Cyber",
+      "request": "Provide the security posture: latest penetration test, vulnerability scans, security policies and certifications (SOC 2 or ISO 27001 if held).",
+      "format": "Third-party reports and policies.",
+      "why": "Security weaknesses that become breaches.",
+      "pass": "No open critical or high findings.",
+      "fail": "Open critical findings.",
+      "verify": "Third-party security review.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "2.2, 2.3",
+      "weak": false
+    },
+    {
+      "id": "TV-IT-002",
+      "order": 450,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "IT & Cyber",
+      "request": "Provide the data map (personal and sensitive data held, where, and under which basis) and the security incident history.",
+      "format": "Data inventory and incident register.",
+      "why": "Privacy and breach exposure.",
+      "pass": "Data map complete; incidents disclosed and remediated.",
+      "fail": "Undisclosed incidents.",
+      "verify": "Search breach notifications; security reviewer validates.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "2.2",
+      "weak": false
+    },
+    {
+      "id": "TV-TEC-007",
+      "order": 460,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Technical",
+      "request": "Provide AI model and data provenance: training data sources and licenses, model lineage, third-party models used, and evaluation results.",
+      "format": "Data-source register with licenses; model cards.",
+      "why": "Unlicensed training data and overstated model claims.",
+      "pass": "All training data licensed or owned; model claims reproducible.",
+      "fail": "Unlicensed or scraped data without rights.",
+      "verify": "IP counsel and tech reviewer verify.",
+      "applies_to": [
+        "ai"
+      ],
+      "ref": "2.3",
+      "weak": false
+    },
+    {
+      "id": "TV-HR-005",
+      "order": 470,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "HR & Management",
+      "request": "Provide the org chart and key employee agreements, including offer letters, non-competes and retention arrangements.",
+      "format": "Executed agreements.",
+      "why": "Key-person and retention risk.",
+      "pass": "Key employees signed; retention aligned with plan.",
+      "fail": "Key person without agreement.",
+      "verify": "Interview key employees.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "2.2",
+      "weak": false
+    },
+    {
+      "id": "TV-HR-006",
+      "order": 480,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "HR & Management",
+      "request": "Provide each founder's vesting schedule, acceleration terms and current vested status.",
+      "format": "Restricted-stock agreements.",
+      "why": "Fully vested founders with no retention.",
+      "pass": "Meaningful unvested equity remains for each founder.",
+      "fail": "Fully vested founders with single-trigger acceleration.",
+      "verify": "Read agreements.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "2.3, 2.2",
+      "weak": false
+    },
+    {
+      "id": "TV-HR-007",
+      "order": 490,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "HR & Management",
+      "request": "Provide the board roster with each director's domain expertise and committee roles.",
+      "format": "Board list with bios.",
+      "why": "Celebrity boards without domain or audit expertise (Theranos).",
+      "pass": "At least one director with domain expertise and one able to chair audit at late stage.",
+      "fail": "No domain experts; no audit-capable director.",
+      "verify": "Check bios.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "2.3, 2.8",
+      "weak": false
+    },
+    {
+      "id": "TV-HR-008",
+      "order": 500,
+      "stage": "confirmatory",
+      "priority": "supporting",
+      "workstream": "HR & Management",
+      "request": "Provide a key-person risk assessment and succession plan for the founders and CTO.",
+      "format": "Written plan; key-person insurance if held.",
+      "why": "Key-person dependency.",
+      "pass": "Named successors or mitigation.",
+      "fail": "No plan.",
+      "verify": "Interview the board.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "2.3",
+      "weak": false
+    },
+    {
+      "id": "TV-TEC-008",
+      "order": 10,
+      "stage": "third-party",
+      "priority": "core",
+      "workstream": "Technical",
+      "request": "Sign the access letter for our tech and security diligence firm and provide the engineering leads for interviews.",
+      "format": "Executed access letter; interview schedule.",
+      "why": "Unverified technology claims.",
+      "pass": "Report delivered with no unresolved critical findings.",
+      "fail": "Access refused or critical findings.",
+      "verify": "Firm reports directly to us.",
+      "applies_to": [
+        "saas",
+        "marketplace",
+        "consumer-app",
+        "ai",
+        "deep-tech"
+      ],
+      "ref": "2.5",
+      "weak": false
+    },
+    {
+      "id": "TV-FIN-018",
+      "order": 20,
+      "stage": "third-party",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Provide our QoE provider access to GL, billing and bank data for an agreed-upon-procedures scope covering ARR, revenue cut-off and proof of cash.",
+      "format": "Engagement access; scope letter shared with us.",
+      "why": "Unverified growth-stage financials.",
+      "pass": "QoE completed with no material unreconciled items; scope states what was not tested.",
+      "fail": "Material unreconciled items or restricted scope.",
+      "verify": "QoE provider engaged by us.",
+      "applies_to": [
+        "series-b-plus"
+      ],
+      "ref": "2.5, 5.5",
+      "weak": false
+    },
+    {
+      "id": "TV-COR-021",
+      "order": 30,
+      "stage": "third-party",
+      "priority": "core",
+      "workstream": "Corporate & Legal",
+      "request": "Provide IP counsel with the assignment chain, registrations and open-source scan for a chain-of-title review.",
+      "format": "Complete IP file.",
+      "why": "Missing assignments.",
+      "pass": "Counsel confirms unbroken chain of title.",
+      "fail": "Counsel identifies gaps.",
+      "verify": "IP counsel engaged by us.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "2.5",
+      "weak": false
+    },
+    {
+      "id": "TV-HR-009",
+      "order": 40,
+      "stage": "third-party",
+      "priority": "core",
+      "workstream": "HR & Management",
+      "request": "Provide signed consents for background checks on each founder and C-level executive.",
+      "format": "Signed FCRA-compliant consents.",
+      "why": "Undisclosed history.",
+      "pass": "No undisclosed adverse findings.",
+      "fail": "Undisclosed adverse findings.",
+      "verify": "Background-check provider engaged by us.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "2.5, 2.3",
+      "weak": false
+    },
+    {
+      "id": "TV-TEC-009",
+      "order": 50,
+      "stage": "third-party",
+      "priority": "gating",
+      "workstream": "Technical",
+      "request": "Provide samples, equipment access and a lab or test slot for our independent technical validator.",
+      "format": "Access confirmation and schedule.",
+      "why": "Fraudulent demos on third-party equipment.",
+      "pass": "Validation completed on the company's own device or model in our presence.",
+      "fail": "Demonstration on third-party equipment or refusal.",
+      "verify": "Validator hired and paid by us.",
+      "applies_to": [
+        "deep-tech",
+        "ai"
+      ],
+      "ref": "2.5, 2.7",
+      "weak": false
+    },
+    {
+      "id": "TV-COR-022",
+      "order": 10,
+      "stage": "closing",
+      "priority": "gating",
+      "workstream": "Corporate & Legal",
+      "request": "Provide the pro forma closing cap table reflecting conversion of every SAFE and note, signed off by company counsel.",
+      "format": "Counsel-certified cap table.",
+      "why": "Closing on an unreconciled cap table.",
+      "pass": "Ties to reconciliation and conversion model with zero exceptions.",
+      "fail": "Any unreconciled item at closing.",
+      "verify": "Our counsel re-checks.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "2.3, 2.7",
+      "weak": false
+    },
+    {
+      "id": "TV-COR-023",
+      "order": 20,
+      "stage": "closing",
+      "priority": "gating",
+      "workstream": "Corporate & Legal",
+      "request": "Deliver confirmatory IP assignments for every gap identified in diligence.",
+      "format": "Executed confirmatory assignments.",
+      "why": "Missing IP assignment.",
+      "pass": "Every gap closed before funding.",
+      "fail": "Any gap open at closing.",
+      "verify": "IP counsel confirms.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "2.3, 2.7",
+      "weak": false
+    },
+    {
+      "id": "TV-COR-024",
+      "order": 30,
+      "stage": "closing",
+      "priority": "core",
+      "workstream": "Corporate & Legal",
+      "request": "Deliver the executed NVCA definitive documents: Stock Purchase Agreement, Amended Charter, Investors' Rights Agreement, Voting Agreement, ROFR and Co-Sale Agreement, Management Rights Letter and Indemnification Agreement.",
+      "format": "Executed documents; filed charter with state stamp.",
+      "why": "Terms drifting from the term sheet.",
+      "pass": "Documents match the agreed term sheet and the NVCA version in force at signing.",
+      "fail": "Deviations from term sheet.",
+      "verify": "Our counsel compares to nvca.org models and term sheet.",
+      "applies_to": [
+        "series-a",
+        "series-b-plus",
+        "saas",
+        "marketplace",
+        "consumer-app",
+        "deep-tech",
+        "ai"
+      ],
+      "ref": "2.6",
+      "weak": false
+    },
+    {
+      "id": "TV-COR-025",
+      "order": 40,
+      "stage": "closing",
+      "priority": "core",
+      "workstream": "Corporate & Legal",
+      "request": "Deliver an officer's bring-down certificate covering reps (including national-security and OISP reps) and the completeness of side letters.",
+      "format": "Signed certificate.",
+      "why": "Changes between signing and closing.",
+      "pass": "No exceptions.",
+      "fail": "Exceptions not previously disclosed.",
+      "verify": "Counsel review.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "2.3, 2.6",
+      "weak": false
+    },
+    {
+      "id": "TV-FIN-019",
+      "order": 50,
+      "stage": "closing",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Deliver evidence that cash will be held so that no more than one quarter of payroll is uninsured at any single bank (sweep agreements, second bank, Treasury MMF).",
+      "format": "Account agreements and post-funding allocation plan.",
+      "why": "Uninsured cash at one bank.",
+      "pass": "Allocation meets the treasury test at funding.",
+      "fail": "All proceeds into one bank above insured limits.",
+      "verify": "Bank confirmations after funding.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "2.3, 2.7",
+      "weak": false
+    },
+    {
+      "id": "TV-COR-026",
+      "order": 60,
+      "stage": "closing",
+      "priority": "core",
+      "workstream": "Corporate & Legal",
+      "request": "Deliver waivers or amendments removing any strategic investor's veto over financing or M&A, or a documented pricing adjustment for it.",
+      "format": "Executed waiver or amendment.",
+      "why": "Catch-and-kill risk.",
+      "pass": "No strategic financing or M&A veto survives closing, or it is priced.",
+      "fail": "Veto remains unpriced.",
+      "verify": "Counsel review.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "2.11",
+      "weak": false
+    },
+    {
+      "id": "TV-HR-010",
+      "order": 70,
+      "stage": "closing",
+      "priority": "core",
+      "workstream": "HR & Management",
+      "request": "For late stage: deliver evidence of finance-function remediation (CFO and controller hired, auditor engaged, audit committee formed) if gaps were found.",
+      "format": "Offer letters, engagement letter, board resolution.",
+      "why": "FTX-type control gaps.",
+      "pass": "Remediation in place at closing or as a funded condition subsequent.",
+      "fail": "No remediation.",
+      "verify": "Confirm with auditor.",
+      "applies_to": [
+        "series-b-plus"
+      ],
+      "ref": "2.3, 2.7",
+      "weak": false
+    },
+    {
+      "id": "TV-COM-011",
+      "order": 10,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Commercial & Market",
+      "request": "Deliver quarterly the updated cohort file: customers acquired, active customers and orders per period.",
+      "format": "Production export.",
+      "why": "Deteriorating cohorts after investment.",
+      "pass": "Delivered each quarter; new cohorts at least as valuable as prior.",
+      "fail": "Late or missing; declining cohorts.",
+      "verify": "Reconcile to financials.",
+      "applies_to": [
+        "saas",
+        "marketplace",
+        "consumer-app",
+        "ai"
+      ],
+      "ref": "2.10",
+      "weak": false
+    },
+    {
+      "id": "TV-FIN-020",
+      "order": 20,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Deliver quarterly ARR, NRR, GRR, CAC payback and burn multiple with the underlying customer-level file.",
+      "format": "Customer-level file and KPI pack.",
+      "why": "Metric drift and gaming.",
+      "pass": "Rebuilt metrics match the KPI pack within one point.",
+      "fail": "Differences or refusal of raw data.",
+      "verify": "Rebuild a sample quarterly.",
+      "applies_to": [
+        "saas",
+        "ai"
+      ],
+      "ref": "2.3, 2.4",
+      "weak": false
+    },
+    {
+      "id": "TV-FIN-021",
+      "order": 30,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Deliver monthly management accounts and a quarterly treasury map with insured share by bank.",
+      "format": "Monthly pack; bank statements.",
+      "why": "Cash concentration and runway erosion.",
+      "pass": "Runway and treasury tests continue to pass.",
+      "fail": "Concentration above one quarter of payroll uninsured at one bank.",
+      "verify": "Bank statements.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "2.3",
+      "weak": false
+    },
+    {
+      "id": "TV-COR-027",
+      "order": 40,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Corporate & Legal",
+      "request": "Notify us of any new instrument issuance, side letter, financing proposal, insider round or exercise of an investor veto within five business days.",
+      "format": "Written notice with documents.",
+      "why": "Late-surfacing instruments and blocked financings.",
+      "pass": "Every event notified on time.",
+      "fail": "Events discovered after the fact.",
+      "verify": "Cap table updates reconciled quarterly.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "2.3, 2.11",
+      "weak": false
+    },
+    {
+      "id": "TV-FIN-022",
+      "order": 50,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Deliver annual audited financial statements.",
+      "format": "Auditor-signed statements.",
+      "why": "Unaudited growth.",
+      "pass": "Unqualified opinion from a firm sized for the company.",
+      "fail": "Qualified opinion or auditor change.",
+      "verify": "Call the auditor.",
+      "applies_to": [
+        "series-a",
+        "series-b-plus"
+      ],
+      "ref": "2.3",
+      "weak": false
+    },
+    {
+      "id": "TV-VAL-010",
+      "order": 60,
+      "stage": "monitoring",
+      "priority": "supporting",
+      "workstream": "Valuation & Model",
+      "request": "Deliver board materials and minutes under the information rights, including any repricing or down-round discussion.",
+      "format": "Board packs and signed minutes.",
+      "why": "Monitoring gap.",
+      "pass": "Delivered after each meeting.",
+      "fail": "Withheld materials.",
+      "verify": "Board observer or Management Rights Letter.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "2.3, 2.6",
+      "weak": false
+    }
+  ],
+  "kill_tests": [
+    {
+      "id": "TV-K01",
+      "test": "Any founder or contractor who created core IP has not assigned it to the company and will not sign a confirmatory assignment before closing.",
+      "ref": "2.3, 2.7, 2.8",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "TV-K02",
+      "test": "Cap table cannot be reconciled to signed documents for every share, option, RSU, SAFE, warrant, convertible note and side letter before the term sheet.",
+      "ref": "2.3, 2.7, 2.8",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "TV-K03",
+      "test": "Company refuses raw data-room access (contracts, billings, bank statements, cohort files) and asks investors to rely on deck metrics.",
+      "ref": "2.8",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "TV-K04",
+      "test": "Company cannot or will not produce customers acquired and total active customers by period (and orders per period for non-subscription businesses).",
+      "ref": "2.10, 2.8",
+      "applies_to": [
+        "saas",
+        "marketplace",
+        "consumer-app",
+        "ai",
+        "series-a",
+        "series-b-plus"
+      ]
+    },
+    {
+      "id": "TV-K05",
+      "test": "Company will not let us contact named marquee customers, partners, validators or government users directly.",
+      "ref": "2.3, 2.8, 2.7",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "TV-K06",
+      "test": "Core technical claim fails, or the company refuses, independent validation by our expert on our samples in our presence under a stated protocol.",
+      "ref": "2.3, 2.7",
+      "applies_to": [
+        "deep-tech",
+        "ai"
+      ]
+    },
+    {
+      "id": "TV-K07",
+      "test": "Random sample of claimed users or customers fails live-activity testing in production systems, or the company refuses production access to our engineer.",
+      "ref": "2.3, 2.7",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "TV-K08",
+      "test": "Reported ARR or revenue cannot be traced to signed contracts, billings and bank deposits.",
+      "ref": "2.3, 2.7",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "TV-K09",
+      "test": "Late stage or secondary: no named CFO and controller with public- or audited-company experience, no independent audit, and a board wholly founder-controlled (FTX pattern), with no commitment to remediate before closing.",
+      "ref": "2.3, 2.7",
+      "applies_to": [
+        "series-b-plus"
+      ]
+    }
+  ],
+  "red_flags": [
+    {
+      "id": "TV-RF01",
+      "flag": "Founder will not give raw data-room access; 'trust the deck' metrics.",
+      "check": "Require read-only access to billing system, GL and bank portals; rebuild metrics ourselves.",
+      "ref": "2.8",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "TV-RF02",
+      "flag": "Unreconciled cap table, or side letters surfacing late in the process.",
+      "check": "Reconcile every instrument to signed originals; obtain a company officer certificate that the side-letter list is complete.",
+      "ref": "2.8, 2.3",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "TV-RF03",
+      "flag": "One customer above 25% of revenue presented as ARR.",
+      "check": "Customer-level revenue file; contract term, renewal and termination rights for that customer; reference call with the customer.",
+      "ref": "2.8",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "TV-RF04",
+      "flag": "No IP assignments from founders or contractors.",
+      "check": "Walk the full IP assignment chain against the contributor list from the code repository.",
+      "ref": "2.8, 2.3",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "TV-RF05",
+      "flag": "Company cannot or will not give customers acquired and active customers by period.",
+      "check": "Treat as a kill test; no valuation on fundamentals without the cohort file.",
+      "ref": "2.8, 2.10",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "TV-RF06",
+      "flag": "Investment case rests on founder charisma rather than data-room evidence.",
+      "check": "Score written materials and the data room with a fixed rubric and more than one rater before the live pitch.",
+      "ref": "2.8, 2.3",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "TV-RF07",
+      "flag": "Celebrity board with no domain experts; founder super-voting control with no sunset; no audit committee at late stage.",
+      "check": "Map voting control, board seats and each director's domain expertise; price super-voting without sunset as a risk item.",
+      "ref": "2.8, 2.3",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "TV-RF08",
+      "flag": "Named validators, partners or government users the company will not let us call.",
+      "check": "Call every named counterparty directly using contacts we source independently.",
+      "ref": "2.8, 2.3",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "TV-RF09",
+      "flag": "A strategic investor holding a veto over financing or M&A.",
+      "check": "Investor-rights map; require waiver or removal of the strategic's financing veto, or price catch-and-kill risk.",
+      "ref": "2.8, 2.11",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "TV-RF10",
+      "flag": "Insider-led round priced below the insiders' own recent marks or bridge terms, with a short decision window for non-participants.",
+      "check": "Run the insider-round checklist (2.11): conflicted directors, independent committee, price discovery, marks comparison, time and information for non-participants, minutes.",
+      "ref": "2.8, 2.11",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "TV-RF11",
+      "flag": "Revenue growth almost entirely from new-customer acquisition, with each new cohort worth less than the last.",
+      "check": "Share of revenue from customers acquired in the period; cumulative revenue per cohort by period since acquisition.",
+      "ref": "2.8, 2.10",
+      "applies_to": [
+        "saas",
+        "marketplace",
+        "consumer-app",
+        "ai"
+      ]
+    },
+    {
+      "id": "TV-RF12",
+      "flag": "More than one quarter of payroll in uninsured deposits at one bank.",
+      "check": "Treasury map with insured share by institution; require sweeps, multiple banks or Treasury MMFs before funding.",
+      "ref": "2.8, 2.3",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "TV-RF13",
+      "flag": "Valuation justified by the last round, or by a theme at its media peak.",
+      "check": "Reprice against current comparables; compare entry valuation with sector history and the theme's media and fund-launch peak.",
+      "ref": "2.8, 2.1, 2.4",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "TV-RF14",
+      "flag": "Model where margins expand with scale and no cost line is named.",
+      "check": "Line-by-line cost bridge, or hold margins flat.",
+      "ref": "2.8, 2.3",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "TV-RF15",
+      "flag": "NRR that excludes churned logos, or blended CAC that hides paid CAC.",
+      "check": "Recompute NRR/GRR from the raw cohort file including churned logos; compute paid CAC unblended by channel.",
+      "ref": "2.7",
+      "applies_to": [
+        "saas",
+        "consumer-app",
+        "marketplace",
+        "ai"
+      ]
+    },
+    {
+      "id": "TV-RF16",
+      "flag": "Lead investor spent a fraction of benchmark diligence effort (about 83 days, 118 hours, 10 reference calls).",
+      "check": "Do our own full diligence; do not treat the lead as a diligence anchor.",
+      "ref": "2.3",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "TV-RF17",
+      "flag": "'Proprietary deal' claimed with no account of who else saw it.",
+      "check": "Ask who else saw the round and whether competing term sheets exist.",
+      "ref": "2.3",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "TV-RF18",
+      "flag": "A lead that concedes on liquidation preference or board control but fights on dividends.",
+      "check": "Ask why; atypical against the VC negotiability map.",
+      "ref": "2.6",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "TV-RF19",
+      "flag": "Strategic or corporate VC counted on for follow-on support.",
+      "check": "Assume no CVC follow-on (median CVC life four years); review information, observer, ROFR and ROFN rights for technology leakage and exit blocking.",
+      "ref": "2.6, 2.11",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "TV-RF20",
+      "flag": "Exit thesis relies on a strategic acquirer with an overlapping product.",
+      "check": "Model antitrust scrutiny of sub-HSR deals and shelving risk; avoid milestone or earnout reliance.",
+      "ref": "2.6",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "TV-RF21",
+      "flag": "Late-stage company with no controller, no internal audit, no complete employee list or customer assets held off balance sheet.",
+      "check": "Finance-function review; employee census reconciled to payroll; customer assets and liabilities on the balance sheet.",
+      "ref": "2.3, 2.7",
+      "applies_to": [
+        "series-b-plus"
+      ]
+    },
+    {
+      "id": "TV-RF22",
+      "flag": "Runway shorter than 24 months to the next round.",
+      "check": "Rebuild monthly burn and test runway against the 616-day seed-to-A and 696-day between-round medians plus six months.",
+      "ref": "2.1, 2.9",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "TV-RF23",
+      "flag": "Employees raised internal warnings about the product or data (Theranos pattern).",
+      "check": "Ask for the internal complaints and whistleblower log; interview former employees.",
+      "ref": "2.7",
+      "applies_to": [
+        "deep-tech",
+        "ai"
+      ]
+    }
+  ],
+  "metrics": [
+    {
+      "id": "TV-M01",
+      "metric": "Rule of 40 (YoY ARR growth + FCF margin)",
+      "acceptable": "40% or more; primary screen only above about $25M ARR; one point of growth worth about 2x one point of FCF margin in valuation. Below about $25M ARR underwrite growth plus NRR/GRR and burn instead.",
+      "source": "ICONIQ, State of Software 2025; ICONIQ Growth and Efficiency",
+      "weak": false,
+      "ref": "2.4",
+      "applies_to": [
+        "saas",
+        "series-b-plus"
+      ]
+    },
+    {
+      "id": "TV-M02",
+      "metric": "Rule of 40, current median",
+      "acceptable": "Median 38% in Q1 2026; target 50%+ above $10M ARR.",
+      "source": "networkcraft; cxcash; designrevision (vendor aggregators)",
+      "weak": true,
+      "ref": "2.4",
+      "applies_to": [
+        "saas"
+      ]
+    },
+    {
+      "id": "TV-M03",
+      "metric": "Net revenue retention, private-company median",
+      "acceptable": "Just above 100% (2024 survey median NDR 101%). Sources conflict: v1 cites median about 117% in 2026 (networkcraft, cfoadvisors, WEAK, really a top-quartile figure). Benchmark the median on KeyBanc/Sapphire and the top-performer bar on Bessemer; a private company at 117% is top quartile, not average.",
+      "source": "KeyBanc Capital Markets / Sapphire Ventures 2025 SaaS Survey",
+      "weak": false,
+      "ref": "2.4",
+      "applies_to": [
+        "saas",
+        "ai"
+      ]
+    },
+    {
+      "id": "TV-M04",
+      "metric": "Net revenue retention, scaled software",
+      "acceptable": "About 110% to 120% (2025).",
+      "source": "ICONIQ 2025",
+      "weak": false,
+      "ref": "2.4",
+      "applies_to": [
+        "saas",
+        "series-b-plus"
+      ]
+    },
+    {
+      "id": "TV-M05",
+      "metric": "Net revenue retention, v1 benchmark",
+      "acceptable": "Above 110% minimum, above 120% strong; median about 117% in 2026 (top-quartile public or late-stage figure, not a private median).",
+      "source": "networkcraft; cfoadvisors.com (vendor)",
+      "weak": true,
+      "ref": "2.4",
+      "applies_to": [
+        "saas"
+      ]
+    },
+    {
+      "id": "TV-M06",
+      "metric": "NRR by ARR band, top performers (2021 vintage, refreshed 2024)",
+      "acceptable": "$1M-$10M ARR: median 125% (top 145%+); $10M-$25M: 117%; $100M+: 115%. Zero-rate-era vintage: top-performer bar only.",
+      "source": "Bessemer, Scaling to $100 Million",
+      "weak": false,
+      "ref": "2.4",
+      "applies_to": [
+        "saas"
+      ]
+    },
+    {
+      "id": "TV-M07",
+      "metric": "Gross revenue retention",
+      "acceptable": "Averages 85% to 90%; near 90% (KeyBanc/Sapphire); SMB can work at 70% to 80%.",
+      "source": "Bessemer; KeyBanc/Sapphire 2025",
+      "weak": false,
+      "ref": "2.4",
+      "applies_to": [
+        "saas",
+        "ai"
+      ]
+    },
+    {
+      "id": "TV-M08",
+      "metric": "CAC payback",
+      "acceptable": "Median 16 months for B2B SaaS in 2025 (IQR 10-24). Targets: SMB under 12 months, mid-market under 18, enterprise under 24; PLG under 12 months (WEAK).",
+      "source": "Benchmarkit via Growth Unhinged (practitioner dataset); Bessemer; re-cap.com for PLG",
+      "weak": false,
+      "ref": "2.4",
+      "applies_to": [
+        "saas",
+        "ai"
+      ]
+    },
+    {
+      "id": "TV-M09",
+      "metric": "CAC payback, PLG",
+      "acceptable": "Under 12 months.",
+      "source": "re-cap.com (practitioner)",
+      "weak": true,
+      "ref": "2.4",
+      "applies_to": [
+        "saas",
+        "consumer-app"
+      ]
+    },
+    {
+      "id": "TV-M10",
+      "metric": "Magic number",
+      "acceptable": "Above 0.75 is efficient.",
+      "source": "re-cap.com; David Skok (practitioner)",
+      "weak": true,
+      "ref": "2.4",
+      "applies_to": [
+        "saas"
+      ]
+    },
+    {
+      "id": "TV-M11",
+      "metric": "Burn multiple",
+      "acceptable": "Under 1.5x efficient; above 3x is trouble.",
+      "source": "vcbeast.com (practitioner; originator Craft Ventures, no primary retrieved)",
+      "weak": true,
+      "ref": "2.4",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "TV-M12",
+      "metric": "LTV:CAC",
+      "acceptable": "Above 3:1 (partly replaced by Bessemer CLTV/CAC framing); recompute LTV from cohorts.",
+      "source": "jumpstartpartners.finance; Bessemer",
+      "weak": true,
+      "ref": "2.4",
+      "applies_to": [
+        "saas",
+        "consumer-app",
+        "marketplace"
+      ]
+    },
+    {
+      "id": "TV-M13",
+      "metric": "Gross margin",
+      "acceptable": "Long-run aim 65% to 70%; top performers 80%+ (Bessemer). v1 practitioner: above 70% to 75%.",
+      "source": "Bessemer; v1 practitioner",
+      "weak": false,
+      "ref": "2.4",
+      "applies_to": [
+        "saas",
+        "ai"
+      ]
+    },
+    {
+      "id": "TV-M14",
+      "metric": "ARR growth, private median",
+      "acceptable": "About 20% projected for 2025 (15% in 2024).",
+      "source": "KeyBanc/Sapphire 2025",
+      "weak": false,
+      "ref": "2.4",
+      "applies_to": [
+        "saas"
+      ]
+    },
+    {
+      "id": "TV-M15",
+      "metric": "ARR growth by band, top performers (2021 vintage)",
+      "acceptable": "$1M-$10M ARR: median 165% (top 230%+); $10M-$25M: 87%; $100M+: 57%. v1 (WEAK, re-cap.com): 100%+ early, 40% to 60% later.",
+      "source": "Bessemer; re-cap.com (v1)",
+      "weak": false,
+      "ref": "2.4",
+      "applies_to": [
+        "saas"
+      ]
+    },
+    {
+      "id": "TV-M16",
+      "metric": "Round cadence",
+      "acceptable": "Median 696 days between rounds; 616 days (about 20 months) seed to Series A (Q2 2025). Runway must cover at least 24 months to the next round.",
+      "source": "Carta, State of Private Markets Q2 2025; Carta Series A Q2 2025",
+      "weak": false,
+      "ref": "2.1, 2.4",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "TV-M17",
+      "metric": "Down rounds share",
+      "acceptable": "About 17% of new rounds (Q3 2025); just over 19% (Q1 2025). Model a down round for any 2021-vintage mark.",
+      "source": "Carta Q3 2025",
+      "weak": false,
+      "ref": "2.1, 2.4",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "TV-M18",
+      "metric": "Median seed pre-money",
+      "acceptable": "Record $15.6M (Q2 2025); seed deal count down 25% YoY.",
+      "source": "Carta Q2 2025",
+      "weak": false,
+      "ref": "2.1",
+      "applies_to": [
+        "seed"
+      ]
+    },
+    {
+      "id": "TV-M19",
+      "metric": "Median Series A pre-money",
+      "acceptable": "$47.9M (Q2 2025); Series A deal count down 18% YoY.",
+      "source": "Carta Series A Q2 2025",
+      "weak": false,
+      "ref": "2.1",
+      "applies_to": [
+        "series-a"
+      ]
+    },
+    {
+      "id": "TV-M20",
+      "metric": "Customer concentration",
+      "acceptable": "No single customer above 25% of revenue presented as ARR.",
+      "source": "Bible red flag 2.8",
+      "weak": false,
+      "ref": "2.8",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "TV-M21",
+      "metric": "Uninsured deposits",
+      "acceptable": "No more than one quarter of payroll in uninsured deposits at any one bank; balances above the $250,000 FDIC limit spread across banks, insured sweeps or Treasury MMFs. SVB reference: about 94% uninsured; $42B withdrawn March 9, 2023.",
+      "source": "Metrick, JEP 2024; Song Ma, Yale Insights",
+      "weak": false,
+      "ref": "2.3, 2.8",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "TV-M22",
+      "metric": "Base rate: VC-backed outcomes",
+      "acceptable": "About 75% never return cash; 30% to 40% liquidate with investors losing most or all; 70% to 80% miss projected ROI; 90% to 95% miss a declared projection. Only one or two in ten VC investments succeed.",
+      "source": "Ghosh, HBS Working Knowledge; Sorenson, Nanda and Samila, Yale Insights",
+      "weak": false,
+      "ref": "2.1, 2.12",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "TV-M23",
+      "metric": "Base rate: right-tail returns",
+      "acceptable": "All-venture portfolio 1980-2006 about 22% IRR, generalized PME 1.44; dropping the best 5% makes risk-adjusted return negative.",
+      "source": "Ouyang, Yu and Jagannathan, NBER w27690",
+      "weak": false,
+      "ref": "2.1",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "TV-M24",
+      "metric": "Manager dispersion",
+      "acceptable": "Ten-year top vs bottom quartile spread 43.2 points a year in venture (13.7 buyouts, about 0.5 fixed income).",
+      "source": "Swensen, Yale ECON 252 lecture 9",
+      "weak": false,
+      "ref": "2.1",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "TV-M25",
+      "metric": "Founder prior-outcome base rates",
+      "acceptable": "Success about 30% after a prior success, 20% after a prior failure, 18% for first-timers (IPO or IPO filing, 1986-2003).",
+      "source": "Gompers, Kovner, Lerner, Scharfstein, JFE 2010",
+      "weak": false,
+      "ref": "2.3",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "TV-M26",
+      "metric": "VC required returns",
+      "acceptable": "Average required 31% IRR; MOIC median 5.0x (mean 5.5x); marketed about 24% net IRR (median 20%) and 3.5x net MOIC (3.8x early, 2.8x late).",
+      "source": "Gompers, Gornall, Kaplan, Strebulaev, JFE 2020",
+      "weak": false,
+      "ref": "2.1, 2.12",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "TV-M27",
+      "metric": "Diligence effort benchmark",
+      "acceptable": "About 83 days first contact to close, about 118 hours of diligence, about 10 reference calls (13 late-stage firms, 8 early-stage). Doubling diligence worth 2% to 6% of capital invested (model, abstract-level).",
+      "source": "Gompers et al. 2020; Fu and Taylor, NBER w33987",
+      "weak": false,
+      "ref": "2.3",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "TV-M28",
+      "metric": "Deal selectivity benchmark",
+      "acceptable": "About 100 opportunities considered per closed deal (151 IT, 78 healthcare); 1.7 term sheets issued per closed deal.",
+      "source": "Gompers et al. 2020, NBER w22587",
+      "weak": false,
+      "ref": "2.3",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "TV-M29",
+      "metric": "Deal sourcing mix",
+      "acceptable": "More than 30% professional networks, about 30% self-generated, about 20% other investors, 10% inbound, 8% portfolio referrals.",
+      "source": "Gompers et al. 2020",
+      "weak": false,
+      "ref": "2.3",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "TV-M30",
+      "metric": "Forecast calibration",
+      "acceptable": "Realized outcomes fell inside CFOs' 80% confidence intervals only 36% of the time: widen management ranges about 2x.",
+      "source": "Ben-David, Graham and Harvey, QJE 2013",
+      "weak": false,
+      "ref": "2.3",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "TV-M31",
+      "metric": "Margin expansion with growth",
+      "acceptable": "None on average: 6,103 IPO firms, median real sales growth above 8% a year, cost-to-sales did not fall. Hold margins flat unless a named cost line falls.",
+      "source": "Thomas, Ertan and Lewellen, Yale Insights",
+      "weak": false,
+      "ref": "2.3",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "TV-M32",
+      "metric": "Pitch-factor bias",
+      "acceptable": "Above-average pitch factor about 35% more likely funded, then worse follow-on and survival; all-women teams 7x more sensitive to delivery.",
+      "source": "Song Ma and Allen Hu, Yale Insights",
+      "weak": false,
+      "ref": "2.3",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "TV-M33",
+      "metric": "Thematic vehicle underperformance",
+      "acceptable": "Thematic ETFs lose about 30% risk-adjusted over first five years.",
+      "source": "Ben-David, Franzoni, Kim and Moussawi, RFS 2023",
+      "weak": false,
+      "ref": "2.1",
+      "applies_to": [
+        "ai"
+      ]
+    },
+    {
+      "id": "TV-M34",
+      "metric": "Corporate VC unit life",
+      "acceptable": "Median CVC lasts four years (10 to 12 for traditional VC).",
+      "source": "Song Ma, Yale Insights",
+      "weak": false,
+      "ref": "2.6, 2.11",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "TV-M35",
+      "metric": "Killer acquisitions",
+      "acceptable": "About 6% (6.4% in working paper) of pharma acquisitions; clustered below HSR thresholds; up to 50 a year.",
+      "source": "Cunningham, Ederer and Ma, JPE 2021",
+      "weak": false,
+      "ref": "2.6",
+      "applies_to": [
+        "deep-tech"
+      ]
+    },
+    {
+      "id": "TV-M36",
+      "metric": "Liquidation preference",
+      "acceptable": "1x non-participating is founder-friendly and acceptable; 2x participating is not.",
+      "source": "NVCA model documents; vcbeast.com",
+      "weak": false,
+      "ref": "2.6",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "TV-M37",
+      "metric": "Anti-dilution",
+      "acceptable": "Broad-based weighted average is standard; full ratchet is punitive.",
+      "source": "NVCA model documents; vcbeast.com",
+      "weak": false,
+      "ref": "2.6",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "TV-M38",
+      "metric": "Late-stage governance base rates",
+      "acceptable": "Unicorns from about 40 (2013) to 1,500+; median age at IPO 9 to 13 years (2012-2024); 12(g) trigger raised from 500 to 2,000 holders.",
+      "source": "HLS Forum, Untamed Unicorns, 2026",
+      "weak": false,
+      "ref": "2.1",
+      "applies_to": [
+        "series-b-plus"
+      ]
+    },
+    {
+      "id": "TV-M39",
+      "metric": "Monitoring proximity",
+      "acceptable": "New direct flight to a portfolio company: 1.0 to 1.4 points more likely to IPO or exit successfully.",
+      "source": "Bernstein, Giroud, Townsend, JF 2016",
+      "weak": false,
+      "ref": "2.3",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "TV-M40",
+      "metric": "What VCs say they weight",
+      "acceptable": "Team important to 95% and most important to 47%; business model 83%; product 74%; market 68%; valuation fifth. Team cited in 96% of successes and 92% of failures: the founder workstream gets the most hours.",
+      "source": "Gompers, Gornall, Kaplan, Strebulaev, JFE 2020",
+      "weak": false,
+      "ref": "2.1",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "TV-M41",
+      "metric": "NVCA model document version",
+      "acceptable": "Diligence against the version in force at signing. Two sources: v1 says NVCA updated five models in October 2025 (tranched financing, national-security reps) and revised the ROFR (April 2026) and voting agreement (June 2026) (1752.vc, aggregator, WEAK); nvca.org now lists the core financing set as Updated November 2026, plus a July 2020 LPA CFIUS insert and 2025 model PIPE sets.",
+      "source": "nvca.org; 1752.vc",
+      "weak": true,
+      "ref": "2.6",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "TV-M42",
+      "metric": "IRR versus time-weighted",
+      "acceptable": "Yale 20-year venture IRR 165.9% vs time-weighted 24.6% (to June 2018). Never compound an IRR; use PME.",
+      "source": "Yale News, Oct. 2018",
+      "weak": false,
+      "ref": "2.12",
+      "applies_to": [
+        "all"
+      ]
+    }
+  ],
+  "third_party_reports": [
+    {
+      "id": "TV-T01",
+      "report": "Technology and security diligence (code, architecture, security posture, open-source license exposure)",
+      "provider": "Tech and security diligence firm engaged by us",
+      "required_when": "Series A and later; any round where the product is the asset",
+      "ref": "2.5, 2.3"
+    },
+    {
+      "id": "TV-T02",
+      "report": "Quality of earnings (agreed-upon procedures or consulting engagement, no assurance; scope per 5.5)",
+      "provider": "QoE provider engaged by us",
+      "required_when": "Growth-stage rounds (Series B and later) and secondaries",
+      "ref": "2.5, 5.5"
+    },
+    {
+      "id": "TV-T03",
+      "report": "IP chain-of-title review (assignments, patents, trademarks, open source)",
+      "provider": "IP counsel engaged by us",
+      "required_when": "Always",
+      "ref": "2.5, 2.3"
+    },
+    {
+      "id": "TV-T04",
+      "report": "Background checks on founders and key executives",
+      "provider": "Background-check provider engaged by us",
+      "required_when": "Always",
+      "ref": "2.5, 2.3"
+    },
+    {
+      "id": "TV-T05",
+      "report": "Independent technical validation of the core scientific, hardware or model claim against a stated protocol, on our samples, in our presence",
+      "provider": "Independent technical validator hired by us, not the company",
+      "required_when": "Any core scientific, hardware, medical or model-performance claim",
+      "ref": "2.5, 2.3, 2.7"
+    },
+    {
+      "id": "TV-T06",
+      "report": "Production user and transaction sampling report",
+      "provider": "An engineer of our own with production-system access",
+      "required_when": "Any company with claimed users, customers or transactions",
+      "ref": "2.5, 2.3"
+    },
+    {
+      "id": "TV-T07",
+      "report": "Customer, partner, validator and government-user confirmations",
+      "provider": "Our deal team, using contacts sourced independently",
+      "required_when": "Always for named marquee counterparties",
+      "ref": "2.3, 2.7"
+    }
+  ],
+  "hard_questions": [
+    {
+      "id": "TV-HQ01",
+      "question": "Show the cohort data behind NRR, by month.",
+      "good_answer": "A raw monthly customer-level file, including churned logos, from which we reproduce reported NRR and GRR within a point and tie cohort revenue to billings.",
+      "ref": "2.9"
+    },
+    {
+      "id": "TV-HQ02",
+      "question": "Which founders or contractors have NOT assigned IP?",
+      "good_answer": "A named list (ideally empty) checked against the repository contributor list, with executed assignments or confirmatory assignments for every gap before closing.",
+      "ref": "2.9"
+    },
+    {
+      "id": "TV-HQ03",
+      "question": "What is paid CAC, unblended, and the payback by segment?",
+      "good_answer": "Paid CAC by channel and segment from ad-platform and payroll data, with payback per segment inside the SMB under 12, mid-market under 18 and enterprise under 24 month targets.",
+      "ref": "2.9"
+    },
+    {
+      "id": "TV-HQ04",
+      "question": "What is the real cash position and the default-alive runway?",
+      "good_answer": "Bank-confirmed cash and a monthly burn schedule showing runway of at least 24 months, or a default-alive path to breakeven without new capital.",
+      "ref": "2.9"
+    },
+    {
+      "id": "TV-HQ05",
+      "question": "How many customers did you acquire each quarter, and how many are active today? Show orders per period.",
+      "good_answer": "Quarterly acquired, active and orders counts produced immediately from the production database, reconciling to revenue.",
+      "ref": "2.9, 2.10"
+    },
+    {
+      "id": "TV-HQ06",
+      "question": "Name each specific cost line that falls as a share of revenue, and why.",
+      "good_answer": "A line-by-line cost bridge with contracts or supplier quotes, or an admission that the base case holds margins flat.",
+      "ref": "2.9"
+    },
+    {
+      "id": "TV-HQ07",
+      "question": "At today's price and fully diluted count, what margin and growth must be true at steady state?",
+      "good_answer": "A reverse-valuation worksheet on the fully diluted count (options, RSUs, warrants, SAFEs) with steady-state margin and growth that are achievable against public comparables.",
+      "ref": "2.9, 2.3"
+    },
+    {
+      "id": "TV-HQ08",
+      "question": "Who can block the next financing or a sale, and has anyone ever used that right?",
+      "good_answer": "A complete investor-rights map with holders of every veto and a history of every use, with no strategic holding a financing veto.",
+      "ref": "2.9, 2.11"
+    },
+    {
+      "id": "TV-HQ09",
+      "question": "If your bank closed this morning, how many weeks of payroll could you meet?",
+      "good_answer": "At least a quarter's payroll in insured or diversified balances available same day, with backup banking relationships in place.",
+      "ref": "2.9, 2.7"
+    },
+    {
+      "id": "TV-HQ10",
+      "question": "May we call every named validator, partner and government user directly?",
+      "good_answer": "Yes, with contacts we may source independently.",
+      "ref": "2.9, 2.7"
+    },
+    {
+      "id": "TV-HQ11",
+      "question": "What did your founders' prior companies actually return to investors, per the cap table?",
+      "good_answer": "Cap tables or filings for prior companies showing actual distributions that match the bio.",
+      "ref": "2.9, 2.3"
+    },
+    {
+      "id": "TV-HQ12",
+      "question": "At the current 616-day seed-to-A cadence, does the runway reach the next round with six months to spare?",
+      "good_answer": "Runway of at least 26 to 27 months from close (616 days plus six months), or a milestone plan that reaches breakeven.",
+      "ref": "2.9, 2.1"
+    },
+    {
+      "id": "TV-HQ13",
+      "question": "Who on the board is conflicted in this round, and is there an independent committee?",
+      "good_answer": "A conflicts schedule and an independent committee with its own advisors that approved the price.",
+      "ref": "2.11"
+    },
+    {
+      "id": "TV-HQ14",
+      "question": "What third-party price discovery was run (outside lead, competing term sheets)?",
+      "good_answer": "Evidence of an outside lead or competing term sheets, with the reasons any higher-valuation alternative was set aside.",
+      "ref": "2.11"
+    },
+    {
+      "id": "TV-HQ15",
+      "question": "How does the price compare with each insider's latest fund mark and any bridge conversion terms?",
+      "good_answer": "A table of each insider's latest mark and bridge terms showing the round is not priced below them, or a documented reason.",
+      "ref": "2.11"
+    },
+    {
+      "id": "TV-HQ16",
+      "question": "How long do non-participants have to decide, what information do they get, and what happens to them (pay-to-play, conversion to common, preference stacking)?",
+      "good_answer": "Weeks not days, the same data room as insiders, and no punitive conversion without a fair-price record.",
+      "ref": "2.11"
+    },
+    {
+      "id": "TV-HQ17",
+      "question": "What do the minutes record on alternatives considered?",
+      "good_answer": "Minutes listing every alternative, its terms and why it was rejected.",
+      "ref": "2.11"
+    },
+    {
+      "id": "TV-HQ18",
+      "question": "What makes this company different from the base rate that about 75% of VC-backed companies never return cash?",
+      "good_answer": "Specific, evidenced differences (retention, unit economics, technical validation) rather than team charisma.",
+      "ref": "2.1, 2.12"
+    },
+    {
+      "id": "TV-HQ19",
+      "question": "What is the lead's and co-investors' track record without their top one or two outcomes, and are the partners who earned it still there?",
+      "good_answer": "Deal-level track record by leading partner, shown with and without top outcomes, using PME rather than compounded IRR.",
+      "ref": "2.12"
+    },
+    {
+      "id": "TV-HQ20",
+      "question": "Who else saw this round?",
+      "good_answer": "Names of other investors approached and any competing term sheets.",
+      "ref": "2.3"
+    }
+  ],
+  "failure_cases": [
+    {
+      "case": "Theranos",
+      "year": "2003 to 2018",
+      "what_happened": "Raised about $700M (KaW 2018) or close to $1B at a $9B valuation (HLS Forum 2022; Untamed Unicorns 2026); sources differ. 2014 revenue projected at $100M; actual just over $100,000. The analyzer promised about 200 tests ran about a dozen; tests ran on third-party analyzers. Unauthorized pharma logos; claimed DoD medevac use that never happened. Founder 100 votes per share; board of former officials with no lab expertise; internal warnings ignored; investors invested on relationship.",
+      "check": "Independent technical validation by our expert on our samples in our presence; call every named validator, partner and government user; error rates, complaint logs, regulator correspondence; reconcile projections to invoices and cash; treat celebrity board without domain experts and founder super-voting as red flags; no investment on relationship without audited financials and data-room access.",
+      "ref": "2.7"
+    },
+    {
+      "case": "Frank / JPMorgan",
+      "year": "2021 acquisition; sentenced Sept. 29, 2025",
+      "what_happened": "Founder claimed 4.25M users when Frank had about 300,000 and generated a synthetic list of 4M+ fake customers. JPMorgan paid $175M; about 70% of 400,000 emails bounced. 85-month sentence; restitution over $287M; judge criticized JPMorgan's diligence.",
+      "check": "Never accept a user list as evidence; test a random sample for live activity (logins, transactions, deliverable email) through production systems with our own engineer present.",
+      "ref": "2.7"
+    },
+    {
+      "case": "Blue Apron IPO",
+      "year": "2017",
+      "what_happened": "Growth bought with marketing; about 70% of acquired customers churned within six months; declining cumulative net revenue per cohort. IPO range cut from $15-$17 to $10; shares later fell about 70% more.",
+      "check": "Cohort-level CBCV before pricing.",
+      "ref": "2.7, 2.10"
+    },
+    {
+      "case": "Wayfair (CBCV analysis)",
+      "year": "2018",
+      "what_happened": "CBCV under $10 per share while the stock traded around $64; growth 'made entirely of acquisition'; repeat rates below Amazon's two decades earlier; stock fell about 10% the day the paper posted.",
+      "check": "Share of revenue from newly acquired customers by period; repeat-purchase curve against the category leader.",
+      "ref": "2.7, 2.10"
+    },
+    {
+      "case": "FTX",
+      "year": "2022",
+      "what_happened": "Raised $400M at $32B, up from $25B six months earlier, before collapse. Nearly $2B from VCs with no internal audit, no accounting department, no complete employee list, customer deposits off the main balance sheet.",
+      "check": "Controls first: in-house CFO and controller, employee census reconciled to payroll, customer assets and liabilities on the balance sheet, independent audit; last round is not validation.",
+      "ref": "2.7, 2.3"
+    },
+    {
+      "case": "SVB depositors",
+      "year": "March 2023",
+      "what_happened": "Hundreds of startups held large uninsured balances at SVB (about 94% uninsured deposits), threatening payroll; $42B withdrawn on March 9, 2023.",
+      "check": "Treasury map: balances by bank, insured share, single-bank covenants; weeks of payroll if the bank closed.",
+      "ref": "2.7, 2.3"
+    },
+    {
+      "case": "Zync v. Porsche (Del. Ch., pleading stage)",
+      "year": "May 2026",
+      "what_happened": "Porsche's venture arm held 5% via a $2.9M note, one of three board seats and a debt-approval right; its designee voted down a $10M Series A, withheld a promised bridge after obtaining a confidential competitor agreement, and conditioned a $50M PE offer on indemnities. Company shut down. Disloyalty, aiding-and-abetting and implied-covenant claims survived.",
+      "check": "Investor-rights map of every veto over financing and M&A and its holder; treat a strategic with a financing veto as a red flag.",
+      "ref": "2.11, 2.7"
+    },
+    {
+      "case": "Footprint (Guilbeau v. Footprint, Del. Ch., pleading stage)",
+      "year": "May 2026",
+      "what_happened": "Near-insolvent company raised $500M Class F preferred, $450M from three insider funds with board designees, at a pre-money about half their own bridge-implied value; higher alternatives set aside; Class A holders given three weeks; disclosures omitted valuation and insider benefits. Entire fairness applied; aiding-and-abetting claims survived.",
+      "check": "Price insider rounds against insiders' own marks and bridges; document rejected alternatives; give non-participants real time and data; disclose insider benefits.",
+      "ref": "2.11, 2.7"
+    },
+    {
+      "case": "Webvan",
+      "year": "dot-com era",
+      "what_happened": "Irreversible early commitments made before demand was validated; cited with excessive funding as a driver of the largest venture failures.",
+      "check": "Stage capital to validated demand; test cohort and demand evidence before funding irreversible build-out.",
+      "ref": "2.1"
+    },
+    {
+      "case": "Stripe / FTX last-round marks",
+      "year": "2021 to 2023",
+      "what_happened": "Stripe reported raising about $4B at about $55B, roughly half its 2021 $95B valuation; FTX's $32B mark preceded collapse.",
+      "check": "Reprice any 2021-vintage mark against current comparables; model a down round; value the specific security.",
+      "ref": "2.4"
+    },
+    {
+      "case": "Nikola (Milton); Ozy Media (Watson)",
+      "year": "recent",
+      "what_happened": "Named as other recent late-stage fraud convictions in HLS Forum, Untamed Unicorns, 2026; no further detail in source.",
+      "check": "Independent technical validation and direct counterparty confirmation; late-stage finance-function and governance requirements.",
+      "ref": "2.7"
+    }
+  ]
+}

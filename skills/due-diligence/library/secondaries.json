@@ -1,0 +1,1666 @@
+{
+  "type": "secondaries",
+  "name": "Secondaries and GP-Led Continuation Vehicles",
+  "summary": "Buying LP interests (LP-led portfolio or strip sales), deciding whether to sell or roll in a GP-led continuation vehicle (single- or multi-asset), participating in a GP-run tender, or backing a CV as a buyer. The GP sits on both sides of a GP-led, which is the whole diligence problem: who set the price, was there a genuine market test, is there a true status quo option, is the fairness opinion independent, and do rollers get the lead buyer's data room. Since June 5, 2024 no federal rule requires a fairness opinion, so every protection is contractual (ILPA May 2023 guidance is the standard). LP-led pricing turns on rolling a stale NAV forward (private marks lag at least four quarters), excluding NAV-loan-funded distributions and pricing unfunded commitments. Strip sales and tenders are not treated separately in the bible; LP-led pricing and GP-led process items are applied to them by analogy.",
+  "chapters": [
+    "13-secondaries-gp-led.md"
+  ],
+  "one_check": "Get the bid book: if you cannot see how many buyers were asked, how many bid and at what prices, you are accepting a price the GP set for an asset it is buying from itself.",
+  "subtypes": [
+    {
+      "id": "lp-led",
+      "name": "LP-led secondary",
+      "description": "An LP sells fund interests priced as % of the latest reported NAV; buyer inherits unfunded commitments and GP marks; GP consent applies."
+    },
+    {
+      "id": "gp-led-cv",
+      "name": "GP-led continuation vehicle",
+      "description": "Single-asset (SACV) or multi-asset (MACV) CV; existing LPs sell or roll; lead buyer prices; GP crystallizes carry and commits to the CV."
+    },
+    {
+      "id": "strip-sale",
+      "name": "Strip sale",
+      "description": "A buyer acquires a pro rata strip of a fund's portfolio or of an LP's interests; LP-led pricing tests plus a market-test check (not separately covered in the bible)."
+    },
+    {
+      "id": "tender",
+      "name": "GP-run tender offer",
+      "description": "GP arranges a buyer to offer liquidity to existing LPs; GP-led process protections apply (not separately covered in the bible)."
+    }
+  ],
+  "intake_questions": [
+    {
+      "id": "SEC-Q01",
+      "question": "Is this an LP-led sale, a strip sale, a GP-led continuation vehicle (single- or multi-asset), or a GP-run tender?",
+      "why": "Selects subtype.",
+      "sets_subtype": true
+    },
+    {
+      "id": "SEC-Q02",
+      "question": "Are we buying, selling or deciding whether to roll?",
+      "why": "Determines which side's protections matter (price adequacy vs overpayment).",
+      "sets_subtype": false
+    },
+    {
+      "id": "SEC-Q03",
+      "question": "What is the reference NAV date and how many quarters old is it?",
+      "why": "Marks lag public markets by at least four quarters; drives the roll-forward.",
+      "sets_subtype": false
+    },
+    {
+      "id": "SEC-Q04",
+      "question": "Is the price at or near 100% of NAV?",
+      "why": "A SACV near par when LP interests trade at 87% to 91% needs a reason.",
+      "sets_subtype": false
+    },
+    {
+      "id": "SEC-Q05",
+      "question": "Do the underlying funds use subscription lines or NAV facilities, or have they paid NAV-loan-funded distributions?",
+      "why": "Triggers synthetic DPI and recall review.",
+      "sets_subtype": false
+    },
+    {
+      "id": "SEC-Q06",
+      "question": "Has the asset been marketed before and withdrawn?",
+      "why": "Flags the 'could not be sold' failure mode.",
+      "sets_subtype": false
+    },
+    {
+      "id": "SEC-Q07",
+      "question": "Is a fairness opinion being provided, and by whom?",
+      "why": "Independence test.",
+      "sets_subtype": false
+    },
+    {
+      "id": "SEC-Q08",
+      "question": "Is there a structured-liquidity (preferred equity) component?",
+      "why": "Adds leverage ahead of rolling LPs; cross-ref NAV lending.",
+      "sets_subtype": false
+    }
+  ],
+  "requests": [
+    {
+      "id": "SEC-STR-001",
+      "order": 10,
+      "stage": "screen",
+      "priority": "gating",
+      "workstream": "Structure & Terms",
+      "request": "Transaction summary: type (LP-led sale, strip sale, single- or multi-asset continuation vehicle, tender), assets or fund interests involved, headline price, reference NAV date and timetable.",
+      "format": "Term summary from the GP or seller, with the reference-NAV quarter stated.",
+      "why": "Defines which side of the transaction we sit on and which items apply.",
+      "pass": "Complete summary with reference NAV date and price as % of NAV.",
+      "fail": "Price or reference date not disclosed.",
+      "verify": "Tie the reference NAV to the GP's quarterly report for that date.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "13.1",
+      "weak": false
+    },
+    {
+      "id": "SEC-COM-001",
+      "order": 20,
+      "stage": "screen",
+      "priority": "gating",
+      "workstream": "Commercial & Market",
+      "request": "Transaction rationale memo presented to the LPAC.",
+      "format": "Memo as delivered to the LPAC, with date.",
+      "why": "The GP sits on both sides of a GP-led; the rationale must be shown to the LPAC (ILPA, May 2023).",
+      "pass": "Memo explains why now, why this asset, and why a CV beats a sale or IPO.",
+      "fail": "No memo, or memo prepared after pricing was fixed.",
+      "verify": "Confirm delivery date with an LPAC member.",
+      "applies_to": [
+        "gp-led-cv",
+        "tender"
+      ],
+      "ref": "13.2 GP-led 1, 13.6",
+      "weak": false
+    },
+    {
+      "id": "SEC-COM-002",
+      "order": 30,
+      "stage": "screen",
+      "priority": "gating",
+      "workstream": "Commercial & Market",
+      "request": "Alternatives considered (third-party sale process, IPO, continued hold) with every third-party bid received.",
+      "format": "Adviser's process summary with bids and dates.",
+      "why": "CVs are used to hold assets that could not be sold.",
+      "pass": "Genuine alternatives tested; any third-party bids disclosed.",
+      "fail": "No alternatives tested or bids withheld.",
+      "verify": "Ask the secondary adviser directly.",
+      "applies_to": [
+        "gp-led-cv",
+        "tender"
+      ],
+      "ref": "13.2 GP-led 2, 13.3, 13.9 Q2",
+      "weak": false
+    },
+    {
+      "id": "SEC-FIN-001",
+      "order": 40,
+      "stage": "screen",
+      "priority": "gating",
+      "workstream": "Financial",
+      "request": "Price as % of the reference NAV and versus the most recent arm's-length mark for each asset or fund interest.",
+      "format": "Pricing schedule by asset or fund.",
+      "why": "A SACV at or near 100% of NAV while the GP's LP interests trade at 87% to 91% needs a reason.",
+      "pass": "Discount or premium explained by asset-level evidence and comparable trades (H1 2026 LP pricing about 87% of NAV overall; buyout 91%, venture 79%, infrastructure 91%, credit 89%, real estate 68%).",
+      "fail": "Par or premium pricing on a SACV with no supporting arm's-length evidence.",
+      "verify": "Compare with recent secondary pricing for the GP's own LP interests.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "13.4",
+      "weak": false
+    },
+    {
+      "id": "SEC-STR-002",
+      "order": 50,
+      "stage": "screen",
+      "priority": "gating",
+      "workstream": "Structure & Terms",
+      "request": "Election materials and timetable, including the default election if an LP does not respond.",
+      "format": "Election notice, election form and calendar.",
+      "why": "Short windows and a default of 'roll on new terms' force LPs onto worse economics.",
+      "pass": "At least 30 days to re-underwrite (ILPA materials); default is sell or status quo, not roll on new terms.",
+      "fail": "Election period under 20 business days or default is roll on new terms.",
+      "verify": "Count calendar and business days from data-room opening.",
+      "applies_to": [
+        "gp-led-cv",
+        "tender"
+      ],
+      "ref": "13.2 GP-led 7, 13.3, 13.8",
+      "weak": false
+    },
+    {
+      "id": "SEC-LEG-001",
+      "order": 60,
+      "stage": "screen",
+      "priority": "gating",
+      "workstream": "Corporate & Legal",
+      "request": "Fund LPAs, side letters and transfer and GP-consent provisions for every fund interest being sold.",
+      "format": "Executed LPAs and side letters; transfer clause extract.",
+      "why": "Buyer inherits unfunded commitments and needs GP consent to transfer.",
+      "pass": "Transfer permitted with GP consent obtainable on a stated timetable; side-letter rights transferable or identified as lost.",
+      "fail": "Consent discretionary with no timetable, or key side-letter rights not transferable.",
+      "verify": "Confirm consent process with the GP or administrator.",
+      "applies_to": [
+        "lp-led",
+        "strip-sale"
+      ],
+      "ref": "13.1, 13.2 LP-led 1",
+      "weak": false
+    },
+    {
+      "id": "SEC-FIN-002",
+      "order": 70,
+      "stage": "screen",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Latest quarterly reports and capital-account statements for every fund interest, with unfunded commitments by fund.",
+      "format": "Administrator-issued capital-account statements.",
+      "why": "Buyer inherits unfunded commitments and the GP's marks.",
+      "pass": "Statements issued by the administrator; unfunded commitments tie to statements.",
+      "fail": "Seller-prepared statements only.",
+      "verify": "Request statements directly from each fund's administrator.",
+      "applies_to": [
+        "lp-led",
+        "strip-sale"
+      ],
+      "ref": "13.2 LP-led 2",
+      "weak": false
+    },
+    {
+      "id": "SEC-COM-003",
+      "order": 80,
+      "stage": "screen",
+      "priority": "core",
+      "workstream": "Commercial & Market",
+      "request": "The GP's full portfolio commentary history on the asset(s) since acquisition.",
+      "format": "Quarterly letters as sent to LPs.",
+      "why": "Early focus on refinancing, covenants or capital structure predicts worse outcomes.",
+      "pass": "Commentary consistent with the CV case; problems disclosed as they arose.",
+      "fail": "Commentary dominated by refinancing and covenant language.",
+      "verify": "Obtain the letters from an existing LP.",
+      "applies_to": [
+        "gp-led-cv",
+        "tender"
+      ],
+      "ref": "13.2 GP-led 10, 13.3, 13.8",
+      "weak": false
+    },
+    {
+      "id": "SEC-SPN-001",
+      "order": 90,
+      "stage": "screen",
+      "priority": "core",
+      "workstream": "Sponsor & Background",
+      "request": "Secondary adviser engagement letter, fee basis and who pays.",
+      "format": "Executed engagement letter.",
+      "why": "An adviser paid only on closing, by the GP, is conflicted toward closing at any price.",
+      "pass": "Fee not solely contingent on closing, or contingency disclosed and mitigated.",
+      "fail": "Adviser paid only on closing by the GP.",
+      "verify": "Read the letter; ask the adviser.",
+      "applies_to": [
+        "gp-led-cv",
+        "tender"
+      ],
+      "ref": "13.2 GP-led 9, 13.5, 13.8",
+      "weak": false
+    },
+    {
+      "id": "SEC-COM-004",
+      "order": 100,
+      "stage": "screen",
+      "priority": "supporting",
+      "workstream": "Commercial & Market",
+      "request": "Seller's pricing support: comparable LP-portfolio trades by strategy and tail-end status of each fund.",
+      "format": "Adviser's market report and trade comparables.",
+      "why": "LP portfolios traded at about 87% of NAV in H1 2026; tail-end funds at 25%+ discounts (35%+ in some geographies).",
+      "pass": "Price consistent with strategy and tail-end discounts.",
+      "fail": "Tail-end funds priced near NAV.",
+      "verify": "Compare with Jefferies semi-annual review.",
+      "applies_to": [
+        "lp-led",
+        "strip-sale"
+      ],
+      "ref": "13.4",
+      "weak": false
+    },
+    {
+      "id": "SEC-STR-003",
+      "order": 10,
+      "stage": "term-sheet",
+      "priority": "gating",
+      "workstream": "Structure & Terms",
+      "request": "Bid book: every buyer contacted, every buyer that bid, bid prices and terms, and the adviser's buyer list.",
+      "format": "Adviser-prepared bid book with dates; buyer list.",
+      "why": "THE ONE CHECK: without it you accept a price the GP set for an asset it is buying from itself.",
+      "pass": "Broad buyer list contacted; multiple bids; chosen price at or above the best bid.",
+      "fail": "Bid book withheld, or one or two buyers contacted.",
+      "verify": "Call a bidder who declined.",
+      "applies_to": [
+        "gp-led-cv",
+        "tender",
+        "strip-sale"
+      ],
+      "ref": "13.2 GP-led 3, 13.7, 13.9 Q1",
+      "weak": false
+    },
+    {
+      "id": "SEC-VAL-001",
+      "order": 20,
+      "stage": "term-sheet",
+      "priority": "gating",
+      "workstream": "Valuation & Model",
+      "request": "Fairness or valuation opinion, the provider's engagement letter and a list of all other mandates the provider has from the GP.",
+      "format": "Signed opinion, engagement letter and conflicts disclosure.",
+      "why": "No federal fairness-opinion requirement since June 5, 2024; it is contractual only.",
+      "pass": "Opinion provided by a firm with no other GP mandate.",
+      "fail": "No opinion, or provider holds other GP mandates.",
+      "verify": "Call the provider and check its other mandates independently.",
+      "applies_to": [
+        "gp-led-cv",
+        "tender"
+      ],
+      "ref": "13.2 GP-led 3, 13.3, 13.6, 13.9 Q6",
+      "weak": false
+    },
+    {
+      "id": "SEC-STR-004",
+      "order": 30,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Structure & Terms",
+      "request": "Proposed CV LPA: management-fee base (invested or committed), carry tiers, hurdle reset, term, extensions and GP commitment.",
+      "format": "Draft CV LPA.",
+      "why": "Rollers are pushed onto new fees and carry on a fresh clock.",
+      "pass": "Fee on invested capital; carry tiers and hurdle disclosed; extensions require LP consent.",
+      "fail": "Fee on committed capital with new carry clock and unilateral extensions.",
+      "verify": "Counsel side-by-side review.",
+      "applies_to": [
+        "gp-led-cv",
+        "tender"
+      ],
+      "ref": "13.2 GP-led 5, 13.3",
+      "weak": false
+    },
+    {
+      "id": "SEC-STR-005",
+      "order": 40,
+      "stage": "term-sheet",
+      "priority": "gating",
+      "workstream": "Structure & Terms",
+      "request": "Status quo option described term by term: management fee, carry, carry roll and side-letter carry-over.",
+      "format": "Side-by-side of old-fund LPA and CV LPA.",
+      "why": "ILPA requires a TRUE status quo option: no change in fee or carry, full roll of carry, side letters carried over.",
+      "pass": "True status quo option available on every term.",
+      "fail": "No status quo option, or 'status quo' changes fees or carry.",
+      "verify": "Counsel review against ILPA May 2023.",
+      "applies_to": [
+        "gp-led-cv",
+        "tender"
+      ],
+      "ref": "13.3, 13.6, 13.7, 13.9 Q3",
+      "weak": false
+    },
+    {
+      "id": "SEC-FIN-003",
+      "order": 50,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "GP's crystallized carry in the selling fund at the transaction price, and the amount reinvested in the CV.",
+      "format": "Carry calculation tied to the selling fund's waterfall.",
+      "why": "Carry crystallized on a price the GP set.",
+      "pass": "Carry calculation disclosed; majority reinvested.",
+      "fail": "Carry calculation withheld.",
+      "verify": "Recompute from the selling fund's LPA waterfall.",
+      "applies_to": [
+        "gp-led-cv",
+        "tender"
+      ],
+      "ref": "13.2 GP-led 6, 13.3, 13.9 Q5",
+      "weak": false
+    },
+    {
+      "id": "SEC-FIN-004",
+      "order": 60,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Carry recomputed at the transaction price and at prices 15% and 20% lower, showing who bears the gap.",
+      "format": "Our sensitivity with the GP's inputs.",
+      "why": "Carry crystallized on an inflated mark that the CV buyer funds.",
+      "pass": "GP economics not dependent on the top of the price range.",
+      "fail": "GP's crystallized carry largely disappears at a 15% to 20% lower price.",
+      "verify": "Recompute ourselves.",
+      "applies_to": [
+        "gp-led-cv",
+        "tender"
+      ],
+      "ref": "13.4, 13.7, 13.9 Q5",
+      "weak": false
+    },
+    {
+      "id": "SEC-STR-006",
+      "order": 70,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Structure & Terms",
+      "request": "GP commitment to the CV as % of total commitments, split into new cash and rolled carry.",
+      "format": "Commitment schedule.",
+      "why": "Alignment: about 10% of total commitments in North American deals vs about 5% in Europe.",
+      "pass": "About 10% with new cash (North America market); disclosed split.",
+      "fail": "Under about 5% with mostly rolled carry, or entirely rolled carry.",
+      "verify": "Confirm funding with the CV administrator.",
+      "applies_to": [
+        "gp-led-cv",
+        "tender"
+      ],
+      "ref": "13.3, 13.4, 13.8, 13.9 Q4",
+      "weak": false
+    },
+    {
+      "id": "SEC-STR-007",
+      "order": 80,
+      "stage": "term-sheet",
+      "priority": "gating",
+      "workstream": "Structure & Terms",
+      "request": "Information-parity undertaking: rolling LPs receive the same data-room access as the lead buyer.",
+      "format": "Written undertaking and data-room index comparison.",
+      "why": "Lead buyer receives diligence LPs never see.",
+      "pass": "Identical data-room index.",
+      "fail": "Lead buyer has materials LPs do not.",
+      "verify": "Compare indexes with the lead buyer's counsel.",
+      "applies_to": [
+        "gp-led-cv",
+        "tender"
+      ],
+      "ref": "13.3, 13.6, 13.7, 13.9 Q7",
+      "weak": false
+    },
+    {
+      "id": "SEC-REG-001",
+      "order": 90,
+      "stage": "term-sheet",
+      "priority": "gating",
+      "workstream": "Regulatory & Compliance",
+      "request": "Conflicts disclosure to the LPAC, LPAC minutes and the LPAC vote, with dates relative to pricing.",
+      "format": "Minutes and written consent.",
+      "why": "GPs should bring ALL conflicts to the LPAC even if pre-cleared in the LPA.",
+      "pass": "LPAC voted to waive conflicts before pricing was fixed, with all conflicts presented.",
+      "fail": "LPAC asked to approve after pricing fixed, or only some conflicts presented.",
+      "verify": "Confirm with an LPAC member.",
+      "applies_to": [
+        "gp-led-cv",
+        "tender"
+      ],
+      "ref": "13.2 GP-led 8, 13.3, 13.6, 13.8",
+      "weak": false
+    },
+    {
+      "id": "SEC-LEG-002",
+      "order": 100,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Corporate & Legal",
+      "request": "Purchase and sale agreement for the fund interests, including assumption of unfunded commitments and price-adjustment mechanics from the reference date.",
+      "format": "Draft PSA.",
+      "why": "Buyer inherits unfunded commitments and the GP's marks.",
+      "pass": "Unfunded commitments priced in; distributions and calls since reference date adjusted.",
+      "fail": "No adjustment mechanics.",
+      "verify": "Counsel review.",
+      "applies_to": [
+        "lp-led",
+        "strip-sale"
+      ],
+      "ref": "13.1, 13.3",
+      "weak": false
+    },
+    {
+      "id": "SEC-FIN-005",
+      "order": 110,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Schedule of unfunded commitments by fund with who funds them after closing and how they are priced.",
+      "format": "Administrator-confirmed schedule.",
+      "why": "Unfunded commitments are a liability the buyer inherits.",
+      "pass": "Unfunded commitments funded by buyer and priced into the bid.",
+      "fail": "Unfunded not reflected in price.",
+      "verify": "Confirm with each administrator.",
+      "applies_to": [
+        "lp-led",
+        "strip-sale"
+      ],
+      "ref": "13.3",
+      "weak": false
+    },
+    {
+      "id": "SEC-STR-008",
+      "order": 120,
+      "stage": "term-sheet",
+      "priority": "supporting",
+      "workstream": "Structure & Terms",
+      "request": "Structured-liquidity component terms (preferred equity or similar) if part of the transaction.",
+      "format": "Term sheet.",
+      "why": "Structured liquidity solutions are about 9% of volume and add leverage ahead of rolling LPs.",
+      "pass": "Terms disclosed with priority and return; see NAV-lending items.",
+      "fail": "Undisclosed preferred layer.",
+      "verify": "Counsel review.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "13.1, Ch 14",
+      "weak": false
+    },
+    {
+      "id": "SEC-COM-005",
+      "order": 10,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Commercial & Market",
+      "request": "Full company diligence materials as given to the lead buyer: QoE, legal diligence and debt documents.",
+      "format": "Third-party reports with reliance letters.",
+      "why": "A SACV is a concentrated single-company position; underwrite it as a direct deal, not on the GP's NAV.",
+      "pass": "Full package received; QoE supports the CV case EBITDA.",
+      "fail": "Only the GP's NAV and model provided.",
+      "verify": "Run the Chapter 5 PE request set.",
+      "applies_to": [
+        "gp-led-cv",
+        "tender"
+      ],
+      "ref": "13.2 GP-led 4, 13.3",
+      "weak": false
+    },
+    {
+      "id": "SEC-VAL-002",
+      "order": 20,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Valuation & Model",
+      "request": "Asset-level model and 100-day plan for the CV.",
+      "format": "Model with assumptions.",
+      "why": "The CV case may depend on multiple expansion.",
+      "pass": "Plan driven by EBITDA growth; exit multiple at or below entry.",
+      "fail": "Return requires multiple expansion.",
+      "verify": "Rebuild the model.",
+      "applies_to": [
+        "gp-led-cv",
+        "tender"
+      ],
+      "ref": "13.2 GP-led 4, 13.3",
+      "weak": false
+    },
+    {
+      "id": "SEC-VAL-003",
+      "order": 30,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Valuation & Model",
+      "request": "Return attribution of the CV case: EBITDA growth versus multiple expansion, and assumed exit multiple versus entry.",
+      "format": "Bridge from the model.",
+      "why": "Buyers increasingly underwrite to static or contracting exit multiples.",
+      "pass": "Case works at exit multiple equal to or below entry.",
+      "fail": "Case needs multiple expansion.",
+      "verify": "Sensitize exit multiple.",
+      "applies_to": [
+        "gp-led-cv",
+        "tender"
+      ],
+      "ref": "13.3, 13.9 Q8",
+      "weak": false
+    },
+    {
+      "id": "SEC-COM-006",
+      "order": 40,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Commercial & Market",
+      "request": "Prior marketing history of the asset: any prior sale process, who was approached, and why it did not clear.",
+      "format": "Adviser and GP statements; prior teasers.",
+      "why": "CV used to hold an asset that could not be sold; asset previously marketed and withdrawn.",
+      "pass": "No failed process, or failure explained by market conditions with evidence.",
+      "fail": "Asset marketed and withdrawn without explanation.",
+      "verify": "Ask prior bidders.",
+      "applies_to": [
+        "gp-led-cv",
+        "tender"
+      ],
+      "ref": "13.3, 13.7, 13.8",
+      "weak": false
+    },
+    {
+      "id": "SEC-LEG-003",
+      "order": 50,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Corporate & Legal",
+      "request": "Asset-level debt documents: credit agreements, covenants, maturities and amendment history.",
+      "format": "Executed documents.",
+      "why": "Weak assets in CVs often carry stressed debt.",
+      "pass": "No covenant pressure within the CV term; maturities funded.",
+      "fail": "Near-term maturities or covenant waivers.",
+      "verify": "Read the amendment trail.",
+      "applies_to": [
+        "gp-led-cv",
+        "tender"
+      ],
+      "ref": "13.2 GP-led 4, 13.7",
+      "weak": false
+    },
+    {
+      "id": "SEC-LEG-004",
+      "order": 60,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Corporate & Legal",
+      "request": "Old-fund LPA and all side letters, to compare with the CV LPA and to identify side-letter rights to carry over.",
+      "format": "Executed documents.",
+      "why": "Side letters must carry over in a true status quo option.",
+      "pass": "Every side-letter right carried over or compensated.",
+      "fail": "Rights lost.",
+      "verify": "Counsel comparison.",
+      "applies_to": [
+        "gp-led-cv",
+        "tender"
+      ],
+      "ref": "13.2 GP-led 5, 13.6",
+      "weak": false
+    },
+    {
+      "id": "SEC-LEG-005",
+      "order": 70,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Corporate & Legal",
+      "request": "Process-record file: LPAC vote, alternatives analysis, fairness opinion and election-period evidence.",
+      "format": "Assembled file.",
+      "why": "LP challenge after closing (ADIC v. US PE firm, Del. Ch., Dec. 2025).",
+      "pass": "Complete record exists for every ILPA process step.",
+      "fail": "Gaps in the process record.",
+      "verify": "Counsel review.",
+      "applies_to": [
+        "gp-led-cv",
+        "tender"
+      ],
+      "ref": "13.1, 13.7",
+      "weak": false
+    },
+    {
+      "id": "SEC-FIN-006",
+      "order": 80,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Fund cash flows (dated calls and distributions) for each fund interest.",
+      "format": "Administrator ledger.",
+      "why": "Needed to distinguish dollar-weighted IRR from TWR and check DPI.",
+      "pass": "Cash flows tie to capital-account statements.",
+      "fail": "Seller-prepared cash flows only.",
+      "verify": "Request from the administrator.",
+      "applies_to": [
+        "lp-led",
+        "strip-sale"
+      ],
+      "ref": "13.2 LP-led 3",
+      "weak": false
+    },
+    {
+      "id": "SEC-FIN-007",
+      "order": 90,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Latest audited financial statements of each fund.",
+      "format": "Signed audits.",
+      "why": "Marks and liabilities not visible in quarterly reports.",
+      "pass": "Unqualified opinions.",
+      "fail": "Qualified or late audits.",
+      "verify": "Confirm with auditor.",
+      "applies_to": [
+        "lp-led",
+        "strip-sale"
+      ],
+      "ref": "13.2 LP-led 3",
+      "weak": false
+    },
+    {
+      "id": "SEC-VAL-004",
+      "order": 100,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Valuation & Model",
+      "request": "Valuation policy of each fund.",
+      "format": "Policy document.",
+      "why": "Buyer inherits the GP's marks.",
+      "pass": "Policy specific; independent valuation of Level 3 assets.",
+      "fail": "GP discretion over marks.",
+      "verify": "Compare marks to policy for top holdings.",
+      "applies_to": [
+        "lp-led",
+        "strip-sale"
+      ],
+      "ref": "13.2 LP-led 3",
+      "weak": false
+    },
+    {
+      "id": "SEC-VAL-005",
+      "order": 110,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Valuation & Model",
+      "request": "Asset-level marks for the top holdings of each fund and exit-to-mark history.",
+      "format": "Schedule from quarterly reports.",
+      "why": "Stale NAV in LP-led pricing.",
+      "pass": "Exits at or above prior marks on average.",
+      "fail": "Exits systematically below marks.",
+      "verify": "Tie to audited realizations.",
+      "applies_to": [
+        "lp-led",
+        "strip-sale",
+        "tender"
+      ],
+      "ref": "13.2 LP-led 4, 13.7",
+      "weak": false
+    },
+    {
+      "id": "SEC-VAL-006",
+      "order": 120,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Valuation & Model",
+      "request": "NAV roll-forward from the reference date for public-market moves and known events, by fund.",
+      "format": "Our roll-forward using public-factor proxies and seller disclosures.",
+      "why": "Private marks lag public markets by at least four quarters (IMF GFSR Apr. 2024).",
+      "pass": "Price assessed against rolled-forward NAV, not stale reference NAV.",
+      "fail": "Price justified only against stale NAV.",
+      "verify": "Use public comparables and the GP's subsequent quarterly report.",
+      "applies_to": [
+        "lp-led",
+        "strip-sale",
+        "tender"
+      ],
+      "ref": "13.3, 13.7",
+      "weak": false
+    },
+    {
+      "id": "SEC-VAL-007",
+      "order": 130,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Valuation & Model",
+      "request": "Each fund's dollar-weighted IRR compared with a TWR, and NAV marks compared with public-factor benchmarks.",
+      "format": "Our calculation.",
+      "why": "Dollar-weighted IRR and TWR are not comparable; marks can lag factors.",
+      "pass": "Marks consistent with public-factor moves.",
+      "fail": "Marks diverge from factor-implied values.",
+      "verify": "Compute ourselves.",
+      "applies_to": [
+        "lp-led",
+        "strip-sale"
+      ],
+      "ref": "13.3",
+      "weak": false
+    },
+    {
+      "id": "SEC-FIN-008",
+      "order": 140,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Fund-level leverage for each fund: subscription lines and NAV facilities, balances, and any recallable distributions.",
+      "format": "Facility summaries and LP notices.",
+      "why": "Hidden leverage ahead of the LP interest.",
+      "pass": "All facilities disclosed with balances.",
+      "fail": "Undisclosed facilities.",
+      "verify": "Confirm with administrators.",
+      "applies_to": [
+        "lp-led",
+        "strip-sale"
+      ],
+      "ref": "13.2 LP-led 5, Ch 14",
+      "weak": false
+    },
+    {
+      "id": "SEC-FIN-009",
+      "order": 150,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Synthetic DPI excluding NAV-loan-funded distributions, and the recall clause for such distributions.",
+      "format": "Calculation schedule and clause extract.",
+      "why": "NAV-loan-funded distributions overstate DPI and can be recalled.",
+      "pass": "Synthetic DPI produced; recall terms understood and priced.",
+      "fail": "Recallable distributions not disclosed.",
+      "verify": "Recompute from facility drawdowns.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "13.3, 13.7, Ch 14",
+      "weak": false
+    },
+    {
+      "id": "SEC-COM-007",
+      "order": 160,
+      "stage": "confirmatory",
+      "priority": "supporting",
+      "workstream": "Commercial & Market",
+      "request": "Sector exposure of the portfolio, including software share.",
+      "format": "Look-through holdings schedule.",
+      "why": "Portfolios with limited software exposure priced better in H1 2026.",
+      "pass": "Software exposure disclosed and priced.",
+      "fail": "Undisclosed concentration.",
+      "verify": "Look through holdings.",
+      "applies_to": [
+        "lp-led",
+        "strip-sale"
+      ],
+      "ref": "13.4",
+      "weak": false
+    },
+    {
+      "id": "SEC-VAL-008",
+      "order": 170,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Valuation & Model",
+      "request": "Seller's disclosure of known adverse events at underlying companies since the reference NAV date.",
+      "format": "Seller certificate.",
+      "why": "Sellers are sophisticated and know more than the buyer about the tail.",
+      "pass": "Certificate given with a rep covering it.",
+      "fail": "Seller refuses to represent.",
+      "verify": "Compare with GP's subsequent quarterly report.",
+      "applies_to": [
+        "lp-led",
+        "strip-sale"
+      ],
+      "ref": "13.1",
+      "weak": false
+    },
+    {
+      "id": "SEC-COM-008",
+      "order": 180,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Commercial & Market",
+      "request": "Tender offer document and GP disclosure of its own participation and of any buyer financing the tender.",
+      "format": "Tender offer memorandum.",
+      "why": "GP sits on both sides; price set by the GP or its chosen buyer.",
+      "pass": "Buyer, price basis and GP interests disclosed.",
+      "fail": "Buyer identity or GP interest withheld.",
+      "verify": "Counsel review.",
+      "applies_to": [
+        "tender"
+      ],
+      "ref": "13.1, 13.3",
+      "weak": false
+    },
+    {
+      "id": "SEC-VAL-009",
+      "order": 10,
+      "stage": "third-party",
+      "priority": "gating",
+      "workstream": "Valuation & Model",
+      "request": "Direct call with the fairness-opinion provider to confirm scope, independence and all mandates from the GP.",
+      "format": "Call notes.",
+      "why": "Opinion provider with other GP mandates.",
+      "pass": "Provider confirms no other GP mandate.",
+      "fail": "Other mandates found.",
+      "verify": "Independently sourced contact.",
+      "applies_to": [
+        "gp-led-cv",
+        "tender"
+      ],
+      "ref": "13.5, 13.6",
+      "weak": false
+    },
+    {
+      "id": "SEC-COM-009",
+      "order": 20,
+      "stage": "third-party",
+      "priority": "core",
+      "workstream": "Commercial & Market",
+      "request": "Call with at least one bidder that declined or was outbid.",
+      "format": "Call notes.",
+      "why": "Thin market tests anchored on the GP's own valuation.",
+      "pass": "Bidder confirms a real process.",
+      "fail": "Bidder describes a token process.",
+      "verify": "Bidder sourced from the bid book.",
+      "applies_to": [
+        "gp-led-cv",
+        "tender",
+        "strip-sale"
+      ],
+      "ref": "13.7",
+      "weak": false
+    },
+    {
+      "id": "SEC-FIN-010",
+      "order": 30,
+      "stage": "third-party",
+      "priority": "gating",
+      "workstream": "Financial",
+      "request": "Independent QoE on the underlying asset(s), engaged by us or with reliance.",
+      "format": "QoE report.",
+      "why": "Underwrite the CV as a direct deal.",
+      "pass": "QoE EBITDA within 5% of the CV case.",
+      "fail": "Material EBITDA adjustments.",
+      "verify": "Engaged by us.",
+      "applies_to": [
+        "gp-led-cv",
+        "tender"
+      ],
+      "ref": "13.3, 13.5",
+      "weak": false
+    },
+    {
+      "id": "SEC-LEG-006",
+      "order": 40,
+      "stage": "third-party",
+      "priority": "core",
+      "workstream": "Corporate & Legal",
+      "request": "Our counsel's LPA comparison memo (old fund vs CV, or fund LPAs for transfer).",
+      "format": "Memo.",
+      "why": "Status quo option and transfer terms.",
+      "pass": "No unaddressed deviations.",
+      "fail": "Unaddressed deviations.",
+      "verify": "Counsel engaged by us.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "13.5",
+      "weak": false
+    },
+    {
+      "id": "SEC-COM-010",
+      "order": 50,
+      "stage": "third-party",
+      "priority": "supporting",
+      "workstream": "Commercial & Market",
+      "request": "Lead secondary buyer's diligence package index and its underwriting assumptions where shareable.",
+      "format": "Index and summary.",
+      "why": "Lead buyer's package is the information-parity benchmark.",
+      "pass": "Our access matches.",
+      "fail": "Gaps.",
+      "verify": "Compare indexes.",
+      "applies_to": [
+        "gp-led-cv",
+        "tender"
+      ],
+      "ref": "13.5",
+      "weak": false
+    },
+    {
+      "id": "SEC-STR-009",
+      "order": 10,
+      "stage": "closing",
+      "priority": "gating",
+      "workstream": "Structure & Terms",
+      "request": "Executed CV LPA and side letters conforming to the agreed terms, with side letters carried over for rollers.",
+      "format": "Execution versions and redline.",
+      "why": "Late changes to status quo or economics.",
+      "pass": "Redline shows only agreed changes.",
+      "fail": "Unagreed changes.",
+      "verify": "Counsel confirmation.",
+      "applies_to": [
+        "gp-led-cv",
+        "tender"
+      ],
+      "ref": "13.6",
+      "weak": false
+    },
+    {
+      "id": "SEC-LEG-007",
+      "order": 20,
+      "stage": "closing",
+      "priority": "gating",
+      "workstream": "Corporate & Legal",
+      "request": "GP consent to transfer, executed transfer agreement and administrator confirmation of the register update.",
+      "format": "Executed documents and administrator confirmation.",
+      "why": "Transfer without consent is void.",
+      "pass": "Consent and register update confirmed.",
+      "fail": "Missing consent.",
+      "verify": "Administrator confirmation.",
+      "applies_to": [
+        "lp-led",
+        "strip-sale"
+      ],
+      "ref": "13.1",
+      "weak": false
+    },
+    {
+      "id": "SEC-FIN-011",
+      "order": 30,
+      "stage": "closing",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Closing statement reconciling price to reference NAV, with adjustments for calls and distributions since the reference date.",
+      "format": "Closing statement.",
+      "why": "Value leakage between reference date and closing.",
+      "pass": "Adjustments tie to administrator records.",
+      "fail": "Unreconciled adjustments.",
+      "verify": "Administrator confirmation.",
+      "applies_to": [
+        "lp-led",
+        "strip-sale"
+      ],
+      "ref": "13.3",
+      "weak": false
+    },
+    {
+      "id": "SEC-FOP-001",
+      "order": 40,
+      "stage": "closing",
+      "priority": "core",
+      "workstream": "Fund Operations",
+      "request": "Election acknowledgement and funds-flow memo, with payment instructions confirmed by call-back to the administrator.",
+      "format": "Acknowledgement and funds flow.",
+      "why": "Payment misdirection; election misrecorded.",
+      "pass": "Election recorded as submitted; instructions verified.",
+      "fail": "Mismatch.",
+      "verify": "Call-back.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "13.2",
+      "weak": false
+    },
+    {
+      "id": "SEC-FIN-012",
+      "order": 10,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Quarterly CV report with asset-level performance against the 100-day plan and CV case.",
+      "format": "Quarterly report.",
+      "why": "CV holds an asset that underperforms its case.",
+      "pass": "Delivered on time; variances explained.",
+      "fail": "Late or no asset-level data.",
+      "verify": "Compare with lender reports.",
+      "applies_to": [
+        "gp-led-cv",
+        "tender"
+      ],
+      "ref": "13.2",
+      "weak": false
+    },
+    {
+      "id": "SEC-FOP-002",
+      "order": 20,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Fund Operations",
+      "request": "Quarterly administrator-issued capital-account statements for acquired or rolled interests.",
+      "format": "Administrator statements.",
+      "why": "Marks and calls on inherited interests.",
+      "pass": "Statements reconcile.",
+      "fail": "Breaks.",
+      "verify": "Reconcile.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "13.2 LP-led 2",
+      "weak": false
+    },
+    {
+      "id": "SEC-FOP-003",
+      "order": 30,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Fund Operations",
+      "request": "Annual audited financial statements of the CV or each fund.",
+      "format": "Signed audits.",
+      "why": "Fresh fee clock on an unaudited vehicle.",
+      "pass": "Unqualified and on time.",
+      "fail": "Late or qualified.",
+      "verify": "Auditor confirmation.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "13.2",
+      "weak": false
+    },
+    {
+      "id": "SEC-REG-002",
+      "order": 40,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Regulatory & Compliance",
+      "request": "Notice of any CV term extension, fee change or further GP-led, with LPAC consent.",
+      "format": "Notices and consents.",
+      "why": "Fee life extended on a concentrated asset.",
+      "pass": "Consent obtained before any change.",
+      "fail": "Unilateral changes.",
+      "verify": "Read minutes.",
+      "applies_to": [
+        "gp-led-cv",
+        "tender"
+      ],
+      "ref": "13.3",
+      "weak": false
+    },
+    {
+      "id": "SEC-FIN-013",
+      "order": 50,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Distribution notices identifying NAV-loan-funded or recallable amounts.",
+      "format": "Notices.",
+      "why": "Recallable distributions.",
+      "pass": "Source stated.",
+      "fail": "Source not stated.",
+      "verify": "Trace to realizations.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "13.3",
+      "weak": false
+    },
+    {
+      "id": "SEC-FIN-014",
+      "order": 60,
+      "stage": "monitoring",
+      "priority": "supporting",
+      "workstream": "Financial",
+      "request": "Unfunded capital-call notices on acquired interests.",
+      "format": "Notices.",
+      "why": "Inherited unfunded commitments.",
+      "pass": "Calls within the modelled range.",
+      "fail": "Calls above model.",
+      "verify": "Tie to pacing model.",
+      "applies_to": [
+        "lp-led",
+        "strip-sale"
+      ],
+      "ref": "13.3",
+      "weak": false
+    },
+    {
+      "id": "SEC-VAL-010",
+      "order": 70,
+      "stage": "monitoring",
+      "priority": "supporting",
+      "workstream": "Valuation & Model",
+      "request": "Exit report comparing realized price with the CV transaction price.",
+      "format": "Report at exit.",
+      "why": "Feedback on GP-led pricing.",
+      "pass": "Exit at or above CV price.",
+      "fail": "Exit below CV price.",
+      "verify": "Tie to audit.",
+      "applies_to": [
+        "gp-led-cv",
+        "tender"
+      ],
+      "ref": "13.4",
+      "weak": false
+    }
+  ],
+  "kill_tests": [
+    {
+      "id": "SEC-K01",
+      "test": "Bid book (buyers contacted, bids and prices) refused.",
+      "ref": "13.7 THE ONE CHECK",
+      "applies_to": [
+        "gp-led-cv",
+        "tender",
+        "strip-sale"
+      ]
+    },
+    {
+      "id": "SEC-K02",
+      "test": "No true status quo option (rollers forced onto new fee or carry terms).",
+      "ref": "13.6, 13.7",
+      "applies_to": [
+        "gp-led-cv"
+      ]
+    },
+    {
+      "id": "SEC-K03",
+      "test": "No fairness or valuation opinion, or the provider has other mandates from the GP, and the GP will not cure.",
+      "ref": "13.3, 13.6",
+      "applies_to": [
+        "gp-led-cv",
+        "tender"
+      ]
+    },
+    {
+      "id": "SEC-K04",
+      "test": "Information parity with the lead buyer refused.",
+      "ref": "13.7",
+      "applies_to": [
+        "gp-led-cv",
+        "tender"
+      ]
+    },
+    {
+      "id": "SEC-K05",
+      "test": "Election period under 20 business days with no extension and default election of roll on new terms.",
+      "ref": "13.8",
+      "applies_to": [
+        "gp-led-cv",
+        "tender"
+      ]
+    },
+    {
+      "id": "SEC-K06",
+      "test": "LPAC conflict vote not obtained, or obtained only after pricing was fixed.",
+      "ref": "13.3, 13.8",
+      "applies_to": [
+        "gp-led-cv",
+        "tender"
+      ]
+    },
+    {
+      "id": "SEC-K07",
+      "test": "GP consent to transfer unobtainable, or seller refuses asset-level marks needed to roll NAV forward.",
+      "ref": "13.2, 13.3",
+      "applies_to": [
+        "lp-led",
+        "strip-sale"
+      ]
+    }
+  ],
+  "red_flags": [
+    {
+      "id": "SEC-RF01",
+      "flag": "Election period under 20 business days (ILPA materials cite at least 30 days).",
+      "check": "Count days from data-room opening.",
+      "ref": "13.8",
+      "applies_to": [
+        "gp-led-cv",
+        "tender"
+      ]
+    },
+    {
+      "id": "SEC-RF02",
+      "flag": "Default election is 'roll on new terms'.",
+      "check": "Read election form.",
+      "ref": "13.8",
+      "applies_to": [
+        "gp-led-cv",
+        "tender"
+      ]
+    },
+    {
+      "id": "SEC-RF03",
+      "flag": "No fairness opinion, or an opinion provider with other GP mandates.",
+      "check": "Provider engagement letter and conflicts list.",
+      "ref": "13.8",
+      "applies_to": [
+        "gp-led-cv",
+        "tender"
+      ]
+    },
+    {
+      "id": "SEC-RF04",
+      "flag": "Adviser paid only on closing, by the GP.",
+      "check": "Adviser engagement letter.",
+      "ref": "13.8",
+      "applies_to": [
+        "gp-led-cv",
+        "tender"
+      ]
+    },
+    {
+      "id": "SEC-RF05",
+      "flag": "GP commitment entirely rolled carry.",
+      "check": "Commitment split new cash vs carry.",
+      "ref": "13.8",
+      "applies_to": [
+        "gp-led-cv"
+      ]
+    },
+    {
+      "id": "SEC-RF06",
+      "flag": "LPAC asked to approve after pricing is fixed.",
+      "check": "Date of LPAC vote vs pricing.",
+      "ref": "13.8",
+      "applies_to": [
+        "gp-led-cv",
+        "tender"
+      ]
+    },
+    {
+      "id": "SEC-RF07",
+      "flag": "SACV priced at or near 100% of NAV while the GP's LP interests trade at 87% to 91%.",
+      "check": "Comparable LP-interest pricing.",
+      "ref": "13.4, 13.8",
+      "applies_to": [
+        "gp-led-cv"
+      ]
+    },
+    {
+      "id": "SEC-RF08",
+      "flag": "Asset previously marketed and withdrawn.",
+      "check": "Prior marketing history.",
+      "ref": "13.8",
+      "applies_to": [
+        "gp-led-cv"
+      ]
+    },
+    {
+      "id": "SEC-RF09",
+      "flag": "GP commentary on the asset dominated by refinancing and covenant language.",
+      "check": "Commentary history.",
+      "ref": "13.8",
+      "applies_to": [
+        "gp-led-cv"
+      ]
+    },
+    {
+      "id": "SEC-RF10",
+      "flag": "Price justified against a reference NAV more than one quarter old without roll-forward.",
+      "check": "NAV roll-forward.",
+      "ref": "13.3, 13.7",
+      "applies_to": [
+        "lp-led",
+        "strip-sale",
+        "tender"
+      ]
+    },
+    {
+      "id": "SEC-RF11",
+      "flag": "NAV-loan-funded distributions in the fund history.",
+      "check": "Synthetic DPI and recall clause.",
+      "ref": "13.7",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "SEC-RF12",
+      "flag": "CV case requires exit multiple above entry.",
+      "check": "Return attribution.",
+      "ref": "13.3",
+      "applies_to": [
+        "gp-led-cv"
+      ]
+    }
+  ],
+  "metrics": [
+    {
+      "id": "SEC-M01",
+      "metric": "Global secondary volume",
+      "acceptable": "$118B H1 2026 (record first half); $240B full-year 2025 (record)",
+      "source": "Jefferies, July 2026",
+      "weak": false,
+      "ref": "13.1, 13.4",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "SEC-M02",
+      "metric": "GP-led / LP-led share",
+      "acceptable": "$62B (53%) / $56B (47%), H1 2026",
+      "source": "Jefferies, July 2026",
+      "weak": false,
+      "ref": "13.1, 13.4",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "SEC-M03",
+      "metric": "Single-asset / multi-asset CV share",
+      "acceptable": "68% / 32% of CVs",
+      "source": "Jefferies, July 2026",
+      "weak": false,
+      "ref": "13.4",
+      "applies_to": [
+        "gp-led-cv"
+      ]
+    },
+    {
+      "id": "SEC-M04",
+      "metric": "Buyout share of GP-led volume",
+      "acceptable": "About 66%",
+      "source": "Jefferies, July 2026",
+      "weak": false,
+      "ref": "13.4",
+      "applies_to": [
+        "gp-led-cv"
+      ]
+    },
+    {
+      "id": "SEC-M05",
+      "metric": "Structured liquidity solutions share",
+      "acceptable": "About 9% of volume",
+      "source": "Jefferies, July 2026",
+      "weak": false,
+      "ref": "13.1, 13.4",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "SEC-M06",
+      "metric": "Dedicated secondary capital",
+      "acceptable": "$290B (from $327B end-2025)",
+      "source": "Jefferies, July 2026",
+      "weak": false,
+      "ref": "13.4",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "SEC-M07",
+      "metric": "LP portfolio pricing, all strategies",
+      "acceptable": "About 87% of NAV (H1 2026)",
+      "source": "Jefferies, July 2026",
+      "weak": false,
+      "ref": "13.4",
+      "applies_to": [
+        "lp-led",
+        "strip-sale",
+        "tender"
+      ]
+    },
+    {
+      "id": "SEC-M08",
+      "metric": "LP pricing by strategy",
+      "acceptable": "Buyout 91%; venture 79%; infrastructure 91%; credit 89% (from 91%); real estate 68%",
+      "source": "Jefferies, July 2026",
+      "weak": false,
+      "ref": "13.4",
+      "applies_to": [
+        "lp-led",
+        "strip-sale",
+        "tender"
+      ]
+    },
+    {
+      "id": "SEC-M09",
+      "metric": "Tail-end fund discount",
+      "acceptable": "25%+; some geographies 35%+",
+      "source": "Jefferies, July 2026",
+      "weak": false,
+      "ref": "13.4",
+      "applies_to": [
+        "lp-led",
+        "strip-sale"
+      ]
+    },
+    {
+      "id": "SEC-M10",
+      "metric": "SACV price vs NAV",
+      "acceptable": "Near 100% of NAV needs a reason when the GP's LP interests trade at 87% to 91%",
+      "source": "Jefferies, July 2026 (underwriting rule)",
+      "weak": false,
+      "ref": "13.4",
+      "applies_to": [
+        "gp-led-cv"
+      ]
+    },
+    {
+      "id": "SEC-M11",
+      "metric": "GP commitment to CV",
+      "acceptable": "About 10% of total commitments (North America) vs about 5% (Europe); under about 5% with mostly rolled carry is weak",
+      "source": "Jefferies, July 2026",
+      "weak": false,
+      "ref": "13.3, 13.4",
+      "applies_to": [
+        "gp-led-cv"
+      ]
+    },
+    {
+      "id": "SEC-M12",
+      "metric": "Carry sensitivity price range",
+      "acceptable": "Recompute carry at transaction price and 15% to 20% lower",
+      "source": "Bible underwriting rule",
+      "weak": false,
+      "ref": "13.4",
+      "applies_to": [
+        "gp-led-cv"
+      ]
+    },
+    {
+      "id": "SEC-M13",
+      "metric": "LP review / election window",
+      "acceptable": ">= 30 days (ILPA materials); < 20 business days is a red flag",
+      "source": "ILPA, May 2023",
+      "weak": false,
+      "ref": "13.3, 13.4, 13.8",
+      "applies_to": [
+        "gp-led-cv",
+        "tender"
+      ]
+    },
+    {
+      "id": "SEC-M14",
+      "metric": "Private-mark lag",
+      "acceptable": "At least four quarters to converge after a shock",
+      "source": "IMF GFSR Apr. 2024, Ch. 2",
+      "weak": false,
+      "ref": "13.3",
+      "applies_to": [
+        "lp-led",
+        "strip-sale",
+        "tender"
+      ]
+    },
+    {
+      "id": "SEC-M15",
+      "metric": "LP suits against PE firms",
+      "acceptable": "4% of suits against top and bottom PE firms come from fund investors",
+      "source": "HLS Forum 2026, Opting Out of Court",
+      "weak": false,
+      "ref": "13.1",
+      "applies_to": [
+        "gp-led-cv"
+      ]
+    },
+    {
+      "id": "SEC-M16",
+      "metric": "Yale secondary sale of PE portfolio",
+      "acceptable": "Reported 2025 sale (press-reported)",
+      "source": "Bloomberg via bible",
+      "weak": true,
+      "ref": "13.1",
+      "applies_to": [
+        "lp-led"
+      ]
+    }
+  ],
+  "third_party_reports": [
+    {
+      "id": "SEC-T01",
+      "report": "Secondary adviser engagement letter review",
+      "provider": "Adviser engaged by the GP; check fee basis and whether paid only on closing",
+      "required_when": "GP-led and tender",
+      "ref": "13.5"
+    },
+    {
+      "id": "SEC-T02",
+      "report": "Fairness or valuation opinion",
+      "provider": "Provider with no other mandate from the GP",
+      "required_when": "Always for GP-led and tender; condition of rolling",
+      "ref": "13.5, 13.6"
+    },
+    {
+      "id": "SEC-T03",
+      "report": "Lead buyer diligence package",
+      "provider": "Lead secondary buyer (information-parity benchmark)",
+      "required_when": "GP-led",
+      "ref": "13.5"
+    },
+    {
+      "id": "SEC-T04",
+      "report": "LPA comparison memo",
+      "provider": "LP's own counsel",
+      "required_when": "Always",
+      "ref": "13.5"
+    },
+    {
+      "id": "SEC-T05",
+      "report": "Quality of earnings on underlying asset(s)",
+      "provider": "QoE provider engaged by us",
+      "required_when": "GP-led (SACV and MACV top assets)",
+      "ref": "13.5"
+    }
+  ],
+  "hard_questions": [
+    {
+      "id": "SEC-HQ01",
+      "question": "What were the other bids, and who declined?",
+      "good_answer": "A full bid book with named bidders and prices, and permission to call a decliner.",
+      "ref": "13.9 Q1"
+    },
+    {
+      "id": "SEC-HQ02",
+      "question": "Why now, and why not a sale or IPO?",
+      "good_answer": "Evidence of a tested sale or IPO alternative and a specific reason the CV maximizes value for existing LPs.",
+      "ref": "13.9 Q2"
+    },
+    {
+      "id": "SEC-HQ03",
+      "question": "What is the status quo option, exactly, term by term?",
+      "good_answer": "No change in management fee or carry, full roll of carry, side letters carried over.",
+      "ref": "13.9 Q3"
+    },
+    {
+      "id": "SEC-HQ04",
+      "question": "How much new cash is the GP investing, and how much is rolled carry?",
+      "good_answer": "About 10% of commitments with material new cash.",
+      "ref": "13.9 Q4"
+    },
+    {
+      "id": "SEC-HQ05",
+      "question": "What carry does the GP crystallize at this price, and at 15% to 20% below it?",
+      "good_answer": "A calculation showing GP economics hold up at lower prices and carry largely reinvested.",
+      "ref": "13.9 Q5"
+    },
+    {
+      "id": "SEC-HQ06",
+      "question": "Who provides the fairness opinion, and what else do they do for you?",
+      "good_answer": "A provider with no other mandate from the GP.",
+      "ref": "13.9 Q6"
+    },
+    {
+      "id": "SEC-HQ07",
+      "question": "Will I get the lead buyer's full data room?",
+      "good_answer": "Yes, identical index.",
+      "ref": "13.9 Q7"
+    },
+    {
+      "id": "SEC-HQ08",
+      "question": "What exit multiple does the CV case assume against entry?",
+      "good_answer": "At or below entry; returns from EBITDA growth.",
+      "ref": "13.9 Q8"
+    },
+    {
+      "id": "SEC-HQ09",
+      "question": "How stale is the reference NAV, and what does it look like rolled forward for public-market moves?",
+      "good_answer": "A roll-forward by fund with known events disclosed.",
+      "ref": "13.3"
+    },
+    {
+      "id": "SEC-HQ10",
+      "question": "Which distributions in the fund histories were funded by NAV loans, and are they recallable?",
+      "good_answer": "A synthetic DPI and recall clause extracts.",
+      "ref": "13.3"
+    }
+  ],
+  "failure_cases": [
+    {
+      "case": "Price set by the GP's own mark with a thin market test (generic)",
+      "year": "Recurring",
+      "what_happened": "Selling LPs get too little, or rolling LPs and the buyer overpay.",
+      "check": "Obtain the bid book and the adviser's buyer list; call a bidder who declined.",
+      "ref": "13.7"
+    },
+    {
+      "case": "No real status quo (generic)",
+      "year": "Recurring",
+      "what_happened": "Rollers forced onto new fees and carry.",
+      "check": "Compare old LPA and CV LPA side by side.",
+      "ref": "13.7"
+    },
+    {
+      "case": "Carry crystallized on an inflated mark (generic)",
+      "year": "Recurring",
+      "what_happened": "GP is paid on a price it set, funded by the CV buyer.",
+      "check": "Recompute carry at the transaction price and at 15% to 20% lower.",
+      "ref": "13.7"
+    },
+    {
+      "case": "CV used to hold an asset that could not be sold (generic)",
+      "year": "Recurring",
+      "what_happened": "Concentrated bad asset with a fresh fee clock.",
+      "check": "Full direct-deal diligence on the company and its debt; ask why it did not clear a sale.",
+      "ref": "13.7"
+    },
+    {
+      "case": "Information asymmetry (generic)",
+      "year": "Recurring",
+      "what_happened": "Lead buyer receives diligence LPs never see.",
+      "check": "Demand the same data-room access as the lead.",
+      "ref": "13.7"
+    },
+    {
+      "case": "Stale NAV in LP-led pricing (generic)",
+      "year": "Recurring",
+      "what_happened": "Buyer pays for marks that lag public markets by four quarters or more.",
+      "check": "Roll NAV forward; exit-to-mark history.",
+      "ref": "13.7"
+    },
+    {
+      "case": "NAV-loan-funded distributions in the history (generic)",
+      "year": "Recurring",
+      "what_happened": "DPI overstated; distributions recallable.",
+      "check": "Synthetic DPI; read the recall clause.",
+      "ref": "13.7"
+    },
+    {
+      "case": "Abu Dhabi Investment Council v. US PE firm",
+      "year": "Filed Dec. 2025 (Del. Ch.); outcome not sourced",
+      "what_happened": "Rare LP suit over a continuation-fund transaction.",
+      "check": "Process record: LPAC vote, alternatives, fairness opinion, election period.",
+      "ref": "13.1, 13.7"
+    }
+  ]
+}

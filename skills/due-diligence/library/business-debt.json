@@ -1,0 +1,3269 @@
+{
+  "type": "business-debt",
+  "name": "Debt to Businesses",
+  "summary": "Loans to operating companies: senior secured term loans, unitranche and direct lending, mezzanine and second lien, acquisition and dividend-recap financing, asset-based loans against a borrowing base, factoring, equipment finance, venture debt and revenue-based financing. The diligence spine: read the amendment trail as the credit history, rebuild EBITDA from a QoE whose scope you have read, put unadjusted, all-in (including every factoring and supply-chain facility) and maximum permitted leverage side by side and underwrite to the worst, have your own counsel map every basket and liability-management route, and prove the collateral exists, is pledged only to you and remits to an account you control.",
+  "chapters": [
+    "03-business-debt.md"
+  ],
+  "one_check": "Put three leverage numbers side by side in the IC memo: leverage on unadjusted EBITDA, leverage including every factoring, supply-chain-finance and receivables-sale facility, and the maximum senior secured leverage the documents permit once every basket and add-back is used; underwrite to the worst of the three, and if no single party sees all the collateral, fix that before funding or pass.",
+  "subtypes": [
+    {
+      "id": "senior-secured",
+      "name": "Senior secured term loan",
+      "description": "First-lien cash-flow term loan, sponsor-backed or not."
+    },
+    {
+      "id": "abl",
+      "name": "Asset-based loan / borrowing base",
+      "description": "Revolver or term loan sized on eligible receivables, inventory and equipment with field exams and lockbox."
+    },
+    {
+      "id": "unitranche",
+      "name": "Unitranche / direct lending",
+      "description": "Single-instrument blended first and second lien loan from a private lender, typically sponsor-backed."
+    },
+    {
+      "id": "venture-debt",
+      "name": "Venture debt",
+      "description": "Loans to VC-backed companies sized on the last equity round, often with warrants."
+    },
+    {
+      "id": "rbf",
+      "name": "Revenue-based financing",
+      "description": "Repayment as a share of revenue to a cap; recurring-revenue advances on MRR."
+    },
+    {
+      "id": "equipment-finance",
+      "name": "Equipment finance",
+      "description": "Loans and leases secured by serialized equipment, with residual value risk."
+    },
+    {
+      "id": "factoring",
+      "name": "Factoring and receivables purchase",
+      "description": "Purchase of or advance against specific invoices, notification or non-notification, recourse or non-recourse."
+    },
+    {
+      "id": "mezzanine",
+      "name": "Mezzanine / second lien",
+      "description": "Subordinated or second-lien debt behind a senior lender, governed by an intercreditor."
+    },
+    {
+      "id": "acquisition",
+      "name": "Acquisition / LBO financing",
+      "description": "Debt funding a sponsor or strategic acquisition."
+    },
+    {
+      "id": "dividend-recap",
+      "name": "Dividend recapitalization",
+      "description": "New debt used to pay a dividend to equity owners; underwrite as a fresh LBO with no equity added."
+    }
+  ],
+  "intake_questions": [
+    {
+      "id": "BD-Q01",
+      "question": "What is the instrument: senior secured term loan, unitranche, mezzanine or second lien, ABL, factoring, equipment finance, venture debt or revenue-based financing?",
+      "why": "Selects the subtype items.",
+      "sets_subtype": true
+    },
+    {
+      "id": "BD-Q02",
+      "question": "What is the purpose: acquisition or LBO, refinancing, growth, or dividend recapitalization?",
+      "why": "Acquisition and recap items; recap underwritten as a fresh LBO.",
+      "sets_subtype": true
+    },
+    {
+      "id": "BD-Q03",
+      "question": "What is the facility size, the borrower's revenue and EBITDA, and the proposed leverage on unadjusted EBITDA?",
+      "why": "Sizes the packet; Fed median private-credit borrower is $223M revenue at 5.0x.",
+      "sets_subtype": false
+    },
+    {
+      "id": "BD-Q04",
+      "question": "Does the borrower or any affiliate use factoring, supply-chain finance, receivables sales or inventory finance?",
+      "why": "Triggers off-balance-sheet inventory and all-in leverage.",
+      "sets_subtype": false
+    },
+    {
+      "id": "BD-Q05",
+      "question": "How many lenders, warehouse providers or factors does the borrower have, and does any one of them see all the collateral?",
+      "why": "Triggers the 12-step collateral integrity procedure.",
+      "sets_subtype": false
+    },
+    {
+      "id": "BD-Q06",
+      "question": "Is the deal sponsor-backed, and is any lender affiliated with the sponsor? Do we or the lender hold equity in the borrower?",
+      "why": "Same-sponsor and 'wrong twice' items.",
+      "sets_subtype": false
+    },
+    {
+      "id": "BD-Q07",
+      "question": "Who chose and pays lenders' counsel?",
+      "why": "Triggers independent counsel review.",
+      "sets_subtype": false
+    },
+    {
+      "id": "BD-Q08",
+      "question": "Is there a maintenance covenant, or is the deal covenant-lite?",
+      "why": "Covenant package items and pricing for covenants given up.",
+      "sets_subtype": false
+    },
+    {
+      "id": "BD-Q09",
+      "question": "Is the borrower a recurring-revenue or software business?",
+      "why": "Triggers ARR cohort data and AI-substitution stress.",
+      "sets_subtype": false
+    },
+    {
+      "id": "BD-Q10",
+      "question": "Is the borrower public or a carve-out from a public parent?",
+      "why": "Triggers the 8-quarter filing text diff.",
+      "sets_subtype": false
+    },
+    {
+      "id": "BD-Q11",
+      "question": "Where does the borrower keep its cash, and what share is uninsured?",
+      "why": "Cash location and bank-failure items.",
+      "sets_subtype": false
+    },
+    {
+      "id": "BD-Q12",
+      "question": "Does the borrower have interest rate or other swaps, and with whom?",
+      "why": "ISDA mapping items.",
+      "sets_subtype": false
+    },
+    {
+      "id": "BD-Q13",
+      "question": "Has any existing facility been amended, extended, PIK-toggled or waived?",
+      "why": "Amendment history and mark comparison.",
+      "sets_subtype": false
+    },
+    {
+      "id": "BD-Q14",
+      "question": "Which vehicle will hold the loan (private fund, perpetual BDC, public BDC, CLO, interval fund)?",
+      "why": "Workout behaviour of the holder.",
+      "sets_subtype": false
+    }
+  ],
+  "requests": [
+    {
+      "id": "BD-FIN-001",
+      "order": 10,
+      "stage": "screen",
+      "priority": "gating",
+      "workstream": "Financial",
+      "request": "Financial statements for 3 fiscal years plus trailing twelve months, audited if available, and monthly management accounts for the last 24 months.",
+      "format": "Audited or reviewed statements signed by the auditor; management accounts from the accounting system.",
+      "why": "Unaudited or inconsistent statements hide the earnings the loan depends on.",
+      "pass": "Statements for every period; monthly accounts sum to the annual statements within 1%; audit opinion unqualified where audited.",
+      "fail": "Gaps in periods; qualified opinion; monthly accounts that do not tie.",
+      "verify": "Confirm the audit with the auditor directly; tie revenue to bank statements in the QoE proof of cash.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "3.2",
+      "weak": false
+    },
+    {
+      "id": "BD-FIN-002",
+      "order": 20,
+      "stage": "screen",
+      "priority": "gating",
+      "workstream": "Financial",
+      "request": "Complete debt schedule: every credit facility, note, lease, guarantee and lien, with lender, amount committed and drawn, rate, maturity, security and ranking.",
+      "format": "Schedule tied to lender statements and to the latest balance sheet.",
+      "why": "Debt not on the schedule is debt not in the leverage number.",
+      "pass": "Schedule ties to the balance sheet, lender confirmations and the UCC sweep with no unexplained items.",
+      "fail": "Liens or lenders found in the UCC sweep that are not on the schedule.",
+      "verify": "Confirm each facility with the lender; compare with the UCC sweep.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "3.2",
+      "weak": false
+    },
+    {
+      "id": "BD-FIN-003",
+      "order": 30,
+      "stage": "screen",
+      "priority": "gating",
+      "workstream": "Financial",
+      "request": "Schedule of every factoring, supply-chain-finance, receivables-sale, inventory-finance and other off-balance-sheet financing arrangement, with counterparty, limit, balance, recourse and whether the borrower or an affiliate is the obligor.",
+      "format": "Schedule plus the governing agreements, signed by the CFO.",
+      "why": "First Brands: about 5x stated leverage against about 20x including off-balance-sheet factoring and SCF.",
+      "pass": "Every facility listed and included in all-in leverage; schedule reconciles to financial statement footnotes and to what each lender has been told.",
+      "fail": "Any facility found later in the UCC sweep, bank statements or footnotes; factoring excluded from leverage.",
+      "verify": "UCC sweep, bank statement review for factor remittances, and footnote reconciliation.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "3.2, 3.3, 3.12",
+      "weak": false
+    },
+    {
+      "id": "BD-FIN-004",
+      "order": 40,
+      "stage": "screen",
+      "priority": "gating",
+      "workstream": "Financial",
+      "request": "THE ONE CHECK leverage table: leverage on unadjusted EBITDA, leverage including every factoring, SCF and receivables-sale facility, and (computed by our counsel) maximum senior secured leverage the documents permit with every basket and add-back used.",
+      "format": "Borrower supplies the first two with workings; our counsel supplies the third.",
+      "why": "Headline leverage understates both all-in and permitted leverage.",
+      "pass": "All three numbers in the IC memo; the loan is underwritten to the worst of the three.",
+      "fail": "Only adjusted leverage provided; underwriting to the best of the three.",
+      "verify": "Rebuild each number ourselves.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "THE ONE CHECK, 3.3, 3.10, 3.12",
+      "weak": false
+    },
+    {
+      "id": "BD-CL-001",
+      "order": 50,
+      "stage": "screen",
+      "priority": "core",
+      "workstream": "Corporate & Legal",
+      "request": "List of every SPV, JV, guarantee, keepwell, comfort letter and 'moral obligation' support given or received by the borrower group.",
+      "format": "Schedule signed by the CFO with copies of each instrument.",
+      "why": "Off-balance-sheet vehicles and implied support hide leverage (Enron, bank SIVs).",
+      "pass": "Consolidated look-through of every vehicle included in leverage and recovery analysis.",
+      "fail": "Vehicles disclosed only after discovery; implied support with no look-through.",
+      "verify": "Search UCC and corporate registries for affiliated entities.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "3.2, 3.12",
+      "weak": false
+    },
+    {
+      "id": "BD-ST-001",
+      "order": 60,
+      "stage": "screen",
+      "priority": "core",
+      "workstream": "Structure & Terms",
+      "request": "Proposed facility term sheet: tranche, ranking, size, pricing over SOFR, OID and fees, amortization, maturity, covenant package, call protection, warrants or revenue share.",
+      "format": "Term sheet.",
+      "why": "Pricing must pay for the risk and for any covenants given up.",
+      "pass": "Pricing within the benchmark for the instrument (unitranche about SOFR + 475 to 650 bp; venture debt about SOFR + 700 to 950 bp or Prime + 25 to 100 at banks; RBF 5% to 15% revenue share to a 1.2x to 1.6x cap) or deviation explained; at least one maintenance covenant.",
+      "fail": "Covenant-lite with no pricing premium; pricing far inside the benchmark.",
+      "verify": "Compare with recent comparable deals we see.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "3.4, 3.6",
+      "weak": true
+    },
+    {
+      "id": "BD-SB-001",
+      "order": 70,
+      "stage": "screen",
+      "priority": "core",
+      "workstream": "Sponsor & Background",
+      "request": "Disclosure of whether the lender, arranger or any co-lender is affiliated with the equity sponsor, and whether we or any co-lender already hold equity in the borrower.",
+      "format": "Signed statement listing affiliations and holdings.",
+      "why": "Same-sponsor lending lets amendments be approved inside one group; lending more into a company where you hold equity risks being wrong twice.",
+      "pass": "No affiliation, or affiliation disclosed with an independent amendment and waiver approval process.",
+      "fail": "Undisclosed affiliation; amendments approved by the sponsor's own credit fund.",
+      "verify": "Compare the lender group with the sponsor's fund affiliates and Form ADV.",
+      "applies_to": [
+        "senior-secured",
+        "unitranche",
+        "mezzanine",
+        "acquisition",
+        "dividend-recap"
+      ],
+      "ref": "3.3, 3.6",
+      "weak": false
+    },
+    {
+      "id": "BD-SB-002",
+      "order": 80,
+      "stage": "screen",
+      "priority": "supporting",
+      "workstream": "Sponsor & Background",
+      "request": "Use of proceeds statement, and for a recapitalization the dividend amount and the sponsor's track record split between recap returns and earnings growth.",
+      "format": "Sources and uses; track record table.",
+      "why": "Dividend recaps were priced like LBO leverage in 2006-07.",
+      "pass": "Recap underwritten as a fresh LBO with no equity added; track record shows returns not dependent on recaps.",
+      "fail": "Recap proceeds above equity added; track record driven by recaps.",
+      "verify": "Rebuild sources and uses from the funds flow at closing.",
+      "applies_to": [
+        "dividend-recap",
+        "acquisition",
+        "senior-secured",
+        "unitranche",
+        "mezzanine",
+        "acquisition",
+        "dividend-recap"
+      ],
+      "ref": "3.7",
+      "weak": false
+    },
+    {
+      "id": "BD-FIN-005",
+      "order": 90,
+      "stage": "screen",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Management's or the sponsor's prior projections for the borrower (last 3 budget cycles) set against actual results.",
+      "format": "Board-approved budgets and the actuals.",
+      "why": "Realized outcomes fell inside executives' 80% confidence intervals only 36% of the time.",
+      "pass": "Misses explained; projection ranges widened about 2x before stress testing.",
+      "fail": "Systematic optimistic misses not reflected in the case we lend on.",
+      "verify": "Board minutes and lender reporting from prior facilities.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "3.2, 3.3",
+      "weak": false
+    },
+    {
+      "id": "BD-VAL-001",
+      "order": 10,
+      "stage": "term-sheet",
+      "priority": "gating",
+      "workstream": "Valuation & Model",
+      "request": "Sponsor or management model and projections in live spreadsheet form, with base, downside and the lender case.",
+      "format": "Native Excel with formulas and assumption sources.",
+      "why": "We cannot stress what we cannot rebuild.",
+      "pass": "Model rebuilt by us; downside built from base rates, with management ranges widened about 2x; debt service covered in the downside.",
+      "fail": "Downside that is a mild variant of base; hard-coded outputs.",
+      "verify": "Rebuild key lines from QoE-adjusted financials.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "3.2, 3.3",
+      "weak": false
+    },
+    {
+      "id": "BD-VAL-002",
+      "order": 20,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Valuation & Model",
+      "request": "Line-by-line cost bridge for any projected EBITDA margin expansion.",
+      "format": "Bridge by cost line with evidence (contracts, headcount plans).",
+      "why": "Margins do not expand with scale on average.",
+      "pass": "Every point of margin expansion supported by a specific cost action; otherwise margins held flat in our case.",
+      "fail": "Margin expansion assumed from scale alone.",
+      "verify": "Test against historical cost behaviour.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "3.3",
+      "weak": false
+    },
+    {
+      "id": "BD-VAL-003",
+      "order": 30,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Valuation & Model",
+      "request": "Maturity-wall analysis against a secular-decline revenue case, including the capex the business needs to stay competitive before debt service.",
+      "format": "Model tab.",
+      "why": "Toys 'R' Us: debt service and maturities combined with failure to adapt to e-commerce.",
+      "pass": "Debt refinances or amortizes under the secular-decline case after competitive capex.",
+      "fail": "Only a cyclical downside run; maintenance and competitive capex omitted.",
+      "verify": "Rerun in our model.",
+      "applies_to": [
+        "senior-secured",
+        "unitranche",
+        "mezzanine",
+        "acquisition",
+        "dividend-recap",
+        "abl",
+        "equipment-finance"
+      ],
+      "ref": "3.3, 3.7",
+      "weak": false
+    },
+    {
+      "id": "BD-VAL-004",
+      "order": 40,
+      "stage": "term-sheet",
+      "priority": "gating",
+      "workstream": "Valuation & Model",
+      "request": "For recurring-revenue borrowers: ARR by cohort, seat counts and pricing history, and an AI-substitution stress (seat compression, price pressure, including seats cut by one-third) with debt tested on downside ARR.",
+      "format": "Cohort tables from the billing system; model tab.",
+      "why": "AI disruption of SaaS sharply revised software default probabilities in 2026; about one-fifth of semi-liquid fund loans are to software.",
+      "pass": "Debt service covered and principal recoverable on downside ARR, not on ARR multiples; MRR advance within 3x to 12x MRR after stress.",
+      "fail": "Loan sized on ARR multiples with no AI-substitution downside.",
+      "verify": "Tie cohort data to billing system exports and bank receipts.",
+      "applies_to": [
+        "venture-debt",
+        "rbf",
+        "unitranche",
+        "senior-secured"
+      ],
+      "ref": "3.2, 3.3, 3.4",
+      "weak": true
+    },
+    {
+      "id": "BD-CL-002",
+      "order": 50,
+      "stage": "term-sheet",
+      "priority": "gating",
+      "workstream": "Corporate & Legal",
+      "request": "Draft EBITDA definition with every add-back category, run-rate adjustment and cap.",
+      "format": "Marked draft credit agreement definitions.",
+      "why": "Uncapped, vague add-backs inflate EBITDA so real leverage exceeds underwriting.",
+      "pass": "Every add-back capped (aggregate and per category) and supported by the QoE; no uncapped run-rate synergies.",
+      "fail": "Uncapped or vague add-backs.",
+      "verify": "Our counsel reviews independently of sponsor-designated counsel.",
+      "applies_to": [
+        "senior-secured",
+        "unitranche",
+        "mezzanine",
+        "acquisition",
+        "dividend-recap",
+        "abl"
+      ],
+      "ref": "3.3, 3.7, 3.8",
+      "weak": false
+    },
+    {
+      "id": "BD-ST-002",
+      "order": 60,
+      "stage": "term-sheet",
+      "priority": "gating",
+      "workstream": "Structure & Terms",
+      "request": "Covenant package: at least one maintenance covenant (leverage or coverage) with a stated cushion to the sponsor-model EBITDA and step-downs, and equity cure terms (number, frequency, whether cure equity counts as EBITDA).",
+      "format": "Term sheet and covenant model.",
+      "why": "Covenant-lite delays the signal; covenant violations cut capex about 13% and trigger value-adding intervention.",
+      "pass": "Maintenance covenant set at a 25% to 35% cushion to sponsor-model EBITDA with step-downs; equity cures limited (no consecutive cures; capped in number) and not used to reduce debt-free EBITDA trends unnoticed.",
+      "fail": "No maintenance covenant without a priced premium; unlimited or consecutive cures.",
+      "verify": "Model covenant headroom quarterly in our downside.",
+      "applies_to": [
+        "senior-secured",
+        "unitranche",
+        "mezzanine",
+        "acquisition",
+        "dividend-recap",
+        "abl",
+        "venture-debt"
+      ],
+      "ref": "3.4, 3.6, 3.7",
+      "weak": false
+    },
+    {
+      "id": "BD-CL-003",
+      "order": 70,
+      "stage": "term-sheet",
+      "priority": "gating",
+      "workstream": "Corporate & Legal",
+      "request": "Basket schedule (procedure steps 1-2): every incurrence basket (general, ratio, incremental/accordion, free-and-clear, refinancing, acquisition, purchase-money, capital lease, non-guarantor, foreign subsidiary), every lien basket and every investment basket including investments in unrestricted subsidiaries and non-guarantors.",
+      "format": "Schedule prepared by our own counsel from the draft credit agreement.",
+      "why": "The median agreement has 8 baskets and 79 carve-outs; the average debt basket exceeds 2.3x EBITDA.",
+      "pass": "Every basket listed with its size in dollars and turns of EBITDA.",
+      "fail": "Baskets not quantified; review done only by sponsor-designated counsel.",
+      "verify": "Our counsel prepares it independently.",
+      "applies_to": [
+        "senior-secured",
+        "unitranche",
+        "mezzanine",
+        "acquisition",
+        "dividend-recap"
+      ],
+      "ref": "3.6, 3.10",
+      "weak": false
+    },
+    {
+      "id": "BD-VAL-005",
+      "order": 80,
+      "stage": "term-sheet",
+      "priority": "gating",
+      "workstream": "Valuation & Model",
+      "request": "Maximum permitted leverage computation (procedure steps 3-5): EBITDA as defined with every add-back at its cap, maximum permitted senior secured and total leverage, and the collateral that can leave the box, set beside closing leverage and all-in leverage.",
+      "format": "Counsel and credit memo.",
+      "why": "Over 70% of contracts permit later senior secured debt above 5x; three-quarters of 5x borrowers can exceed 6x.",
+      "pass": "Maximum permitted senior secured leverage less than 2 turns above closing; if 2 or more, recovery underwritten at the permitted level and the gap priced or negotiated down.",
+      "fail": "Gap of 2 turns or more with recovery underwritten at closing leverage.",
+      "verify": "We compute it; sponsor counsel's view is not accepted.",
+      "applies_to": [
+        "senior-secured",
+        "unitranche",
+        "mezzanine",
+        "acquisition",
+        "dividend-recap"
+      ],
+      "ref": "3.3, 3.10",
+      "weak": false
+    },
+    {
+      "id": "BD-CL-004",
+      "order": 90,
+      "stage": "term-sheet",
+      "priority": "gating",
+      "workstream": "Corporate & Legal",
+      "request": "Liability-management protections in the draft documents: J.Crew blocker (no transfer of material IP to unrestricted subsidiaries), caps on investments in non-guarantors and unrestricted subsidiaries, limits on designating unrestricted subsidiaries, and the asset-sale provisions read with them as a set.",
+      "format": "Marked draft credit agreement sections.",
+      "why": "J.Crew moved about $250M of brand IP out of the collateral through an investment basket.",
+      "pass": "J.Crew blocker present; investment capacity into non-guarantors and unrestricted subsidiaries capped and quantified; no material assets movable without lender consent.",
+      "fail": "No blocker; uncapped investments in non-guarantors or unrestricted subsidiaries.",
+      "verify": "Our counsel reviews.",
+      "applies_to": [
+        "senior-secured",
+        "unitranche",
+        "mezzanine",
+        "acquisition",
+        "dividend-recap"
+      ],
+      "ref": "3.3, 3.6, 3.11",
+      "weak": false
+    },
+    {
+      "id": "BD-CL-005",
+      "order": 100,
+      "stage": "term-sheet",
+      "priority": "gating",
+      "workstream": "Corporate & Legal",
+      "request": "Uptier and non-pro-rata protections: amendment voting thresholds for subordinating liens or payment priority, and whether pro rata sharing and the waterfall are sacred rights requiring each affected lender's consent.",
+      "format": "Marked draft amendments and voting sections.",
+      "why": "LMEs use majority votes to prime non-participating lenders.",
+      "pass": "Subordination of liens or payment and changes to pro rata sharing require each affected lender's consent.",
+      "fail": "Simple-majority amendment of priority or pro rata sharing.",
+      "verify": "Our counsel reviews; confirm against current document-level sources (bible marks this section WEAK).",
+      "applies_to": [
+        "senior-secured",
+        "unitranche",
+        "mezzanine",
+        "acquisition",
+        "dividend-recap"
+      ],
+      "ref": "3.11",
+      "weak": true
+    },
+    {
+      "id": "BD-ST-003",
+      "order": 110,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Structure & Terms",
+      "request": "Lender group map: holders and proposed allocations, which holders could form a required majority, and the vehicle type of each holder (private debt fund, perpetual BDC, public BDC, CLO, interval fund).",
+      "format": "Allocation schedule from the arranger.",
+      "why": "In an LME you are either inside or outside the majority; a perpetual BDC under redemption pressure behaves differently in a workout.",
+      "pass": "We know who can form a majority and our position; holder vehicle types identified.",
+      "fail": "Arranger will not disclose the group.",
+      "verify": "Confirm allocations at closing.",
+      "applies_to": [
+        "senior-secured",
+        "unitranche",
+        "mezzanine",
+        "acquisition",
+        "dividend-recap"
+      ],
+      "ref": "3.1, 3.11, 3.13",
+      "weak": false
+    },
+    {
+      "id": "BD-VAL-006",
+      "order": 120,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Valuation & Model",
+      "request": "Recovery analysis after the worst LME the documents allow, and the fulcrum security after the LME.",
+      "format": "Credit memo with recovery waterfall.",
+      "why": "Loan recoveries averaged 84% in 1995-2013 but are expected lower with covenant-lite and thin junior cushions.",
+      "pass": "Recovery at permitted leverage and after maximum drop-down or uptier supports the hold.",
+      "fail": "Recovery shown only at closing structure.",
+      "verify": "We build it.",
+      "applies_to": [
+        "senior-secured",
+        "unitranche",
+        "mezzanine",
+        "acquisition",
+        "dividend-recap"
+      ],
+      "ref": "3.4, 3.11",
+      "weak": false
+    },
+    {
+      "id": "BD-ST-004",
+      "order": 130,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Structure & Terms",
+      "request": "Venture debt sizing package: last equity round documents (amount, post-money, investors), loan size as a share of the last round, interest, warrant coverage and lender all-in return.",
+      "format": "Equity round documents and term sheet.",
+      "why": "Venture debt depends on the next equity round.",
+      "pass": "Loan about 25% to 35% of the last round; warrant coverage 0.5% to 2%; all-in 12% to 25%.",
+      "fail": "Loan above the range or round not closed.",
+      "verify": "Confirm the round with lead investor or cap table.",
+      "applies_to": [
+        "venture-debt"
+      ],
+      "ref": "3.4",
+      "weak": true
+    },
+    {
+      "id": "BD-ST-005",
+      "order": 140,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Structure & Terms",
+      "request": "Revenue-based financing terms: revenue share, cap, revenue definition and the bank account from which payments are swept.",
+      "format": "Term sheet and revenue data.",
+      "why": "Revenue definitions and sweep control determine repayment.",
+      "pass": "Revenue share 5% to 15% to a cap of about 1.2x to 1.6x; revenue definition matches billing data; sweep from a lender-controlled account.",
+      "fail": "Revenue definition excludes material revenue streams; no sweep control.",
+      "verify": "Tie revenue to bank receipts.",
+      "applies_to": [
+        "rbf"
+      ],
+      "ref": "3.4",
+      "weak": true
+    },
+    {
+      "id": "BD-FIN-006",
+      "order": 150,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Cash location schedule: every bank holding operating cash, the share above the $250,000 insured limit, and any covenant forcing a single bank.",
+      "format": "Schedule with bank statements.",
+      "why": "SVB had about 94% uninsured deposits and a $42B one-day run.",
+      "pass": "Cash spread across banks, in insured sweeps or Treasury MMFs (looked through); no single-bank covenant.",
+      "fail": "Concentrated uninsured cash; single-bank covenant.",
+      "verify": "Bank confirmations.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "3.2, 3.4, 3.7, 4.12",
+      "weak": false
+    },
+    {
+      "id": "BD-FIN-007",
+      "order": 160,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Hedging summary: every ISDA Master Agreement, counterparty, notional, close-out netting terms, and whether swaps are secured pari passu under the credit agreement.",
+      "format": "Schedule plus ISDAs and schedules.",
+      "why": "Lehman: derivatives' exemption from the automatic stay let counterparties terminate and novate in a rush.",
+      "pass": "Every hedge mapped; pari passu treatment and netting understood and reflected in recovery.",
+      "fail": "Undisclosed swaps sharing collateral.",
+      "verify": "Confirm with counterparties.",
+      "applies_to": [
+        "senior-secured",
+        "unitranche",
+        "mezzanine",
+        "acquisition",
+        "dividend-recap",
+        "abl"
+      ],
+      "ref": "3.2, 3.3, 3.6",
+      "weak": false
+    },
+    {
+      "id": "BD-ST-006",
+      "order": 170,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Structure & Terms",
+      "request": "Identity of lenders' counsel, who selected and pays them, and confirmation that our own counsel will independently review the baskets, EBITDA definition and unrestricted-subsidiary provisions.",
+      "format": "Engagement details.",
+      "why": "Sponsor-designated counsel faces pressure not to 'over-lawyer'.",
+      "pass": "Our own counsel engaged and reviewing.",
+      "fail": "Reliance solely on sponsor-designated counsel.",
+      "verify": "Our engagement letter.",
+      "applies_to": [
+        "senior-secured",
+        "unitranche",
+        "mezzanine",
+        "acquisition",
+        "dividend-recap"
+      ],
+      "ref": "3.3, 3.6",
+      "weak": false
+    },
+    {
+      "id": "BD-FIN-008",
+      "order": 10,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Financial",
+      "request": "Quality of earnings report with its engagement letter and scope section: adjusted EBITDA, add-back validation, proof of cash covering every bank account, and net working capital.",
+      "format": "Report and engagement letter; list of bank accounts covered by proof of cash.",
+      "why": "A QoE is an AUP or consulting engagement with no assurance; scope gaps hide problems.",
+      "pass": "Engagement letter read; what was not tested listed; proof of cash covered every account confirmed by the banks; add-backs validated and capped.",
+      "fail": "Proof of cash excluded accounts; add-backs not validated; scope excludes revenue testing.",
+      "verify": "Compare accounts covered with bank confirmations; call the QoE provider.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "3.2, 3.3, 3.7",
+      "weak": false
+    },
+    {
+      "id": "BD-FIN-009",
+      "order": 20,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Add-back schedule with support for every adjustment from reported to adjusted EBITDA.",
+      "format": "Schedule with invoices, contracts and board approvals.",
+      "why": "Aggressive add-backs are the most common way leverage is understated.",
+      "pass": "Every add-back supported and within the definition's caps; non-recurring items do not recur in prior years.",
+      "fail": "Recurring 'one-off' items; unsupported synergies.",
+      "verify": "QoE provider confirms testing.",
+      "applies_to": [
+        "senior-secured",
+        "unitranche",
+        "mezzanine",
+        "acquisition",
+        "dividend-recap",
+        "abl"
+      ],
+      "ref": "3.3, 3.7",
+      "weak": false
+    },
+    {
+      "id": "BD-FIN-010",
+      "order": 30,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Financial",
+      "request": "AR and AP agings (monthly for 12 months) and customer and supplier concentration schedules.",
+      "format": "System-generated agings tied to the general ledger.",
+      "why": "Aging and concentration reveal collectability and dependency.",
+      "pass": "Agings tie to GL; concentration within limits; no unexplained aging deterioration.",
+      "fail": "Aging altered; concentration above caps presented as eligible.",
+      "verify": "Field examiner tests agings.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "3.2",
+      "weak": false
+    },
+    {
+      "id": "BD-FIN-011",
+      "order": 40,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Financial",
+      "request": "Complete amendment, waiver and consent history for every credit facility since origination, including PIK elections and maturity extensions, with what each changed.",
+      "format": "Executed amendments and lender consent letters.",
+      "why": "Over 90% of private credit agreements are renegotiated; the amendment trail is the real credit history.",
+      "pass": "Every amendment disclosed and explained; no serial amend-and-extend without paydown.",
+      "fail": "Undisclosed amendments; PIK toggles or extensions with no paydown.",
+      "verify": "Confirm with each lender and agent.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "3.2, 3.13",
+      "weak": false
+    },
+    {
+      "id": "BD-VAL-007",
+      "order": 50,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Valuation & Model",
+      "request": "Marks on the borrower's existing loans in other lenders' books (BDC Schedules of Investments) and any third-party pricing.",
+      "format": "BDC 10-Q/10-K extracts.",
+      "why": "Private loans can be forborne and marked at par indefinitely.",
+      "pass": "Other lenders' marks consistent with par or our price; differences explained.",
+      "fail": "Other lenders mark the loan materially below our price.",
+      "verify": "Pull BDC filings ourselves.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "3.9, 3.13",
+      "weak": false
+    },
+    {
+      "id": "BD-FIN-012",
+      "order": 60,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Financial",
+      "request": "Reconciliation of financing disclosures: total supply-chain, factoring and inventory financing in the financial statement footnotes against the figure the company has given each lender.",
+      "format": "Reconciliation signed by the CFO plus copies of lender reporting packages.",
+      "why": "First Brands told each lender a different story.",
+      "pass": "Footnotes, schedule and each lender's reporting agree.",
+      "fail": "Any inconsistency.",
+      "verify": "Ask other lenders (with consent) to confirm what they were told.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "3.12",
+      "weak": false
+    },
+    {
+      "id": "BD-FIN-013",
+      "order": 70,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Financial",
+      "request": "Average daily or intra-quarter balances of debt, cash and assets for the last 8 quarters, not only period-end figures.",
+      "format": "Daily balance reports from banks and lenders.",
+      "why": "Lehman's Repo 105 moved up to $50B off balance sheet at quarter-ends.",
+      "pass": "Average balances within 10% of period-end balances, or the difference explained; no financing that recurs and unwinds just after period-end.",
+      "fail": "Recurring financing that unwinds after period-end.",
+      "verify": "Bank-issued daily balance reports.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "3.2, 3.12",
+      "weak": false
+    },
+    {
+      "id": "BD-FIN-014",
+      "order": 80,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Financial",
+      "request": "Cash proof at the parent and every guarantor, not only at the borrower: bank statements for all group accounts for 12 months reconciled to reported cash.",
+      "format": "Bank-issued statements and bank confirmations.",
+      "why": "First Brands had $12M cash against more than $9B of liabilities at filing.",
+      "pass": "Reported cash confirmed by the banks at every entity.",
+      "fail": "Cash that exists only on the parent's books.",
+      "verify": "Direct bank confirmations.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "3.12",
+      "weak": false
+    },
+    {
+      "id": "BD-FIN-015",
+      "order": 90,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Last 8 quarters of public filings (risk factors, MD&A, legal proceedings), or for private borrowers management letters and lender reports, with management's explanation of each material wording change.",
+      "format": "Filings and a redline diff.",
+      "why": "Firms that materially change filing language later show lower earnings and higher bankruptcy risk.",
+      "pass": "Every material edit explained consistently with other evidence.",
+      "fail": "Unexplained deletions of risk language or new legal proceedings.",
+      "verify": "Run the text diff ourselves.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "3.2, 3.3",
+      "weak": false
+    },
+    {
+      "id": "BD-COM-001",
+      "order": 100,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Commercial & Market",
+      "request": "Lender-side calls with the top customers (by revenue) before closing, arranged by the borrower but conducted by us.",
+      "format": "Call notes; customer contact list.",
+      "why": "Paragon Metals: two of the largest customers planned sharp volume cuts the buyer learned of the day after closing.",
+      "pass": "Top customers confirm relationship, volume outlook and no planned cuts beyond the model.",
+      "fail": "Customer plans volume cuts not in the model; borrower refuses access.",
+      "verify": "We source contact details independently.",
+      "applies_to": [
+        "senior-secured",
+        "unitranche",
+        "mezzanine",
+        "acquisition",
+        "dividend-recap",
+        "abl",
+        "factoring"
+      ],
+      "ref": "3.7",
+      "weak": false
+    },
+    {
+      "id": "BD-COM-002",
+      "order": 110,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Commercial & Market",
+      "request": "Customer-side channel-stuffing test for the top 10 account debtors: the borrower's invoiced sales to each customer against that customer's purchase, inventory or AP trend.",
+      "format": "Our analysis using customer filings or confirmations.",
+      "why": "A jump in a debtor's inventory and AP carried about half the predictive power of the 11-variable Dechow model.",
+      "pass": "Invoiced sales growth consistent with each customer's purchases, inventory and AP.",
+      "fail": "Large year-over-year jumps in debtor inventory and AP versus invoiced growth.",
+      "verify": "Pair with verification calls.",
+      "applies_to": [
+        "abl",
+        "factoring",
+        "senior-secured",
+        "unitranche",
+        "mezzanine",
+        "acquisition",
+        "dividend-recap"
+      ],
+      "ref": "3.3, 3.12",
+      "weak": false
+    },
+    {
+      "id": "BD-COM-003",
+      "order": 120,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Commercial & Market",
+      "request": "Material contracts: top customer and supplier agreements, licences, leases, and change-of-control provisions.",
+      "format": "Executed contracts.",
+      "why": "Change-of-control and termination rights can remove revenue on closing.",
+      "pass": "No material termination on change of control; terms consistent with the model.",
+      "fail": "Termination rights triggered by the financing.",
+      "verify": "Counsel review.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "3.2",
+      "weak": false
+    },
+    {
+      "id": "BD-CL-006",
+      "order": 130,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Corporate & Legal",
+      "request": "Litigation, claims and regulatory proceedings schedule.",
+      "format": "Schedule with counsel letters.",
+      "why": "Undisclosed claims rank ahead of or dilute recovery.",
+      "pass": "No material undisclosed litigation; reserves adequate.",
+      "fail": "Litigation found in court searches not on the schedule.",
+      "verify": "Court record searches.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "3.2",
+      "weak": false
+    },
+    {
+      "id": "BD-TAX-001",
+      "order": 140,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Tax",
+      "request": "Federal and state tax returns for 3 years, reconciled to financial statements, and confirmation of no tax liens or unpaid payroll taxes.",
+      "format": "Filed returns and tax account transcripts.",
+      "why": "Tax liens and payroll tax arrears can prime lenders.",
+      "pass": "Returns reconcile to financials; no liens or arrears.",
+      "fail": "Unfiled returns; tax liens.",
+      "verify": "IRS transcripts; lien search.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "3.2",
+      "weak": false
+    },
+    {
+      "id": "BD-CL-007",
+      "order": 150,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Corporate & Legal",
+      "request": "Group structure chart showing borrower, guarantors, non-guarantors and unrestricted subsidiaries, with revenue, EBITDA and assets by entity and the owner of all material IP.",
+      "format": "Chart and entity-level financials.",
+      "why": "Collateral sitting in non-guarantors or unrestricted subsidiaries can be moved away.",
+      "pass": "Guarantors hold at least the share of EBITDA and assets required by the term sheet; all material IP in guarantors.",
+      "fail": "Material IP or EBITDA outside the guarantor group.",
+      "verify": "Registry and IP office searches.",
+      "applies_to": [
+        "senior-secured",
+        "unitranche",
+        "mezzanine",
+        "acquisition",
+        "dividend-recap"
+      ],
+      "ref": "3.3, 3.11",
+      "weak": false
+    },
+    {
+      "id": "BD-FIN-016",
+      "order": 160,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Historical covenant compliance certificates for every existing facility for 8 quarters.",
+      "format": "Certificates with calculations.",
+      "why": "Cushion erosion and equity cures reveal the trend.",
+      "pass": "No breaches, or breaches disclosed with amendments; cures limited.",
+      "fail": "Undisclosed breaches; repeated cures masking a trend.",
+      "verify": "Confirm with existing lenders.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "3.6, 3.7",
+      "weak": false
+    },
+    {
+      "id": "BD-FIN-017",
+      "order": 170,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Capex history for 3 years split into maintenance and growth, with the capex required to stay competitive.",
+      "format": "GL detail and asset register.",
+      "why": "Deferred competitive capex hides decline.",
+      "pass": "Underwritten capex at least the 3-year maintenance average plus competitive needs.",
+      "fail": "Capex cut to fund debt service.",
+      "verify": "Field or site visit.",
+      "applies_to": [
+        "senior-secured",
+        "unitranche",
+        "mezzanine",
+        "acquisition",
+        "dividend-recap",
+        "equipment-finance"
+      ],
+      "ref": "3.3, 3.7",
+      "weak": false
+    },
+    {
+      "id": "BD-COL-001",
+      "order": 180,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Collateral & Title",
+      "request": "UCC sweep across all secured parties, all affiliates and the founder's or principals' personally owned entities in every relevant jurisdiction.",
+      "format": "Search results from a provider engaged by us, dated within 30 days.",
+      "why": "First Brands financed inventory through entities the founder owned.",
+      "pass": "Every filing explained and matched to the debt schedule; no filing covering our collateral other than ours (or to be released at closing).",
+      "fail": "Unexplained filings; affiliates or founder entities with financing liens.",
+      "verify": "Search provider engaged by us; list of affiliates from corporate registries.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "3.2, 3.3, 3.12",
+      "weak": false
+    },
+    {
+      "id": "BD-COL-002",
+      "order": 190,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Collateral & Title",
+      "request": "Item-level collateral dedupe (invoice number, serial number, VIN) against every other lender's and factor's borrowing base, run by an independent collateral agent or backup servicer.",
+      "format": "Dedupe report from the independent agent naming who ran it and the facilities covered.",
+      "why": "An advance rate is meaningless without collateral dedupe (Tricolor: about 40% of loans shared VINs or attributes).",
+      "pass": "Zero duplicate items across facilities; every other facility's collateral file included.",
+      "fail": "Any duplicate pledge; facilities excluded from the dedupe.",
+      "verify": "Independent agent obtains files directly from other lenders where the structure allows.",
+      "applies_to": [
+        "abl",
+        "factoring",
+        "equipment-finance",
+        "senior-secured",
+        "unitranche"
+      ],
+      "ref": "3.3, 3.12",
+      "weak": false
+    },
+    {
+      "id": "BD-COL-003",
+      "order": 200,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Collateral & Title",
+      "request": "Direct verification of a sample of receivables with the account debtors, with notification and acknowledgment of assignment where the structure allows.",
+      "format": "Debtor confirmations sent and received by us or the field examiner.",
+      "why": "First Brands: billions of purported receivables allegedly did not exist.",
+      "pass": "Confirmations received for the sample covering at least the top 10 debtors and a random sample; no exceptions above 2% of sampled value.",
+      "fail": "Debtors deny invoices; confirmations routed through the borrower.",
+      "verify": "Send confirmations to debtor addresses we source independently.",
+      "applies_to": [
+        "abl",
+        "factoring",
+        "senior-secured",
+        "unitranche"
+      ],
+      "ref": "3.3, 3.12",
+      "weak": false
+    },
+    {
+      "id": "BD-COL-004",
+      "order": 210,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Collateral & Title",
+      "request": "Borrowing base certificates for 24 months, eligibility rules and reserves, with the field examiner's testing.",
+      "format": "Certificates tied to agings and the GL.",
+      "why": "Ineligible collateral presented as eligible inflates availability.",
+      "pass": "Eligibility applied as written; advance rates within norms (eligible AR 80% to 85% typical, OCC range 70% to 85%; inventory up to about 65% of cost or about 80% of NOLV; equipment 50% to 80% of appraised value); concentration caps applied.",
+      "fail": "Concentrations above caps treated as eligible; advance rates above norms.",
+      "verify": "Field exam tests certificates.",
+      "applies_to": [
+        "abl"
+      ],
+      "ref": "3.3, 3.4, 3.8",
+      "weak": false
+    },
+    {
+      "id": "BD-COL-005",
+      "order": 220,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Collateral & Title",
+      "request": "Single-customer concentration and over-advance analysis.",
+      "format": "Borrowing base detail.",
+      "why": "Concentration and over-advances turn an ABL into an unsecured loan.",
+      "pass": "Single-customer concentration capped at 15% to 25% of the AR pool (OCC 10% to 20%); over-advance capped at 10% to 15% of the borrowing base.",
+      "fail": "Concentration above caps; over-advance beyond 15%.",
+      "verify": "Field exam.",
+      "applies_to": [
+        "abl",
+        "factoring"
+      ],
+      "ref": "3.4, 3.8",
+      "weak": false
+    },
+    {
+      "id": "BD-COL-006",
+      "order": 230,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Collateral & Title",
+      "request": "Borrower liquidity at a stressed advance rate: availability if advance rates fall as in 2007-08 (repo haircuts from about zero to nearly 50%).",
+      "format": "Model tab.",
+      "why": "Advance rates are a state variable, not a constant.",
+      "pass": "Borrower remains liquid at stressed advance rates.",
+      "fail": "Liquidity depends on today's advance rate.",
+      "verify": "Rerun ourselves.",
+      "applies_to": [
+        "abl",
+        "factoring",
+        "equipment-finance"
+      ],
+      "ref": "3.4, 4.9",
+      "weak": false
+    },
+    {
+      "id": "BD-COL-007",
+      "order": 240,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Collateral & Title",
+      "request": "Lockbox and deposit account control agreements: list of all collection accounts with remittance instructions to account debtors.",
+      "format": "Account list, draft DACAs, copies of invoices showing remittance addresses.",
+      "why": "Collections that pass through borrower-controlled accounts can be diverted.",
+      "pass": "All collections remitted to a lender-controlled lockbox under a DACA; invoice remittance instructions match.",
+      "fail": "Borrower-controlled lockbox; invoices directing payment elsewhere.",
+      "verify": "Inspect a sample of invoices sent to customers.",
+      "applies_to": [
+        "abl",
+        "factoring",
+        "rbf",
+        "senior-secured",
+        "unitranche"
+      ],
+      "ref": "3.3, 3.6, 3.12",
+      "weak": false
+    },
+    {
+      "id": "BD-COL-008",
+      "order": 250,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Collateral & Title",
+      "request": "Factoring file: account debtor creditworthiness, dilution history (credits, returns, disputes) for 24 months, notification or non-notification structure, and recourse or non-recourse terms.",
+      "format": "Debtor credit reports; dilution reports from the system.",
+      "why": "Dilution and debtor credit determine whether a receivable converts to cash.",
+      "pass": "Dilution within the reserve; debtors creditworthy; notification and acknowledgment obtained on notification deals.",
+      "fail": "Rising dilution; non-notification on concentrated debtors.",
+      "verify": "Debtor confirmations.",
+      "applies_to": [
+        "factoring"
+      ],
+      "ref": "3.3, 4.2",
+      "weak": false
+    },
+    {
+      "id": "BD-COL-009",
+      "order": 260,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Collateral & Title",
+      "request": "Equipment schedule by serial number with titles, lien perfection, location and residual value support.",
+      "format": "Schedule; titles; appraisal.",
+      "why": "Double-pledged or missing equipment and inflated residuals.",
+      "pass": "Every item located, titled to the borrower and perfected in our favour; serial numbers deduped; residuals supported.",
+      "fail": "Items not found; serial numbers pledged elsewhere.",
+      "verify": "Site inspection; dedupe.",
+      "applies_to": [
+        "equipment-finance",
+        "abl"
+      ],
+      "ref": "3.4, 3.12, 4.2",
+      "weak": false
+    },
+    {
+      "id": "BD-COL-010",
+      "order": 270,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Collateral & Title",
+      "request": "Custodial possession arrangements for original titles and notes where the collateral includes vehicles, equipment with titles or consumer paper.",
+      "format": "Custodian agreement draft and receipt process.",
+      "why": "Tricolor double-pledged loans without custodial control.",
+      "pass": "Originals delivered to an independent custodian before funding.",
+      "fail": "Borrower holds originals.",
+      "verify": "Custodian receipt.",
+      "applies_to": [
+        "equipment-finance",
+        "abl"
+      ],
+      "ref": "3.12",
+      "weak": false
+    },
+    {
+      "id": "BD-COL-011",
+      "order": 280,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Collateral & Title",
+      "request": "Static-pool reconciliation where the collateral includes loans or leases: charge-offs from the servicing system tied to lender and trustee reports.",
+      "format": "Reconciliation workbook and system extracts.",
+      "why": "Tricolor booked charged-off loans as current in a fictitious portfolio company.",
+      "pass": "Charge-offs reconcile with no unexplained differences.",
+      "fail": "Differences between servicing system and reports.",
+      "verify": "Collateral auditor.",
+      "applies_to": [
+        "equipment-finance",
+        "abl",
+        "factoring"
+      ],
+      "ref": "3.12",
+      "weak": false
+    },
+    {
+      "id": "BD-HR-001",
+      "order": 290,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "HR & Management",
+      "request": "Names of the CFO, controller and every person with authority to release wires or change payee details, for background checks.",
+      "format": "List with authority limits and bank mandate.",
+      "why": "Misconduct concentrates where finance staff are unchecked.",
+      "pass": "Each person cleared by the background provider; dual authorization on wires.",
+      "fail": "Adverse findings; single-person wire authority.",
+      "verify": "Bank mandate obtained from the bank.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "3.5",
+      "weak": false
+    },
+    {
+      "id": "BD-FO-001",
+      "order": 300,
+      "stage": "confirmatory",
+      "priority": "supporting",
+      "workstream": "Fund Operations",
+      "request": "Where the sponsor of this deal is itself a lender or credit fund: annual deployment target and current deployment, the vehicle that will hold the loan and its redemption terms, and the credit committee process (written scoring before discussion, order randomized, staff paid for accuracy not volume).",
+      "format": "Fund documents and credit policy.",
+      "why": "Very large deployment targets and volume-based pay degrade selection; sequence bias cut approvals by 8 points.",
+      "pass": "Deployment target realistic; holder vehicle identified; written criteria and accuracy-based pay.",
+      "fail": "Deployment pressure; volume-based compensation.",
+      "verify": "Fund filings and Form ADV.",
+      "applies_to": [
+        "senior-secured",
+        "unitranche",
+        "mezzanine",
+        "acquisition",
+        "dividend-recap",
+        "venture-debt",
+        "abl"
+      ],
+      "ref": "3.1, 3.3, 3.8",
+      "weak": false
+    },
+    {
+      "id": "BD-FO-002",
+      "order": 310,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Fund Operations",
+      "request": "Where the lender is a fund: valuation policy for Level 3 marks, who has write access to pricing inputs, and the independent valuation agent's price on this loan.",
+      "format": "Valuation policy and agent engagement letter.",
+      "why": "Infinity Q manipulated inputs to 'independent' models; private marks lag at least four quarters.",
+      "pass": "Independent agent engaged directly; inputs controlled outside the deal team.",
+      "fail": "Deal team controls inputs; no independent agent.",
+      "verify": "Call the valuation agent.",
+      "applies_to": [
+        "senior-secured",
+        "unitranche",
+        "mezzanine",
+        "acquisition",
+        "dividend-recap",
+        "venture-debt"
+      ],
+      "ref": "3.5, 3.13",
+      "weak": false
+    },
+    {
+      "id": "BD-FO-003",
+      "order": 320,
+      "stage": "confirmatory",
+      "priority": "supporting",
+      "workstream": "Fund Operations",
+      "request": "Where a track record or co-lender pitch quotes a default rate: the default definition used (covenant plus payment, realized loss, or rating-agency) and realized losses by vintage.",
+      "format": "Track record tables.",
+      "why": "Headline default rates differ by definition.",
+      "pass": "Definition stated and realized losses shown; realized loss near the long-run 1% a year direct lending benchmark or explained.",
+      "fail": "Default rate with no definition.",
+      "verify": "Compare with Proskauer and Cliffwater data.",
+      "applies_to": [
+        "senior-secured",
+        "unitranche",
+        "mezzanine",
+        "acquisition",
+        "dividend-recap"
+      ],
+      "ref": "3.4",
+      "weak": false
+    },
+    {
+      "id": "BD-FIN-018",
+      "order": 10,
+      "stage": "third-party",
+      "priority": "gating",
+      "workstream": "Financial",
+      "request": "Independent QoE report from an accounting firm, with engagement letter.",
+      "format": "Final report.",
+      "why": "Sponsor-commissioned QoE scope can omit key tests.",
+      "pass": "Scope covers revenue, add-backs, proof of cash across all bank accounts and NWC; reliance granted to us.",
+      "fail": "Limited scope; no reliance.",
+      "verify": "Call the provider.",
+      "applies_to": [
+        "senior-secured",
+        "unitranche",
+        "mezzanine",
+        "acquisition",
+        "dividend-recap",
+        "abl"
+      ],
+      "ref": "3.5",
+      "weak": false
+    },
+    {
+      "id": "BD-COL-012",
+      "order": 20,
+      "stage": "third-party",
+      "priority": "gating",
+      "workstream": "Collateral & Title",
+      "request": "ABL field examination before booking.",
+      "format": "Field exam report from an examiner engaged by us.",
+      "why": "No field exam on an ABL is a red flag.",
+      "pass": "Field exam completed with findings resolved before funding.",
+      "fail": "No field exam or unresolved findings.",
+      "verify": "We engage the examiner.",
+      "applies_to": [
+        "abl",
+        "factoring"
+      ],
+      "ref": "3.3, 3.5, 3.8",
+      "weak": false
+    },
+    {
+      "id": "BD-COL-013",
+      "order": 30,
+      "stage": "third-party",
+      "priority": "gating",
+      "workstream": "Collateral & Title",
+      "request": "Inventory appraisal on NOLV basis and equipment appraisal.",
+      "format": "Appraisal from an appraiser engaged by us.",
+      "why": "Advance rates depend on liquidation value.",
+      "pass": "NOLV and equipment values support the borrowing base at the stated advance rates.",
+      "fail": "No appraisal on an ABL; values below borrowing base.",
+      "verify": "We engage the appraiser.",
+      "applies_to": [
+        "abl",
+        "equipment-finance"
+      ],
+      "ref": "3.3, 3.5",
+      "weak": false
+    },
+    {
+      "id": "BD-COL-014",
+      "order": 40,
+      "stage": "third-party",
+      "priority": "gating",
+      "workstream": "Collateral & Title",
+      "request": "UCC and lien search report covering all affiliates and the founder's personal entities.",
+      "format": "Report from a search provider engaged by us.",
+      "why": "First Brands.",
+      "pass": "Coverage confirmed and results reconciled.",
+      "fail": "Coverage limited to the borrower.",
+      "verify": "We engage the provider.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "3.5, 3.12",
+      "weak": false
+    },
+    {
+      "id": "BD-COL-015",
+      "order": 50,
+      "stage": "third-party",
+      "priority": "gating",
+      "workstream": "Collateral & Title",
+      "request": "Independent collateral agent or backup servicer collateral dedupe report.",
+      "format": "Report naming facilities covered and method.",
+      "why": "No single party sees all the collateral.",
+      "pass": "Dedupe complete across all facilities with zero duplicates.",
+      "fail": "Not performed or partial.",
+      "verify": "We engage the agent.",
+      "applies_to": [
+        "abl",
+        "factoring",
+        "equipment-finance",
+        "senior-secured",
+        "unitranche"
+      ],
+      "ref": "3.5, 3.12",
+      "weak": false
+    },
+    {
+      "id": "BD-CL-008",
+      "order": 60,
+      "stage": "third-party",
+      "priority": "gating",
+      "workstream": "Corporate & Legal",
+      "request": "Our own counsel's covenant capacity and LME memo (baskets, EBITDA definition, unrestricted subsidiaries, uptier and drop-down capacity).",
+      "format": "Memo from counsel independent of sponsor-designated counsel.",
+      "why": "Sponsor-designated counsel is under pressure not to over-lawyer.",
+      "pass": "Memo delivered with maximum permitted leverage and required changes; changes accepted.",
+      "fail": "No independent review.",
+      "verify": "Our engagement.",
+      "applies_to": [
+        "senior-secured",
+        "unitranche",
+        "mezzanine",
+        "acquisition",
+        "dividend-recap"
+      ],
+      "ref": "3.5, 3.10, 3.11",
+      "weak": false
+    },
+    {
+      "id": "BD-HR-002",
+      "order": 70,
+      "stage": "third-party",
+      "priority": "core",
+      "workstream": "HR & Management",
+      "request": "Background checks on the CFO, controller and wire releasers.",
+      "format": "Provider report.",
+      "why": "Fraud rings sit in finance roles.",
+      "pass": "No adverse findings.",
+      "fail": "Adverse findings.",
+      "verify": "Provider engaged by us.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "3.5",
+      "weak": false
+    },
+    {
+      "id": "BD-VAL-008",
+      "order": 80,
+      "stage": "third-party",
+      "priority": "core",
+      "workstream": "Valuation & Model",
+      "request": "Independent valuation agent price for Level 3 marks where the lender is a fund.",
+      "format": "Valuation report.",
+      "why": "Marks lag and can be gamed.",
+      "pass": "Agent price within tolerance of the manager mark.",
+      "fail": "Material difference.",
+      "verify": "Direct engagement and call.",
+      "applies_to": [
+        "senior-secured",
+        "unitranche",
+        "mezzanine",
+        "acquisition",
+        "dividend-recap",
+        "venture-debt"
+      ],
+      "ref": "3.5, 3.13",
+      "weak": false
+    },
+    {
+      "id": "BD-CL-009",
+      "order": 10,
+      "stage": "closing",
+      "priority": "gating",
+      "workstream": "Corporate & Legal",
+      "request": "Executed credit agreement with the approved EBITDA definition and caps, maintenance covenant, equity cure limits, J.Crew blocker, investment caps, sacred-rights protections and reporting covenants.",
+      "format": "Executed agreement and our counsel's closing confirmation.",
+      "why": "Protections negotiated but dropped at signing.",
+      "pass": "Every approved protection present in the executed agreement.",
+      "fail": "Any protection removed or weakened.",
+      "verify": "Counsel comparison to the approved term sheet.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "3.6",
+      "weak": false
+    },
+    {
+      "id": "BD-COL-016",
+      "order": 20,
+      "stage": "closing",
+      "priority": "gating",
+      "workstream": "Collateral & Title",
+      "request": "Security agreement, UCC-1 filings in every relevant jurisdiction, and post-filing searches confirming first priority (or agreed priority).",
+      "format": "Filed UCC-1s and search results.",
+      "why": "Unperfected liens fail in bankruptcy.",
+      "pass": "Perfected with agreed priority over all collateral.",
+      "fail": "Prior liens not released.",
+      "verify": "Post-closing search.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "3.6",
+      "weak": false
+    },
+    {
+      "id": "BD-CL-010",
+      "order": 30,
+      "stage": "closing",
+      "priority": "gating",
+      "workstream": "Corporate & Legal",
+      "request": "Guaranties from all required subsidiaries and parents.",
+      "format": "Executed guaranties.",
+      "why": "Value outside the guarantor group escapes recovery.",
+      "pass": "Guarantor coverage meets the term sheet test.",
+      "fail": "Material subsidiaries excluded.",
+      "verify": "Counsel review.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "3.6",
+      "weak": false
+    },
+    {
+      "id": "BD-CL-011",
+      "order": 40,
+      "stage": "closing",
+      "priority": "gating",
+      "workstream": "Corporate & Legal",
+      "request": "Intercreditor or subordination agreement for every second lien, mezzanine or other secured creditor.",
+      "format": "Executed agreement.",
+      "why": "A second lien without an intercreditor is a red flag.",
+      "pass": "Intercreditor executed with standstill, payment blockage and purchase rights as approved.",
+      "fail": "Second lien or mezzanine with no intercreditor.",
+      "verify": "Counsel review.",
+      "applies_to": [
+        "mezzanine",
+        "senior-secured",
+        "unitranche",
+        "abl"
+      ],
+      "ref": "3.6, 3.8",
+      "weak": false
+    },
+    {
+      "id": "BD-COL-017",
+      "order": 50,
+      "stage": "closing",
+      "priority": "gating",
+      "workstream": "Collateral & Title",
+      "request": "Executed DACAs and lockbox agreements placing every collection account under lender control.",
+      "format": "Executed agreements acknowledged by the banks.",
+      "why": "Lockbox under borrower control is no control.",
+      "pass": "All collection accounts covered; banks acknowledge.",
+      "fail": "Accounts excluded.",
+      "verify": "Bank acknowledgment directly from the bank.",
+      "applies_to": [
+        "abl",
+        "factoring",
+        "rbf",
+        "senior-secured",
+        "unitranche"
+      ],
+      "ref": "3.6, 3.12",
+      "weak": false
+    },
+    {
+      "id": "BD-COL-018",
+      "order": 60,
+      "stage": "closing",
+      "priority": "gating",
+      "workstream": "Collateral & Title",
+      "request": "Notification and acknowledgment of assignment from account debtors on notification structures.",
+      "format": "Signed acknowledgments.",
+      "why": "First Brands factoring counterparties never confirmed with debtors.",
+      "pass": "Acknowledgments from every account debtor in a notification deal.",
+      "fail": "Missing acknowledgments.",
+      "verify": "Confirm signatures with debtors.",
+      "applies_to": [
+        "factoring",
+        "abl"
+      ],
+      "ref": "3.12, 4.2",
+      "weak": false
+    },
+    {
+      "id": "BD-COL-019",
+      "order": 70,
+      "stage": "closing",
+      "priority": "core",
+      "workstream": "Collateral & Title",
+      "request": "Custodian receipts for original titles and notes.",
+      "format": "Custodian receipt listing each item.",
+      "why": "Without possession, collateral can be pledged twice.",
+      "pass": "Every item in the borrowing base receipted.",
+      "fail": "Items missing.",
+      "verify": "Custodian confirms.",
+      "applies_to": [
+        "equipment-finance",
+        "abl"
+      ],
+      "ref": "3.12",
+      "weak": false
+    },
+    {
+      "id": "BD-FIN-019",
+      "order": 80,
+      "stage": "closing",
+      "priority": "gating",
+      "workstream": "Financial",
+      "request": "Payoff letters and lien releases (UCC-3 terminations) for refinanced debt and terminated factoring or SCF facilities.",
+      "format": "Payoff letters; filed terminations.",
+      "why": "Old liens and live factoring lines survive closing.",
+      "pass": "All payoffs match; terminations filed; factors confirm no further purchases.",
+      "fail": "Releases outstanding.",
+      "verify": "Post-closing UCC search.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "3.12",
+      "weak": false
+    },
+    {
+      "id": "BD-CL-012",
+      "order": 90,
+      "stage": "closing",
+      "priority": "core",
+      "workstream": "Corporate & Legal",
+      "request": "Executed ISDA documentation and hedge intercreditor terms consistent with the credit agreement.",
+      "format": "Executed ISDAs and schedules.",
+      "why": "Hedge counterparties sharing collateral change recovery.",
+      "pass": "Hedges pari passu only as approved; netting understood.",
+      "fail": "Unapproved hedges sharing collateral.",
+      "verify": "Counsel review.",
+      "applies_to": [
+        "senior-secured",
+        "unitranche",
+        "mezzanine",
+        "acquisition",
+        "dividend-recap",
+        "abl"
+      ],
+      "ref": "3.6",
+      "weak": false
+    },
+    {
+      "id": "BD-FIN-020",
+      "order": 100,
+      "stage": "closing",
+      "priority": "gating",
+      "workstream": "Financial",
+      "request": "Closing certificate stating the three leverage numbers (unadjusted, all-in including factoring and SCF, maximum permitted) and a funds flow tied to sources and uses.",
+      "format": "Officer certificate and funds flow.",
+      "why": "Closing is the last point to confirm the numbers.",
+      "pass": "Numbers match the IC memo; funds flow ties.",
+      "fail": "Differences from the IC memo.",
+      "verify": "Recompute.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "THE ONE CHECK",
+      "weak": false
+    },
+    {
+      "id": "BD-FIN-021",
+      "order": 10,
+      "stage": "monitoring",
+      "priority": "gating",
+      "workstream": "Financial",
+      "request": "Monthly management accounts and, for ABL and factoring, borrowing base certificates (monthly or weekly as required) with agings and eligibility.",
+      "format": "Within 30 days of month-end (weekly certificates where availability is tight).",
+      "why": "Early warning comes from monthly data.",
+      "pass": "Delivered on time; ties to agings and bank receipts.",
+      "fail": "Late or inconsistent reports.",
+      "verify": "Lockbox receipts reconciled to collections reported.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "3.3",
+      "weak": false
+    },
+    {
+      "id": "BD-FIN-022",
+      "order": 20,
+      "stage": "monitoring",
+      "priority": "gating",
+      "workstream": "Financial",
+      "request": "Quarterly compliance certificate with EBITDA reconciled from unadjusted to covenant EBITDA, add-backs used against caps, leverage and coverage, cushion, and equity cures used.",
+      "format": "Officer-signed certificate within 45 days of quarter-end.",
+      "why": "Equity cure abuse and add-back creep hide a trend.",
+      "pass": "Covenants met; add-backs within caps; cures within limits; trend reported.",
+      "fail": "Breach, or reliance on cures in consecutive quarters.",
+      "verify": "Recompute from management accounts.",
+      "applies_to": [
+        "senior-secured",
+        "unitranche",
+        "mezzanine",
+        "acquisition",
+        "dividend-recap",
+        "abl",
+        "venture-debt"
+      ],
+      "ref": "3.6, 3.7",
+      "weak": false
+    },
+    {
+      "id": "BD-COL-020",
+      "order": 30,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Collateral & Title",
+      "request": "Periodic field exams and appraisals per the credit agreement (at least annually, more often if availability is tight).",
+      "format": "Examiner and appraiser reports.",
+      "why": "OCC: field exam before booking and periodically after.",
+      "pass": "No material findings; borrowing base adjusted for findings.",
+      "fail": "Material ineligibles or valuation declines.",
+      "verify": "We engage examiners.",
+      "applies_to": [
+        "abl",
+        "factoring",
+        "equipment-finance"
+      ],
+      "ref": "3.3",
+      "weak": false
+    },
+    {
+      "id": "BD-COL-021",
+      "order": 40,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Collateral & Title",
+      "request": "Quarterly UCC re-search across all affiliates and the founder's entities, and an officer certification that no new factoring, SCF, receivables-sale or inventory financing has been entered.",
+      "format": "Search results and certification.",
+      "why": "Off-balance-sheet financing added after closing.",
+      "pass": "No new filings or facilities without consent.",
+      "fail": "New filings or undisclosed facilities.",
+      "verify": "Search provider.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "3.12",
+      "weak": false
+    },
+    {
+      "id": "BD-COL-022",
+      "order": 50,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Collateral & Title",
+      "request": "Periodic re-run of the item-level dedupe across facilities.",
+      "format": "Independent agent report quarterly.",
+      "why": "Double pledging can start after closing.",
+      "pass": "Zero duplicates.",
+      "fail": "Any duplicate.",
+      "verify": "Independent agent.",
+      "applies_to": [
+        "abl",
+        "factoring",
+        "equipment-finance"
+      ],
+      "ref": "3.12",
+      "weak": false
+    },
+    {
+      "id": "BD-FIN-023",
+      "order": 60,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Quarterly average daily balances of debt and cash, and a report of cash location and insured share.",
+      "format": "Bank reports.",
+      "why": "Window dressing and bank failure risk.",
+      "pass": "Averages consistent with period-end; cash spread or in insured sweeps or Treasury MMFs.",
+      "fail": "Period-end spikes; concentration.",
+      "verify": "Bank-issued data.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "3.12, 4.12",
+      "weak": false
+    },
+    {
+      "id": "BD-CL-013",
+      "order": 70,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Corporate & Legal",
+      "request": "Basket usage report: debt incurred, liens granted, investments made in unrestricted subsidiaries and non-guarantors, asset sales, and unrestricted-subsidiary designations, against each basket.",
+      "format": "Quarterly schedule.",
+      "why": "Collateral leaves the box through baskets.",
+      "pass": "Usage within approved capacity; no material IP transfers.",
+      "fail": "Unexpected designations or transfers.",
+      "verify": "Registry and IP office checks.",
+      "applies_to": [
+        "senior-secured",
+        "unitranche",
+        "mezzanine",
+        "acquisition",
+        "dividend-recap"
+      ],
+      "ref": "3.10, 3.11",
+      "weak": false
+    },
+    {
+      "id": "BD-CL-014",
+      "order": 80,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Corporate & Legal",
+      "request": "Amendment, waiver, PIK election and extension log, and notice of any proposed amendment affecting lien priority or pro rata sharing.",
+      "format": "Log and copies.",
+      "why": "Amend-and-extend and LMEs are negotiated in private.",
+      "pass": "Every change logged; no priority or pro rata change without our consent.",
+      "fail": "Changes made without notice.",
+      "verify": "Agent confirmation.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "3.11, 3.13",
+      "weak": false
+    },
+    {
+      "id": "BD-VAL-009",
+      "order": 90,
+      "stage": "monitoring",
+      "priority": "supporting",
+      "workstream": "Valuation & Model",
+      "request": "Quarterly ARR, seat and pricing cohort update for recurring-revenue borrowers, with the AI-substitution stress rerun.",
+      "format": "Cohort tables.",
+      "why": "2026 software repricing.",
+      "pass": "ARR within the downside case.",
+      "fail": "ARR below downside.",
+      "verify": "Billing system extracts.",
+      "applies_to": [
+        "venture-debt",
+        "rbf",
+        "unitranche",
+        "senior-secured"
+      ],
+      "ref": "3.3",
+      "weak": false
+    },
+    {
+      "id": "BD-VAL-010",
+      "order": 100,
+      "stage": "monitoring",
+      "priority": "supporting",
+      "workstream": "Valuation & Model",
+      "request": "Quarterly mark on the loan with the independent agent's price and other BDCs' marks on the same loan.",
+      "format": "Valuation report and BDC filing extracts.",
+      "why": "Stale marks hide forbearance.",
+      "pass": "Marks consistent within tolerance.",
+      "fail": "Divergent marks.",
+      "verify": "BDC filings.",
+      "applies_to": [
+        "senior-secured",
+        "unitranche",
+        "mezzanine",
+        "acquisition",
+        "dividend-recap",
+        "venture-debt"
+      ],
+      "ref": "3.13",
+      "weak": false
+    },
+    {
+      "id": "BD-COM-004",
+      "order": 110,
+      "stage": "monitoring",
+      "priority": "supporting",
+      "workstream": "Commercial & Market",
+      "request": "Annual top-customer verification calls and channel-stuffing test refresh.",
+      "format": "Call notes; analysis.",
+      "why": "Customer losses and pre-billing.",
+      "pass": "No adverse findings.",
+      "fail": "Customer cuts or pre-billing signals.",
+      "verify": "Independent contact.",
+      "applies_to": [
+        "senior-secured",
+        "unitranche",
+        "mezzanine",
+        "acquisition",
+        "dividend-recap",
+        "abl",
+        "factoring"
+      ],
+      "ref": "3.3, 3.7",
+      "weak": false
+    },
+    {
+      "id": "BD-FIN-024",
+      "order": 120,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Annual audited financial statements within the period set in the credit agreement, with the auditor's management letter.",
+      "format": "Audited statements and management letter.",
+      "why": "Audit findings and going-concern language are lagging but hard evidence.",
+      "pass": "Unqualified opinion; no material weakness unremediated.",
+      "fail": "Qualification, going concern, or late delivery.",
+      "verify": "Confirm with the auditor.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "3.2",
+      "weak": false
+    }
+  ],
+  "kill_tests": [
+    {
+      "id": "BD-K01",
+      "test": "No single party sees all the collateral and the borrower will not permit a cross-facility dedupe and UCC sweep across all affiliates and the founder's entities.",
+      "ref": "3.12",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "BD-K02",
+      "test": "An undisclosed factoring, SCF, receivables-sale or inventory-finance facility is discovered after the borrower certified the schedule complete.",
+      "ref": "3.2, 3.12",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "BD-K03",
+      "test": "Duplicate pledged collateral (invoice, serial number or VIN) found in the dedupe.",
+      "ref": "3.12",
+      "applies_to": [
+        "abl",
+        "factoring",
+        "equipment-finance",
+        "senior-secured",
+        "unitranche"
+      ]
+    },
+    {
+      "id": "BD-K04",
+      "test": "Account debtors deny material sampled receivables, or confirmations can only be routed through the borrower.",
+      "ref": "3.3, 3.12",
+      "applies_to": [
+        "abl",
+        "factoring",
+        "senior-secured",
+        "unitranche"
+      ]
+    },
+    {
+      "id": "BD-K05",
+      "test": "ABL with no field exam and no appraisal before funding.",
+      "ref": "3.8",
+      "applies_to": [
+        "abl"
+      ]
+    },
+    {
+      "id": "BD-K06",
+      "test": "Second lien or mezzanine without an intercreditor agreement.",
+      "ref": "3.8",
+      "applies_to": [
+        "mezzanine",
+        "senior-secured",
+        "unitranche"
+      ]
+    },
+    {
+      "id": "BD-K07",
+      "test": "Borrower refuses lender-controlled lockbox and DACAs on a receivables-based facility.",
+      "ref": "3.6, 3.12",
+      "applies_to": [
+        "abl",
+        "factoring",
+        "rbf"
+      ]
+    },
+    {
+      "id": "BD-K08",
+      "test": "Reported cash at the parent or borrower cannot be confirmed by the banks.",
+      "ref": "3.12",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "BD-K09",
+      "test": "Recurring financing that unwinds just after period-end (Repo 105 pattern) used to present leverage or liquidity.",
+      "ref": "3.8, 3.12",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "BD-K10",
+      "test": "Debt service fails in the worst of the three leverage numbers under our downside case with no equity commitment to cure.",
+      "ref": "THE ONE CHECK, 3.3",
+      "applies_to": [
+        "senior-secured",
+        "unitranche",
+        "mezzanine",
+        "acquisition",
+        "dividend-recap",
+        "abl"
+      ]
+    }
+  ],
+  "red_flags": [
+    {
+      "id": "BD-RF01",
+      "flag": "EBITDA definition with uncapped, vague add-backs.",
+      "check": "Cap every add-back; validate in the QoE.",
+      "ref": "3.8",
+      "applies_to": [
+        "senior-secured",
+        "unitranche",
+        "mezzanine",
+        "acquisition",
+        "dividend-recap",
+        "abl"
+      ]
+    },
+    {
+      "id": "BD-RF02",
+      "flag": "No field exam and no appraisal on an ABL.",
+      "check": "Commission both before funding.",
+      "ref": "3.8",
+      "applies_to": [
+        "abl"
+      ]
+    },
+    {
+      "id": "BD-RF03",
+      "flag": "Receivables concentration above caps presented as fully eligible.",
+      "check": "Apply 15%-25% single-customer caps.",
+      "ref": "3.8",
+      "applies_to": [
+        "abl",
+        "factoring"
+      ]
+    },
+    {
+      "id": "BD-RF04",
+      "flag": "Second lien without an intercreditor.",
+      "check": "Require an intercreditor.",
+      "ref": "3.8",
+      "applies_to": [
+        "mezzanine",
+        "senior-secured",
+        "unitranche"
+      ]
+    },
+    {
+      "id": "BD-RF05",
+      "flag": "Maximum permitted senior secured leverage two or more turns above closing leverage.",
+      "check": "Underwrite recovery at the permitted level; price or negotiate the gap.",
+      "ref": "3.8, 3.10",
+      "applies_to": [
+        "senior-secured",
+        "unitranche",
+        "mezzanine",
+        "acquisition",
+        "dividend-recap"
+      ]
+    },
+    {
+      "id": "BD-RF06",
+      "flag": "No J.Crew blocker; uncapped investments in non-guarantors or unrestricted subsidiaries.",
+      "check": "Require blocker and caps.",
+      "ref": "3.8, 3.11",
+      "applies_to": [
+        "senior-secured",
+        "unitranche",
+        "mezzanine",
+        "acquisition",
+        "dividend-recap"
+      ]
+    },
+    {
+      "id": "BD-RF07",
+      "flag": "Multiple warehouse, factoring or inventory-finance providers, each seeing only their own collateral.",
+      "check": "Independent cross-facility dedupe.",
+      "ref": "3.8, 3.12",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "BD-RF08",
+      "flag": "Factoring or supply-chain finance excluded from leverage.",
+      "check": "Add to all-in leverage.",
+      "ref": "3.8, 3.12",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "BD-RF09",
+      "flag": "Recurring financing that unwinds just after period-end.",
+      "check": "Average daily balance test.",
+      "ref": "3.8, 3.12",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "BD-RF10",
+      "flag": "Lender counsel chosen by the sponsor and no independent review by our own counsel.",
+      "check": "Engage our own counsel.",
+      "ref": "3.8, 3.3",
+      "applies_to": [
+        "senior-secured",
+        "unitranche",
+        "mezzanine",
+        "acquisition",
+        "dividend-recap"
+      ]
+    },
+    {
+      "id": "BD-RF11",
+      "flag": "Lender affiliated with the equity sponsor, with amendments approved inside the same group.",
+      "check": "Require independent amendment approval.",
+      "ref": "3.8, 3.3",
+      "applies_to": [
+        "senior-secured",
+        "unitranche",
+        "mezzanine",
+        "acquisition",
+        "dividend-recap"
+      ]
+    },
+    {
+      "id": "BD-RF12",
+      "flag": "PIK toggles, serial amend-and-extend, or maturity extensions with no paydown.",
+      "check": "Amendment history by loan; cross-BDC mark comparison.",
+      "ref": "3.8, 3.13",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "BD-RF13",
+      "flag": "Default rate quoted with no definition.",
+      "check": "Ask which definition and for realized loss.",
+      "ref": "3.8, 3.4",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "BD-RF14",
+      "flag": "A lender under deployment pressure (very large annual deployment target).",
+      "check": "Ask deployment target; check selection discipline.",
+      "ref": "3.8, 3.3",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "BD-RF15",
+      "flag": "Recurring-revenue loan sized on ARR multiples with no AI-substitution downside.",
+      "check": "Stress ARR for seat compression and price pressure.",
+      "ref": "3.8, 3.3",
+      "applies_to": [
+        "venture-debt",
+        "rbf",
+        "unitranche",
+        "senior-secured"
+      ]
+    },
+    {
+      "id": "BD-RF16",
+      "flag": "Covenant-lite with no maintenance test and no pricing premium for the covenants given up.",
+      "check": "Require at least one maintenance covenant with cushion and step-downs.",
+      "ref": "3.6, 3.7",
+      "applies_to": [
+        "senior-secured",
+        "unitranche",
+        "mezzanine",
+        "acquisition",
+        "dividend-recap"
+      ]
+    },
+    {
+      "id": "BD-RF17",
+      "flag": "Equity cures counted as EBITDA or used in consecutive quarters.",
+      "check": "Limit cures; track the trend.",
+      "ref": "3.7",
+      "applies_to": [
+        "senior-secured",
+        "unitranche",
+        "mezzanine",
+        "acquisition",
+        "dividend-recap",
+        "abl"
+      ]
+    },
+    {
+      "id": "BD-RF18",
+      "flag": "Dividend recap priced like LBO leverage with no equity added.",
+      "check": "Underwrite as a fresh LBO.",
+      "ref": "3.7",
+      "applies_to": [
+        "dividend-recap"
+      ]
+    },
+    {
+      "id": "BD-RF19",
+      "flag": "Borrower's operating cash concentrated above insured limits at one bank, or a covenant forcing a single bank.",
+      "check": "Require spread deposits, insured sweeps or Treasury MMFs.",
+      "ref": "3.4, 3.7",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "BD-RF20",
+      "flag": "Swaps secured pari passu with no mapping of counterparties and netting.",
+      "check": "Map every ISDA.",
+      "ref": "3.3, 3.6",
+      "applies_to": [
+        "senior-secured",
+        "unitranche",
+        "mezzanine",
+        "acquisition",
+        "dividend-recap",
+        "abl"
+      ]
+    },
+    {
+      "id": "BD-RF21",
+      "flag": "QoE engagement letter not provided, or proof of cash did not cover every bank account.",
+      "check": "Read scope first.",
+      "ref": "3.3",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "BD-RF22",
+      "flag": "Material unexplained changes in filing language over the last 8 quarters.",
+      "check": "Text diff; management explanation.",
+      "ref": "3.3",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "BD-RF23",
+      "flag": "EBITDA margin expansion in the model with no line-by-line cost bridge.",
+      "check": "Hold margins flat.",
+      "ref": "3.3",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "BD-RF24",
+      "flag": "Top-customer inventory and AP jumping relative to invoiced sales.",
+      "check": "Customer-side channel-stuffing test plus calls.",
+      "ref": "3.3",
+      "applies_to": [
+        "abl",
+        "factoring",
+        "senior-secured",
+        "unitranche",
+        "mezzanine",
+        "acquisition",
+        "dividend-recap"
+      ]
+    },
+    {
+      "id": "BD-RF25",
+      "flag": "Uptier possible: majority can amend lien or payment priority or pro rata sharing.",
+      "check": "Require sacred rights.",
+      "ref": "3.11",
+      "applies_to": [
+        "senior-secured",
+        "unitranche",
+        "mezzanine",
+        "acquisition",
+        "dividend-recap"
+      ]
+    },
+    {
+      "id": "BD-RF26",
+      "flag": "Loan holder is a perpetual BDC under redemption pressure.",
+      "check": "Expect pressure to sell, resist new money or favor PIK in a workout.",
+      "ref": "3.1, 3.13",
+      "applies_to": [
+        "senior-secured",
+        "unitranche",
+        "mezzanine",
+        "acquisition",
+        "dividend-recap"
+      ]
+    },
+    {
+      "id": "BD-RF27",
+      "flag": "Manager's mark on the loan differs from other BDCs' marks.",
+      "check": "Independent valuation agent price.",
+      "ref": "3.13",
+      "applies_to": [
+        "senior-secured",
+        "unitranche",
+        "mezzanine",
+        "acquisition",
+        "dividend-recap",
+        "venture-debt"
+      ]
+    },
+    {
+      "id": "BD-RF28",
+      "flag": "Lending more into a company where the lender already holds equity.",
+      "check": "Separate approval; do not be wrong twice.",
+      "ref": "3.3",
+      "applies_to": [
+        "all"
+      ]
+    }
+  ],
+  "metrics": [
+    {
+      "id": "BD-M01",
+      "metric": "Unitranche leverage, stable sponsor-backed",
+      "acceptable": "4.0x to 5.5x EBITDA",
+      "source": "coyotewealth.com (vendor); consistent with Fed median 5.0x",
+      "weak": true,
+      "ref": "3.4",
+      "applies_to": [
+        "unitranche"
+      ]
+    },
+    {
+      "id": "BD-M02",
+      "metric": "Median private-credit borrower debt / EBITDA (2025 issuance)",
+      "acceptable": "5.0x (3.2x for leveraged loans)",
+      "source": "Federal Reserve FEDS Note, Aug 11 2026",
+      "weak": false,
+      "ref": "3.4",
+      "applies_to": [
+        "senior-secured",
+        "unitranche",
+        "mezzanine",
+        "acquisition",
+        "dividend-recap"
+      ]
+    },
+    {
+      "id": "BD-M03",
+      "metric": "Interest cover (EBITDA / cash interest), 2025 issuance",
+      "acceptable": "Average 2.2x (3.7x leveraged loans); an average, not a median",
+      "source": "Federal Reserve FEDS Note, Aug 11 2026",
+      "weak": false,
+      "ref": "3.4",
+      "applies_to": [
+        "senior-secured",
+        "unitranche",
+        "mezzanine",
+        "acquisition",
+        "dividend-recap"
+      ]
+    },
+    {
+      "id": "BD-M04",
+      "metric": "Median private-credit borrower revenue",
+      "acceptable": "$223M (IQR $35M to $700M) vs $902M leveraged loans",
+      "source": "Federal Reserve FEDS Note, Aug 11 2026",
+      "weak": false,
+      "ref": "3.4",
+      "applies_to": [
+        "senior-secured",
+        "unitranche",
+        "mezzanine",
+        "acquisition",
+        "dividend-recap"
+      ]
+    },
+    {
+      "id": "BD-M05",
+      "metric": "Median borrower size (IMF)",
+      "acceptable": "About $0.5B private credit vs $4.6B leveraged-loan issuers",
+      "source": "IMF GFSR Apr 2024 Ch. 2",
+      "weak": false,
+      "ref": "3.4",
+      "applies_to": [
+        "senior-secured",
+        "unitranche",
+        "mezzanine",
+        "acquisition",
+        "dividend-recap"
+      ]
+    },
+    {
+      "id": "BD-M06",
+      "metric": "Leverage covenant cushion",
+      "acceptable": "25% to 35% to sponsor-model EBITDA",
+      "source": "Sidley 2026; coyotewealth.com",
+      "weak": false,
+      "ref": "3.4",
+      "applies_to": [
+        "senior-secured",
+        "unitranche",
+        "mezzanine",
+        "acquisition",
+        "dividend-recap",
+        "abl"
+      ]
+    },
+    {
+      "id": "BD-M07",
+      "metric": "Unitranche pricing",
+      "acceptable": "About SOFR + 475 to 650 bp",
+      "source": "coyotewealth.com (vendor)",
+      "weak": true,
+      "ref": "3.4",
+      "applies_to": [
+        "unitranche"
+      ]
+    },
+    {
+      "id": "BD-M08",
+      "metric": "Supervisory 'leveraged' definition",
+      "acceptable": "Total debt > 4.0x or senior > 3.0x EBITDA = leveraged (definition, not cap); > 6x total raises supervisory concern",
+      "source": "Fed SR 13-3, Mar 2013 (exact 4x/3x wording unconfirmed)",
+      "weak": true,
+      "ref": "3.4",
+      "applies_to": [
+        "senior-secured",
+        "unitranche",
+        "mezzanine",
+        "acquisition",
+        "dividend-recap"
+      ]
+    },
+    {
+      "id": "BD-M09",
+      "metric": "Loan spread that is not credit risk",
+      "acceptable": "About 142 to 172 bp of a 279 bp all-in drawn spread (about half; up to 61%)",
+      "source": "Schwert, JF 2020",
+      "weak": false,
+      "ref": "3.1, 3.4",
+      "applies_to": [
+        "senior-secured",
+        "unitranche",
+        "mezzanine",
+        "acquisition",
+        "dividend-recap"
+      ]
+    },
+    {
+      "id": "BD-M10",
+      "metric": "Covenant baskets",
+      "acceptable": "96% of agreements have >= 1 basket; median 8 baskets; average 79 carve-outs (22 on liens); average debt basket > 2.3x EBITDA; collateral and asset-sale baskets 35% and 39% of EBITDA",
+      "source": "Ivashina and Vallee, NBER w27316",
+      "weak": false,
+      "ref": "3.4, 3.10",
+      "applies_to": [
+        "senior-secured",
+        "unitranche",
+        "mezzanine",
+        "acquisition",
+        "dividend-recap"
+      ]
+    },
+    {
+      "id": "BD-M11",
+      "metric": "Maximum permitted vs closing senior secured leverage",
+      "acceptable": "Gap < 2 turns; if >= 2 turns underwrite recovery at permitted level (over 70% of contracts permit > 5x; 3/4 of 5x borrowers can exceed 6x)",
+      "source": "Ivashina and Vallee",
+      "weak": false,
+      "ref": "3.4, 3.10",
+      "applies_to": [
+        "senior-secured",
+        "unitranche",
+        "mezzanine",
+        "acquisition",
+        "dividend-recap"
+      ]
+    },
+    {
+      "id": "BD-M12",
+      "metric": "PIK share of BDC interest income",
+      "acceptable": "Doubled since 2019; treat PIK elections as a distress signal to explain",
+      "source": "IMF GFSR Apr 2024",
+      "weak": false,
+      "ref": "3.4, 3.13",
+      "applies_to": [
+        "senior-secured",
+        "unitranche",
+        "mezzanine",
+        "acquisition",
+        "dividend-recap"
+      ]
+    },
+    {
+      "id": "BD-M13",
+      "metric": "Rate structure",
+      "acceptable": "Private credit almost exclusively floating rate; stress debt service at higher SOFR",
+      "source": "IMF GFSR Apr 2024",
+      "weak": false,
+      "ref": "3.4",
+      "applies_to": [
+        "senior-secured",
+        "unitranche",
+        "mezzanine",
+        "acquisition",
+        "dividend-recap"
+      ]
+    },
+    {
+      "id": "BD-M14",
+      "metric": "Mark lag",
+      "acceptable": "BDC marks take at least 4 quarters to converge after a shock; private credit marked quarterly",
+      "source": "Fed FEDS Note 2026; IMF GFSR 2024",
+      "weak": false,
+      "ref": "3.4, 3.13",
+      "applies_to": [
+        "senior-secured",
+        "unitranche",
+        "mezzanine",
+        "acquisition",
+        "dividend-recap"
+      ]
+    },
+    {
+      "id": "BD-M15",
+      "metric": "Private credit default rate (covenant + payment)",
+      "acceptable": "1.76% Q2 2025; 1.84% Q3 2025; 2.46% Q4 2025; 2.73% Q1 2026; 2.41% Q3 2026",
+      "source": "Proskauer Private Credit Default Index",
+      "weak": false,
+      "ref": "3.4",
+      "applies_to": [
+        "senior-secured",
+        "unitranche",
+        "mezzanine",
+        "acquisition",
+        "dividend-recap"
+      ]
+    },
+    {
+      "id": "BD-M16",
+      "metric": "Defaults by borrower size (Q3 2025)",
+      "acceptable": "$25M-$49.9M EBITDA band 2.6% vs 1.2% for $50M+",
+      "source": "Proskauer Q3 2025",
+      "weak": false,
+      "ref": "3.4",
+      "applies_to": [
+        "senior-secured",
+        "unitranche",
+        "mezzanine",
+        "acquisition",
+        "dividend-recap"
+      ]
+    },
+    {
+      "id": "BD-M17",
+      "metric": "Realized loss, direct lending",
+      "acceptable": "Base 1% a year (1.03% long run since 2004; 0.70% in 2025); stress 2% to 3%",
+      "source": "Cliffwater CDLI (2025 figure from staging host)",
+      "weak": true,
+      "ref": "3.4",
+      "applies_to": [
+        "senior-secured",
+        "unitranche",
+        "mezzanine",
+        "acquisition",
+        "dividend-recap"
+      ]
+    },
+    {
+      "id": "BD-M18",
+      "metric": "Recovery by priority (Moody's URD 1995-2013)",
+      "acceptable": "Loans 84%; secured bonds 60%; senior unsecured 38%; haircut for covenant-lite",
+      "source": "Schwert, JF 2020",
+      "weak": false,
+      "ref": "3.4, 3.11",
+      "applies_to": [
+        "senior-secured",
+        "unitranche",
+        "mezzanine",
+        "acquisition",
+        "dividend-recap",
+        "mezzanine"
+      ]
+    },
+    {
+      "id": "BD-M19",
+      "metric": "Middle-market distress reference (2009)",
+      "acceptable": "Senior debt 60 to 80 cents; MM default 10%+ over 12 months; no DIP made Chapter 11 a route to liquidation",
+      "source": "KaW Aug 5 2009 (dated)",
+      "weak": false,
+      "ref": "3.4",
+      "applies_to": [
+        "senior-secured",
+        "unitranche",
+        "mezzanine",
+        "acquisition",
+        "dividend-recap"
+      ]
+    },
+    {
+      "id": "BD-M20",
+      "metric": "ABL advance rate, eligible receivables",
+      "acceptable": "80% to 85% typical (OCC range 70% to 85%)",
+      "source": "OCC Comptroller's Handbook, ABL",
+      "weak": false,
+      "ref": "3.4",
+      "applies_to": [
+        "abl"
+      ]
+    },
+    {
+      "id": "BD-M21",
+      "metric": "ABL advance rate, inventory",
+      "acceptable": "Up to ~65% of book (cost); ~80% of NOLV",
+      "source": "OCC Comptroller's Handbook, ABL",
+      "weak": false,
+      "ref": "3.4",
+      "applies_to": [
+        "abl"
+      ]
+    },
+    {
+      "id": "BD-M22",
+      "metric": "ABL advance rate, equipment",
+      "acceptable": "50% to 80% of appraised value",
+      "source": "OCC Comptroller's Handbook, ABL",
+      "weak": false,
+      "ref": "3.4",
+      "applies_to": [
+        "abl",
+        "equipment-finance"
+      ]
+    },
+    {
+      "id": "BD-M23",
+      "metric": "Single-customer concentration cap",
+      "acceptable": "15% to 25% of AR pool (OCC 10% to 20%)",
+      "source": "OCC Comptroller's Handbook, ABL",
+      "weak": false,
+      "ref": "3.4",
+      "applies_to": [
+        "abl",
+        "factoring"
+      ]
+    },
+    {
+      "id": "BD-M24",
+      "metric": "Over-advance cap",
+      "acceptable": "10% to 15% of the borrowing base",
+      "source": "OCC Comptroller's Handbook, ABL",
+      "weak": false,
+      "ref": "3.4",
+      "applies_to": [
+        "abl"
+      ]
+    },
+    {
+      "id": "BD-M25",
+      "metric": "Stressed advance rate",
+      "acceptable": "Repo haircuts on non-Treasury collateral ~0 (early 2007) to ~50% (late 2008); margins ~10% to >40%",
+      "source": "Gorton and Metrick JFE 2012; Geanakoplos 2009",
+      "weak": false,
+      "ref": "3.4",
+      "applies_to": [
+        "abl",
+        "factoring",
+        "equipment-finance"
+      ]
+    },
+    {
+      "id": "BD-M26",
+      "metric": "Venture debt size",
+      "acceptable": "25% to 35% of the last equity round",
+      "source": "ratiotech.com; founderpath.com",
+      "weak": true,
+      "ref": "3.4",
+      "applies_to": [
+        "venture-debt"
+      ]
+    },
+    {
+      "id": "BD-M27",
+      "metric": "Venture debt interest",
+      "acceptable": "About SOFR + 700 to 950 bp, or Prime + 25 to 100 bp at banks",
+      "source": "ctacquisitions.com; Stifel",
+      "weak": true,
+      "ref": "3.4",
+      "applies_to": [
+        "venture-debt"
+      ]
+    },
+    {
+      "id": "BD-M28",
+      "metric": "Venture debt warrant coverage",
+      "acceptable": "0.5% to 2% equity",
+      "source": "founderpath.com; Stifel",
+      "weak": true,
+      "ref": "3.4",
+      "applies_to": [
+        "venture-debt"
+      ]
+    },
+    {
+      "id": "BD-M29",
+      "metric": "Venture lender all-in target",
+      "acceptable": "12% to 25% via interest plus warrants",
+      "source": "Wikipedia (industry-sourced)",
+      "weak": true,
+      "ref": "3.4",
+      "applies_to": [
+        "venture-debt"
+      ]
+    },
+    {
+      "id": "BD-M30",
+      "metric": "Recurring-revenue advance",
+      "acceptable": "3x to 12x MRR, after AI-substitution stress",
+      "source": "beancount.io",
+      "weak": true,
+      "ref": "3.4",
+      "applies_to": [
+        "venture-debt",
+        "rbf"
+      ]
+    },
+    {
+      "id": "BD-M31",
+      "metric": "RBF repayment",
+      "acceptable": "5% to 15% revenue share to a cap of ~1.2x to 1.6x",
+      "source": "kadenwoodgroup.com",
+      "weak": true,
+      "ref": "3.4",
+      "applies_to": [
+        "rbf"
+      ]
+    },
+    {
+      "id": "BD-M32",
+      "metric": "Uninsured deposit share at borrower's bank",
+      "acceptable": "Cash above $250,000 insured limit spread or swept; SVB had ~94% uninsured and a $42B one-day run",
+      "source": "Metrick, JEP 2024",
+      "weak": false,
+      "ref": "3.4",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "BD-M33",
+      "metric": "Covenant violation effect",
+      "acceptable": "Capex falls ~1% of capital per quarter (13% drop) after violation; forced CEO turnover ~1.5% before vs ~8% four quarters after (confirm variable)",
+      "source": "Chava and Roberts JF 2008; Nini, Smith and Sufi RFS 2012",
+      "weak": false,
+      "ref": "3.6",
+      "applies_to": [
+        "senior-secured",
+        "unitranche",
+        "mezzanine",
+        "acquisition",
+        "dividend-recap"
+      ]
+    },
+    {
+      "id": "BD-M34",
+      "metric": "Covenant-lite share of larger deals (2025)",
+      "acceptable": "48%",
+      "source": "Proskauer via botminds.ai (vendor)",
+      "weak": true,
+      "ref": "3.7",
+      "applies_to": [
+        "senior-secured",
+        "unitranche",
+        "mezzanine",
+        "acquisition",
+        "dividend-recap"
+      ]
+    },
+    {
+      "id": "BD-M35",
+      "metric": "Renegotiation frequency",
+      "acceptable": "Over 90% renegotiated before maturity; typical bank loan ~5 times, every ~9 months",
+      "source": "Roberts and Sufi 2009; Roberts 2015",
+      "weak": false,
+      "ref": "3.1, 3.13",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "BD-M36",
+      "metric": "Management forecast calibration",
+      "acceptable": "Realized outcomes in executives' 80% intervals only 36% of the time; widen ranges ~2x",
+      "source": "Ben-David, Graham and Harvey, QJE 2013",
+      "weak": false,
+      "ref": "3.3",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "BD-M37",
+      "metric": "Private credit holder mix (Q3 2025)",
+      "acceptable": "Private debt funds 54.7%; perpetual BDCs 18.7%; public BDCs 12.4%; MM CLOs 5.9%; private BDCs 5.4%; interval funds 3.0%",
+      "source": "Fed FEDS Note Aug 2026",
+      "weak": false,
+      "ref": "3.1",
+      "applies_to": [
+        "senior-secured",
+        "unitranche",
+        "mezzanine",
+        "acquisition",
+        "dividend-recap"
+      ]
+    },
+    {
+      "id": "BD-M38",
+      "metric": "Software share of semi-liquid fund loans",
+      "acceptable": "About one-fifth",
+      "source": "KaW Oct 26 2026",
+      "weak": false,
+      "ref": "3.3",
+      "applies_to": [
+        "venture-debt",
+        "rbf",
+        "unitranche",
+        "senior-secured"
+      ]
+    },
+    {
+      "id": "BD-M39",
+      "metric": "All-in vs stated leverage (First Brands)",
+      "acceptable": "About 5x stated vs about 20x including off-balance-sheet factoring and SCF",
+      "source": "Harker, KaW Apr 22 2026",
+      "weak": false,
+      "ref": "3.2, 3.12",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "BD-M40",
+      "metric": "Sequence bias in credit approval",
+      "acceptable": "Approval 8 points less likely after a prior approval; pay for accuracy",
+      "source": "Chen, Moskowitz and Shue, QJE 2016",
+      "weak": false,
+      "ref": "3.3",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "BD-M41",
+      "metric": "Lender deployment pressure",
+      "acceptable": "Largest perpetual fund deploys ~$43B a year (> 1/4 of annual US direct lending)",
+      "source": "Harker, KaW Apr 2026",
+      "weak": false,
+      "ref": "3.3",
+      "applies_to": [
+        "senior-secured",
+        "unitranche",
+        "mezzanine",
+        "acquisition",
+        "dividend-recap"
+      ]
+    },
+    {
+      "id": "BD-M42",
+      "metric": "Window dressing (Repo 105)",
+      "acceptable": "Up to $50B moved off balance sheet at quarter-ends; average daily balances within 10% of period-end or explained",
+      "source": "YPFS Lehman C and D",
+      "weak": false,
+      "ref": "3.12",
+      "applies_to": [
+        "all"
+      ]
+    }
+  ],
+  "third_party_reports": [
+    {
+      "id": "BD-T01",
+      "report": "Quality of earnings report (read engagement letter: AUP or consulting, no assurance)",
+      "provider": "Independent accounting firm",
+      "required_when": "All cash-flow loans and ABL",
+      "ref": "3.5"
+    },
+    {
+      "id": "BD-T02",
+      "report": "ABL field examination",
+      "provider": "ABL field examiner engaged by us",
+      "required_when": "ABL and factoring, before booking and periodically",
+      "ref": "3.5"
+    },
+    {
+      "id": "BD-T03",
+      "report": "Inventory (NOLV) and equipment appraisal",
+      "provider": "Inventory and equipment appraiser",
+      "required_when": "ABL and equipment finance",
+      "ref": "3.5"
+    },
+    {
+      "id": "BD-T04",
+      "report": "Independent covenant-capacity and LME review",
+      "provider": "Our own lender's counsel, independent of sponsor-designated counsel",
+      "required_when": "All cash-flow and sponsor-backed loans",
+      "ref": "3.5"
+    },
+    {
+      "id": "BD-T05",
+      "report": "Background checks on CFO, controller and wire releasers",
+      "provider": "Background-check provider",
+      "required_when": "Always",
+      "ref": "3.5"
+    },
+    {
+      "id": "BD-T06",
+      "report": "Cross-facility collateral dedupe",
+      "provider": "Independent collateral agent or backup servicer",
+      "required_when": "Any borrower with collateral-based financing from more than one provider",
+      "ref": "3.5, 3.12"
+    },
+    {
+      "id": "BD-T07",
+      "report": "UCC and lien search across all affiliates and founder entities",
+      "provider": "UCC and lien search provider",
+      "required_when": "Always",
+      "ref": "3.5, 3.12"
+    },
+    {
+      "id": "BD-T08",
+      "report": "Independent Level 3 valuation",
+      "provider": "Independent valuation agent",
+      "required_when": "Where the lender or holder is a fund",
+      "ref": "3.5, 3.13"
+    },
+    {
+      "id": "BD-T09",
+      "report": "Receivable debtor confirmations",
+      "provider": "Field examiner or audit firm",
+      "required_when": "ABL, factoring and receivable-heavy cash-flow loans",
+      "ref": "3.3, 3.12"
+    }
+  ],
+  "hard_questions": [
+    {
+      "id": "BD-HQ01",
+      "question": "What is leverage on unadjusted EBITDA, and on the lender's own number?",
+      "good_answer": "Both figures with a reconciliation; small difference driven by validated, capped add-backs.",
+      "ref": "3.9",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "BD-HQ02",
+      "question": "What is the maximum senior secured leverage the documents permit, using every basket, ratio debt and add-back?",
+      "good_answer": "A computed figure from independent counsel within 2 turns of closing.",
+      "ref": "3.9, 3.10",
+      "applies_to": [
+        "senior-secured",
+        "unitranche",
+        "mezzanine",
+        "acquisition",
+        "dividend-recap"
+      ]
+    },
+    {
+      "id": "BD-HQ03",
+      "question": "Is there a maintenance covenant, at what cushion, and does it step down?",
+      "good_answer": "Yes, at a 25% to 35% cushion with step-downs.",
+      "ref": "3.9",
+      "applies_to": [
+        "senior-secured",
+        "unitranche",
+        "mezzanine",
+        "acquisition",
+        "dividend-recap",
+        "abl"
+      ]
+    },
+    {
+      "id": "BD-HQ04",
+      "question": "What is the equity cushion in a downside case, and who funds a cure?",
+      "good_answer": "A quantified cushion and a sponsor with committed, verified cash for cures, with cures capped.",
+      "ref": "3.9",
+      "applies_to": [
+        "senior-secured",
+        "unitranche",
+        "mezzanine",
+        "acquisition",
+        "dividend-recap"
+      ]
+    },
+    {
+      "id": "BD-HQ05",
+      "question": "Show every amendment, waiver, PIK election and maturity extension since origination, and what each changed. What is the mark on this loan in other lenders' books?",
+      "good_answer": "A complete log matching lender records and marks near par in other BDCs.",
+      "ref": "3.9, 3.13",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "BD-HQ06",
+      "question": "List every factoring, supply-chain-finance and receivables-sale facility. What is leverage including them?",
+      "good_answer": "A complete schedule reconciled to footnotes and the UCC sweep, and all-in leverage computed.",
+      "ref": "3.9",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "BD-HQ07",
+      "question": "Is any collateral, invoice or VIN pledged under another facility? Show the dedupe.",
+      "good_answer": "An independent agent's dedupe report with zero duplicates.",
+      "ref": "3.9, 3.12",
+      "applies_to": [
+        "abl",
+        "factoring",
+        "equipment-finance",
+        "senior-secured",
+        "unitranche"
+      ]
+    },
+    {
+      "id": "BD-HQ08",
+      "question": "Can material IP or assets move to an unrestricted subsidiary or non-guarantor? Under which baskets, and how much?",
+      "good_answer": "No: J.Crew blocker and capped investment baskets, quantified.",
+      "ref": "3.9, 3.11",
+      "applies_to": [
+        "senior-secured",
+        "unitranche",
+        "mezzanine",
+        "acquisition",
+        "dividend-recap"
+      ]
+    },
+    {
+      "id": "BD-HQ09",
+      "question": "Who chose lender counsel, and what did your own counsel change?",
+      "good_answer": "Independent counsel engaged, with a list of changes made.",
+      "ref": "3.9",
+      "applies_to": [
+        "senior-secured",
+        "unitranche",
+        "mezzanine",
+        "acquisition",
+        "dividend-recap"
+      ]
+    },
+    {
+      "id": "BD-HQ10",
+      "question": "Is the lender affiliated with the sponsor? Who approves waivers?",
+      "good_answer": "No affiliation, or independent approval of waivers.",
+      "ref": "3.9",
+      "applies_to": [
+        "senior-secured",
+        "unitranche",
+        "mezzanine",
+        "acquisition",
+        "dividend-recap"
+      ]
+    },
+    {
+      "id": "BD-HQ11",
+      "question": "Which default definition does your track record use, and what were realized losses?",
+      "good_answer": "Definition stated; realized losses near 1% a year.",
+      "ref": "3.9",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "BD-HQ12",
+      "question": "What happens to ARR if AI cuts seats by a third?",
+      "good_answer": "A modelled case with debt still serviced.",
+      "ref": "3.9",
+      "applies_to": [
+        "venture-debt",
+        "rbf",
+        "unitranche",
+        "senior-secured"
+      ]
+    },
+    {
+      "id": "BD-HQ13",
+      "question": "Where is the company's cash held, and what share is uninsured?",
+      "good_answer": "Spread across banks, insured sweeps or Treasury MMFs; uninsured share small.",
+      "ref": "3.9",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "BD-HQ14",
+      "question": "Can a majority of lenders subordinate our lien or change pro rata sharing without our consent?",
+      "good_answer": "No: sacred rights for each affected lender.",
+      "ref": "3.11",
+      "applies_to": [
+        "senior-secured",
+        "unitranche",
+        "mezzanine",
+        "acquisition",
+        "dividend-recap"
+      ]
+    },
+    {
+      "id": "BD-HQ15",
+      "question": "What are the average daily balances of debt and cash against period-end?",
+      "good_answer": "Close to period-end with no post-quarter unwinds.",
+      "ref": "3.12",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "BD-HQ16",
+      "question": "What was the QoE scope, and what was not tested?",
+      "good_answer": "Engagement letter produced with a clear list of untested areas and proof of cash across every bank account.",
+      "ref": "3.3",
+      "applies_to": [
+        "all"
+      ]
+    }
+  ],
+  "failure_cases": [
+    {
+      "case": "First Brands Group",
+      "year": "Chapter 11 Sept 2025; indictment unsealed Jan 29 2026",
+      "what_happened": "SDNY alleged billions of purported receivables sold to factors did not exist, collateral double- and triple-pledged, and massive off-balance-sheet inventory financing through founder-owned entities; $12M cash against more than $9B liabilities at filing; lenders saw ~5x leverage, all-in ~20x. Defendants deny the charges.",
+      "check": "UCC search across all affiliates and founder entities; direct debtor verification with lockbox; reconcile all SCF, factoring and inventory financing to what each lender was told; cash proof at the parent.",
+      "ref": "3.7, 3.12"
+    },
+    {
+      "case": "J.Crew",
+      "year": "2016-17; Chapter 11 May 2020",
+      "what_happened": "Used an investment basket plus a carve-out to move about $250M of brand IP to an unrestricted subsidiary and back new debt that refinanced junior notes; senior loans fell on announcement.",
+      "check": "Read investments, unrestricted-subsidiary and IP-transfer provisions; require a J.Crew blocker and caps on investments in non-guarantors.",
+      "ref": "3.7, 3.11"
+    },
+    {
+      "case": "Toys 'R' Us",
+      "year": "2005 LBO; Chapter 11 Sept 2017",
+      "what_happened": "$7.5B LBO; debt service and 2018-19 maturities plus failure to adapt to e-commerce ended in liquidation (podcast-sourced, WEAK).",
+      "check": "Maturity wall against a secular-decline case; count competitive capex before debt service.",
+      "ref": "3.7"
+    },
+    {
+      "case": "Paragon Metals Holdings v. Smith",
+      "year": "Del. 2026",
+      "what_happened": "Sponsor paid $100M for an auto-parts maker and learned the day after closing that two largest customers planned sharp cuts; acquisition debt defaulted.",
+      "check": "Lender-side calls with top customers before closing.",
+      "ref": "3.7"
+    },
+    {
+      "case": "Tricolor Holdings",
+      "year": "Collapsed Sept 2025",
+      "what_happened": "Alleged double-pledging of auto loans to multiple warehouse lenders and ABS deals, altered loan descriptions, and charged-off loans booked as current; ~40% of ~70,000 loans shared VINs or attributes.",
+      "check": "Item-level dedupe across all facilities by an independent agent; custodial possession; static-pool reconciliation.",
+      "ref": "3.12"
+    },
+    {
+      "case": "Lehman Brothers Repo 105",
+      "year": "2008",
+      "what_happened": "Repo 105 moved up to $50B of assets off the balance sheet at quarter-ends; the auditor knew and did not force disclosure.",
+      "check": "Average daily or intra-quarter balances; flag financing that unwinds after period-end.",
+      "ref": "3.12"
+    },
+    {
+      "case": "Lehman Brothers derivatives",
+      "year": "2008",
+      "what_happened": "906,000 derivative transactions under 6,120 ISDAs ($35T notional); stay exemption let counterparties terminate and novate in a rush; local law overrode standard terms.",
+      "check": "Map swap counterparties, close-out netting and pari passu security.",
+      "ref": "3.3, 3.6"
+    },
+    {
+      "case": "Enron partnerships and bank SIVs",
+      "year": "2001; 2007-08",
+      "what_happened": "Off-balance-sheet vehicles and implied support hid leverage.",
+      "check": "List every SPV, JV, guarantee, keepwell and moral-obligation support; consolidated look-through.",
+      "ref": "3.12"
+    },
+    {
+      "case": "Infinity Q",
+      "year": "2021",
+      "what_happened": "CIO manipulated inputs to supposedly independent Bloomberg BVAL pricing models.",
+      "check": "Ask who has write access to pricing inputs; independent price on a sample.",
+      "ref": "3.13"
+    },
+    {
+      "case": "Archegos",
+      "year": "2021",
+      "what_happened": "No prime broker saw the whole book: the same failure as multi-lender collateral blindness.",
+      "check": "Ensure one party sees all collateral and exposure.",
+      "ref": "3.12"
+    },
+    {
+      "case": "Silicon Valley Bank (borrowers' bank)",
+      "year": "2023",
+      "what_happened": "About 94% uninsured deposits; $42B one-day run; venture borrowers' cash trapped.",
+      "check": "Cash location, insured share, no single-bank covenant.",
+      "ref": "3.4, 3.7"
+    },
+    {
+      "case": "EBITDA inflated by aggressive add-backs",
+      "year": "Recurring",
+      "what_happened": "Real leverage higher than underwritten.",
+      "check": "QoE with validated add-backs and caps in the EBITDA definition.",
+      "ref": "3.7"
+    },
+    {
+      "case": "Borrowing-base fraud and phantom receivables",
+      "year": "Recurring",
+      "what_happened": "Receivables that do not exist support advances.",
+      "check": "Field exam, debtor verification calls, lockbox, customer-side channel-stuffing test.",
+      "ref": "3.7"
+    },
+    {
+      "case": "Equity cure abuse",
+      "year": "Recurring",
+      "what_happened": "Sponsor cures covenant breaches with equity counted as EBITDA, hiding a trend (vendor-sourced, WEAK).",
+      "check": "Limit consecutive cures and watch the trend.",
+      "ref": "3.7"
+    },
+    {
+      "case": "Covenant-lite with no maintenance test",
+      "year": "2025",
+      "what_happened": "48% of larger deals covenant-lite (vendor-sourced, WEAK); lenders see trouble only at full default.",
+      "check": "Demand at least one maintenance covenant with cushion and step-downs.",
+      "ref": "3.7"
+    },
+    {
+      "case": "Permitted leverage far above closing leverage",
+      "year": "Recurring",
+      "what_happened": "Baskets, ratio debt and add-backs let a 5x borrower go above 6x without consent.",
+      "check": "Maximum permitted leverage in the IC memo.",
+      "ref": "3.7, 3.10"
+    },
+    {
+      "case": "Forbearance hides losses",
+      "year": "Recurring",
+      "what_happened": "Private loans no one marks or trades are extended and PIK-toggled while marked at par.",
+      "check": "Amendment, PIK and extension history by loan; cross-BDC mark comparison.",
+      "ref": "3.7, 3.13"
+    },
+    {
+      "case": "Dividend recaps priced like LBO leverage",
+      "year": "2006-07",
+      "what_happened": "Lender roundtables reported recaps priced at little discount to LBO leverage; some lenders refused.",
+      "check": "Underwrite as a fresh LBO with no equity added; split recap returns from earnings growth.",
+      "ref": "3.7"
+    },
+    {
+      "case": "Bank failure at the borrower's or lender's bank (SVB, First Republic)",
+      "year": "2023",
+      "what_happened": "Deposits and revolver funding disappeared in days.",
+      "check": "Cash location and insured share; the revolver lender's own funding.",
+      "ref": "3.7, 4.12"
+    }
+  ]
+}
