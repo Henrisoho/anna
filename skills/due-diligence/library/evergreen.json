@@ -1,0 +1,1762 @@
+{
+  "type": "evergreen",
+  "name": "Evergreen and Semi-Liquid Vehicles",
+  "summary": "Interval funds, non-traded and perpetual BDCs, tender-offer funds, NAV REITs and evergreen PE sold to wealth and 401(k) channels: illiquid assets inside a vehicle that promises periodic liquidity, typically 5% of shares a quarter, with proration, queues or gates above the cap. The 2026 private-credit redemption stress (OBDC II ended redemptions; Q2 2026 first aggregate net outflow, $10.7B unmet; requests of about 22% and 40% at two Blue Owl vehicles) is the case study: stale marks plus a 5% gate plus thin cash produced gating, rising leverage and deferred payments. The spine is a liquidity coverage ratio stressed for four consecutive quarters at the cap without new inflows; mark-lag and cross-BDC mark tests; PIK and amend-and-extend tracking; software exposure; leverage-redemption feedback; distribution source; and who decides the gate. Non-traded REIT coverage in the bible is thin (appraisal-based marks only).",
+  "chapters": [
+    "15-evergreen-semi-liquid.md"
+  ],
+  "one_check": "Compute the liquidity coverage ratio for four consecutive quarters of maximum redemptions, using marks rolled forward for public-market moves; if coverage depends on new inflows or new borrowing, the vehicle is only as liquid as its next sales quarter.",
+  "subtypes": [
+    {
+      "id": "interval-fund",
+      "name": "Interval fund",
+      "description": "Registered closed-end fund making periodic repurchase offers under a fundamental policy."
+    },
+    {
+      "id": "non-traded-bdc",
+      "name": "Non-traded / perpetual BDC",
+      "description": "Business development company sold continuously; discretionary repurchases; 90% income distribution requirement."
+    },
+    {
+      "id": "tender-offer-fund",
+      "name": "Tender-offer fund",
+      "description": "Fund offering discretionary periodic tender offers."
+    },
+    {
+      "id": "non-traded-reit",
+      "name": "Non-traded / NAV REIT",
+      "description": "Perpetual REIT with appraisal-based NAV and limited repurchases (thin bible coverage)."
+    }
+  ],
+  "intake_questions": [
+    {
+      "id": "EV-Q01",
+      "question": "Is the vehicle an interval fund, non-traded BDC, tender-offer fund or non-traded/NAV REIT?",
+      "why": "Selects subtype.",
+      "sets_subtype": true
+    },
+    {
+      "id": "EV-Q02",
+      "question": "What is the repurchase cap and frequency, and are repurchases mandatory or discretionary?",
+      "why": "Drives the LCR denominator and gate risk.",
+      "sets_subtype": false
+    },
+    {
+      "id": "EV-Q03",
+      "question": "Has the vehicle ever prorated, queued or gated requests?",
+      "why": "Gating history is the leading run signal.",
+      "sets_subtype": false
+    },
+    {
+      "id": "EV-Q04",
+      "question": "What share of the book is software or a single sector?",
+      "why": "2026 software stress.",
+      "sets_subtype": false
+    },
+    {
+      "id": "EV-Q05",
+      "question": "Which distribution channels and wealth platforms hold the shares?",
+      "why": "Platforms redeem together.",
+      "sets_subtype": false
+    },
+    {
+      "id": "EV-Q06",
+      "question": "Does the vehicle use credit facilities, sub lines or NAV facilities, and may they fund redemptions?",
+      "why": "Leverage-redemption loop.",
+      "sets_subtype": false
+    },
+    {
+      "id": "EV-Q07",
+      "question": "Is the product offered through a tokenized wrapper?",
+      "why": "Liquidity-speed mismatch test.",
+      "sets_subtype": false
+    }
+  ],
+  "requests": [
+    {
+      "id": "EV-LEG-001",
+      "order": 10,
+      "stage": "screen",
+      "priority": "gating",
+      "workstream": "Corporate & Legal",
+      "request": "Prospectus or PPM and charter of the vehicle.",
+      "format": "Current filed prospectus or PPM with all supplements; charter and bylaws.",
+      "why": "Defines the repurchase promise, fees, leverage and valuation regime.",
+      "pass": "Current documents received and consistent with marketing.",
+      "fail": "Marketing promises liquidity the documents do not.",
+      "verify": "Pull filed versions from SEC EDGAR where registered.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "15.2 item 1",
+      "weak": false
+    },
+    {
+      "id": "EV-STR-001",
+      "order": 20,
+      "stage": "screen",
+      "priority": "gating",
+      "workstream": "Structure & Terms",
+      "request": "Repurchase or tender-offer policy (for interval funds, the fundamental repurchase policy), including cap, frequency, proration and carry-forward rules.",
+      "format": "Policy as filed.",
+      "why": "Vehicle promises periodic liquidity on illiquid assets, typically 5% of shares per quarter, and prorates, queues or gates above the cap.",
+      "pass": "Policy states cap, proration and whether unmet requests carry forward.",
+      "fail": "Policy vague on cap, proration or carry-forward.",
+      "verify": "Compare with prospectus and board resolutions.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "15.1, 15.2 item 1, 15.6",
+      "weak": false
+    },
+    {
+      "id": "EV-FOP-001",
+      "order": 30,
+      "stage": "screen",
+      "priority": "gating",
+      "workstream": "Fund Operations",
+      "request": "Redemption history by quarter since launch: requests, cap, amount paid, prorated, queued, carried forward, and the 'repurchases payable' balance.",
+      "format": "Transfer-agent or administrator-produced quarterly table.",
+      "why": "Gating history and growing queues are the leading signal of a run (Q2 2026: $10.7B of requests unmet).",
+      "pass": "Requests below the cap in every quarter, or excess requests paid in full; no growing queue; repurchases payable not rising.",
+      "fail": "Proration, queues or rising repurchases payable.",
+      "verify": "Obtain directly from the transfer agent.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "15.2 item 2, 15.3, 15.9 Q1",
+      "weak": false
+    },
+    {
+      "id": "EV-FIN-001",
+      "order": 40,
+      "stage": "screen",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Flow history: subscriptions and redemptions by month or quarter since launch.",
+      "format": "Administrator-produced series.",
+      "why": "Q2 2026 was the sector's first aggregate net outflow ($7.1B repurchases vs $3.8B inflows).",
+      "pass": "Net inflows not required to meet repurchases.",
+      "fail": "Repurchases exceed inflows with coverage dependent on new money.",
+      "verify": "Tie to transfer-agent records.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "15.1, 15.2 item 3",
+      "weak": false
+    },
+    {
+      "id": "EV-VAL-001",
+      "order": 50,
+      "stage": "screen",
+      "priority": "core",
+      "workstream": "Valuation & Model",
+      "request": "Schedule of investments with current marks, cost, maturity and rating for every position.",
+      "format": "Latest filed schedule (10-Q/10-K/N-CSR) or administrator report.",
+      "why": "Needed for mark-lag, cross-BDC and concentration tests.",
+      "pass": "Complete schedule tied to NAV.",
+      "fail": "Summary only.",
+      "verify": "Use filed schedules from EDGAR.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "15.2 item 5",
+      "weak": false
+    },
+    {
+      "id": "EV-STR-002",
+      "order": 60,
+      "stage": "screen",
+      "priority": "core",
+      "workstream": "Structure & Terms",
+      "request": "Full fee schedule: base fee, incentive fees on income and on gains, distribution and servicing fees, acquired-fund fee layers.",
+      "format": "Prospectus fee table plus underlying-fund fees.",
+      "why": "All-in fee load must be compared with a levered small-value index; asset-based fees on growing NAV reward inflows.",
+      "pass": "All-in load disclosed and justified against benchmark.",
+      "fail": "Hidden fund-of-fund layers.",
+      "verify": "Recompute total expense ratio from filings.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "15.2 item 10, 15.3",
+      "weak": false
+    },
+    {
+      "id": "EV-FIN-002",
+      "order": 70,
+      "stage": "screen",
+      "priority": "gating",
+      "workstream": "Financial",
+      "request": "Distribution policy and the source of each of the last eight distributions (income, gains, return of capital, borrowing).",
+      "format": "Section 19a notices or equivalent, tied to NII.",
+      "why": "GPB and Heller paid fixed distributions from new money; distributions above NII are not earned.",
+      "pass": "Distributions covered by NII and realized gains; source disclosed for each.",
+      "fail": "Fixed distribution rate above NII; distributions funded by borrowing or new money.",
+      "verify": "Reconcile to cash-flow statements.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "15.2 item 12, 15.3, 15.9 Q6",
+      "weak": false
+    },
+    {
+      "id": "EV-COM-001",
+      "order": 80,
+      "stage": "screen",
+      "priority": "core",
+      "workstream": "Commercial & Market",
+      "request": "Investor concentration and distribution channel: share of NAV by wealth platform, adviser network and largest holders.",
+      "format": "Transfer-agent report.",
+      "why": "Wealth platforms move together (Blue Owl Q2 2026 requests of about 22% and about 40% of shares).",
+      "pass": "No platform above a level the LCR could absorb if it redeemed at once.",
+      "fail": "One platform could exhaust several quarters of capacity.",
+      "verify": "Transfer agent confirmation.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "15.7",
+      "weak": false
+    },
+    {
+      "id": "EV-COM-002",
+      "order": 90,
+      "stage": "screen",
+      "priority": "supporting",
+      "workstream": "Commercial & Market",
+      "request": "Annual deployment target against the size of the target market.",
+      "format": "Manager statement and market sizing.",
+      "why": "Largest perpetual private-credit fund must deploy about $43B a year, over a quarter of US direct lending.",
+      "pass": "Deployment a small share of market.",
+      "fail": "Deployment a material share of market.",
+      "verify": "Compare with independent market-size estimates (present all; do not average).",
+      "applies_to": [
+        "interval-fund",
+        "non-traded-bdc",
+        "tender-offer-fund"
+      ],
+      "ref": "15.1, 15.3",
+      "weak": false
+    },
+    {
+      "id": "EV-STR-003",
+      "order": 10,
+      "stage": "term-sheet",
+      "priority": "gating",
+      "workstream": "Structure & Terms",
+      "request": "Gate, suspension and in-kind redemption provisions, and who decides each repurchase and gate.",
+      "format": "Prospectus and board resolutions.",
+      "why": "Managers delay using suspensions until late; vague gate provisions are a red flag.",
+      "pass": "Named decision-maker (independent board), objective criteria, and stated procedure.",
+      "fail": "Vague provisions; manager alone decides.",
+      "verify": "Counsel review.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "15.3, 15.6, 15.8, 15.9 Q9",
+      "weak": false
+    },
+    {
+      "id": "EV-STR-004",
+      "order": 20,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Structure & Terms",
+      "request": "Treatment of unmet requests: carry forward, resubmission required, or lost.",
+      "format": "Policy clause.",
+      "why": "Carry-forward builds a queue that works like debt.",
+      "pass": "Treatment stated; queued amounts reported.",
+      "fail": "Unstated.",
+      "verify": "Counsel review.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "15.3, 15.6",
+      "weak": false
+    },
+    {
+      "id": "EV-STR-005",
+      "order": 30,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Structure & Terms",
+      "request": "Leverage limits and asset-coverage requirement, and current asset coverage.",
+      "format": "Prospectus and latest compliance certificate.",
+      "why": "Leverage-redemption feedback loop.",
+      "pass": "Asset coverage comfortably above the regulatory or stated minimum after a two-quarter stress.",
+      "fail": "Thin cushion.",
+      "verify": "Recompute from filings.",
+      "applies_to": [
+        "interval-fund",
+        "non-traded-bdc",
+        "tender-offer-fund",
+        "non-traded-reit"
+      ],
+      "ref": "15.2 item 7",
+      "weak": false
+    },
+    {
+      "id": "EV-STR-006",
+      "order": 40,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Structure & Terms",
+      "request": "Manager compensation basis: asset-based fees, income incentive fees, and any inflow-linked pay.",
+      "format": "Advisory agreement.",
+      "why": "Manager pay driven by inflows is a red flag.",
+      "pass": "Material share of pay tied to total return net of losses.",
+      "fail": "Pay driven by NAV growth and inflows.",
+      "verify": "Counsel review.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "15.3, 15.8",
+      "weak": false
+    },
+    {
+      "id": "EV-LEG-002",
+      "order": 50,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Corporate & Legal",
+      "request": "Fund counsel's memo on the legal basis of the structure (Investment Company Act rules for interval funds and BDCs, REIT status) and the enforceability of repurchase terms.",
+      "format": "Counsel memo.",
+      "why": "Legal basis of each structure was not sourced in the bible (GAP); confirm with fund counsel.",
+      "pass": "Memo confirms discretion versus obligation for each repurchase.",
+      "fail": "No analysis.",
+      "verify": "Our counsel review.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "15.6",
+      "weak": false
+    },
+    {
+      "id": "EV-FIN-003",
+      "order": 10,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Financial",
+      "request": "Liquidity-source schedule: cash, NII run rate and retention, contractual maturities by quarter, committed undrawn facilities usable for repurchases and their covenants.",
+      "format": "Administrator-produced schedule tied to filings.",
+      "why": "Cash about 5.5% of TNA covers roughly one quarter of full 5% repurchases; NII about 2.5% a quarter is mostly distributed; maturities under 0.5% a quarter.",
+      "pass": "All sources quantified with maturities by quarter.",
+      "fail": "Sources not quantified.",
+      "verify": "Tie to filed financials and lender statements.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "15.2 item 6, 15.3",
+      "weak": false
+    },
+    {
+      "id": "EV-FIN-004",
+      "order": 20,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Financial",
+      "request": "Liquidity coverage ratio for the current quarter: (cash + retained NII + contractual maturities + committed undrawn facilities usable for repurchases) / maximum repurchase obligation at the cap.",
+      "format": "Our calculation using administrator inputs.",
+      "why": "The core test for semi-liquid vehicles.",
+      "pass": "LCR >= 1.0x at the cap, with coverage excluding facilities also reported.",
+      "fail": "LCR below 1.0x, or coverage relies on facilities alone.",
+      "verify": "Recompute independently.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "15.3",
+      "weak": false
+    },
+    {
+      "id": "EV-FIN-005",
+      "order": 30,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Financial",
+      "request": "LCR stress for four consecutive quarters of maximum (5%) repurchases with no new inflows and marks rolled forward for public-market moves.",
+      "format": "Our model.",
+      "why": "THE ONE CHECK: if coverage depends on new inflows or new borrowing, the vehicle is only as liquid as its next sales quarter.",
+      "pass": "LCR >= 1.0x in each of four quarters without new inflows or new borrowing.",
+      "fail": "Coverage needs inflows, new borrowing, fire sales or the gate.",
+      "verify": "Rebuild independently.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "15.3, 15.7 THE ONE CHECK, 15.9 Q2",
+      "weak": false
+    },
+    {
+      "id": "EV-FIN-006",
+      "order": 40,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Look-through of 'cash' and 'cash equivalents': money-market, 'cash management' and pooled cash holdings, with a 6- to 24-month gate scenario on each.",
+      "format": "Holdings detail.",
+      "why": "Reserve Primary Fund gated for years; investors got about 50 cents in six weeks, 99 cents after two years.",
+      "pass": "Cash held in instruments that do not gate; LCR holds with pooled cash gated.",
+      "fail": "Liquidity depends on a pooled vehicle that can gate.",
+      "verify": "Obtain underlying holdings statements.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "15.3, 15.7",
+      "weak": false
+    },
+    {
+      "id": "EV-FIN-007",
+      "order": 50,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Repurchases payable and deferred redemption payments, treated as debt in leverage and LCR.",
+      "format": "Balance-sheet detail by quarter.",
+      "why": "Repurchases payable work like trade credit owed to exiting investors.",
+      "pass": "Small and not rising; included as debt.",
+      "fail": "Rising balance.",
+      "verify": "Tie to filings.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "15.3, 15.8",
+      "weak": false
+    },
+    {
+      "id": "EV-VAL-002",
+      "order": 60,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Valuation & Model",
+      "request": "Valuation policy and NAV strike process: frequency, who marks, and approval chain.",
+      "format": "Board-approved policy.",
+      "why": "Stale NAV gives redeeming investors a first-mover advantage at remaining holders' expense.",
+      "pass": "Independent valuation of Level 3 assets each strike; documented approval.",
+      "fail": "Manager-only marks.",
+      "verify": "Interview independent directors.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "15.2 item 4, 15.3",
+      "weak": false
+    },
+    {
+      "id": "EV-VAL-003",
+      "order": 70,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Valuation & Model",
+      "request": "Independent valuation agent's engagement letter and reports for the last 8 quarters.",
+      "format": "Signed engagement letter and reports.",
+      "why": "IMF recommends mandatory independent external valuations; SQN claimed independence falsely.",
+      "pass": "Agent covers the majority of Level 3 assets and confirms on a call.",
+      "fail": "No agent or agent covers a small sample only.",
+      "verify": "Call the agent.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "15.2 item 4, 15.5, 15.9 Q3",
+      "weak": false
+    },
+    {
+      "id": "EV-VAL-004",
+      "order": 80,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Valuation & Model",
+      "request": "Mark-to-market lag analysis: NAV and loan marks against comparable public benchmarks (B-rated leveraged loans, public BDCs, listed REITs) around recent shocks.",
+      "format": "Our analysis.",
+      "why": "BDC loan marks lag B-rated leveraged loans; price and NAV take at least four quarters to converge after a shock.",
+      "pass": "Marks track public comparables within one quarter.",
+      "fail": "Smooth NAV while comparable public credit or equity fell.",
+      "verify": "Rebuild from public data.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "15.3, 15.8",
+      "weak": false
+    },
+    {
+      "id": "EV-VAL-005",
+      "order": 90,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Valuation & Model",
+      "request": "Comparison of the manager's mark on each loan with the same loan's mark in other BDCs' schedules of investments.",
+      "format": "Our matching from EDGAR filings.",
+      "why": "BDC filings are one of the few public windows (loans held by private-credit BDCs rose from 1,395 to 20,182, 2010-2022).",
+      "pass": "Marks at or below peer marks on shared loans.",
+      "fail": "Marks above peer marks.",
+      "verify": "Match from public filings.",
+      "applies_to": [
+        "interval-fund",
+        "non-traded-bdc",
+        "tender-offer-fund"
+      ],
+      "ref": "15.2 item 5, 15.3, 15.8",
+      "weak": false
+    },
+    {
+      "id": "EV-VAL-006",
+      "order": 100,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Valuation & Model",
+      "request": "Smoothness test: NAV volatility against the stated strategy and public comparables.",
+      "format": "Our calculation.",
+      "why": "Appraisal-based marks smooth volatility; smoothness relative to strategy is also a Ponzi tell.",
+      "pass": "Volatility consistent with comparables after desmoothing.",
+      "fail": "Implausibly smooth NAV.",
+      "verify": "Compare with public proxies.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "15.3, 15.8",
+      "weak": false
+    },
+    {
+      "id": "EV-VAL-007",
+      "order": 110,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Valuation & Model",
+      "request": "NAV REIT appraisal process: appraiser identity and independence, frequency, and property appraisals against recent transactions.",
+      "format": "Appraisal engagement letters and reports.",
+      "why": "Appraisal-based marks lag; real estate LP interests traded at 68% of NAV in H1 2026.",
+      "pass": "Independent appraisers; marks consistent with transactions.",
+      "fail": "Manager-selected marks above transactions.",
+      "verify": "Call appraisers.",
+      "applies_to": [
+        "non-traded-reit"
+      ],
+      "ref": "15.3, 12.4",
+      "weak": false
+    },
+    {
+      "id": "EV-FIN-008",
+      "order": 120,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "PIK income as % of total investment income by quarter since 2019.",
+      "format": "Filed income statements.",
+      "why": "PIK share of BDC interest income has doubled since 2019.",
+      "pass": "PIK share stable or falling and below peer median.",
+      "fail": "Rising PIK share.",
+      "verify": "Recompute from filings.",
+      "applies_to": [
+        "interval-fund",
+        "non-traded-bdc",
+        "tender-offer-fund"
+      ],
+      "ref": "15.2 item 8, 15.3, 15.9 Q4",
+      "weak": false
+    },
+    {
+      "id": "EV-COL-001",
+      "order": 130,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Collateral & Title",
+      "request": "Amend-and-extend and maturity-extension log by loan for the last 8 quarters.",
+      "format": "Log by loan.",
+      "why": "Private lenders can forbear indefinitely, creating zombie borrowers.",
+      "pass": "Few amendments, each with credit rationale.",
+      "fail": "Frequent amend-and-extend.",
+      "verify": "Cross-check with filings.",
+      "applies_to": [
+        "interval-fund",
+        "non-traded-bdc",
+        "tender-offer-fund"
+      ],
+      "ref": "15.2 item 8, 15.3, 15.8, 15.9 Q4",
+      "weak": false
+    },
+    {
+      "id": "EV-COM-003",
+      "order": 140,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Commercial & Market",
+      "request": "Sector exposure with software share, and a downside-ARR debt test for software borrowers (AI seat compression and price pressure).",
+      "format": "Sector table and our ARR stress.",
+      "why": "About one-fifth of loans in semi-liquid private credit funds are to software firms; 2026 'software crisis'.",
+      "pass": "Software exposure tested on downside ARR, not ARR multiples; debt serviceable.",
+      "fail": "Large software concentration underwritten on ARR multiples.",
+      "verify": "Rebuild stress.",
+      "applies_to": [
+        "interval-fund",
+        "non-traded-bdc",
+        "tender-offer-fund"
+      ],
+      "ref": "15.2 item 9, 15.3, 15.8, 15.9 Q5",
+      "weak": false
+    },
+    {
+      "id": "EV-COL-002",
+      "order": 150,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Collateral & Title",
+      "request": "Borrower concentration and sponsor-affiliated borrowers.",
+      "format": "Top-25 exposures and affiliation list.",
+      "why": "Concentration and conflicts.",
+      "pass": "No single borrower above stated limit; affiliated loans disclosed.",
+      "fail": "Concentration or undisclosed affiliations.",
+      "verify": "Match to filings.",
+      "applies_to": [
+        "interval-fund",
+        "non-traded-bdc",
+        "tender-offer-fund"
+      ],
+      "ref": "15.2 item 9",
+      "weak": false
+    },
+    {
+      "id": "EV-COL-003",
+      "order": 160,
+      "stage": "confirmatory",
+      "priority": "supporting",
+      "workstream": "Collateral & Title",
+      "request": "Definition of any default or loss rate quoted in marketing (covenant defaults, payment defaults or realized losses).",
+      "format": "Marketing extract and source.",
+      "why": "Proskauer counts covenant defaults; Cliffwater realized losses; agencies payment defaults.",
+      "pass": "Definition stated and comparable.",
+      "fail": "Mixed definitions.",
+      "verify": "Check against source.",
+      "applies_to": [
+        "interval-fund",
+        "non-traded-bdc",
+        "tender-offer-fund"
+      ],
+      "ref": "15.3",
+      "weak": false
+    },
+    {
+      "id": "EV-COM-004",
+      "order": 170,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Commercial & Market",
+      "request": "Look-through of every holding labelled 'alternative assets', 'direct lending' or 'multi-strategy income' to underlying loans.",
+      "format": "Underlying holdings.",
+      "why": "Labels can hide private-loan exposure.",
+      "pass": "Full look-through.",
+      "fail": "Opaque sleeves.",
+      "verify": "Obtain underlying schedules.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "15.3",
+      "weak": false
+    },
+    {
+      "id": "EV-FIN-009",
+      "order": 180,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Leverage history by quarter against net flows.",
+      "format": "Filed balance sheets.",
+      "why": "Net debt rises 0.38 pp of TNA per 1-point increase in net outflows.",
+      "pass": "Leverage not rising as flows turn negative.",
+      "fail": "Leverage rising with outflows.",
+      "verify": "Recompute.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "15.2 item 7, 15.3, 15.8",
+      "weak": false
+    },
+    {
+      "id": "EV-LEG-003",
+      "order": 190,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Corporate & Legal",
+      "request": "Every credit facility, sub line and NAV facility agreement, with covenants and margin-call triggers, and a statement of whether any is used to meet redemptions.",
+      "format": "Executed agreements.",
+      "why": "Covenants can force sales; facilities used for redemptions are a red flag.",
+      "pass": "No facility used to fund redemptions; covenants survive the four-quarter stress.",
+      "fail": "Facilities fund redemptions or covenants trip in stress.",
+      "verify": "Confirm with lenders.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "15.2 item 6, 15.3, 15.8, 15.9 Q7",
+      "weak": false
+    },
+    {
+      "id": "EV-FIN-010",
+      "order": 200,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Investor-level (dollar-weighted) returns against fund TWR.",
+      "format": "Transfer-agent based calculation.",
+      "why": "Investors in hot vehicles buy near the top.",
+      "pass": "Gap small and explained.",
+      "fail": "Large gap.",
+      "verify": "Rebuild from flows.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "15.2 item 3, 15.3, 15.9 Q8",
+      "weak": false
+    },
+    {
+      "id": "EV-FIN-011",
+      "order": 210,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Financial",
+      "request": "Cash-flow reconciliation showing whether new subscriptions fund redemptions or distributions.",
+      "format": "Quarterly sources-and-uses.",
+      "why": "Ponzi-like dynamics under stress (GPB).",
+      "pass": "Redemptions and distributions funded by portfolio cash and income.",
+      "fail": "New money funds old redemptions or distributions.",
+      "verify": "Tie to bank statements.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "15.3",
+      "weak": false
+    },
+    {
+      "id": "EV-FIN-012",
+      "order": 220,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Distribution coverage: distribution rate versus NII per share over 8 quarters.",
+      "format": "Our calculation.",
+      "why": "A fixed distribution rate above NII is a red flag.",
+      "pass": "NII covers distributions.",
+      "fail": "Distributions exceed NII.",
+      "verify": "Recompute.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "15.3, 15.8",
+      "weak": false
+    },
+    {
+      "id": "EV-FIN-013",
+      "order": 230,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "All-in fee load compared with a levered small-value index.",
+      "format": "Our calculation.",
+      "why": "Retail access keeps higher fees.",
+      "pass": "Net return after all fees exceeds the benchmark.",
+      "fail": "Benchmark beats net.",
+      "verify": "Recompute.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "15.3",
+      "weak": false
+    },
+    {
+      "id": "EV-FIN-014",
+      "order": 240,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Sponsor support history: insider purchases, fee waivers and support agreements.",
+      "format": "Schedule and agreements.",
+      "why": "Sponsor support is discretionary and may not scale.",
+      "pass": "LCR passes without sponsor support.",
+      "fail": "Liquidity depends on support.",
+      "verify": "Tie to filings.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "15.2 item 11, 15.3",
+      "weak": false
+    },
+    {
+      "id": "EV-REG-001",
+      "order": 250,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Regulatory & Compliance",
+      "request": "Board minutes for every repurchase and gating decision.",
+      "format": "Minutes.",
+      "why": "Who decides and on what basis.",
+      "pass": "Independent directors decided with documented analysis.",
+      "fail": "Manager decided alone.",
+      "verify": "Interview a director.",
+      "applies_to": [
+        "interval-fund",
+        "non-traded-bdc",
+        "tender-offer-fund",
+        "non-traded-reit"
+      ],
+      "ref": "15.2 item 1, 15.5",
+      "weak": false
+    },
+    {
+      "id": "EV-COL-004",
+      "order": 260,
+      "stage": "confirmatory",
+      "priority": "supporting",
+      "workstream": "Collateral & Title",
+      "request": "Secondary-market liquidity of the loan book: share unrated and holder breadth.",
+      "format": "Our analysis.",
+      "why": "About 80% unrated; fewer than 20% held by 10+ fund families.",
+      "pass": "Material share tradable.",
+      "fail": "Illiquid book.",
+      "verify": "Check holder breadth in filings.",
+      "applies_to": [
+        "interval-fund",
+        "non-traded-bdc",
+        "tender-offer-fund"
+      ],
+      "ref": "15.3",
+      "weak": false
+    },
+    {
+      "id": "EV-TEC-001",
+      "order": 270,
+      "stage": "confirmatory",
+      "priority": "supporting",
+      "workstream": "Technical",
+      "request": "For tokenized wrappers: token trading speed against the speed at which the underlying can honor redemptions.",
+      "format": "Token terms.",
+      "why": "A tokenized claim that trades faster than the asset can redeem invites a run.",
+      "pass": "Token redemption matched to underlying.",
+      "fail": "Mismatch.",
+      "verify": "Counsel review.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "15.6",
+      "weak": false
+    },
+    {
+      "id": "EV-VAL-008",
+      "order": 10,
+      "stage": "third-party",
+      "priority": "gating",
+      "workstream": "Valuation & Model",
+      "request": "Direct confirmation from the independent valuation agent of scope and positions valued.",
+      "format": "Call notes.",
+      "why": "Claimed independence.",
+      "pass": "Confirms.",
+      "fail": "Does not confirm.",
+      "verify": "Independent contact.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "15.5",
+      "weak": false
+    },
+    {
+      "id": "EV-FOP-002",
+      "order": 20,
+      "stage": "third-party",
+      "priority": "gating",
+      "workstream": "Fund Operations",
+      "request": "Direct confirmation from the administrator and transfer agent of the redemption queue, requests and payments.",
+      "format": "Confirmation letter.",
+      "why": "Queue misreported.",
+      "pass": "Matches manager data.",
+      "fail": "Mismatch.",
+      "verify": "Unsolicited call.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "15.5",
+      "weak": false
+    },
+    {
+      "id": "EV-FOP-003",
+      "order": 30,
+      "stage": "third-party",
+      "priority": "core",
+      "workstream": "Fund Operations",
+      "request": "Auditor confirmation (Big 4 or equivalent) and latest audit opinion.",
+      "format": "Call notes and opinion.",
+      "why": "Auditor quality.",
+      "pass": "Big 4 or equivalent; unqualified.",
+      "fail": "Small auditor or qualified.",
+      "verify": "Unsolicited call.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "15.5",
+      "weak": false
+    },
+    {
+      "id": "EV-COL-005",
+      "order": 40,
+      "stage": "third-party",
+      "priority": "core",
+      "workstream": "Collateral & Title",
+      "request": "Credit facility lenders' confirmation of availability, covenants and any forced-sale triggers.",
+      "format": "Lender confirmation.",
+      "why": "Covenants that can force sales.",
+      "pass": "Availability confirmed.",
+      "fail": "Availability contingent.",
+      "verify": "Direct lender call.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "15.5",
+      "weak": false
+    },
+    {
+      "id": "EV-REG-002",
+      "order": 50,
+      "stage": "third-party",
+      "priority": "core",
+      "workstream": "Regulatory & Compliance",
+      "request": "Interview with independent directors on valuation and repurchase decisions.",
+      "format": "Interview notes.",
+      "why": "Who decides each repurchase.",
+      "pass": "Directors independent and engaged.",
+      "fail": "Directors defer to manager.",
+      "verify": "Direct interview.",
+      "applies_to": [
+        "interval-fund",
+        "non-traded-bdc",
+        "tender-offer-fund",
+        "non-traded-reit"
+      ],
+      "ref": "15.5",
+      "weak": false
+    },
+    {
+      "id": "EV-STR-007",
+      "order": 10,
+      "stage": "closing",
+      "priority": "core",
+      "workstream": "Structure & Terms",
+      "request": "Subscription agreement, share-class confirmation and acknowledgement of repurchase, gate and suspension terms.",
+      "format": "Executed documents.",
+      "why": "Investor expectations of liquidity.",
+      "pass": "Terms acknowledged.",
+      "fail": "Mismatch with marketing.",
+      "verify": "Counsel review.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "15.6",
+      "weak": false
+    },
+    {
+      "id": "EV-FOP-004",
+      "order": 20,
+      "stage": "closing",
+      "priority": "core",
+      "workstream": "Fund Operations",
+      "request": "Bring-down of the redemption queue and LCR as of the subscription date.",
+      "format": "Transfer-agent confirmation.",
+      "why": "Buying into a queue.",
+      "pass": "No queue; LCR passes.",
+      "fail": "Queue building.",
+      "verify": "Transfer agent direct.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "15.3",
+      "weak": false
+    },
+    {
+      "id": "EV-FOP-005",
+      "order": 30,
+      "stage": "closing",
+      "priority": "supporting",
+      "workstream": "Fund Operations",
+      "request": "Subscription wire instructions verified with the transfer agent by call-back.",
+      "format": "Call-back confirmation.",
+      "why": "Wire diversion.",
+      "pass": "Verified.",
+      "fail": "Unverified.",
+      "verify": "Call-back.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "15.5",
+      "weak": false
+    },
+    {
+      "id": "EV-FOP-006",
+      "order": 10,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Fund Operations",
+      "request": "Quarterly redemption report: requests, cap, paid, prorated, queued, carried forward, repurchases payable.",
+      "format": "Transfer-agent report.",
+      "why": "Run signal.",
+      "pass": "No proration or queue.",
+      "fail": "Proration or queue.",
+      "verify": "Transfer agent direct.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "15.2, 15.8",
+      "weak": false
+    },
+    {
+      "id": "EV-FIN-015",
+      "order": 20,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Quarterly LCR update with four-quarter stress.",
+      "format": "Our recomputation.",
+      "why": "Liquidity erosion.",
+      "pass": "LCR >= 1.0x for four quarters without inflows.",
+      "fail": "Below 1.0x.",
+      "verify": "Recompute.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "15.3",
+      "weak": false
+    },
+    {
+      "id": "EV-VAL-009",
+      "order": 30,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Valuation & Model",
+      "request": "NAV per share each strike with mark-lag commentary versus public comparables.",
+      "format": "NAV reports.",
+      "why": "Stale marks.",
+      "pass": "NAV moves with comparables.",
+      "fail": "Smooth NAV against falling comparables.",
+      "verify": "Compare with public indices.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "15.3",
+      "weak": false
+    },
+    {
+      "id": "EV-FIN-016",
+      "order": 40,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Source of each distribution.",
+      "format": "Section 19a notices or equivalent.",
+      "why": "Distributions from capital or borrowing.",
+      "pass": "Covered by NII.",
+      "fail": "Return of capital or borrowing.",
+      "verify": "Tie to NII.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "15.3",
+      "weak": false
+    },
+    {
+      "id": "EV-COL-006",
+      "order": 50,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Collateral & Title",
+      "request": "Quarterly PIK share and amend-and-extend log.",
+      "format": "Filed data and log.",
+      "why": "Hidden losses.",
+      "pass": "Stable or falling.",
+      "fail": "Rising.",
+      "verify": "Recompute.",
+      "applies_to": [
+        "interval-fund",
+        "non-traded-bdc",
+        "tender-offer-fund"
+      ],
+      "ref": "15.3",
+      "weak": false
+    },
+    {
+      "id": "EV-FIN-017",
+      "order": 60,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Quarterly leverage, asset coverage and facility covenant compliance.",
+      "format": "Compliance certificates.",
+      "why": "Leverage-redemption loop.",
+      "pass": "Compliant with cushion.",
+      "fail": "Thin cushion.",
+      "verify": "Lender confirmation.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "15.3",
+      "weak": false
+    },
+    {
+      "id": "EV-FOP-007",
+      "order": 70,
+      "stage": "monitoring",
+      "priority": "gating",
+      "workstream": "Fund Operations",
+      "request": "Annual audited financial statements.",
+      "format": "Signed audit.",
+      "why": "Valuation and liquidity misstatement.",
+      "pass": "Unqualified, on time, Big 4 or equivalent.",
+      "fail": "Qualified or late.",
+      "verify": "Auditor confirmation.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "15.5",
+      "weak": false
+    },
+    {
+      "id": "EV-REG-003",
+      "order": 80,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Regulatory & Compliance",
+      "request": "Prompt notice of any gate, suspension, proration or in-kind decision with board minutes.",
+      "format": "Notice and minutes.",
+      "why": "Gate used late.",
+      "pass": "Notice same day; minutes provided.",
+      "fail": "Late notice.",
+      "verify": "Monitor filings.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "15.3",
+      "weak": false
+    },
+    {
+      "id": "EV-FOP-008",
+      "order": 90,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Fund Operations",
+      "request": "Investor account statements from the transfer agent.",
+      "format": "Transfer-agent statements.",
+      "why": "Statements only from the manager.",
+      "pass": "Issued by transfer agent; reconcile.",
+      "fail": "Breaks.",
+      "verify": "Reconcile.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "15.5",
+      "weak": false
+    }
+  ],
+  "kill_tests": [
+    {
+      "id": "EV-K01",
+      "test": "LCR below 1.0x within four consecutive quarters at the cap without new inflows or new borrowing.",
+      "ref": "15.3, 15.7 THE ONE CHECK",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "EV-K02",
+      "test": "Distributions or redemptions funded by new subscriptions (GPB, Heller pattern).",
+      "ref": "15.3, 15.7",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "EV-K03",
+      "test": "No independent valuation of Level 3 assets; manager alone marks the book.",
+      "ref": "15.3, 15.5",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "EV-K04",
+      "test": "Redemption history (requests, paid, prorated, queued) refused or not confirmable with the transfer agent.",
+      "ref": "15.2, 15.9 Q1",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "EV-K05",
+      "test": "Fund-level sub line or NAV facility used to meet redemptions with covenants that trip in the stress.",
+      "ref": "15.3, 15.8",
+      "applies_to": [
+        "all"
+      ]
+    }
+  ],
+  "red_flags": [
+    {
+      "id": "EV-RF01",
+      "flag": "Redemptions above liquidity coverage.",
+      "check": "LCR.",
+      "ref": "15.8",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "EV-RF02",
+      "flag": "Rising 'repurchases payable' or a growing queue.",
+      "check": "Redemption history.",
+      "ref": "15.8",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "EV-RF03",
+      "flag": "Leverage rising as flows turn negative.",
+      "check": "Leverage vs flows.",
+      "ref": "15.8",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "EV-RF04",
+      "flag": "Smooth NAV while comparable public credit or equity fell.",
+      "check": "Mark-lag analysis.",
+      "ref": "15.8",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "EV-RF05",
+      "flag": "Marks above the same loan's marks in other BDCs.",
+      "check": "Cross-BDC mark comparison.",
+      "ref": "15.8",
+      "applies_to": [
+        "interval-fund",
+        "non-traded-bdc",
+        "tender-offer-fund"
+      ]
+    },
+    {
+      "id": "EV-RF06",
+      "flag": "Rising PIK share; frequent amend-and-extend.",
+      "check": "PIK and amendment log.",
+      "ref": "15.8",
+      "applies_to": [
+        "interval-fund",
+        "non-traded-bdc",
+        "tender-offer-fund"
+      ]
+    },
+    {
+      "id": "EV-RF07",
+      "flag": "Fixed distribution rate exceeding NII; distributions funded by borrowing or new money.",
+      "check": "Distribution source and coverage.",
+      "ref": "15.8",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "EV-RF08",
+      "flag": "Large software or single-sector concentration.",
+      "check": "Sector exposure; downside ARR.",
+      "ref": "15.8",
+      "applies_to": [
+        "interval-fund",
+        "non-traded-bdc",
+        "tender-offer-fund"
+      ]
+    },
+    {
+      "id": "EV-RF09",
+      "flag": "Manager pay driven by inflows; deployment target large against the market.",
+      "check": "Advisory agreement; deployment target.",
+      "ref": "15.8",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "EV-RF10",
+      "flag": "Gate or suspension provisions that are vague about who decides.",
+      "check": "Gate provisions.",
+      "ref": "15.8",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "EV-RF11",
+      "flag": "Fund-level sub line or NAV facility used to meet redemptions.",
+      "check": "Facility agreements.",
+      "ref": "15.8",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "EV-RF12",
+      "flag": "Liquidity buffer held in pooled 'cash management' vehicles that can gate.",
+      "check": "Cash look-through.",
+      "ref": "15.3",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "EV-RF13",
+      "flag": "Investor concentration in one wealth platform.",
+      "check": "Channel concentration.",
+      "ref": "15.7",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "EV-RF14",
+      "flag": "Opaque sleeves labelled 'alternative assets' or 'multi-strategy income'.",
+      "check": "Look-through.",
+      "ref": "15.3",
+      "applies_to": [
+        "all"
+      ]
+    }
+  ],
+  "metrics": [
+    {
+      "id": "EV-M01",
+      "metric": "Redemption cap",
+      "acceptable": "Typically 5% of shares per quarter",
+      "source": "Fang, Goldstein and Zeng (KaW, Oct. 2026)",
+      "weak": false,
+      "ref": "15.1, 15.3, 15.4",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "EV-M02",
+      "metric": "Cash buffer (average)",
+      "acceptable": "About 5.5% of TNA; covers roughly one quarter of full 5% repurchases",
+      "source": "Fang, Goldstein and Zeng",
+      "weak": false,
+      "ref": "15.3, 15.4",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "EV-M03",
+      "metric": "Net investment income",
+      "acceptable": "About 2.5% a quarter, mostly paid out (90% distribution requirement)",
+      "source": "Fang, Goldstein and Zeng",
+      "weak": false,
+      "ref": "15.3, 15.4",
+      "applies_to": [
+        "interval-fund",
+        "non-traded-bdc",
+        "tender-offer-fund"
+      ]
+    },
+    {
+      "id": "EV-M04",
+      "metric": "Loan maturities",
+      "acceptable": "Under 0.5% of TNA a quarter",
+      "source": "Fang, Goldstein and Zeng",
+      "weak": false,
+      "ref": "15.3, 15.4",
+      "applies_to": [
+        "interval-fund",
+        "non-traded-bdc",
+        "tender-offer-fund"
+      ]
+    },
+    {
+      "id": "EV-M05",
+      "metric": "Leverage response to outflows",
+      "acceptable": "Net debt issuance rises 0.38 pp of TNA per 1-point increase in net outflows",
+      "source": "Fang, Goldstein and Zeng",
+      "weak": false,
+      "ref": "15.3",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "EV-M06",
+      "metric": "Loan secondary-market depth",
+      "acceptable": "About 80% unrated; fewer than 20% held by 10+ fund families",
+      "source": "Fang, Goldstein and Zeng",
+      "weak": false,
+      "ref": "15.3, 15.4",
+      "applies_to": [
+        "interval-fund",
+        "non-traded-bdc",
+        "tender-offer-fund"
+      ]
+    },
+    {
+      "id": "EV-M07",
+      "metric": "Liquidity coverage ratio (our pass line)",
+      "acceptable": ">= 1.0x at the cap for each of four consecutive quarters without new inflows or new borrowing (derived from 15.3 formula and the ONE CHECK; the bible gives no numeric LCR threshold)",
+      "source": "Bible 15.3 (derived)",
+      "weak": false,
+      "ref": "15.3, 15.7",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "EV-M08",
+      "metric": "BDC distribution requirement",
+      "acceptable": "90% of income",
+      "source": "KaW, Oct. 2026",
+      "weak": false,
+      "ref": "15.1, 15.6",
+      "applies_to": [
+        "non-traded-bdc"
+      ]
+    },
+    {
+      "id": "EV-M09",
+      "metric": "Semi-liquid private credit net assets",
+      "acceptable": "$10B (2019) to $300B (end-2025)",
+      "source": "KaW, Oct. 2026",
+      "weak": false,
+      "ref": "15.1, 15.4",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "EV-M10",
+      "metric": "Q2 2026 flows",
+      "acceptable": "$7.1B repurchases vs $3.8B inflows; $10.7B unmet",
+      "source": "KaW, Oct. 2026",
+      "weak": false,
+      "ref": "15.1, 15.4",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "EV-M11",
+      "metric": "Q2 2026 redemption requests",
+      "acceptable": "Blue Owl Capital Corp II about 22% of shares; Blue Owl Credit Income Corp about 40%",
+      "source": "KaW, Oct. 2026",
+      "weak": false,
+      "ref": "15.4",
+      "applies_to": [
+        "non-traded-bdc"
+      ]
+    },
+    {
+      "id": "EV-M12",
+      "metric": "Blackstone flagship credit fund redemptions",
+      "acceptable": "Record about 8% met (early 2026)",
+      "source": "KaW, Oct. 2026; Harker",
+      "weak": false,
+      "ref": "15.1, 15.4",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "EV-M13",
+      "metric": "Software share of loans",
+      "acceptable": "About one-fifth",
+      "source": "KaW, Oct. 2026",
+      "weak": false,
+      "ref": "15.1, 15.4",
+      "applies_to": [
+        "interval-fund",
+        "non-traded-bdc",
+        "tender-offer-fund"
+      ]
+    },
+    {
+      "id": "EV-M14",
+      "metric": "Holder mix of US private credit (Q3 2025)",
+      "acceptable": "Private debt funds 54.7%; perpetual BDCs 18.7%; public BDCs 12.4%; MM CLOs 5.9%; private BDCs 5.4%; interval funds 3.0%",
+      "source": "Fed FEDS Note, Aug. 2026",
+      "weak": false,
+      "ref": "15.1, 15.4",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "EV-M15",
+      "metric": "Private credit market size (definitions differ; do not average)",
+      "acceptable": "About $3.5T global (KaW Oct. 2026); about $2.1T assets and dry powder 2023 (IMF); about $1.8T to $2T (Goldstein, KaW May 2026); about $1.4T outstanding to US nonfinancial corporates Q1 2026 (Fed)",
+      "source": "KaW; IMF GFSR; Fed FEDS Note",
+      "weak": false,
+      "ref": "15.1",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "EV-M16",
+      "metric": "Mark-to-market lag",
+      "acceptable": "At least four quarters",
+      "source": "IMF GFSR Apr. 2024",
+      "weak": false,
+      "ref": "15.3, 15.4",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "EV-M17",
+      "metric": "PIK share of BDC interest income",
+      "acceptable": "Doubled since 2019",
+      "source": "IMF GFSR Apr. 2024",
+      "weak": false,
+      "ref": "15.3, 15.4",
+      "applies_to": [
+        "interval-fund",
+        "non-traded-bdc",
+        "tender-offer-fund"
+      ]
+    },
+    {
+      "id": "EV-M18",
+      "metric": "Largest perpetual fund's deployment need",
+      "acceptable": "About $43B a year, over a quarter of US direct lending",
+      "source": "Harker, KaW, Apr. 2026",
+      "weak": false,
+      "ref": "15.1, 15.4",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "EV-M19",
+      "metric": "Proskauer Private Credit Default Index",
+      "acceptable": "1.76% Q2 2025; 1.84% Q3 2025; 2.46% Q4 2025; 2.73% Q1 2026; 2.41% Q3 2026 (covenant and payment defaults)",
+      "source": "Proskauer",
+      "weak": false,
+      "ref": "15.1, 15.4",
+      "applies_to": [
+        "interval-fund",
+        "non-traded-bdc",
+        "tender-offer-fund"
+      ]
+    },
+    {
+      "id": "EV-M20",
+      "metric": "Direct-lending realized losses",
+      "acceptable": "About 1.0% a year long run (1.03% through 2023); 0.70% in 2025 (2025 figure weak until confirmed)",
+      "source": "Cliffwater",
+      "weak": true,
+      "ref": "15.4",
+      "applies_to": [
+        "interval-fund",
+        "non-traded-bdc",
+        "tender-offer-fund"
+      ]
+    },
+    {
+      "id": "EV-M21",
+      "metric": "BDC loan count",
+      "acceptable": "Loans held by private-credit BDCs rose from 1,395 to 20,182 (2010-2022)",
+      "source": "Elias and de Fontenay, YLJ",
+      "weak": false,
+      "ref": "15.3",
+      "applies_to": [
+        "non-traded-bdc"
+      ]
+    },
+    {
+      "id": "EV-M22",
+      "metric": "401(k) assets targeted by 2025 executive order",
+      "acceptable": "About $10T",
+      "source": "HLS Forum 2026",
+      "weak": false,
+      "ref": "15.1, 15.4",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "EV-M23",
+      "metric": "Cash-vehicle gate scenario",
+      "acceptable": "Model a 6- to 24-month gate on any pooled cash vehicle",
+      "source": "Reserve Primary Fund (YPFS)",
+      "weak": false,
+      "ref": "15.3, 15.7",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "EV-M24",
+      "metric": "Dollar- vs time-weighted gap",
+      "acceptable": "Internet funds +1.5% TWR but investors lost 72% of $13.7B; tech dollar-weighted 13.4 points a year below TWR",
+      "source": "Swensen",
+      "weak": false,
+      "ref": "15.3",
+      "applies_to": [
+        "all"
+      ]
+    }
+  ],
+  "third_party_reports": [
+    {
+      "id": "EV-T01",
+      "report": "Independent valuation reports",
+      "provider": "Independent valuation agent (IMF recommends mandatory independent external valuations)",
+      "required_when": "Always",
+      "ref": "15.5"
+    },
+    {
+      "id": "EV-T02",
+      "report": "Redemption queue records",
+      "provider": "Fund administrator and transfer agent",
+      "required_when": "Always",
+      "ref": "15.5"
+    },
+    {
+      "id": "EV-T03",
+      "report": "Audit",
+      "provider": "Auditor (Big 4 or equivalent)",
+      "required_when": "Always",
+      "ref": "15.5"
+    },
+    {
+      "id": "EV-T04",
+      "report": "Facility covenant confirmation",
+      "provider": "Credit facility lenders",
+      "required_when": "When any facility exists",
+      "ref": "15.5"
+    },
+    {
+      "id": "EV-T05",
+      "report": "Independent director interview",
+      "provider": "Independent directors of the BDC or interval fund board",
+      "required_when": "Registered vehicles and BDCs",
+      "ref": "15.5"
+    },
+    {
+      "id": "EV-T06",
+      "report": "Property appraisals",
+      "provider": "Independent appraisers",
+      "required_when": "Non-traded REITs",
+      "ref": "15.3"
+    }
+  ],
+  "hard_questions": [
+    {
+      "id": "EV-HQ01",
+      "question": "Show the redemption history: requests, paid, prorated, queued, every quarter since launch.",
+      "good_answer": "A transfer-agent table with no proration or queues, or full disclosure of each.",
+      "ref": "15.9 Q1"
+    },
+    {
+      "id": "EV-HQ02",
+      "question": "What is your liquidity coverage at the cap for four straight quarters, without new inflows?",
+      "good_answer": "At least 1.0x each quarter from cash, retained income and maturities.",
+      "ref": "15.9 Q2"
+    },
+    {
+      "id": "EV-HQ03",
+      "question": "Who values the book, and how do your marks compare with other BDCs' marks on the same loans?",
+      "good_answer": "An independent agent; marks at or below peers on shared loans.",
+      "ref": "15.9 Q3"
+    },
+    {
+      "id": "EV-HQ04",
+      "question": "What share of income is PIK, and how many loans were amended or extended in the last year?",
+      "good_answer": "Low and stable PIK share; few amendments with rationale.",
+      "ref": "15.9 Q4"
+    },
+    {
+      "id": "EV-HQ05",
+      "question": "What share of the book is software, and what is the downside-ARR test?",
+      "good_answer": "Disclosed share with debt tested on downside ARR.",
+      "ref": "15.9 Q5"
+    },
+    {
+      "id": "EV-HQ06",
+      "question": "Where did each of the last eight distributions come from?",
+      "good_answer": "Net investment income and realized gains, each documented.",
+      "ref": "15.9 Q6"
+    },
+    {
+      "id": "EV-HQ07",
+      "question": "What facilities can you draw to meet redemptions, and what covenants could force sales?",
+      "good_answer": "None used for redemptions; covenants survive stress.",
+      "ref": "15.9 Q7"
+    },
+    {
+      "id": "EV-HQ08",
+      "question": "What are investors' dollar-weighted returns, not the fund's TWR?",
+      "good_answer": "A calculation from flows with the gap explained.",
+      "ref": "15.9 Q8"
+    },
+    {
+      "id": "EV-HQ09",
+      "question": "Who decides whether to gate, and what did they decide last time?",
+      "good_answer": "Independent board, documented criteria and minutes.",
+      "ref": "15.9 Q9"
+    }
+  ],
+  "failure_cases": [
+    {
+      "case": "Blue Owl (OBDC II)",
+      "year": "Early 2026",
+      "what_happened": "$1.6B fund ended quarterly redemptions.",
+      "check": "LCR across consecutive quarters at the cap; redemption queue history.",
+      "ref": "15.1, 15.7"
+    },
+    {
+      "case": "Blue Owl Capital Corp II / Blue Owl Credit Income Corp",
+      "year": "Q2 2026",
+      "what_happened": "Redemption requests of about 22% and about 40% of shares against a 5% cap.",
+      "check": "Investor concentration and channel; flow history.",
+      "ref": "15.7"
+    },
+    {
+      "case": "Semi-liquid private credit sector",
+      "year": "Q2 2026",
+      "what_happened": "First aggregate net outflow ($7.1B out vs $3.8B in); $10.7B gated; rising fund leverage; deferred payments; Blackstone, BlackRock and Apollo vehicles also above the cap.",
+      "check": "LCR, mark-lag test, queue history, leverage-redemption loop.",
+      "ref": "15.1, 15.7"
+    },
+    {
+      "case": "Blackstone flagship credit fund",
+      "year": "Early 2026",
+      "what_happened": "Met record redemptions of about 8%.",
+      "check": "LCR and sponsor-support dependency.",
+      "ref": "15.1"
+    },
+    {
+      "case": "Software crisis in private credit",
+      "year": "2026",
+      "what_happened": "AI disruption of SaaS sharply revised software borrowers' default probabilities; about one-fifth of semi-liquid fund loans are to software.",
+      "check": "Downside-ARR debt test; sector concentration.",
+      "ref": "15.1, 15.3"
+    },
+    {
+      "case": "Reserve Primary Fund",
+      "year": "2008",
+      "what_happened": "$62.5B fund held $785M of Lehman paper; over $40B of requests in two days; broke the buck and suspended; about 50 cents in six weeks, 99 cents after two years, final 99.1 cents in 2014.",
+      "check": "Look through 'cash'; model a 6-to-24-month gate.",
+      "ref": "15.7"
+    },
+    {
+      "case": "GPB Capital",
+      "year": "Convicted 2024",
+      "what_happened": "Fixed distributions on illiquid assets paid from new investor capital.",
+      "check": "Source of every distribution.",
+      "ref": "15.7"
+    },
+    {
+      "case": "Heller / Paramount-Prestige ATM network",
+      "year": "SEC, Sept. 2025",
+      "what_happened": "Fixed monthly distributions to about 2,700 mostly retail investors paid from new money and short-term loans.",
+      "check": "Processor confirmation of asset revenue.",
+      "ref": "15.7"
+    }
+  ]
+}

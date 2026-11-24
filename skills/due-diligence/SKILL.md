@@ -31,11 +31,14 @@ Run the CLI from anywhere: `python3 <skill-dir>/scripts/dd.py <command>`. `dd.py
 1. **Intake.** Ask the intake questions conversationally, not as a wall. Start with the universal ones
    (`dd.py intake`): what it is, deal type, size, instrument, stage, use of proceeds, timeline, who the sponsor is,
    who else is in, jurisdiction. Once the type is clear, ask that type's questions (`dd.py intake --type <type>`)
-   to pick subtypes. If the user already gave the answers, don't ask again.
+   to pick subtypes. If the user already gave the answers, don't ask again. The universal intake also sets
+   **conditions** (the universal file's "subtypes": `operating-company`, `levered-vehicle`, `private-offering`,
+   `earnout`, `crypto-exposure` and so on) that switch on the universal items that only apply in those cases.
 2. **Classify.** Map to one or more types from `dd.py types` and the subtypes that apply. Combine types when the
    deal spans them (a data center with on-site generation: `data-centers,energy-infrastructure`; a fund raising a
    NAV loan: `fund,nav-lending`). If you pick no subtype, every subtype's items are included, so pick them when known.
-3. **Build.** `dd.py packet --type <types> --subtype <subtypes> --deal "<name>" --sponsor "<name>" --out <dir>`.
+3. **Build.** `dd.py packet --type <types> --subtype <subtypes> --conditions <conditions> --deal "<name>" --sponsor "<name>" --out <dir>`.
+   Each library filters by its own subtypes only; a library with none of its subtypes chosen includes everything.
    This writes:
    - `01_request_list.md`: the sponsor-facing list, ordered by stage (screen, term sheet, confirmatory,
      third party, closing, monitoring), with priority, workstream and the evidence format, plus the management

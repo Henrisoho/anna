@@ -1,0 +1,1389 @@
+{
+  "type": "cannabis-hemp",
+  "name": "Cannabis and Hemp",
+  "summary": "Covers state-licensed cannabis operators (cultivation, processing, distribution and retail; single-state and multi-state operators, medical and adult-use), ancillary businesses that serve them, and hemp and CBD businesses. Adult-use marijuana remains federally Schedule I; as of November 2026 only FDA-approved marijuana products and marijuana under a qualifying state medical license have moved to Schedule III (DEA partial final rule, Federal Register 2026-08176), with consolidated challenges pending in the D.C. Circuit, a broader rescheduling determination pending after the June-July 2026 ALJ hearing, and no IRS guidance on 280E located. The spine: model federal tax at full 280E unless the operator proves otherwise with a DEA registration, a tax opinion and an audit-proof medical apportionment; confirm every license with the regulator; confirm the bank and a de-banking contingency; run full proof of cash on a cash-heavy business; and price exit off a buyer pool legally allowed to own the asset, at a discount to consumer-staples comps.",
+  "chapters": [
+    "08-cannabis-hemp.md"
+  ],
+  "one_check": "Rebuild federal tax at full 280E on every dollar of revenue, then credit relief only for medical revenue backed by a DEA registration under the new expedited pathway, a tax opinion and an audit-proof apportionment; count prior-year refund claims at zero.",
+  "subtypes": [
+    {
+      "id": "mso",
+      "name": "MSO / plant-touching operator",
+      "description": "Single- or multi-state licensed cultivation, processing, distribution or retail, medical and/or adult-use. Full 280E rebuild, 471 COGS (Harborside), dual-license apportionment, license confirmation with each state regulator, seed-to-sale compliance, banking, local zoning and landlord consent, public-MSO filing diff."
+    },
+    {
+      "id": "ancillary",
+      "name": "Ancillary / non-plant-touching",
+      "description": "Businesses serving the cannabis industry (real estate, technology, equipment, services, lending) without touching the plant. Confirm no trafficking activity that would pull revenue into 280E, customer concentration in licensed operators, banking access, and the buyer and lender pool at exit."
+    },
+    {
+      "id": "hemp",
+      "name": "Hemp / CBD",
+      "description": "Hemp cultivation, processing and hemp-derived and CBD products. No hemp-specific sources in this edition: diligence by analogy (license and registration confirmed with the regulator, accredited-lab certificates of analysis, total-THC compliance at harvest, labeling claims). All thresholds WEAK."
+    }
+  ],
+  "intake_questions": [
+    {
+      "id": "CAN-Q01",
+      "question": "Does the business cultivate, process, distribute or sell marijuana (plant-touching), serve the industry without touching the plant, or deal in hemp/CBD?",
+      "why": "Sets the subtype (mso, ancillary, hemp).",
+      "sets_subtype": true
+    },
+    {
+      "id": "CAN-Q02",
+      "question": "What share of revenue is medical under a qualifying state medical license, and what share is adult-use?",
+      "why": "Adult-use is Schedule I and fully under 280E; only qualifying medical revenue can be considered for Schedule III relief.",
+      "sets_subtype": false
+    },
+    {
+      "id": "CAN-Q03",
+      "question": "Does the operator claim Schedule III treatment or 280E relief for any revenue, and does it hold a DEA registration under the expedited pathway?",
+      "why": "Triggers the four-part relief evidence test.",
+      "sets_subtype": false
+    },
+    {
+      "id": "CAN-Q04",
+      "question": "In which states does the operator hold licenses, and does each state conform to or decouple from 280E?",
+      "why": "State tax conformity varies (WEAK list; confirm statute per deal).",
+      "sets_subtype": false
+    },
+    {
+      "id": "CAN-Q05",
+      "question": "Is the operator publicly listed (e.g. a Canadian- or OTC-listed MSO)?",
+      "why": "Triggers the 8-quarter filing diff (Lazy Prices).",
+      "sets_subtype": false
+    },
+    {
+      "id": "CAN-Q06",
+      "question": "Will the deal change ownership or control of any licensed entity?",
+      "why": "Triggers regulator change-of-control approval requirements.",
+      "sets_subtype": false
+    },
+    {
+      "id": "CAN-Q07",
+      "question": "Who is the operator's bank, for how long, and does it carry cash in vaults or armored transport?",
+      "why": "Triggers banking, de-banking contingency and full proof-of-cash and segregation-of-duties work.",
+      "sets_subtype": false
+    },
+    {
+      "id": "CAN-Q08",
+      "question": "Does the model or deck include prior-year 280E refund claims as an asset or in liquidity?",
+      "why": "Refund claims count at zero.",
+      "sets_subtype": false
+    }
+  ],
+  "requests": [
+    {
+      "id": "CAN-REG-001",
+      "order": 10,
+      "stage": "screen",
+      "priority": "gating",
+      "workstream": "Regulatory & Compliance",
+      "request": "Provide a schedule of every state and local license and registration held: license number, type (medical, adult-use, cultivation, processing, distribution, retail), licensee legal name, premises, expiry and status.",
+      "format": "Schedule plus copies of each license.",
+      "why": "License not real, current, in good standing or held by the operating entity.",
+      "pass": "Every license confirmed by the regulator as current and in good standing, in the name of the operating entity.",
+      "fail": "License in a different name, expired, suspended or unverifiable.",
+      "verify": "Confirm each license directly with the state regulator's database and staff.",
+      "applies_to": [
+        "mso",
+        "hemp"
+      ],
+      "ref": "8.3, 8.4, 8.5",
+      "weak": false
+    },
+    {
+      "id": "CAN-TAX-001",
+      "order": 20,
+      "stage": "screen",
+      "priority": "gating",
+      "workstream": "Tax",
+      "request": "Provide the financial model's federal tax build, with a version rebuilt at full 280E on every dollar of revenue.",
+      "format": "Native model with tax tab.",
+      "why": "280E understated in projections.",
+      "pass": "Base case taxes at full 280E: only IRC 471 direct COGS deducted; operating expenses not deducted.",
+      "fail": "Model deducts normal opex federally.",
+      "verify": "We rebuild the tax ourselves.",
+      "applies_to": [
+        "mso"
+      ],
+      "ref": "8.2, 8.4, 8.6",
+      "weak": false
+    },
+    {
+      "id": "CAN-COM-001",
+      "order": 30,
+      "stage": "screen",
+      "priority": "core",
+      "workstream": "Commercial & Market",
+      "request": "Provide revenue split by license type (medical under a qualifying state medical license vs adult-use) and by state, for 3 years and TTM.",
+      "format": "POS and seed-to-sale reports tied to the GL.",
+      "why": "Schedule III relief assumed for adult-use revenue.",
+      "pass": "Split reconciles to POS and seed-to-sale data; adult-use modeled at full 280E.",
+      "fail": "No split, or split that does not tie.",
+      "verify": "Pull POS and tracking reports directly.",
+      "applies_to": [
+        "mso"
+      ],
+      "ref": "8.3, 8.6",
+      "weak": false
+    },
+    {
+      "id": "CAN-FIN-001",
+      "order": 40,
+      "stage": "screen",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Provide 3 years of financial statements plus TTM, and the investor deck and model.",
+      "format": "Audited or reviewed statements where available; deck and model.",
+      "why": "Decks claiming 'cannabis is now Schedule III'.",
+      "pass": "Statements tie to tax returns; deck states adult-use is Schedule I and medical relief is conditional.",
+      "fail": "Deck asserts blanket Schedule III status.",
+      "verify": "Compare deck to Federal Register 2026-08176.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "8.5, 8.6",
+      "weak": false
+    },
+    {
+      "id": "CAN-FIN-002",
+      "order": 50,
+      "stage": "screen",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Provide the banking relationships: bank name, account types, tenure, any account-closure history, and the cash-management process (vaults, armored transport, deposits).",
+      "format": "Bank letters, statements and cash-handling SOPs.",
+      "why": "Sudden de-banking.",
+      "pass": "Established depository with multi-year tenure, no closure history and a documented cash-handling process.",
+      "fail": "One bank, short tenure, prior closures.",
+      "verify": "Confirm with the bank directly.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "8.3, 8.4, 8.5",
+      "weak": true
+    },
+    {
+      "id": "CAN-VAL-001",
+      "order": 60,
+      "stage": "screen",
+      "priority": "core",
+      "workstream": "Valuation & Model",
+      "request": "Provide the exit thesis naming buyers legally permitted to own the asset and the comparables used.",
+      "format": "Memo with buyer list and comps.",
+      "why": "Exit valued at consumer-staples multiples.",
+      "pass": "Buyers permitted to own the asset under federal-illegality constraints on US-listed acquirers, banks and exchanges; comps discounted from consumer staples.",
+      "fail": "Comps from staples or alcohol with no discount.",
+      "verify": "Test buyer list against listing and lending constraints.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "8.7, 8.4",
+      "weak": false
+    },
+    {
+      "id": "CAN-COR-001",
+      "order": 70,
+      "stage": "screen",
+      "priority": "core",
+      "workstream": "Corporate & Legal",
+      "request": "Provide a description of all activities and revenue streams, identifying any that involve manufacturing, distributing or dispensing marijuana.",
+      "format": "Written description and revenue by stream.",
+      "why": "Ancillary businesses with plant-touching revenue fall under 280E.",
+      "pass": "No trafficking revenue, or such revenue modeled at full 280E.",
+      "fail": "Undisclosed plant-touching activity.",
+      "verify": "Contract review and site visit.",
+      "applies_to": [
+        "ancillary"
+      ],
+      "ref": "8.2",
+      "weak": false
+    },
+    {
+      "id": "CAN-TAX-002",
+      "order": 10,
+      "stage": "term-sheet",
+      "priority": "gating",
+      "workstream": "Tax",
+      "request": "If any 280E relief or Schedule III treatment is claimed: provide the DEA registration obtained under the expedited pathway for state medical licensees.",
+      "format": "Registration certificate and DEA correspondence.",
+      "why": "Relief claimed without registration.",
+      "pass": "Registration exists, is current and covers the medical activity claimed.",
+      "fail": "No registration, or registration pending.",
+      "verify": "Confirm with DEA.",
+      "applies_to": [
+        "mso"
+      ],
+      "ref": "8.3, 8.6",
+      "weak": false
+    },
+    {
+      "id": "CAN-TAX-003",
+      "order": 20,
+      "stage": "term-sheet",
+      "priority": "gating",
+      "workstream": "Tax",
+      "request": "If any relief is claimed: provide a written tax opinion on 280E treatment after the partial rule.",
+      "format": "Signed opinion with stated assumptions.",
+      "why": "Relief resting on a deck statement.",
+      "pass": "Opinion from named independent counsel covering the activity, the apportionment and the absence of IRS guidance.",
+      "fail": "No opinion, or opinion from a marketing source.",
+      "verify": "Our tax counsel reviews.",
+      "applies_to": [
+        "mso"
+      ],
+      "ref": "8.3, 8.6",
+      "weak": false
+    },
+    {
+      "id": "CAN-TAX-004",
+      "order": 30,
+      "stage": "term-sheet",
+      "priority": "gating",
+      "workstream": "Tax",
+      "request": "If the operator holds both medical and adult-use licenses: provide the apportionment method allocating COGS, revenue and overhead between medical and adult-use.",
+      "format": "Written method with workpapers.",
+      "why": "Apportionment that would not survive audit.",
+      "pass": "Method allocates COGS, revenue and overhead on documented drivers; our tax advisor concludes it would survive audit.",
+      "fail": "No apportionment method.",
+      "verify": "Re-perform on a sample month.",
+      "applies_to": [
+        "mso"
+      ],
+      "ref": "8.3, 8.5",
+      "weak": false
+    },
+    {
+      "id": "CAN-VAL-002",
+      "order": 40,
+      "stage": "term-sheet",
+      "priority": "gating",
+      "workstream": "Valuation & Model",
+      "request": "Provide the downside case at full 280E treatment on all revenue, including medical.",
+      "format": "Model tab.",
+      "why": "Relief that never arrives (litigation, no IRS guidance).",
+      "pass": "Deal still works at full 280E; relief shown only as upside.",
+      "fail": "Deal fails at full 280E.",
+      "verify": "Rebuild.",
+      "applies_to": [
+        "mso"
+      ],
+      "ref": "8.3, 8.6",
+      "weak": false
+    },
+    {
+      "id": "CAN-VAL-003",
+      "order": 50,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Valuation & Model",
+      "request": "Confirm that no prior-year 280E refund claims are counted in value, liquidity or working capital.",
+      "format": "Officer's statement and schedule of any filed claims.",
+      "why": "Refund claims booked as an asset.",
+      "pass": "Zero value assigned to refund claims.",
+      "fail": "Refunds counted.",
+      "verify": "Review balance sheet and model.",
+      "applies_to": [
+        "mso"
+      ],
+      "ref": "8.3, 8.4, 8.6",
+      "weak": false
+    },
+    {
+      "id": "CAN-VAL-004",
+      "order": 60,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Valuation & Model",
+      "request": "Provide a base case holding margins flat, with the state's pricing trend.",
+      "format": "Model and wholesale/retail price history by state.",
+      "why": "Margin expansion in a price-compressing market.",
+      "pass": "Margins flat or lower in base case.",
+      "fail": "Margin expansion assumed.",
+      "verify": "Compare to state price data.",
+      "applies_to": [
+        "mso"
+      ],
+      "ref": "8.7",
+      "weak": false
+    },
+    {
+      "id": "CAN-VAL-005",
+      "order": 70,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Valuation & Model",
+      "request": "Provide the valuation with a discount to consumer-staples comps for the restricted buyer and lender pool.",
+      "format": "Valuation memo.",
+      "why": "Exit multiple borrowed from staples.",
+      "pass": "Explicit discount applied and justified.",
+      "fail": "No discount.",
+      "verify": "Our own comps.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "8.7",
+      "weak": false
+    },
+    {
+      "id": "CAN-STR-001",
+      "order": 80,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Structure & Terms",
+      "request": "Provide the change-of-control approval requirements and timeline for each licensed entity.",
+      "format": "Counsel memo citing state rules.",
+      "why": "Deal cannot close or license lost on transfer.",
+      "pass": "Approval path and timeline known; closing conditioned on approvals.",
+      "fail": "Transfer not permitted or unknown.",
+      "verify": "Confirm with regulators.",
+      "applies_to": [
+        "mso",
+        "hemp"
+      ],
+      "ref": "8.3",
+      "weak": false
+    },
+    {
+      "id": "CAN-TAX-005",
+      "order": 10,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Tax",
+      "request": "Provide federal and state tax returns for 3 to 5 years with any IRS or state notices and audits.",
+      "format": "Filed returns and notices.",
+      "why": "Unpaid 280E liabilities.",
+      "pass": "Returns filed applying 280E; no undisclosed assessments.",
+      "fail": "Returns deducting opex federally, or open assessments.",
+      "verify": "Tax counsel review; IRS transcripts.",
+      "applies_to": [
+        "mso"
+      ],
+      "ref": "8.2, 8.3",
+      "weak": false
+    },
+    {
+      "id": "CAN-TAX-006",
+      "order": 20,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Tax",
+      "request": "Provide the COGS methodology under IRC 471 with inventory costing workpapers.",
+      "format": "Methodology and workpapers.",
+      "why": "COGS overstated by claiming 263A (Harborside).",
+      "pass": "COGS limited to 471(a) direct costs.",
+      "fail": "263A capitalization or indirect costs in COGS.",
+      "verify": "Tax advisor re-performs.",
+      "applies_to": [
+        "mso"
+      ],
+      "ref": "8.2, 8.3, 8.4",
+      "weak": false
+    },
+    {
+      "id": "CAN-TAX-007",
+      "order": 30,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Tax",
+      "request": "Provide state tax conformity analysis for each state of operation, citing the current statute.",
+      "format": "Counsel memo.",
+      "why": "State tax misestimated (conformity list WEAK).",
+      "pass": "Each state's treatment confirmed against current statute.",
+      "fail": "Reliance on CPA-firm lists.",
+      "verify": "Read statutes.",
+      "applies_to": [
+        "mso"
+      ],
+      "ref": "8.2",
+      "weak": true
+    },
+    {
+      "id": "CAN-TAX-008",
+      "order": 40,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Tax",
+      "request": "Provide unpaid federal tax liabilities, payment plans and penalties.",
+      "format": "IRS transcripts and agreements.",
+      "why": "Hidden tax debt.",
+      "pass": "All liabilities in debt-like items.",
+      "fail": "Undisclosed liabilities.",
+      "verify": "IRS transcripts.",
+      "applies_to": [
+        "mso"
+      ],
+      "ref": "8.2",
+      "weak": false
+    },
+    {
+      "id": "CAN-REG-002",
+      "order": 50,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Regulatory & Compliance",
+      "request": "Provide seed-to-sale tracking reports reconciled to inventory and sales for 24 months.",
+      "format": "State tracking system exports and reconciliation.",
+      "why": "No compliance trail; diversion.",
+      "pass": "Tracking ties to inventory counts and POS within tolerance.",
+      "fail": "No trail or material variances.",
+      "verify": "Pull reports with our own credentials where permitted.",
+      "applies_to": [
+        "mso"
+      ],
+      "ref": "8.3, 8.5",
+      "weak": false
+    },
+    {
+      "id": "CAN-REG-003",
+      "order": 60,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Regulatory & Compliance",
+      "request": "Provide testing results and certificates of analysis for products sold.",
+      "format": "Lab COAs.",
+      "why": "Non-compliant product.",
+      "pass": "Every batch tested by a licensed lab and compliant.",
+      "fail": "Failed or missing tests.",
+      "verify": "Check lab license and sample batches.",
+      "applies_to": [
+        "mso"
+      ],
+      "ref": "8.3",
+      "weak": false
+    },
+    {
+      "id": "CAN-REG-004",
+      "order": 70,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Regulatory & Compliance",
+      "request": "Provide packaging and labeling compliance reviews.",
+      "format": "Labels and compliance memos.",
+      "why": "Recalls and penalties.",
+      "pass": "Compliant labels.",
+      "fail": "Non-compliant labels.",
+      "verify": "Regulatory counsel.",
+      "applies_to": [
+        "mso",
+        "hemp"
+      ],
+      "ref": "8.3, 8.9",
+      "weak": false
+    },
+    {
+      "id": "CAN-REG-005",
+      "order": 80,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Regulatory & Compliance",
+      "request": "Provide security plans and inspection reports for each premises.",
+      "format": "Plans and inspections.",
+      "why": "License violations.",
+      "pass": "No open security violations.",
+      "fail": "Open violations.",
+      "verify": "Regulator inspection records.",
+      "applies_to": [
+        "mso"
+      ],
+      "ref": "8.3",
+      "weak": false
+    },
+    {
+      "id": "CAN-REG-006",
+      "order": 90,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Regulatory & Compliance",
+      "request": "Provide regulator correspondence, notices of violation and disciplinary history for every license.",
+      "format": "Full correspondence file.",
+      "why": "Licenses at risk.",
+      "pass": "No open disciplinary matters.",
+      "fail": "Open matters.",
+      "verify": "Search state disciplinary records.",
+      "applies_to": [
+        "mso",
+        "hemp"
+      ],
+      "ref": "8.3, 8.10",
+      "weak": false
+    },
+    {
+      "id": "CAN-REG-007",
+      "order": 100,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Regulatory & Compliance",
+      "request": "Provide ownership records for each licensee showing all owners subject to regulator approval.",
+      "format": "Regulator filings.",
+      "why": "Undisclosed owners; ownership-change violations.",
+      "pass": "Ownership on file matches the cap table.",
+      "fail": "Mismatch.",
+      "verify": "Regulator records.",
+      "applies_to": [
+        "mso"
+      ],
+      "ref": "8.3",
+      "weak": false
+    },
+    {
+      "id": "CAN-REG-008",
+      "order": 110,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Regulatory & Compliance",
+      "request": "Provide hemp license or registration and confirm status with the regulator.",
+      "format": "License and regulator confirmation.",
+      "why": "Unlicensed hemp activity.",
+      "pass": "Current and in good standing (WEAK: no source in this edition).",
+      "fail": "Unverifiable.",
+      "verify": "Regulator confirmation.",
+      "applies_to": [
+        "hemp"
+      ],
+      "ref": "8.9",
+      "weak": true
+    },
+    {
+      "id": "CAN-REG-009",
+      "order": 120,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Regulatory & Compliance",
+      "request": "Provide certificates of analysis from an accredited lab for each lot and the total-THC test results at harvest.",
+      "format": "COAs and harvest tests.",
+      "why": "THC non-compliance.",
+      "pass": "Every lot compliant on total THC at harvest (WEAK).",
+      "fail": "Non-compliant lots.",
+      "verify": "Verify lab accreditation.",
+      "applies_to": [
+        "hemp"
+      ],
+      "ref": "8.9",
+      "weak": true
+    },
+    {
+      "id": "CAN-REG-010",
+      "order": 130,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Regulatory & Compliance",
+      "request": "Provide all product labeling claims and substantiation for hemp-derived and CBD products.",
+      "format": "Labels and substantiation.",
+      "why": "Unsupported claims.",
+      "pass": "Claims substantiated (WEAK).",
+      "fail": "Disease or unsupported claims.",
+      "verify": "Regulatory counsel.",
+      "applies_to": [
+        "hemp"
+      ],
+      "ref": "8.9",
+      "weak": true
+    },
+    {
+      "id": "CAN-FIN-003",
+      "order": 140,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Financial",
+      "request": "Provide 36 months of bank statements, cash vault logs, armored-carrier receipts and POS reports for full proof of cash.",
+      "format": "Bank-issued statements, carrier receipts, POS exports.",
+      "why": "Cash revenue that cannot be proven; skimming.",
+      "pass": "Cash sales per POS reconcile to vault logs, carrier receipts and bank deposits each month within 2%.",
+      "fail": "Unreconciled cash.",
+      "verify": "Independent proof of cash by our accountant.",
+      "applies_to": [
+        "mso",
+        "ancillary",
+        "hemp"
+      ],
+      "ref": "8.3",
+      "weak": false
+    },
+    {
+      "id": "CAN-FIN-004",
+      "order": 150,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Provide the cash-handling segregation-of-duties matrix and evidence of operation.",
+      "format": "Matrix, SOPs and sample logs.",
+      "why": "Cash theft in a cash-heavy business.",
+      "pass": "No single person handles, records and reconciles cash.",
+      "fail": "Duties combined.",
+      "verify": "Walk-through and sample testing.",
+      "applies_to": [
+        "mso",
+        "ancillary",
+        "hemp"
+      ],
+      "ref": "8.3",
+      "weak": false
+    },
+    {
+      "id": "CAN-FIN-005",
+      "order": 160,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Provide the bank's own regulatory standing and the operator's de-banking contingency plan.",
+      "format": "Bank call reports or regulator status; written plan with backup bank.",
+      "why": "Sudden de-banking.",
+      "pass": "Bank in good standing; backup relationship established and tested.",
+      "fail": "No backup.",
+      "verify": "Confirm with backup bank.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "8.3, 8.4",
+      "weak": true
+    },
+    {
+      "id": "CAN-FIN-006",
+      "order": 170,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Provide every account-closure notice received in the last five years.",
+      "format": "Notices.",
+      "why": "Repeated de-banking.",
+      "pass": "None, or explained.",
+      "fail": "Recent closures.",
+      "verify": "Bank inquiry.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "8.3",
+      "weak": false
+    },
+    {
+      "id": "CAN-COL-001",
+      "order": 180,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Collateral & Title",
+      "request": "Provide leases or deeds, local approvals and zoning confirmations for every licensed premises.",
+      "format": "Executed leases, permits and zoning letters.",
+      "why": "Premises not approvable.",
+      "pass": "Zoning and local approval confirmed for every premises.",
+      "fail": "Missing approvals.",
+      "verify": "Check local records.",
+      "applies_to": [
+        "mso"
+      ],
+      "ref": "8.3",
+      "weak": false
+    },
+    {
+      "id": "CAN-COL-002",
+      "order": 190,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Collateral & Title",
+      "request": "Provide landlord consents for cannabis use and for the change of control.",
+      "format": "Signed consents.",
+      "why": "Lease termination on transfer.",
+      "pass": "Consents obtained.",
+      "fail": "No consent.",
+      "verify": "Contact landlords.",
+      "applies_to": [
+        "mso"
+      ],
+      "ref": "8.3",
+      "weak": false
+    },
+    {
+      "id": "CAN-REG-011",
+      "order": 200,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Regulatory & Compliance",
+      "request": "For listed operators: provide the last 8 quarters of filings with an explanation of each change in risk-factor and legal language.",
+      "format": "Filings and redline.",
+      "why": "Lazy Prices signal.",
+      "pass": "Every change explained.",
+      "fail": "Unexplained changes.",
+      "verify": "Diff ourselves.",
+      "applies_to": [
+        "mso"
+      ],
+      "ref": "8.3",
+      "weak": false
+    },
+    {
+      "id": "CAN-COM-002",
+      "order": 210,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Commercial & Market",
+      "request": "Provide customer concentration among licensed operators and their license status.",
+      "format": "Customer list with license numbers.",
+      "why": "Customers losing licenses.",
+      "pass": "Concentration priced; top customers' licenses confirmed.",
+      "fail": "Major customer license problems.",
+      "verify": "Regulator checks.",
+      "applies_to": [
+        "ancillary"
+      ],
+      "ref": "8.3",
+      "weak": false
+    },
+    {
+      "id": "CAN-COR-002",
+      "order": 220,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Corporate & Legal",
+      "request": "Provide litigation, enforcement and SEC matters involving the company and its principals.",
+      "format": "Schedule.",
+      "why": "Enforcement exposure (no primary failure cases in this edition).",
+      "pass": "No undisclosed matters.",
+      "fail": "Undisclosed matters.",
+      "verify": "Search SEC and state records.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "8.10",
+      "weak": false
+    },
+    {
+      "id": "CAN-TAX-009",
+      "order": 10,
+      "stage": "third-party",
+      "priority": "gating",
+      "workstream": "Tax",
+      "request": "Provide our tax counsel full access to returns, COGS workpapers, apportionment and any opinion for an independent 280E review.",
+      "format": "Access.",
+      "why": "Tax understatement.",
+      "pass": "Our counsel's full-280E figure used in the base case.",
+      "fail": "Material difference from company.",
+      "verify": "Counsel engaged by us.",
+      "applies_to": [
+        "mso"
+      ],
+      "ref": "8.3, 8.6",
+      "weak": false
+    },
+    {
+      "id": "CAN-REG-012",
+      "order": 20,
+      "stage": "third-party",
+      "priority": "gating",
+      "workstream": "Regulatory & Compliance",
+      "request": "Sign authorizations for us to contact each state regulator to confirm license standing and change-of-control approval.",
+      "format": "Signed authorization.",
+      "why": "Unverified licenses.",
+      "pass": "Regulator confirms.",
+      "fail": "Refusal.",
+      "verify": "Direct contact.",
+      "applies_to": [
+        "mso",
+        "hemp"
+      ],
+      "ref": "8.3, 8.8",
+      "weak": false
+    },
+    {
+      "id": "CAN-FIN-007",
+      "order": 30,
+      "stage": "third-party",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Provide access for independent proof-of-cash and controls testing.",
+      "format": "Access to sites, POS, vault logs and banks.",
+      "why": "Cash fraud.",
+      "pass": "No unreconciled cash.",
+      "fail": "Exceptions.",
+      "verify": "Our accountant.",
+      "applies_to": [
+        "mso",
+        "ancillary",
+        "hemp"
+      ],
+      "ref": "8.3",
+      "weak": false
+    },
+    {
+      "id": "CAN-REG-013",
+      "order": 40,
+      "stage": "third-party",
+      "priority": "core",
+      "workstream": "Regulatory & Compliance",
+      "request": "Provide site access for a seed-to-sale and state compliance audit.",
+      "format": "Access.",
+      "why": "Non-compliance.",
+      "pass": "No material findings.",
+      "fail": "Findings.",
+      "verify": "Compliance auditor.",
+      "applies_to": [
+        "mso"
+      ],
+      "ref": "8.3",
+      "weak": false
+    },
+    {
+      "id": "CAN-REG-014",
+      "order": 10,
+      "stage": "closing",
+      "priority": "gating",
+      "workstream": "Regulatory & Compliance",
+      "request": "Deliver regulator approvals for the change of control of every licensed entity.",
+      "format": "Approval letters.",
+      "why": "License loss.",
+      "pass": "All approvals received before funding.",
+      "fail": "Missing approvals.",
+      "verify": "Regulator confirmation.",
+      "applies_to": [
+        "mso",
+        "hemp"
+      ],
+      "ref": "8.3",
+      "weak": false
+    },
+    {
+      "id": "CAN-TAX-010",
+      "order": 20,
+      "stage": "closing",
+      "priority": "core",
+      "workstream": "Tax",
+      "request": "Deliver a bring-down of federal status (ALJ recommended decision, Administrator determination, D.C. Circuit outcome, IRS notices) and re-run the model.",
+      "format": "Counsel memo dated at signing and closing.",
+      "why": "Status changes after diligence.",
+      "pass": "Model re-run on current status; full 280E base case holds.",
+      "fail": "Status changed without model update.",
+      "verify": "Counsel.",
+      "applies_to": [
+        "mso"
+      ],
+      "ref": "8.6",
+      "weak": false
+    },
+    {
+      "id": "CAN-STR-002",
+      "order": 30,
+      "stage": "closing",
+      "priority": "core",
+      "workstream": "Structure & Terms",
+      "request": "Deliver specific tax indemnity for pre-closing 280E liabilities.",
+      "format": "Executed indemnity.",
+      "why": "Inherited tax debt.",
+      "pass": "Indemnity covers pre-closing federal tax.",
+      "fail": "None.",
+      "verify": "Counsel.",
+      "applies_to": [
+        "mso"
+      ],
+      "ref": "8.2",
+      "weak": false
+    },
+    {
+      "id": "CAN-FIN-008",
+      "order": 40,
+      "stage": "closing",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Deliver evidence of an operating backup banking relationship.",
+      "format": "Account documents.",
+      "why": "De-banking at closing.",
+      "pass": "Backup account open.",
+      "fail": "None.",
+      "verify": "Bank confirmation.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "8.3",
+      "weak": false
+    },
+    {
+      "id": "CAN-REG-015",
+      "order": 10,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Regulatory & Compliance",
+      "request": "Deliver quarterly license status, renewals and any regulator notices.",
+      "format": "Report.",
+      "why": "License lapse.",
+      "pass": "All licenses current.",
+      "fail": "Lapse or notice.",
+      "verify": "Regulator database.",
+      "applies_to": [
+        "mso",
+        "hemp"
+      ],
+      "ref": "8.3",
+      "weak": false
+    },
+    {
+      "id": "CAN-TAX-011",
+      "order": 20,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Tax",
+      "request": "Deliver quarterly 280E tax computation and status update on IRS guidance and litigation.",
+      "format": "Report.",
+      "why": "Tax drift.",
+      "pass": "Full 280E applied unless relief evidence holds.",
+      "fail": "Unsupported relief.",
+      "verify": "Tax counsel.",
+      "applies_to": [
+        "mso"
+      ],
+      "ref": "8.6, 8.10",
+      "weak": false
+    },
+    {
+      "id": "CAN-FIN-009",
+      "order": 30,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Deliver monthly proof-of-cash reconciliation and bank status.",
+      "format": "Reconciliation.",
+      "why": "Cash leakage; de-banking.",
+      "pass": "Reconciled within 2%.",
+      "fail": "Gaps.",
+      "verify": "Bank statements.",
+      "applies_to": [
+        "mso",
+        "ancillary",
+        "hemp"
+      ],
+      "ref": "8.3",
+      "weak": false
+    }
+  ],
+  "kill_tests": [
+    {
+      "id": "CAN-K01",
+      "test": "License cannot be confirmed with the state regulator as real, current, in good standing and transferable (or approvable for the change of control).",
+      "ref": "8.3, 8.4",
+      "applies_to": [
+        "mso",
+        "hemp"
+      ]
+    },
+    {
+      "id": "CAN-K02",
+      "test": "Projections deduct ordinary operating expenses federally and the operator will not accept a model rebuilt at full 280E.",
+      "ref": "8.2, 8.4, 8.5",
+      "applies_to": [
+        "mso"
+      ]
+    },
+    {
+      "id": "CAN-K03",
+      "test": "Schedule III relief assumed for adult-use revenue, or for medical revenue without a DEA registration, tax opinion and audit-proof apportionment, and value depends on it.",
+      "ref": "8.3, 8.4, 8.6",
+      "applies_to": [
+        "mso"
+      ]
+    },
+    {
+      "id": "CAN-K04",
+      "test": "No seed-to-sale compliance trail.",
+      "ref": "8.5, 8.3",
+      "applies_to": [
+        "mso"
+      ]
+    },
+    {
+      "id": "CAN-K05",
+      "test": "Cash-heavy business that cannot complete proof of cash and segregation-of-duties testing.",
+      "ref": "8.3",
+      "applies_to": [
+        "mso",
+        "ancillary",
+        "hemp"
+      ]
+    },
+    {
+      "id": "CAN-K06",
+      "test": "License held in a name different from the operating entity with no approved path to align it before closing.",
+      "ref": "8.5",
+      "applies_to": [
+        "mso",
+        "hemp"
+      ]
+    }
+  ],
+  "red_flags": [
+    {
+      "id": "CAN-RF01",
+      "flag": "Projections that deduct normal opex federally.",
+      "check": "Rebuild federal tax at full 280E.",
+      "ref": "8.5",
+      "applies_to": [
+        "mso"
+      ]
+    },
+    {
+      "id": "CAN-RF02",
+      "flag": "License in a name different from the operating entity.",
+      "check": "Regulator confirmation of licensee and ownership; change-of-control path.",
+      "ref": "8.5",
+      "applies_to": [
+        "mso",
+        "hemp"
+      ]
+    },
+    {
+      "id": "CAN-RF03",
+      "flag": "No seed-to-sale compliance trail.",
+      "check": "State tracking-system reports reconciled to inventory and sales.",
+      "ref": "8.5",
+      "applies_to": [
+        "mso"
+      ]
+    },
+    {
+      "id": "CAN-RF04",
+      "flag": "A deck that says 'cannabis is now Schedule III'.",
+      "check": "Correct the model: adult-use is Schedule I; medical relief needs DEA registration and faces pending litigation.",
+      "ref": "8.5, 8.6",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "CAN-RF05",
+      "flag": "Refund claims for prior-year 280E taxes counted in value or liquidity.",
+      "check": "Exclude from value and liquidity.",
+      "ref": "8.5, 8.4",
+      "applies_to": [
+        "mso"
+      ]
+    },
+    {
+      "id": "CAN-RF06",
+      "flag": "No apportionment method between medical and adult-use for a dual licensee.",
+      "check": "Require a documented apportionment of COGS, revenue and overhead that would survive audit.",
+      "ref": "8.5, 8.3",
+      "applies_to": [
+        "mso"
+      ]
+    },
+    {
+      "id": "CAN-RF07",
+      "flag": "Exit comps drawn from consumer staples or alcohol with no discount.",
+      "check": "Name eligible buyers; apply sin-stock discount.",
+      "ref": "8.5, 8.7",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "CAN-RF08",
+      "flag": "One bank, short tenure, no backup.",
+      "check": "Bank tenure, closure history, bank's regulatory standing and de-banking contingency plan.",
+      "ref": "8.5, 8.3",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "CAN-RF09",
+      "flag": "COGS includes costs beyond IRC 471 direct costs or claims 263A capitalization.",
+      "check": "Apply the Harborside standard.",
+      "ref": "8.4, 8.2",
+      "applies_to": [
+        "mso"
+      ]
+    },
+    {
+      "id": "CAN-RF10",
+      "flag": "Margin expansion in a price-compressing state market.",
+      "check": "Hold margins flat in the base case.",
+      "ref": "8.7",
+      "applies_to": [
+        "mso"
+      ]
+    },
+    {
+      "id": "CAN-RF11",
+      "flag": "Risk-factor or legal-proceedings language changed in recent filings without explanation.",
+      "check": "Diff last 8 quarters of filings.",
+      "ref": "8.3",
+      "applies_to": [
+        "mso"
+      ]
+    },
+    {
+      "id": "CAN-RF12",
+      "flag": "Hemp product with no accredited-lab COAs or total-THC test at harvest.",
+      "check": "Obtain COAs and harvest test records; confirm with regulator (WEAK, no source).",
+      "ref": "8.9",
+      "applies_to": [
+        "hemp"
+      ]
+    }
+  ],
+  "metrics": [
+    {
+      "id": "CAN-M01",
+      "metric": "Federal tax treatment under 280E",
+      "acceptable": "COGS deductible only under IRC 471 direct costs; operating expenses not deductible; federal tax base equals profit plus operating expenses. Effective federal rates can exceed 70% (WEAK; rebuild per deal).",
+      "source": "IRC 280E; Harborside, 151 T.C. 176 (2018), aff'd 995 F.3d 671 (9th Cir. 2021); peasebell.com (WEAK for the 70% figure)",
+      "weak": true,
+      "ref": "8.2",
+      "applies_to": [
+        "mso"
+      ]
+    },
+    {
+      "id": "CAN-M02",
+      "metric": "Federal scheduling, adult-use marijuana",
+      "acceptable": "Schedule I as of November 2026: full 280E.",
+      "source": "Federal Register 2026-08176; DOJ",
+      "weak": false,
+      "ref": "8.6",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "CAN-M03",
+      "metric": "Federal scheduling, qualifying state-medical marijuana",
+      "acceptable": "Schedule III as of November 2026 with an expedited DEA registration pathway; law-firm readings (not IRS guidance) say qualifying medical operators are no longer subject to 280E for that activity. Underwrite full 280E in the base case unless DEA registration, tax opinion and audit-proof apportionment are shown; relief as upside only. v1's April 2026 broader statement is corrected.",
+      "source": "Federal Register 2026-08176; Foley, Apr. 2026; Morgan Lewis, Sept. 2026",
+      "weak": false,
+      "ref": "8.6, 8.2",
+      "applies_to": [
+        "mso"
+      ]
+    },
+    {
+      "id": "CAN-M04",
+      "metric": "Federal scheduling, FDA-approved marijuana drug products",
+      "acceptable": "Schedule III (DEA partial final rule signed April 22, published April 28, 2026).",
+      "source": "Federal Register 2026-08176",
+      "weak": false,
+      "ref": "8.6",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "CAN-M05",
+      "metric": "Litigation and pending determinations",
+      "acceptable": "Consolidated challenges to the partial rule pending in the D.C. Circuit; broader rescheduling ALJ hearing June 29 to July 15, 2026, recommended decision and final determination pending; no IRS guidance on 280E located [GAP]. Re-verify at signing.",
+      "source": "Morgan Lewis, Sept. 2026; Foley, Apr. 2026",
+      "weak": false,
+      "ref": "8.6",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "CAN-M06",
+      "metric": "Prior-year 280E refund claims",
+      "acceptable": "Zero in value and liquidity.",
+      "source": "Bible underwriting rule 8.6",
+      "weak": false,
+      "ref": "8.6, 8.4",
+      "applies_to": [
+        "mso"
+      ]
+    },
+    {
+      "id": "CAN-M07",
+      "metric": "State 280E conformity",
+      "acceptable": "Some states conform (e.g. California); others decouple (Colorado, Oregon, New York, New Jersey, Minnesota). Confirm each state's current statute per deal.",
+      "source": "bluecloudcpa.com; greengrowthcpas.com (CPA firms)",
+      "weak": true,
+      "ref": "8.2",
+      "applies_to": [
+        "mso"
+      ]
+    },
+    {
+      "id": "CAN-M08",
+      "metric": "Sin-stock discount",
+      "acceptable": "Sin stocks earn about 2.5% a year higher risk-adjusted returns (lower ownership, fewer analysts); later work questions the size. Apply a discount to consumer-staples comps.",
+      "source": "Hong and Kacperczyk, JFE 2009",
+      "weak": false,
+      "ref": "8.7",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "CAN-M09",
+      "metric": "Margin assumption",
+      "acceptable": "Hold margins flat in the base case; price compression makes expansion less likely.",
+      "source": "Bible 8.7; Thomas, Ertan and Lewellen",
+      "weak": false,
+      "ref": "8.7",
+      "applies_to": [
+        "mso"
+      ]
+    },
+    {
+      "id": "CAN-M10",
+      "metric": "Banking access",
+      "acceptable": "Established depository relationship with tenure, no closure history, bank in regulatory good standing, and a contingency plan. A Fed master-account denial after an eight-month review was called a death sentence for a cannabis-serving institution (2018-2019 commentary; update for 2026).",
+      "source": "KaW podcasts (WEAK)",
+      "weak": true,
+      "ref": "8.3",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "CAN-M11",
+      "metric": "Hemp compliance",
+      "acceptable": "License and registration confirmed with the regulator; accredited-lab COAs; total-THC compliance at harvest; compliant labeling claims. No source in this edition.",
+      "source": "None (analogy only)",
+      "weak": true,
+      "ref": "8.9",
+      "applies_to": [
+        "hemp"
+      ]
+    }
+  ],
+  "third_party_reports": [
+    {
+      "id": "CAN-T01",
+      "report": "280E tax opinion and full-280E tax rebuild, including 471 COGS methodology and medical/adult-use apportionment review",
+      "provider": "Independent cannabis tax counsel or CPA engaged by us",
+      "required_when": "Always for plant-touching operators; mandatory where any relief is claimed",
+      "ref": "8.3, 8.6"
+    },
+    {
+      "id": "CAN-T02",
+      "report": "License verification and change-of-control approval confirmation",
+      "provider": "State regulator (direct) and regulatory counsel",
+      "required_when": "Every licensed entity",
+      "ref": "8.3"
+    },
+    {
+      "id": "CAN-T03",
+      "report": "Proof of cash and segregation-of-duties testing for a cash-heavy business",
+      "provider": "QoE or forensic accountant engaged by us",
+      "required_when": "Always where cash sales are material",
+      "ref": "8.3, 0.4, 0.5"
+    },
+    {
+      "id": "CAN-T04",
+      "report": "Banking diligence: depository tenure, closure history and bank regulatory standing",
+      "provider": "Our deal team with bank confirmation",
+      "required_when": "Always",
+      "ref": "8.3"
+    },
+    {
+      "id": "CAN-T05",
+      "report": "Seed-to-sale and state compliance audit (tracking, testing, packaging and labeling, security)",
+      "provider": "Cannabis compliance auditor",
+      "required_when": "Plant-touching operators",
+      "ref": "8.3"
+    },
+    {
+      "id": "CAN-T06",
+      "report": "Real estate, zoning and landlord consent review",
+      "provider": "Real estate counsel",
+      "required_when": "Every licensed premises",
+      "ref": "8.3"
+    },
+    {
+      "id": "CAN-T07",
+      "report": "Federal-status update at signing (ALJ, Administrator, D.C. Circuit, IRS notices)",
+      "provider": "Regulatory counsel",
+      "required_when": "At signing and closing",
+      "ref": "8.6"
+    },
+    {
+      "id": "CAN-T08",
+      "report": "Accredited-lab COA review and total-THC compliance",
+      "provider": "Accredited testing lab and regulatory counsel",
+      "required_when": "Hemp and CBD (WEAK, no source)",
+      "ref": "8.9"
+    }
+  ],
+  "hard_questions": [
+    {
+      "id": "CAN-HQ01",
+      "question": "What is federal tax at full 280E, and what does the model assume?",
+      "good_answer": "A model rebuilt at full 280E on every dollar of revenue as base case, with any relief shown separately as upside.",
+      "ref": "8.8"
+    },
+    {
+      "id": "CAN-HQ02",
+      "question": "Which revenue is medical, which adult-use, and how is overhead apportioned?",
+      "good_answer": "Revenue by license type from the seed-to-sale and POS systems, with a documented apportionment of COGS, revenue and overhead that a tax opinion supports.",
+      "ref": "8.8"
+    },
+    {
+      "id": "CAN-HQ03",
+      "question": "Do you hold a DEA registration under the new pathway? Show it.",
+      "good_answer": "The registration certificate, confirmed with DEA, covering the medical activity claimed.",
+      "ref": "8.8"
+    },
+    {
+      "id": "CAN-HQ04",
+      "question": "Who wrote the tax opinion, and what does it assume about IRS treatment?",
+      "good_answer": "A named independent tax counsel opinion that states its assumptions about IRS treatment absent guidance and covers the apportionment.",
+      "ref": "8.8"
+    },
+    {
+      "id": "CAN-HQ05",
+      "question": "Are any prior-year refund claims in the numbers?",
+      "good_answer": "No; or they are removed from value and liquidity.",
+      "ref": "8.8"
+    },
+    {
+      "id": "CAN-HQ06",
+      "question": "May we call the state regulator to confirm license standing and change-of-control approval?",
+      "good_answer": "Yes, with a signed authorization and the regulator's contact.",
+      "ref": "8.8"
+    },
+    {
+      "id": "CAN-HQ07",
+      "question": "Who is your bank, for how long, and what happens if it closes the account tomorrow?",
+      "good_answer": "Named bank with multi-year tenure, no closure history and a tested backup banking relationship and cash-handling plan.",
+      "ref": "8.8"
+    },
+    {
+      "id": "CAN-HQ08",
+      "question": "Who can legally buy this company at exit, and at what multiple?",
+      "good_answer": "A named buyer pool legally permitted to own plant-touching assets, with comps discounted from consumer staples.",
+      "ref": "8.8"
+    },
+    {
+      "id": "CAN-HQ09",
+      "question": "Is COGS limited to IRC 471 direct costs?",
+      "good_answer": "Yes: a COGS build excluding 263A capitalization, consistent with Harborside.",
+      "ref": "8.2, 8.4"
+    }
+  ],
+  "failure_cases": [
+    {
+      "case": "Patients Mutual Assistance Collective Corp. (Harborside) v. Commissioner",
+      "year": "151 T.C. 176 (2018), aff'd 9th Cir. 2021",
+      "what_happened": "Tax Court held 280E applies to state-legal cannabis, COGS limited to 471(a) direct costs, and 263A not available.",
+      "check": "Rebuild COGS under 471 only and tax at full 280E.",
+      "ref": "8.2, 8.4"
+    },
+    {
+      "case": "v1 Schedule III overstatement (bible correction)",
+      "year": "2026",
+      "what_happened": "v1 stated that FDA-approved products and marijuana under a state medical license moved to Schedule III in April 2026, lifting 280E for medical operators. Status is narrower: registration required, litigation pending, no IRS guidance.",
+      "check": "Underwrite full 280E; relief only with DEA registration, tax opinion and audit-proof apportionment.",
+      "ref": "8.2, 8.6"
+    },
+    {
+      "case": "Cannabis-serving institution denied a Fed master account",
+      "year": "2018 to 2019 commentary",
+      "what_happened": "Denial after an eight-month review described as 'a death sentence' (WEAK, podcast commentary).",
+      "check": "Bank tenure, closure history, bank regulatory standing and de-banking contingency.",
+      "ref": "8.3"
+    },
+    {
+      "case": "No primary-sourced cannabis failure cases in this edition",
+      "year": "n/a",
+      "what_happened": "HBS, Wharton and Yale lanes found none; candidates are SEC enforcement on cannabis issuers, state regulator disciplinary actions and MSO restatements (open gap).",
+      "check": "Search SEC enforcement, state disciplinary records and restatement history for the target and its peers.",
+      "ref": "8.10"
+    }
+  ]
+}

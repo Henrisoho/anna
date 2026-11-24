@@ -655,8 +655,30 @@
       "weak": false
     },
     {
-      "id": "BD-ST-006",
+      "id": "BD-FIN-008",
       "order": 170,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Equity cushion: the sponsor's cash equity contribution, purchase price or enterprise value basis, and equity as a share of total capitalization at entry and in the downside case.",
+      "format": "Sources and uses, purchase agreement and evidence of equity funding.",
+      "why": "A thin equity cushion leaves lenders as the first-loss capital.",
+      "pass": "Equity cushion quantified at entry and positive in the downside case; equity funded in cash (not rolled fees or seller notes counted as equity without disclosure).",
+      "fail": "Cushion eliminated in the downside; equity contributed in kind or financed.",
+      "verify": "Funds flow and bank confirmation at closing.",
+      "applies_to": [
+        "senior-secured",
+        "unitranche",
+        "mezzanine",
+        "acquisition",
+        "dividend-recap"
+      ],
+      "ref": "3.3, 3.9",
+      "weak": false
+    },
+    {
+      "id": "BD-ST-006",
+      "order": 180,
       "stage": "term-sheet",
       "priority": "core",
       "workstream": "Structure & Terms",
@@ -677,7 +699,7 @@
       "weak": false
     },
     {
-      "id": "BD-FIN-008",
+      "id": "BD-FIN-009",
       "order": 10,
       "stage": "confirmatory",
       "priority": "gating",
@@ -695,7 +717,7 @@
       "weak": false
     },
     {
-      "id": "BD-FIN-009",
+      "id": "BD-FIN-010",
       "order": 20,
       "stage": "confirmatory",
       "priority": "core",
@@ -718,7 +740,7 @@
       "weak": false
     },
     {
-      "id": "BD-FIN-010",
+      "id": "BD-FIN-011",
       "order": 30,
       "stage": "confirmatory",
       "priority": "gating",
@@ -736,7 +758,7 @@
       "weak": false
     },
     {
-      "id": "BD-FIN-011",
+      "id": "BD-FIN-012",
       "order": 40,
       "stage": "confirmatory",
       "priority": "gating",
@@ -772,7 +794,7 @@
       "weak": false
     },
     {
-      "id": "BD-FIN-012",
+      "id": "BD-FIN-013",
       "order": 60,
       "stage": "confirmatory",
       "priority": "gating",
@@ -790,7 +812,7 @@
       "weak": false
     },
     {
-      "id": "BD-FIN-013",
+      "id": "BD-FIN-014",
       "order": 70,
       "stage": "confirmatory",
       "priority": "gating",
@@ -808,7 +830,7 @@
       "weak": false
     },
     {
-      "id": "BD-FIN-014",
+      "id": "BD-FIN-015",
       "order": 80,
       "stage": "confirmatory",
       "priority": "gating",
@@ -826,7 +848,7 @@
       "weak": false
     },
     {
-      "id": "BD-FIN-015",
+      "id": "BD-FIN-016",
       "order": 90,
       "stage": "confirmatory",
       "priority": "core",
@@ -968,7 +990,7 @@
       "weak": false
     },
     {
-      "id": "BD-FIN-016",
+      "id": "BD-FIN-017",
       "order": 160,
       "stage": "confirmatory",
       "priority": "core",
@@ -986,7 +1008,7 @@
       "weak": false
     },
     {
-      "id": "BD-FIN-017",
+      "id": "BD-FIN-018",
       "order": 170,
       "stage": "confirmatory",
       "priority": "core",
@@ -1312,7 +1334,7 @@
       "weak": false
     },
     {
-      "id": "BD-FIN-018",
+      "id": "BD-FIN-019",
       "order": 10,
       "stage": "third-party",
       "priority": "gating",
@@ -1611,7 +1633,7 @@
       "weak": false
     },
     {
-      "id": "BD-FIN-019",
+      "id": "BD-FIN-020",
       "order": 80,
       "stage": "closing",
       "priority": "gating",
@@ -1652,7 +1674,7 @@
       "weak": false
     },
     {
-      "id": "BD-FIN-020",
+      "id": "BD-FIN-021",
       "order": 100,
       "stage": "closing",
       "priority": "gating",
@@ -1670,7 +1692,7 @@
       "weak": false
     },
     {
-      "id": "BD-FIN-021",
+      "id": "BD-FIN-022",
       "order": 10,
       "stage": "monitoring",
       "priority": "gating",
@@ -1688,7 +1710,7 @@
       "weak": false
     },
     {
-      "id": "BD-FIN-022",
+      "id": "BD-FIN-023",
       "order": 20,
       "stage": "monitoring",
       "priority": "gating",
@@ -1770,7 +1792,7 @@
       "weak": false
     },
     {
-      "id": "BD-FIN-023",
+      "id": "BD-FIN-024",
       "order": 60,
       "stage": "monitoring",
       "priority": "core",
@@ -1896,7 +1918,7 @@
       "weak": false
     },
     {
-      "id": "BD-FIN-024",
+      "id": "BD-FIN-025",
       "order": 120,
       "stage": "monitoring",
       "priority": "core",

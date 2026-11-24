@@ -1,0 +1,1484 @@
+{
+  "type": "cpg-consumer",
+  "name": "CPG and Consumer Brands",
+  "summary": "Covers consumer-products and consumer-brand investments: DTC and subscription brands, brands selling through marketplaces and retail or wholesale (food and beverage, supplements, personal care, household), and franchise and multi-unit consumer businesses. Returns come from volume times contribution margin; equity value from velocity, distribution and durable margin. The spine: volume that is not repeat purchase is rented. Prove repeat from cohorts (CBCV), prove sell-through from retailer POS against sell-in (the trade-loading test), compare channels on contribution margin after trade spend, fulfillment and CAC, hold gross margin flat unless supplier quotes prove otherwise, audit regulated-product quality data, and review franchise agreements and the FDD for no-poach liability.",
+  "chapters": [
+    "07-cpg-consumer.md"
+  ],
+  "one_check": "No cohort file, no valuation on fundamentals: obtain customers acquired, active customers and orders by period (and, for wholesale, POS sell-through against sell-in by account), and rebuild repeat and contribution margin by channel yourself.",
+  "subtypes": [
+    {
+      "id": "dtc",
+      "name": "DTC / subscription / marketplace-led brand",
+      "description": "Brands selling directly online or via marketplaces. Cohort data request (customers acquired, active, orders, revenue and gross margin per order by channel and cohort), acquisition-led growth test, LTV and CAC rebuilt from contribution, payment-processor reconciliation."
+    },
+    {
+      "id": "retail",
+      "name": "Retail / wholesale brand",
+      "description": "Brands selling through distributors and retailers. Sell-in vs POS sell-through by account and week, distributor weeks of inventory, deductions and chargebacks, gross-to-net and trade spend, ACV distribution connected to velocity and repeat, delistings."
+    },
+    {
+      "id": "franchise",
+      "name": "Franchise / multi-unit consumer",
+      "description": "Franchisors and multi-unit operators. FDD Items 17, 19, 20 and 21, unit turnover, no-poach, non-solicit and wage-fixing clause review, non-compete enforceability, open AG and class-action exposure."
+    }
+  ],
+  "intake_questions": [
+    {
+      "id": "CPG-Q01",
+      "question": "What share of revenue comes from DTC, marketplaces, wholesale/retail, and franchise royalties or company-operated units?",
+      "why": "Sets subtypes and which channel tests (cohort, sell-through, FDD) apply.",
+      "sets_subtype": true
+    },
+    {
+      "id": "CPG-Q02",
+      "question": "Is the product regulated (food, beverage, supplements, personal care), and when was the last independent quality-system audit?",
+      "why": "Triggers data-integrity audit and FDA correspondence requests (Akorn).",
+      "sets_subtype": false
+    },
+    {
+      "id": "CPG-Q03",
+      "question": "Is the brand subscription or repeat-purchase, and can it produce customers acquired, active customers and orders by month?",
+      "why": "THE ONE CHECK: no cohort file, no valuation on fundamentals.",
+      "sets_subtype": false
+    },
+    {
+      "id": "CPG-Q04",
+      "question": "Does the deal include a revenue-based earnout?",
+      "why": "Triggers the 5.11 earnout drafting checklist.",
+      "sets_subtype": false
+    },
+    {
+      "id": "CPG-Q05",
+      "question": "In which countries or markets is the brand sold?",
+      "why": "Needed for the household-debt-to-GDP macro check.",
+      "sets_subtype": false
+    },
+    {
+      "id": "CPG-Q06",
+      "question": "Does the business use co-packers or contract manufacturers, and does the plan assume COGS improvement with volume?",
+      "why": "Triggers the supplier-quote requirement before crediting any gross-margin gain.",
+      "sets_subtype": false
+    },
+    {
+      "id": "CPG-Q07",
+      "question": "Is this a control acquisition of a brand at a premium?",
+      "why": "Triggers walk-away discipline and synergy table (Quaker/Snapple, Kraft Heinz, Tyson/Hillshire).",
+      "sets_subtype": false
+    }
+  ],
+  "requests": [
+    {
+      "id": "CPG-FIN-001",
+      "order": 10,
+      "stage": "screen",
+      "priority": "gating",
+      "workstream": "Financial",
+      "request": "Provide channel-level P&Ls (DTC, marketplace, wholesale/retail, franchise) for 3 years and TTM showing contribution margin after trade spend, fulfillment, returns, payment fees and CAC.",
+      "format": "Monthly channel P&Ls reconciling to the consolidated P&L.",
+      "why": "Headline gross margin hiding thin contribution; channel mix masking.",
+      "pass": "Channel P&Ls reconcile to consolidated within 1%; contribution positive in every growth channel and within or explained against vendor bands (DTC 35% to 55%, marketplace single digits to about 34%, wholesale about 33%, WEAK).",
+      "fail": "Only blended metrics; negative contribution in the channel driving growth.",
+      "verify": "Rebuild from GL, marketplace and 3PL invoices.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "7.3, 7.4, 7.5",
+      "weak": true
+    },
+    {
+      "id": "CPG-COM-001",
+      "order": 20,
+      "stage": "screen",
+      "priority": "gating",
+      "workstream": "Commercial & Market",
+      "request": "Provide the DTC cohort file: by month, customers acquired, active customers, orders, revenue and gross margin per order, by acquisition channel and cohort, since launch.",
+      "format": "CSV from e-commerce platform or data warehouse with query text.",
+      "why": "No cohort file, no valuation on fundamentals.",
+      "pass": "Complete file delivered; totals reconcile to DTC revenue within 2%.",
+      "fail": "Company cannot or will not produce it.",
+      "verify": "Our analyst reruns the query or pulls from the platform directly.",
+      "applies_to": [
+        "dtc"
+      ],
+      "ref": "7.6, 7.5",
+      "weak": false
+    },
+    {
+      "id": "CPG-COM-002",
+      "order": 30,
+      "stage": "screen",
+      "priority": "gating",
+      "workstream": "Commercial & Market",
+      "request": "Provide retailer POS sell-through by account and week, and brand shipments (sell-in) by account, for the last eight quarters.",
+      "format": "Retailer portal exports (e.g. retail link) and ERP shipment data.",
+      "why": "Trade loading and channel stuffing.",
+      "pass": "Sell-in tracks sell-through by account; gaps explained by documented pipeline fills for new doors.",
+      "fail": "Sell-in exceeding sell-through quarter after quarter.",
+      "verify": "Pull retailer portal data with read-only credentials; confirm with top retailers.",
+      "applies_to": [
+        "retail"
+      ],
+      "ref": "7.7, 7.2, 7.9",
+      "weak": false
+    },
+    {
+      "id": "CPG-FIN-002",
+      "order": 40,
+      "stage": "screen",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Provide 3 years of financial statements plus TTM and the revenue recognition policy.",
+      "format": "Audited or reviewed statements and written policy.",
+      "why": "Unreliable books.",
+      "pass": "Statements tie to GL and tax returns; revenue recognized net of trade promotions consistently.",
+      "fail": "Gross revenue with trade spend below the line, or policy changes.",
+      "verify": "Tie to tax returns.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "7.2",
+      "weak": false
+    },
+    {
+      "id": "CPG-COM-003",
+      "order": 50,
+      "stage": "screen",
+      "priority": "core",
+      "workstream": "Commercial & Market",
+      "request": "Provide category growth data and the brand's share and velocity against the category set.",
+      "format": "Syndicated data (Circana/NielsenIQ) or retailer data.",
+      "why": "Brand growing slower than category or losing share.",
+      "pass": "Brand velocity at or above category median; share stable or rising.",
+      "fail": "Velocity below category with distribution gains masking it.",
+      "verify": "Buy syndicated data ourselves.",
+      "applies_to": [
+        "retail"
+      ],
+      "ref": "7.2, 7.10",
+      "weak": false
+    },
+    {
+      "id": "CPG-VAL-001",
+      "order": 60,
+      "stage": "screen",
+      "priority": "core",
+      "workstream": "Valuation & Model",
+      "request": "Provide the walk-away price and the basis for any brand premium.",
+      "format": "Dated memo.",
+      "why": "Brand acquisitions destroying value (Quaker/Snapple, Kraft Heinz, Tyson/Hillshire).",
+      "pass": "Walk-away price set before bidding from conservative cash flows; premium supported by probability-weighted, timed synergies.",
+      "fail": "Premium justified by brand narrative or cost cuts.",
+      "verify": "Compare with velocity and share trends.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "7.1, 7.4",
+      "weak": false
+    },
+    {
+      "id": "CPG-VAL-002",
+      "order": 70,
+      "stage": "screen",
+      "priority": "supporting",
+      "workstream": "Valuation & Model",
+      "request": "Provide revenue by country or market for the macro overlay.",
+      "format": "Schedule.",
+      "why": "Credit-driven consumer downturns.",
+      "pass": "Household-debt-to-GDP check run; if a market is in the top third of history, downside with revenue growth 2 points lower for 3 years.",
+      "fail": "No downside for over-indebted markets.",
+      "verify": "We pull BIS / Fed Z.1 data.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "7.1",
+      "weak": false
+    },
+    {
+      "id": "CPG-VAL-003",
+      "order": 10,
+      "stage": "term-sheet",
+      "priority": "gating",
+      "workstream": "Valuation & Model",
+      "request": "Provide the model with a base case holding gross margin flat unless each COGS reduction is backed by a signed supplier or co-packer quote at the higher volume.",
+      "format": "Model plus quotes.",
+      "why": "Margin plans that assume scale efficiencies.",
+      "pass": "Base-case gross margin flat at current; every credited reduction tied to a signed quote.",
+      "fail": "Gross-margin expansion with no quotes.",
+      "verify": "Call suppliers to confirm quotes.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "7.2, 7.4, 7.5",
+      "weak": false
+    },
+    {
+      "id": "CPG-VAL-004",
+      "order": 20,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Valuation & Model",
+      "request": "Provide the CBCV-based valuation: value of existing customers plus future cohorts, with acquisition, retention, frequency and spend forecast separately.",
+      "format": "Model.",
+      "why": "Paying for acquisition-led growth.",
+      "pass": "Valuation on fitted cohort curves supports price.",
+      "fail": "Price exceeds CBCV with no explanation.",
+      "verify": "We fit our own model.",
+      "applies_to": [
+        "dtc"
+      ],
+      "ref": "7.6, 2.10",
+      "weak": false
+    },
+    {
+      "id": "CPG-STR-001",
+      "order": 30,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Structure & Terms",
+      "request": "Provide any revenue-based earnout terms with metric definitions and worked examples, efforts standard, reporting and audit rights, cost allocation, acceleration and expert scope.",
+      "format": "Draft provisions.",
+      "why": "Earnout disputes.",
+      "pass": "All 5.11 checklist items present.",
+      "fail": "Vague revenue definitions (e.g. gross vs net of trade).",
+      "verify": "Counsel review.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "7.2, 5.11",
+      "weak": false
+    },
+    {
+      "id": "CPG-VAL-005",
+      "order": 40,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Valuation & Model",
+      "request": "Provide the synergy table for brand acquisitions: cost and revenue synergies with probability and timing and dis-synergies.",
+      "format": "Table.",
+      "why": "Overpaying for synergies.",
+      "pass": "Probability-weighted and timed; dis-synergies included.",
+      "fail": "Unweighted synergies.",
+      "verify": "Test with operators and retailers.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "7.4, 5.3",
+      "weak": false
+    },
+    {
+      "id": "CPG-FIN-003",
+      "order": 10,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Financial",
+      "request": "Provide the gross-to-net bridge: gross sales, trade spend, deductions, chargebacks, returns and slotting, by retailer and month.",
+      "format": "Bridge tied to retailer remittances.",
+      "why": "Trade spend and deductions hidden.",
+      "pass": "Bridge ties to remittances; trade spend as % of revenue stable or explained.",
+      "fail": "Undisclosed deductions or rising chargebacks.",
+      "verify": "Retailer remittance data.",
+      "applies_to": [
+        "retail"
+      ],
+      "ref": "7.2, 7.5, 7.9",
+      "weak": false
+    },
+    {
+      "id": "CPG-FIN-004",
+      "order": 20,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Provide retailer deductions and chargebacks by account by quarter, with returns in the following quarter.",
+      "format": "Deduction ledger.",
+      "why": "Trade loading reverses as deductions and returns.",
+      "pass": "No rise in deductions or returns after quarter-end spikes.",
+      "fail": "Rising deductions and returns in the following quarter.",
+      "verify": "Retailer remittance and returns data.",
+      "applies_to": [
+        "retail"
+      ],
+      "ref": "7.7",
+      "weak": false
+    },
+    {
+      "id": "CPG-FIN-005",
+      "order": 30,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Provide normalized EBITDA with add-back support, and working capital and cash conversion history.",
+      "format": "QoE-style bridge and monthly NWC.",
+      "why": "Inflated EBITDA.",
+      "pass": "Add-backs independently validated; cash conversion consistent with EBITDA.",
+      "fail": "Weak cash conversion.",
+      "verify": "QoE.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "7.2",
+      "weak": false
+    },
+    {
+      "id": "CPG-FIN-006",
+      "order": 40,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Financial",
+      "request": "Provide bank and payment-processor settlement statements for 24 to 36 months to reconcile cohort and channel revenue to cash.",
+      "format": "Bank-issued and processor statements (Shopify, Stripe, Amazon settlements).",
+      "why": "Revenue that does not reach cash.",
+      "pass": "Cohort revenue reconciles to P&L and to settlements within 2%.",
+      "fail": "Unreconciled gaps.",
+      "verify": "Direct processor and bank access.",
+      "applies_to": [
+        "dtc"
+      ],
+      "ref": "7.2, 7.6",
+      "weak": false
+    },
+    {
+      "id": "CPG-FIN-007",
+      "order": 50,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Provide the inventory ledger with aging, turns and spoilage or write-offs by SKU.",
+      "format": "Perpetual inventory report and write-off history.",
+      "why": "Obsolete or spoiled inventory overstating assets.",
+      "pass": "Turns stable; aged and short-dated inventory reserved.",
+      "fail": "Rising aged inventory without reserves.",
+      "verify": "Physical count observation.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "7.2, 7.3",
+      "weak": false
+    },
+    {
+      "id": "CPG-FIN-008",
+      "order": 60,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Provide marketing spend by channel by month and new customers by channel.",
+      "format": "Ad-platform exports and GL.",
+      "why": "Blended CAC hiding paid CAC.",
+      "pass": "Fully loaded CAC by channel computed; payback by channel tracked.",
+      "fail": "Only blended CAC.",
+      "verify": "Pull ad-platform exports.",
+      "applies_to": [
+        "dtc"
+      ],
+      "ref": "7.6, 7.3",
+      "weak": false
+    },
+    {
+      "id": "CPG-FIN-009",
+      "order": 70,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Provide the promotion calendar with baseline and incremental volume per promotion.",
+      "format": "Calendar and POS data.",
+      "why": "Promoted volume that loses money.",
+      "pass": "Lift measured net of baseline is profitable after trade spend.",
+      "fail": "Promotions unprofitable net of baseline.",
+      "verify": "Rebuild from POS data.",
+      "applies_to": [
+        "retail"
+      ],
+      "ref": "7.4, 7.9",
+      "weak": false
+    },
+    {
+      "id": "CPG-FIN-010",
+      "order": 80,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Provide signed co-packer and supplier contracts and quotes at current and planned volumes.",
+      "format": "Executed contracts and quotes.",
+      "why": "Unsupported COGS improvement.",
+      "pass": "Quotes support every COGS reduction in the plan.",
+      "fail": "No quotes.",
+      "verify": "Call suppliers.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "7.2, 7.9",
+      "weak": false
+    },
+    {
+      "id": "CPG-COM-004",
+      "order": 90,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Commercial & Market",
+      "request": "Provide the acquisition-led test: share of revenue each period from customers acquired in that period.",
+      "format": "Schedule from cohort file.",
+      "why": "Growth needing ever-rising marketing (Wayfair).",
+      "pass": "Share stable or falling while repeat holds.",
+      "fail": "Rising share with flat or falling repeat.",
+      "verify": "Recompute from cohort file.",
+      "applies_to": [
+        "dtc"
+      ],
+      "ref": "7.6",
+      "weak": false
+    },
+    {
+      "id": "CPG-COM-005",
+      "order": 100,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Commercial & Market",
+      "request": "Provide cumulative gross profit per cohort by month since acquisition.",
+      "format": "Cohort matrix.",
+      "why": "Collapsing cohorts (Blue Apron).",
+      "pass": "Curves flatten; each recent cohort at least as valuable as prior.",
+      "fail": "Each recent cohort worth less.",
+      "verify": "Rebuild.",
+      "applies_to": [
+        "dtc"
+      ],
+      "ref": "7.6",
+      "weak": false
+    },
+    {
+      "id": "CPG-COM-006",
+      "order": 110,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Commercial & Market",
+      "request": "Provide repeat rates by cohort age for comparison with the category leader at the same age.",
+      "format": "Schedule.",
+      "why": "Repeat below category leader.",
+      "pass": "Repeat at or near the category leader.",
+      "fail": "Materially below leader.",
+      "verify": "Public leader disclosures.",
+      "applies_to": [
+        "dtc"
+      ],
+      "ref": "7.6",
+      "weak": false
+    },
+    {
+      "id": "CPG-FIN-011",
+      "order": 120,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Provide the inputs to rebuild LTV and CAC: contribution after COGS, fulfillment, returns, payment fees and discounts per order, on the fitted repeat curve.",
+      "format": "Order-level data.",
+      "why": "Company-defined LTV on first-purchase contribution (Allbirds).",
+      "pass": "Our rebuilt LTV:CAC above 3:1 (WEAK) by channel.",
+      "fail": "Only company LTV.",
+      "verify": "Rebuild ourselves.",
+      "applies_to": [
+        "dtc"
+      ],
+      "ref": "7.6, 7.3",
+      "weak": true
+    },
+    {
+      "id": "CPG-COM-007",
+      "order": 130,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Commercial & Market",
+      "request": "Provide distributor inventory reports and weeks of inventory at each distributor and retailer, today and a year ago, by quarter.",
+      "format": "Distributor reports.",
+      "why": "Weeks of inventory rising while POS flat.",
+      "pass": "Weeks of inventory flat or falling.",
+      "fail": "Rising quarter over quarter with flat POS.",
+      "verify": "Confirm with distributors.",
+      "applies_to": [
+        "retail"
+      ],
+      "ref": "7.7, 7.9",
+      "weak": false
+    },
+    {
+      "id": "CPG-COM-008",
+      "order": 140,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Commercial & Market",
+      "request": "Provide weekly shipments by account for the four weeks either side of each quarter-end.",
+      "format": "ERP data.",
+      "why": "Quarter-end stuffing.",
+      "pass": "No quarter-end spikes beyond normal pattern.",
+      "fail": "Spikes.",
+      "verify": "Compare to POS.",
+      "applies_to": [
+        "retail"
+      ],
+      "ref": "7.7",
+      "weak": false
+    },
+    {
+      "id": "CPG-COM-009",
+      "order": 150,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Commercial & Market",
+      "request": "Provide ACV distribution reconciled to door count, retailer authorizations, velocity against category and repeat.",
+      "format": "Syndicated data and authorization letters.",
+      "why": "Distribution that will be delisted.",
+      "pass": "ACV ties to authorizations; velocity and repeat support retention of shelf space.",
+      "fail": "ACV growth with weak velocity.",
+      "verify": "Retailer confirmations.",
+      "applies_to": [
+        "retail"
+      ],
+      "ref": "7.2, 7.4",
+      "weak": true
+    },
+    {
+      "id": "CPG-COM-010",
+      "order": 160,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Commercial & Market",
+      "request": "Provide customer and retailer concentration and any delistings in the last two years with reasons.",
+      "format": "Schedule and buyer correspondence.",
+      "why": "Loss of a major account.",
+      "pass": "Concentration priced; delistings explained.",
+      "fail": "Undisclosed delistings.",
+      "verify": "Call retailer buyers.",
+      "applies_to": [
+        "retail"
+      ],
+      "ref": "7.2, 7.9",
+      "weak": false
+    },
+    {
+      "id": "CPG-COM-011",
+      "order": 170,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Commercial & Market",
+      "request": "Provide contacts for top retailers and distributors for direct confirmation of sell-through, inventory and deductions.",
+      "format": "Contacts.",
+      "why": "Sell-in fraud.",
+      "pass": "Confirmations match company data.",
+      "fail": "Mismatches.",
+      "verify": "Direct calls.",
+      "applies_to": [
+        "retail"
+      ],
+      "ref": "7.7, 5.3",
+      "weak": false
+    },
+    {
+      "id": "CPG-COM-012",
+      "order": 180,
+      "stage": "confirmatory",
+      "priority": "supporting",
+      "workstream": "Commercial & Market",
+      "request": "Provide top-10 customer (retailer or distributor) purchase, inventory and AP trend data for the customer-side revenue test.",
+      "format": "Customer filings or confirmations.",
+      "why": "Revenue fraud.",
+      "pass": "Brand shipments move with customers' purchases; no jumps in customer inventory.",
+      "fail": "Divergence.",
+      "verify": "Public filings.",
+      "applies_to": [
+        "retail"
+      ],
+      "ref": "7.7",
+      "weak": false
+    },
+    {
+      "id": "CPG-REG-001",
+      "order": 190,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Regulatory & Compliance",
+      "request": "Provide FDA 483s, warning letters, recalls and regulator correspondence for 5 years.",
+      "format": "Complete file.",
+      "why": "Regulatory defects.",
+      "pass": "No open findings.",
+      "fail": "Open warning letters.",
+      "verify": "FDA database search.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "7.2",
+      "weak": false
+    },
+    {
+      "id": "CPG-REG-002",
+      "order": 200,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Regulatory & Compliance",
+      "request": "Provide quality-system audit trails and raw lab and testing data for released lots.",
+      "format": "Raw data and audit trails.",
+      "why": "Falsified data (Akorn).",
+      "pass": "Raw data matches certificates and reported results.",
+      "fail": "Mismatches.",
+      "verify": "Independent data-integrity auditor.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "7.2",
+      "weak": false
+    },
+    {
+      "id": "CPG-REG-003",
+      "order": 210,
+      "stage": "confirmatory",
+      "priority": "supporting",
+      "workstream": "Regulatory & Compliance",
+      "request": "Provide product labeling and claims substantiation.",
+      "format": "Labels and substantiation files.",
+      "why": "Unsupported claims.",
+      "pass": "Every claim substantiated.",
+      "fail": "Unsupported claims.",
+      "verify": "Regulatory counsel.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "7.2",
+      "weak": false
+    },
+    {
+      "id": "CPG-COR-001",
+      "order": 220,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Corporate & Legal",
+      "request": "Provide the current FDD and the last five years of FDDs.",
+      "format": "FDDs as filed.",
+      "why": "Unit economics and turnover hidden.",
+      "pass": "Complete set provided.",
+      "fail": "Missing years.",
+      "verify": "State filing databases.",
+      "applies_to": [
+        "franchise"
+      ],
+      "ref": "7.8",
+      "weak": true
+    },
+    {
+      "id": "CPG-COM-013",
+      "order": 230,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Commercial & Market",
+      "request": "Provide FDD Item 19 financial performance representations with the population used.",
+      "format": "Item 19 and backup.",
+      "why": "Cherry-picked unit economics.",
+      "pass": "System-wide or subset with criteria stated.",
+      "fail": "Undisclosed subset.",
+      "verify": "Compare with Item 20 counts.",
+      "applies_to": [
+        "franchise"
+      ],
+      "ref": "7.8",
+      "weak": true
+    },
+    {
+      "id": "CPG-COM-014",
+      "order": 240,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Commercial & Market",
+      "request": "Provide FDD Item 20 outlet openings, closings and transfers for five years.",
+      "format": "Item 20 tables.",
+      "why": "Unit turnover.",
+      "pass": "Closings and transfers stable or falling.",
+      "fail": "Rising closings.",
+      "verify": "Call former franchisees.",
+      "applies_to": [
+        "franchise"
+      ],
+      "ref": "7.8",
+      "weak": true
+    },
+    {
+      "id": "CPG-FIN-012",
+      "order": 250,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Provide FDD Item 21 audited franchisor financial statements.",
+      "format": "Audited statements.",
+      "why": "Weak franchisor.",
+      "pass": "Clean audit.",
+      "fail": "Qualified opinion.",
+      "verify": "Call auditor.",
+      "applies_to": [
+        "franchise"
+      ],
+      "ref": "7.8",
+      "weak": true
+    },
+    {
+      "id": "CPG-HR-001",
+      "order": 260,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "HR & Management",
+      "request": "Provide every franchise agreement, FDD Item 17, employment agreement and vendor contract containing no-poach, non-solicit or wage-fixing provisions, with removal dates.",
+      "format": "Clause inventory and executed amendments.",
+      "why": "No-poach antitrust liability.",
+      "pass": "No live clauses; removal documented.",
+      "fail": "Live clauses.",
+      "verify": "Counsel review of a sample of agreements.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "7.8, 7.4",
+      "weak": false
+    },
+    {
+      "id": "CPG-COR-002",
+      "order": 270,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Corporate & Legal",
+      "request": "Provide any open state AG inquiries or class actions related to no-poach or wage-fixing.",
+      "format": "Litigation schedule.",
+      "why": "Open exposure.",
+      "pass": "None open, or indemnified.",
+      "fail": "Open exposure.",
+      "verify": "Docket search.",
+      "applies_to": [
+        "franchise"
+      ],
+      "ref": "7.8",
+      "weak": false
+    },
+    {
+      "id": "CPG-HR-002",
+      "order": 280,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "HR & Management",
+      "request": "Provide non-compete agreements for key employees with enforceability by state.",
+      "format": "Agreements and counsel memo.",
+      "why": "Unenforceable retention.",
+      "pass": "Enforceability analyzed.",
+      "fail": "Reliance on unenforceable non-competes.",
+      "verify": "Counsel.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "7.8",
+      "weak": false
+    },
+    {
+      "id": "CPG-FIN-013",
+      "order": 10,
+      "stage": "third-party",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Provide access for an independent QoE with proof of cash.",
+      "format": "Data access.",
+      "why": "Financial-statement breaches drive 38% to 40% of R&W paid loss.",
+      "pass": "QoE with no unreconciled items.",
+      "fail": "Restricted scope.",
+      "verify": "QoE provider engaged by us.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "7.2",
+      "weak": false
+    },
+    {
+      "id": "CPG-REG-004",
+      "order": 20,
+      "stage": "third-party",
+      "priority": "core",
+      "workstream": "Regulatory & Compliance",
+      "request": "Provide site and system access for an independent data-integrity audit.",
+      "format": "Access letter.",
+      "why": "Falsified quality data.",
+      "pass": "Clean audit.",
+      "fail": "Findings.",
+      "verify": "Auditor engaged by us.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "7.2",
+      "weak": false
+    },
+    {
+      "id": "CPG-COM-015",
+      "order": 30,
+      "stage": "third-party",
+      "priority": "core",
+      "workstream": "Commercial & Market",
+      "request": "Authorize retailers and distributors to confirm data directly to us.",
+      "format": "Signed authorization.",
+      "why": "Sponsor-provided data only.",
+      "pass": "Confirmations received.",
+      "fail": "Refusal.",
+      "verify": "Direct confirmation.",
+      "applies_to": [
+        "retail"
+      ],
+      "ref": "7.7",
+      "weak": false
+    },
+    {
+      "id": "CPG-STR-002",
+      "order": 10,
+      "stage": "closing",
+      "priority": "core",
+      "workstream": "Structure & Terms",
+      "request": "Deliver specific indemnities for any regulatory, quality or no-poach finding and a price adjustment for trade-loading reversal.",
+      "format": "Executed provisions.",
+      "why": "Known issues uninsured.",
+      "pass": "Every finding covered.",
+      "fail": "Uncovered finding.",
+      "verify": "Map to findings.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "7.2, 7.8, 5.6",
+      "weak": false
+    },
+    {
+      "id": "CPG-STR-003",
+      "order": 20,
+      "stage": "closing",
+      "priority": "core",
+      "workstream": "Structure & Terms",
+      "request": "Deliver the executed earnout agreement with net-revenue definitions and audit rights.",
+      "format": "Executed agreement.",
+      "why": "Disputes.",
+      "pass": "Checklist complete.",
+      "fail": "Missing items.",
+      "verify": "Counsel.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "7.2, 5.11",
+      "weak": false
+    },
+    {
+      "id": "CPG-COM-016",
+      "order": 10,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Commercial & Market",
+      "request": "Deliver the cohort file monthly.",
+      "format": "Export.",
+      "why": "Cohort deterioration.",
+      "pass": "New cohorts at least as valuable as prior.",
+      "fail": "Declining cohorts.",
+      "verify": "Reconcile to settlements.",
+      "applies_to": [
+        "dtc"
+      ],
+      "ref": "7.6",
+      "weak": false
+    },
+    {
+      "id": "CPG-COM-017",
+      "order": 20,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Commercial & Market",
+      "request": "Deliver POS, sell-in and distributor inventory by account quarterly.",
+      "format": "Data pack.",
+      "why": "Trade loading after close.",
+      "pass": "Weeks of inventory flat or falling.",
+      "fail": "Rising weeks with flat POS.",
+      "verify": "Retailer portals.",
+      "applies_to": [
+        "retail"
+      ],
+      "ref": "7.7",
+      "weak": false
+    },
+    {
+      "id": "CPG-FIN-014",
+      "order": 30,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Deliver channel P&Ls and gross-to-net bridge quarterly.",
+      "format": "Pack.",
+      "why": "Margin erosion.",
+      "pass": "Contribution stable by channel.",
+      "fail": "Erosion.",
+      "verify": "Tie to GL.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "7.3",
+      "weak": false
+    },
+    {
+      "id": "CPG-COM-018",
+      "order": 40,
+      "stage": "monitoring",
+      "priority": "supporting",
+      "workstream": "Commercial & Market",
+      "request": "Deliver annual FDD and unit openings, closings and transfers.",
+      "format": "FDD.",
+      "why": "Unit decline.",
+      "pass": "Stable or improving.",
+      "fail": "Rising closures.",
+      "verify": "State filings.",
+      "applies_to": [
+        "franchise"
+      ],
+      "ref": "7.8",
+      "weak": false
+    }
+  ],
+  "kill_tests": [
+    {
+      "id": "CPG-K01",
+      "test": "Company cannot or will not produce customers acquired, active customers and orders by period (DTC) or POS sell-through by account (wholesale).",
+      "ref": "7.5, 7.6, 7.7",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "CPG-K02",
+      "test": "Sell-in materially exceeds POS sell-through with rising distributor weeks of inventory and the company cannot explain or reverse it (trade loading).",
+      "ref": "7.4, 7.7",
+      "applies_to": [
+        "retail"
+      ]
+    },
+    {
+      "id": "CPG-K03",
+      "test": "Regulated product with falsified or unreconcilable quality data found by an independent data-integrity audit.",
+      "ref": "7.2, 5.7",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "CPG-K04",
+      "test": "Contribution margin by channel after trade spend, fulfillment and CAC cannot be produced or is negative in the channel driving growth.",
+      "ref": "7.3, 7.4, 7.5",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "CPG-K05",
+      "test": "Live no-poach or wage-fixing clauses with open AG or class-action exposure that is not indemnified or priced.",
+      "ref": "7.8",
+      "applies_to": [
+        "franchise"
+      ]
+    }
+  ],
+  "red_flags": [
+    {
+      "id": "CPG-RF01",
+      "flag": "Only blended metrics; no channel-level contribution.",
+      "check": "Channel-level P&Ls with contribution after trade spend, fulfillment and CAC.",
+      "ref": "7.5, 7.4",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "CPG-RF02",
+      "flag": "Distribution wins with no velocity data.",
+      "check": "Velocity by retailer against category set; repeat by retailer.",
+      "ref": "7.5, 7.2",
+      "applies_to": [
+        "retail"
+      ]
+    },
+    {
+      "id": "CPG-RF03",
+      "flag": "Trade spend and deductions not disclosed.",
+      "check": "Gross-to-net bridge and deductions and chargebacks by retailer.",
+      "ref": "7.5",
+      "applies_to": [
+        "retail"
+      ]
+    },
+    {
+      "id": "CPG-RF04",
+      "flag": "Company cannot or will not give customers acquired and active customers by period.",
+      "check": "Kill test: no cohort file, no fundamental valuation.",
+      "ref": "7.5, 7.6",
+      "applies_to": [
+        "dtc"
+      ]
+    },
+    {
+      "id": "CPG-RF05",
+      "flag": "LTV and CAC payback defined by the company on first-purchase contribution (Allbirds S-1 pattern).",
+      "check": "Rebuild LTV from fitted repeat curve and contribution against fully loaded CAC by channel.",
+      "ref": "7.5, 7.6",
+      "applies_to": [
+        "dtc"
+      ]
+    },
+    {
+      "id": "CPG-RF06",
+      "flag": "Distributor or retailer weeks of inventory rising quarter over quarter while POS is flat.",
+      "check": "Sell-in vs POS by account; distributor inventory reports; direct confirmation.",
+      "ref": "7.5, 7.7",
+      "applies_to": [
+        "retail"
+      ]
+    },
+    {
+      "id": "CPG-RF07",
+      "flag": "Gross-margin expansion in the plan with no supplier quotes.",
+      "check": "Signed supplier or co-packer quotes at the higher volume, or flat margin base case.",
+      "ref": "7.5, 7.2",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "CPG-RF08",
+      "flag": "No-poach or wage-fixing language in franchise or vendor agreements.",
+      "check": "Clause review; removal; open exposure.",
+      "ref": "7.5, 7.8",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "CPG-RF09",
+      "flag": "Regulated product with no recent independent quality-system audit.",
+      "check": "Commission independent data-integrity audit.",
+      "ref": "7.5, 7.2",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "CPG-RF10",
+      "flag": "Quarter-end shipment spikes followed by rising deductions and returns in the next quarter.",
+      "check": "Weekly shipments by account around quarter-ends; deductions and returns trend.",
+      "ref": "7.7",
+      "applies_to": [
+        "retail"
+      ]
+    },
+    {
+      "id": "CPG-RF11",
+      "flag": "ACV distribution growth without matching velocity and repeat.",
+      "check": "Velocity per store or per $MM ACV and repeat by retailer.",
+      "ref": "7.2, 7.4",
+      "applies_to": [
+        "retail"
+      ]
+    },
+    {
+      "id": "CPG-RF12",
+      "flag": "Rising share of revenue from newly acquired customers with flat or falling repeat.",
+      "check": "Acquisition-led test from cohort file.",
+      "ref": "7.6",
+      "applies_to": [
+        "dtc"
+      ]
+    },
+    {
+      "id": "CPG-RF13",
+      "flag": "FDD Item 19 figures drawn from a selected subset rather than system-wide.",
+      "check": "Compare Item 19 population to Item 20 outlet counts.",
+      "ref": "7.8",
+      "applies_to": [
+        "franchise"
+      ]
+    },
+    {
+      "id": "CPG-RF14",
+      "flag": "Household debt to GDP in the brand's markets rose into the top third of history over three years.",
+      "check": "Run a downside with revenue growth 2 points lower for 3 years.",
+      "ref": "7.1",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "CPG-RF15",
+      "flag": "Premium for a brand justified by cost-cutting plans rather than velocity and share.",
+      "check": "Brand-value test against velocity and share trends; walk-away price.",
+      "ref": "7.4, 7.1",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "CPG-RF16",
+      "flag": "Recent SKU delistings by a major retailer.",
+      "check": "Ask which retailers delisted which SKUs in two years and why; call the buyer.",
+      "ref": "7.9",
+      "applies_to": [
+        "retail"
+      ]
+    }
+  ],
+  "metrics": [
+    {
+      "id": "CPG-M01",
+      "metric": "Contribution margin, DTC",
+      "acceptable": "35% to 55%.",
+      "source": "logicagencyinc.com (vendor)",
+      "weak": true,
+      "ref": "7.3",
+      "applies_to": [
+        "dtc"
+      ]
+    },
+    {
+      "id": "CPG-M02",
+      "metric": "Contribution margin, marketplace",
+      "acceptable": "Single digits to about 34%.",
+      "source": "logicagencyinc.com (vendor)",
+      "weak": true,
+      "ref": "7.3",
+      "applies_to": [
+        "dtc"
+      ]
+    },
+    {
+      "id": "CPG-M03",
+      "metric": "Contribution margin, wholesale",
+      "acceptable": "About 33%.",
+      "source": "logicagencyinc.com (vendor)",
+      "weak": true,
+      "ref": "7.3",
+      "applies_to": [
+        "retail"
+      ]
+    },
+    {
+      "id": "CPG-M04",
+      "metric": "Velocity",
+      "acceptable": "Units sold divided by number of stores (or per $MM ACV); benchmark against the category set; no institutional threshold.",
+      "source": "trustcultivar.com; marginvelocity.com (vendor)",
+      "weak": true,
+      "ref": "7.3",
+      "applies_to": [
+        "retail"
+      ]
+    },
+    {
+      "id": "CPG-M05",
+      "metric": "ACV distribution",
+      "acceptable": "Weighted percentage of retail volume where the SKU sells; must connect to velocity and repeat.",
+      "source": "alloy.ai (vendor definition)",
+      "weak": true,
+      "ref": "7.3",
+      "applies_to": [
+        "retail"
+      ]
+    },
+    {
+      "id": "CPG-M06",
+      "metric": "LTV:CAC, DTC",
+      "acceptable": "Above 3:1, recomputed from cohorts; track CAC payback by channel.",
+      "source": "Practitioner",
+      "weak": true,
+      "ref": "7.3",
+      "applies_to": [
+        "dtc"
+      ]
+    },
+    {
+      "id": "CPG-M07",
+      "metric": "Gross margin, emerging brands",
+      "acceptable": "Often 30% to 40% early, higher at scale; higher at scale is an assumption to prove with supplier quotes (flat-margin base case).",
+      "source": "trustcultivar.com (vendor); Thomas, Ertan and Lewellen",
+      "weak": true,
+      "ref": "7.3",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "CPG-M08",
+      "metric": "Margin expansion with scale",
+      "acceptable": "None on average across 6,103 high-growth firms: hold gross margin flat in base case.",
+      "source": "Thomas, Ertan and Lewellen, Yale Insights",
+      "weak": false,
+      "ref": "7.2",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "CPG-M09",
+      "metric": "Trade spend, inventory turns, spoilage",
+      "acceptable": "Track as % of revenue and trend; no institutional benchmark in this edition.",
+      "source": "Bible 7.3 (open gap 7.10)",
+      "weak": true,
+      "ref": "7.3",
+      "applies_to": [
+        "retail"
+      ]
+    },
+    {
+      "id": "CPG-M10",
+      "metric": "Household debt to GDP macro trigger",
+      "acceptable": "One-standard-deviation 3-year rise (6.2 points) predicts 2.1 points lower GDP growth over next 3 years; if in top third of history, downside with revenue growth 2 points lower for 3 years.",
+      "source": "Mian, Sufi and Verner, QJE 2017",
+      "weak": false,
+      "ref": "7.1",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "CPG-M11",
+      "metric": "R&W paid loss from financial-statement breaches",
+      "acceptable": "38% to 40% of paid loss.",
+      "source": "Aon 2026",
+      "weak": false,
+      "ref": "7.2",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "CPG-M12",
+      "metric": "Customer-side revenue-fraud signal",
+      "acceptable": "Customer-inventory/AP signal carries about half the predictive power of the 11-variable Dechow model (about 30,000 supplier-years).",
+      "source": "Zhang, Li and Li, Yale Insights",
+      "weak": false,
+      "ref": "7.7",
+      "applies_to": [
+        "retail"
+      ]
+    },
+    {
+      "id": "CPG-M13",
+      "metric": "Blue Apron churn reference",
+      "acceptable": "About 70% of acquired customers churned within six months: the bad-cohort pattern.",
+      "source": "Fader and McCarthy, KaW 2018",
+      "weak": false,
+      "ref": "7.4, 7.6",
+      "applies_to": [
+        "dtc"
+      ]
+    },
+    {
+      "id": "CPG-M14",
+      "metric": "Franchise no-poach prevalence",
+      "acceptable": "About 58% of major franchisors' 2016 agreements contained no-poach clauses.",
+      "source": "Krueger and Ashenfelter, NBER w24831",
+      "weak": false,
+      "ref": "7.8",
+      "applies_to": [
+        "franchise"
+      ]
+    },
+    {
+      "id": "CPG-M15",
+      "metric": "Allbirds S-1 unit economics (pattern, not benchmark)",
+      "acceptable": "CAC payback framed on first-purchase contribution on a $124 AOV; top-25% cohort lifetime spend $446: company projections, not audited.",
+      "source": "Allbirds S-1 (confirm on EDGAR)",
+      "weak": true,
+      "ref": "7.3",
+      "applies_to": [
+        "dtc"
+      ]
+    },
+    {
+      "id": "CPG-M16",
+      "metric": "Earnout terms",
+      "acceptable": "Outside life sciences about one in five private deals; median about 31% of closing payments; median 24 months; revenue most common metric.",
+      "source": "HLS Forum 2025",
+      "weak": false,
+      "ref": "7.2, 5.11",
+      "applies_to": [
+        "all"
+      ]
+    }
+  ],
+  "third_party_reports": [
+    {
+      "id": "CPG-T01",
+      "report": "Quality of earnings with proof of cash, gross-to-net and trade-spend testing",
+      "provider": "QoE provider engaged by us",
+      "required_when": "Where EBITDA supports one; always for control deals",
+      "ref": "7.2, 5.3"
+    },
+    {
+      "id": "CPG-T02",
+      "report": "Independent data-integrity audit of quality systems (raw lab data vs reported, FDA 483s, warning letters, audit trails)",
+      "provider": "Independent data-integrity auditor",
+      "required_when": "Food, beverage, supplements, personal care",
+      "ref": "7.2"
+    },
+    {
+      "id": "CPG-T03",
+      "report": "Retailer and distributor confirmations of sell-through, inventory and deductions",
+      "provider": "Our deal team or commercial diligence firm",
+      "required_when": "Wholesale and retail channels",
+      "ref": "7.7"
+    },
+    {
+      "id": "CPG-T04",
+      "report": "Category and syndicated data (Circana/NielsenIQ) for velocity against the category set",
+      "provider": "Syndicated data provider",
+      "required_when": "Retail brands",
+      "ref": "7.2, 7.10"
+    },
+    {
+      "id": "CPG-T05",
+      "report": "Franchise and antitrust counsel review of agreements, FDD and no-poach exposure",
+      "provider": "Franchise counsel",
+      "required_when": "Franchise and multi-unit targets",
+      "ref": "7.8"
+    },
+    {
+      "id": "CPG-T06",
+      "report": "Cohort and CBCV analysis",
+      "provider": "Our analysts or a cohort-valuation specialist",
+      "required_when": "DTC and subscription brands",
+      "ref": "7.6"
+    }
+  ],
+  "hard_questions": [
+    {
+      "id": "CPG-HQ01",
+      "question": "Show contribution margin by channel after trade spend, fulfillment and CAC.",
+      "good_answer": "Channel-level P&Ls reconciling to the consolidated P&L, with contribution per channel inside the vendor bands (DTC 35% to 55%, wholesale about 33%) or explained.",
+      "ref": "7.9"
+    },
+    {
+      "id": "CPG-HQ02",
+      "question": "Show velocity by retailer against the category set, and repeat by retailer.",
+      "good_answer": "Syndicated or retailer POS data by retailer with velocity at or above category median and stable repeat.",
+      "ref": "7.9"
+    },
+    {
+      "id": "CPG-HQ03",
+      "question": "How many customers did you acquire each month, how many are active, and how many orders did they place?",
+      "good_answer": "A monthly file produced immediately, reconciling to revenue and processor settlements.",
+      "ref": "7.9"
+    },
+    {
+      "id": "CPG-HQ04",
+      "question": "What is POS sell-through against sell-in by account for the last eight quarters?",
+      "good_answer": "Account-level table where sell-in tracks sell-through and gaps are explained by documented pipeline fills.",
+      "ref": "7.9, 7.7"
+    },
+    {
+      "id": "CPG-HQ05",
+      "question": "What are weeks of inventory at each distributor today, and a year ago?",
+      "good_answer": "Distributor reports showing flat or falling weeks of inventory.",
+      "ref": "7.9, 7.7"
+    },
+    {
+      "id": "CPG-HQ06",
+      "question": "Which COGS reductions in the plan are backed by signed supplier or co-packer quotes?",
+      "good_answer": "Each reduction tied to a signed quote at the planned volume; others removed from the base case.",
+      "ref": "7.9"
+    },
+    {
+      "id": "CPG-HQ07",
+      "question": "What share of revenue was promoted, and what was lift net of baseline?",
+      "good_answer": "Promo calendar with baseline and incremental volume showing profitable lift net of trade spend.",
+      "ref": "7.9, 7.4"
+    },
+    {
+      "id": "CPG-HQ08",
+      "question": "Show trade spend, deductions and chargebacks by retailer.",
+      "good_answer": "A gross-to-net bridge by retailer tied to remittance data.",
+      "ref": "7.9"
+    },
+    {
+      "id": "CPG-HQ09",
+      "question": "Has any retailer delisted a SKU in the last two years, and why?",
+      "good_answer": "A complete list with reasons and corrective action, confirmed by buyers.",
+      "ref": "7.9"
+    },
+    {
+      "id": "CPG-HQ10",
+      "question": "Show every agreement with a no-poach or non-solicit clause and when it was removed.",
+      "good_answer": "A clause inventory with removal dates and no open exposure.",
+      "ref": "7.8"
+    },
+    {
+      "id": "CPG-HQ11",
+      "question": "What does FDD Item 20 show about closures and transfers over five years?",
+      "good_answer": "Stable or improving unit openings vs closings and transfers.",
+      "ref": "7.8"
+    },
+    {
+      "id": "CPG-HQ12",
+      "question": "Are Item 19 figures system-wide or a selected subset?",
+      "good_answer": "System-wide figures, or a subset with its selection criteria and population stated.",
+      "ref": "7.8"
+    },
+    {
+      "id": "CPG-HQ13",
+      "question": "At the higher volume in the plan, what are co-packer and supplier quotes?",
+      "good_answer": "Signed quotes; otherwise base case gross margin flat.",
+      "ref": "7.2"
+    }
+  ],
+  "failure_cases": [
+    {
+      "case": "Blue Apron IPO",
+      "year": "2017",
+      "what_happened": "About 70% of acquired customers churned within six months; declining cumulative net revenue per recent cohort; IPO range cut from $15-$17 to $10; shares later fell about 70% more.",
+      "check": "Cohort CBCV before pricing.",
+      "ref": "7.4"
+    },
+    {
+      "case": "Wayfair (CBCV analysis)",
+      "year": "2018",
+      "what_happened": "CBCV under $10 per share against a stock near $64; growth made entirely of acquisition; repeat below Amazon's two decades earlier; stock fell about 10% the day the paper posted.",
+      "check": "Share of revenue from new customers; repeat curve against the category leader.",
+      "ref": "7.4"
+    },
+    {
+      "case": "Quaker / Snapple",
+      "year": "1994 to 1997",
+      "what_happened": "Bought for $1.7B, sold for $300M.",
+      "check": "Walk-away price; distribution and repeat tested before paying for brand.",
+      "ref": "7.4, 7.1"
+    },
+    {
+      "case": "Kraft Heinz",
+      "year": "2015 onward",
+      "what_happened": "More than $28B of write-downs.",
+      "check": "Brand-value impairment test against velocity and share trends, not cost-cutting plans.",
+      "ref": "7.4, 7.1"
+    },
+    {
+      "case": "Tyson / Hillshire",
+      "year": "2014",
+      "what_happened": "70% premium; about $2B destroyed against fair value near $47/share.",
+      "check": "Premium justified only by probability-weighted, timed synergies.",
+      "ref": "7.4, 7.1"
+    },
+    {
+      "case": "Franchise no-poach",
+      "year": "2016 to 2018",
+      "what_happened": "About 58% of major franchisors' 2016 agreements contained no-poach clauses (McDonald's, Burger King, Jiffy Lube, H&R Block); Washington AG and others forced abandonment; class actions followed.",
+      "check": "Clause review; open AG and class-action exposure.",
+      "ref": "7.4, 7.8"
+    },
+    {
+      "case": "Fresenius / Akorn",
+      "year": "2018",
+      "what_happened": "Falsified quality data let Fresenius walk away under the MAE.",
+      "check": "Independent data-integrity audit of quality systems for food and supplement makers.",
+      "ref": "7.2"
+    },
+    {
+      "case": "Allbirds S-1 unit economics",
+      "year": "2021",
+      "what_happened": "S-1 framed CAC payback against first-purchase contribution on a $124 AOV and top-25% cohort lifetime spend at $446: company projections, not audited.",
+      "check": "Never use company-defined LTV; rebuild from cohorts and fully loaded CAC.",
+      "ref": "7.3, 7.6"
+    }
+  ]
+}

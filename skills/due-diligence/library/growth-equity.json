@@ -1,0 +1,1382 @@
+{
+  "type": "growth-equity",
+  "name": "Operating Company Growth Equity",
+  "summary": "Covers minority or control growth equity into small and mid-size private operating companies: the catch-all for inbound raises that are neither early-stage venture nor leveraged buyouts, including founder- and family-owned businesses taking their first institutional capital. Growth equity carries little leverage, so the return must come from revenue growth and the exit multiple. The spine: underwrite flat margins, a forecast haircut of about 20% and an exit at or below entry; test management's forecast record against the last three budgets; rebuild revenue from cash and cohorts; and, as a minority holder, diligence the preference stack and who can block or reprice the next round. Sector metrics come from the relevant chapter (SaaS in tech-venture, CPG in cpg-consumer).",
+  "chapters": [
+    "09-growth-equity.md"
+  ],
+  "one_check": "Re-run the return with flat margins, a 20% forecast haircut and exit at the entry multiple; if it no longer clears the hurdle (22% to 25% gross IRR, about 2.5x MOIC), the deal is a bet on the multiple.",
+  "subtypes": [
+    {
+      "id": "minority",
+      "name": "Minority growth equity",
+      "description": "Non-control investment alongside founders or existing investors. Preference stack and control map, every veto and its holder, insider-round history, information and time rights, strategic investors on the cap table."
+    },
+    {
+      "id": "control",
+      "name": "Control growth equity",
+      "description": "Majority growth investment with little or no leverage. Same return discipline, plus governance rebuild (independent board, real CFO) and management incentives."
+    },
+    {
+      "id": "family-founder",
+      "name": "Family- or founder-owned first institutional round",
+      "description": "Owner-run companies raising outside capital for the first time. Governance pre-conditions (independent board with an audit-capable director, a real CFO, next generation with outside experience before board seats), related-party clean-up, sloppy-numbers signal."
+    }
+  ],
+  "intake_questions": [
+    {
+      "id": "GE-Q01",
+      "question": "Are we taking a minority or control position, and is the company founder- or family-owned with no prior institutional capital?",
+      "why": "Sets subtype (minority, control, family-founder).",
+      "sets_subtype": true
+    },
+    {
+      "id": "GE-Q02",
+      "question": "What is the sector, and which sector chapter's metrics apply (SaaS, CPG, other)?",
+      "why": "Growth equity borrows sector metrics; always add runway, burn, growth, gross margin and retention.",
+      "sets_subtype": false
+    },
+    {
+      "id": "GE-Q03",
+      "question": "What are the use of proceeds and the path to the next round or to profitability?",
+      "why": "Runway must reach the next round at today's cadence (at least 24 months).",
+      "sets_subtype": false
+    },
+    {
+      "id": "GE-Q04",
+      "question": "Who else is on the cap table, including strategic or corporate investors, and who holds vetoes over financing or M&A?",
+      "why": "Triggers preference-stack and control map (Zync, Footprint).",
+      "sets_subtype": false
+    },
+    {
+      "id": "GE-Q05",
+      "question": "Have there been prior bridge or down rounds, and are insiders participating in this round?",
+      "why": "Triggers insider-round pricing checks (Footprint).",
+      "sets_subtype": false
+    },
+    {
+      "id": "GE-Q06",
+      "question": "Is the company in a hot theme (AI, climate, space, crypto)?",
+      "why": "Triggers theme-timing comparison of entry valuation.",
+      "sets_subtype": false
+    },
+    {
+      "id": "GE-Q07",
+      "question": "Is there a CFO, and who on the board could chair an audit committee?",
+      "why": "Governance pre-conditions (O'Dowd and McLarty).",
+      "sets_subtype": false
+    }
+  ],
+  "requests": [
+    {
+      "id": "GE-FIN-001",
+      "order": 10,
+      "stage": "screen",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Provide historical financial statements (3 years plus TTM) and monthly management accounts.",
+      "format": "Audited, reviewed or compiled statements; monthly packs.",
+      "why": "Sloppy numbers signal broader governance problems.",
+      "pass": "Monthly accounts consistent with annual statements; no restatements between versions.",
+      "fail": "Inconsistent numbers across versions.",
+      "verify": "Tie to tax returns and bank statements.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "9.2",
+      "weak": false
+    },
+    {
+      "id": "GE-FIN-002",
+      "order": 20,
+      "stage": "screen",
+      "priority": "gating",
+      "workstream": "Financial",
+      "request": "Provide the last three years of budgets with actuals.",
+      "format": "Board-approved budgets and actuals.",
+      "why": "Optimistic misses precede misreporting.",
+      "pass": "Misses not consistently optimistic; variances explained.",
+      "fail": "Pattern of optimistic misses.",
+      "verify": "Tie budgets to board minutes.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "9.2, 9.4, 9.6",
+      "weak": false
+    },
+    {
+      "id": "GE-FIN-003",
+      "order": 30,
+      "stage": "screen",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Provide management's forecast with its downside case.",
+      "format": "Native model.",
+      "why": "Management ranges too narrow (36% hit rate).",
+      "pass": "Downside provided so we can treat it as a midpoint and widen ranges.",
+      "fail": "Single-point forecast.",
+      "verify": "We widen ranges about 2x.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "9.2",
+      "weak": false
+    },
+    {
+      "id": "GE-COR-001",
+      "order": 40,
+      "stage": "screen",
+      "priority": "gating",
+      "workstream": "Corporate & Legal",
+      "request": "Provide the fully diluted cap table with every instrument and the preference stack.",
+      "format": "Cap table export and charter.",
+      "why": "Unpapered instruments; hidden preferences.",
+      "pass": "Every instrument listed and tied to a signed document; preference stack modeled.",
+      "fail": "Unpapered instruments.",
+      "verify": "Counsel reconciliation.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "9.2, 9.4",
+      "weak": false
+    },
+    {
+      "id": "GE-COM-001",
+      "order": 50,
+      "stage": "screen",
+      "priority": "gating",
+      "workstream": "Commercial & Market",
+      "request": "Provide the customer-cohort file: customers acquired, active customers and orders per period.",
+      "format": "Production-system export.",
+      "why": "No cohort data.",
+      "pass": "Complete file reconciling to revenue within 2%.",
+      "fail": "Cannot or will not produce it.",
+      "verify": "Our analyst reruns the query.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "9.2, 9.4",
+      "weak": false
+    },
+    {
+      "id": "GE-FIN-004",
+      "order": 60,
+      "stage": "screen",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Provide use of proceeds and the path to the next round or profitability with runway.",
+      "format": "Budget and milestone plan.",
+      "why": "Running out of runway at today's cadence.",
+      "pass": "Runway at least 24 months to the next round, or a funded path to profitability.",
+      "fail": "Runway under 24 months.",
+      "verify": "Tie burn to bank outflows.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "9.2, 9.3",
+      "weak": false
+    },
+    {
+      "id": "GE-FIN-005",
+      "order": 70,
+      "stage": "screen",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Provide the treasury map: balances by bank, insured share and any single-bank covenant.",
+      "format": "Schedule and statements.",
+      "why": "Cash stranded at a failed bank.",
+      "pass": "No more than a quarter of payroll uninsured at one bank; no single-bank covenant without sweeps.",
+      "fail": "Concentration at one bank.",
+      "verify": "Bank confirmations.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "9.2, 9.6",
+      "weak": false
+    },
+    {
+      "id": "GE-VAL-001",
+      "order": 80,
+      "stage": "screen",
+      "priority": "core",
+      "workstream": "Valuation & Model",
+      "request": "Provide the valuation rationale and comparables, with the dates of the theme's media and fund-launch peak if in a hot theme.",
+      "format": "Memo.",
+      "why": "Buying a theme at its peak.",
+      "pass": "Entry valuation consistent with sector history.",
+      "fail": "Valuation set at theme peak.",
+      "verify": "Our own comparables.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "9.2, 9.4",
+      "weak": false
+    },
+    {
+      "id": "GE-HR-001",
+      "order": 90,
+      "stage": "screen",
+      "priority": "core",
+      "workstream": "HR & Management",
+      "request": "Provide management bios and at least 8 to 10 references, including former colleagues we may choose.",
+      "format": "Bios and reference list.",
+      "why": "Founder unwilling to give references.",
+      "pass": "References completed, including ones we source.",
+      "fail": "Refusal.",
+      "verify": "Our own reference sourcing.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "9.2, 9.4",
+      "weak": false
+    },
+    {
+      "id": "GE-VAL-002",
+      "order": 10,
+      "stage": "term-sheet",
+      "priority": "gating",
+      "workstream": "Valuation & Model",
+      "request": "Provide a base case with EBITDA margin flat at current, management's forecast haircut about 20%, and exit at or below entry.",
+      "format": "Model tab.",
+      "why": "Margin plans that never arrive.",
+      "pass": "Base case clears 22% to 25% gross IRR and about 2.5x MOIC.",
+      "fail": "Base case below hurdle.",
+      "verify": "Rebuild.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "9.3",
+      "weak": false
+    },
+    {
+      "id": "GE-VAL-003",
+      "order": 20,
+      "stage": "term-sheet",
+      "priority": "gating",
+      "workstream": "Valuation & Model",
+      "request": "Provide the 2x test: the exit multiple at which the deal returns 2x on flat margins and haircut revenue.",
+      "format": "Model tab.",
+      "why": "Bet on the multiple.",
+      "pass": "2x exit multiple at or below entry.",
+      "fail": "Requires multiple above entry.",
+      "verify": "Recompute.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "9.3, 9.1, 9.6",
+      "weak": false
+    },
+    {
+      "id": "GE-VAL-004",
+      "order": 30,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Valuation & Model",
+      "request": "Provide the return attribution: revenue growth, margin change and multiple change, and the share surviving flat margins and exit at entry.",
+      "format": "Table.",
+      "why": "Growth case that looks like multiple expansion (80% in search-fund data).",
+      "pass": "Majority of return from revenue growth; surviving share reported.",
+      "fail": "Return mostly from multiple.",
+      "verify": "Recompute.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "9.7",
+      "weak": false
+    },
+    {
+      "id": "GE-VAL-005",
+      "order": 40,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Valuation & Model",
+      "request": "Provide a line-by-line cost bridge for any margin expansion, naming each cost line and its evidence.",
+      "format": "Bridge with contracts or quotes.",
+      "why": "Margin expansion with no named cost line.",
+      "pass": "Each line supported; otherwise base case flat.",
+      "fail": "Unnamed expansion.",
+      "verify": "Check contracts and quotes.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "9.3, 9.4, 9.6",
+      "weak": false
+    },
+    {
+      "id": "GE-COR-002",
+      "order": 50,
+      "stage": "term-sheet",
+      "priority": "gating",
+      "workstream": "Corporate & Legal",
+      "request": "Provide the control map: every veto over financing, debt and M&A, who holds it, and who can lead or block the next round.",
+      "format": "Table citing documents.",
+      "why": "Strategic investor blocks financing (Zync).",
+      "pass": "No strategic holds a financing veto, or it is waived or priced.",
+      "fail": "Strategic financing veto.",
+      "verify": "Rebuild from documents.",
+      "applies_to": [
+        "minority",
+        "control"
+      ],
+      "ref": "9.2, 9.5, 9.6",
+      "weak": false
+    },
+    {
+      "id": "GE-VAL-006",
+      "order": 60,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Valuation & Model",
+      "request": "Provide the history of every prior bridge and down round: price, participants, insiders' marks and time given to non-participants.",
+      "format": "Financing history with documents.",
+      "why": "Insider-led recaps dilute minority holders (Footprint).",
+      "pass": "Prior rounds priced at or above insiders' marks with alternatives documented.",
+      "fail": "Insider rounds below marks with short windows.",
+      "verify": "Compare to insiders' fund reports.",
+      "applies_to": [
+        "minority"
+      ],
+      "ref": "9.2, 9.5, 9.6",
+      "weak": false
+    },
+    {
+      "id": "GE-COR-003",
+      "order": 70,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Corporate & Legal",
+      "request": "Provide the rights of every strategic or corporate investor on the cap table.",
+      "format": "Agreements and side letters.",
+      "why": "Technology leakage, exit blocking and no follow-on.",
+      "pass": "No ROFR on company sale; information rights ring-fenced; no reliance on CVC follow-on.",
+      "fail": "ROFR on sale or financing veto.",
+      "verify": "Read documents.",
+      "applies_to": [
+        "minority"
+      ],
+      "ref": "9.2, 9.6",
+      "weak": false
+    },
+    {
+      "id": "GE-STR-001",
+      "order": 80,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Structure & Terms",
+      "request": "Provide the proposed preference, information, board and time rights for our security, including rights in any future insider round.",
+      "format": "Term sheet.",
+      "why": "Minority holders squeezed in future rounds.",
+      "pass": "Pre-emptive rights, information rights, board or observer seat, and minimum notice period for future rounds.",
+      "fail": "No protection in future insider rounds.",
+      "verify": "Counsel review.",
+      "applies_to": [
+        "minority"
+      ],
+      "ref": "9.2, 9.5",
+      "weak": false
+    },
+    {
+      "id": "GE-STR-002",
+      "order": 90,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Structure & Terms",
+      "request": "Commit to governance pre-conditions before funding: an independent board with at least one director able to chair audit, a real CFO, and a board reconfigured for a downturn.",
+      "format": "Board plan and CFO hire plan.",
+      "why": "Founder control with no governance (Theranos).",
+      "pass": "Pre-conditions met at or before closing.",
+      "fail": "Refusal.",
+      "verify": "Interview candidates.",
+      "applies_to": [
+        "family-founder",
+        "control"
+      ],
+      "ref": "9.2, 9.5",
+      "weak": false
+    },
+    {
+      "id": "GE-STR-003",
+      "order": 100,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Structure & Terms",
+      "request": "Provide the policy for next-generation family members joining the board.",
+      "format": "Family governance policy.",
+      "why": "Unprepared next generation on the board.",
+      "pass": "Next generation has worked outside the business (practitioners suggest 7 to 10 years and a C-level role) before a board seat.",
+      "fail": "No policy.",
+      "verify": "Interview family members.",
+      "applies_to": [
+        "family-founder"
+      ],
+      "ref": "9.2",
+      "weak": true
+    },
+    {
+      "id": "GE-FIN-006",
+      "order": 10,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Provide QoE-lite data: revenue by customer and product, margin build, working capital monthly, and revenue reconciled to bank deposits.",
+      "format": "GL, billing and bank data.",
+      "why": "Revenue quality and unit economics.",
+      "pass": "Revenue reconciles to cash within 2% monthly; margins tie to GL.",
+      "fail": "Unreconciled revenue.",
+      "verify": "QoE provider.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "9.2, 9.4",
+      "weak": false
+    },
+    {
+      "id": "GE-FIN-007",
+      "order": 20,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Provide unit economics by product or segment.",
+      "format": "Schedule tied to GL.",
+      "why": "Growth that destroys value.",
+      "pass": "Positive contribution in growth segments.",
+      "fail": "Negative contribution.",
+      "verify": "Rebuild.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "9.2",
+      "weak": false
+    },
+    {
+      "id": "GE-COM-002",
+      "order": 30,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Commercial & Market",
+      "request": "Provide top-10 customer revenue by period for the customer-side revenue test, with authorization to confirm.",
+      "format": "Revenue schedule; contacts.",
+      "why": "Revenue fraud visible in customer data.",
+      "pass": "Sales move with customers' purchases; no jumps in customer inventory or payables.",
+      "fail": "Divergence.",
+      "verify": "Customer confirmations.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "9.2",
+      "weak": false
+    },
+    {
+      "id": "GE-COM-003",
+      "order": 40,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Commercial & Market",
+      "request": "Provide customer concentration, pipeline and competitive landscape.",
+      "format": "Schedules and CRM export.",
+      "why": "Concentration and pipeline padding.",
+      "pass": "Concentration priced; pipeline conversion supported by history.",
+      "fail": "Undisclosed concentration.",
+      "verify": "Customer calls.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "9.2",
+      "weak": false
+    },
+    {
+      "id": "GE-COM-004",
+      "order": 50,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Commercial & Market",
+      "request": "Provide access to a random sample of customers for live-activity or reference testing.",
+      "format": "Access and contacts.",
+      "why": "Fabricated customers (Frank).",
+      "pass": "Sampled customers active and confirm relationship.",
+      "fail": "Inactive or fictitious.",
+      "verify": "Our engineer or analyst draws the sample.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "9.5",
+      "weak": false
+    },
+    {
+      "id": "GE-COM-005",
+      "order": 60,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Commercial & Market",
+      "request": "Provide cohort revenue curves and share of revenue from newly acquired customers.",
+      "format": "Cohort matrix.",
+      "why": "Growth bought with marketing.",
+      "pass": "New cohorts at least as valuable as prior; share of new-customer revenue stable.",
+      "fail": "Declining cohorts.",
+      "verify": "Rebuild.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "9.5, 9.2",
+      "weak": false
+    },
+    {
+      "id": "GE-COM-006",
+      "order": 70,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Commercial & Market",
+      "request": "Provide NRR and GRR from the raw customer-level file.",
+      "format": "Customer-level file.",
+      "why": "Retention overstated.",
+      "pass": "Benchmarked against private median NRR just above 100% and GRR near 90%.",
+      "fail": "Reported retention not reproducible.",
+      "verify": "Rebuild.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "9.3",
+      "weak": false
+    },
+    {
+      "id": "GE-FIN-008",
+      "order": 80,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Provide a schedule of related-party revenue, expenses and balances.",
+      "format": "Schedule and contracts.",
+      "why": "Undisclosed related-party dealings.",
+      "pass": "All disclosed and at arm's length or normalized.",
+      "fail": "Undisclosed items found in bank review.",
+      "verify": "Bank statement review.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "9.4",
+      "weak": false
+    },
+    {
+      "id": "GE-COR-004",
+      "order": 90,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Corporate & Legal",
+      "request": "Provide charter, prior financing documents, IP assignments, material contracts and litigation schedule.",
+      "format": "Executed documents.",
+      "why": "Legal defects.",
+      "pass": "Complete and consistent with cap table.",
+      "fail": "Gaps.",
+      "verify": "Counsel review.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "9.2",
+      "weak": false
+    },
+    {
+      "id": "GE-HR-002",
+      "order": 100,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "HR & Management",
+      "request": "Provide the CFO's background and the finance team structure.",
+      "format": "CV and org chart.",
+      "why": "A controller with a CFO title.",
+      "pass": "CFO with audited-company or institutional experience.",
+      "fail": "Controller with CFO title.",
+      "verify": "Interview.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "9.2, 9.4, 9.6",
+      "weak": false
+    },
+    {
+      "id": "GE-HR-003",
+      "order": 110,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "HR & Management",
+      "request": "Provide the board roster with skills, independence and audit-committee capability.",
+      "format": "Board list.",
+      "why": "No director able to chair audit.",
+      "pass": "At least one independent director able to chair audit.",
+      "fail": "None.",
+      "verify": "Check bios.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "9.2, 9.4",
+      "weak": false
+    },
+    {
+      "id": "GE-HR-004",
+      "order": 120,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "HR & Management",
+      "request": "Provide a key-person risk assessment and succession plan.",
+      "format": "Plan.",
+      "why": "Key-person dependency.",
+      "pass": "Named successors.",
+      "fail": "No plan.",
+      "verify": "Board interview.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "9.2",
+      "weak": false
+    },
+    {
+      "id": "GE-SPN-001",
+      "order": 130,
+      "stage": "confirmatory",
+      "priority": "supporting",
+      "workstream": "Sponsor & Background",
+      "request": "Record in-person management hours, sites visited and references called by our team and the lead investor.",
+      "format": "Diligence log.",
+      "why": "Thin diligence in competitive rounds.",
+      "pass": "Diligence floor met regardless of competition.",
+      "fail": "Floor shrunk.",
+      "verify": "Internal log.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "9.2",
+      "weak": false
+    },
+    {
+      "id": "GE-FIN-009",
+      "order": 10,
+      "stage": "third-party",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Provide access for the QoE-lite engagement.",
+      "format": "Data and management access.",
+      "why": "Unverified financials.",
+      "pass": "No unreconciled items.",
+      "fail": "Exceptions.",
+      "verify": "QoE provider engaged by us.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "9.2",
+      "weak": false
+    },
+    {
+      "id": "GE-HR-005",
+      "order": 20,
+      "stage": "third-party",
+      "priority": "core",
+      "workstream": "HR & Management",
+      "request": "Sign consents for background checks on management.",
+      "format": "Signed consents.",
+      "why": "Undisclosed history.",
+      "pass": "No adverse findings.",
+      "fail": "Adverse findings.",
+      "verify": "Background-check provider.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "9.2",
+      "weak": false
+    },
+    {
+      "id": "GE-COR-005",
+      "order": 30,
+      "stage": "third-party",
+      "priority": "core",
+      "workstream": "Corporate & Legal",
+      "request": "Provide counsel access for the legal diligence review.",
+      "format": "Data-room access.",
+      "why": "Legal defects.",
+      "pass": "No material issues.",
+      "fail": "Issues.",
+      "verify": "Our counsel.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "9.2",
+      "weak": false
+    },
+    {
+      "id": "GE-COR-006",
+      "order": 10,
+      "stage": "closing",
+      "priority": "gating",
+      "workstream": "Corporate & Legal",
+      "request": "Deliver the reconciled closing cap table and executed documents.",
+      "format": "Counsel-certified cap table.",
+      "why": "Unpapered instruments.",
+      "pass": "Zero exceptions.",
+      "fail": "Exceptions.",
+      "verify": "Counsel.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "9.4",
+      "weak": false
+    },
+    {
+      "id": "GE-STR-004",
+      "order": 20,
+      "stage": "closing",
+      "priority": "core",
+      "workstream": "Structure & Terms",
+      "request": "Deliver evidence that governance pre-conditions are in place (independent director, CFO, audit committee).",
+      "format": "Board resolutions and offer letters.",
+      "why": "Governance gap.",
+      "pass": "In place at closing.",
+      "fail": "Not in place.",
+      "verify": "Confirm appointments.",
+      "applies_to": [
+        "family-founder",
+        "control"
+      ],
+      "ref": "9.2",
+      "weak": false
+    },
+    {
+      "id": "GE-COR-007",
+      "order": 30,
+      "stage": "closing",
+      "priority": "core",
+      "workstream": "Corporate & Legal",
+      "request": "Deliver waivers or amendments for any strategic financing veto.",
+      "format": "Executed waivers.",
+      "why": "Blocked future rounds.",
+      "pass": "No strategic financing veto survives.",
+      "fail": "Veto remains.",
+      "verify": "Counsel.",
+      "applies_to": [
+        "minority",
+        "control"
+      ],
+      "ref": "9.5",
+      "weak": false
+    },
+    {
+      "id": "GE-FIN-010",
+      "order": 40,
+      "stage": "closing",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Deliver treasury diversification at funding.",
+      "format": "Account documents.",
+      "why": "Cash concentration.",
+      "pass": "Treasury test passes.",
+      "fail": "Fails.",
+      "verify": "Bank confirmations.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "9.2",
+      "weak": false
+    },
+    {
+      "id": "GE-FIN-011",
+      "order": 10,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Deliver monthly accounts and quarterly budget-vs-actual.",
+      "format": "Monthly pack.",
+      "why": "Forecast optimism.",
+      "pass": "Misses explained.",
+      "fail": "Persistent optimistic misses.",
+      "verify": "Tie to GL.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "9.2",
+      "weak": false
+    },
+    {
+      "id": "GE-COM-007",
+      "order": 20,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Commercial & Market",
+      "request": "Deliver quarterly cohort and retention data.",
+      "format": "Data pack.",
+      "why": "Retention deterioration.",
+      "pass": "Stable or improving cohorts.",
+      "fail": "Declining.",
+      "verify": "Rebuild sample.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "9.2, 9.3",
+      "weak": false
+    },
+    {
+      "id": "GE-COR-008",
+      "order": 30,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Corporate & Legal",
+      "request": "Notify us of any new financing proposal, insider round or veto exercise with time and information to respond.",
+      "format": "Notice.",
+      "why": "Footprint-type squeeze.",
+      "pass": "Notice at least as long as agreed with full information.",
+      "fail": "Short windows.",
+      "verify": "Board observer.",
+      "applies_to": [
+        "minority"
+      ],
+      "ref": "9.5",
+      "weak": false
+    },
+    {
+      "id": "GE-FIN-012",
+      "order": 40,
+      "stage": "monitoring",
+      "priority": "supporting",
+      "workstream": "Financial",
+      "request": "Deliver quarterly runway and treasury map.",
+      "format": "Report.",
+      "why": "Runway erosion.",
+      "pass": "Runway at least 24 months or funded plan.",
+      "fail": "Below.",
+      "verify": "Bank statements.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "9.3",
+      "weak": false
+    }
+  ],
+  "kill_tests": [
+    {
+      "id": "GE-K01",
+      "test": "Return fails the hurdle with flat margins, a 20% forecast haircut and exit at the entry multiple, and the case relies on multiple expansion.",
+      "ref": "9.3, 9.4",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "GE-K02",
+      "test": "No clean cap table; unpapered instruments that cannot be reconciled before signing.",
+      "ref": "9.4",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "GE-K03",
+      "test": "Revenue cannot be reconciled to cash.",
+      "ref": "9.4, 9.2",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "GE-K04",
+      "test": "Founder will not provide references or raw data.",
+      "ref": "9.4",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "GE-K05",
+      "test": "Company cannot produce customers acquired and active customers by period.",
+      "ref": "9.4, 9.2",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "GE-K06",
+      "test": "Family or founder company refuses the governance pre-conditions (independent audit-capable director, real CFO) before investment.",
+      "ref": "9.2",
+      "applies_to": [
+        "family-founder"
+      ]
+    }
+  ],
+  "red_flags": [
+    {
+      "id": "GE-RF01",
+      "flag": "No clean cap table; unpapered instruments.",
+      "check": "Reconcile every instrument to signed documents.",
+      "ref": "9.4",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "GE-RF02",
+      "flag": "Revenue not reconciled to cash.",
+      "check": "Bank deposits to revenue by month.",
+      "ref": "9.4",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "GE-RF03",
+      "flag": "Founder will not provide references or raw data.",
+      "check": "Treat as kill test.",
+      "ref": "9.4",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "GE-RF04",
+      "flag": "Related-party revenue or expenses undisclosed.",
+      "check": "Related-party schedule; bank-statement review for related-party flows.",
+      "ref": "9.4",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "GE-RF05",
+      "flag": "A history of budgets missed optimistically.",
+      "check": "Last three budgets vs actuals.",
+      "ref": "9.4, 9.2",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "GE-RF06",
+      "flag": "A 'CFO' who is really a controller; no director able to chair audit.",
+      "check": "Interview the CFO; board skills map.",
+      "ref": "9.4, 9.2",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "GE-RF07",
+      "flag": "Margin expansion in the plan with no named cost line.",
+      "check": "Flat-margin base case; line-by-line cost bridge for any expansion.",
+      "ref": "9.4, 9.3",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "GE-RF08",
+      "flag": "Exit case that needs a multiple above entry.",
+      "check": "Attribution test; 2x exit-multiple test.",
+      "ref": "9.4, 9.7",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "GE-RF09",
+      "flag": "Insiders leading a round priced below their own recent marks, with a short window for others.",
+      "check": "Price against insiders' marks; information and time rights for non-participants.",
+      "ref": "9.4, 9.5",
+      "applies_to": [
+        "minority"
+      ]
+    },
+    {
+      "id": "GE-RF10",
+      "flag": "A strategic investor with a veto over financing.",
+      "check": "List every veto and holder; require waiver or price it.",
+      "ref": "9.4, 9.5",
+      "applies_to": [
+        "minority",
+        "control"
+      ]
+    },
+    {
+      "id": "GE-RF11",
+      "flag": "Raised into a theme at its media peak.",
+      "check": "Compare entry valuation with sector history and theme media peak.",
+      "ref": "9.4, 9.2",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "GE-RF12",
+      "flag": "No cohort data.",
+      "check": "Request customers acquired, active and orders by period.",
+      "ref": "9.4",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "GE-RF13",
+      "flag": "Next generation taking board seats without outside experience.",
+      "check": "Require 7 to 10 years outside and a C-level role (practitioner suggestion) before a board seat.",
+      "ref": "9.2",
+      "applies_to": [
+        "family-founder"
+      ]
+    },
+    {
+      "id": "GE-RF14",
+      "flag": "Sloppy or inconsistent numbers even where unaudited.",
+      "check": "Treat as a broader governance signal; expand financial diligence.",
+      "ref": "9.2",
+      "applies_to": [
+        "family-founder"
+      ]
+    },
+    {
+      "id": "GE-RF15",
+      "flag": "Diligence hours shrinking because the round is competitive.",
+      "check": "Record in-person hours, sites and references; hold the floor.",
+      "ref": "9.2",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "GE-RF16",
+      "flag": "Reliance on a corporate VC for follow-on capital.",
+      "check": "Assume no CVC follow-on (median CVC life four years).",
+      "ref": "9.2",
+      "applies_to": [
+        "minority"
+      ]
+    }
+  ],
+  "metrics": [
+    {
+      "id": "GE-M01",
+      "metric": "Management forecast haircut",
+      "acceptable": "About 20% off management EBITDA (median and mean).",
+      "source": "Gompers, Kaplan, Mukharlyamov, NBER w21133",
+      "weak": false,
+      "ref": "9.1, 9.3",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "GE-M02",
+      "metric": "Target returns",
+      "acceptable": "22% to 25% gross IRR; about 2.5x MOIC.",
+      "source": "Gompers, Kaplan, Mukharlyamov",
+      "weak": false,
+      "ref": "9.1, 9.3",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "GE-M03",
+      "metric": "Exit routes",
+      "acceptable": "About 50% strategic, 30% sponsor, under 20% IPO.",
+      "source": "Gompers, Kaplan, Mukharlyamov",
+      "weak": false,
+      "ref": "9.1",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "GE-M04",
+      "metric": "Growth-equity share of PE survey",
+      "acceptable": "About 75% of PE survey respondents invest in growth equity; same benchmarks apply.",
+      "source": "Gompers, Kaplan, Mukharlyamov",
+      "weak": false,
+      "ref": "9.1",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "GE-M05",
+      "metric": "Margin assumption",
+      "acceptable": "Flat at current EBITDA margin in base case; no average expansion across 6,103 high-growth firms. CONTRADICTS implicit expansion in most growth models; expansion only with a named, costed driver.",
+      "source": "Thomas, Ertan and Lewellen, Yale Insights",
+      "weak": false,
+      "ref": "9.3",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "GE-M06",
+      "metric": "2x exit-multiple test",
+      "acceptable": "Solve for the exit multiple returning 2x on flat margins and haircut revenue; compare with entry. It should be at or below entry.",
+      "source": "Gompers et al. (derived)",
+      "weak": false,
+      "ref": "9.3, 9.1",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "GE-M07",
+      "metric": "Runway",
+      "acceptable": "At least 24 months to the next round (616 days median seed to A, Q2 2025).",
+      "source": "Carta Q2 2025",
+      "weak": false,
+      "ref": "9.3",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "GE-M08",
+      "metric": "Net revenue retention, private median",
+      "acceptable": "Just above 100% (NDR 101% in 2024); not the 117% top-quartile figure. Sources conflict (v1 vendor figure about 117%, WEAK): benchmark the median on KeyBanc/Sapphire.",
+      "source": "KeyBanc/Sapphire 2025",
+      "weak": false,
+      "ref": "9.3",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "GE-M09",
+      "metric": "Gross revenue retention",
+      "acceptable": "Near 90%.",
+      "source": "KeyBanc/Sapphire 2025",
+      "weak": false,
+      "ref": "9.3",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "GE-M10",
+      "metric": "Forecast calibration",
+      "acceptable": "Outcomes inside CFOs' 80% intervals only 36% of the time: treat management's downside as a midpoint.",
+      "source": "Ben-David, Graham and Harvey, QJE 2013",
+      "weak": false,
+      "ref": "9.2",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "GE-M11",
+      "metric": "Misstatement origin",
+      "acceptable": "About a quarter of AAER misstatements began as optimistic errors.",
+      "source": "Schrand and Zechman 2012",
+      "weak": false,
+      "ref": "9.2, 9.5",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "GE-M12",
+      "metric": "Owner-held PE vs public equity",
+      "acceptable": "Not reliably better (Moskowitz and Vissing-Jorgensen 2002; disputed beyond 1990s by Kartashova 2011): do not assume an illiquidity premium.",
+      "source": "NBER w8876; Bank of Canada WP 2011-6",
+      "weak": false,
+      "ref": "9.1",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "GE-M13",
+      "metric": "Small-company value creation source",
+      "acceptable": "About 80% of value creation from multiple expansion; margins fell (25% to 19%): a growth case that looks the same is a warning.",
+      "source": "Wasserstein and Thomas, Yale Insights, Apr. 2026",
+      "weak": false,
+      "ref": "9.7",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "GE-M14",
+      "metric": "Corporate VC life",
+      "acceptable": "Median four years; do not count on follow-on.",
+      "source": "Song Ma, Yale Insights",
+      "weak": false,
+      "ref": "9.2",
+      "applies_to": [
+        "minority"
+      ]
+    },
+    {
+      "id": "GE-M15",
+      "metric": "Next-generation outside experience",
+      "acceptable": "Practitioners suggest 7 to 10 years outside the business and a C-level role before a board seat.",
+      "source": "O'Dowd and McLarty, Yale Insights (practitioner suggestion)",
+      "weak": true,
+      "ref": "9.2",
+      "applies_to": [
+        "family-founder"
+      ]
+    },
+    {
+      "id": "GE-M16",
+      "metric": "Always-on sector metrics",
+      "acceptable": "Default-alive runway, burn, growth, gross margin, retention: use sector benchmarks from tech-venture or cpg-consumer.",
+      "source": "Bible 9.3",
+      "weak": false,
+      "ref": "9.3",
+      "applies_to": [
+        "all"
+      ]
+    }
+  ],
+  "third_party_reports": [
+    {
+      "id": "GE-T01",
+      "report": "QoE-lite (revenue quality, margins, working capital, revenue to cash)",
+      "provider": "QoE provider engaged by us",
+      "required_when": "Always",
+      "ref": "9.2"
+    },
+    {
+      "id": "GE-T02",
+      "report": "Background checks and references on management",
+      "provider": "Background-check provider; our own reference calls",
+      "required_when": "Always",
+      "ref": "9.2"
+    },
+    {
+      "id": "GE-T03",
+      "report": "Legal diligence on cap table, charter, prior financings, IP, material contracts and litigation",
+      "provider": "Our counsel",
+      "required_when": "Always",
+      "ref": "9.2"
+    },
+    {
+      "id": "GE-T04",
+      "report": "Commercial diligence (market, customers, concentration, competition)",
+      "provider": "Commercial diligence firm or deal team",
+      "required_when": "Always; scaled to deal size",
+      "ref": "9.2"
+    },
+    {
+      "id": "GE-T05",
+      "report": "Customer-side revenue confirmation for top 10 customers",
+      "provider": "Our deal team",
+      "required_when": "Always",
+      "ref": "9.2"
+    }
+  ],
+  "hard_questions": [
+    {
+      "id": "GE-HQ01",
+      "question": "Show the last three budgets against actuals.",
+      "good_answer": "Budgets and actuals for three years with misses not consistently optimistic and explained.",
+      "ref": "9.6"
+    },
+    {
+      "id": "GE-HQ02",
+      "question": "Which cost lines fall as a share of revenue in the plan, and what evidence supports each?",
+      "good_answer": "A line-by-line bridge with contracts or quotes, or a flat-margin plan.",
+      "ref": "9.6"
+    },
+    {
+      "id": "GE-HQ03",
+      "question": "At flat margins and a 20% revenue haircut, what exit multiple returns 2x?",
+      "good_answer": "A multiple at or below entry.",
+      "ref": "9.6, 9.3"
+    },
+    {
+      "id": "GE-HQ04",
+      "question": "Who can block or lead the next round, and what happened in every prior bridge or down round?",
+      "good_answer": "A complete rights map and a history of prior rounds priced fairly with alternatives documented.",
+      "ref": "9.6"
+    },
+    {
+      "id": "GE-HQ05",
+      "question": "Who on the cap table is a strategic, and what rights do they hold?",
+      "good_answer": "A list of strategics with no financing veto and no ROFR on a sale.",
+      "ref": "9.6"
+    },
+    {
+      "id": "GE-HQ06",
+      "question": "Is your CFO a CFO? Who on the board can chair audit?",
+      "good_answer": "A CFO with audited-company experience and an independent director qualified to chair audit.",
+      "ref": "9.6"
+    },
+    {
+      "id": "GE-HQ07",
+      "question": "How many weeks of payroll survive if your main bank closes?",
+      "good_answer": "At least a quarter's payroll diversified across banks or in insured or Treasury balances.",
+      "ref": "9.6"
+    },
+    {
+      "id": "GE-HQ08",
+      "question": "How many customers did you acquire and keep, by period?",
+      "good_answer": "Acquired and active counts by period from the production system, reconciled to revenue.",
+      "ref": "9.6"
+    },
+    {
+      "id": "GE-HQ09",
+      "question": "How much of the return survives flat margins and exit at entry?",
+      "good_answer": "A stated share of the sponsor-case return that still clears the hurdle.",
+      "ref": "9.7"
+    },
+    {
+      "id": "GE-HQ10",
+      "question": "What is the use of proceeds, and does it reach the next round or profitability?",
+      "good_answer": "A milestone budget with runway of at least 24 months.",
+      "ref": "9.2"
+    }
+  ],
+  "failure_cases": [
+    {
+      "case": "Footprint (Guilbeau v. Footprint, Del. Ch.)",
+      "year": "2026",
+      "what_happened": "$450M of a $500M round from three insider funds at about half their own implied value; three weeks to decide.",
+      "check": "Preference-stack and control map; price against insiders' marks; information and time rights for non-participants.",
+      "ref": "9.5, 2.11"
+    },
+    {
+      "case": "Zync v. Porsche (Del. Ch.)",
+      "year": "2026",
+      "what_happened": "Strategic's designee voted down a $10M Series A; company shut down.",
+      "check": "List every veto and holder.",
+      "ref": "9.5, 2.11"
+    },
+    {
+      "case": "Forecast optimism becomes misreporting (Schrand and Zechman)",
+      "year": "2012 study",
+      "what_happened": "About a quarter of AAER misstatements began as optimistic errors.",
+      "check": "Budget-versus-actual history.",
+      "ref": "9.5"
+    },
+    {
+      "case": "Margin plan never arrives (Thomas, Ertan and Lewellen)",
+      "year": "1975 to 2016 data",
+      "what_happened": "No average margin expansion with growth across 6,103 IPO firms.",
+      "check": "Flat-margin base case.",
+      "ref": "9.5"
+    },
+    {
+      "case": "Blue Apron; Wayfair",
+      "year": "2017; 2018",
+      "what_happened": "Growth bought with marketing; collapsing or acquisition-only cohorts.",
+      "check": "CBCV.",
+      "ref": "9.5, 2.7"
+    },
+    {
+      "case": "SVB",
+      "year": "March 2023",
+      "what_happened": "Cash stranded at a failed bank.",
+      "check": "Treasury map.",
+      "ref": "9.5, 2.7"
+    },
+    {
+      "case": "Frank / JPMorgan",
+      "year": "2021",
+      "what_happened": "Fabricated customers.",
+      "check": "Live-user sampling.",
+      "ref": "9.5, 2.7"
+    },
+    {
+      "case": "Theranos",
+      "year": "2003 to 2018",
+      "what_happened": "Founder control with no governance.",
+      "check": "Governance map; real CFO; audit-capable director.",
+      "ref": "9.5, 2.7"
+    }
+  ]
+}

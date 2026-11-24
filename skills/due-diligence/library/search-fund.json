@@ -1,0 +1,1529 @@
+{
+  "type": "search-fund",
+  "name": "Search Funds and Entrepreneurship Through Acquisition",
+  "summary": "Traditional (funded) search funds, self-funded searches, and the ETA buyer as CEO: the investor underwrites a first-time CEO and a small owner-run company at once. The return engine has mostly been multiple expansion (about 80% of exit value from 6.3x to 15.6x), not operating improvement, so the spine is: rebuild EBITDA from tax returns and bank deposits with the seller's labor at market salary; price at exit multiple equal to entry; fixed-charge coverage in a 20% revenue decline; customer concentration and seller-personal relationships with customer calls before close; seller-note subordination and transition; tranche-vested searcher equity; an experienced board with CEO-replacement rights; and no-poach review for franchise targets. Two eras of data disagree; the 2026 Stanford/IESE studies govern. Named search-fund failure case files were not sourced (GAP).",
+  "chapters": [
+    "16-search-funds-eta.md"
+  ],
+  "one_check": "Rebuild EBITDA from tax returns and bank deposits with the seller's labor replaced at market salary, then price the deal at an exit multiple equal to entry; if it works only with a re-rating, it is a bet on the exit market, not on the CEO.",
+  "subtypes": [
+    {
+      "id": "traditional",
+      "name": "Traditional (funded) search fund",
+      "description": "Investors fund search capital (salary and deal costs) for a right to invest in the acquisition, often with a step-up."
+    },
+    {
+      "id": "self-funded",
+      "name": "Self-funded search / ETA acquisition",
+      "description": "Searcher funds the search and raises acquisition equity for an identified target."
+    }
+  ],
+  "intake_questions": [
+    {
+      "id": "SF-Q01",
+      "question": "Are we funding search capital in a traditional search fund, or investing in an acquisition by a self-funded searcher?",
+      "why": "Selects subtype.",
+      "sets_subtype": true
+    },
+    {
+      "id": "SF-Q02",
+      "question": "How many LOIs has the searcher signed, and how many months into the search?",
+      "why": "LOI discipline benchmark.",
+      "sets_subtype": false
+    },
+    {
+      "id": "SF-Q03",
+      "question": "Is the target a franchise, multi-unit or staffing business?",
+      "why": "Triggers FDD Item 17 and no-poach review.",
+      "sets_subtype": false
+    },
+    {
+      "id": "SF-Q04",
+      "question": "Is the acquisition financed with an SBA 7(a) loan, senior loan and/or seller note?",
+      "why": "Triggers leverage, guarantee and subordination items.",
+      "sets_subtype": false
+    },
+    {
+      "id": "SF-Q05",
+      "question": "Has the searcher ever run a P&L?",
+      "why": "Drives board and coaching requirements.",
+      "sets_subtype": false
+    },
+    {
+      "id": "SF-Q06",
+      "question": "Will the seller stay for a transition period?",
+      "why": "Seller-transition risk.",
+      "sets_subtype": false
+    }
+  ],
+  "requests": [
+    {
+      "id": "SF-STR-001",
+      "order": 10,
+      "stage": "screen",
+      "priority": "gating",
+      "workstream": "Structure & Terms",
+      "request": "Searcher's PPM and search-fund LPA, investor list and step-up terms on search capital.",
+      "format": "Executed or final-form documents.",
+      "why": "Defines investors' right (not obligation) to invest in the acquisition and the step-up on search capital.",
+      "pass": "Investor right to invest in the acquisition is a right, not an obligation; step-up stated.",
+      "fail": "Obligation to fund, or step-up undefined.",
+      "verify": "Counsel review; confirm investor list with two investors.",
+      "applies_to": [
+        "traditional"
+      ],
+      "ref": "16.2 item 1, 16.6",
+      "weak": false
+    },
+    {
+      "id": "SF-STR-002",
+      "order": 20,
+      "stage": "screen",
+      "priority": "gating",
+      "workstream": "Structure & Terms",
+      "request": "Searcher equity grant and vesting schedule, split into acquisition, time and performance tranches.",
+      "format": "Executed or draft equity documents.",
+      "why": "Full vesting at close removes the incentive to perform.",
+      "pass": "Equity earned in tranches for acquisition, time and performance.",
+      "fail": "Searcher's equity vests fully at close.",
+      "verify": "Counsel review.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "16.1, 16.2 item 2, 16.6, 16.8",
+      "weak": false
+    },
+    {
+      "id": "SF-HRM-001",
+      "order": 30,
+      "stage": "screen",
+      "priority": "core",
+      "workstream": "HR & Management",
+      "request": "Searcher's operating history: statement of any P&L ever run, with scope, size and dates.",
+      "format": "CV and written statement; references named.",
+      "why": "Most searchers have never run a P&L; first-time CEOs get overwhelmed.",
+      "pass": "Operating experience documented, or an operating board and coach compensate.",
+      "fail": "No P&L experience and no operating board.",
+      "verify": "Confirm with prior managers.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "16.3, 16.7",
+      "weak": false
+    },
+    {
+      "id": "SF-COM-001",
+      "order": 40,
+      "stage": "screen",
+      "priority": "core",
+      "workstream": "Commercial & Market",
+      "request": "LOI history: every LOI signed, date, target, and why each died.",
+      "format": "Schedule with dates from search launch.",
+      "why": "Successful searchers signed 4.6 LOIs on average (first by month six); unsuccessful 8.2; deals died on adverse diligence (59%), valuation (41%), seller retraction (32%), investor support (31%).",
+      "pass": "First LOI by about month six; reasons for failed LOIs credible.",
+      "fail": "Fewer than three LOIs by month 12, or many LOIs with no close.",
+      "verify": "Ask two investors about the history.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "16.3, 16.4, 16.8, 16.9 Q7",
+      "weak": false
+    },
+    {
+      "id": "SF-FIN-001",
+      "order": 50,
+      "stage": "screen",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Search-capital budget and actual spend split into searcher salary and deal costs.",
+      "format": "Budget versus actual.",
+      "why": "Median searcher salary $100K is 45% to 60% of search capital; spend mostly on salary with few LOIs is a red flag.",
+      "pass": "Spend in line with medians ($450K solo, $649K partnered) and producing LOIs.",
+      "fail": "Search capital spent mostly on salary with fewer than three LOIs by month 12.",
+      "verify": "Tie to bank statements of the search vehicle.",
+      "applies_to": [
+        "traditional"
+      ],
+      "ref": "16.4, 16.8",
+      "weak": false
+    },
+    {
+      "id": "SF-COM-002",
+      "order": 60,
+      "stage": "screen",
+      "priority": "core",
+      "workstream": "Commercial & Market",
+      "request": "Target CIM.",
+      "format": "Seller's CIM or teaser.",
+      "why": "Starting point for revenue, margin and customer story.",
+      "pass": "CIM received and claims tested in confirmatory.",
+      "fail": "No CIM and no data.",
+      "verify": "Test each claim against tax returns.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "16.2 item 3",
+      "weak": false
+    },
+    {
+      "id": "SF-VAL-001",
+      "order": 70,
+      "stage": "screen",
+      "priority": "core",
+      "workstream": "Valuation & Model",
+      "request": "Purchase price and implied EBITDA and revenue multiples, with the share of recurring revenue.",
+      "format": "LOI and our calculation.",
+      "why": "International median acquisition: $12M price, 5.7x EBITDA, 1.4x revenue, 26% margin.",
+      "pass": "Multiple at or near the about 5.7x median, or above it with recurring revenue to justify.",
+      "fail": "Multiple well above 5.7x without recurring revenue.",
+      "verify": "Recompute on QoE EBITDA.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "16.4, 16.8",
+      "weak": false
+    },
+    {
+      "id": "SF-STR-003",
+      "order": 10,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Structure & Terms",
+      "request": "LOI and draft purchase agreement key terms: price, structure, working capital, reps, indemnities, escrow.",
+      "format": "Signed LOI and draft APA/SPA.",
+      "why": "Lower-middle-market mechanics follow Chapter 5.",
+      "pass": "Terms consistent with Chapter 5 market norms.",
+      "fail": "No indemnity or escrow.",
+      "verify": "Counsel review.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "16.1, 16.2",
+      "weak": false
+    },
+    {
+      "id": "SF-FIN-002",
+      "order": 20,
+      "stage": "term-sheet",
+      "priority": "gating",
+      "workstream": "Financial",
+      "request": "Sources and uses with total leverage including the seller note, and the equity cushion.",
+      "format": "Sources-and-uses table.",
+      "why": "Over-leverage on a small, cyclical business breaches covenants in a mild downturn.",
+      "pass": "Total leverage including seller note supportable in the 20% revenue-decline case.",
+      "fail": "Leverage only works in base case.",
+      "verify": "Rebuild from term sheets.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "16.3, 16.7",
+      "weak": false
+    },
+    {
+      "id": "SF-FIN-003",
+      "order": 30,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "SBA 7(a) or senior loan term sheet, including personal-guarantee requirements.",
+      "format": "Lender term sheet.",
+      "why": "SBA loans require personal guarantees (bible terms not primary-sourced; confirm current SBA SOP).",
+      "pass": "Terms confirmed against current SBA SOP; guarantee obligations understood.",
+      "fail": "Guarantee or covenant terms unclear.",
+      "verify": "Confirm with lender and current SBA SOP.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "16.2 item 5, 16.3, 16.6",
+      "weak": true
+    },
+    {
+      "id": "SF-LEG-001",
+      "order": 40,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Corporate & Legal",
+      "request": "Seller note terms: amount, subordination and standstill to the senior lender, and any tie to customer retention.",
+      "format": "Draft note and subordination agreement.",
+      "why": "Relationship revenue may leave with the seller.",
+      "pass": "Note subordinated with standstill; part tied to customer retention.",
+      "fail": "Unsubordinated note or no retention tie.",
+      "verify": "Counsel review.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "16.2 item 5, 16.6, 16.7",
+      "weak": false
+    },
+    {
+      "id": "SF-STR-004",
+      "order": 50,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Structure & Terms",
+      "request": "Earn-out terms, including metrics and link to customer retention.",
+      "format": "Draft earn-out.",
+      "why": "Seller relationships drive revenue; earn-outs align transition.",
+      "pass": "Earn-out tied to retention metrics measurable from bank data.",
+      "fail": "Earn-out on adjustable EBITDA only.",
+      "verify": "Counsel review.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "16.2 item 6, 16.7",
+      "weak": false
+    },
+    {
+      "id": "SF-HRM-002",
+      "order": 60,
+      "stage": "term-sheet",
+      "priority": "gating",
+      "workstream": "HR & Management",
+      "request": "Seller transition and employment agreement: length, role, and compensation.",
+      "format": "Draft agreement.",
+      "why": "Seller unwilling to stay is a red flag; seller typically stays 6 to 12 months (2007 practitioner figure).",
+      "pass": "Seller committed to a defined transition (6 to 12 months typical) with incentives.",
+      "fail": "Seller unwilling to stay for transition.",
+      "verify": "Interview the seller.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "16.2 item 6, 16.4, 16.8",
+      "weak": true
+    },
+    {
+      "id": "SF-STR-005",
+      "order": 70,
+      "stage": "term-sheet",
+      "priority": "gating",
+      "workstream": "Structure & Terms",
+      "request": "Post-close board composition and the CEO-replacement right.",
+      "format": "Draft shareholders' agreement.",
+      "why": "A first-time CEO needs an experienced board with power to replace him or her; 69% of buyouts change CEO during the hold.",
+      "pass": "Board led by experienced lead investors with an operator who has run this kind of business; CEO-replacement right.",
+      "fail": "No CEO-replacement right or no operating experience on the board.",
+      "verify": "Interview proposed directors.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "16.2 item 8, 16.3, 16.6, 16.9 Q3",
+      "weak": false
+    },
+    {
+      "id": "SF-STR-006",
+      "order": 80,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Structure & Terms",
+      "request": "Acquisition-round equity terms and pro forma cap table, including the step-up conversion of search capital.",
+      "format": "Term sheet and cap table.",
+      "why": "Investors' economics depend on step-up and searcher dilution.",
+      "pass": "Cap table reconciles to LPA step-up and searcher tranches.",
+      "fail": "Unexplained dilution.",
+      "verify": "Recompute.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "16.1, 16.6",
+      "weak": false
+    },
+    {
+      "id": "SF-FIN-004",
+      "order": 10,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Financial",
+      "request": "Three to five years of federal tax returns for the target.",
+      "format": "Filed returns with IRS transcripts.",
+      "why": "Small targets often have only tax-basis books; tax returns are the anchor for rebuilding EBITDA.",
+      "pass": "Returns match IRS transcripts and tie to QoE revenue within 2%.",
+      "fail": "Returns unavailable or materially below CIM revenue.",
+      "verify": "Obtain IRS transcripts with seller authorization.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "16.2 item 3, 16.3",
+      "weak": false
+    },
+    {
+      "id": "SF-FIN-005",
+      "order": 20,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Internal monthly P&L and balance sheets for 36 months reconciled to tax returns.",
+      "format": "Accounting-system exports.",
+      "why": "Tax-basis books need reconciling to management figures.",
+      "pass": "Monthly totals reconcile to returns.",
+      "fail": "Unreconciled differences.",
+      "verify": "QoE provider reconciliation.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "16.2 item 3",
+      "weak": false
+    },
+    {
+      "id": "SF-COM-003",
+      "order": 30,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Commercial & Market",
+      "request": "Customer list with revenue by customer for 3 years and concentration analysis.",
+      "format": "Ledger-based report tied to bank deposits.",
+      "why": "Customer concentration and churn after transition.",
+      "pass": "No customer above a level the FCCR stress survives losing; retention history stable.",
+      "fail": "One or two customers dominate.",
+      "verify": "Tie to deposits.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "16.2 item 3, 16.3",
+      "weak": false
+    },
+    {
+      "id": "SF-COM-004",
+      "order": 40,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Commercial & Market",
+      "request": "Map of customer relationships showing which are personal to the seller.",
+      "format": "Seller and searcher schedule.",
+      "why": "Relationship revenue leaves with the seller.",
+      "pass": "Relationships transferable; seller introductions planned.",
+      "fail": "Key relationships personal to the seller with no transition plan.",
+      "verify": "Customer calls before close.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "16.3, 16.7, 16.8",
+      "weak": false
+    },
+    {
+      "id": "SF-FIN-006",
+      "order": 50,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Financial",
+      "request": "Owner add-back schedule with documentary support for each adjustment.",
+      "format": "Schedule with invoices and payroll records.",
+      "why": "Owner add-backs are the main source of overstatement in owner-run businesses.",
+      "pass": "Every add-back supported and non-recurring or truly personal.",
+      "fail": "Add-backs that are real operating costs.",
+      "verify": "QoE testing.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "16.2 item 4, 16.3, 16.7",
+      "weak": false
+    },
+    {
+      "id": "SF-FIN-007",
+      "order": 60,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Financial",
+      "request": "EBITDA rebuilt with the seller's labor replaced at a market salary.",
+      "format": "QoE adjustment with salary benchmark.",
+      "why": "THE ONE CHECK: seller's unpaid labor overstates EBITDA.",
+      "pass": "Deal still meets FCCR and return targets on rebuilt EBITDA.",
+      "fail": "Deal fails on rebuilt EBITDA.",
+      "verify": "Benchmark salary independently.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "16.3, 16.7 THE ONE CHECK, 16.9 Q2",
+      "weak": false
+    },
+    {
+      "id": "SF-TEC-001",
+      "order": 70,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Technical",
+      "request": "Capex study: maintenance versus growth capex and deferred maintenance.",
+      "format": "Independent study or QoE section.",
+      "why": "Deferred capex is a hidden cost; capital-intensive targets with growth shortfalls failed.",
+      "pass": "Maintenance capex funded within FCCR stress.",
+      "fail": "Large deferred maintenance.",
+      "verify": "Site visit and asset ages.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "16.3, 16.7",
+      "weak": false
+    },
+    {
+      "id": "SF-TEC-002",
+      "order": 80,
+      "stage": "confirmatory",
+      "priority": "supporting",
+      "workstream": "Technical",
+      "request": "Capital-intensity assessment of the target relative to growth plan.",
+      "format": "Our analysis.",
+      "why": "Failures cluster in capital-intensive targets whose growth fell short (2007 podcast source).",
+      "pass": "Growth plan does not depend on large capex.",
+      "fail": "Growth requires heavy capex.",
+      "verify": "Rebuild.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "16.3, 16.7",
+      "weak": true
+    },
+    {
+      "id": "SF-HRM-003",
+      "order": 90,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "HR & Management",
+      "request": "Key-employee list with compensation and retention arrangements.",
+      "format": "Payroll records and agreements.",
+      "why": "Key employees leave with the seller.",
+      "pass": "Retention arrangements for each key employee.",
+      "fail": "No retention.",
+      "verify": "Interview key employees pre-close where permitted.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "16.2 item 7, 16.3",
+      "weak": false
+    },
+    {
+      "id": "SF-FIN-008",
+      "order": 100,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Financial",
+      "request": "Fixed-charge coverage in a 20% revenue-decline case.",
+      "format": "Model output.",
+      "why": "Over-leverage breaches covenants in a mild downturn.",
+      "pass": "FCCR remains above the senior lender's covenant in the 20% decline case.",
+      "fail": "Covenant breach in the 20% case.",
+      "verify": "Rebuild.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "16.3, 16.7, 16.9 Q6",
+      "weak": false
+    },
+    {
+      "id": "SF-VAL-002",
+      "order": 110,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Valuation & Model",
+      "request": "Return model with exit multiple equal to entry multiple.",
+      "format": "Model output.",
+      "why": "About 80% of value in search-fund exits came from multiple expansion (6.3x to 15.6x).",
+      "pass": "Deal returns capital with a reasonable IRR at exit multiple equal to entry.",
+      "fail": "Deal works only with a re-rating.",
+      "verify": "Rebuild.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "16.1, 16.3, 16.7, 16.9 Q5",
+      "weak": false
+    },
+    {
+      "id": "SF-VAL-003",
+      "order": 120,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Valuation & Model",
+      "request": "Value-creation plan split between EBITDA growth and multiple expansion, with margin assumptions.",
+      "format": "Model bridge.",
+      "why": "Margins fell from 25% to 19% in the Yale exit sample.",
+      "pass": "EBITDA growth drives the plan; margins not assumed to expand without evidence.",
+      "fail": "Plan relies on multiple.",
+      "verify": "Rebuild.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "16.1, 16.4",
+      "weak": false
+    },
+    {
+      "id": "SF-OPS-001",
+      "order": 130,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Operational",
+      "request": "100-day plan.",
+      "format": "Written plan.",
+      "why": "First-time CEO execution stalls.",
+      "pass": "Specific, owner-assigned actions for transition, customers and employees.",
+      "fail": "Generic plan.",
+      "verify": "Board review.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "16.2 item 10, 16.7",
+      "weak": false
+    },
+    {
+      "id": "SF-HRM-004",
+      "order": 140,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "HR & Management",
+      "request": "CEO succession path and coaching plan for the first-time CEO.",
+      "format": "Board-approved plan.",
+      "why": "69% of buyouts change CEO during the hold.",
+      "pass": "Named interim options and coach.",
+      "fail": "No succession path.",
+      "verify": "Board review.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "16.3, 16.7",
+      "weak": false
+    },
+    {
+      "id": "SF-LEG-002",
+      "order": 150,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Corporate & Legal",
+      "request": "For franchise targets: franchise agreement and FDD, including Item 17 and any no-poach or non-solicit clauses.",
+      "format": "Executed franchise agreement and current FDD.",
+      "why": "About 58% of major franchisors' 2016 agreements had no-poach clauses; AG and class actions followed.",
+      "pass": "No no-poach clause, or removed before close with no open exposure.",
+      "fail": "No-poach clause or open exposure.",
+      "verify": "Check state AG settlements.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "16.2 item 9, 16.3, 16.7",
+      "weak": false
+    },
+    {
+      "id": "SF-LEG-003",
+      "order": 160,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Corporate & Legal",
+      "request": "Review of no-poach and wage-fixing provisions in multi-unit, staffing or franchise agreements, and any related claims.",
+      "format": "Counsel memo.",
+      "why": "AG actions and class actions.",
+      "pass": "No such provisions or exposure.",
+      "fail": "Provisions found.",
+      "verify": "Counsel review.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "16.3, 16.6",
+      "weak": false
+    },
+    {
+      "id": "SF-LEG-004",
+      "order": 170,
+      "stage": "confirmatory",
+      "priority": "supporting",
+      "workstream": "Corporate & Legal",
+      "request": "Non-compete enforceability analysis by state for seller and key employees.",
+      "format": "Counsel memo.",
+      "why": "Unenforceable non-competes leave relationships unprotected.",
+      "pass": "Enforceable or alternative protections used.",
+      "fail": "Unenforceable with no alternative.",
+      "verify": "Counsel review.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "16.3",
+      "weak": false
+    },
+    {
+      "id": "SF-FIN-009",
+      "order": 180,
+      "stage": "confirmatory",
+      "priority": "supporting",
+      "workstream": "Financial",
+      "request": "Diligence budget and scope by workstream, approved by investors.",
+      "format": "Budget document.",
+      "why": "Adverse diligence findings killed 59% of failed deals; budget for diligence that kills deals.",
+      "pass": "Budget funds QoE, legal and customer calls.",
+      "fail": "Diligence cut to save cost ('too small').",
+      "verify": "Investor review.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "16.3",
+      "weak": false
+    },
+    {
+      "id": "SF-FIN-010",
+      "order": 10,
+      "stage": "third-party",
+      "priority": "gating",
+      "workstream": "Financial",
+      "request": "Quality of earnings report with proof of cash against tax returns and bank statements, and its engagement letter.",
+      "format": "QoE report and signed engagement letter; read the scope (a QoE carries no assurance).",
+      "why": "No QoE ('too small') is a red flag; owner-run P&Ls carry personal expenses.",
+      "pass": "QoE completed with proof of cash; scope covers revenue, add-backs and working capital.",
+      "fail": "No QoE, or scope excludes proof of cash.",
+      "verify": "Read engagement letter scope; call the provider.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "16.2 item 4, 16.3, 16.5, 16.8",
+      "weak": false
+    },
+    {
+      "id": "SF-COM-005",
+      "order": 20,
+      "stage": "third-party",
+      "priority": "gating",
+      "workstream": "Commercial & Market",
+      "request": "Customer calls before close with at least the top customers by revenue.",
+      "format": "Call notes.",
+      "why": "Customer relationships personal to the seller; no customer calls allowed before close is a red flag.",
+      "pass": "Top customers confirm intent to continue post-transition.",
+      "fail": "Calls refused or customers signal departure.",
+      "verify": "Calls made by searcher and an investor.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "16.3, 16.7, 16.8, 16.9 Q4",
+      "weak": false
+    },
+    {
+      "id": "SF-SPN-001",
+      "order": 30,
+      "stage": "third-party",
+      "priority": "core",
+      "workstream": "Sponsor & Background",
+      "request": "References from the searcher's prior managers and from investors in the search fund.",
+      "format": "Call notes.",
+      "why": "Underwriting a first-time CEO.",
+      "pass": "Consistent positive references on execution and judgment.",
+      "fail": "Negative or evasive references.",
+      "verify": "Source at least one reference independently.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "16.3, 16.5",
+      "weak": false
+    },
+    {
+      "id": "SF-SPN-002",
+      "order": 40,
+      "stage": "third-party",
+      "priority": "core",
+      "workstream": "Sponsor & Background",
+      "request": "Background check on the seller.",
+      "format": "Background-check firm report.",
+      "why": "Seller integrity drives reps and transition.",
+      "pass": "No undisclosed litigation or liens.",
+      "fail": "Undisclosed issues.",
+      "verify": "Firm engaged by us.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "16.5",
+      "weak": false
+    },
+    {
+      "id": "SF-LEG-005",
+      "order": 50,
+      "stage": "third-party",
+      "priority": "core",
+      "workstream": "Corporate & Legal",
+      "request": "Lender's counsel and our counsel review of loan documents, intercreditor and seller-note subordination.",
+      "format": "Counsel memos.",
+      "why": "Leverage and guarantee terms.",
+      "pass": "Terms as agreed.",
+      "fail": "Unfavourable terms.",
+      "verify": "Counsel engaged by us.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "16.5",
+      "weak": false
+    },
+    {
+      "id": "SF-LEG-006",
+      "order": 60,
+      "stage": "third-party",
+      "priority": "core",
+      "workstream": "Corporate & Legal",
+      "request": "Employment counsel review of non-compete, no-poach and transition agreements.",
+      "format": "Counsel memo.",
+      "why": "No-poach exposure; unenforceable non-competes.",
+      "pass": "Agreements enforceable; no no-poach.",
+      "fail": "Exposure.",
+      "verify": "Counsel engaged by us.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "16.5",
+      "weak": false
+    },
+    {
+      "id": "SF-HRM-005",
+      "order": 70,
+      "stage": "third-party",
+      "priority": "core",
+      "workstream": "HR & Management",
+      "request": "Identification of experienced board members and, where used, a CEO coach.",
+      "format": "Names, bios and engagement letters.",
+      "why": "First-time CEO overwhelmed.",
+      "pass": "At least one board member has run this kind of business.",
+      "fail": "No operator on board.",
+      "verify": "Reference calls.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "16.5, 16.9 Q3",
+      "weak": false
+    },
+    {
+      "id": "SF-LEG-007",
+      "order": 10,
+      "stage": "closing",
+      "priority": "gating",
+      "workstream": "Corporate & Legal",
+      "request": "Executed purchase agreement, seller note and subordination/standstill agreement.",
+      "format": "Execution versions.",
+      "why": "Seller note priority.",
+      "pass": "Executed as agreed.",
+      "fail": "Changes.",
+      "verify": "Counsel confirmation.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "16.6",
+      "weak": false
+    },
+    {
+      "id": "SF-HRM-006",
+      "order": 20,
+      "stage": "closing",
+      "priority": "gating",
+      "workstream": "HR & Management",
+      "request": "Executed seller transition and employment agreement.",
+      "format": "Executed agreement.",
+      "why": "Seller leaves on day one.",
+      "pass": "Executed.",
+      "fail": "Not executed.",
+      "verify": "Counsel confirmation.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "16.6, 16.9 Q1",
+      "weak": false
+    },
+    {
+      "id": "SF-STR-007",
+      "order": 30,
+      "stage": "closing",
+      "priority": "gating",
+      "workstream": "Structure & Terms",
+      "request": "Executed shareholders' agreement with board composition and CEO-replacement right.",
+      "format": "Executed agreement.",
+      "why": "Governance.",
+      "pass": "Executed.",
+      "fail": "Missing right.",
+      "verify": "Counsel confirmation.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "16.6",
+      "weak": false
+    },
+    {
+      "id": "SF-STR-008",
+      "order": 40,
+      "stage": "closing",
+      "priority": "core",
+      "workstream": "Structure & Terms",
+      "request": "Executed searcher equity and vesting documents.",
+      "format": "Executed documents.",
+      "why": "Full vesting at close.",
+      "pass": "Tranches as agreed.",
+      "fail": "Full vesting.",
+      "verify": "Counsel confirmation.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "16.6",
+      "weak": false
+    },
+    {
+      "id": "SF-LEG-008",
+      "order": 50,
+      "stage": "closing",
+      "priority": "core",
+      "workstream": "Corporate & Legal",
+      "request": "Executed senior loan documents and intercreditor.",
+      "format": "Executed documents.",
+      "why": "Leverage terms.",
+      "pass": "Executed as agreed.",
+      "fail": "Changes.",
+      "verify": "Counsel confirmation.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "16.6",
+      "weak": false
+    },
+    {
+      "id": "SF-HRM-007",
+      "order": 60,
+      "stage": "closing",
+      "priority": "core",
+      "workstream": "HR & Management",
+      "request": "Signed key-employee retention agreements.",
+      "format": "Executed agreements.",
+      "why": "Key-employee departures.",
+      "pass": "Signed for all key employees.",
+      "fail": "Missing.",
+      "verify": "Confirm with employees.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "16.2 item 7",
+      "weak": false
+    },
+    {
+      "id": "SF-LEG-009",
+      "order": 70,
+      "stage": "closing",
+      "priority": "core",
+      "workstream": "Corporate & Legal",
+      "request": "Evidence that any no-poach clauses were unwound before close.",
+      "format": "Amendment or termination.",
+      "why": "AG action.",
+      "pass": "Unwound.",
+      "fail": "Not unwound.",
+      "verify": "Counsel confirmation.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "16.6",
+      "weak": false
+    },
+    {
+      "id": "SF-FIN-011",
+      "order": 10,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Monthly financials and KPIs against the 100-day plan and budget.",
+      "format": "Monthly package.",
+      "why": "Execution stalls.",
+      "pass": "Delivered within 30 days; variances explained.",
+      "fail": "Late or unexplained.",
+      "verify": "Board review.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "16.7",
+      "weak": false
+    },
+    {
+      "id": "SF-FIN-012",
+      "order": 20,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Quarterly covenant and fixed-charge coverage compliance certificates.",
+      "format": "Compliance certificate.",
+      "why": "Covenant breach.",
+      "pass": "Compliant with cushion.",
+      "fail": "Thin cushion.",
+      "verify": "Lender confirmation.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "16.7",
+      "weak": false
+    },
+    {
+      "id": "SF-COM-006",
+      "order": 30,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Commercial & Market",
+      "request": "Customer retention report after transition.",
+      "format": "Revenue by customer.",
+      "why": "Relationship revenue leaving.",
+      "pass": "Top-customer revenue retained.",
+      "fail": "Loss of top customers.",
+      "verify": "Tie to deposits.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "16.7",
+      "weak": false
+    },
+    {
+      "id": "SF-FIN-013",
+      "order": 40,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Annual reviewed or audited financial statements and tax returns.",
+      "format": "Financials and returns.",
+      "why": "Reporting quality.",
+      "pass": "Delivered on time.",
+      "fail": "Late.",
+      "verify": "Accountant confirmation.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "16.2",
+      "weak": false
+    },
+    {
+      "id": "SF-SPN-003",
+      "order": 50,
+      "stage": "monitoring",
+      "priority": "supporting",
+      "workstream": "Sponsor & Background",
+      "request": "Quarterly board minutes.",
+      "format": "Minutes.",
+      "why": "Governance.",
+      "pass": "Board meets quarterly.",
+      "fail": "Infrequent.",
+      "verify": "Read minutes.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "16.3",
+      "weak": false
+    },
+    {
+      "id": "SF-HRM-008",
+      "order": 60,
+      "stage": "monitoring",
+      "priority": "supporting",
+      "workstream": "HR & Management",
+      "request": "Annual CEO assessment and succession review.",
+      "format": "Board record.",
+      "why": "CEO change mid-hold.",
+      "pass": "Completed annually.",
+      "fail": "Not done.",
+      "verify": "Board review.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "16.3, 16.7",
+      "weak": false
+    },
+    {
+      "id": "SF-FIN-014",
+      "order": 70,
+      "stage": "monitoring",
+      "priority": "supporting",
+      "workstream": "Financial",
+      "request": "Seller-note and earn-out milestone tracking.",
+      "format": "Schedule.",
+      "why": "Disputes.",
+      "pass": "Tracked.",
+      "fail": "Disputes.",
+      "verify": "Tie to metrics.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "16.6",
+      "weak": false
+    }
+  ],
+  "kill_tests": [
+    {
+      "id": "SF-K01",
+      "test": "No QoE with proof of cash against tax returns and bank statements ('too small').",
+      "ref": "16.3, 16.8",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "SF-K02",
+      "test": "Deal fails return or FCCR targets once seller labor is replaced at market salary.",
+      "ref": "16.7 THE ONE CHECK",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "SF-K03",
+      "test": "Deal returns capital only with exit multiple above entry.",
+      "ref": "16.7 THE ONE CHECK",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "SF-K04",
+      "test": "Fixed-charge coverage breaches the senior covenant in a 20% revenue-decline case.",
+      "ref": "16.3, 16.7",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "SF-K05",
+      "test": "No customer calls allowed before close where relationships are personal to the seller.",
+      "ref": "16.8",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "SF-K06",
+      "test": "No board CEO-replacement right.",
+      "ref": "16.3, 16.6",
+      "applies_to": [
+        "all"
+      ]
+    }
+  ],
+  "red_flags": [
+    {
+      "id": "SF-RF01",
+      "flag": "Purchase multiple well above the about 5.7x international median without recurring revenue.",
+      "check": "Multiple vs median.",
+      "ref": "16.8",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "SF-RF02",
+      "flag": "Seller unwilling to stay for transition.",
+      "check": "Transition agreement.",
+      "ref": "16.8",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "SF-RF03",
+      "flag": "No QoE ('too small').",
+      "check": "QoE request.",
+      "ref": "16.8",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "SF-RF04",
+      "flag": "Searcher's equity vests fully at close.",
+      "check": "Vesting schedule.",
+      "ref": "16.8",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "SF-RF05",
+      "flag": "Search capital spent mostly on salary with fewer than three LOIs by month 12.",
+      "check": "Search budget and LOI history.",
+      "ref": "16.8",
+      "applies_to": [
+        "traditional"
+      ]
+    },
+    {
+      "id": "SF-RF06",
+      "flag": "Customer relationships personal to the seller; no customer calls allowed before close.",
+      "check": "Relationship map and calls.",
+      "ref": "16.8",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "SF-RF07",
+      "flag": "Model needs multiple expansion to return capital.",
+      "check": "Exit = entry return.",
+      "ref": "16.8",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "SF-RF08",
+      "flag": "Capital-intensive target with a growth plan needing heavy capex.",
+      "check": "Capex study.",
+      "ref": "16.3, 16.7",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "SF-RF09",
+      "flag": "No-poach or wage-fixing clause in franchise agreement.",
+      "check": "FDD Item 17.",
+      "ref": "16.3",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "SF-RF10",
+      "flag": "Unsubordinated seller note or no standstill.",
+      "check": "Seller-note review.",
+      "ref": "16.6",
+      "applies_to": [
+        "all"
+      ]
+    }
+  ],
+  "metrics": [
+    {
+      "id": "SF-M01",
+      "metric": "Investor IRR / ROI (US/Canada aggregate)",
+      "acceptable": "33.9% pre-tax IRR, 4.75x ROI (through Dec. 31, 2025) vs about 37% historical average (2007, weak); 2026 governs",
+      "source": "Stanford GSB 2026 via IESE ST-689-E; KaW 2007",
+      "weak": false,
+      "ref": "16.4",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "SF-M02",
+      "metric": "Historical investor IRR (2007 era)",
+      "acceptable": "About 37%",
+      "source": "KaW podcast 2007 citing Stanford",
+      "weak": true,
+      "ref": "16.4",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "SF-M03",
+      "metric": "Share of searches that acquire",
+      "acceptable": "About 58% of concluded US/Canada searches; international 73% (79% in 2024 study) vs about 75% (2007, weak)",
+      "source": "IESE 2026; KaW 2007",
+      "weak": false,
+      "ref": "16.4",
+      "applies_to": [
+        "traditional"
+      ]
+    },
+    {
+      "id": "SF-M04",
+      "metric": "Deal size",
+      "acceptable": "International median $12M price, $8M revenue vs historical EV $4M to $11M (2007, weak)",
+      "source": "IESE 2026; KaW 2007",
+      "weak": false,
+      "ref": "16.4",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "SF-M05",
+      "metric": "Search capital",
+      "acceptable": "Median $450K solo, $649K partnered vs about $30K to $50K per unit with about 90% acquisition take-up (2007, weak)",
+      "source": "IESE 2026; KaW 2007",
+      "weak": false,
+      "ref": "16.4",
+      "applies_to": [
+        "traditional"
+      ]
+    },
+    {
+      "id": "SF-M06",
+      "metric": "Seller transition period",
+      "acceptable": "Typically 6 to 12 months (2007 practitioner)",
+      "source": "KaW 2007",
+      "weak": true,
+      "ref": "16.4",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "SF-M07",
+      "metric": "Known search funds / acquisitions",
+      "acceptable": "US/Canada 862 / 382; international 492 / 216",
+      "source": "IESE 2026",
+      "weak": false,
+      "ref": "16.4",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "SF-M08",
+      "metric": "International aggregate ROI / IRR",
+      "acceptable": "2.8x / 30% (up from 2.0x / 18%)",
+      "source": "IESE 2026",
+      "weak": false,
+      "ref": "16.4",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "SF-M09",
+      "metric": "International median acquisition outcome",
+      "acceptable": "1.1x investors' capital; top fund 23.8x (size as a portfolio)",
+      "source": "IESE 2026",
+      "weak": false,
+      "ref": "16.4",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "SF-M10",
+      "metric": "International concluded funds that lost money",
+      "acceptable": "About 21% (about a third of those total loss)",
+      "source": "IESE 2026",
+      "weak": false,
+      "ref": "16.4",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "SF-M11",
+      "metric": "Median international acquisition profile",
+      "acceptable": "$12M price; $8M revenue; 26% EBITDA margin; 5.7x EBITDA; 1.4x revenue; 11% revenue growth; 50 employees",
+      "source": "IESE 2026",
+      "weak": false,
+      "ref": "16.4, 16.8",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "SF-M12",
+      "metric": "Median searcher salary",
+      "acceptable": "$100K, 45% to 60% of search capital",
+      "source": "IESE 2026",
+      "weak": false,
+      "ref": "16.4",
+      "applies_to": [
+        "traditional"
+      ]
+    },
+    {
+      "id": "SF-M13",
+      "metric": "LOIs to close",
+      "acceptable": "Successful 4.6 (first by month six); unsuccessful 8.2; fewer than 3 by month 12 is a red flag",
+      "source": "IESE 2026",
+      "weak": false,
+      "ref": "16.3, 16.4, 16.8",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "SF-M14",
+      "metric": "Why deals died (716 LOIs)",
+      "acceptable": "Adverse diligence 59%; valuation 41%; seller retraction 32%; investor support 31%",
+      "source": "IESE 2026",
+      "weak": false,
+      "ref": "16.3, 16.4",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "SF-M15",
+      "metric": "Exit value attribution",
+      "acceptable": "About 80% multiple expansion (6.3x to 15.6x), about 20% EBITDA growth; margins 25% to 19%; about 5-year holds; EV $1B to $4B",
+      "source": "Wasserstein and Thomas, Yale Insights 2026",
+      "weak": false,
+      "ref": "16.1, 16.4",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "SF-M16",
+      "metric": "Owner-operator PE vs public equity",
+      "acceptable": "Returns no higher than public equity despite about 3/4 concentration in one firm (Moskowitz and Vissing-Jorgensen) vs robustness disputed beyond 1990s (Kartashova); present both",
+      "source": "AER 2002; Bank of Canada WP 2011-6",
+      "weak": false,
+      "ref": "16.1",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "SF-M17",
+      "metric": "Revenue-decline stress (our test)",
+      "acceptable": "FCCR above covenant at -20% revenue",
+      "source": "Bible 16.3",
+      "weak": false,
+      "ref": "16.3, 16.7",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "SF-M18",
+      "metric": "Franchise no-poach prevalence",
+      "acceptable": "About 58% of major franchisors' 2016 agreements",
+      "source": "Krueger and Ashenfelter, NBER w24831",
+      "weak": false,
+      "ref": "16.3",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "SF-M19",
+      "metric": "CEO change in buyouts",
+      "acceptable": "69% of deals change CEO during the hold",
+      "source": "HLS Forum 2026, The CEO Decision",
+      "weak": false,
+      "ref": "16.3",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "SF-M20",
+      "metric": "LMM process timing",
+      "acceptable": "60 to 90 days LOI to close",
+      "source": "ctacquisitions.com (v1 Ch 5)",
+      "weak": true,
+      "ref": "16.4",
+      "applies_to": [
+        "all"
+      ]
+    }
+  ],
+  "third_party_reports": [
+    {
+      "id": "SF-T01",
+      "report": "Quality of earnings with proof of cash to tax returns and bank statements",
+      "provider": "QoE provider",
+      "required_when": "Always",
+      "ref": "16.5"
+    },
+    {
+      "id": "SF-T02",
+      "report": "Loan documentation",
+      "provider": "Lender (SBA 7(a) or senior) and lender's counsel",
+      "required_when": "When debt-financed",
+      "ref": "16.5"
+    },
+    {
+      "id": "SF-T03",
+      "report": "Background checks on searcher and seller",
+      "provider": "Background-check firm (searcher via universal set)",
+      "required_when": "Always",
+      "ref": "16.5"
+    },
+    {
+      "id": "SF-T04",
+      "report": "Board members and CEO coach",
+      "provider": "Experienced board members; CEO coach where used",
+      "required_when": "Always",
+      "ref": "16.5"
+    },
+    {
+      "id": "SF-T05",
+      "report": "Employment agreements review",
+      "provider": "Employment counsel (non-compete, no-poach, transition)",
+      "required_when": "Always",
+      "ref": "16.5"
+    }
+  ],
+  "hard_questions": [
+    {
+      "id": "SF-HQ01",
+      "question": "What would you pay if the seller left on day one?",
+      "good_answer": "A price based on EBITDA with seller labor replaced and relationship revenue haircut.",
+      "ref": "16.9 Q1"
+    },
+    {
+      "id": "SF-HQ02",
+      "question": "What does EBITDA look like with a market-rate replacement for the seller?",
+      "good_answer": "A QoE-supported figure that still supports the price.",
+      "ref": "16.9 Q2"
+    },
+    {
+      "id": "SF-HQ03",
+      "question": "Who on the board has run this kind of business?",
+      "good_answer": "A named operator with relevant experience.",
+      "ref": "16.9 Q3"
+    },
+    {
+      "id": "SF-HQ04",
+      "question": "Which three customers would you call first, and have you?",
+      "good_answer": "Named customers already called, with notes.",
+      "ref": "16.9 Q4"
+    },
+    {
+      "id": "SF-HQ05",
+      "question": "What is the return at exit multiple equal to entry multiple?",
+      "good_answer": "Positive return with capital returned from EBITDA growth and debt paydown.",
+      "ref": "16.9 Q5"
+    },
+    {
+      "id": "SF-HQ06",
+      "question": "What is fixed-charge coverage if revenue falls 20%?",
+      "good_answer": "Above covenant with cushion.",
+      "ref": "16.9 Q6"
+    },
+    {
+      "id": "SF-HQ07",
+      "question": "How many LOIs have you signed, and why did the others die?",
+      "good_answer": "A short, credible history, first LOI by about month six.",
+      "ref": "16.9 Q7"
+    }
+  ],
+  "failure_cases": [
+    {
+      "case": "Owner add-backs that are real operating costs (generic)",
+      "year": "Recurring",
+      "what_happened": "EBITDA overstated at entry (seller's unpaid labor, deferred capex).",
+      "check": "Replace the seller's labor at market salary; capex study.",
+      "ref": "16.7"
+    },
+    {
+      "case": "Relationship revenue that leaves with the seller (generic)",
+      "year": "Recurring",
+      "what_happened": "Revenue falls after transition.",
+      "check": "Customer calls before close; transition agreement with earn-out or seller note tied to retention.",
+      "ref": "16.7"
+    },
+    {
+      "case": "First-time CEO overwhelmed (generic)",
+      "year": "Recurring",
+      "what_happened": "Execution stalls; CEO change mid-hold.",
+      "check": "Board with operating experience; 100-day plan; CEO coaching; succession plan.",
+      "ref": "16.7"
+    },
+    {
+      "case": "Over-leverage on a small, cyclical business (generic)",
+      "year": "Recurring",
+      "what_happened": "Covenant breach in a mild downturn.",
+      "check": "Fixed-charge coverage in a 20% revenue-decline case.",
+      "ref": "16.7"
+    },
+    {
+      "case": "Return depends on multiple expansion (generic)",
+      "year": "Yale sample 2026",
+      "what_happened": "Exit at entry multiple leaves little return; margins fell in the sample.",
+      "check": "Show return with exit multiple = entry multiple.",
+      "ref": "16.7"
+    },
+    {
+      "case": "Capital-intensive target with growth shortfall (generic)",
+      "year": "2007 source (weak)",
+      "what_happened": "Cash consumed by capex.",
+      "check": "Capex study; maintenance vs growth capex split.",
+      "ref": "16.7"
+    },
+    {
+      "case": "No-poach or wage-fixing clause in a franchise target (generic)",
+      "year": "2016-2018 actions",
+      "what_happened": "AG action or class action.",
+      "check": "FDD Item 17 and agreement review.",
+      "ref": "16.7"
+    }
+  ]
+}

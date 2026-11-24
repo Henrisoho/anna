@@ -1,0 +1,1595 @@
+{
+  "type": "nav-lending",
+  "name": "NAV Lending and Fund Finance",
+  "summary": "Fund-level leverage from either side: lending to a fund (NAV facility, subscription line, hybrid) or to a GP, or being an LP in a fund that borrows. Subscription lines raise reported IRR with no change in multiple; NAV facilities fund bolt-ons, rescues (often PIK) or distributions, and NAV-funded distributions inflate IRR and DPI and are often recallable. The spine is: LPA authority and LPAC consent; LTV on independent marks with stress at 25% to 40% haircuts and crisis advance rates; cash sweep and cure waterfall; cross-collateralization and structural subordination; full leverage-stack map; amendment history; and DPI and IRR without the sub line and without NAV-funded distributions. All of it is contractual since June 2024. GP financing (loans to GPs against fees and carry) is not covered in the bible; items for it are derived by analogy and flagged in refs.",
+  "chapters": [
+    "14-nav-lending-fund-finance.md"
+  ],
+  "one_check": "Ask for DPI and IRR without the subscription line and without NAV-loan-funded distributions; if the GP cannot or will not produce them, you do not know the fund's real liquidity or return.",
+  "subtypes": [
+    {
+      "id": "nav-loan",
+      "name": "NAV loan",
+      "description": "Loan against the fund's portfolio (pledge of holding-company equity), typically after the investment period."
+    },
+    {
+      "id": "sub-line",
+      "name": "Subscription line",
+      "description": "Loan against LPs' uncalled commitments; bridges capital calls."
+    },
+    {
+      "id": "hybrid",
+      "name": "Hybrid facility",
+      "description": "Blends NAV collateral and recourse to uncalled commitments."
+    },
+    {
+      "id": "gp-financing",
+      "name": "GP financing",
+      "description": "Loan to the GP or management company against fees, carry or GP commitments (not covered in the bible; derived items)."
+    }
+  ],
+  "intake_questions": [
+    {
+      "id": "NAV-Q01",
+      "question": "Is this a NAV loan, subscription line, hybrid facility, or GP-level financing?",
+      "why": "Selects subtype.",
+      "sets_subtype": true
+    },
+    {
+      "id": "NAV-Q02",
+      "question": "Are we the lender, or an LP in the borrowing fund?",
+      "why": "Determines whether lender protections or LP protections lead.",
+      "sets_subtype": false
+    },
+    {
+      "id": "NAV-Q03",
+      "question": "What is the use of proceeds: bolt-ons, rescue of portfolio companies, or distributions?",
+      "why": "Distribution use triggers recall and carry tests.",
+      "sets_subtype": false
+    },
+    {
+      "id": "NAV-Q04",
+      "question": "Is the GP raising, or about to raise, a successor fund?",
+      "why": "IRR/DPI inflation near a fundraise.",
+      "sets_subtype": false
+    },
+    {
+      "id": "NAV-Q05",
+      "question": "Is the facility rated, and by whom?",
+      "why": "Rating stress assumptions.",
+      "sets_subtype": false
+    },
+    {
+      "id": "NAV-Q06",
+      "question": "What other facilities exist in the fund's leverage stack?",
+      "why": "Need a single leverage map.",
+      "sets_subtype": false
+    }
+  ],
+  "requests": [
+    {
+      "id": "NAV-STR-001",
+      "order": 10,
+      "stage": "screen",
+      "priority": "gating",
+      "workstream": "Structure & Terms",
+      "request": "Facility agreement (or draft) and fee letter.",
+      "format": "Execution or latest draft, with all schedules and the fee letter.",
+      "why": "All-in cost and the terms that govern sweeps, cures and recourse live here.",
+      "pass": "Complete agreement and fee letter received.",
+      "fail": "Fee letter withheld or schedules missing.",
+      "verify": "Compare with the version the administrator holds.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "14.2 item 1",
+      "weak": false
+    },
+    {
+      "id": "NAV-COM-001",
+      "order": 20,
+      "stage": "screen",
+      "priority": "gating",
+      "workstream": "Commercial & Market",
+      "request": "Use-of-proceeds statement: offensive (bolt-ons, refinancing), defensive (rescue of portfolio companies) or liquidity (distributions), with amounts by use.",
+      "format": "Signed statement by the GP with a schedule by portfolio company or distribution.",
+      "why": "About 80% of NAV facilities supported portfolio companies and about 20% funded distributions; distributions inflate DPI and may be recallable.",
+      "pass": "Use of proceeds stated by amount; any distribution use disclosed to LPs with recall terms.",
+      "fail": "Use is 'distributions' in a fund raising its next vintage, or uses not itemized.",
+      "verify": "Trace proceeds through the fund's bank account after drawdown.",
+      "applies_to": [
+        "nav-loan",
+        "hybrid"
+      ],
+      "ref": "14.1, 14.3, 14.8",
+      "weak": false
+    },
+    {
+      "id": "NAV-LEG-001",
+      "order": 30,
+      "stage": "screen",
+      "priority": "gating",
+      "workstream": "Corporate & Legal",
+      "request": "LPA clause permitting fund-level borrowing, and the LPAC consent record for this facility.",
+      "format": "LPA extract and signed LPAC consent.",
+      "why": "ILPA says GPs should seek LPAC consent regardless of use of proceeds.",
+      "pass": "LPA permits the facility type and amount; LPAC consented in writing before signing.",
+      "fail": "No borrowing authority, or no LPAC consent.",
+      "verify": "Confirm consent with an LPAC member.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "14.2 item 7, 14.3, 14.6",
+      "weak": false
+    },
+    {
+      "id": "NAV-COL-001",
+      "order": 40,
+      "stage": "screen",
+      "priority": "gating",
+      "workstream": "Collateral & Title",
+      "request": "Borrowing-base and LTV definitions, eligible-asset criteria and concentration limits.",
+      "format": "Facility definitions section.",
+      "why": "Definitions determine when LTV breaches and what counts as collateral.",
+      "pass": "Definitions objective; ineligible and concentrated assets excluded or haircut.",
+      "fail": "GP-discretion definitions; no concentration limits.",
+      "verify": "Counsel review.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "14.2 item 2",
+      "weak": false
+    },
+    {
+      "id": "NAV-COL-002",
+      "order": 50,
+      "stage": "screen",
+      "priority": "core",
+      "workstream": "Collateral & Title",
+      "request": "Portfolio schedule: every asset with NAV, cost, sector, leverage and date of last mark; top-3 assets as % of NAV; number of assets.",
+      "format": "Administrator-produced schedule.",
+      "why": "Concentration magnifies a single-asset failure.",
+      "pass": "Top-3 share and asset count within facility limits.",
+      "fail": "Top-3 assets dominate NAV or few assets.",
+      "verify": "Tie to the fund's latest quarterly report and audit.",
+      "applies_to": [
+        "nav-loan",
+        "hybrid"
+      ],
+      "ref": "14.3",
+      "weak": false
+    },
+    {
+      "id": "NAV-FIN-001",
+      "order": 60,
+      "stage": "screen",
+      "priority": "gating",
+      "workstream": "Financial",
+      "request": "Map of the full fund-level leverage stack (subscription line, NAV facility, asset-based facilities) with each facility's margin-call and default triggers.",
+      "format": "Single diagram plus a table of facilities, balances, maturities and triggers.",
+      "why": "Multiple layers with no single map hide how a shock propagates.",
+      "pass": "Single complete map; triggers do not cascade.",
+      "fail": "No single map; triggers cross-default.",
+      "verify": "Confirm balances with each lender.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "14.3, 14.8",
+      "weak": false
+    },
+    {
+      "id": "NAV-FIN-002",
+      "order": 70,
+      "stage": "screen",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Fundraising status: whether the GP is raising, or will raise within 24 months, a successor fund.",
+      "format": "GP statement.",
+      "why": "Interim IRR and DPI inflation near a fundraise is a named concern.",
+      "pass": "No fundraise within the facility's distribution window, or no distribution use.",
+      "fail": "Distribution use timed to a fundraise.",
+      "verify": "Check Form D filings.",
+      "applies_to": [
+        "nav-loan",
+        "hybrid",
+        "sub-line"
+      ],
+      "ref": "14.3, 14.8",
+      "weak": false
+    },
+    {
+      "id": "NAV-FIN-003",
+      "order": 80,
+      "stage": "screen",
+      "priority": "gating",
+      "workstream": "Financial",
+      "request": "Subscription-line profile: size as % of commitments, history of days outstanding, LP opt-out offered, uncalled-capital estimate.",
+      "format": "Quarterly history since inception.",
+      "why": "Sub lines raise IRR without changing multiple.",
+      "pass": "<= 15% to 25% of commitments and <= 180 days outstanding (ILPA PE reference points); opt-out offered.",
+      "fail": "Above 25% or beyond 180 days without disclosure; no opt-out.",
+      "verify": "Confirm with lender statements.",
+      "applies_to": [
+        "sub-line",
+        "hybrid"
+      ],
+      "ref": "14.2 item 10, 14.3",
+      "weak": false
+    },
+    {
+      "id": "NAV-COL-003",
+      "order": 90,
+      "stage": "screen",
+      "priority": "supporting",
+      "workstream": "Collateral & Title",
+      "request": "Rating-agency report if the facility or a feeder note is rated.",
+      "format": "Full rating report.",
+      "why": "Agencies stress fund value 40% to 60% and may rate to the most conservative permitted terms.",
+      "pass": "Rating report reviewed; stress assumptions understood.",
+      "fail": "Rating shopped or report withheld.",
+      "verify": "Obtain directly from the agency.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "14.2 item 11, 14.4",
+      "weak": false
+    },
+    {
+      "id": "NAV-FIN-004",
+      "order": 100,
+      "stage": "screen",
+      "priority": "gating",
+      "workstream": "Financial",
+      "request": "GP-level financing package: management-company and GP financial statements, projected management fees and carry, and the interests to be pledged.",
+      "format": "Audited or reviewed financials; projection model.",
+      "why": "GP financing is not covered in the bible; by analogy, fixed fees dominate GP revenue and carry is uncertain.",
+      "pass": "Debt service covered by contracted management fees alone.",
+      "fail": "Repayment depends on projected carry.",
+      "verify": "Tie fee projections to LPAs and fund sizes.",
+      "applies_to": [
+        "gp-financing"
+      ],
+      "ref": "14.1, 10.1 (by analogy)",
+      "weak": false
+    },
+    {
+      "id": "NAV-COL-004",
+      "order": 10,
+      "stage": "term-sheet",
+      "priority": "gating",
+      "workstream": "Collateral & Title",
+      "request": "Initial and maximum LTV, with the NAV on which LTV is tested (GP marks or independent valuation).",
+      "format": "Term sheet LTV grid.",
+      "why": "LTV on GP marks hides breaches.",
+      "pass": "Initial LTV about 10% to 30%, maximum around 40% as downside buffer (Sidley, Aug. 2025); tested on independent or lender-approved valuations.",
+      "fail": "Initial LTV above 30% or tested on GP marks only.",
+      "verify": "Recompute LTV from portfolio schedule.",
+      "applies_to": [
+        "nav-loan",
+        "hybrid"
+      ],
+      "ref": "14.3, 14.4",
+      "weak": false
+    },
+    {
+      "id": "NAV-COL-005",
+      "order": 20,
+      "stage": "term-sheet",
+      "priority": "gating",
+      "workstream": "Collateral & Title",
+      "request": "Cash-sweep and LTV step-down mechanics, cure rights and the cure waterfall.",
+      "format": "Term sheet and facility sections.",
+      "why": "Cash sweeps are critical to refinancing risk; no sweep is a red flag.",
+      "pass": "Mandatory sweep that steps up as LTV rises; cure rights limited and time-bound.",
+      "fail": "No cash sweep; unlimited equity cures.",
+      "verify": "Model sweep application under stress.",
+      "applies_to": [
+        "nav-loan",
+        "hybrid"
+      ],
+      "ref": "14.2 item 5, 14.4, 14.8",
+      "weak": false
+    },
+    {
+      "id": "NAV-COL-006",
+      "order": 30,
+      "stage": "term-sheet",
+      "priority": "gating",
+      "workstream": "Collateral & Title",
+      "request": "Lender right to commission third-party valuations of collateral.",
+      "format": "Facility clause.",
+      "why": "Stale marks hide LTV breaches; lenders should retain rights to third-party valuations.",
+      "pass": "Lender may commission independent valuations at least annually and on events.",
+      "fail": "No independent-valuation right.",
+      "verify": "Counsel review.",
+      "applies_to": [
+        "nav-loan",
+        "hybrid"
+      ],
+      "ref": "14.2 item 3, 14.3, 14.4",
+      "weak": false
+    },
+    {
+      "id": "NAV-COL-007",
+      "order": 40,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Collateral & Title",
+      "request": "Testing schedule: initial, periodic and event-driven LTV tests.",
+      "format": "Facility clause.",
+      "why": "Testing only at fixed dates misses intra-period shocks.",
+      "pass": "Initial, periodic (at least quarterly) and event-driven tests.",
+      "fail": "Annual testing only.",
+      "verify": "Counsel review.",
+      "applies_to": [
+        "nav-loan",
+        "hybrid"
+      ],
+      "ref": "14.4",
+      "weak": false
+    },
+    {
+      "id": "NAV-COL-008",
+      "order": 50,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Collateral & Title",
+      "request": "Schedule of pledged assets and cross-collateralization terms, including whether one asset's default triggers the whole facility.",
+      "format": "Pledge schedule and default provisions.",
+      "why": "Good assets may be sold to cure an LTV breach caused by bad ones.",
+      "pass": "Pledged assets identified; single-asset default does not force sale of unrelated assets without process.",
+      "fail": "Full cross-collateralization with forced sales.",
+      "verify": "Counsel review.",
+      "applies_to": [
+        "nav-loan",
+        "hybrid"
+      ],
+      "ref": "14.3, 14.7, 14.9 Q4",
+      "weak": false
+    },
+    {
+      "id": "NAV-STR-002",
+      "order": 60,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Structure & Terms",
+      "request": "Recourse terms: whether the facility has recourse to LP uncalled commitments (hybrid) and on what triggers.",
+      "format": "Facility clause.",
+      "why": "Hybrid recourse can force capital calls in a downturn.",
+      "pass": "Recourse to commitments disclosed to LPs and LPAC-consented.",
+      "fail": "Undisclosed LP recourse.",
+      "verify": "Counsel review.",
+      "applies_to": [
+        "hybrid",
+        "sub-line"
+      ],
+      "ref": "14.2 item 6",
+      "weak": false
+    },
+    {
+      "id": "NAV-FIN-005",
+      "order": 70,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "All-in cost: spread, PIK toggle, upfront and commitment fees, compared with the IRR uplift and with selling an asset instead.",
+      "format": "Cost schedule and GP's comparison.",
+      "why": "Facility cost can exceed its benefit; PIK compounds on weak assets.",
+      "pass": "Cash-pay; all-in cost below the asset-sale alternative.",
+      "fail": "PIK interest; no comparison with an asset sale.",
+      "verify": "Rebuild the comparison.",
+      "applies_to": [
+        "nav-loan",
+        "hybrid"
+      ],
+      "ref": "14.3, 14.8, 14.9 Q3",
+      "weak": false
+    },
+    {
+      "id": "NAV-STR-003",
+      "order": 80,
+      "stage": "term-sheet",
+      "priority": "gating",
+      "workstream": "Structure & Terms",
+      "request": "LPA protections for LPs: cap on fund-level leverage, LP or LPAC consent for NAV facilities, no carry on NAV-funded distributions, disclosure of recallability.",
+      "format": "LPA extracts or side-letter terms.",
+      "why": "NAV-funded distributions can pay carry before LPs are whole and can be recalled.",
+      "pass": "All four protections present.",
+      "fail": "Carry payable on borrowed distributions or recall terms undisclosed.",
+      "verify": "Counsel review.",
+      "applies_to": [
+        "nav-loan",
+        "hybrid"
+      ],
+      "ref": "14.6",
+      "weak": false
+    },
+    {
+      "id": "NAV-STR-004",
+      "order": 90,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Structure & Terms",
+      "request": "Subscription-line LPA terms: size and duration caps and LP opt-out.",
+      "format": "LPA extract.",
+      "why": "ILPA Principles 3.0 call for reasonable size and duration and an opt-out at the outset.",
+      "pass": "Caps at or below 25% of commitments and 180 days; opt-out offered.",
+      "fail": "No caps or opt-out.",
+      "verify": "Counsel review.",
+      "applies_to": [
+        "sub-line",
+        "hybrid"
+      ],
+      "ref": "14.3, 14.6",
+      "weak": false
+    },
+    {
+      "id": "NAV-STR-005",
+      "order": 100,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Structure & Terms",
+      "request": "Maturity, extension and renewal terms, and maturities of every other facility in the stack.",
+      "format": "Facility terms.",
+      "why": "Haircut and non-renewal spiral as asset prices fall.",
+      "pass": "Staggered maturities; extension not solely at lender discretion during stress.",
+      "fail": "Concentrated maturities across facilities.",
+      "verify": "Map maturities.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "14.3, 14.7",
+      "weak": false
+    },
+    {
+      "id": "NAV-COL-009",
+      "order": 110,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Collateral & Title",
+      "request": "Pledge structure: holding-company equity pledge description and its position behind portfolio-company lenders.",
+      "format": "Structure chart.",
+      "why": "NAV lenders sit behind every portfolio company's own lenders.",
+      "pass": "Structure and look-through priority disclosed.",
+      "fail": "Unclear pledge.",
+      "verify": "Counsel review.",
+      "applies_to": [
+        "nav-loan",
+        "hybrid"
+      ],
+      "ref": "14.6",
+      "weak": false
+    },
+    {
+      "id": "NAV-STR-006",
+      "order": 120,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Structure & Terms",
+      "request": "GP-financing restrictions: LPA and side-letter limits on pledging GP interests or carry, change-of-control and key-person effects, and LP disclosure.",
+      "format": "LPA extracts and LP notice.",
+      "why": "GP financing is not covered in the bible; by analogy, LPs need to know when GP economics are leveraged.",
+      "pass": "Pledge permitted and disclosed to LPs; key-person and change-of-control effects understood.",
+      "fail": "Pledge prohibited or undisclosed.",
+      "verify": "Counsel review.",
+      "applies_to": [
+        "gp-financing"
+      ],
+      "ref": "14.6, 10.13 (by analogy)",
+      "weak": false
+    },
+    {
+      "id": "NAV-VAL-001",
+      "order": 10,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Valuation & Model",
+      "request": "Fund valuation policy and the last two years of marks versus exit prices.",
+      "format": "Policy and exit-to-mark schedule.",
+      "why": "Private marks lag public markets by at least four quarters.",
+      "pass": "Exits at or above prior marks on average.",
+      "fail": "Exits systematically below marks.",
+      "verify": "Tie exits to audited realizations.",
+      "applies_to": [
+        "nav-loan",
+        "hybrid"
+      ],
+      "ref": "14.2 item 3, 14.3",
+      "weak": false
+    },
+    {
+      "id": "NAV-FIN-006",
+      "order": 20,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Financial",
+      "request": "Portfolio-company financial statements and each company's own debt, with look-through leverage.",
+      "format": "Latest financials and debt schedules per company.",
+      "why": "Structural subordination: each portfolio company's senior debt sits ahead of the NAV lender.",
+      "pass": "Look-through leverage computed; no company in default.",
+      "fail": "Unknown company-level leverage.",
+      "verify": "Compute look-through leverage ourselves.",
+      "applies_to": [
+        "nav-loan",
+        "hybrid"
+      ],
+      "ref": "14.2 item 4, 14.3",
+      "weak": false
+    },
+    {
+      "id": "NAV-COL-010",
+      "order": 30,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Collateral & Title",
+      "request": "LTV stress at 25%, 30% and 40% NAV haircuts, identifying when sweep and cure triggers hit.",
+      "format": "Our model using facility terms.",
+      "why": "Stale marks and falling values breach LTV late.",
+      "pass": "No default at a 25% to 40% haircut; sweep triggers early.",
+      "fail": "Default or forced sale at a 25% haircut.",
+      "verify": "Rebuild independently.",
+      "applies_to": [
+        "nav-loan",
+        "hybrid"
+      ],
+      "ref": "14.3",
+      "weak": false
+    },
+    {
+      "id": "NAV-COL-011",
+      "order": 40,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Collateral & Title",
+      "request": "Joint stress: 20% to 30% collateral price fall plus a haircut increase and facility non-renewal, showing which assets are sold first and whether forced sales breach covenants elsewhere.",
+      "format": "Our model.",
+      "why": "Liquidity can vanish across assets at once; bank-financed booms are the dangerous ones.",
+      "pass": "Fund survives without forced sales breaching other covenants.",
+      "fail": "Forced sales cascade.",
+      "verify": "Rebuild.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "14.3",
+      "weak": false
+    },
+    {
+      "id": "NAV-COL-012",
+      "order": 50,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Collateral & Title",
+      "request": "Stressed advance-rate analysis: facility sized at crisis-level haircuts.",
+      "format": "Our analysis.",
+      "why": "Repo haircuts went from about 0% (early 2007) to nearly 50% (late 2008); Ellington margins from about 10% to above 40%.",
+      "pass": "Facility serviceable at crisis haircuts.",
+      "fail": "Facility only works at current advance rates.",
+      "verify": "Rebuild.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "14.3, 14.4",
+      "weak": false
+    },
+    {
+      "id": "NAV-LEG-002",
+      "order": 60,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Corporate & Legal",
+      "request": "Complete amendment, waiver and consent history since origination.",
+      "format": "All amendments and waivers.",
+      "why": "The amendment trail is the real credit history.",
+      "pass": "Full history; no pattern of covenant resets.",
+      "fail": "History withheld or repeated resets.",
+      "verify": "Confirm with agent bank.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "14.2 item 12, 14.9 Q8",
+      "weak": false
+    },
+    {
+      "id": "NAV-FIN-007",
+      "order": 70,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Disclosure sent to LPs about the facility, including ILPA Reporting and Performance Templates.",
+      "format": "LP notices and templates.",
+      "why": "ILPA calls for standardized disclosure to all LPs.",
+      "pass": "All LPs informed with standardized disclosure.",
+      "fail": "Selective or no disclosure.",
+      "verify": "Ask an LP.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "14.2 item 8, 14.3",
+      "weak": false
+    },
+    {
+      "id": "NAV-FIN-008",
+      "order": 80,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Financial",
+      "request": "DPI and IRR without the subscription line and without NAV-loan-funded distributions (synthetic DPI).",
+      "format": "ILPA Performance Template plus synthetic DPI schedule.",
+      "why": "THE ONE CHECK: without these figures the fund's real liquidity and return are unknown.",
+      "pass": "Figures produced; differences explained.",
+      "fail": "GP cannot or will not produce them.",
+      "verify": "Recompute from cash flows and drawdowns.",
+      "applies_to": [
+        "nav-loan",
+        "hybrid",
+        "sub-line"
+      ],
+      "ref": "14.3, 14.6, 14.7 THE ONE CHECK, 14.9 Q1",
+      "weak": false
+    },
+    {
+      "id": "NAV-FIN-009",
+      "order": 90,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Financial",
+      "request": "Confirmation of whether any carry has been or will be paid on NAV-funded distributions.",
+      "format": "GP certification and waterfall calculations.",
+      "why": "Carry on borrowed distributions pays the GP before LPs are whole.",
+      "pass": "No carry on NAV-funded distributions.",
+      "fail": "Carry paid on borrowed distributions.",
+      "verify": "Recompute waterfall.",
+      "applies_to": [
+        "nav-loan",
+        "hybrid"
+      ],
+      "ref": "14.3, 14.7, 14.9 Q7",
+      "weak": false
+    },
+    {
+      "id": "NAV-FIN-010",
+      "order": 100,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Analysis of whether the facility extends the fund's life or fee stream, with term-extension consents and fee step-downs.",
+      "format": "GP statement and LPA terms.",
+      "why": "Fees run longer on a fund that should be winding down.",
+      "pass": "Facility maturity within fund term; no fee extension.",
+      "fail": "Facility requires term extension with full fees.",
+      "verify": "Compare maturity with fund term.",
+      "applies_to": [
+        "nav-loan",
+        "hybrid"
+      ],
+      "ref": "14.3, 14.7",
+      "weak": false
+    },
+    {
+      "id": "NAV-FIN-011",
+      "order": 110,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Defensive-use schedule: portfolio companies receiving proceeds, terms, and PIK share.",
+      "format": "Schedule.",
+      "why": "Defensive PIK loans compound leverage on the weakest assets.",
+      "pass": "Defensive use limited and cash-pay.",
+      "fail": "PIK rescue loans to struggling companies.",
+      "verify": "Review company financials.",
+      "applies_to": [
+        "nav-loan",
+        "hybrid"
+      ],
+      "ref": "14.1, 14.7",
+      "weak": false
+    },
+    {
+      "id": "NAV-FIN-012",
+      "order": 120,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Quarterly subscription-line disclosures: size, balance, IRR with and without, uncalled-capital estimate, sub-line interest as a separate expense line.",
+      "format": "ILPA 2020 and 2025 template format.",
+      "why": "Sub-line-inflated IRR.",
+      "pass": "Disclosed quarterly.",
+      "fail": "Not disclosed.",
+      "verify": "Tie to lender statements.",
+      "applies_to": [
+        "sub-line",
+        "hybrid"
+      ],
+      "ref": "14.3",
+      "weak": false
+    },
+    {
+      "id": "NAV-COL-013",
+      "order": 130,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Collateral & Title",
+      "request": "LP commitment schedule and borrowing-base certificate for the subscription line, verified by the administrator.",
+      "format": "Administrator-certified schedule.",
+      "why": "Sub-line collateral is LPs' uncalled commitments.",
+      "pass": "Borrowing base ties to administrator records; ineligible LPs excluded.",
+      "fail": "Unverified borrowing base.",
+      "verify": "Administrator confirmation.",
+      "applies_to": [
+        "sub-line",
+        "hybrid"
+      ],
+      "ref": "14.5",
+      "weak": false
+    },
+    {
+      "id": "NAV-FIN-013",
+      "order": 140,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Capital-call history and any LP default or late funding.",
+      "format": "Administrator records.",
+      "why": "Sub-line repayment depends on LPs funding calls.",
+      "pass": "No LP defaults.",
+      "fail": "LP defaults or late funding.",
+      "verify": "Administrator confirmation.",
+      "applies_to": [
+        "sub-line",
+        "hybrid"
+      ],
+      "ref": "14.5",
+      "weak": false
+    },
+    {
+      "id": "NAV-TAX-001",
+      "order": 150,
+      "stage": "confirmatory",
+      "priority": "supporting",
+      "workstream": "Tax",
+      "request": "Tax and accounting treatment of recallable NAV-funded distributions for LPs.",
+      "format": "Counsel or tax adviser memo.",
+      "why": "Recall creates tax and accounting problems for LPs.",
+      "pass": "Treatment documented.",
+      "fail": "Not considered.",
+      "verify": "Our tax review.",
+      "applies_to": [
+        "nav-loan",
+        "hybrid"
+      ],
+      "ref": "14.6",
+      "weak": false
+    },
+    {
+      "id": "NAV-FIN-014",
+      "order": 160,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Management-company fee and expense model and existing GP-level debt.",
+      "format": "Model and debt schedule.",
+      "why": "GP financing not covered in the bible; GP leverage can affect retention and alignment.",
+      "pass": "Fees cover expenses and debt service.",
+      "fail": "Debt service requires carry.",
+      "verify": "Tie to fund LPAs.",
+      "applies_to": [
+        "gp-financing"
+      ],
+      "ref": "10.1, 10.13 (by analogy)",
+      "weak": false
+    },
+    {
+      "id": "NAV-VAL-002",
+      "order": 10,
+      "stage": "third-party",
+      "priority": "gating",
+      "workstream": "Valuation & Model",
+      "request": "Independent valuation of the collateral portfolio.",
+      "format": "Valuation report from an agent engaged by the lender.",
+      "why": "Stale GP marks hide LTV breaches.",
+      "pass": "Independent NAV within 10% of GP NAV, or LTV recomputed on independent NAV.",
+      "fail": "Material shortfall versus GP NAV.",
+      "verify": "Agent engaged by us.",
+      "applies_to": [
+        "nav-loan",
+        "hybrid"
+      ],
+      "ref": "14.5",
+      "weak": false
+    },
+    {
+      "id": "NAV-COL-014",
+      "order": 20,
+      "stage": "third-party",
+      "priority": "core",
+      "workstream": "Collateral & Title",
+      "request": "Review of the rating-agency methodology applied (KBRA haircut 40% to 60% by asset type; Fitch rates to most conservative permitted terms).",
+      "format": "Rating report.",
+      "why": "Rating stress is the outside view of advance rates.",
+      "pass": "Facility passes agency stress.",
+      "fail": "Fails stress.",
+      "verify": "Agency report direct.",
+      "applies_to": [
+        "nav-loan",
+        "hybrid"
+      ],
+      "ref": "14.4, 14.5",
+      "weak": false
+    },
+    {
+      "id": "NAV-LEG-003",
+      "order": 30,
+      "stage": "third-party",
+      "priority": "core",
+      "workstream": "Corporate & Legal",
+      "request": "Counsel memo on LPA borrowing authority, LPAC consent, recall mechanics and tax.",
+      "format": "Memo by our counsel.",
+      "why": "Authority and recall disputes.",
+      "pass": "No authority gaps.",
+      "fail": "Authority gaps.",
+      "verify": "Counsel engaged by us.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "14.5",
+      "weak": false
+    },
+    {
+      "id": "NAV-FOP-001",
+      "order": 40,
+      "stage": "third-party",
+      "priority": "gating",
+      "workstream": "Fund Operations",
+      "request": "Direct confirmation from the fund administrator of borrowing-base inputs, NAV and capital-call records.",
+      "format": "Administrator confirmation letter.",
+      "why": "Borrowing-base certificates prepared by the GP alone.",
+      "pass": "Administrator confirms all inputs.",
+      "fail": "Mismatch.",
+      "verify": "Unsolicited call.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "14.5",
+      "weak": false
+    },
+    {
+      "id": "NAV-STR-007",
+      "order": 10,
+      "stage": "closing",
+      "priority": "gating",
+      "workstream": "Structure & Terms",
+      "request": "Executed facility agreement and fee letter conforming to the agreed term sheet.",
+      "format": "Execution versions and redline.",
+      "why": "Late changes.",
+      "pass": "Only agreed changes.",
+      "fail": "Unagreed changes.",
+      "verify": "Counsel confirmation.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "14.2",
+      "weak": false
+    },
+    {
+      "id": "NAV-COL-015",
+      "order": 20,
+      "stage": "closing",
+      "priority": "gating",
+      "workstream": "Collateral & Title",
+      "request": "Perfected pledge: holding-company equity pledges, account control agreements and filings.",
+      "format": "Filed and executed documents.",
+      "why": "Unperfected security.",
+      "pass": "All pledges perfected.",
+      "fail": "Gaps.",
+      "verify": "Lien searches.",
+      "applies_to": [
+        "nav-loan",
+        "hybrid",
+        "gp-financing"
+      ],
+      "ref": "14.6",
+      "weak": false
+    },
+    {
+      "id": "NAV-LEG-004",
+      "order": 30,
+      "stage": "closing",
+      "priority": "gating",
+      "workstream": "Corporate & Legal",
+      "request": "Executed LPAC consent and evidence of notice to all LPs.",
+      "format": "Consent and notices.",
+      "why": "Facilities without LPAC consent.",
+      "pass": "Consent and notices in hand.",
+      "fail": "Missing.",
+      "verify": "Counsel confirmation.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "14.6",
+      "weak": false
+    },
+    {
+      "id": "NAV-COL-016",
+      "order": 40,
+      "stage": "closing",
+      "priority": "core",
+      "workstream": "Collateral & Title",
+      "request": "Closing borrowing-base or LTV certificate.",
+      "format": "Certificate tied to administrator data.",
+      "why": "Day-one breach.",
+      "pass": "Within limits.",
+      "fail": "Breach.",
+      "verify": "Administrator confirmation.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "14.4",
+      "weak": false
+    },
+    {
+      "id": "NAV-COL-017",
+      "order": 10,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Collateral & Title",
+      "request": "Periodic borrowing-base and LTV compliance certificates.",
+      "format": "Certificates per testing schedule.",
+      "why": "Late discovery of breaches.",
+      "pass": "On time and compliant.",
+      "fail": "Late or breach.",
+      "verify": "Administrator tie-out.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "14.4",
+      "weak": false
+    },
+    {
+      "id": "NAV-VAL-003",
+      "order": 20,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Valuation & Model",
+      "request": "Quarterly portfolio valuations and independent valuations on lender demand.",
+      "format": "Valuation reports.",
+      "why": "Stale marks.",
+      "pass": "Delivered; independent within tolerance.",
+      "fail": "Divergence.",
+      "verify": "Agent engaged by us.",
+      "applies_to": [
+        "nav-loan",
+        "hybrid"
+      ],
+      "ref": "14.3",
+      "weak": false
+    },
+    {
+      "id": "NAV-COL-018",
+      "order": 30,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Collateral & Title",
+      "request": "Event notices: asset sales, impairments, portfolio-company defaults.",
+      "format": "Notices within facility deadlines.",
+      "why": "Event-driven LTV tests.",
+      "pass": "Timely notices.",
+      "fail": "Late notices.",
+      "verify": "Monitor public sources.",
+      "applies_to": [
+        "nav-loan",
+        "hybrid"
+      ],
+      "ref": "14.4",
+      "weak": false
+    },
+    {
+      "id": "NAV-FIN-015",
+      "order": 40,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Cash-sweep application report.",
+      "format": "Quarterly report.",
+      "why": "Sweeps not applied.",
+      "pass": "Sweep applied per terms.",
+      "fail": "Diverted proceeds.",
+      "verify": "Bank statements.",
+      "applies_to": [
+        "nav-loan",
+        "hybrid"
+      ],
+      "ref": "14.4",
+      "weak": false
+    },
+    {
+      "id": "NAV-FIN-016",
+      "order": 50,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Quarterly facility disclosure to LPs: balances, use of proceeds, IRR and DPI with and without facilities.",
+      "format": "ILPA templates.",
+      "why": "Undisclosed leverage.",
+      "pass": "Delivered quarterly.",
+      "fail": "Not delivered.",
+      "verify": "LP confirmation.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "14.3",
+      "weak": false
+    },
+    {
+      "id": "NAV-LEG-005",
+      "order": 60,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Corporate & Legal",
+      "request": "Notice of every amendment, waiver and consent.",
+      "format": "Copies.",
+      "why": "Amendment trail is the credit history.",
+      "pass": "Copies within 10 business days.",
+      "fail": "Undisclosed waivers.",
+      "verify": "Agent bank confirmation.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "14.2",
+      "weak": false
+    },
+    {
+      "id": "NAV-FOP-002",
+      "order": 70,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Fund Operations",
+      "request": "Annual audited financial statements of the fund (and GP entity for GP financing).",
+      "format": "Signed audits.",
+      "why": "Valuation drift.",
+      "pass": "Unqualified and on time.",
+      "fail": "Late or qualified.",
+      "verify": "Auditor confirmation.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "14.5",
+      "weak": false
+    },
+    {
+      "id": "NAV-COL-019",
+      "order": 80,
+      "stage": "monitoring",
+      "priority": "supporting",
+      "workstream": "Collateral & Title",
+      "request": "Rating-surveillance reports for rated facilities.",
+      "format": "Agency reports.",
+      "why": "Rating migration.",
+      "pass": "Affirmed.",
+      "fail": "Downgrade or watch.",
+      "verify": "Agency direct.",
+      "applies_to": [
+        "nav-loan",
+        "hybrid"
+      ],
+      "ref": "14.4",
+      "weak": false
+    },
+    {
+      "id": "NAV-FIN-017",
+      "order": 90,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Quarterly subscription-line balance and days outstanding.",
+      "format": "Lender statements.",
+      "why": "Sub lines outstanding beyond 180 days.",
+      "pass": "Within 180 days and 25% of commitments, or disclosed.",
+      "fail": "Beyond limits.",
+      "verify": "Lender confirmation.",
+      "applies_to": [
+        "sub-line",
+        "hybrid"
+      ],
+      "ref": "14.3",
+      "weak": false
+    }
+  ],
+  "kill_tests": [
+    {
+      "id": "NAV-K01",
+      "test": "GP cannot or will not produce DPI and IRR without the sub line and without NAV-loan-funded distributions.",
+      "ref": "14.7 THE ONE CHECK",
+      "applies_to": [
+        "nav-loan",
+        "hybrid",
+        "sub-line"
+      ]
+    },
+    {
+      "id": "NAV-K02",
+      "test": "LPA does not permit the facility, or no LPAC consent obtained.",
+      "ref": "14.6, 14.8",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "NAV-K03",
+      "test": "Carry paid or payable on NAV-funded distributions and the GP will not remove it.",
+      "ref": "14.6, 14.8",
+      "applies_to": [
+        "nav-loan",
+        "hybrid"
+      ]
+    },
+    {
+      "id": "NAV-K04",
+      "test": "LTV tested on GP marks only with no lender independent-valuation right.",
+      "ref": "14.3, 14.8",
+      "applies_to": [
+        "nav-loan",
+        "hybrid"
+      ]
+    },
+    {
+      "id": "NAV-K05",
+      "test": "Amendment, waiver and consent history refused.",
+      "ref": "14.2 item 12",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "NAV-K06",
+      "test": "Facility defaults or forces sales at a 25% NAV haircut.",
+      "ref": "14.3",
+      "applies_to": [
+        "nav-loan",
+        "hybrid"
+      ]
+    }
+  ],
+  "red_flags": [
+    {
+      "id": "NAV-RF01",
+      "flag": "NAV facility put in place without LPAC consent.",
+      "check": "LPAC consent record.",
+      "ref": "14.8",
+      "applies_to": [
+        "nav-loan",
+        "hybrid"
+      ]
+    },
+    {
+      "id": "NAV-RF02",
+      "flag": "Use of proceeds is 'distributions' in a fund raising its next vintage.",
+      "check": "Use-of-proceeds statement; fundraising status.",
+      "ref": "14.8",
+      "applies_to": [
+        "nav-loan",
+        "hybrid"
+      ]
+    },
+    {
+      "id": "NAV-RF03",
+      "flag": "PIK interest.",
+      "check": "Cost schedule; defensive-use schedule.",
+      "ref": "14.8",
+      "applies_to": [
+        "nav-loan",
+        "hybrid"
+      ]
+    },
+    {
+      "id": "NAV-RF04",
+      "flag": "LTV tested on GP marks only; no independent-valuation right.",
+      "check": "Facility terms.",
+      "ref": "14.8",
+      "applies_to": [
+        "nav-loan",
+        "hybrid"
+      ]
+    },
+    {
+      "id": "NAV-RF05",
+      "flag": "No cash sweep.",
+      "check": "Sweep mechanics.",
+      "ref": "14.8",
+      "applies_to": [
+        "nav-loan",
+        "hybrid"
+      ]
+    },
+    {
+      "id": "NAV-RF06",
+      "flag": "Carry paid on NAV-funded distributions.",
+      "check": "Waterfall recomputation.",
+      "ref": "14.8",
+      "applies_to": [
+        "nav-loan",
+        "hybrid"
+      ]
+    },
+    {
+      "id": "NAV-RF07",
+      "flag": "Sub line above 25% of commitments or outstanding beyond 180 days without disclosure.",
+      "check": "Quarterly sub-line history.",
+      "ref": "14.8",
+      "applies_to": [
+        "sub-line",
+        "hybrid"
+      ]
+    },
+    {
+      "id": "NAV-RF08",
+      "flag": "No LP opt-out on the sub line; no with/without reporting.",
+      "check": "LPA and reporting review.",
+      "ref": "14.8",
+      "applies_to": [
+        "sub-line",
+        "hybrid"
+      ]
+    },
+    {
+      "id": "NAV-RF09",
+      "flag": "Multiple layers (sub line plus NAV plus asset-level facilities) with no single map.",
+      "check": "Leverage-stack map.",
+      "ref": "14.8",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "NAV-RF10",
+      "flag": "Defensive rescue loans to weak portfolio companies.",
+      "check": "Use-of-proceeds schedule.",
+      "ref": "14.1, 14.7",
+      "applies_to": [
+        "nav-loan",
+        "hybrid"
+      ]
+    },
+    {
+      "id": "NAV-RF11",
+      "flag": "Facility maturity requires a fund term extension with continued fees.",
+      "check": "Maturity vs fund term.",
+      "ref": "14.3, 14.7",
+      "applies_to": [
+        "nav-loan",
+        "hybrid"
+      ]
+    },
+    {
+      "id": "NAV-RF12",
+      "flag": "GP-level debt serviceable only from projected carry.",
+      "check": "GP fee model.",
+      "ref": "14.1 (by analogy)",
+      "applies_to": [
+        "gp-financing"
+      ]
+    }
+  ],
+  "metrics": [
+    {
+      "id": "NAV-M01",
+      "metric": "NAV-facility market size",
+      "acceptable": "About $100B (2024) to $600B forecast by 2030 (FFA via ILPA) vs about $100B (2023) to $700B lender forecast (HLS Forum); do not average",
+      "source": "ILPA July 2024; HLS Forum 2024",
+      "weak": false,
+      "ref": "14.1, 14.4",
+      "applies_to": [
+        "nav-loan",
+        "hybrid"
+      ]
+    },
+    {
+      "id": "NAV-M02",
+      "metric": "NAV-facility use split to date",
+      "acceptable": "About 80% portfolio support; about 20% distributions",
+      "source": "ILPA, July 2024",
+      "weak": false,
+      "ref": "14.1, 14.4",
+      "applies_to": [
+        "nav-loan",
+        "hybrid"
+      ]
+    },
+    {
+      "id": "NAV-M03",
+      "metric": "Initial LTV",
+      "acceptable": "About 10% to 30%; maximums around 40% as downside buffers",
+      "source": "Sidley, Aug. 2025",
+      "weak": false,
+      "ref": "14.3, 14.4",
+      "applies_to": [
+        "nav-loan",
+        "hybrid"
+      ]
+    },
+    {
+      "id": "NAV-M04",
+      "metric": "LTV stress haircut (our test)",
+      "acceptable": "25% to 40% NAV haircut",
+      "source": "Bible 14.3 (Sidley; general lane)",
+      "weak": false,
+      "ref": "14.3",
+      "applies_to": [
+        "nav-loan",
+        "hybrid"
+      ]
+    },
+    {
+      "id": "NAV-M05",
+      "metric": "Collateral price stress (our test)",
+      "acceptable": "20% to 30% fall plus haircut increase",
+      "source": "Bible 14.3 (Brunnermeier and Pedersen)",
+      "weak": false,
+      "ref": "14.3",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "NAV-M06",
+      "metric": "Rating-agency stress haircut",
+      "acceptable": "KBRA haircuts fund value 40% to 60% by asset type",
+      "source": "Reuters via Yahoo Finance, May 2024",
+      "weak": false,
+      "ref": "14.4",
+      "applies_to": [
+        "nav-loan",
+        "hybrid"
+      ]
+    },
+    {
+      "id": "NAV-M07",
+      "metric": "Fitch approach",
+      "acceptable": "Reportedly rates to the most conservative terms permitted in the facility",
+      "source": "Reuters via Yahoo Finance, May 2024",
+      "weak": false,
+      "ref": "14.4",
+      "applies_to": [
+        "nav-loan",
+        "hybrid"
+      ]
+    },
+    {
+      "id": "NAV-M08",
+      "metric": "Rated NAV issuance, 2025",
+      "acceptable": "Record, about $23B in 38 deals",
+      "source": "KBRA",
+      "weak": false,
+      "ref": "14.4",
+      "applies_to": [
+        "nav-loan",
+        "hybrid"
+      ]
+    },
+    {
+      "id": "NAV-M09",
+      "metric": "KBRA surveillance, PE and secondary NAV loans 2020-1H 2026",
+      "acceptable": "95% of 279 actions were affirmations (stress not yet tested at scale)",
+      "source": "KBRA",
+      "weak": false,
+      "ref": "14.4, 14.7",
+      "applies_to": [
+        "nav-loan",
+        "hybrid"
+      ]
+    },
+    {
+      "id": "NAV-M10",
+      "metric": "Sub-line size (PE)",
+      "acceptable": "15% to 25% of commitments",
+      "source": "ILPA 2020",
+      "weak": false,
+      "ref": "14.3, 14.4",
+      "applies_to": [
+        "sub-line",
+        "hybrid"
+      ]
+    },
+    {
+      "id": "NAV-M11",
+      "metric": "Sub-line days outstanding (PE)",
+      "acceptable": "<= 180 days",
+      "source": "ILPA 2020",
+      "weak": false,
+      "ref": "14.3, 14.4",
+      "applies_to": [
+        "sub-line",
+        "hybrid"
+      ]
+    },
+    {
+      "id": "NAV-M12",
+      "metric": "Bank lending to private-credit vehicles",
+      "acceptable": "About $8B (2013) to about $95B (end-2024); about 14% of bank lending to nonbanks, up from about 1%",
+      "source": "Harker, KaW 2026",
+      "weak": false,
+      "ref": "14.1, 14.4",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "NAV-M13",
+      "metric": "Repo haircut index, stressed",
+      "acceptable": "About 0% (early 2007) to nearly 50% (late 2008)",
+      "source": "Gorton and Metrick, JFE 2012",
+      "weak": false,
+      "ref": "14.3, 14.4",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "NAV-M14",
+      "metric": "Margin stress example",
+      "acceptable": "Ellington margins about 10% to above 40% in months",
+      "source": "Geanakoplos (Yale lane)",
+      "weak": false,
+      "ref": "14.3",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "NAV-M15",
+      "metric": "Private-mark lag",
+      "acceptable": "At least four quarters to converge after a shock",
+      "source": "IMF GFSR Apr. 2024",
+      "weak": false,
+      "ref": "14.3, 14.4",
+      "applies_to": [
+        "nav-loan",
+        "hybrid"
+      ]
+    }
+  ],
+  "third_party_reports": [
+    {
+      "id": "NAV-T01",
+      "report": "Independent collateral valuation",
+      "provider": "Independent valuation agent (lender right to third-party valuations)",
+      "required_when": "Always for NAV and hybrid facilities",
+      "ref": "14.5"
+    },
+    {
+      "id": "NAV-T02",
+      "report": "Rating report",
+      "provider": "Rating agency (KBRA, Fitch)",
+      "required_when": "Rated facilities and rated feeder notes",
+      "ref": "14.5"
+    },
+    {
+      "id": "NAV-T03",
+      "report": "Legal memo on borrowing authority, LPAC consent, recall mechanics and tax",
+      "provider": "Lender's and LP's counsel",
+      "required_when": "Always",
+      "ref": "14.5"
+    },
+    {
+      "id": "NAV-T04",
+      "report": "Borrowing-base certificates and capital-call verification",
+      "provider": "Fund administrator",
+      "required_when": "Always",
+      "ref": "14.5"
+    }
+  ],
+  "hard_questions": [
+    {
+      "id": "NAV-HQ01",
+      "question": "What is DPI without the NAV loan? IRR without the sub line?",
+      "good_answer": "Both figures produced immediately from administrator cash flows.",
+      "ref": "14.9 Q1"
+    },
+    {
+      "id": "NAV-HQ02",
+      "question": "What happens at a 30% NAV decline: who cures, and can you recall distributions?",
+      "good_answer": "A modelled cure waterfall with sweep, no forced sale of good assets, and disclosed recall terms.",
+      "ref": "14.9 Q2"
+    },
+    {
+      "id": "NAV-HQ03",
+      "question": "What does the facility cost all-in against the IRR gain? Why not sell an asset instead?",
+      "good_answer": "A comparison showing the facility is cheaper than a sale at current secondary pricing.",
+      "ref": "14.9 Q3"
+    },
+    {
+      "id": "NAV-HQ04",
+      "question": "Which assets are pledged, and does one default trigger the whole facility?",
+      "good_answer": "A pledge schedule with ring-fenced defaults.",
+      "ref": "14.9 Q4"
+    },
+    {
+      "id": "NAV-HQ05",
+      "question": "Who values the collateral for the LTV test?",
+      "good_answer": "An independent valuation agent with lender appointment rights.",
+      "ref": "14.9 Q5"
+    },
+    {
+      "id": "NAV-HQ06",
+      "question": "Did the LPAC consent, and what were LPs told?",
+      "good_answer": "Written LPAC consent and standardized ILPA disclosure to all LPs.",
+      "ref": "14.9 Q6"
+    },
+    {
+      "id": "NAV-HQ07",
+      "question": "Is any carry being paid on borrowed distributions?",
+      "good_answer": "No; LPA prohibits it.",
+      "ref": "14.9 Q7"
+    },
+    {
+      "id": "NAV-HQ08",
+      "question": "Show every amendment and waiver since origination.",
+      "good_answer": "A complete, short amendment trail.",
+      "ref": "14.9 Q8"
+    }
+  ],
+  "failure_cases": [
+    {
+      "case": "DPI manufactured by borrowing (generic)",
+      "year": "Recurring",
+      "what_happened": "Fund looks liquid and raises next fund on borrowed distributions.",
+      "check": "Recompute DPI excluding NAV-funded distributions; ILPA Performance Template.",
+      "ref": "14.7"
+    },
+    {
+      "case": "Recall of distributions in a downturn (generic)",
+      "year": "Recurring",
+      "what_happened": "LPs must return cash when they least have it.",
+      "check": "Read the recall clause and LTV cure waterfall; model a 30% NAV drawdown.",
+      "ref": "14.7"
+    },
+    {
+      "case": "Cross-collateralization contagion (generic)",
+      "year": "Recurring",
+      "what_happened": "Good assets sold to cure an LTV breach caused by bad ones.",
+      "check": "Map pledged assets; single-asset default triggers.",
+      "ref": "14.7"
+    },
+    {
+      "case": "Stale marks hide LTV breaches (generic)",
+      "year": "Recurring",
+      "what_happened": "Lender and LPs learn late.",
+      "check": "Independent-valuation right; exit-to-mark comparison.",
+      "ref": "14.7"
+    },
+    {
+      "case": "Carry on borrowed distributions (generic)",
+      "year": "Recurring",
+      "what_happened": "GP paid before LPs are whole.",
+      "check": "LPA: no carry on NAV-funded distributions.",
+      "ref": "14.7"
+    },
+    {
+      "case": "Defensive PIK loans to rescue weak companies (generic)",
+      "year": "Recurring",
+      "what_happened": "Leverage compounds on the weakest assets.",
+      "check": "Use-of-proceeds test; PIK share.",
+      "ref": "14.7"
+    },
+    {
+      "case": "Fee life extended (generic)",
+      "year": "Recurring",
+      "what_happened": "Fees run longer on a fund that should be winding down.",
+      "check": "Term-extension consent; fee step-down.",
+      "ref": "14.7"
+    },
+    {
+      "case": "Sub-line-inflated IRR (generic)",
+      "year": "Recurring",
+      "what_happened": "IRR rises with no change in multiple.",
+      "check": "Recompute without the facility.",
+      "ref": "14.7"
+    },
+    {
+      "case": "Haircut and non-renewal spiral (generic; repo 2007-08)",
+      "year": "2007-2008",
+      "what_happened": "Lender cuts advance rate as asset prices fall; repo haircuts went from about 0% to nearly 50%.",
+      "check": "Stress haircuts to crisis levels; staggered maturities.",
+      "ref": "14.3, 14.7"
+    }
+  ]
+}

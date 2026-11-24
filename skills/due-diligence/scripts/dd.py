@@ -6,7 +6,7 @@ Standard library only. If `openpyxl` is installed, packets also get an Excel tra
 Commands
   types                                   list deal types and subtypes
   intake   --type T[,T2]                  print intake questions for a deal type
-  packet   --type T[,T2] [--subtype a,b] --deal NAME [--sponsor NAME] [--out DIR]
+  packet   --type T[,T2] [--subtype a,b] [--conditions c,d] --deal NAME [--sponsor NAME] [--out DIR]
                                           build the request packet, reviewer checklist and tracker
   update   --tracker FILE --id ID --status S [--evidence TEXT] [--note TEXT] [--by NAME]
                                           record a review result for one item
@@ -74,16 +74,25 @@ def applies(item, subtypes):
     return "all" in a or not subtypes or any(s in a for s in subtypes)
 
 
-def assemble(types, subtypes):
+def assemble(types, subtypes, conditions=None):
+    """Each library filters only by its own subtype ids. Universal 'subtypes' are deal conditions
+    (operating-company, levered-vehicle, ...) passed via --conditions. A library with none of its
+    subtypes selected includes every item."""
     libs = [load("universal")] + [load(t) for t in types]
     out = {k: [] for k in ["requests", "kill_tests", "red_flags", "metrics", "third_party_reports",
                            "hard_questions", "failure_cases", "intake_questions"]}
+    known = {s["id"] for lib in libs for s in lib.get("subtypes", [])}
+    unknown = [s for s in list(subtypes) + list(conditions or []) if s not in known]
+    if unknown:
+        sys.exit(f"Unknown subtype/condition {unknown}. Run: dd.py types")
     seen = set()
     for lib in libs:
+        own = {s["id"] for s in lib.get("subtypes", [])}
+        chosen = (conditions or []) if lib["type"] == "universal" else [s for s in subtypes if s in own]
         for k in out:
             for it in lib.get(k, []):
                 iid = it.get("id") or f"{lib['type']}:{it.get('case', '')}"
-                if iid in seen or not applies(it, subtypes):
+                if iid in seen or not applies(it, chosen):
                     continue
                 seen.add(iid)
                 out[k].append({**it, "_type": lib["type"], "_type_name": lib.get("name", lib["type"])})
@@ -97,6 +106,8 @@ def cmd_types(a):
     for t in ["universal"] + all_types():
         lib = load(t)
         print(f"{t:24s} {lib.get('name', '')}  ({len(lib.get('requests', []))} requests)")
+        if t == "universal":
+            print("    conditions (pass with --conditions):")
         for s in lib.get("subtypes", []):
             print(f"    - {s['id']:28s} {s.get('name', '')}")
 
@@ -117,7 +128,8 @@ def md_escape(s):
 def cmd_packet(a):
     types = [t for t in a.type.split(",") if t]
     subtypes = [s for s in (a.subtype or "").split(",") if s]
-    libs, d = assemble(types, subtypes)
+    conditions = [s for s in (a.conditions or "").split(",") if s]
+    libs, d = assemble(types, subtypes, conditions)
     slug = "".join(c if c.isalnum() else "-" for c in a.deal.lower()).strip("-")
     out = Path(a.out or f"dd-{slug}")
     out.mkdir(parents=True, exist_ok=True)
@@ -198,6 +210,7 @@ def cmd_packet(a):
             items.append({**{k: v for k, v in it.items() if not k.startswith("_")}, "deal_type": it["_type"],
                           "kind": kind, "status": default, "evidence": "", "note": "", "by": "", "date": ""})
     tracker = {"deal": a.deal, "sponsor": a.sponsor or "", "types": types, "subtypes": subtypes,
+               "conditions": conditions,
                "created": today, "metrics": d["metrics"], "third_party_reports": d["third_party_reports"],
                "chapters": chapters, "items": items}
     tp = out / "tracker.json"
@@ -472,6 +485,7 @@ def main():
     sp.add_parser("types")
     s = sp.add_parser("intake"); s.add_argument("--type", default="")
     s = sp.add_parser("packet"); s.add_argument("--type", required=True); s.add_argument("--subtype")
+    s.add_argument("--conditions", help="universal deal conditions, e.g. operating-company,levered-vehicle")
     s.add_argument("--deal", required=True); s.add_argument("--sponsor"); s.add_argument("--out")
     s = sp.add_parser("update"); s.add_argument("--tracker", required=True); s.add_argument("--id", required=True)
     s.add_argument("--status", required=True); s.add_argument("--evidence"); s.add_argument("--note"); s.add_argument("--by")
