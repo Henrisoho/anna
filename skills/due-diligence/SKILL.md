@@ -44,17 +44,21 @@ Run the CLI from anywhere: `python3 <skill-dir>/scripts/dd.py <command>`. `dd.py
    or the same document requested by two libraries) with `--exclude ID,ID`; the exclusions are recorded in the tracker.
    When two libraries both apply (e.g. an operator buying a target), say in the cover note which items refer to the
    issuer and which to the target.
-   This writes:
-   - `01_request_list.md`: the sponsor-facing list, ordered by stage (screen, term sheet, confirmatory,
-     third party, closing, monitoring), with priority, workstream and the evidence format, plus the management
-     questionnaire. Send this.
-   - `02_reviewer_checklist.md`: internal. Pass criteria, how to verify each item independently, kill tests, red
-     flags, benchmarks, third-party reports to commission, good-answer guides for the hard questions, failure cases.
-     Never send this to the sponsor.
-   - `03_tracker.xlsx` (if openpyxl) and `tracker.json`: the review state.
-4. **Reply.** Draft the reply from `templates/reply_email.md`: thank them, name the deal type, attach Stage 1 only
-   (screen items), say later stages follow once Stage 1 clears, and include the authorizations for direct
-   verification (bank, background check). Show the user the draft; do not send anything yourself unless asked.
+   Always pass `--firm "<firm name>"` and, when known, `--contact`, `--data-room`, and `--notes <file>` (deal-specific
+   paragraphs for the cover letter; lines starting with "- " become bullets). The output is PDF, formatted the way an
+   institutional fund sends it (requires `pip install reportlab`; without it the CLI falls back to Markdown):
+   - `00_Cover_Letter.pdf`: letter on letterhead summarizing the parts and what matters most. Send with Part 1.
+   - `01_Part<N>_*.pdf` (or `01_Request_List.pdf` without `--parts`): the sponsor-facing request list. Cover page,
+     instructions and priority legend, request tables by stage and workstream with an evidence column and a blank
+     response column, the management questionnaire with answer boxes (in the pre-term-sheet part), and a
+     certification and authorization page for signature (in Part 1). Send these.
+   - `02_Reviewer_Checklist_INTERNAL.pdf`: pass criteria, how to verify each item independently, kill tests, red
+     flags, benchmarks, third-party reports to commission, good-answer guides, failure cases. Never send it.
+   - `03_Request_Tracker.xlsx` (if openpyxl) and `tracker.json`: the review state.
+   Add `--md` only if the user wants Markdown copies too. Before handing the PDFs over, render a page or two to an
+   image and look at them.
+4. **Reply.** The cover letter PDF is the formal reply. If the user also wants an email body, draft it from
+   `templates/reply_email.md`. Show the user the documents; do not send anything yourself unless asked.
 5. Tell the user the counts (requests by priority, kill tests, red flags) and the deal type's THE ONE CHECK.
 
 ## Mode 2: They sent materials. Run the diligence.

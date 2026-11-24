@@ -6,7 +6,8 @@ private-market due diligence the way an institutional lender, sponsor or investm
 When someone asks you for capital or wants into your syndicate or fund, call the skill. It:
 
 1. **Asks intake questions** and classifies the deal into one or more of 19 deal types and their subtypes.
-2. **Builds a due diligence request list (DRL) packet**, ordered by stage (screen, term sheet, confirmatory,
+2. **Builds a due diligence request list (DRL) packet as PDFs** (cover letter on letterhead, request list split into
+   parts, management questionnaire, certification page), ordered by stage (screen, term sheet, confirmatory,
    third-party reports, closing, post-close monitoring). Every item has a priority (gating / core / supporting),
    a workstream, and the form of evidence required. It also builds a management questionnaire, an internal reviewer
    checklist with pass criteria and independent-verification steps, and a tracker (JSON, plus Excel if `openpyxl`
@@ -69,7 +70,8 @@ Claude Code (one project): copy the folder to `.claude/skills/due-diligence` in 
 
 Claude apps: zip the `due-diligence` folder and upload it under Settings → Capabilities → Skills.
 
-Requirements: Python 3.8+. Optional: `pip install openpyxl` for the Excel tracker.
+Requirements: Python 3.8+ and `pip install reportlab` for the PDF packets (without it the CLI writes Markdown).
+Optional: `pip install openpyxl` for the Excel tracker.
 
 ## Use
 
@@ -87,7 +89,7 @@ Or use the CLI directly:
 ```bash
 python3 scripts/dd.py types
 python3 scripts/dd.py intake --type real-estate
-python3 scripts/dd.py packet --type real-estate --subtype construction,multifamily --deal "Phoenix 220" --sponsor "Acme Dev" --out dd-phoenix
+python3 scripts/dd.py packet --type real-estate --subtype construction,multifamily --deal "Phoenix 220" --sponsor "Acme Dev" --firm "Your Fund LP" --contact "Jane Doe, jane@yourfund.com" --parts 4 --out dd-phoenix
 python3 scripts/dd.py update --tracker dd-phoenix/tracker.json --id U-FIN-030 --status verified --evidence "Bank confirmation from First Bank, 2026-11-20"
 python3 scripts/dd.py status --tracker dd-phoenix/tracker.json
 python3 scripts/dd.py report --tracker dd-phoenix/tracker.json
@@ -100,7 +102,8 @@ python3 scripts/dd.py validate
 SKILL.md            instructions Claude follows
 library/            request library, one JSON file per deal type (schema in library/SCHEMA.md)
 references/         the full playbook, one Markdown file per chapter, with citations
-scripts/dd.py       packet builder, tracker and decision engine (standard library only)
+scripts/dd.py       packet builder, tracker and decision engine
+scripts/pdf.py      PDF rendering (ReportLab)
 templates/          reply emails, data room folder index, red-team prompt
 ```
 

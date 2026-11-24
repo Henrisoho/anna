@@ -29,6 +29,7 @@ import sys
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(Path(__file__).resolve().parent))
 LIB = HERE / "library"
 REF = HERE / "references"
 
@@ -187,9 +188,10 @@ def cmd_packet(a):
         for i, q in enumerate(d["hard_questions"], 1):
             L.append(f"{i}. {q['question']}  `{q['id']}`")
         L.append("")
-    (out / "01_request_list.md").write_text("\n".join(L))
-    if a.parts:
-        write_parts(out, a, d, names, subtypes, sponsor, today)
+    if a.md:
+        (out / "01_request_list.md").write_text("\n".join(L))
+        if a.parts:
+            write_parts(out, a, d, names, subtypes, sponsor, today)
 
     # Internal reviewer checklist with pass criteria
     R = [f"# Reviewer checklist (internal): {a.deal}", "",
@@ -222,7 +224,9 @@ def cmd_packet(a):
     R += [f"- **{c.get('case')} ({c.get('year', '')})**: {c.get('what_happened', '')} CHECK: {c.get('check', '')}" for c in d["failure_cases"]]
     chapters = sorted({c for l in libs for c in l.get("chapters", [])})
     R += ["", "## Read before reviewing", ""] + [f"- references/{c}" for c in chapters]
-    (out / "02_reviewer_checklist.md").write_text("\n".join(R))
+    if a.md:
+        (out / "02_reviewer_checklist.md").write_text("\n".join(R))
+    pdfs = write_pdfs(out, a, libs, d, names, subtypes, sponsor, today, chapters)
 
     # Tracker
     items = []
@@ -237,13 +241,16 @@ def cmd_packet(a):
                "chapters": chapters, "items": items}
     tp = out / "tracker.json"
     tp.write_text(json.dumps(tracker, indent=1))
-    xl = write_xlsx(out / "03_tracker.xlsx", a.deal, d)
-    print(f"Packet written to {out}/")
-    print(f"  01_request_list.md      {n} requests + {len(d['hard_questions'])} questions (send to sponsor)")
-    print(f"  02_reviewer_checklist.md  pass criteria, {len(d['kill_tests'])} kill tests, {len(d['red_flags'])} red flags (internal)")
-    print(f"  tracker.json            review state; update with: dd.py update --tracker {tp} --id ID --status S")
+    xl = write_xlsx(out / "03_Request_Tracker.xlsx", a.deal, d)
+    print(f"Packet written to {out}/  ({n} requests, {len(d['hard_questions'])} questions, "
+          f"{len(d['kill_tests'])} kill tests, {len(d['red_flags'])} red flags)")
+    for f, what in pdfs:
+        print(f"  {f:44s} {what}")
+    if a.md:
+        print("  01_request_list.md / 02_reviewer_checklist.md  Markdown copies")
+    print(f"  tracker.json                                 review state; update with: dd.py update --tracker {tp} --id ID --status S")
     if xl:
-        print(f"  03_tracker.xlsx         spreadsheet request tracker")
+        print(f"  03_Request_Tracker.xlsx                      spreadsheet tracker (share with sponsor or keep internal)")
 
 
 def write_parts(out, a, d, names, subtypes, sponsor, today):
@@ -279,6 +286,66 @@ def write_parts(out, a, d, names, subtypes, sponsor, today):
             P += [f"{k}. {q['question']}  `{q['id']}`" for k, q in enumerate(d["hard_questions"], 1)] + [""]
         (out / f"01_part{i + 1}_{'-'.join(sts)}.md").write_text("\n".join(P))
         print(f"  01_part{i + 1}_{'-'.join(sts)}.md  {len(items)} requests ({g} gating)")
+
+
+def write_pdfs(out, a, libs, d, names, subtypes, sponsor, today, chapters):
+    try:
+        import pdf as P
+    except ImportError:
+        print("reportlab is not installed (pip install reportlab): writing Markdown instead of PDF", file=sys.stderr)
+        a.md = True
+        return []
+    firm = a.firm or "[Firm name]"
+    subnames = {s["id"]: s.get("name", s["id"]) for l in libs[1:] for s in l.get("subtypes", [])}
+    deal_type = "; ".join(
+        l.get("name", l["type"]) + (" (" + ", ".join(subnames[s] for s in subtypes
+                                                    if s in {x["id"] for x in l.get("subtypes", [])}) + ")"
+                                    if any(s in {x["id"] for x in l.get("subtypes", [])} for s in subtypes) else "")
+        for l in libs[1:])
+    groups = PART_GROUPS.get(a.parts or 1, [("Full request list", STAGES)]) if (a.parts or 1) != 1 else \
+        [("Full request list", STAGES)]
+    if a.parts and a.parts not in PART_GROUPS:
+        sys.exit(f"--parts must be one of {sorted(PART_GROUPS)}")
+    # number requests in the order they appear in the PDFs (part > stage > workstream)
+    num, k = {}, 0
+    for _, sts in groups:
+        for st in sts:
+            rows = [r for r in d["requests"] if r.get("stage") == st]
+            for ws in dict.fromkeys(r["workstream"] for r in rows):
+                for r in rows:
+                    if r["workstream"] == ws:
+                        k += 1
+                        num[r["id"]] = k
+    q_part = next((i for i, (_, sts) in enumerate(groups) if "term-sheet" in sts), 0)
+    files, summary = [], []
+    for i, (title, sts) in enumerate(groups):
+        rs = [r for r in d["requests"] if r.get("stage") in sts]
+        summary.append((title, len(rs), sum(r["priority"] == "gating" for r in rs)))
+        label = f"Part {i + 1} of {len(groups)}: {title}" if len(groups) > 1 else "Complete request list"
+        fn = (f"Part{i + 1}_{title.split(' and ')[0].replace(' ', '-').replace(',', '')}.pdf" if len(groups) > 1
+              else "Request_List.pdf")
+        fn = f"01_{fn}"
+        P.request_pdf(out / fn, firm=firm, deal=a.deal, sponsor=sponsor, deal_type=deal_type, part_label=label,
+                      part_title=title, part_no=i + 1, n_parts=len(groups), requests=rs, num=num,
+                      questions=d["hard_questions"] if i == q_part else [],
+                      stage_titles=[(st, STAGE_TITLES[st].split(". ", 1)[-1]) for st in sts], contact=a.contact,
+                      data_room=a.data_room, today=today, include_certification=(i == 0))
+        files.append((fn, f"send to sponsor: {len(rs)} requests" + (", questionnaire" if i == q_part else "")
+                      + (", certification" if i == 0 else "")))
+    notes = []
+    if a.notes:
+        notes = [ln.rstrip() for ln in Path(a.notes).read_text().splitlines() if ln.strip()]
+    P.letter_pdf(out / "00_Cover_Letter.pdf", firm=firm, deal=a.deal, sponsor=sponsor, deal_type=deal_type,
+                 today=today, parts=summary, notes=notes, contact=a.contact, data_room=a.data_room)
+    files.insert(0, ("00_Cover_Letter.pdf", "send to sponsor with Part 1"))
+    P.checklist_pdf(out / "02_Reviewer_Checklist_INTERNAL.pdf", firm=firm, deal=a.deal, deal_type=deal_type, today=today,
+                    one_checks=[(l.get("name"), l["one_check"]) for l in libs[1:] if l.get("one_check")],
+                    kill_tests=d["kill_tests"], requests=d["requests"], red_flags=d["red_flags"],
+                    metrics=d["metrics"], third_parties=d["third_party_reports"], questions=d["hard_questions"],
+                    failure_cases=d["failure_cases"], chapters=chapters,
+                    stage_titles=[(st, STAGE_TITLES[st].split(". ", 1)[-1]) for st in STAGES])
+    files.append(("02_Reviewer_Checklist_INTERNAL.pdf", "internal only: pass criteria, kill tests, red flags"))
+    return files
 
 
 def write_xlsx(path, deal, d):
@@ -544,6 +611,11 @@ def main():
     s = sp.add_parser("packet"); s.add_argument("--type", required=True); s.add_argument("--subtype")
     s.add_argument("--conditions", help="universal deal conditions, e.g. operating-company,levered-vehicle")
     s.add_argument("--deal", required=True); s.add_argument("--sponsor"); s.add_argument("--out")
+    s.add_argument("--firm", help="your firm name for letterhead and headers")
+    s.add_argument("--contact", help="contact line for the letter and request list, e.g. 'Jane Doe, jane@firm.com'")
+    s.add_argument("--data-room", dest="data_room", help="data room name or link")
+    s.add_argument("--notes", help="text file of deal-specific notes for the cover letter ('- ' lines become bullets)")
+    s.add_argument("--md", action="store_true", help="also write Markdown copies")
     s.add_argument("--exclude", help="comma-separated item ids that do not apply to this deal (recorded in tracker)")
     s.add_argument("--parts", type=int, help="also split the sponsor list into 2, 3, 4 or 6 sendable parts")
     s = sp.add_parser("update"); s.add_argument("--tracker", required=True); s.add_argument("--id", required=True)
