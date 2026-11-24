@@ -378,10 +378,10 @@
       "stage": "term-sheet",
       "priority": "gating",
       "workstream": "Valuation & Model",
-      "request": "CLO profile: obligor and industry concentration limits, AAA break-even default rate at a stated recovery, warehouse terms and risk, and manager incentives.",
+      "request": "CLO profile: obligor and industry concentration limits and the AAA break-even default rate at a stated recovery.",
       "format": "Indenture extracts and manager analysis.",
       "why": "Obligor (2%) and industry (15%) limits and a ~60% AAA break-even at 40% recovery are what made CLOs resilient.",
-      "pass": "Obligor limit <= 2% and industry <= 15%; AAA break-even default rate stated at 40% recovery and above the 1931-33 cumulative 31% default rate; warehouse risk allocated and disclosed.",
+      "pass": "Obligor limit <= 2% and industry <= 15%; AAA break-even default rate stated at 40% recovery and above the 1931-33 cumulative 31% default rate.",
       "fail": "Looser limits; break-even not computed.",
       "verify": "Recompute break-even with our model.",
       "applies_to": [
@@ -414,10 +414,10 @@
       "stage": "term-sheet",
       "priority": "gating",
       "workstream": "Valuation & Model",
-      "request": "Distressed analysis: capital structure map, fulcrum security, recovery and liquidation analysis, bankruptcy process and timeline, collateral valuation, which creditors can be primed or stripped under the existing documents (LME map), DIP availability, and an out-of-court plan.",
+      "request": "Distressed capital structure map: every tranche with amount, lien, guarantors, maturity and holders, the fulcrum security, the bankruptcy process and timeline, DIP availability, and the out-of-court restructuring path.",
       "format": "Credit memo with capital structure table and document references.",
       "why": "LMEs move value away from non-participants; in a weak DIP market Chapter 11 can mean liquidation.",
-      "pass": "Fulcrum identified after the worst LME the documents allow; recovery based on loans 84%, secured bonds 60%, senior unsecured 38% with a covenant-lite haircut; out-of-court equity-funded path assessed.",
+      "pass": "Fulcrum identified after the worst LME the documents allow (see LME map); DIP availability tested; out-of-court equity-funded path assessed where the DIP market is weak.",
       "fail": "Fulcrum priced before LME; recovery at historical averages without haircut.",
       "verify": "Our counsel reviews the documents.",
       "applies_to": [
@@ -450,10 +450,10 @@
       "stage": "term-sheet",
       "priority": "gating",
       "workstream": "Valuation & Model",
-      "request": "Litigation finance case model: damages model, collectability of the defendant, duration with IRR at 1.5x expected duration, capital adequacy to see cases through, diversification and cross-collateralization, non-recourse to claimant, funder control rights against state ethics rules, and the disclosure regime in each court.",
+      "request": "Litigation finance case model: damages model, collectability of the defendant, and duration with IRR at 1.5x expected duration.",
       "format": "Case-level model and term sheets.",
       "why": "Duration and collectability drive litigation returns; control rights can breach ethics rules.",
-      "pass": "IRR at 1.5x duration above the hurdle; defendant can pay; capital reserved for completion; control rights compliant.",
+      "pass": "IRR at 1.5x duration above the hurdle; defendant can pay the modelled award.",
       "fail": "IRR collapses at 1.5x duration; uncollectable defendant; insufficient capital.",
       "verify": "Independent legal opinion and our model.",
       "applies_to": [
@@ -486,10 +486,10 @@
       "stage": "term-sheet",
       "priority": "gating",
       "workstream": "Corporate & Legal",
-      "request": "Tokenized credit package: the legal right the token conveys (title, beneficial or contractual claim), custodian and bankruptcy remoteness, redemption timing and gates, oracle and NAV rules, and the independent audit of the underlying loans.",
+      "request": "Tokenized credit legal package: the legal right the token conveys (title, beneficial or contractual claim), custodian and bankruptcy remoteness, and the independent audit of the underlying loans.",
       "format": "Legal opinion, token terms, custody agreement and audit report.",
       "why": "A token is usually a claim on an off-chain asset; trading speed must match the underlying's redemption speed.",
-      "pass": "Legal right and remoteness confirmed by opinion; redemption terms match asset liquidity; underlying loans independently audited.",
+      "pass": "Legal right and bankruptcy remoteness confirmed by opinion; underlying loans independently audited.",
       "fail": "No opinion; token redeemable faster than underlying assets can pay.",
       "verify": "Opinion from our counsel; audit confirmed with the auditor.",
       "applies_to": [
@@ -522,10 +522,10 @@
       "stage": "term-sheet",
       "priority": "gating",
       "workstream": "Fund Operations",
-      "request": "Semi-liquid vehicle liquidity coverage: quarterly cash, net investment income and loan maturities against the redemption cap; gate, suspension, in-kind and queue provisions; redemption and gating history; whether unmet requests carry forward; fund leverage response to outflows; repurchases payable.",
+      "request": "Semi-liquid vehicle liquidity coverage and flow history: quarterly cash, net investment income and loan maturities against the redemption cap for 12 quarters, redemption requests, amounts met, gating history, whether unmet requests carry forward, and repurchases payable.",
       "format": "Offering documents and 12 quarters of flow data.",
       "why": "Q2 2026: $7.1B of repurchases against $3.8B of inflows, $10.7B unmet; cash ~5.5%, NII ~2.5% a quarter, maturities < 0.5% against a 5% cap.",
-      "pass": "Liquidity coverage ratio (cash + NII + maturities) at or above the redemption cap; gating history disclosed; leverage not rising with outflows.",
+      "pass": "Liquidity coverage ratio (cash + NII + maturities) at or above the redemption cap; gating history disclosed; repurchases payable not funding redemptions.",
       "fail": "Redemption cap exceeds liquidity coverage; rising leverage or repurchases payable funding redemptions.",
       "verify": "Flow data from the administrator.",
       "applies_to": [
@@ -540,10 +540,10 @@
       "stage": "term-sheet",
       "priority": "gating",
       "workstream": "Financial",
-      "request": "Insurer-affiliated capital package: statutory statements of the operating insurer and affiliated reinsurers, Schedule S ceded reinsurance, consolidated RBC including affiliated captives, the affiliated-transaction policy and approver, independent valuation of affiliated private placements, NAIC designation source for each, and cash collateral investments and collateral-posting triggers.",
+      "request": "Insurer-affiliated capital package: statutory statements (not GAAP) of the operating insurer and affiliated reinsurers, Schedule S ceded reinsurance, and RBC recomputed on a consolidated basis including affiliated captives.",
       "format": "Statutory filings, RBC computations, policies and valuation reports.",
       "why": "Shadow reinsurance cut average RBC by about 53 points when consolidated (about 3 notches); AIG's reinvested collateral needed $37.8B of Fed lending.",
-      "pass": "Consolidated RBC adequate after captives; affiliated placements independently valued; designations from recognized sources; posting triggers survivable.",
+      "pass": "Consolidated RBC adequate after including affiliated captives (do the computation ourselves; both the Koijen-Yogo and ACLI positions stand).",
       "fail": "Capital adequate only before consolidation; affiliated placements valued by the manager.",
       "verify": "NAIC filings and state exam reports pulled by us. Generic request also in universal U-FIN-027; this item sets the credit pass criteria.",
       "applies_to": [
@@ -558,10 +558,10 @@
       "stage": "term-sheet",
       "priority": "gating",
       "workstream": "Financial",
-      "request": "Bank-like lender funding package: uninsured or flighty share of funding, unrealized securities losses against equity, IRRBB (economic value of equity under rate shocks), an LCR-style 30-day outflow test, collateral pre-positioned at the Fed, CRE concentration against 300% of capital, and risk governance (limit-breach log and limit changes for 24 months, CRO reporting line and tenure).",
+      "request": "Bank-like lender funding package: uninsured or flighty share of funding, unrealized securities losses against equity, IRRBB (economic value of equity under rate shocks), an LCR-style 30-day outflow test, collateral pre-positioned at the Fed, and CRE concentration against 300% of capital.",
       "format": "Call reports or financials, ALM reports, policy documents.",
       "why": "SVB: 94% uninsured deposits and a $17B unrealized loss against $15B equity, visible in filings.",
-      "pass": "Unrealized losses well below equity; 30-day outflow covered; collateral pre-positioned; CRE below 300%; no limits raised to fit positions; CRO independent.",
+      "pass": "Unrealized losses well below equity; 30-day outflow covered; collateral pre-positioned; CRE below 300% of total capital.",
       "fail": "Unrealized loss above equity; outflow uncovered; recent CRO replacement by a dealmaker.",
       "verify": "Compute from public filings ourselves. Generic request also in universal U-FIN-026; this item sets the credit pass criteria.",
       "applies_to": [
@@ -1524,6 +1524,461 @@
         "litigation-finance"
       ],
       "ref": "4.2",
+      "weak": false
+    },
+    {
+      "id": "CR-COL-023",
+      "order": 260,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Collateral & Title",
+      "request": "Loan-level eligibility test results: pass or fail on each eligibility criterion for every loan in the pool or borrowing base, run from the tape and source files.",
+      "format": "Workbook produced from the tape with criterion-by-criterion results.",
+      "why": "Tricolor altered loan descriptions so ineligible loans looked eligible.",
+      "pass": "100% of financed loans pass every criterion when tested against source files on the audit sample.",
+      "fail": "Loans that pass on the tape but fail on source files.",
+      "verify": "Collateral auditor re-tests a sample against original files.",
+      "applies_to": [
+        "consumer",
+        "specialty-finance",
+        "factoring",
+        "equipment-finance",
+        "abs",
+        "note-purchase",
+        "trade-finance"
+      ],
+      "ref": "4.5, 4.8",
+      "weak": false
+    },
+    {
+      "id": "CR-COL-024",
+      "order": 270,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Collateral & Title",
+      "request": "Concentration report for the pool: by obligor, industry, geography, originator or dealer, and vintage.",
+      "format": "Tape-derived tables.",
+      "why": "Concentration turns diversified credit into a few large bets; geographic clusters amplify foreclosure price pressure.",
+      "pass": "Concentrations within facility and investment limits; geographic clusters stressed.",
+      "fail": "Undisclosed concentration above limits.",
+      "verify": "Recompute from tape.",
+      "applies_to": [
+        "consumer",
+        "specialty-finance",
+        "factoring",
+        "equipment-finance",
+        "abs",
+        "note-purchase",
+        "trade-finance",
+        "direct-lending",
+        "clo"
+      ],
+      "ref": "4.2, 4.8",
+      "weak": false
+    },
+    {
+      "id": "CR-OPS-004",
+      "order": 280,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Operational",
+      "request": "Servicer collection, charge-off, modification and repossession policies, with any changes in the last 3 years.",
+      "format": "Written policies and change log.",
+      "why": "Policy changes (longer charge-off timing, liberal modifications) make performance look better than it is.",
+      "pass": "Policies consistent across vintages, or static-pool data adjusted for changes.",
+      "fail": "Unannounced changes in charge-off or modification policy.",
+      "verify": "Servicer review firm tests application.",
+      "applies_to": [
+        "consumer",
+        "specialty-finance",
+        "abs",
+        "note-purchase",
+        "equipment-finance",
+        "factoring"
+      ],
+      "ref": "4.5, 4.8",
+      "weak": false
+    },
+    {
+      "id": "CR-COL-025",
+      "order": 290,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Collateral & Title",
+      "request": "Originator underwriting guidelines and documentation-type mix (full, low, stated) by vintage.",
+      "format": "Guidelines and tape statistics.",
+      "why": "Low-documentation loans near cutoffs showed lax screening when loans could be sold.",
+      "pass": "Low-doc share stable or falling; guidelines consistent with the tape.",
+      "fail": "Rising low-doc share in recent vintages.",
+      "verify": "Sample files reviewed by collateral auditor.",
+      "applies_to": [
+        "consumer",
+        "specialty-finance",
+        "abs",
+        "note-purchase"
+      ],
+      "ref": "4.8",
+      "weak": false
+    },
+    {
+      "id": "CR-COL-026",
+      "order": 300,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Collateral & Title",
+      "request": "Collateral file chain for each purchased loan: original note, mortgage or security instrument, allonges and the recorded assignment chain to the seller.",
+      "format": "File inventory from the custodian and recorded assignments.",
+      "why": "Without a clean chain of title the buyer cannot enforce the note.",
+      "pass": "Complete chain for every loan; assignments recorded.",
+      "fail": "Missing allonges or unrecorded assignments.",
+      "verify": "County records and custodian exceptions report.",
+      "applies_to": [
+        "note-purchase"
+      ],
+      "ref": "4.2, 4.8",
+      "weak": false
+    },
+    {
+      "id": "CR-VAL-012",
+      "order": 310,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Valuation & Model",
+      "request": "ABS trustee and servicer reports for the last 24 months for every deal the originator has issued.",
+      "format": "Reports obtained from the trustee.",
+      "why": "Trustee reports are the independent record that the static pool must reconcile to.",
+      "pass": "Reports reconcile to static-pool data; no trigger breaches undisclosed.",
+      "fail": "Differences between trustee and servicer figures.",
+      "verify": "Obtain directly from trustees.",
+      "applies_to": [
+        "abs",
+        "specialty-finance",
+        "consumer"
+      ],
+      "ref": "4.2, 4.8",
+      "weak": false
+    },
+    {
+      "id": "CR-VAL-013",
+      "order": 320,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Valuation & Model",
+      "request": "CLO trustee reports for 24 months: OC and IC test results, CCC bucket, defaults, and trading activity.",
+      "format": "Monthly trustee reports.",
+      "why": "Coverage tests and trading show how the manager handles stress.",
+      "pass": "Tests passed with cushion; trading consistent with stated strategy.",
+      "fail": "Persistent test failures or distressed-exchange activity.",
+      "verify": "Obtain from the trustee.",
+      "applies_to": [
+        "clo"
+      ],
+      "ref": "4.2",
+      "weak": false
+    },
+    {
+      "id": "CR-CL-007",
+      "order": 330,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Corporate & Legal",
+      "request": "CLO warehouse agreement: first-loss provider, warehouse lender, mark-to-market and termination terms, and manager economics during the warehouse.",
+      "format": "Executed warehouse agreement.",
+      "why": "Warehouse risk and manager incentives drove the CDO machine.",
+      "pass": "Warehouse first-loss and termination risk allocated and disclosed; manager incentives aligned.",
+      "fail": "Equity investors bear undisclosed warehouse losses.",
+      "verify": "Counsel review.",
+      "applies_to": [
+        "clo"
+      ],
+      "ref": "4.2",
+      "weak": false
+    },
+    {
+      "id": "CR-CL-008",
+      "order": 340,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Corporate & Legal",
+      "request": "LME map for distressed positions: which creditors can be primed or stripped under the existing documents (drop-down capacity into unrestricted subsidiaries and non-guarantors, uptier voting thresholds, pro rata amendment rights), and which holders could form a majority.",
+      "format": "Counsel memo with document references.",
+      "why": "LMEs move value from non-participants; the fulcrum must be priced after the LME.",
+      "pass": "Worst-case LME quantified and reflected in price.",
+      "fail": "Pricing before LME analysis.",
+      "verify": "Our own counsel.",
+      "applies_to": [
+        "distressed"
+      ],
+      "ref": "4.2, 3.11",
+      "weak": true
+    },
+    {
+      "id": "CR-VAL-014",
+      "order": 350,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Valuation & Model",
+      "request": "Recovery and liquidation analysis for distressed positions: collateral valuation, liquidation value, recovery waterfall after the worst LME.",
+      "format": "Model.",
+      "why": "Historical recoveries (loans 84%, secured bonds 60%, senior unsecured 38%) are expected lower next cycle.",
+      "pass": "Recovery supports the price using Moody's URD base rates haircut for covenant-lite and thin junior cushions.",
+      "fail": "Recovery at historical averages without haircut.",
+      "verify": "Independent collateral valuation.",
+      "applies_to": [
+        "distressed"
+      ],
+      "ref": "4.2, 4.3",
+      "weak": false
+    },
+    {
+      "id": "CR-FIN-010",
+      "order": 360,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Litigation portfolio schedule: every case with committed and deployed capital, capital reserved to completion, diversification by defendant, forum and case type, and cross-collateralization terms.",
+      "format": "Portfolio schedule and funding agreements.",
+      "why": "Funders without capital to see cases through lose their position; concentrated portfolios fail together.",
+      "pass": "Capital reserved covers each case to completion; no defendant or case above the concentration limit; cross-collateralization documented.",
+      "fail": "Under-reserved cases; concentration in one defendant.",
+      "verify": "Tie deployed capital to bank records.",
+      "applies_to": [
+        "litigation-finance"
+      ],
+      "ref": "4.2",
+      "weak": false
+    },
+    {
+      "id": "CR-CL-009",
+      "order": 370,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Corporate & Legal",
+      "request": "Executed litigation funding agreements showing non-recourse to the claimant, funder control rights, and termination provisions.",
+      "format": "Executed agreements.",
+      "why": "Recourse or control terms can breach state ethics rules and void the agreement.",
+      "pass": "Non-recourse; control rights compliant with applicable ethics rules.",
+      "fail": "Recourse provisions or funder control of settlement.",
+      "verify": "Counsel review.",
+      "applies_to": [
+        "litigation-finance"
+      ],
+      "ref": "4.2",
+      "weak": false
+    },
+    {
+      "id": "CR-COM-002",
+      "order": 380,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Commercial & Market",
+      "request": "Trade finance counterparty and country risk assessment for each buyer, seller and issuing bank.",
+      "format": "Credit and country risk memo.",
+      "why": "Trade losses come from counterparty and country events as well as fraud.",
+      "pass": "Counterparties and countries within limits.",
+      "fail": "Concentration in weak counterparties or sanctioned or high-risk jurisdictions.",
+      "verify": "Independent credit data.",
+      "applies_to": [
+        "trade-finance"
+      ],
+      "ref": "4.2",
+      "weak": false
+    },
+    {
+      "id": "CR-FO-006",
+      "order": 170,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Fund Operations",
+      "request": "Semi-liquid vehicle gate, suspension, in-kind and queue provisions, quoted from the offering documents.",
+      "format": "Offering document extracts.",
+      "why": "Gates recur and carry stigma; suspensions only pause the run.",
+      "pass": "Provisions read and assumed to be used; in-kind and queue terms understood.",
+      "fail": "Provisions that allow indefinite suspension without disclosure.",
+      "verify": "Counsel review.",
+      "applies_to": [
+        "semi-liquid"
+      ],
+      "ref": "4.11",
+      "weak": false
+    },
+    {
+      "id": "CR-FIN-011",
+      "order": 180,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Semi-liquid fund-level leverage stack and its response to outflows: facilities, margin triggers, and net debt issuance against net outflows for 12 quarters.",
+      "format": "Facility list and flow-leverage data.",
+      "why": "Net debt issuance rises 0.38 points of TNA per 1 point of net outflows.",
+      "pass": "Leverage not used to fund redemptions; margin triggers survivable in the stress.",
+      "fail": "Leverage rising with outflows.",
+      "verify": "Administrator and lender confirmations.",
+      "applies_to": [
+        "semi-liquid"
+      ],
+      "ref": "4.11, 4.9",
+      "weak": false
+    },
+    {
+      "id": "CR-FO-007",
+      "order": 390,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Fund Operations",
+      "request": "Affiliated-transaction policy for insurer capital: who approves the insurer buying the affiliated manager's loans, and the independent valuation and NAIC designation source (including private letter ratings) for each affiliated private placement.",
+      "format": "Policy, approval minutes, valuation reports and designation evidence.",
+      "why": "The manager is lending policyholders' money into its own deals.",
+      "pass": "Independent approval; every affiliated placement independently valued; designation sources identified.",
+      "fail": "Manager-only approval; affiliated placements valued by the manager.",
+      "verify": "Obtain from the valuation provider and rating agency directly.",
+      "applies_to": [
+        "insurer-affiliated"
+      ],
+      "ref": "4.10",
+      "weak": false
+    },
+    {
+      "id": "CR-FIN-012",
+      "order": 400,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Cash collateral reinvestment schedule and collateral-posting triggers (rating downgrade, mark-to-market) for insurers, lenders and funds.",
+      "format": "Schedule and agreement extracts.",
+      "why": "AIG's reinvested securities-lending collateral and CDS posting triggers drained liquidity.",
+      "pass": "Collateral reinvested in liquid, short instruments; triggers modelled and covered.",
+      "fail": "Collateral in illiquid credit; uncovered downgrade triggers.",
+      "verify": "Custodian statements.",
+      "applies_to": [
+        "insurer-affiliated",
+        "bank-like",
+        "specialty-finance"
+      ],
+      "ref": "4.5, 4.10",
+      "weak": false
+    },
+    {
+      "id": "CR-REG-002",
+      "order": 410,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Regulatory & Compliance",
+      "request": "Risk governance record for bank-like lenders: the limit-breach log and the record of limit changes for the last 24 months, the CRO's reporting line, and CRO changes.",
+      "format": "Logs and board risk committee minutes.",
+      "why": "Lehman raised limits to fit positions and replaced its CRO with a dealmaker.",
+      "pass": "No limits raised to accommodate positions; CRO independent and reporting to the board.",
+      "fail": "Limits raised after breaches; recent CRO replacement by a business head.",
+      "verify": "Board minutes; regulator correspondence where available.",
+      "applies_to": [
+        "bank-like",
+        "specialty-finance"
+      ],
+      "ref": "4.12",
+      "weak": false
+    },
+    {
+      "id": "CR-ST-006",
+      "order": 190,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Structure & Terms",
+      "request": "Token redemption, oracle and NAV rules: redemption timing and gates, the oracle or NAV source and update frequency, and how they match the underlying asset's liquidity.",
+      "format": "Token terms and smart-contract documentation.",
+      "why": "A token's trading speed should match the speed at which the underlying asset can honor redemptions.",
+      "pass": "Redemption terms no faster than underlying liquidity; NAV source independent.",
+      "fail": "Instant redemption against illiquid loans; manager-controlled oracle.",
+      "verify": "Independent review of the contract and oracle.",
+      "applies_to": [
+        "tokenized"
+      ],
+      "ref": "4.2",
+      "weak": false
+    },
+    {
+      "id": "CR-COL-027",
+      "order": 80,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Collateral & Title",
+      "request": "Monthly structure trigger report: OC, IC, delinquency and loss triggers, and cash diversion events.",
+      "format": "Trustee or servicer report.",
+      "why": "Triggers protect senior tranches only if monitored.",
+      "pass": "All triggers passing or breaches handled per the waterfall.",
+      "fail": "Unreported breaches.",
+      "verify": "Trustee directly.",
+      "applies_to": [
+        "abs",
+        "clo",
+        "specialty-finance"
+      ],
+      "ref": "4.2",
+      "weak": false
+    },
+    {
+      "id": "CR-OPS-005",
+      "order": 90,
+      "stage": "monitoring",
+      "priority": "supporting",
+      "workstream": "Operational",
+      "request": "Annual backup servicer readiness test and data-mapping refresh.",
+      "format": "Backup servicer report.",
+      "why": "A cold backup servicer cannot step in when needed.",
+      "pass": "Test passed; data mapped within the agreed transfer time.",
+      "fail": "Test failed or not performed.",
+      "verify": "Backup servicer confirms.",
+      "applies_to": [
+        "consumer",
+        "specialty-finance",
+        "abs",
+        "note-purchase",
+        "equipment-finance",
+        "factoring"
+      ],
+      "ref": "4.4, 4.8",
+      "weak": false
+    },
+    {
+      "id": "CR-COL-028",
+      "order": 100,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Collateral & Title",
+      "request": "Monthly eligibility exception and repurchase report: loans found ineligible after funding and their repurchase or removal.",
+      "format": "Servicer or agent report.",
+      "why": "Ineligible loans in the pool are where altered data shows up.",
+      "pass": "Exceptions below tolerance and cured within the agreement's period.",
+      "fail": "Rising exceptions or unpaid repurchases.",
+      "verify": "Collateral auditor sampling.",
+      "applies_to": [
+        "consumer",
+        "specialty-finance",
+        "factoring",
+        "equipment-finance",
+        "abs",
+        "note-purchase",
+        "trade-finance"
+      ],
+      "ref": "4.5, 4.8",
+      "weak": false
+    },
+    {
+      "id": "CR-COL-029",
+      "order": 420,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Collateral & Title",
+      "request": "Account debtor list with independently sourced contact details for direct verification of a receivables sample.",
+      "format": "Debtor list.",
+      "why": "Confirmations routed through the borrower can be faked.",
+      "pass": "Contact details confirmed independently of the borrower for every sampled debtor.",
+      "fail": "Contacts supplied only by the borrower.",
+      "verify": "Source from public records.",
+      "applies_to": [
+        "factoring",
+        "trade-finance"
+      ],
+      "ref": "4.2, 3.12",
       "weak": false
     }
   ],
