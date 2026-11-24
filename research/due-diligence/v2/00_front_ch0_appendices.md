@@ -579,6 +579,7 @@ CHECK: if three of the four are present in the asset class at entry, the IC memo
 - Semi-liquid private credit in 2026. Net assets grew from $10B (2019) to $300B (end-2025) within a $3.5T global private credit market. In Q2 2026 the sector had $7.1B of repurchases against $3.8B of inflows, its first aggregate net outflow, with $10.7B of requests unmet (gated); Blue Owl Capital Corp II received redemption requests for about 22% of shares and Blue Owl Credit Income Corp about 40%; Blackstone, BlackRock and Apollo vehicles also saw requests above the cap (Fang, Goldstein and Zeng via KaW, Oct. 26, 2026, https://knowledge.wharton.upenn.edu/article/why-semi-liquid-private-credit-funds-are-in-fragile-territory/). Net debt issuance rises 0.38 percentage points of TNA for each 1-point increase in net outflows: a leverage-redemption feedback loop (same source). Detail in Chapter 10.
 - Bank leverage behind private credit. Bank lending to private-credit vehicles rose from about $8B (2013) to about $95B (end-2024); bank commitments to PE and private-credit sponsors are about 14% of bank lending to nonbanks, up from about 1% a decade earlier (Harker, KaW Apr. 22, 2026). CHECK: map the fund-level leverage stack (subscription line, NAV facility, asset-based facility) and its margin-call triggers.
 - Covenants weaken late in the cycle and are repriced only after a public event. LBO loans and loans with more non-bank funding have significantly weaker contracts, priced only modestly higher; the market repriced only after J.Crew (2016 to 2017) (Ivashina and Vallee, NBER w27316). Leverage is set "as much as the market will bear" (cited by about two-thirds of PE firms), not by the target's cash-flow volatility; fewer than 10% cite financial flexibility (Gompers et al. 2016). CHECK: ask the sponsor to justify leverage by the target's cash-flow volatility, not by what lenders will provide.
+- Private credit risk map. Growth to roughly $2 trillion since 2008 was driven by banks shedding high-LTV leveraged loans and by PE needing leverage to hit about 20% promised returns; the main concerns are uncertain valuations (marks drive jumpy flows), high leverage and credit risk, and interconnection with banks (Ivashina, HBS WK, "How Private Debt Became a $2 Trillion Industry," https://library.hbs.edu/working-knowledge/how-private-debt-became-2-trillion-industry). BOTH POSITIONS on size, which depends on definition: about $2.1T of assets and dry powder globally in 2023 (IMF GFSR Apr. 2024); about $1.8T to $2T (Goldstein, KaW, May 5, 2026, https://knowledge.wharton.upenn.edu/article/five-things-to-know-about-private-credit); about $1.4T of private-credit debt outstanding to US nonfinancial corporations by Q1 2026 (Federal Reserve FEDS Note, Aug. 11, 2026); $3.5T global market (Fang, Goldstein and Zeng, 2026). CHECK: ask how marks are set, who independently values Level 3 loans, and what bank facilities sit beneath the fund.
 - Private credit opacity hides the cycle. Private lenders often hold a borrower's entire debt and need not mark or trade it, so they can forbear indefinitely; market prices that once gave early warning largely disappear. Assets in private-credit strategies grew from about $300B (2010) to an estimated $1.6T (2023); loans held by private-credit BDCs rose from 1,395 to 20,182 between 2010 and 2022 (Elias and de Fontenay, YLJ 134(3), https://yalelawjournal.org/index.php/article/the-credit-markets-go-dark). CHECK: track amend-and-extend, PIK toggles and maturity extensions by loan. PIK interest's share of BDC interest income has doubled since 2019 (IMF GFSR Apr. 2024, Ch. 2).
 - Default definitions move with the cycle. Proskauer's Private Credit Default Index (covenant and payment defaults) ran 1.76% (Q2 2025), 1.84% (Q3 2025), 2.46% (Q4 2025), 2.73% (Q1 2026), 2.41% (Q3 2026); in Q3 2025 the $25M to $49.9M EBITDA band ran 2.6% against 1.2% for $50M+ (Proskauer, https://www.proskauer.com/report/proskauers-private-credit-default-index-reveals-rate-of-184-for-q3-2025 and successor releases). Cliffwater's realized-loss series averages about 1.0% a year since 2004 and 0.70% for 2025 (Cliffwater, https://cliffwater.com/files/cdli/docs/Cliffwater_Report_on_US_DirectLending.pdf; 2025 release on a staging host, WEAK until confirmed on cliffwater.com). BOTH POSITIONS are true at once: they measure different things (covenant defaults that often lead to renegotiation, against realized losses) (IMF GFSR Apr. 2024). CHECK: when a sponsor quotes a default rate, ask which definition.
 
@@ -750,6 +751,8 @@ CHECK: before committing, write down the expected net alpha, the benchmark it is
 - Size is the enemy of performance (Swensen). CHECK: compare successor-fund size with the funds that produced the track record, with team size, and with deals per partner. RED FLAG: successor fund much larger than the funds that earned the record, without a matching increase in senior team.
 - Attribute the record to the people. Attribute each realized deal to the partners who led it and test whether they are still there and still leading (Sorenson et al.). Carry allocation is driven by founder status, not track record: mean founder 19.2% of carry against 10.9% for non-founders; underprovision of carry predicts senior departures, which hurt the next fundraise (Ivashina and Lerner, "Pay Now or Pay Later?," JFE 2019, https://nber.org/system/files/working_papers/w22660/w22660.pdf). Detail in Chapter 10.
 - Decompose each realized deal into revenue/EBITDA growth, leverage, and multiple change, and score the manager on the operating share (PRINCO principles, 0.7 item 6).
+- Manager-selection principles from allocators. PRINCO (via a former 15-year staffer): "fewer, better, stronger" (after the GFC Princeton cut its roster because more managers diluted attention without adding safety); "who matters more than when" (pacing follows manager quality); prefer value creation through operations over leverage, multiple expansion or momentum; prefer managers who discuss problems openly. Named red flags: over-diversified rosters masking low conviction, returns driven by financial engineering, momentum mistaken for skill, opacity about problems ("Four Mantras from the Endowment," BU Insights, https://insights.bu.edu/four-mantras-from-the-endowment-a-personal-journey/; PRINCO Investment Strategy, https://princo.princeton.edu/about/investment-strategy). Yale: managers "maniacally focused on beating the markets," modest fund sizes, integrity weighed alongside numbers, and openness to emerging managers without formal records; Swensen called the standard 50-to-100-page questionnaire plus 5 to 10 years of audited history "not the richest pond" (Swensen, lecture 9; Yale Investments Office, https://investments.yale.edu/partners). Wharton: decline managers whose recent funds land consistently in the third or fourth quartile, and expect fund-size discipline after a bubble (Erickson, KaW, Mar. 13, 2023). The skill that separated endowments was the re-up decision, where the current fund's interim marks are a poor guide (Lerner, Schoar and Wongsunwai).
+- Co-investments and side vehicles: assume adverse selection unless you are a top LP. In 392 direct investments by seven large institutions (1991 to 2011), co-investments underperformed the fund deals they sat beside (Fang, Ivashina and Lerner, JFE 2015, https://www.nber.org/papers/w19299); alternative vehicles (co-invest, SMAs, sidecars) reached about 40% of PE commitments by 2017 and underperform the sponsoring GP's main fund on average (Lerner, Mao, Schoar and Zhang, JFE 2022, https://www.nber.org/papers/w24941). CHECK: ask why the GP is syndicating and whether the main fund is taking its full pro rata.
 - Interim marks are weak early. In 7,271 company-years in 536 US PE funds (2015 to 2020), interim returns predict final returns only weakly in years 1 to 2 (coefficient about 0.16), rising to 0.62 in years 3 to 4 and 0.78 later; a one-standard-deviation more positive tone in early GP commentary predicts about 3 to 4 points higher annualized final return (sample mean about 7%); commentary focused on cash flow and business model predicts better outcomes, focus on capital structure worse (HLS Forum, "Understanding Communications by Private Fund Managers," 2026, https://corpgov.law.harvard.edu/2026/10/14/understanding-communications-by-private-fund-managers/). CHECK: read the GP's portfolio commentary history, not just the marks; flag companies where early letters dwell on refinancing, covenants or capital structure.
 - Cherry-picked records are an SEC exam finding: track records shown gross of fees, without leverage effects, over selective periods, or borrowed from people not primarily responsible (HLS Forum, "SEC Identifies Private Fund Deficiencies," 2022, https://corpgov.law.harvard.edu/2022/02/17/sec-identifies-private-fund-deficiencies-signifying-increased-industry-scrutiny/).
 - Operating-company forecast records count too: compare past projections with actuals (Schrand and Zechman, 0.2).
@@ -940,3 +943,306 @@ Where a deal's cash flow depends on a government decision, the decision is a cou
 - Tax-credit dependence. OBBBA (July 2025) largely repealed IRA clean-electricity credits (0.18). CHECK: a no-credit downside case for any deal whose returns rely on 45Y, 48E or 45X credits or transferability.
 - Ratepayer backlash. Data centers explained about 16% of industrial and 4% of residential price increases across 385 data centers and 42 utilities (2020 to 2025) (HBS WK, https://library.hbs.edu/working-knowledge/blaming-data-centers-for-higher-electric-bills-its-not-that-simple); a 20% residential bill increase in parts of New Jersey became a 2025 governor's-race issue (Crosier, Onghai and Sircar, arXiv 2609.08166, https://arxiv.org/abs/2609.08166). CHECK: large-load tariff and cost-allocation rules, pending rate cases, and local moratorium risk. Detail in Chapter 6.
 - Market-design risk: ERCOT generators had been urged to winterize after 2011 but were not paid to, and ERCOT had no enforcement power (Hirs, Yale Insights).
+
+<!-- APPENDICES -->
+
+# Appendix A Templates
+
+The deck, the diligence report, the red-team prompt, and three v2 forms: the bias audit, the ODD scorecard, and the universal first-request list.
+
+## A.1 One-page deck template
+
+1. What it is, and the ask, in one line.
+2. Sponsor and track record (verified). Mark each claim verified (by whom) or asserted. Track record with and without the top one or two outcomes (0.13).
+3. Asset or business, and market. Where in the cycle (0.10 scorecard, one line).
+4. The numbers: historical, then projection. State the base rate the projection must beat, and the management-forecast haircut applied (0.6, 0.7).
+5. Structure, use of proceeds, security.
+6. Returns and sensitivities. Include: exit multiple = entry and margins flat; entry minus 1 to 2 turns; what must be true (implied margin, growth, exit multiple).
+7. Top 3 risks and mitigants.
+8. Terms.
+9. What we could NOT verify (one line, pointing to the diligence report).
+
+## A.2 Diligence report template
+
+This is the PDF that ships with each deal.
+
+- Deal summary and structure.
+- What was checked, by workstream, and the evidence reviewed.
+- What was verified independently, and by whom.
+- What could NOT be verified. An explicit list. For each item: the rep, indemnity or closing condition that covers it, and its survival or limitations date (0.16).
+- Open concerns and unresolved questions.
+- Red flags found and their status (0.17 list).
+- Third-party reports obtained. Sponsor background-check summary. QoE engagement type (SSAE 19 AUP or CS 100) and what its scope excluded (0.5).
+- Numbers: the model, base and downside, sensitivities.
+- Recommendation and conditions.
+
+v2 fields:
+
+| Field | Why | Source |
+|---|---|---|
+| Diligence intensity: hours of in-person management contact, sites visited, references called, what was skipped for timing | Thin diligence in hot markets is where misallocation happens | Fu and Taylor, NBER w33987 |
+| Refused or deflected questions (count and topic) | 14% of ODD investigations met refusals | Brown et al., NBER w15529 |
+| Verbal-versus-written discrepancies | 20% of managers gave verbal figures contradicting their documents | same |
+| Wire-authority matrix as confirmed by the bank or administrator | 16% mismatch with administrator | same |
+| Average versus period-end balances (cash, debt, assets) | Repo 105 | YPFS, JFC 1(1) |
+| Collateral dedupe: UCC sweep across all secured parties and affiliates; item-level dedupe (invoice, VIN, serial) | First Brands, Tricolor | Harker, KaW 2026; DOJ SDNY |
+| Off-balance-sheet financing added to leverage (factoring, SCF, receivables sales, inventory finance, guarantees, keepwells) | First Brands about 5x reported vs about 20x actual | Harker, KaW 2026 |
+| Leverage at close vs maximum permitted under baskets and add-backs | Weak covenants | Ivashina and Vallee |
+| Net cash per share (SPAC or structured equity) | De-SPACs delivered a mean $4.10 (median $5.70) of cash per $10 share, Jan. 2019 to June 2020 | Klausner, Ohlrogge and Ruan, Yale J. on Reg. 39, https://openyls.law.yale.edu/entities/publication/44dd0075-0956-44d1-bb2e-ea326755b4b5 |
+| Implied expectations ("what must be true") from the reverse valuation | Price-implied margin and growth | Thomas, Yale Insights |
+| Hints log: each data-room hint, the written question, who asked it, the answer | Paragon Metals | HLS Forum 2026 |
+| Third parties named as validators, partners, customers or co-investors, and whether each was contacted directly | Theranos | HLS Forum 2022 |
+| Hotline test result and 3-year hotline statistics; internal investigations log | One-fifth of hotlines non-functional | Soltes 2018 |
+| Compliance diligence scope and gaps; 100-day compliance plan | DOJ ECCP | HLS Forum 2020 |
+| Treasury and counterparty map: banks, insured share, pooled cash vehicles, prime brokers, hedge counterparties, financing lines with haircuts | SVB, Reserve Primary, Credit Suisse, Lehman | 0.11 |
+| Cycle scorecard | Late-cycle signals | 0.10 |
+| Bias audit (A.4) attached | IC hygiene | Kahneman, Lovallo and Sibony |
+| Regulatory status lines checked at signing | Rules changed 2024 to 2026 | 0.18 |
+| ILPA Performance Template obtained (fund deals): yes or no | Refusal is a signal | ILPA 2025 |
+
+## A.3 Red-team prompt
+
+For an AI reviewer, per deal type.
+
+PROMPT
+
+> You are a skeptical institutional investor attacking this deck. Use the failure modes, red flags, and hard questions for [deal type], plus Chapter 0. You are not trying to be balanced. You are trying to find the reason this deal loses money.
+
+Core (v1):
+
+1. List every claim presented as fact that is not independently sourced.
+2. Identify every metric that could be gamed (NRR, adjusted EBITDA, ACV, DSCR, IRR) and demand the raw recomputation.
+3. Name the single check that, if it fails, kills the deal.
+4. Flag any guaranteed return, missing third-party report, missing independent administrator, appraiser, or engineer, or unreconciled cap table or borrowing base.
+5. Separate what the sponsor verified from what they assert. Produce the list of documents the sponsor rarely has ready and should be asked for first.
+6. State what a good answer to each hard question looks like, and treat evasion as a red flag.
+
+Language and numbers (v2):
+
+7. Restate every term of art in one plain sentence with a number. Flag any you cannot (Sonnenfeld jargon test).
+8. Recompute the return with exit multiple equal to entry multiple and margins flat; report how much of the base case survives. Then at entry minus 1 to 2 turns (Thomas et al.; Wasserstein and Thomas; Gompers et al. 2016).
+9. Identify every number that is a period-end snapshot and ask for the average (Repo 105).
+10. Identify every short-term funding line and stress its haircut to crisis levels (50% non-Treasury structured, 100% esoteric) (Gorton and Metrick).
+11. Compute maximum permitted senior secured leverage including all baskets, ratio debt and add-backs; compare with closing leverage (Ivashina and Vallee).
+12. Is there off-balance-sheet financing (factoring, supply-chain finance, receivables sales, guarantees) excluded from leverage? (First Brands.)
+13. Is any DSCR computed on anticipated rather than in-place leases? Is the cap rate NOI-based or cash-flow-based? (Wharton lane; Levitin and Wachter.)
+14. Is any growth acquisition-driven, with weak cohorts? Show revenue from customers acquired in the period against prior cohorts (Fader and McCarthy).
+15. Does any semi-liquid vehicle have redemption rights above its liquidity coverage (cash + NII + maturities against the cap)? (Fang, Goldstein and Zeng.)
+16. Widen every sponsor range about 2x and rebuild the downside from base rates, not the sponsor's scenario tab (Ben-David, Graham and Harvey).
+17. Show any VC or fund track record with and without the top one or two outcomes, as PME, never as a compounded IRR (Ouyang et al.; Yale 2018).
+18. When a default rate, loss rate or benchmark is quoted, name its definition and whether it excludes backfill and includes dead funds (IMF 2024; Malkiel and Saha).
+
+Evidence trail (v2):
+
+19. Diff the target's last eight quarterly and annual filings or management letters; list every changed risk factor or legal disclosure and require an explanation (Lazy Prices).
+20. For every "hint" in the data room (references to lost customers, cancellation letters, volume declines), name the written question asked, who asked it, and the answer received (Paragon Metals).
+21. Identify every third party the sponsor cites as validator, partner, customer or co-investor, and record whether we contacted each directly (Theranos).
+22. For the top 10 customers, compare the target's reported sales with each customer's purchase, inventory and payables trend (Zhang, Li and Li).
+23. Reconcile every distribution to its source account and to underlying cash flow (GPB Capital).
+24. For any named valuation firm, pricing service or administrator, state whether we hold its engagement letter and spoke to it, and who has write access to pricing inputs (Infinity Q; SQN).
+25. Read the QoE engagement letter: AUP or consulting, and what was NOT tested (SSAE 19).
+
+Cycle, counterparties and bias (v2):
+
+26. Score the asset class on Xiong's four bubble features and the 0.10 scorecard; if three or more, name the exit buyer and multiple once supply arrives.
+27. Where is the cash, what share is uninsured or in gateable vehicles, and which counterparty failure would stop the business or the fund? (0.11.)
+28. Run the 12 bias-audit questions (A.4) against the deal team's own memo and answer questions 10 and 11 with an outside-view base rate.
+29. Which regulatory line in 0.18 does this deck rely on, and is the deck's description of it current? (Example: "cannabis is now Schedule III" is wrong for adult-use.)
+30. What would the post-mortem say if this deal lost half its value in three years? Write it now.
+
+## A.4 IC bias audit form
+
+Completed in writing by the deal team; read by the IC chair before the vote; attached to the diligence report (Kahneman, Lovallo and Sibony, HBR 2011; Ben-David, Graham and Harvey, QJE 2013).
+
+| # | Question | Answer (one paragraph) | Evidence or base rate cited |
+|---|---|---|---|
+| 1 | Self-interest: does compensation or a pipeline target skew the call? | | |
+| 2 | Affect: is the team in love with the deal? | | |
+| 3 | Groupthink: were dissenting views recorded and explored? Who disagreed? | | |
+| 4 | Saliency: is the thesis an analogy to one memorable past win? | | |
+| 5 | Confirmation: were credible alternatives (pass, smaller ticket, different structure) evaluated? | | |
+| 6 | Availability: what would we want to know in a year, and can we get it now? | | |
+| 7 | Anchoring: where did each key number come from? Is it the sponsor's figure re-labelled? | | |
+| 8 | Halo: are we assuming success in one asset class carries to this one? | | |
+| 9 | Sunk cost: are we attached because of time spent or a prior deal with this sponsor? | | |
+| 10 | Is the base case too optimistic? (Reference class and its outcome distribution.) | | |
+| 11 | Is the worst case bad enough? (Sponsor range widened about 2x?) | | |
+| 12 | Is the team being too cautious? | | |
+| 13 | Process: order of review randomized; materials scored before the pitch; more than one rater (Chen et al.; Ma and Hu) | | |
+| 14 | Diligence floor met despite competition? Hours, sites, references (Fu and Taylor) | | |
+| 15 | Post-mortem date diarized | | |
+
+## A.5 ODD scorecard with base rates
+
+Compare each fund or sponsor against the base rates from 444 third-party ODD reports (Brown, Goetzmann, Liang and Schwarz, "Trust and Delegation," NBER w15529). A typical third-party ODD report then cost about $12,500 (same source; dated, WEAK as a current price).
+
+| Field | Base rate in the ODD sample | This sponsor |
+|---|---|---|
+| Past legal or regulatory problem | 41% | |
+| Misrepresented past legal or regulatory problems | 21% | |
+| At least one misrepresentation or inconsistency | 42% | |
+| Verbal figures contradict written documents | 20% | |
+| DD questions refused | 14% | |
+| Assets unverifiable or disagreeing with a third party | about 19% | |
+| Performance unverifiable or disagreeing | 14% | |
+| Wire-signature process disagrees with the administrator | 16% | |
+| Pricing process disagrees with the administrator | 3.6% | |
+| Major data vendor switched in last 3 years | 11% | |
+| Non-Big 4 auditor; internal pricing (each associated with misrepresentation) | flag | |
+| Form ADV disclosures reconciled to DDQ answers | required | |
+| SEC exam deficiency list tested (LPAC consents, fee step-downs, extensions, strategy and leverage limits, key-person, track-record presentation, service-provider diligence, hedge clauses) | required | |
+| AML program and investor KYC owner (no federal adviser AML obligation until Jan. 1, 2028) | required | |
+| ILPA Performance Template for every prior fund | required | |
+
+## A.6 Universal first-request list
+
+The documents sponsors rarely have ready. Ask for these first; the speed and completeness of the response is itself a finding.
+
+1. 36 months of bank statements for every account, and the bank confirmations used in the QoE (0.5).
+2. Bank or administrator-confirmed signatory list and wire approval matrix (0.5).
+3. Average daily or intra-quarter balances of cash and debt (0.4).
+4. Every factoring, supply-chain-finance, receivables-sale, inventory-finance and guarantee agreement; UCC search results across all affiliates and principals' entities (0.4, 0.5).
+5. Bank accounts list with balances by institution and insured share; all pooled cash vehicles (0.11).
+6. Every financing line with haircut, advance rate, margin-call mechanics and term (0.11).
+7. Past projections and guidance against actuals for every prior deal or year (0.2).
+8. Track record as LP cash flows, every fund and vehicle ever managed (including closed and abandoned), ILPA Performance Template with and without sub lines and NAV debt (0.13).
+9. Carry and GP-ownership split by person, current and prior fund (0.13; Ivashina and Lerner).
+10. Form ADV Parts 1 and 2; any SEC deficiency letters or Wells notices in the last 5 years (0.2; HBS lane fund checklist).
+11. Fee and expense allocation policy and a 3-year schedule of all portfolio-company fees (monitoring, transaction, director, operating-partner) with offset calculations; broken-deal expense allocation across funds and co-investors (HLS Forum, SEC enforcement 2015 to 2016, https://corpgov.law.harvard.edu/2016/12/19/the-year-in-review-sec-enforcement-actions-against-investment-advisers/).
+12. Co-invest allocation policy and the list of co-invests offered and to whom (Fang, Ivashina and Lerner; Lerner, Mao, Schoar and Zhang).
+13. NAV-facility and subscription-line terms; LPA consent provisions for NAV debt and GP-leds (0.13, 0.16).
+14. Internal investigations log, hotline log and 3-year hotline statistics (0.15).
+15. Valuation policy, valuation-committee minutes, the named valuation firm's engagement letter, and who has write access to pricing inputs (0.6).
+16. Customer-level volume forecasts and contracts for the top customers, and permission to call them (0.16).
+17. Cohort data: customers acquired per period, total active customers, orders (0.6 CBCV).
+18. Cap table on a fully diluted basis (options, RSUs, warrants, SAFEs), and every investor veto over financing and M&A (0.6, 0.16).
+19. AML and sanctions policy, and who performs investor KYC (0.3).
+20. Insurance: bindable quotes for the full hold; water will-serve letter and source seniority where relevant (0.19).
+21. Every government lease and appropriation-dependent revenue line, with termination rights (0.20).
+
+# Appendix B Open Gaps and Interview Guide
+
+What the research could not settle, what v2 settled, and how to close the rest.
+
+## B.1 Open gaps
+
+Resolve remaining gaps by interviewing 3 to 5 lenders or investors per deal type.
+
+### v1 gaps: status in v2
+
+| v1 gap | v2 status | Resolved by | What remains |
+|---|---|---|---|
+| Real estate LTC and DSCR cutoffs, and promote terms, by deal size (WEAK) | PARTLY RESOLVED | Federal programs as ceilings: HUD Mortgagee Letter 2025-03 (Jan. 8, 2025) raised 221(d)(4) market-rate new construction to 87% LTC at 1.15x min DSCR (from 85% and 1.176x); affordable 90% at 1.11x (https://huduser.gov/portal/hud/mortgagee_letters/25-3_Hsngml.pdf). Fannie Mae Form 4660 tiers; Key Principal guaranty required below 1.35x on fixed-rate loans; underwrite at the higher of note rate or Fannie floor (https://mfguide.fanniemae.com/fnmf-pdf/download/9906). Wharton: exit-cap benchmark (Linneman framework) and the in-place-lease DSCR rule (Levitin and Wachter). | Private-lender LTC norms by deal size; promote structures by deal size (HBS: Lietz frameworks unpublished; Wharton: no current source). Still a gap |
+| Energy availability-guarantee benchmarks from a primary OEM LTSA | RESOLVED | Entergy 2020 CCGT toll term sheet: 98% monthly availability in summer and winter months, 96% otherwise, 2% capacity-payment discount per 1% shortfall (https://rfp.entergy.com/ENTRFP/SEND/2020ETICCGTRFP/Documents/04282020/Appendix%20B-2%20-%20Term%20Sheet%20-%20Toll.pdf); DOE wind O&M checklist: typical 95% guarantee (2023). | A primary OEM LTSA itself was not obtained; the utility toll term sheet is the offtaker-side evidence |
+| Moody's and Fitch DSCR scorecard thresholds against primary criteria | LARGELY RESOLVED | S&P General PF Methodology (Dec. 14, 2022) Table 8 (min DSCR by OPBA) and Table 9 (downside resiliency); Fitch indicative 'BBB' renewable table (2012); Morningstar DBRS (Feb. 2025) merchant guidance. | Moody's Power Generation Projects methodology (Jan. 2022) grid is behind registration. Gearing (60% to 80%) stays WEAK and is reframed as an output of DSCR sculpting |
+| Credit and specialty advance-rate and loss-rate norms by sub-strategy | PARTLY RESOLVED | Direct lending realized loss about 1.0% a year (Cliffwater); OCC ABL Handbook advance rates (receivables 70% to 85%; inventory up to about 65% of cost or about 80% of NOLV; concentration caps 10% to 20%; over-advances 10% to 15%); NAV loans initial LTV 10% to 30%, max about 40%; factoring 70% to 90% of eligible AR; recovery anchors loans 84%, secured bonds 60%, unsecured 38% (Schwert); CLO AAA break-even about 60% defaults at 40% recovery (Roberts and Schwert); stressed haircuts 0 to about 50% (Gorton and Metrick) and margins about 10% to above 40% (Geanakoplos) as the stress side. Tricolor shows advance rate is meaningless without collateral dedupe. | Consumer installment and equipment residual norms; factoring cost (WEAK); venture debt terms (WEAK; Stifel deck remains best); unitranche pricing (practitioner) |
+| How venture investors weight the Rule of 40 against NRR by stage | BOTH POSITIONS | General lane: RESOLVED by ICONIQ State of Software 2025: Rule of 40 gets real weight only at about $25M ARR or more; below that, underwrite growth plus NRR/GRR and burn; a point of growth has nearly twice the valuation impact of a point of FCF margin (https://www.iconiq.com/growth/reports/2025-state-of-software). Investor-published data: WEAK until corroborated. Private SaaS median NRR is just above 100%, not 117% (KeyBanc/Sapphire 2025). | Yale lane: NOT resolved by academic sources; Yale evidence (deal access drives VC outcomes; no average margin expansion) argues for weighting growth durability (NRR) over projected margins. Confirm by investor interviews |
+
+### Gaps the v2 research raised
+
+Data and sourcing:
+
+- Middle-market entry multiples (6x to 10x, soferadvisors) and direct-lender share (about 70%, Bain via ctacquisitions): no primary retrieved; keep WEAK until GF Data or PitchBook-LCD is pulled. Lower anchor: median search-fund acquisition 5.7x EBITDA at about $12M EV (IESE 2026, general lane).
+- Covenant-lite share in private credit (48%, botminds): needs the Proskauer primary.
+- Burn multiple and magic number: practitioner originators only (Craft Ventures; David Skok).
+- An EBITDA add-back study; subscription-line IRR inflation magnitude (partly addressed by the ILPA 2025 Performance Template); continuation-vehicle pricing (Wharton lane).
+- Process timing (weeks 9 to 16; 60 to 90 days sign-to-close): vendor-only (0.1).
+- Fu and Taylor hours-of-diligence distribution: abstract only read.
+- Gyourko NBER w14708 full text (CRE price-decline figures) not retrieved.
+- Search-fund figures from 2007 (about 37% IRR; 25% never close): update against the current Stanford GSB study.
+
+Regulatory and legal:
+
+- IRS guidance on 280E after the April 2026 partial rescheduling: none located.
+- Liability management exercises (priming, uptiers, drop-downs): flagged by WFFI 2026 (roundtable listing only, WEAK); needs law-firm and court primaries.
+- Flexible or conditional-firm large-load tariffs are being written utility by utility. Interview utilities and data-center lenders on how non-firm service is treated in lease and debt documents (Princeton lane).
+- Proof-of-reserves standards for crypto custodians and exchanges (who supplies the challenge, liabilities coverage, auditor scope). Interview a crypto custody auditor (Princeton lane).
+- Consolidated RBC for insurer-affiliated private-credit platforms. Interview an insurance regulator or rating analyst (Princeton lane).
+- Data-center interconnection: 3 to 7 years typical (Camus/encoord/Princeton ZERO Lab, Dec. 2025) against v1's 8 to 12 years in primary hubs (gi-advisors, WEAK). BOTH POSITIONS; verify per utility.
+
+Items marked [VERIFY] by the research lanes (WEAK until confirmed on the primary site):
+
+| Item | Where used |
+|---|---|
+| OFAC 50 Percent Rule and Compliance Framework document links | 0.3, 0.18 |
+| SEC staff no-action letter, Mar. 12, 2025 (506(c) minimum investment) | 0.3, 0.18 |
+| TZP Management SEC order release number (Aug. 15, 2025) | 0.15 |
+| DOJ SDNY Archegos sentencing URL (Nov. 20, 2024) | 0.4 |
+| DOJ SDNY SBF sentencing URL (Mar. 28, 2024) | 0.4 |
+| Cliffwater 2025 results release (staging host) | 0.10 |
+| ABA 2025 Deal Points survival and deductible splits (secondary summaries) | 0.16 |
+| SR 13-3 "4.0x total / 3.0x senior" wording | 0.18 |
+| Nareit REIT-implied vs NCREIF ODCE cap rates, Q2 2026 | 0.6 |
+| Tricolor "$2.2B pledged against $1.4B" (single report) | 0.4 |
+| Harvard Extension School attribution of MGMT E-2790 | 0.9 |
+
+Abstract-level or podcast-sourced items (WEAK): Brown et al. omega score (JF 2008, FAJ 2009); Ang, Chen, Goetzmann and Phalippou published figures; Goetzmann, Gourier and Phalippou (preliminary); Fader and McCarthy CBCV cases (podcast); Werbach on FTX (podcast); Kleinman Center episodes (podcast); Princeton endowment return assumption (press reports).
+
+Chapters proposed but not yet drafted (general lane): insurance and specialty finance; sports franchises; franchise businesses; family-office direct deals; farmland; art and collectibles; music royalties. Litigation finance is drafted in outline only. Suggested primaries: NAIC statutory filings and RBC, AM Best methodology; FTC Franchise Rule (16 CFR Part 436) and FDD Items 19 to 21; USDA NASS Land Values and NCREIF Farmland Index; Copyright Royalty Board Phonorecords IV and MLC data; league constitutions and leaguewide credit facilities; auction-house guarantee disclosures and UCC Article 9 for art lending.
+
+Lane-specific gaps: no CPG- or cannabis-specific material in free HBS, HLS Forum or HKS sources (HBS lane); Wharton faculty not mined in depth (Yamazaki, Amit, Opp, van Binsbergen, Holthausen beyond his textbook, Guay beyond Theranos, Daniel Taylor's 10b5-1 "three red flags").
+
+## B.2 Core interview guide
+
+Universal (v1):
+
+1. What are the first three things you look at, and what makes you stop reading?
+2. What do you ask for that sponsors rarely have ready?
+3. What does a deck get wrong most often here?
+4. Which numbers do you rebuild yourself, and which do you take from the sponsor?
+5. Tell me about a deal that looked clean and went bad. What did you miss?
+6. What third-party reports do you require?
+7. What terms are non-negotiable?
+8. What would make you trust diligence done by someone else?
+
+Process and decision hygiene (v2):
+
+9. How many hours did you spend with management in person before you committed? (Fu and Taylor.)
+10. Tell me about a decision process you changed after a loss. (Schwarzman.)
+11. When did you last decline a hot manager or deal on operational grounds alone? (Brown et al.)
+12. How do you size the haircut you apply to management's forecast, and how has it compared with outcomes? (Gompers et al. 2016: 20% median.)
+13. Who sets your walk-away price, and is that person on the deal team? (Feldman.)
+
+Verification and misconduct (v2):
+
+14. Which of your managers' or borrowers' statements did third-party records contradict? (Brown et al.)
+15. When did you last call a target's whistleblower hotline, and what happened? (Soltes.)
+16. Show me the amendment history. (Wharton lane; Elias and de Fontenay.)
+17. How do you dedupe collateral against other lenders' borrowing bases? (First Brands; Tricolor.)
+
+Leadership (v2):
+
+18. What share of your last ten deals changed CEO, and when did you first know? (HLS CEO study.)
+
+Funds and credit (v2):
+
+19. How do you decide whether to take a co-invest the GP offers you, given evidence that co-invests underperform the main fund? (Fang, Ivashina and Lerner.)
+20. Who chose lender counsel on your last three LBO loans, and what did your own counsel change? (Sponsor-designated counsel.)
+21. What is your fixed-fee share of GP revenue in the downside? (Metrick and Yasuda.)
+22. Which default definition do you report, and what is your realized loss rate? (IMF 2024; Cliffwater; Proskauer.)
+
+Specialist interviews to close B.1 gaps (v2):
+
+23. Utilities and data-center lenders: how is non-firm or flexible interconnection treated in the lease and the debt documents, and how many curtailment hours does the lender underwrite? (Princeton lane.)
+24. Crypto custody auditors: who supplies the proof-of-reserves challenge, what liabilities are covered, and what is the audit scope? (Princeton lane.)
+25. Insurance regulators or rating analysts: how do you consolidate RBC across affiliated captives and private placements? (Princeton lane.)
+26. Real estate lenders: what LTC and DSCR do you actually lend at, by deal size, and what promote structures do you see? (v1 gap.)
+27. Venture investors: at what ARR does the Rule of 40 start to matter more than NRR in your pricing? (v1 gap.)
+
+## B.3 Note on process
+
+This is Version 2.0 (November 2026). It rebuilds Version 1.0 from five parallel research lanes, each instructed to work only from free primary or institutional sources and to tag every finding as NEW, STRENGTHENS, CONTRADICTS or RESOLVES a v1 weakness or gap:
+
+1. Harvard lane: HBS faculty research (NBER and SSRN versions), HBS Working Knowledge, the Harvard Law School Forum on Corporate Governance, and Harvard Kennedy School. Strongest on PE and VC practitioner surveys, covenants, fund economics, M&A fraud litigation, compliance and misconduct.
+2. Wharton lane: Knowledge at Wharton, Wharton faculty research, the Zell/Lurie Real Estate Center, the Rodney L. White Center, the Wharton financial-institutions policy series (WFFI), the Kleinman Center for Energy Policy, and the Wharton Blockchain and Digital Asset Project. Strongest on real estate pricing and distress, covenants and CLOs, semi-liquid private credit, customer-based valuation, and behavioral process failure. This lane exhausted its search budget; its open items are in B.1.
+3. Yale lane: Yale SOM, Yale Law School, Yale economics and Cowles, the Yale Investments Office, the Yale Program on Financial Stability and its Journal of Financial Crises, Yale ICF working papers, Yale Insights, and Open Yale Courses. Strongest on ODD base rates, crises, counterparty and liquidity risk, track-record forensics and allocator practice.
+4. Princeton lane: Bendheim Center for Finance, economics, ORFE, the Griswold Center (CEPS), Julis-Rabinowitz Center, Andlinger Center (Net-Zero America, ZERO Lab, REPEAT), SPIA, CITP and PRINCO. Strongest on credit cycles and bubbles, decision bias, hedge-fund data biases, energy and data-center power, and crypto custody.
+5. Primary and institutional lane (non-Ivy): regulators and agencies (SEC, DOJ, FinCEN, OFAC, Federal Reserve, OCC, FDIC, HUD, DEA, LBNL, DOE, GAO, IMF), rating agencies (S&P, Fitch, Morningstar DBRS, Moody's), industry bodies (ILPA, NVCA, ABA, ACFE, AICPA), and institutional data (Proskauer, Cliffwater, SRS Acquiom, Aon, AIG). Replaced most v1 vendor sources and supplied the November 2026 regulatory status.
+
+Version 1.0 was built from primary and institutional sources (OCC, FDIC, Federal Reserve, SEC enforcement filings, ILPA, NVCA, EIA, Lazard, World Bank, S&P, Credit Agricole CIB, the law firms Mintz, Wilson Sonsini, Sidley, Pillsbury, and Cole Schotz, and practitioner QoE and ODD guidance), plus a dedicated energy project-finance research pass. All v1 content is retained unless a v2 finding corrected it; corrections are marked CONTRADICTS or noted inline, and where sources disagree both positions are shown.
+
+Merge rules used for v2: findings from different lanes were deduplicated, keeping the best-sourced version and citing every lane that agreed; numbers keep their citation and year; anything tagged [VERIFY], confirmed only at abstract level, or sourced to a podcast is marked WEAK.
+
+Items marked WEAK rest on vendor, aggregator, or practitioner-only sourcing, or are unverified. Confirm them against a primary source or a live practitioner interview before they anchor a posted deal.
+
+The structure is modular, so each chapter can be expanded into its own standalone volume as deal flow in that category grows. Version 2.0 adds universal sections 0.10 to 0.20 and new sector chapters (secondaries and GP-led continuation vehicles; NAV lending and fund finance; search funds and ETA; data centers and digital infrastructure; healthcare services roll-ups; litigation finance in outline), handled in their own chapters.
