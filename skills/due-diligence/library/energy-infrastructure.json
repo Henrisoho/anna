@@ -1,0 +1,4246 @@
+{
+  "type": "energy-infrastructure",
+  "name": "Energy and Infrastructure",
+  "summary": "Project-financed power generation (contracted solar, wind and storage; tolled or merchant gas; behind-the-meter power islands; contracted baseload and nuclear PPAs), transmission and midstream, concessions/PPP/availability-payment and regulated-tariff assets, and carbon capture and CO2 storage. A non-recourse SPV borrows against contracted cash flows; lenders rely on the contract suite (PPA/toll/lease, EPC, O&M/LTSA, interconnection, fuel, site control, tax-credit transfer, concession, CO2 transport-and-storage, hedges) and an independent engineer. The diligence spine: delivered power (executed interconnection with upgrades funded, security posted and milestones met, not merely signed), contracted revenue that outlasts the debt from a creditworthy counterparty, debt sized by DSCR on a downside case (S&P 2022 Table 8 by OPBA, Fitch 'BBB' one-year P90 rating case for renewables, 10th-percentile spark spread for merchant gas, DBRS for merchant), a DSRA that survives the downside, firm fuel and winterization, firm (not reserved) equipment with provenance, and tax-credit, FEOC, appropriation and concession-renegotiation risk modelled as variables. Pre-FID, construction and operating dollars are priced separately.",
+  "chapters": [
+    "06-energy-infrastructure.md"
+  ],
+  "one_check": "Delivered power and contracted revenue sized to a downside case: an executed interconnection with upgrades funded, security posted and milestones met; an offtake that outlasts the debt from a creditworthy counterparty; and DSCR that clears the S&P Table 8 range for its risk class on a one-year P90 or 10th-percentile spark-spread case, with a DSRA that survives the downside.",
+  "subtypes": [
+    {
+      "id": "solar",
+      "name": "Contracted solar PV (and solar plus storage)",
+      "description": "Utility or corporate PPA; binding risks are resource (P50 vs one-year P90), curtailment, basis and 45Y/48E tax-credit and FEOC eligibility."
+    },
+    {
+      "id": "wind",
+      "name": "Contracted wind",
+      "description": "PPA-backed wind; Fitch sets a higher base-case bar (1.60x) because most wind projects underperform P50; time-based availability ~95%."
+    },
+    {
+      "id": "storage",
+      "name": "Battery / energy storage",
+      "description": "Contracted or tolled storage; shares the renewables contract suite, tax-credit/FEOC exposure and interconnection checks. The bible gives no storage-specific DSCR benchmark; storage is sized off S&P Table 8 by OPBA."
+    },
+    {
+      "id": "thermal-toll",
+      "name": "Contracted thermal / gas (tolling)",
+      "description": "CCGT or peaker under a tolling agreement; the offtaker pays capacity conditioned on availability (Entergy toll 98%/96%); binding risks are availability, heat rate, firm fuel and winterization."
+    },
+    {
+      "id": "merchant",
+      "name": "Merchant or hedged generation",
+      "description": "Spot energy, capacity payments, hedges or revenue puts; binding risks are spark spread / capture price, scarcity events, cannibalization by other announced capacity, capacity-market rules (PJM collar). Panda Temple and Uri are the case files."
+    },
+    {
+      "id": "transmission-midstream",
+      "name": "Transmission and midstream (lines, HVDC, pipelines, gas transport)",
+      "description": "Transmission lines, merchant HVDC, renewable energy zones and gas transport assets. The bible covers these mainly through transmission build-rate realism (REPEAT ~1%/yr), network upgrades and firm-transport checks; midstream-specific benchmarks are thin."
+    },
+    {
+      "id": "concession",
+      "name": "Concession / PPP / availability-payment / regulated tariff",
+      "description": "Revenue set by a public counterparty or regulator (availability payments, tolls, regulated tariffs). Renegotiation is the base rate (54% transport, 74% water in ~1,000 Latin American concessions)."
+    },
+    {
+      "id": "ccs",
+      "name": "Carbon capture and CO2 transport/storage",
+      "description": "Capture plants, blue hydrogen, CO2 pipelines and Class VI storage; revenue from offtake, tax credit and transport-and-storage tariffs. A capture plant with no contracted sink is a stranded asset."
+    },
+    {
+      "id": "power-island",
+      "name": "Behind-the-meter power island",
+      "description": "On-site generation (turbines, recips, gensets) serving a data-center tenant under a lease or energy-services contract; binding risks are air permit, fuel, equipment provenance and lead times, and the curtailment interface with the grid. Live deal flow; pair with data-centers.json."
+    },
+    {
+      "id": "contracted-baseload",
+      "name": "Contracted baseload / nuclear PPA",
+      "description": "Long-tenor front-of-meter PPAs with hyperscalers (Constellation-Microsoft Crane restart, Talen-AWS 1,920 MW through 2042); binding risks are counterparty and regulatory challenge to cost shifting."
+    }
+  ],
+  "intake_questions": [
+    {
+      "id": "EN-Q01",
+      "question": "What asset is it: contracted solar, wind, storage, tolled thermal, merchant/hedged, transmission or midstream, concession/regulated tariff, CCS, behind-the-meter power island, or contracted baseload/nuclear?",
+      "why": "Drives which subtype items apply; underwrite the asset you are actually offered (6.1 table).",
+      "sets_subtype": true
+    },
+    {
+      "id": "EN-Q02",
+      "question": "What phase is the capital going into: pre-FID development, construction (FID to COD), or operations? How much of our money is pre-FID?",
+      "why": "Pre-FID capital is 100% at risk and must be priced like venture, not like a construction loan or operating asset (NZA 2021).",
+      "sets_subtype": true
+    },
+    {
+      "id": "EN-Q03",
+      "question": "Who is the offtaker (utility, corporate, hyperscaler parent or SPV, public body, none), what is the contract (PPA, toll, lease, concession, hedge/revenue put), and what is its tenor against the debt tenor?",
+      "why": "Sets contracted vs merchant treatment, the merchant tail and the DSCR band (6.2, 6.5).",
+      "sets_subtype": true
+    },
+    {
+      "id": "EN-Q04",
+      "question": "What is the interconnection status: queue filing, cluster study, facilities study, executed LGIA, or energized? Is it reusing an existing (brownfield) interconnection?",
+      "why": "A queue position is not power; 41% of capacity with signed IAs still withdrew (LBNL 2026).",
+      "sets_subtype": false
+    },
+    {
+      "id": "EN-Q05",
+      "question": "Does the deal's return depend on 45Y, 48E, 45X or other credits, or on transferability? When did (or will) construction begin?",
+      "why": "Triggers the OBBBA begin-construction, placed-in-service and FEOC checks (6.10).",
+      "sets_subtype": false
+    },
+    {
+      "id": "EN-Q06",
+      "question": "Is any revenue or funding dependent on a government act: appropriation, green bank, ratepayer charge, regulated tariff, capacity-market collar?",
+      "why": "Triggers sweepability, concession and market-design checks (6.10, 6.11, 11.6).",
+      "sets_subtype": false
+    },
+    {
+      "id": "EN-Q07",
+      "question": "Is the debt rated or to be rated, and what OPBA does the sponsor or its rating adviser expect under S&P 2022?",
+      "why": "The investment-grade DSCR minimum is a function of OPBA (1.10x to 5.00x).",
+      "sets_subtype": false
+    },
+    {
+      "id": "EN-Q08",
+      "question": "Does the project burn gas or another fuel? Is transport firm or interruptible, and is there on-site backup fuel?",
+      "why": "Uri: interruptible fuel and curtailable compressors left plants dark (6.7).",
+      "sets_subtype": true
+    },
+    {
+      "id": "EN-Q09",
+      "question": "Does the project serve, or depend on, a data-center customer (behind-the-meter, front-of-meter PPA, or merchant into AI demand)?",
+      "why": "Pulls in large-load tariff, firm vs curtailable service, parent-guaranty and cannibalization checks (6.4, 6A).",
+      "sets_subtype": true
+    },
+    {
+      "id": "EN-Q10",
+      "question": "Which equipment is on firm order with serial numbers, which is a slot reservation, and is any of it used or refurbished?",
+      "why": "A slot reservation is a paid option, not equipment (6.4).",
+      "sets_subtype": false
+    }
+  ],
+  "requests": [
+    {
+      "id": "EN-STR-001",
+      "order": 10,
+      "stage": "screen",
+      "priority": "gating",
+      "workstream": "Structure & Terms",
+      "request": "Deliver a one-page asset and revenue classification memo naming the asset type, what carries the revenue, the binding risk, the capital phase (pre-FID / construction / operating) and the counterparty for every revenue line.",
+      "format": "Sponsor memo cross-referenced to executed contracts; one row per revenue line.",
+      "why": "Underwriting a contracted asset when the revenue is actually merchant, or an operating asset when the money is pre-FID.",
+      "pass": "Every revenue line maps to an executed contract or is labelled merchant; capital phase stated in dollars.",
+      "fail": "Any revenue line labelled 'contracted' with no executed contract; capital phase not stated.",
+      "verify": "Tie each line to the executed contract in the data room; compare to 6.1 asset-type table.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6.1",
+      "weak": false
+    },
+    {
+      "id": "EN-REG-001",
+      "order": 20,
+      "stage": "screen",
+      "priority": "gating",
+      "workstream": "Regulatory & Compliance",
+      "request": "Provide the executed interconnection agreement (LGIA or equivalent) itself, with all amendments, not a queue printout or summary.",
+      "format": "Countersigned agreement from the transmission provider/RTO with execution dates; amendments attached.",
+      "why": "Public queue data often omits or overwrites signed-agreement dates; a queue filing is presented as secured power.",
+      "pass": "Fully executed LGIA covering the project's MW and point of interconnection, with signed dates.",
+      "fail": "Queue position, feasibility/system-impact study, or will-serve letter offered instead; unsigned or expired agreement.",
+      "verify": "Confirm execution and status directly with the transmission provider/RTO and against its public queue record.",
+      "applies_to": [
+        "solar",
+        "wind",
+        "storage",
+        "thermal-toll",
+        "merchant",
+        "power-island",
+        "contracted-baseload",
+        "transmission-midstream"
+      ],
+      "ref": "6.2, 6.3, 6.4, 6.8",
+      "weak": false
+    },
+    {
+      "id": "EN-REG-002",
+      "order": 30,
+      "stage": "screen",
+      "priority": "gating",
+      "workstream": "Regulatory & Compliance",
+      "request": "Provide current queue and cluster status: queue number, cluster assignment, readiness status and readiness deposits posted under FERC Order 2023.",
+      "format": "RTO/transmission-provider queue record plus deposit receipts.",
+      "why": "Projects early in the queue carry very low completion base rates (about 19% of projects, 13% of capacity reached COD).",
+      "pass": "Cluster and readiness status documented by the RTO; deposits posted match the RTO's size-scaled requirement.",
+      "fail": "No readiness status, deposits not posted, or cluster not identified.",
+      "verify": "Pull the RTO queue record independently; confirm deposits with the RTO.",
+      "applies_to": [
+        "solar",
+        "wind",
+        "storage",
+        "thermal-toll",
+        "merchant",
+        "power-island",
+        "contracted-baseload",
+        "transmission-midstream"
+      ],
+      "ref": "6.3, 6.4",
+      "weak": false
+    },
+    {
+      "id": "EN-COM-001",
+      "order": 40,
+      "stage": "screen",
+      "priority": "gating",
+      "workstream": "Commercial & Market",
+      "request": "Provide the executed offtake contract (PPA, tolling agreement, hyperscaler lease, energy-services contract or concession) and a term sheet abstract of tenor, price, termination rights and credit support.",
+      "format": "Executed agreement with all amendments and side letters; sponsor abstract.",
+      "why": "Uncontracted revenue sized as contracted; 'single most important document in the file'.",
+      "pass": "Executed contract in force; abstract ties to the document clause by clause.",
+      "fail": "LOI, term sheet, or MOU presented as an executed offtake; missing side letters.",
+      "verify": "Read the full contract; confirm in force with the offtaker in writing.",
+      "applies_to": [
+        "solar",
+        "wind",
+        "storage",
+        "thermal-toll",
+        "contracted-baseload",
+        "power-island",
+        "concession",
+        "ccs"
+      ],
+      "ref": "6.2, 6.3",
+      "weak": false
+    },
+    {
+      "id": "EN-COL-001",
+      "order": 50,
+      "stage": "screen",
+      "priority": "gating",
+      "workstream": "Collateral & Title",
+      "request": "Provide site-control evidence: recorded deed or ground lease/option for every parcel, including access and transmission easements.",
+      "format": "Recorded instruments and title commitment; parcel map.",
+      "why": "Projects without site control cannot reach FID; easement gaps strand the interconnection route.",
+      "pass": "100% of parcels and easements under recorded control for a term at least equal to debt tenor plus decommissioning.",
+      "fail": "Unrecorded options, expired options, missing easements or term shorter than debt tenor.",
+      "verify": "Title search in the county records by our title company.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6.2, 6.3",
+      "weak": false
+    },
+    {
+      "id": "EN-VAL-001",
+      "order": 60,
+      "stage": "screen",
+      "priority": "gating",
+      "workstream": "Valuation & Model",
+      "request": "Provide the debt-sizing summary: minimum and average DSCR by case, the OPBA (or rating case) behind it, and how gearing was derived.",
+      "format": "Model output table signed off by the sponsor's financial adviser.",
+      "why": "Gearing set first and DSCR backed into; DSCR quoted without the OPBA or rating case behind it.",
+      "pass": "Debt sized by DSCR sculpting; gearing is an output; minimum DSCR clears the S&P 2022 Table 8 range for the stated OPBA.",
+      "fail": "Gearing fixed first; single DSCR with no case; minimum DSCR below the Table 8 range; any DSCR below 1.05x.",
+      "verify": "Recompute from the live model; compare to S&P Table 8 and Fitch indicative table.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6.1, 6.5, 6.8",
+      "weak": false
+    },
+    {
+      "id": "EN-TECH-001",
+      "order": 70,
+      "stage": "screen",
+      "priority": "gating",
+      "workstream": "Technical",
+      "request": "Provide an equipment status schedule listing each major item (turbines, gensets, transformers, inverters, modules, switchgear) as firm order, slot reservation, delivered or installed, with serial numbers where assigned.",
+      "format": "Schedule cross-referenced to purchase orders and OEM confirmations.",
+      "why": "A slot reservation presented as owned turbines.",
+      "pass": "Every long-lead item on firm purchase order or delivered; serial numbers for delivered items.",
+      "fail": "Any critical item held only as a reservation slot or option; no serials.",
+      "verify": "Confirm order status and serials directly with the OEM.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6.4, 6.7, 6.8",
+      "weak": false
+    },
+    {
+      "id": "EN-COM-002",
+      "order": 80,
+      "stage": "screen",
+      "priority": "core",
+      "workstream": "Commercial & Market",
+      "request": "State what share of the demand or revenue case is signed contracts, LOIs and forecast, in MW (and MWh) by year.",
+      "format": "Sponsor table reconciled to executed contracts.",
+      "why": "A demand case built from a single national or ISO forecast.",
+      "pass": "Signed contracts cover the debt-sizing case; forecast-only MW excluded from base-case sizing.",
+      "fail": "Demand case is mostly forecast or LOIs; no split provided.",
+      "verify": "Tie signed MW to executed contracts.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6.4, 6.8, 6A.2",
+      "weak": false
+    },
+    {
+      "id": "EN-TECH-002",
+      "order": 90,
+      "stage": "screen",
+      "priority": "gating",
+      "workstream": "Technical",
+      "request": "Confirm an independent engineer has been (or will be) appointed by the lenders and provide its engagement letter and scope.",
+      "format": "Engagement letter naming lender as client; scope covering technology, budget, schedule, availability, heat rate, permits, environmental, projections and draw certification.",
+      "why": "No independent engineer report.",
+      "pass": "IE selected by lenders, paid by developer, with full scope including drawdown certification.",
+      "fail": "No IE, IE engaged by sponsor with no lender reliance, or scope excludes key items.",
+      "verify": "Call the IE to confirm reliance and scope.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6.2, 6.6, 6.8",
+      "weak": false
+    },
+    {
+      "id": "EN-TAX-001",
+      "order": 100,
+      "stage": "screen",
+      "priority": "core",
+      "workstream": "Tax",
+      "request": "State every tax credit (45Y, 48E, 45X, 45Q or other) and transfer/tax-equity structure the returns depend on, with the begin-construction date claimed.",
+      "format": "Sponsor memo with dollar value per credit by year.",
+      "why": "A renewable project relying on credits with no begin-construction evidence or FEOC trace.",
+      "pass": "Every credit identified with dollar value and claimed begin-construction date.",
+      "fail": "Credit dependence not disclosed or begin-construction date unknown.",
+      "verify": "Cross-check to the model's tax lines.",
+      "applies_to": [
+        "solar",
+        "wind",
+        "storage",
+        "ccs"
+      ],
+      "ref": "6.10",
+      "weak": false
+    },
+    {
+      "id": "EN-STR-002",
+      "order": 110,
+      "stage": "screen",
+      "priority": "core",
+      "workstream": "Structure & Terms",
+      "request": "Provide the proposed financing term sheet: senior debt, tenor, amortization, DSRA, distribution lock-up, covenant DSCR, draw conditions.",
+      "format": "Lender term sheet or sponsor's proposed terms.",
+      "why": "Debt terms that cannot survive the downside case.",
+      "pass": "Debt tenor no longer than contracted tenor or a merchant-tail stress shown; dedicated DSRA; lock-up and covenant DSCR stated.",
+      "fail": "No DSRA, no lock-up, or tenor exceeding offtake with no tail stress.",
+      "verify": "Compare to the lenders' documents at confirmatory stage.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6.2, 6.5",
+      "weak": false
+    },
+    {
+      "id": "EN-VAL-002",
+      "order": 10,
+      "stage": "term-sheet",
+      "priority": "gating",
+      "workstream": "Valuation & Model",
+      "request": "Deliver the live, unlocked project financial model with all scenarios and a model book.",
+      "format": "Native Excel, formulas intact, with version log.",
+      "why": "Black-box models hide backed-into DSCR and optimistic cases.",
+      "pass": "All cases below run from the same live model and reconcile to contracts and the IE.",
+      "fail": "Hard-coded outputs, locked sheets, or inconsistent cases.",
+      "verify": "Independent model audit (third-party stage).",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6.3, 6.5",
+      "weak": false
+    },
+    {
+      "id": "EN-VAL-003",
+      "order": 20,
+      "stage": "term-sheet",
+      "priority": "gating",
+      "workstream": "Valuation & Model",
+      "request": "Provide the capital-at-risk curve by month through COD, split into pre-FID, construction (pre-COD) and operating dollars, stating the maximum cumulative exposure before first revenue.",
+      "format": "Model tab and chart.",
+      "why": "Pre-FID dollars priced as if they were construction or operating dollars; pre-FID spend is 100% lost if no FID.",
+      "pass": "Curve by month; each phase priced separately; pre-FID priced at venture-like returns; maximum exposure stated in the IC memo.",
+      "fail": "Single blended return across phases; no cash-at-risk curve.",
+      "verify": "Rebuild from the sources-and-uses and draw schedule.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6.1, 6.3, 6.8, 6.9",
+      "weak": false
+    },
+    {
+      "id": "EN-VAL-004",
+      "order": 30,
+      "stage": "term-sheet",
+      "priority": "gating",
+      "workstream": "Valuation & Model",
+      "request": "Provide the DSCR table under S&P 2022 Table 8: expected OPBA with reasoning, minimum and average DSCR in base and downside cases.",
+      "format": "Model output plus rating-adviser memo where available.",
+      "why": "A 1.70x minimum treated as universal; insufficient coverage for high-OPBA assets.",
+      "pass": "Minimum DSCR within or above the Table 8 'bbb' range for the expected OPBA (OPBA 1-2: 1.10x-1.20x; 3-4: 1.175x-1.40x; 5-6: 1.30x-1.75x; 7-8: 1.60x-2.50x; 9-10: 2.50x-5.00x); never below 1.05x.",
+      "fail": "DSCR below the range for the OPBA; OPBA 11-12 presented as investment grade.",
+      "verify": "Rating adviser or our own OPBA assessment.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6.5",
+      "weak": false
+    },
+    {
+      "id": "EN-VAL-005",
+      "order": 40,
+      "stage": "term-sheet",
+      "priority": "gating",
+      "workstream": "Valuation & Model",
+      "request": "Provide the S&P downside case and the year in which the DSRA is exhausted.",
+      "format": "Model downside tab with annual DSCR and DSRA balance.",
+      "why": "Liquidity reserves depleted by year three ('Low' resiliency).",
+      "pass": "DSCR above 1.0x in every downside period and mapping to at least 'bbb' in most periods ('very high' resiliency); DSRA not exhausted within debt tenor.",
+      "fail": "DSRA exhausted by year three, or downside DSCR below 1.0x.",
+      "verify": "Re-run downside in the live model.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6.5, 6.9",
+      "weak": false
+    },
+    {
+      "id": "EN-FIN-001",
+      "order": 50,
+      "stage": "term-sheet",
+      "priority": "gating",
+      "workstream": "Financial",
+      "request": "Provide the liquidity test: next-12-month sources versus debt service, DSRA sizing, and the covenant headroom under a 10% CFADS decline (OPBA 1-4) or 15% decline (OPBA 5-12).",
+      "format": "Model tab.",
+      "why": "Thin liquidity triggers S&P 'less than adequate' notching.",
+      "pass": "Sources cover next-12-month debt service at least 1.0x; dedicated DSRA; no covenant breach at the 10%/15% CFADS decline. Strong: sources/uses above 2.0x (OPBA 1-6) or 2.5x (OPBA 7-12) and reserves of 12 months (OPBA 1-6) or 18 months (OPBA 7-12).",
+      "fail": "Sources below 1.0x, no dedicated DSRA, or covenant breach at the stated decline.",
+      "verify": "Recompute from model.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6.5",
+      "weak": false
+    },
+    {
+      "id": "EN-STR-003",
+      "order": 60,
+      "stage": "term-sheet",
+      "priority": "gating",
+      "workstream": "Structure & Terms",
+      "request": "Provide the DSRA sizing and funding mechanics (cash or LC, months of debt service, percentage of debt).",
+      "format": "Term sheet and model.",
+      "why": "DSRA below 6 months or no dedicated DSRA.",
+      "pass": "DSRA at least 6 months (floor); 'stronger' at 12 months of debt service or 5% of total project debt; 18 months for OPBA 7-12 to reach strong liquidity.",
+      "fail": "Below 6 months, unfunded at COD, or no dedicated DSRA.",
+      "verify": "Confirm against credit agreement and funding at closing.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6.5, 6.8",
+      "weak": false
+    },
+    {
+      "id": "EN-VAL-006",
+      "order": 70,
+      "stage": "term-sheet",
+      "priority": "gating",
+      "workstream": "Valuation & Model",
+      "request": "For renewables, provide DSCR on both the P50 base case and the one-year P90 rating case with availability and O&M haircuts.",
+      "format": "Model output using the energy-yield report.",
+      "why": "Renewables debt sized on P50; most wind projects underperform P50.",
+      "pass": "Debt sized on the one-year P90 rating case. Fitch 'BBB' average DSCR: solar >=1.40x base / >=1.30x rating; wind >=1.60x / >=1.30x; CSP >=1.50x / >=1.40x; biomass/geothermal >=1.60x / >=1.40x.",
+      "fail": "Sized on P50, or below Fitch rating-case minimum.",
+      "verify": "Rebuild from the independent energy-yield report.",
+      "applies_to": [
+        "solar",
+        "wind",
+        "storage"
+      ],
+      "ref": "6.2, 6.4, 6.5, 6.8",
+      "weak": false
+    },
+    {
+      "id": "EN-VAL-007",
+      "order": 80,
+      "stage": "term-sheet",
+      "priority": "gating",
+      "workstream": "Valuation & Model",
+      "request": "For merchant or partly merchant thermal, provide DSCR at the 10th-percentile spark spread using the market advisor's distribution.",
+      "format": "Model output with spark-spread distribution inputs.",
+      "why": "Panda Temple failed on spark spread; a single forward curve hides the tail.",
+      "pass": "Debt services at P10 spark spread with DSCR clearing S&P OPBA 9-12 rows / DBRS thermal level; DSRA not breached.",
+      "fail": "Single forward curve; DSCR below 1.0x at P10.",
+      "verify": "Market advisor's independent distribution.",
+      "applies_to": [
+        "merchant",
+        "thermal-toll",
+        "power-island"
+      ],
+      "ref": "6.2, 6.5, 6.7",
+      "weak": false
+    },
+    {
+      "id": "EN-VAL-008",
+      "order": 90,
+      "stage": "term-sheet",
+      "priority": "gating",
+      "workstream": "Valuation & Model",
+      "request": "Provide the merchant-tail stress: cash flows after the offtake expires through debt maturity, priced at downside merchant prices.",
+      "format": "Model case.",
+      "why": "A 12-year PPA against an 18-year loan leaves 6 years uncontracted.",
+      "pass": "Debt amortizes within the contracted tenor, or the tail case DSCR clears the merchant band (>=2.00x for merchant renewables in bank practice; far higher for merchant thermal).",
+      "fail": "Tail sized at contracted-level DSCR.",
+      "verify": "Recompute from model.",
+      "applies_to": [
+        "solar",
+        "wind",
+        "storage",
+        "thermal-toll",
+        "merchant",
+        "power-island",
+        "contracted-baseload"
+      ],
+      "ref": "6.2, 6.5, 6.9",
+      "weak": false
+    },
+    {
+      "id": "EN-VAL-009",
+      "order": 100,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Valuation & Model",
+      "request": "Provide the rate sensitivity: equity IRR and DSCR at +200 bp on debt cost and on the discount rate.",
+      "format": "Model sensitivity table.",
+      "why": "Clean-energy assets behave like long-duration growth assets; financing costs offset the demand boost.",
+      "pass": "Sensitivity shown explicitly; debt still sizes and IRR clears hurdle or the gap is disclosed.",
+      "fail": "Not provided, or covenant breach at +200 bp with no mitigation.",
+      "verify": "Re-run in model.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6.4, 6.9",
+      "weak": false
+    },
+    {
+      "id": "EN-VAL-010",
+      "order": 110,
+      "stage": "term-sheet",
+      "priority": "gating",
+      "workstream": "Valuation & Model",
+      "request": "Provide the no-credit downside case: equity IRR and whether the debt still sizes if the tax credit is lost or FEOC fails.",
+      "format": "Model case.",
+      "why": "OBBBA repeal/phase-out or FEOC failure removes credits.",
+      "pass": "No-credit case shown; debt sizes without the credit or the credit risk is insured/indemnified.",
+      "fail": "No no-credit case; debt only sizes with the credit and no protection.",
+      "verify": "Re-run in model.",
+      "applies_to": [
+        "solar",
+        "wind",
+        "storage",
+        "ccs"
+      ],
+      "ref": "6.8, 6.9, 6.10",
+      "weak": false
+    },
+    {
+      "id": "EN-VAL-011",
+      "order": 120,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Valuation & Model",
+      "request": "Provide a 'no new transmission' downside case with curtailment and basis risk applied.",
+      "format": "Model case with curtailment and basis assumptions.",
+      "why": "Transmission grows ~1%/yr; projects needing new lines get curtailed.",
+      "pass": "Case shown for any project whose economics need a new or upgraded line; DSCR survives.",
+      "fail": "Not provided where network upgrades or new lines are needed.",
+      "verify": "Interconnection consultant review.",
+      "applies_to": [
+        "solar",
+        "wind",
+        "storage",
+        "merchant",
+        "transmission-midstream"
+      ],
+      "ref": "6.4, 6.7",
+      "weak": false
+    },
+    {
+      "id": "EN-COM-003",
+      "order": 130,
+      "stage": "term-sheet",
+      "priority": "gating",
+      "workstream": "Commercial & Market",
+      "request": "Provide the 'everyone builds' zone price deck: capture prices including other announced and queued capacity in the same zone.",
+      "format": "Market advisor output.",
+      "why": "Cannibalization: each new plant lowers the clearing price on the whole fleet.",
+      "pass": "Deck includes other announced capacity; DSCR survives the case where half of it is built.",
+      "fail": "Deck adds only the sponsor's own MW to today's stack.",
+      "verify": "Pull the RTO queue for the zone independently.",
+      "applies_to": [
+        "merchant",
+        "solar",
+        "wind",
+        "storage"
+      ],
+      "ref": "6.3, 6.4, 6.5, 6.9",
+      "weak": false
+    },
+    {
+      "id": "EN-COM-004",
+      "order": 140,
+      "stage": "term-sheet",
+      "priority": "gating",
+      "workstream": "Commercial & Market",
+      "request": "Provide the load/demand case as a distribution, not a point forecast, and list which national-model assumptions (perfect foresight, unconstrained siting, unlimited transmission) it depends on.",
+      "format": "Sponsor or market advisor report.",
+      "why": "Models assume perfect foresight; the deal does not.",
+      "pass": "Distribution provided with downside percentiles; dependency on model assumptions stated.",
+      "fail": "Single national/ISO point forecast.",
+      "verify": "Market advisor review.",
+      "applies_to": [
+        "merchant",
+        "power-island",
+        "contracted-baseload"
+      ],
+      "ref": "6.4, 6.8",
+      "weak": false
+    },
+    {
+      "id": "EN-VAL-012",
+      "order": 150,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Valuation & Model",
+      "request": "For merchant revenue reliant on PJM (or other) capacity payments, provide a collar-extension case and a collar-expiry case.",
+      "format": "Model cases.",
+      "why": "Today's PJM capacity collar may not persist (cleared ~$16B capped vs ~$26B uncapped).",
+      "pass": "Both cases shown; debt sizes in the adverse case.",
+      "fail": "Model assumes today's collar persists.",
+      "verify": "Market advisor.",
+      "applies_to": [
+        "merchant"
+      ],
+      "ref": "6.5, 6.8",
+      "weak": true
+    },
+    {
+      "id": "EN-VAL-013",
+      "order": 160,
+      "stage": "term-sheet",
+      "priority": "gating",
+      "workstream": "Valuation & Model",
+      "request": "Provide the plant model's back-test reproducing historical capacity factor and heat rate before any projection.",
+      "format": "Model tab comparing modelled vs actual (EIA or plant data).",
+      "why": "Projections that cannot reproduce history are untrustworthy.",
+      "pass": "Modelled historical capacity factor and heat rate within a stated tolerance of actual data.",
+      "fail": "No back-test, or material deviation unexplained.",
+      "verify": "Pull EIA-923/860 data independently.",
+      "applies_to": [
+        "thermal-toll",
+        "merchant",
+        "power-island"
+      ],
+      "ref": "6.2, 6.4, 6.7",
+      "weak": false
+    },
+    {
+      "id": "EN-VAL-014",
+      "order": 170,
+      "stage": "term-sheet",
+      "priority": "gating",
+      "workstream": "Valuation & Model",
+      "request": "Provide two-way scarcity-event modelling: cost of being short a hedge at the price cap, and default by retail counterparties.",
+      "format": "Model case at ERCOT-type cap ($9,000/MWh; ancillary up to $25,000/MWh).",
+      "why": "Uri: plants without fuel owed hedge settlements at the cap.",
+      "pass": "Scenario shows liquidity survives a multi-day cap event with forced outage; counterparty default modelled.",
+      "fail": "No scarcity case.",
+      "verify": "Market advisor and winterization engineer.",
+      "applies_to": [
+        "merchant",
+        "thermal-toll",
+        "power-island"
+      ],
+      "ref": "6.4, 6.7, 6.9",
+      "weak": false
+    },
+    {
+      "id": "EN-TECH-003",
+      "order": 180,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Technical",
+      "request": "Provide a schedule-realism memo: assumed build rate, EPC crew, transformer, module and turbine availability against historical maxima.",
+      "format": "Sponsor memo with sources.",
+      "why": "National build-rate assumptions far above any historical year (NZA cap 35 GW/yr wind+solar; record 21 GW in 2015).",
+      "pass": "Schedule consistent with supply-chain evidence; haircut applied where thesis assumes record build rates.",
+      "fail": "Schedule assumes unconstrained supply.",
+      "verify": "IE review.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6.4",
+      "weak": false
+    },
+    {
+      "id": "EN-VAL-015",
+      "order": 190,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Valuation & Model",
+      "request": "Provide the gearing and equity percentage at FID and a reconciliation showing it results from DSCR sculpting.",
+      "format": "Model sources and uses.",
+      "why": "Merchant projects carrying less equity than contracted ones.",
+      "pass": "Senior debt ~60%-80% of cost for contracted assets as an output of DSCR sizing; merchant carries more equity, not less.",
+      "fail": "Gearing above the DSCR-sized level; merchant equity below contracted equity.",
+      "verify": "Recompute.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6.5",
+      "weak": true
+    },
+    {
+      "id": "EN-VAL-016",
+      "order": 200,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Valuation & Model",
+      "request": "Provide the construction schedule by technology with months from FID to COD and the basis for each.",
+      "format": "Schedule and IE comment.",
+      "why": "Optimistic build times.",
+      "pass": "Within benchmarks: solar+storage 12-18 months (or 18-24 per other sources), wind ~2 years, CCGT 3-4 years; deviations justified by the IE.",
+      "fail": "Schedule shorter than benchmarks without evidence.",
+      "verify": "IE schedule review.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6.1, 6.4",
+      "weak": true
+    },
+    {
+      "id": "EN-VAL-017",
+      "order": 210,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Valuation & Model",
+      "request": "Provide the energization-timeline stress: debt-service covenants tested against a delayed interconnection/energization date.",
+      "format": "Model case with 12- and 24-month delays.",
+      "why": "Interconnection delay destroying economics; ~20% of DC pipeline faces grid delays.",
+      "pass": "Covenants and liquidity survive the stated delays or delay LDs/funding cover them.",
+      "fail": "No delay case.",
+      "verify": "Interconnection consultant timeline.",
+      "applies_to": [
+        "solar",
+        "wind",
+        "storage",
+        "thermal-toll",
+        "merchant",
+        "power-island",
+        "contracted-baseload",
+        "transmission-midstream"
+      ],
+      "ref": "6.4, 6.7",
+      "weak": true
+    },
+    {
+      "id": "EN-COM-005",
+      "order": 10,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Commercial & Market",
+      "request": "Provide the executed PPA with all amendments, and confirm tenor against debt tenor, price and escalation, termination rights, curtailment compensation and change-in-law.",
+      "format": "Executed agreement; clause map.",
+      "why": "Offtake tenor shorter than debt; uncompensated curtailment.",
+      "pass": "Tenor >= debt tenor (or merchant tail stressed); curtailment compensated; termination rights limited to customary defaults; change-in-law allocated.",
+      "fail": "Tenor short of debt with no tail stress; offtaker convenience termination; uncompensated curtailment.",
+      "verify": "Lenders' counsel review; confirm with offtaker.",
+      "applies_to": [
+        "solar",
+        "wind",
+        "storage",
+        "contracted-baseload"
+      ],
+      "ref": "6.2, 6.4",
+      "weak": false
+    },
+    {
+      "id": "EN-COM-006",
+      "order": 20,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Commercial & Market",
+      "request": "Provide offtaker credit evidence: current ratings, last three years of audited financials, and the credit-support instrument (LC, parent guaranty, collateral).",
+      "format": "Rating agency reports; audited statements; executed credit support.",
+      "why": "Weak counterparty makes the contract worthless.",
+      "pass": "Investment-grade offtaker or credit support from an IG entity covering at least the termination exposure.",
+      "fail": "Unrated SPV offtaker with no parent guaranty.",
+      "verify": "Pull ratings directly; confirm LC with issuing bank.",
+      "applies_to": [
+        "solar",
+        "wind",
+        "storage",
+        "thermal-toll",
+        "contracted-baseload",
+        "power-island",
+        "concession"
+      ],
+      "ref": "6.2, 6.4",
+      "weak": false
+    },
+    {
+      "id": "EN-COM-007",
+      "order": 30,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Commercial & Market",
+      "request": "Provide the executed tolling agreement with its availability requirement, capacity-payment deduction mechanics and cap.",
+      "format": "Executed toll.",
+      "why": "Availability shortfall cuts capacity payments.",
+      "pass": "Requirement and deductions documented (benchmark Entergy 2020: 98% summer and winter months, 96% other months; 2% payment cut per 1% shortfall, 1% per 1% if force majeure; capped at 100% of monthly payment).",
+      "fail": "Undefined availability or uncapped deductions.",
+      "verify": "Lenders' counsel and IE.",
+      "applies_to": [
+        "thermal-toll"
+      ],
+      "ref": "6.2, 6.5",
+      "weak": false
+    },
+    {
+      "id": "EN-COM-008",
+      "order": 40,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Commercial & Market",
+      "request": "For a data-center offtaker, provide the lease/PPA counterparty entity and any parent guaranty showing the hyperscaler parent (not an SPV or JV) owes the payments.",
+      "format": "Executed lease/PPA and guaranty.",
+      "why": "SPV/JV tenant with a terminable lease.",
+      "pass": "Contract with or guaranteed by the IG parent; guaranty scope covers full payment obligations for the debt tenor.",
+      "fail": "SPV tenant without parent guaranty.",
+      "verify": "Read guaranty; confirm guarantor ratings.",
+      "applies_to": [
+        "power-island",
+        "contracted-baseload"
+      ],
+      "ref": "6.4, 6A",
+      "weak": false
+    },
+    {
+      "id": "EN-REG-003",
+      "order": 50,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Regulatory & Compliance",
+      "request": "Provide a memo on whether the data-center offtaker is hyperscaler-owned or colocation, and on the cost-shifting/ratepayer regulatory exposure of the deal (including behind-the-meter arrangements).",
+      "format": "Regulatory counsel memo.",
+      "why": "Behind-the-meter deals shifting costs to other ratepayers are regulatory risk.",
+      "pass": "Memo identifies applicable large-load tariff, cost allocation, pending rate cases and challenges; mitigation stated.",
+      "fail": "No analysis where project serves a data center.",
+      "verify": "Regulatory counsel; utility filings.",
+      "applies_to": [
+        "power-island",
+        "contracted-baseload",
+        "merchant"
+      ],
+      "ref": "6.2, 6.3, 6.4, 6.10",
+      "weak": true
+    },
+    {
+      "id": "EN-COM-009",
+      "order": 60,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Commercial & Market",
+      "request": "Provide comparable hyperscaler baseload PPA terms (e.g., Constellation-Microsoft Crane 20-year; Talen-AWS up to 1,920 MW through 2042) from 8-K filings, benchmarked to this deal.",
+      "format": "Benchmark table citing SEC filings.",
+      "why": "Off-market tenor or price.",
+      "pass": "Tenor and price within the range of filed comparables or deviation explained.",
+      "fail": "No benchmark.",
+      "verify": "Pull 8-Ks from EDGAR.",
+      "applies_to": [
+        "contracted-baseload"
+      ],
+      "ref": "6.2",
+      "weak": false
+    },
+    {
+      "id": "EN-COM-010",
+      "order": 70,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Commercial & Market",
+      "request": "Provide the behind-the-meter lease or energy-services contract with the data-center tenant, including curtailment interface and who runs the load when the grid curtails.",
+      "format": "Executed agreement.",
+      "why": "Curtailable service sold as firm.",
+      "pass": "Contract defines firm/non-firm obligations, curtailment hours, backup responsibility and payment during curtailment.",
+      "fail": "Interface undefined.",
+      "verify": "Lease counsel review.",
+      "applies_to": [
+        "power-island"
+      ],
+      "ref": "6.1, 6.4, 6A.3",
+      "weak": false
+    },
+    {
+      "id": "EN-COM-011",
+      "order": 80,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Commercial & Market",
+      "request": "Provide all hedge, revenue-put and ISDA documents, including settlement in scarcity events, collateral calls and counterparty credit.",
+      "format": "Executed ISDA, schedules, confirmations, CSA.",
+      "why": "Panda Temple's revenue put did not save it; Uri hedge settlements at the cap.",
+      "pass": "Settlement terms in forced-outage/scarcity events defined; collateral call capacity modelled; counterparty IG.",
+      "fail": "Unhedged scarcity exposure; uncapped collateral calls.",
+      "verify": "Confirm trades with the counterparty.",
+      "applies_to": [
+        "merchant",
+        "thermal-toll"
+      ],
+      "ref": "6.2, 6.3, 6.7",
+      "weak": false
+    },
+    {
+      "id": "EN-COM-012",
+      "order": 90,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Commercial & Market",
+      "request": "Provide a schedule of capacity-market revenues assumed, with auction results and the rule set (collar, BYOG, backstop) relied on.",
+      "format": "RTO auction results and model tie-out.",
+      "why": "Market rules treated as constants.",
+      "pass": "Every capacity dollar ties to a cleared auction or is in the downside case at zero/collar-expiry.",
+      "fail": "Uncleared capacity revenue in base case.",
+      "verify": "PJM/IMM reports.",
+      "applies_to": [
+        "merchant"
+      ],
+      "ref": "6.5, 6.10",
+      "weak": true
+    },
+    {
+      "id": "EN-LEG-001",
+      "order": 100,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Corporate & Legal",
+      "request": "Provide the executed EPC contract: fixed price, guaranteed completion date, delay LDs and cap, performance guarantees and tests.",
+      "format": "Executed turnkey fixed-price EPC with schedules.",
+      "why": "Cost and schedule overrun left on the SPV.",
+      "pass": "Fixed-price turnkey; delay LDs sized to cover debt service during delay; performance LDs; LD caps customary; completion date before offtake long-stop.",
+      "fail": "Cost-plus or multi-contract without wrap; LDs below debt service.",
+      "verify": "PF counsel and IE review.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6.2, 6.3",
+      "weak": false
+    },
+    {
+      "id": "EN-FIN-002",
+      "order": 110,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Financial",
+      "request": "Provide EPC contractor credit evidence: audited financials, ratings, parent guaranty or performance bond, and a reference list of comparable completed projects.",
+      "format": "Audited statements; executed guaranty/bond; reference list.",
+      "why": "Contractor creditworthiness is a critical factor in financeability (Mintz).",
+      "pass": "Contractor or parent creditworthy for LD exposure; bonded; comparable track record.",
+      "fail": "Thin contractor with no parent support or no comparable projects.",
+      "verify": "Call references; verify bond with surety.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6.2",
+      "weak": false
+    },
+    {
+      "id": "EN-OPS-001",
+      "order": 120,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Operational",
+      "request": "Provide the executed O&M agreement and/or LTSA with the availability guarantee, its definition (time-based vs energy-based), exclusions and LD cap.",
+      "format": "Executed agreements.",
+      "why": "Headline percentage hides exclusions and capped LDs.",
+      "pass": "Gas LTSA availability 95%-98% and at or above the offtake requirement; wind ~95% time-based; exclusions (grid outages, force majeure, scheduled maintenance) read; LD cap meaningful.",
+      "fail": "Availability below 95%, below the offtake requirement, or broad exclusions.",
+      "verify": "IE comparison of guarantee vs offtake.",
+      "applies_to": [
+        "solar",
+        "wind",
+        "storage",
+        "thermal-toll",
+        "merchant",
+        "power-island",
+        "contracted-baseload"
+      ],
+      "ref": "6.2, 6.3, 6.4, 6.5, 6.8",
+      "weak": false
+    },
+    {
+      "id": "EN-OPS-002",
+      "order": 130,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Operational",
+      "request": "Provide a side-by-side reconciliation of the O&M/LTSA availability guarantee against the offtake contract's availability requirement, period by period.",
+      "format": "Sponsor table signed off by IE.",
+      "why": "The SPV carries the gap between what the toll demands and what the LTSA guarantees.",
+      "pass": "Guarantee >= offtake requirement in every period (e.g., 98% summer/winter, 96% other months).",
+      "fail": "Any period where the guarantee is below the requirement.",
+      "verify": "IE independent check.",
+      "applies_to": [
+        "thermal-toll",
+        "power-island",
+        "contracted-baseload"
+      ],
+      "ref": "6.2, 6.4",
+      "weak": false
+    },
+    {
+      "id": "EN-OPS-003",
+      "order": 140,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Operational",
+      "request": "Provide O&M provider credentials and track record operating comparable plants.",
+      "format": "Provider statement with fleet list and references.",
+      "why": "Inexperienced operator erodes availability.",
+      "pass": "Reputable operator with comparable fleet.",
+      "fail": "No comparable experience.",
+      "verify": "Reference calls.",
+      "applies_to": [
+        "solar",
+        "wind",
+        "storage",
+        "thermal-toll",
+        "merchant",
+        "power-island",
+        "contracted-baseload"
+      ],
+      "ref": "6.2",
+      "weak": false
+    },
+    {
+      "id": "EN-REG-004",
+      "order": 150,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Regulatory & Compliance",
+      "request": "Provide the interconnection facilities study and the network-upgrade cost allocation, with the project's share and how it is funded.",
+      "format": "Facilities study; cost allocation letter; funding evidence.",
+      "why": "41% of capacity with signed IAs withdrew; upgrade costs kill projects.",
+      "pass": "Project's upgrade share quantified, in the budget and funded (substation and network upgrades committed).",
+      "fail": "Unquantified or unfunded upgrades.",
+      "verify": "Interconnection counsel review; transmission provider confirmation.",
+      "applies_to": [
+        "solar",
+        "wind",
+        "storage",
+        "thermal-toll",
+        "merchant",
+        "power-island",
+        "contracted-baseload",
+        "transmission-midstream"
+      ],
+      "ref": "6.2, 6.3, 6.4, 6.9",
+      "weak": false
+    },
+    {
+      "id": "EN-REG-005",
+      "order": 160,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Regulatory & Compliance",
+      "request": "Provide evidence of interconnection security posted (LCs, cash) and the withdrawal-penalty exposure schedule.",
+      "format": "Transmission provider receipts; penalty computation.",
+      "why": "Withdrawal penalties and forfeited security.",
+      "pass": "Security posted in full; withdrawal exposure quantified and in the capital-at-risk curve.",
+      "fail": "Security unposted or exposure unquantified.",
+      "verify": "Confirm with transmission provider.",
+      "applies_to": [
+        "solar",
+        "wind",
+        "storage",
+        "thermal-toll",
+        "merchant",
+        "power-island",
+        "contracted-baseload",
+        "transmission-midstream"
+      ],
+      "ref": "6.2, 6.3, 6.4, 6.9",
+      "weak": false
+    },
+    {
+      "id": "EN-REG-006",
+      "order": 170,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Regulatory & Compliance",
+      "request": "Provide the interconnection milestone schedule with the status of each milestone (met, on track, at risk).",
+      "format": "Schedule with dated evidence for met milestones.",
+      "why": "Missed milestones trigger withdrawal.",
+      "pass": "All past milestones met with evidence; future milestones achievable per IE.",
+      "fail": "Any missed or at-risk milestone without cure.",
+      "verify": "Transmission provider confirmation.",
+      "applies_to": [
+        "solar",
+        "wind",
+        "storage",
+        "thermal-toll",
+        "merchant",
+        "power-island",
+        "contracted-baseload",
+        "transmission-midstream"
+      ],
+      "ref": "6.2, 6.4, 6.9",
+      "weak": false
+    },
+    {
+      "id": "EN-REG-007",
+      "order": 180,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Regulatory & Compliance",
+      "request": "Provide the RTO's FERC Order 2023 compliance posture and any regional variations (e.g., PJM 'reasonable efforts' instead of delay penalties) that affect the cluster study timeline (150-day maximum cluster study).",
+      "format": "Counsel memo citing the FERC order and RTO compliance filing.",
+      "why": "Assuming the 150-day study cap applies where the region obtained a variation.",
+      "pass": "Memo confirms applicable rules from the FERC order and RTO filing.",
+      "fail": "Reliance on podcast-level summaries.",
+      "verify": "Read FERC order and RTO compliance filing.",
+      "applies_to": [
+        "solar",
+        "wind",
+        "storage",
+        "thermal-toll",
+        "merchant",
+        "power-island",
+        "contracted-baseload",
+        "transmission-midstream"
+      ],
+      "ref": "6.4",
+      "weak": true
+    },
+    {
+      "id": "EN-REG-008",
+      "order": 190,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Regulatory & Compliance",
+      "request": "Obtain the utility's or RTO's own current interconnection/energization timeline for the specific substation, in writing.",
+      "format": "Letter or study from the utility/RTO.",
+      "why": "Sponsors citing 8-12 years or 2 years as a general rule rather than a site-specific study.",
+      "pass": "Written site-specific timeline; schedule uses it.",
+      "fail": "Generic timeline cited.",
+      "verify": "Call the utility/RTO.",
+      "applies_to": [
+        "solar",
+        "wind",
+        "storage",
+        "thermal-toll",
+        "merchant",
+        "power-island",
+        "contracted-baseload",
+        "transmission-midstream"
+      ],
+      "ref": "6.4, 6.8",
+      "weak": false
+    },
+    {
+      "id": "EN-REG-009",
+      "order": 200,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Regulatory & Compliance",
+      "request": "Provide the post-agreement permitting plan with dates.",
+      "format": "Permit matrix: permit, agency, status, expected date.",
+      "why": "Post-agreement permitting delays averaged >14 months in PJM data.",
+      "pass": "All permits identified; critical-path permits issued or on a schedule consistent with COD with buffer.",
+      "fail": "No permitting plan.",
+      "verify": "Environmental consultant and agency check.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6.3, 6.4, 6.8",
+      "weak": false
+    },
+    {
+      "id": "EN-TECH-004",
+      "order": 210,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Technical",
+      "request": "Provide the transmission owner's procurement schedule for high-voltage transformers for the network upgrades, and the project's own substation transformer purchase order and delivery date.",
+      "format": "TO letter; executed PO with delivery date.",
+      "why": "Transformer procurement added nearly 20 months in PJM; transformers are on the critical path twice.",
+      "pass": "In-service date later than both transformer delivery dates.",
+      "fail": "In-service date earlier than either delivery date.",
+      "verify": "Confirm with TO and OEM.",
+      "applies_to": [
+        "solar",
+        "wind",
+        "storage",
+        "thermal-toll",
+        "merchant",
+        "power-island",
+        "contracted-baseload",
+        "transmission-midstream"
+      ],
+      "ref": "6.3, 6.4, 6.8",
+      "weak": true
+    },
+    {
+      "id": "EN-REG-010",
+      "order": 220,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Regulatory & Compliance",
+      "request": "For brownfield sites, provide evidence of surplus interconnection service or replacement interconnection rights from the retiring unit; otherwise explain why existing interconnection is not reused.",
+      "format": "RTO approval or application.",
+      "why": "Missing the fastest route to grid.",
+      "pass": "Rights documented or reasoned explanation.",
+      "fail": "Claimed rights with no RTO documentation.",
+      "verify": "RTO confirmation.",
+      "applies_to": [
+        "thermal-toll",
+        "merchant",
+        "power-island",
+        "contracted-baseload",
+        "ccs"
+      ],
+      "ref": "6.3, 6.4, 6.9",
+      "weak": false
+    },
+    {
+      "id": "EN-OPS-004",
+      "order": 230,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Operational",
+      "request": "Provide the executed fuel supply agreement: price, volume, term, and flare or direct-line gas feasibility where relevant.",
+      "format": "Executed agreement.",
+      "why": "Fuel cost and availability risk left on the SPV.",
+      "pass": "Term covers debt tenor or tolling party supplies fuel; price mechanism matches revenue indexation.",
+      "fail": "Spot-only supply with no hedge; term short of debt.",
+      "verify": "Confirm with supplier.",
+      "applies_to": [
+        "thermal-toll",
+        "merchant",
+        "power-island",
+        "contracted-baseload"
+      ],
+      "ref": "6.2, 6.3, 6.4",
+      "weak": false
+    },
+    {
+      "id": "EN-OPS-005",
+      "order": 240,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Operational",
+      "request": "Provide firm pipeline transport contracts covering maximum daily fuel requirement.",
+      "format": "Executed firm transportation agreements.",
+      "why": "Interruptible transport left plants without fuel in Uri.",
+      "pass": "Firm transport for 100% of the dispatch-case maximum daily quantity.",
+      "fail": "Interruptible transport without backup fuel.",
+      "verify": "Confirm with pipeline.",
+      "applies_to": [
+        "thermal-toll",
+        "merchant",
+        "power-island"
+      ],
+      "ref": "6.2, 6.3, 6.4, 6.8",
+      "weak": false
+    },
+    {
+      "id": "EN-OPS-006",
+      "order": 250,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Operational",
+      "request": "Provide on-site backup fuel capacity (storage volume, hours of full-load run time) and permit allowing backup-fuel operation.",
+      "format": "Engineering data and permit.",
+      "why": "Fuel failure in a freeze.",
+      "pass": "Backup fuel covers a multi-day event consistent with the winterization study.",
+      "fail": "No backup fuel.",
+      "verify": "IE/winterization engineer.",
+      "applies_to": [
+        "thermal-toll",
+        "merchant",
+        "power-island"
+      ],
+      "ref": "6.3, 6.4, 6.7",
+      "weak": false
+    },
+    {
+      "id": "EN-OPS-007",
+      "order": 260,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Operational",
+      "request": "Provide evidence that gas compressors serving the plant are not on the utility's curtailable/load-shed list.",
+      "format": "Utility critical-load designation letter.",
+      "why": "Rolling blackouts cut compressor power in Uri.",
+      "pass": "Compressors designated critical load or self-powered.",
+      "fail": "Compressors on the curtailable list.",
+      "verify": "Confirm with utility.",
+      "applies_to": [
+        "thermal-toll",
+        "merchant",
+        "power-island"
+      ],
+      "ref": "6.2, 6.3, 6.4, 6.8",
+      "weak": false
+    },
+    {
+      "id": "EN-TECH-005",
+      "order": 270,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Technical",
+      "request": "Provide the winterization plan, the standard it meets, and the funded cost.",
+      "format": "Plan, engineer sign-off, budget line.",
+      "why": "Generators were urged to winterize after 2011 but did not.",
+      "pass": "Standard met and cost funded in the budget.",
+      "fail": "No plan or unfunded.",
+      "verify": "Winterization engineer.",
+      "applies_to": [
+        "solar",
+        "wind",
+        "storage",
+        "thermal-toll",
+        "merchant",
+        "power-island",
+        "contracted-baseload"
+      ],
+      "ref": "6.3, 6.4, 6.7",
+      "weak": false
+    },
+    {
+      "id": "EN-TECH-006",
+      "order": 280,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Technical",
+      "request": "Provide firm purchase orders for all long-lead equipment with serial numbers, delivery dates and deposits paid.",
+      "format": "Executed POs; OEM acknowledgements; proof of deposits.",
+      "why": "Slot reservations are paid options, not equipment; 13 GW of reservations were cancelled.",
+      "pass": "Firm PO with delivery dates before required on-site date; deposits evidenced.",
+      "fail": "Reservation only; delivery after need date.",
+      "verify": "OEM confirmation.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6.3, 6.4, 6.7",
+      "weak": false
+    },
+    {
+      "id": "EN-TECH-007",
+      "order": 290,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Technical",
+      "request": "Provide factory acceptance test (FAT per ISO 8528-5 for gensets) and serialized load-bank test certificates for generating equipment.",
+      "format": "OEM/test-house certificates by serial number.",
+      "why": "Used/refurbished gensets with no FAT or load-bank certificate.",
+      "pass": "Certificate per serial for every unit.",
+      "fail": "Missing certificates.",
+      "verify": "Equipment inspector witness.",
+      "applies_to": [
+        "thermal-toll",
+        "merchant",
+        "power-island"
+      ],
+      "ref": "6.3, 6.4, 6.8",
+      "weak": false
+    },
+    {
+      "id": "EN-TECH-008",
+      "order": 300,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Technical",
+      "request": "Provide warranty terms for every major equipment item, distinguishing new, new-surplus and refurbished.",
+      "format": "Warranty documents.",
+      "why": "Unclear warranty on grey-market equipment.",
+      "pass": "Warranty term and scope documented; refurbished units carry warranty from a creditworthy party.",
+      "fail": "No or unclear warranty.",
+      "verify": "Equipment inspector.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6.3, 6.4",
+      "weak": false
+    },
+    {
+      "id": "EN-TECH-009",
+      "order": 310,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Technical",
+      "request": "Provide provenance and pricing for any used or secondary-market turbines (chain of ownership, original order, price per MW).",
+      "format": "Bill of sale chain; OEM records.",
+      "why": "Grey-market equipment from failed or cancelled projects.",
+      "pass": "Clean chain of title; price consistent with ~$1.5M/MW used vs $2M+/MW new benchmark.",
+      "fail": "Unclear provenance.",
+      "verify": "OEM serial lookup.",
+      "applies_to": [
+        "thermal-toll",
+        "merchant",
+        "power-island"
+      ],
+      "ref": "6.4",
+      "weak": true
+    },
+    {
+      "id": "EN-TECH-010",
+      "order": 320,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Technical",
+      "request": "Provide OEM lead-time confirmation for turbines and gensets relative to the schedule.",
+      "format": "OEM letter.",
+      "why": "Lead times: heavy gas turbines 3-7 years; aeroderivatives 18-36 months; gensets >2.5 MW 18-24 months.",
+      "pass": "Delivery slot confirmed and consistent with COD.",
+      "fail": "Schedule assumes lead times shorter than benchmarks.",
+      "verify": "OEM confirmation.",
+      "applies_to": [
+        "thermal-toll",
+        "merchant",
+        "power-island"
+      ],
+      "ref": "6.4",
+      "weak": true
+    },
+    {
+      "id": "EN-ENV-001",
+      "order": 330,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Environmental & ESG",
+      "request": "Provide all issued permits and the environmental reports (environmental consultant review, environmental impact studies).",
+      "format": "Permits; consultant reports.",
+      "why": "Serious environmental issues or missing permits.",
+      "pass": "All construction and operating permits issued or on schedule; no unmitigated environmental issues.",
+      "fail": "Missing critical permit.",
+      "verify": "Environmental consultant.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6.2, 6.3",
+      "weak": false
+    },
+    {
+      "id": "EN-ENV-002",
+      "order": 340,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Environmental & ESG",
+      "request": "Provide the air permit (and backup-generation permit) for fossil generation.",
+      "format": "Issued permit with operating-hour limits.",
+      "why": "Behind-the-meter gas plan with no air permit.",
+      "pass": "Permit issued covering planned and curtailment-window hours.",
+      "fail": "No permit or hours insufficient.",
+      "verify": "Agency records.",
+      "applies_to": [
+        "thermal-toll",
+        "merchant",
+        "power-island",
+        "ccs"
+      ],
+      "ref": "6.1, 6.4",
+      "weak": false
+    },
+    {
+      "id": "EN-ENV-003",
+      "order": 350,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Environmental & ESG",
+      "request": "Provide water source, priority/seniority and cooling design.",
+      "format": "Water rights, supply contracts, cooling design basis.",
+      "why": "Water curtailment in arid basins (Colorado River structural deficit ~4M acre-feet/yr).",
+      "pass": "Senior or contracted firm water supply covering cooling needs; dry-cooling alternative costed.",
+      "fail": "Junior or undocumented water in an arid market.",
+      "verify": "Water-rights counsel.",
+      "applies_to": [
+        "thermal-toll",
+        "merchant",
+        "power-island",
+        "ccs",
+        "contracted-baseload"
+      ],
+      "ref": "6.3",
+      "weak": false
+    },
+    {
+      "id": "EN-TAX-002",
+      "order": 360,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Tax",
+      "request": "Provide begin-construction (safe-harbor) evidence: physical-work records or 5% spend documentation.",
+      "format": "Invoices, contracts, site photos, paid-cost schedule.",
+      "why": "Credits lost if begin-construction deadlines are missed.",
+      "pass": "Evidence satisfies current Treasury guidance by the deadline (wind/solar: begin construction before July 2026 with a four-year completion window, or placed in service before 2028, per Kleinman summary).",
+      "fail": "No evidence or after deadline.",
+      "verify": "Tax counsel review.",
+      "applies_to": [
+        "solar",
+        "wind",
+        "storage",
+        "ccs"
+      ],
+      "ref": "6.3, 6.10",
+      "weak": true
+    },
+    {
+      "id": "EN-TAX-003",
+      "order": 370,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Tax",
+      "request": "Provide the FEOC supply-chain trace with supplier certifications for every component.",
+      "format": "Trace report and signed supplier certifications.",
+      "why": "FEOC material-assistance rules can disqualify projects beginning construction after Dec. 31, 2025.",
+      "pass": "Trace complete to component level; material-assistance cost ratio passes; certifications signed.",
+      "fail": "No trace or Chinese-sourced supply/IP unresolved.",
+      "verify": "Independent supply-chain tracing firm.",
+      "applies_to": [
+        "solar",
+        "wind",
+        "storage",
+        "ccs"
+      ],
+      "ref": "6.3, 6.10",
+      "weak": false
+    },
+    {
+      "id": "EN-TAX-004",
+      "order": 380,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Tax",
+      "request": "Provide the tax-credit transfer agreement or tax-equity documents, showing recapture protection and who bears recapture.",
+      "format": "Executed agreement.",
+      "why": "Recapture lands on the project.",
+      "pass": "Buyer protected; recapture allocation and indemnity explicit; indemnitor creditworthy or insured.",
+      "fail": "Silent on recapture.",
+      "verify": "Tax counsel review.",
+      "applies_to": [
+        "solar",
+        "wind",
+        "storage",
+        "ccs"
+      ],
+      "ref": "6.2, 6.3, 6.10",
+      "weak": false
+    },
+    {
+      "id": "EN-TAX-005",
+      "order": 390,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Tax",
+      "request": "Provide the placed-in-service schedule against credit deadlines and phase-out (phase-out from 2028, ending by 2032 per Kleinman summary).",
+      "format": "Schedule tied to construction plan.",
+      "why": "Delay pushes the project past the deadline.",
+      "pass": "Placed-in-service date has buffer before deadline under current guidance.",
+      "fail": "No buffer.",
+      "verify": "Tax counsel.",
+      "applies_to": [
+        "solar",
+        "wind",
+        "storage",
+        "ccs"
+      ],
+      "ref": "6.10",
+      "weak": true
+    },
+    {
+      "id": "EN-REG-011",
+      "order": 400,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Regulatory & Compliance",
+      "request": "List every public funding dependency (green bank, ratepayer charge, appropriation, grant) and provide a legal opinion on whether the funds can be swept.",
+      "format": "Funding documents; counsel opinion.",
+      "why": "Connecticut Green Bank 2018 sweep.",
+      "pass": "Each dependency identified; sweepability opined; loss-of-funds case modelled.",
+      "fail": "Dependency undisclosed or unmodelled.",
+      "verify": "Regulatory counsel.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6.3, 6.7, 6.10",
+      "weak": false
+    },
+    {
+      "id": "EN-REG-012",
+      "order": 410,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Regulatory & Compliance",
+      "request": "Provide the serving utility's large-load tariff, cost-allocation rules and pending rate cases where the project serves a data center.",
+      "format": "Tariff sheets; docket list.",
+      "why": "Ratepayer backlash and tariff change.",
+      "pass": "All identified and modelled.",
+      "fail": "No view on rate case or tariff.",
+      "verify": "Utility commission dockets.",
+      "applies_to": [
+        "power-island",
+        "contracted-baseload",
+        "merchant"
+      ],
+      "ref": "6.3, 6.10",
+      "weak": false
+    },
+    {
+      "id": "EN-REG-013",
+      "order": 420,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Regulatory & Compliance",
+      "request": "Provide a market-rule change register: pending RTO/ISO rule changes (capacity collar, large-load proposals, winterization mandates) and their modelled impact.",
+      "format": "Counsel memo.",
+      "why": "Market rules treated as a constant.",
+      "pass": "Each pending change named, dated and modelled.",
+      "fail": "Not provided.",
+      "verify": "Regulatory counsel.",
+      "applies_to": [
+        "merchant",
+        "thermal-toll",
+        "power-island"
+      ],
+      "ref": "6.10",
+      "weak": false
+    },
+    {
+      "id": "EN-LEG-002",
+      "order": 430,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Corporate & Legal",
+      "request": "Provide the executed concession / PPP / availability-payment agreement.",
+      "format": "Executed agreement with schedules.",
+      "why": "Revenue set by a public counterparty who may want out.",
+      "pass": "Executed and in force; obligations of grantor clear.",
+      "fail": "Unsigned or under renegotiation.",
+      "verify": "Grantor confirmation.",
+      "applies_to": [
+        "concession",
+        "transmission-midstream"
+      ],
+      "ref": "6.2, 6.3, 6.11",
+      "weak": false
+    },
+    {
+      "id": "EN-COM-013",
+      "order": 440,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Commercial & Market",
+      "request": "Provide the tariff-adjustment formula and the history of every adjustment the counterparty has granted and refused in the last decade.",
+      "format": "Formula; regulator/grantor decisions.",
+      "why": "A concession model assuming every scheduled increase is granted; Brazil 1996 refusal.",
+      "pass": "Track record shows adjustments honored; model haircuts adjustments with poor record.",
+      "fail": "No record, or model assumes 100% of increases.",
+      "verify": "Public records of grantor decisions.",
+      "applies_to": [
+        "concession",
+        "transmission-midstream"
+      ],
+      "ref": "6.3, 6.11",
+      "weak": false
+    },
+    {
+      "id": "EN-LEG-003",
+      "order": 450,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Corporate & Legal",
+      "request": "Provide termination-compensation provisions (default, convenience, force majeure) and a computation showing coverage of senior debt and equity.",
+      "format": "Clause extract and computation.",
+      "why": "Payment dependent on appropriation with no termination compensation.",
+      "pass": "Termination compensation covers at least senior debt in all termination cases.",
+      "fail": "Compensation below senior debt or absent.",
+      "verify": "PF counsel.",
+      "applies_to": [
+        "concession",
+        "transmission-midstream"
+      ],
+      "ref": "6.3, 6.11",
+      "weak": false
+    },
+    {
+      "id": "EN-REG-014",
+      "order": 460,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Regulatory & Compliance",
+      "request": "Identify which budget line pays the availability payments/tariff, whether it is subject to annual appropriation, and whether it can be swept.",
+      "format": "Budget documents; counsel opinion.",
+      "why": "Appropriation risk.",
+      "pass": "Payment from a non-appropriation-dependent source, or appropriation risk mitigated and modelled.",
+      "fail": "Annual appropriation with no mitigation.",
+      "verify": "Public budget records.",
+      "applies_to": [
+        "concession"
+      ],
+      "ref": "6.11",
+      "weak": false
+    },
+    {
+      "id": "EN-REG-015",
+      "order": 470,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Regulatory & Compliance",
+      "request": "Provide the counterparty's election calendar over the debt tenor and any campaign issues involving the project.",
+      "format": "Memo.",
+      "why": "Political turnover drives renegotiation.",
+      "pass": "Calendar mapped; no election before COD with project as an issue, or mitigation.",
+      "fail": "Election before COD with project as a campaign issue.",
+      "verify": "Political-risk counsel.",
+      "applies_to": [
+        "concession"
+      ],
+      "ref": "6.11",
+      "weak": false
+    },
+    {
+      "id": "EN-COM-014",
+      "order": 480,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Commercial & Market",
+      "request": "Provide availability-payment deduction definitions, measurement method and cap.",
+      "format": "Agreement schedule.",
+      "why": "Uncapped deductions.",
+      "pass": "Definitions objective; deductions capped.",
+      "fail": "Subjective or uncapped.",
+      "verify": "PF counsel; IE.",
+      "applies_to": [
+        "concession"
+      ],
+      "ref": "6.11",
+      "weak": false
+    },
+    {
+      "id": "EN-LEG-004",
+      "order": 490,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Corporate & Legal",
+      "request": "Provide change-in-law and relief-event provisions.",
+      "format": "Clause extract.",
+      "why": "Uncompensated law changes.",
+      "pass": "Compensation for discriminatory and general change in law; relief events defined.",
+      "fail": "None.",
+      "verify": "PF counsel.",
+      "applies_to": [
+        "concession",
+        "transmission-midstream"
+      ],
+      "ref": "6.11",
+      "weak": false
+    },
+    {
+      "id": "EN-COM-015",
+      "order": 500,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Commercial & Market",
+      "request": "State whether demand/traffic risk is retained (tolls) or transferred (availability payments) and provide the demand study if retained.",
+      "format": "Memo; traffic/demand study.",
+      "why": "Demand risk underestimated.",
+      "pass": "Retained demand risk supported by independent study with downside.",
+      "fail": "Demand risk retained with no study.",
+      "verify": "Independent traffic/demand consultant.",
+      "applies_to": [
+        "concession"
+      ],
+      "ref": "6.11",
+      "weak": false
+    },
+    {
+      "id": "EN-COM-016",
+      "order": 510,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Commercial & Market",
+      "request": "Provide the signed CO2 transport-and-storage agreement (or owned Class VI permit) with per-tonne tariff, capacity and monitoring terms.",
+      "format": "Executed agreement or permit.",
+      "why": "A capture plant with no contracted sink is stranded.",
+      "pass": "Signed T&S agreement covering full capture volume; tariff ~$17-$23/t stored or justified premium.",
+      "fail": "No sink contracted.",
+      "verify": "Counterparty/EPA confirmation.",
+      "applies_to": [
+        "ccs"
+      ],
+      "ref": "6.2, 6.3, 6.12",
+      "weak": false
+    },
+    {
+      "id": "EN-REG-016",
+      "order": 520,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Regulatory & Compliance",
+      "request": "Provide the Class VI permit status and storage-site characterization (injectivity, capacity, monitoring plan).",
+      "format": "EPA/state permit records; characterization report.",
+      "why": "Storage site not characterized.",
+      "pass": "Permit issued or on schedule; characterization supports capacity for project life.",
+      "fail": "No characterization.",
+      "verify": "Storage geologist.",
+      "applies_to": [
+        "ccs"
+      ],
+      "ref": "6.3, 6.12",
+      "weak": false
+    },
+    {
+      "id": "EN-STR-004",
+      "order": 530,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Structure & Terms",
+      "request": "Provide the credit agreement and intercreditor/accounts agreements: draw conditions, DSRA, distribution lock-up, covenant DSCR and events of default.",
+      "format": "Execution versions.",
+      "why": "Weak lender protections.",
+      "pass": "Lock-up and covenant DSCR set above default levels; DSRA funded; IE draw certification required.",
+      "fail": "No lock-up; IE not in draw process.",
+      "verify": "Lenders' counsel.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6.2, 6.3",
+      "weak": false
+    },
+    {
+      "id": "EN-INS-001",
+      "order": 540,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Insurance",
+      "request": "Provide bound insurance quotes (not indications) for the full hold, including named-storm, wildfire and freeze terms and deductibles.",
+      "format": "Binder or bound quotes from insurers/broker.",
+      "why": "An indication presented as a bound quote; uninsurable assets.",
+      "pass": "Bound quotes for construction and operations covering lender requirements; named-storm/wildfire/freeze terms stated.",
+      "fail": "Indications only; coverage from insurer of last resort only.",
+      "verify": "Insurance advisor confirms with carriers.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6.3, 11.5",
+      "weak": false
+    },
+    {
+      "id": "EN-INS-002",
+      "order": 550,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Insurance",
+      "request": "Provide three years of premium history and a 2x premium stress in the model.",
+      "format": "Broker schedule; model case.",
+      "why": "Premiums repricing through reinsurance.",
+      "pass": "History provided; DSCR survives 2x premium.",
+      "fail": "Insurance expense held flat in exposed market.",
+      "verify": "Broker.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6.3, 11.5",
+      "weak": false
+    },
+    {
+      "id": "EN-FIN-003",
+      "order": 560,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Provide the construction budget with contingency, and the sources and uses.",
+      "format": "Budget signed off by IE.",
+      "why": "Budget gaps.",
+      "pass": "Budget reconciles to EPC and owner's costs; contingency reasonable per IE.",
+      "fail": "Unreconciled budget.",
+      "verify": "IE.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6.2, 6.3",
+      "weak": false
+    },
+    {
+      "id": "EN-COM-017",
+      "order": 570,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Commercial & Market",
+      "request": "For merchant or partly merchant assets, provide historical market data for the node/zone: prices, basis, curtailment.",
+      "format": "ISO data extracts.",
+      "why": "Capture price and basis assumptions not grounded.",
+      "pass": "Assumptions reconcile to historical nodal data.",
+      "fail": "No historical support.",
+      "verify": "Pull ISO data.",
+      "applies_to": [
+        "merchant",
+        "solar",
+        "wind",
+        "storage"
+      ],
+      "ref": "6.4",
+      "weak": false
+    },
+    {
+      "id": "EN-COM-018",
+      "order": 580,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Commercial & Market",
+      "request": "For transmission or midstream assets whose revenue depends on throughput, provide firm transport/transmission service contracts and shipper/user credit.",
+      "format": "Executed contracts.",
+      "why": "Uncontracted throughput.",
+      "pass": "Firm contracts cover debt-sizing volume from creditworthy shippers.",
+      "fail": "Volume uncontracted.",
+      "verify": "Counterparty confirmation.",
+      "applies_to": [
+        "transmission-midstream"
+      ],
+      "ref": "6.2, 6.4",
+      "weak": true
+    },
+    {
+      "id": "EN-STR-005",
+      "order": 590,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Structure & Terms",
+      "request": "Provide the corporate structure chart of the SPV, holdco and sponsor with ring-fencing provisions.",
+      "format": "Chart and organizational documents.",
+      "why": "Non-recourse SPV not ring-fenced.",
+      "pass": "SPV bankruptcy-remote with separateness covenants.",
+      "fail": "Commingled entities.",
+      "verify": "Corporate searches.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6.1",
+      "weak": false
+    },
+    {
+      "id": "EN-TECH-011",
+      "order": 10,
+      "stage": "third-party",
+      "priority": "gating",
+      "workstream": "Technical",
+      "request": "Commission (lender-selected, developer-paid) the Independent Engineer report covering technology, budget, schedule, availability, heat rate, permits, environment and projections.",
+      "format": "Signed IE report with reliance letter to lenders.",
+      "why": "No IE report; unrealistic projections.",
+      "pass": "IE confirms technology commercially viable, budget and schedule reasonable, no serious environmental issues, permits in order, projections realistic.",
+      "fail": "Qualified or adverse IE findings unresolved.",
+      "verify": "IE engaged by us/lenders.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6.2, 6.4, 6.6",
+      "weak": false
+    },
+    {
+      "id": "EN-TECH-012",
+      "order": 20,
+      "stage": "third-party",
+      "priority": "gating",
+      "workstream": "Technical",
+      "request": "Commission an independent energy-yield report with P50 and one-year P90, curtailment and basis assumptions.",
+      "format": "Report from independent energy-yield consultant.",
+      "why": "Debt sized on optimistic resource.",
+      "pass": "Report provides P50 and one-year P90; rating case uses one-year P90 with haircuts.",
+      "fail": "Sponsor-only yield estimate.",
+      "verify": "Our consultant.",
+      "applies_to": [
+        "solar",
+        "wind",
+        "storage"
+      ],
+      "ref": "6.3, 6.6",
+      "weak": false
+    },
+    {
+      "id": "EN-COM-019",
+      "order": 30,
+      "stage": "third-party",
+      "priority": "gating",
+      "workstream": "Commercial & Market",
+      "request": "Commission a market advisor report with spark-spread and capture-price distributions, the 'everyone builds' zone case and capacity-price collar cases.",
+      "format": "Independent report.",
+      "why": "Single forward curve; cannibalization.",
+      "pass": "Distributions provided; P10 case used for sizing.",
+      "fail": "Point forecast only.",
+      "verify": "Our advisor.",
+      "applies_to": [
+        "merchant",
+        "thermal-toll",
+        "solar",
+        "wind",
+        "storage"
+      ],
+      "ref": "6.2, 6.3, 6.6",
+      "weak": false
+    },
+    {
+      "id": "EN-REG-017",
+      "order": 40,
+      "stage": "third-party",
+      "priority": "gating",
+      "workstream": "Regulatory & Compliance",
+      "request": "Commission interconnection counsel/RTO specialist review of cluster status, readiness deposits, network-upgrade allocation and withdrawal-penalty exposure.",
+      "format": "Memo.",
+      "why": "Signed IA, project still dies.",
+      "pass": "No unmitigated interconnection risk.",
+      "fail": "Material unfunded or at-risk items.",
+      "verify": "Independent counsel.",
+      "applies_to": [
+        "solar",
+        "wind",
+        "storage",
+        "thermal-toll",
+        "merchant",
+        "power-island",
+        "contracted-baseload",
+        "transmission-midstream"
+      ],
+      "ref": "6.6",
+      "weak": false
+    },
+    {
+      "id": "EN-TAX-006",
+      "order": 50,
+      "stage": "third-party",
+      "priority": "gating",
+      "workstream": "Tax",
+      "request": "Obtain a tax opinion on begin-construction and placed-in-service deadlines, FEOC material-assistance analysis, transferability and recapture.",
+      "format": "Signed opinion from tax counsel.",
+      "why": "Credit lost.",
+      "pass": "Unqualified or 'should' level opinion on eligibility.",
+      "fail": "Qualified opinion on a gating credit.",
+      "verify": "Our counsel.",
+      "applies_to": [
+        "solar",
+        "wind",
+        "storage",
+        "ccs"
+      ],
+      "ref": "6.3, 6.6, 6.10",
+      "weak": false
+    },
+    {
+      "id": "EN-TAX-007",
+      "order": 60,
+      "stage": "third-party",
+      "priority": "core",
+      "workstream": "Tax",
+      "request": "Commission a supply-chain tracing firm to verify the FEOC trace and supplier certifications.",
+      "format": "Tracing report.",
+      "why": "Self-certified supply chains.",
+      "pass": "Independent trace matches sponsor trace.",
+      "fail": "Discrepancies.",
+      "verify": "Our vendor.",
+      "applies_to": [
+        "solar",
+        "wind",
+        "storage",
+        "ccs"
+      ],
+      "ref": "6.6",
+      "weak": false
+    },
+    {
+      "id": "EN-TECH-013",
+      "order": 70,
+      "stage": "third-party",
+      "priority": "core",
+      "workstream": "Technical",
+      "request": "Commission a weather and winterization engineer: winterization standard compliance and a freeze-event dispatch study.",
+      "format": "Report.",
+      "why": "Uri fuel and equipment failure.",
+      "pass": "Plant and fuel chain operate through a design freeze event.",
+      "fail": "Not winterized.",
+      "verify": "Our engineer.",
+      "applies_to": [
+        "solar",
+        "wind",
+        "storage",
+        "thermal-toll",
+        "merchant",
+        "power-island",
+        "contracted-baseload"
+      ],
+      "ref": "6.6",
+      "weak": false
+    },
+    {
+      "id": "EN-REG-018",
+      "order": 80,
+      "stage": "third-party",
+      "priority": "core",
+      "workstream": "Regulatory & Compliance",
+      "request": "Commission regulatory and political-risk counsel on tariff-adjustment history, termination compensation and appropriation sweep risk.",
+      "format": "Memo.",
+      "why": "Renegotiation and sweep.",
+      "pass": "Risks identified and mitigated.",
+      "fail": "Unmitigated sweep risk.",
+      "verify": "Our counsel.",
+      "applies_to": [
+        "concession",
+        "transmission-midstream",
+        "solar",
+        "wind",
+        "storage"
+      ],
+      "ref": "6.6",
+      "weak": false
+    },
+    {
+      "id": "EN-ENV-004",
+      "order": 90,
+      "stage": "third-party",
+      "priority": "core",
+      "workstream": "Environmental & ESG",
+      "request": "Commission water-rights counsel on source, seniority and curtailment priority.",
+      "format": "Opinion.",
+      "why": "Junior water curtailed.",
+      "pass": "Senior or firm contracted water.",
+      "fail": "Junior rights in arid basin unmitigated.",
+      "verify": "Our counsel.",
+      "applies_to": [
+        "thermal-toll",
+        "merchant",
+        "power-island",
+        "ccs",
+        "contracted-baseload"
+      ],
+      "ref": "6.6",
+      "weak": false
+    },
+    {
+      "id": "EN-TECH-014",
+      "order": 100,
+      "stage": "third-party",
+      "priority": "gating",
+      "workstream": "Technical",
+      "request": "Commission a storage geologist on injectivity, capacity, monitoring plan and Class VI status.",
+      "format": "Report.",
+      "why": "Storage site fails.",
+      "pass": "Capacity and injectivity support project life.",
+      "fail": "Insufficient characterization.",
+      "verify": "Our geologist.",
+      "applies_to": [
+        "ccs"
+      ],
+      "ref": "6.6, 6.12",
+      "weak": false
+    },
+    {
+      "id": "EN-VAL-018",
+      "order": 110,
+      "stage": "third-party",
+      "priority": "core",
+      "workstream": "Valuation & Model",
+      "request": "Obtain the rating adviser's view of expected OPBA and the downside case under S&P 2022.",
+      "format": "Memo.",
+      "why": "DSCR quoted without OPBA.",
+      "pass": "OPBA and downside consistent with sizing.",
+      "fail": "OPBA higher than sponsor assumes.",
+      "verify": "Rating adviser.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6.6",
+      "weak": false
+    },
+    {
+      "id": "EN-ENV-005",
+      "order": 120,
+      "stage": "third-party",
+      "priority": "core",
+      "workstream": "Environmental & ESG",
+      "request": "Commission an environmental consultant report (site environmental conditions and permitting).",
+      "format": "Report.",
+      "why": "Serious environmental issue.",
+      "pass": "No unmitigated issue.",
+      "fail": "Material issue.",
+      "verify": "Our consultant.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6.6",
+      "weak": false
+    },
+    {
+      "id": "EN-INS-003",
+      "order": 130,
+      "stage": "third-party",
+      "priority": "core",
+      "workstream": "Insurance",
+      "request": "Commission an insurance advisor review of the program and bound quotes.",
+      "format": "Report.",
+      "why": "Underinsurance.",
+      "pass": "Program meets lender requirements.",
+      "fail": "Gaps.",
+      "verify": "Advisor.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6.6",
+      "weak": false
+    },
+    {
+      "id": "EN-TECH-015",
+      "order": 140,
+      "stage": "third-party",
+      "priority": "gating",
+      "workstream": "Technical",
+      "request": "Commission an equipment inspector to witness FAT and verify serial numbers and load-bank certificates.",
+      "format": "Inspection report.",
+      "why": "Grey-market or undocumented equipment.",
+      "pass": "All units verified.",
+      "fail": "Discrepancies.",
+      "verify": "Our inspector.",
+      "applies_to": [
+        "thermal-toll",
+        "merchant",
+        "power-island"
+      ],
+      "ref": "6.6",
+      "weak": false
+    },
+    {
+      "id": "EN-VAL-019",
+      "order": 150,
+      "stage": "third-party",
+      "priority": "core",
+      "workstream": "Valuation & Model",
+      "request": "Commission an independent model audit.",
+      "format": "Model audit report.",
+      "why": "Formula errors and backed-into DSCR.",
+      "pass": "Clean audit; cases reconcile.",
+      "fail": "Material errors.",
+      "verify": "Model auditor.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6.5",
+      "weak": false
+    },
+    {
+      "id": "EN-LEG-005",
+      "order": 160,
+      "stage": "third-party",
+      "priority": "core",
+      "workstream": "Corporate & Legal",
+      "request": "Obtain project-finance counsel's legal due diligence report on the contract suite.",
+      "format": "Report.",
+      "why": "Contract gaps across the suite.",
+      "pass": "No material gaps.",
+      "fail": "Material gaps.",
+      "verify": "Our counsel.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6.6",
+      "weak": false
+    },
+    {
+      "id": "EN-TECH-016",
+      "order": 10,
+      "stage": "closing",
+      "priority": "gating",
+      "workstream": "Technical",
+      "request": "Obtain the IE's closing certificate confirming conditions precedent (budget, schedule, permits, contracts) are satisfied.",
+      "format": "Signed certificate.",
+      "why": "Closing on stale diligence.",
+      "pass": "Certificate unqualified.",
+      "fail": "Qualified.",
+      "verify": "IE.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6.2",
+      "weak": false
+    },
+    {
+      "id": "EN-INS-004",
+      "order": 20,
+      "stage": "closing",
+      "priority": "gating",
+      "workstream": "Insurance",
+      "request": "Provide bound insurance certificates at closing naming lenders as loss payees/additional insureds.",
+      "format": "Certificates and endorsements.",
+      "why": "Coverage gap at closing.",
+      "pass": "Bound and endorsed.",
+      "fail": "Not bound.",
+      "verify": "Broker confirmation.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6.3, 11.5",
+      "weak": false
+    },
+    {
+      "id": "EN-FIN-004",
+      "order": 30,
+      "stage": "closing",
+      "priority": "gating",
+      "workstream": "Financial",
+      "request": "Evidence the DSRA funded (cash or LC) at closing or at COD as required.",
+      "format": "Bank statement/LC.",
+      "why": "Unfunded reserve.",
+      "pass": "Funded at the required level.",
+      "fail": "Unfunded.",
+      "verify": "Account bank confirmation.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6.5",
+      "weak": false
+    },
+    {
+      "id": "EN-REG-019",
+      "order": 40,
+      "stage": "closing",
+      "priority": "gating",
+      "workstream": "Regulatory & Compliance",
+      "request": "Confirm interconnection security posted and milestones current as of closing.",
+      "format": "Transmission provider letter.",
+      "why": "Lapsed interconnection.",
+      "pass": "Current and in good standing.",
+      "fail": "Any default.",
+      "verify": "Transmission provider.",
+      "applies_to": [
+        "solar",
+        "wind",
+        "storage",
+        "thermal-toll",
+        "merchant",
+        "power-island",
+        "contracted-baseload",
+        "transmission-midstream"
+      ],
+      "ref": "6.4",
+      "weak": false
+    },
+    {
+      "id": "EN-TAX-008",
+      "order": 50,
+      "stage": "closing",
+      "priority": "gating",
+      "workstream": "Tax",
+      "request": "Deliver executed tax-credit transfer/tax-equity documents and final tax opinion at closing.",
+      "format": "Execution versions.",
+      "why": "Credit monetization fails.",
+      "pass": "Executed with recapture protection.",
+      "fail": "Not executed.",
+      "verify": "Counsel.",
+      "applies_to": [
+        "solar",
+        "wind",
+        "storage",
+        "ccs"
+      ],
+      "ref": "6.10",
+      "weak": false
+    },
+    {
+      "id": "EN-LEG-006",
+      "order": 60,
+      "stage": "closing",
+      "priority": "gating",
+      "workstream": "Corporate & Legal",
+      "request": "Deliver legal opinions (enforceability, security, regulatory) and executed direct agreements/consents with each major counterparty (offtaker, EPC, O&M, interconnection, concession grantor).",
+      "format": "Signed opinions and consents.",
+      "why": "Lenders cannot step in.",
+      "pass": "All direct agreements executed.",
+      "fail": "Missing consent.",
+      "verify": "Counsel.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6.2",
+      "weak": false
+    },
+    {
+      "id": "EN-LEG-007",
+      "order": 70,
+      "stage": "closing",
+      "priority": "gating",
+      "workstream": "Corporate & Legal",
+      "request": "Deliver the executed parent guaranty or credit support for offtake, EPC and O&M obligations.",
+      "format": "Execution versions.",
+      "why": "Unsupported obligations.",
+      "pass": "Executed by the rated parent.",
+      "fail": "Unsigned or by an SPV.",
+      "verify": "Counsel.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6.2",
+      "weak": false
+    },
+    {
+      "id": "EN-TECH-017",
+      "order": 10,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Technical",
+      "request": "Provide IE drawdown certifications for each construction draw against physical progress.",
+      "format": "IE certificates per draw.",
+      "why": "Draws ahead of progress.",
+      "pass": "Each draw certified.",
+      "fail": "Uncertified draws.",
+      "verify": "IE.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6.2",
+      "weak": false
+    },
+    {
+      "id": "EN-OPS-008",
+      "order": 20,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Operational",
+      "request": "Provide monthly construction reports against the schedule, interconnection milestones and equipment deliveries.",
+      "format": "Monthly report.",
+      "why": "Silent slippage.",
+      "pass": "On schedule or variance explained with cure.",
+      "fail": "Unreported slippage.",
+      "verify": "IE site visits.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6.4",
+      "weak": false
+    },
+    {
+      "id": "EN-FIN-005",
+      "order": 30,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Provide quarterly DSCR covenant compliance certificates and DSRA balances.",
+      "format": "Compliance certificate with calculations.",
+      "why": "Covenant breach (Panda Temple breached its DSRA covenant).",
+      "pass": "DSCR above covenant and lock-up; DSRA full.",
+      "fail": "Breach or draw on DSRA.",
+      "verify": "Recompute from financials.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6.5, 6.7",
+      "weak": false
+    },
+    {
+      "id": "EN-OPS-009",
+      "order": 40,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Operational",
+      "request": "Provide monthly availability, capacity factor and heat-rate reports against guarantees and offtake requirements.",
+      "format": "Operating reports.",
+      "why": "Availability shortfall cuts revenue.",
+      "pass": "Availability >= guarantee and offtake requirement.",
+      "fail": "Shortfall.",
+      "verify": "IE/operator data.",
+      "applies_to": [
+        "solar",
+        "wind",
+        "storage",
+        "thermal-toll",
+        "merchant",
+        "power-island",
+        "contracted-baseload"
+      ],
+      "ref": "6.5",
+      "weak": false
+    },
+    {
+      "id": "EN-OPS-010",
+      "order": 50,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Operational",
+      "request": "Provide quarterly energy production versus P50/P90.",
+      "format": "Report.",
+      "why": "Persistent underperformance (wind vs P50).",
+      "pass": "Production at or above P90.",
+      "fail": "Below P90.",
+      "verify": "Meter data.",
+      "applies_to": [
+        "solar",
+        "wind",
+        "storage"
+      ],
+      "ref": "6.5",
+      "weak": false
+    },
+    {
+      "id": "EN-TAX-009",
+      "order": 60,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Tax",
+      "request": "Provide placed-in-service evidence and annual credit compliance/recapture monitoring.",
+      "format": "Certificates; compliance memo.",
+      "why": "Recapture.",
+      "pass": "Compliant.",
+      "fail": "Recapture event.",
+      "verify": "Tax counsel.",
+      "applies_to": [
+        "solar",
+        "wind",
+        "storage",
+        "ccs"
+      ],
+      "ref": "6.10",
+      "weak": false
+    },
+    {
+      "id": "EN-REG-020",
+      "order": 70,
+      "stage": "monitoring",
+      "priority": "supporting",
+      "workstream": "Regulatory & Compliance",
+      "request": "Provide quarterly updates on market-rule changes, rate cases, tariff adjustments and appropriations affecting revenue.",
+      "format": "Memo.",
+      "why": "Rule change unnoticed.",
+      "pass": "Updates provided and modelled.",
+      "fail": "Not tracked.",
+      "verify": "Docket checks.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6.10, 6.11, 11.6",
+      "weak": false
+    },
+    {
+      "id": "EN-INS-005",
+      "order": 80,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Insurance",
+      "request": "Provide renewal terms and premiums at each renewal against the model.",
+      "format": "Broker report.",
+      "why": "Premium shock.",
+      "pass": "Within model or stress case.",
+      "fail": "Above stress.",
+      "verify": "Broker.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "11.5",
+      "weak": false
+    },
+    {
+      "id": "EN-FIN-006",
+      "order": 90,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Provide monthly hedge mark-to-market and collateral posting reports.",
+      "format": "Counterparty statements.",
+      "why": "Collateral calls drain liquidity.",
+      "pass": "Collateral within liquidity.",
+      "fail": "Unfunded calls.",
+      "verify": "Counterparty statements.",
+      "applies_to": [
+        "merchant",
+        "thermal-toll"
+      ],
+      "ref": "6.2, 6.7",
+      "weak": false
+    },
+    {
+      "id": "EN-ENV-006",
+      "order": 100,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Environmental & ESG",
+      "request": "Provide CO2 injection and monitoring reports under the Class VI permit.",
+      "format": "Reports filed with regulator.",
+      "why": "Storage failure or leakage.",
+      "pass": "Within permit.",
+      "fail": "Exceedance.",
+      "verify": "Regulator filings.",
+      "applies_to": [
+        "ccs"
+      ],
+      "ref": "6.12",
+      "weak": false
+    },
+    {
+      "id": "EN-OPS-011",
+      "order": 110,
+      "stage": "monitoring",
+      "priority": "supporting",
+      "workstream": "Operational",
+      "request": "Provide winter readiness certification before each winter season.",
+      "format": "Certificate.",
+      "why": "Freeze failure.",
+      "pass": "Certified.",
+      "fail": "Not certified.",
+      "verify": "Inspection.",
+      "applies_to": [
+        "thermal-toll",
+        "merchant",
+        "power-island"
+      ],
+      "ref": "6.7",
+      "weak": false
+    },
+    {
+      "id": "EN-COM-020",
+      "order": 120,
+      "stage": "monitoring",
+      "priority": "supporting",
+      "workstream": "Commercial & Market",
+      "request": "Provide annual counterparty credit updates for offtaker, EPC/O&M and hedge counterparties.",
+      "format": "Ratings and financials.",
+      "why": "Counterparty deterioration.",
+      "pass": "No downgrade below required level.",
+      "fail": "Downgrade without replacement support.",
+      "verify": "Pull ratings.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6.2",
+      "weak": false
+    }
+  ],
+  "kill_tests": [
+    {
+      "id": "EN-K01",
+      "test": "No independent engineer report, or the IE has no lender reliance.",
+      "ref": "6.2, 6.8",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "EN-K02",
+      "test": "Power evidenced only by a queue position, feasibility study or will-serve letter, with no executed interconnection agreement.",
+      "ref": "6.4, 6.8",
+      "applies_to": [
+        "solar",
+        "wind",
+        "storage",
+        "thermal-toll",
+        "merchant",
+        "power-island",
+        "contracted-baseload",
+        "transmission-midstream"
+      ]
+    },
+    {
+      "id": "EN-K03",
+      "test": "Critical generating equipment held only as a slot reservation with no firm purchase order.",
+      "ref": "6.4, 6.8",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "EN-K04",
+      "test": "Contracted subtype with no executed offtake contract.",
+      "ref": "6.2",
+      "applies_to": [
+        "solar",
+        "wind",
+        "storage",
+        "thermal-toll",
+        "contracted-baseload",
+        "power-island",
+        "concession"
+      ]
+    },
+    {
+      "id": "EN-K05",
+      "test": "Minimum DSCR below the S&P 2022 Table 8 range for the asset's OPBA, or any period below 1.05x in the base case.",
+      "ref": "6.5",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "EN-K06",
+      "test": "Renewables debt sized on P50 with no one-year P90 rating case.",
+      "ref": "6.5, 6.8",
+      "applies_to": [
+        "solar",
+        "wind",
+        "storage"
+      ]
+    },
+    {
+      "id": "EN-K07",
+      "test": "No dedicated DSRA, or DSRA below 6 months of debt service.",
+      "ref": "6.5, 6.8",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "EN-K08",
+      "test": "Merchant thermal sized at a merchant-renewables DSCR, or no DSCR test at the 10th-percentile spark spread.",
+      "ref": "6.5, 6.8",
+      "applies_to": [
+        "merchant"
+      ]
+    },
+    {
+      "id": "EN-K09",
+      "test": "Availability guarantee below the offtake contract's requirement or below 95%.",
+      "ref": "6.5, 6.8",
+      "applies_to": [
+        "solar",
+        "wind",
+        "storage",
+        "thermal-toll",
+        "merchant",
+        "power-island",
+        "contracted-baseload"
+      ]
+    },
+    {
+      "id": "EN-K10",
+      "test": "Gas supply on interruptible transport with no backup fuel, or compressors on the curtailable list.",
+      "ref": "6.4, 6.8",
+      "applies_to": [
+        "thermal-toll",
+        "merchant",
+        "power-island"
+      ]
+    },
+    {
+      "id": "EN-K11",
+      "test": "Credit-dependent project with no begin-construction evidence or no FEOC trace.",
+      "ref": "6.10, 6.8",
+      "applies_to": [
+        "solar",
+        "wind",
+        "storage",
+        "ccs"
+      ]
+    },
+    {
+      "id": "EN-K12",
+      "test": "Capture project with no contracted CO2 sink or owned Class VI permit.",
+      "ref": "6.12",
+      "applies_to": [
+        "ccs"
+      ]
+    },
+    {
+      "id": "EN-K13",
+      "test": "Concession payment dependent on annual appropriation with no termination compensation.",
+      "ref": "6.11",
+      "applies_to": [
+        "concession"
+      ]
+    },
+    {
+      "id": "EN-K14",
+      "test": "Sponsor refuses to provide the executed interconnection agreement itself or the live model.",
+      "ref": "6.3",
+      "applies_to": [
+        "all"
+      ]
+    }
+  ],
+  "red_flags": [
+    {
+      "id": "EN-RF01",
+      "flag": "A queue position filing presented as secured power.",
+      "check": "Obtain the executed LGIA and confirm with the RTO.",
+      "ref": "6.8",
+      "applies_to": [
+        "solar",
+        "wind",
+        "storage",
+        "thermal-toll",
+        "merchant",
+        "power-island",
+        "contracted-baseload",
+        "transmission-midstream"
+      ]
+    },
+    {
+      "id": "EN-RF02",
+      "flag": "A slot reservation presented as owned turbines.",
+      "check": "Firm PO, serial numbers, OEM confirmation.",
+      "ref": "6.8",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "EN-RF03",
+      "flag": "A merchant project with contracted-level DSCR.",
+      "check": "Map to S&P OPBA 7-12 / DBRS; size at P10 spark spread.",
+      "ref": "6.8",
+      "applies_to": [
+        "merchant"
+      ]
+    },
+    {
+      "id": "EN-RF04",
+      "flag": "Used or refurbished gensets with no FAT, no serialized load-bank certificate, and unclear warranty.",
+      "check": "Equipment inspector witness FAT and certificates by serial.",
+      "ref": "6.8",
+      "applies_to": [
+        "thermal-toll",
+        "merchant",
+        "power-island"
+      ]
+    },
+    {
+      "id": "EN-RF05",
+      "flag": "No independent engineer report.",
+      "check": "Lender-appointed IE with reliance.",
+      "ref": "6.8",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "EN-RF06",
+      "flag": "An executed LGIA presented as certainty of COD, with no network-upgrade cost allocation, posted security, or milestone status.",
+      "check": "Obtain all three; 41% of signed capacity withdrew.",
+      "ref": "6.8, 6.4",
+      "applies_to": [
+        "solar",
+        "wind",
+        "storage",
+        "thermal-toll",
+        "merchant",
+        "power-island",
+        "contracted-baseload",
+        "transmission-midstream"
+      ]
+    },
+    {
+      "id": "EN-RF07",
+      "flag": "An interconnection agreement with no permitting plan and no transformer procurement schedule.",
+      "check": "Request both; in-service date after both transformer deliveries.",
+      "ref": "6.8",
+      "applies_to": [
+        "solar",
+        "wind",
+        "storage",
+        "thermal-toll",
+        "merchant",
+        "power-island",
+        "contracted-baseload",
+        "transmission-midstream"
+      ]
+    },
+    {
+      "id": "EN-RF08",
+      "flag": "A data-center site marketed as having 'secured power' whose service is non-firm or curtailable.",
+      "check": "Written firm/non-firm terms and hourly curtailment study.",
+      "ref": "6.8, 6A.3",
+      "applies_to": [
+        "power-island",
+        "contracted-baseload"
+      ]
+    },
+    {
+      "id": "EN-RF09",
+      "flag": "A 'fast-track' data-center interconnection with no written non-firm or flexible service terms and no curtailment study.",
+      "check": "Utility's written terms and site-specific study.",
+      "ref": "6.8",
+      "applies_to": [
+        "power-island"
+      ]
+    },
+    {
+      "id": "EN-RF10",
+      "flag": "A renewable project relying on credits with no begin-construction evidence or FEOC trace.",
+      "check": "Safe-harbor evidence, FEOC trace, tax opinion.",
+      "ref": "6.8",
+      "applies_to": [
+        "solar",
+        "wind",
+        "storage",
+        "ccs"
+      ]
+    },
+    {
+      "id": "EN-RF11",
+      "flag": "A demand case built from a single national or ISO load forecast with no distribution and no competing-supply case.",
+      "check": "Distribution and 'everyone builds' case.",
+      "ref": "6.8",
+      "applies_to": [
+        "merchant",
+        "power-island",
+        "contracted-baseload"
+      ]
+    },
+    {
+      "id": "EN-RF12",
+      "flag": "Pre-FID development dollars priced as if they were construction or operating dollars.",
+      "check": "Capital-at-risk curve; separate pricing.",
+      "ref": "6.8",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "EN-RF13",
+      "flag": "A sponsor citing the 8-to-12-year or the 2-year timeline as a general rule, rather than a site-specific utility study.",
+      "check": "Written utility/RTO timeline for the substation.",
+      "ref": "6.8",
+      "applies_to": [
+        "solar",
+        "wind",
+        "storage",
+        "thermal-toll",
+        "merchant",
+        "power-island",
+        "contracted-baseload",
+        "transmission-midstream"
+      ]
+    },
+    {
+      "id": "EN-RF14",
+      "flag": "Gearing set first and DSCR backed into, or a DSCR quoted without the OPBA or rating case behind it.",
+      "check": "Rebuild sizing from DSCR sculpting.",
+      "ref": "6.8",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "EN-RF15",
+      "flag": "Renewables debt sized on P50 rather than a one-year P90 rating case.",
+      "check": "Re-size on one-year P90.",
+      "ref": "6.8",
+      "applies_to": [
+        "solar",
+        "wind",
+        "storage"
+      ]
+    },
+    {
+      "id": "EN-RF16",
+      "flag": "A merchant thermal plant at a merchant-renewables DSCR (DBRS: thermal needs roughly three times).",
+      "check": "Size off S&P OPBA 9-12 and P10 spark spread.",
+      "ref": "6.8",
+      "applies_to": [
+        "merchant"
+      ]
+    },
+    {
+      "id": "EN-RF17",
+      "flag": "A DSRA below 6 months, or no dedicated DSRA.",
+      "check": "Credit agreement and funding evidence.",
+      "ref": "6.8",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "EN-RF18",
+      "flag": "An availability guarantee below 95%, or one that sits below the offtake contract's availability requirement.",
+      "check": "Side-by-side reconciliation.",
+      "ref": "6.8",
+      "applies_to": [
+        "solar",
+        "wind",
+        "storage",
+        "thermal-toll",
+        "merchant",
+        "power-island",
+        "contracted-baseload"
+      ]
+    },
+    {
+      "id": "EN-RF19",
+      "flag": "Gas supply on interruptible transport with no backup fuel, or compressors on the curtailable list.",
+      "check": "Firm transport contracts; critical-load letter.",
+      "ref": "6.8",
+      "applies_to": [
+        "thermal-toll",
+        "merchant",
+        "power-island"
+      ]
+    },
+    {
+      "id": "EN-RF20",
+      "flag": "A merchant revenue model that assumes today's PJM capacity collar persists, with no collar-expiry case.",
+      "check": "Collar-expiry case.",
+      "ref": "6.8",
+      "applies_to": [
+        "merchant"
+      ]
+    },
+    {
+      "id": "EN-RF21",
+      "flag": "A concession with no record of tariff adjustments actually granted.",
+      "check": "Decade history of adjustments granted and refused.",
+      "ref": "6.8, 6.11",
+      "applies_to": [
+        "concession"
+      ]
+    },
+    {
+      "id": "EN-RF22",
+      "flag": "A concession model that assumes every scheduled tariff increase is granted.",
+      "check": "Haircut adjustments to the track record.",
+      "ref": "6.11",
+      "applies_to": [
+        "concession"
+      ]
+    },
+    {
+      "id": "EN-RF23",
+      "flag": "Payment dependent on annual appropriation with no termination compensation.",
+      "check": "Budget line and termination clause.",
+      "ref": "6.11",
+      "applies_to": [
+        "concession"
+      ]
+    },
+    {
+      "id": "EN-RF24",
+      "flag": "A counterparty facing an election before COD with the project as a campaign issue.",
+      "check": "Election calendar memo.",
+      "ref": "6.11",
+      "applies_to": [
+        "concession"
+      ]
+    },
+    {
+      "id": "EN-RF25",
+      "flag": "A capture project with no contracted CO2 sink.",
+      "check": "Signed T&S agreement or Class VI permit.",
+      "ref": "6.8, 6.12",
+      "applies_to": [
+        "ccs"
+      ]
+    },
+    {
+      "id": "EN-RF26",
+      "flag": "Equity pushed lower for merchant than for contracted assets.",
+      "check": "Merchant should carry more equity; recompute.",
+      "ref": "6.5",
+      "applies_to": [
+        "merchant"
+      ]
+    },
+    {
+      "id": "EN-RF27",
+      "flag": "Project in-service date earlier than the transformer delivery dates (own substation or TO network upgrades).",
+      "check": "Compare dates.",
+      "ref": "6.4",
+      "applies_to": [
+        "solar",
+        "wind",
+        "storage",
+        "thermal-toll",
+        "merchant",
+        "power-island",
+        "contracted-baseload",
+        "transmission-midstream"
+      ]
+    },
+    {
+      "id": "EN-RF28",
+      "flag": "Hyperscaler offtake signed by an SPV or JV with a terminable lease and no parent guaranty.",
+      "check": "Read the guaranty.",
+      "ref": "6.4",
+      "applies_to": [
+        "power-island",
+        "contracted-baseload"
+      ]
+    },
+    {
+      "id": "EN-RF29",
+      "flag": "Program funded by a green bank, ratepayer charge or appropriation with no sweepability analysis.",
+      "check": "Counsel opinion; loss case.",
+      "ref": "6.10",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "EN-RF30",
+      "flag": "Load-growth-lowers-rates studies used to dismiss ratepayer backlash risk.",
+      "check": "Treat as spare-capacity-era evidence; model tariff change.",
+      "ref": "6.5",
+      "applies_to": [
+        "power-island",
+        "contracted-baseload",
+        "merchant"
+      ]
+    },
+    {
+      "id": "EN-RF31",
+      "flag": "Insurance indication presented as a bound quote, or premium held flat in an exposed market.",
+      "check": "Bound quote; 2x stress.",
+      "ref": "6.3, 11.5",
+      "applies_to": [
+        "all"
+      ]
+    }
+  ],
+  "metrics": [
+    {
+      "id": "EN-M01",
+      "metric": "Minimum DSCR for 'bbb', S&P OPBA 1-2",
+      "acceptable": "1.10x to 1.20x",
+      "source": "S&P General Project Finance Rating Methodology, Dec. 14, 2022, Table 8",
+      "weak": false,
+      "ref": "6.5",
+      "applies_to": [
+        "concession",
+        "contracted-baseload",
+        "transmission-midstream"
+      ]
+    },
+    {
+      "id": "EN-M02",
+      "metric": "Minimum DSCR for 'bbb', S&P OPBA 3-4",
+      "acceptable": "1.175x to 1.40x",
+      "source": "S&P 2022 Table 8",
+      "weak": false,
+      "ref": "6.5",
+      "applies_to": [
+        "solar",
+        "wind",
+        "storage",
+        "thermal-toll"
+      ]
+    },
+    {
+      "id": "EN-M03",
+      "metric": "Minimum DSCR for 'bbb', S&P OPBA 5-6",
+      "acceptable": "1.30x to 1.75x",
+      "source": "S&P 2022 Table 8",
+      "weak": false,
+      "ref": "6.5",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "EN-M04",
+      "metric": "Minimum DSCR for 'bbb', S&P OPBA 7-8 (partly merchant)",
+      "acceptable": "1.60x to 2.50x",
+      "source": "S&P 2022 Table 8",
+      "weak": false,
+      "ref": "6.5",
+      "applies_to": [
+        "merchant"
+      ]
+    },
+    {
+      "id": "EN-M05",
+      "metric": "Minimum DSCR for 'bbb', S&P OPBA 9-10 (largely merchant)",
+      "acceptable": "2.50x to 5.00x",
+      "source": "S&P 2022 Table 8",
+      "weak": false,
+      "ref": "6.5",
+      "applies_to": [
+        "merchant"
+      ]
+    },
+    {
+      "id": "EN-M06",
+      "metric": "S&P OPBA 11-12",
+      "acceptable": "No investment-grade outcome; 3.00x or more only gets 'bb'",
+      "source": "S&P 2022 Table 8",
+      "weak": false,
+      "ref": "6.5",
+      "applies_to": [
+        "merchant"
+      ]
+    },
+    {
+      "id": "EN-M07",
+      "metric": "DSCR floor at any OPBA",
+      "acceptable": "Below 1.05x maps to 'b'; must be >= 1.05x",
+      "source": "S&P 2022 Table 8; S&P 2017 ('at least 1.05x generally for BB')",
+      "weak": false,
+      "ref": "6.5",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "EN-M08",
+      "metric": "v1 S&P illustrative minimum senior DSCR (CORRECTED)",
+      "acceptable": "1.70x is NOT a universal minimum; it is investment grade only for mid-risk OPBA 5-8. Use Table 8.",
+      "source": "S&P 2017 (Maalot host), corrected by S&P 2022",
+      "weak": false,
+      "ref": "6.5",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "EN-M09",
+      "metric": "S&P illustrative minimum total DSCR (v1)",
+      "acceptable": "1.20x; at least 1.05x generally for 'BB'",
+      "source": "S&P Global Ratings 2017",
+      "weak": false,
+      "ref": "6.5",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "EN-M10",
+      "metric": "S&P downside resiliency 'very high'",
+      "acceptable": "DSCR always > 1.0x in downside AND downside DSCRs map to at least 'bbb' in most periods; 'Low' = reserves depleted by year 3",
+      "source": "S&P 2022 Table 9",
+      "weak": false,
+      "ref": "6.5",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "EN-M11",
+      "metric": "S&P 'stronger liquidity reserves'",
+      "acceptable": "At least 1 year of debt service or at least 5% of total project debt",
+      "source": "S&P 2022 Table 9",
+      "weak": false,
+      "ref": "6.5",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "EN-M12",
+      "metric": "S&P liquidity 'less than adequate' triggers",
+      "acceptable": "Sources < 1x next-12-month debt service; no dedicated DSRA; covenant breach at 10% CFADS decline (OPBA 1-4) or 15% (OPBA 5-12)",
+      "source": "S&P 2022 liquidity section",
+      "weak": false,
+      "ref": "6.5",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "EN-M13",
+      "metric": "S&P strong liquidity (+1 notch)",
+      "acceptable": "Sources/uses > 2.0x (OPBA 1-6) or > 2.5x (OPBA 7-12) and reserves of 12 months (OPBA 1-6) or 18 months (OPBA 7-12) of debt service",
+      "source": "S&P 2022 liquidity section",
+      "weak": false,
+      "ref": "6.5",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "EN-M14",
+      "metric": "Fitch 'BBB' average DSCR, solar PV",
+      "acceptable": "Base case >= 1.40x; rating case (one-year P90 + haircuts) >= 1.30x",
+      "source": "Fitch, Rating Renewable Energy Projects, CDFA deck, July 2012 (dated but primary)",
+      "weak": false,
+      "ref": "6.5",
+      "applies_to": [
+        "solar"
+      ]
+    },
+    {
+      "id": "EN-M15",
+      "metric": "Fitch 'BBB' average DSCR, concentrated solar (CSP)",
+      "acceptable": "Base >= 1.50x; rating case >= 1.40x",
+      "source": "Fitch 2012",
+      "weak": false,
+      "ref": "6.5",
+      "applies_to": [
+        "solar"
+      ]
+    },
+    {
+      "id": "EN-M16",
+      "metric": "Fitch 'BBB' average DSCR, wind",
+      "acceptable": "Base >= 1.60x; rating case >= 1.30x",
+      "source": "Fitch 2012",
+      "weak": false,
+      "ref": "6.5",
+      "applies_to": [
+        "wind"
+      ]
+    },
+    {
+      "id": "EN-M17",
+      "metric": "Fitch 'BBB' average DSCR, biomass/geothermal",
+      "acceptable": "Base >= 1.60x; rating case >= 1.40x",
+      "source": "Fitch 2012",
+      "weak": false,
+      "ref": "6.5",
+      "applies_to": [
+        "solar",
+        "wind",
+        "storage"
+      ]
+    },
+    {
+      "id": "EN-M18",
+      "metric": "DBRS merchant renewables (hydro, wind, solar) minimum IG DSCR",
+      "acceptable": "About 1.5x to 1.7x",
+      "source": "Morningstar DBRS, Feb. 4, 2025 (Dec. 2024 methodology)",
+      "weak": false,
+      "ref": "6.5",
+      "applies_to": [
+        "merchant"
+      ]
+    },
+    {
+      "id": "EN-M19",
+      "metric": "DBRS merchant thermal minimum IG DSCR",
+      "acceptable": "Roughly three times the merchant-renewables level (~4.5x-5.1x implied)",
+      "source": "Morningstar DBRS, Feb. 2025",
+      "weak": false,
+      "ref": "6.5",
+      "applies_to": [
+        "merchant"
+      ]
+    },
+    {
+      "id": "EN-M20",
+      "metric": "Fully merchant DSCR (CONFLICT, do not average)",
+      "acceptable": "CA-CIB: 2.00x minimum (bank practice floor for merchant renewables) | DBRS: renewables ~1.5x-1.7x, thermal ~3x that | S&P OPBA 9-10: 2.50x-5.00x; OPBA 11-12 not IG",
+      "source": "Credit Agricole CIB Project Bond Focus 2020; DBRS 2025; S&P 2022",
+      "weak": false,
+      "ref": "6.5",
+      "applies_to": [
+        "merchant"
+      ]
+    },
+    {
+      "id": "EN-M21",
+      "metric": "Contracted cash flows minimum DSCR (bank practice)",
+      "acceptable": "1.40x minimum",
+      "source": "Credit Agricole CIB, Project Bond Focus",
+      "weak": false,
+      "ref": "6.5",
+      "applies_to": [
+        "solar",
+        "wind",
+        "storage",
+        "thermal-toll",
+        "contracted-baseload",
+        "power-island"
+      ]
+    },
+    {
+      "id": "EN-M22",
+      "metric": "Contracted renewables DSCR (practitioner, superseded)",
+      "acceptable": "1.20x to 1.35x (superseded by Fitch 1.30x-1.40x rating / 1.40x-1.60x base and S&P OPBA 3-4)",
+      "source": "gridlines.com",
+      "weak": true,
+      "ref": "6.5",
+      "applies_to": [
+        "solar",
+        "wind",
+        "storage"
+      ]
+    },
+    {
+      "id": "EN-M23",
+      "metric": "Partly merchant DSCR (practitioner, superseded)",
+      "acceptable": "1.40x to 1.75x (superseded by S&P OPBA 5-8: 1.30x-2.50x)",
+      "source": "gridlines.com",
+      "weak": true,
+      "ref": "6.5",
+      "applies_to": [
+        "merchant"
+      ]
+    },
+    {
+      "id": "EN-M24",
+      "metric": "Agency digest: power projects / contracted solar",
+      "acceptable": "Power projects > 1.4x to avoid sub-IG; contracted solar > 1.2x for IG (Fitch primary says 1.40x base / 1.30x rating; use Fitch)",
+      "source": "publicenterprise.org digest of Moody's and Fitch, Sept. 2024",
+      "weak": true,
+      "ref": "6.5",
+      "applies_to": [
+        "solar",
+        "wind",
+        "storage"
+      ]
+    },
+    {
+      "id": "EN-M25",
+      "metric": "Moody's power generation DSCR grid",
+      "acceptable": "GAP: not retrieved; use S&P Table 8 and Fitch",
+      "source": "Moody's Power Generation Projects methodology, Jan. 2022",
+      "weak": true,
+      "ref": "6.5",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "EN-M26",
+      "metric": "DSRA size",
+      "acceptable": "Floor 6 months (CA-CIB 6-12 months); S&P 'stronger' 12 months or 5% of debt; strong liquidity 12 months (OPBA 1-6) or 18 months (OPBA 7-12)",
+      "source": "Credit Agricole CIB; S&P 2022",
+      "weak": false,
+      "ref": "6.5",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "EN-M27",
+      "metric": "Gearing (senior debt % of project cost)",
+      "acceptable": "About 60%-80% for contracted assets as an OUTPUT of DSCR sizing; lower for merchant. v1 'equity 20%-30% for merchant' is unverified and directionally wrong",
+      "source": "uspeglobal.com; jakenenergy.com",
+      "weak": true,
+      "ref": "6.5",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "EN-M28",
+      "metric": "Availability guarantee, gas LTSA/O&M",
+      "acceptable": "About 95%-98%; Entergy toll 98% summer (Jun-Aug) and winter (Dec-Feb) months, 96% other months; capacity payment cut 2% per 1% shortfall (1% per 1% if FM), capped at 100%; below 95% off-market",
+      "source": "Entergy Services 2020 ETI CCGT RFP, Appendix B-2 Toll term sheet",
+      "weak": false,
+      "ref": "6.2, 6.5",
+      "applies_to": [
+        "thermal-toll",
+        "merchant",
+        "power-island"
+      ]
+    },
+    {
+      "id": "EN-M29",
+      "metric": "Availability guarantee, wind O&M",
+      "acceptable": "About 95% time-based (hours with sufficient wind); energy-based runs lower",
+      "source": "U.S. DOE O&M Agreement Checklist for On-Site Wind, 2023",
+      "weak": false,
+      "ref": "6.5",
+      "applies_to": [
+        "wind"
+      ]
+    },
+    {
+      "id": "EN-M30",
+      "metric": "Capacity factor, gas peaker",
+      "acceptable": "About 10% historical average",
+      "source": "EIA AEO 2022",
+      "weak": false,
+      "ref": "6.5",
+      "applies_to": [
+        "thermal-toll",
+        "merchant",
+        "power-island"
+      ]
+    },
+    {
+      "id": "EN-M31",
+      "metric": "Capacity factor, combined cycle",
+      "acceptable": "About 30% to 90% by dispatch",
+      "source": "EIA",
+      "weak": false,
+      "ref": "6.5",
+      "applies_to": [
+        "thermal-toll",
+        "merchant",
+        "power-island"
+      ]
+    },
+    {
+      "id": "EN-M32",
+      "metric": "Heat rate, combined cycle",
+      "acceptable": "About 6,150 to 7,500 Btu/kWh",
+      "source": "Lazard; EIA; World Bank",
+      "weak": false,
+      "ref": "6.5",
+      "applies_to": [
+        "thermal-toll",
+        "merchant",
+        "power-island"
+      ]
+    },
+    {
+      "id": "EN-M33",
+      "metric": "Heat rate, simple-cycle turbine",
+      "acceptable": "About 8,000 to 10,450 Btu/kWh",
+      "source": "Lazard; EIA; World Bank",
+      "weak": false,
+      "ref": "6.5",
+      "applies_to": [
+        "thermal-toll",
+        "merchant",
+        "power-island"
+      ]
+    },
+    {
+      "id": "EN-M34",
+      "metric": "Heat rate, lean-burn reciprocating engine",
+      "acceptable": "About 7,000 to 8,100 Btu/kWh",
+      "source": "Lazard; EIA; World Bank",
+      "weak": false,
+      "ref": "6.5",
+      "applies_to": [
+        "thermal-toll",
+        "merchant",
+        "power-island"
+      ]
+    },
+    {
+      "id": "EN-M35",
+      "metric": "Simple-cycle efficiency",
+      "acceptable": "Recip 42%-49%; aeroderivative 38%-42%; older heavy frame 33%-36%",
+      "source": "Prismecs (vendor)",
+      "weak": true,
+      "ref": "6.5",
+      "applies_to": [
+        "thermal-toll",
+        "merchant",
+        "power-island"
+      ]
+    },
+    {
+      "id": "EN-M36",
+      "metric": "LCOE, gas combined cycle",
+      "acceptable": "About $39-$101/MWh (2023); new gas cost roughly doubled over five years (2026)",
+      "source": "Lazard LCOE+ v16 April 2023; Kleinman 2026",
+      "weak": false,
+      "ref": "6.4, 6.5",
+      "applies_to": [
+        "thermal-toll",
+        "merchant",
+        "power-island"
+      ]
+    },
+    {
+      "id": "EN-M37",
+      "metric": "Grid connection timeline (CONFLICT, show all)",
+      "acceptable": "Goldman via gi-advisors: 8-12 years (primary hubs, WEAK, tail) | ZERO Lab Dec 2025: 3-7 years typical (Google-funded) | Kleinman Jul 2025: >5 years, 7+ in places (WEAK) | LBNL 2026: median 61 months request-to-COD (36 in 2015, 22 in 2008); request-to-agreement 45 months; agreement-to-COD 31 months; 200 MW+ ~59 months | PJM 2018-2020 cohort got IAs only in April 2025 (WEAK). Require site-specific written timeline.",
+      "source": "Goldman via gi-advisors; Camus/encoord/Princeton ZERO Lab 2025; Kleinman 2025; LBNL Queued Up 2026",
+      "weak": true,
+      "ref": "6.4",
+      "applies_to": [
+        "solar",
+        "wind",
+        "storage",
+        "thermal-toll",
+        "merchant",
+        "power-island",
+        "contracted-baseload",
+        "transmission-midstream"
+      ]
+    },
+    {
+      "id": "EN-M38",
+      "metric": "Interconnection completion base rate",
+      "acceptable": "~19% of projects (13% of capacity) requesting IC 2000-2020 reached COD (LBNL 2026); ~20% of 2000-2018 by end-2023 (LBNL via Kleinman); PJM 2014-2023 entrants: 67% withdrew, 16% operating (WEAK)",
+      "source": "LBNL Queued Up 2026; Kleinman Jul 2025",
+      "weak": false,
+      "ref": "6.4",
+      "applies_to": [
+        "solar",
+        "wind",
+        "storage",
+        "thermal-toll",
+        "merchant",
+        "power-island",
+        "contracted-baseload",
+        "transmission-midstream"
+      ]
+    },
+    {
+      "id": "EN-M39",
+      "metric": "Withdrawal rate after signed IA",
+      "acceptable": "41% of capacity that signed an IA 2000-2022 withdrew by end-2025",
+      "source": "LBNL Queued Up 2026",
+      "weak": false,
+      "ref": "6.4, 6.7",
+      "applies_to": [
+        "solar",
+        "wind",
+        "storage",
+        "thermal-toll",
+        "merchant",
+        "power-island",
+        "contracted-baseload",
+        "transmission-midstream"
+      ]
+    },
+    {
+      "id": "EN-M40",
+      "metric": "Post-agreement delay (PJM)",
+      "acceptable": "Permitting > 14 months average; TO transformer procurement nearly 20 months",
+      "source": "Kleinman Jul 2025 (podcast; confirm against PJM records)",
+      "weak": true,
+      "ref": "6.4",
+      "applies_to": [
+        "solar",
+        "wind",
+        "storage",
+        "thermal-toll",
+        "merchant",
+        "power-island",
+        "contracted-baseload",
+        "transmission-midstream"
+      ]
+    },
+    {
+      "id": "EN-M41",
+      "metric": "FERC Order 2023 maximum cluster-study duration",
+      "acceptable": "150 days; readiness deposits scale with size; regional variations (PJM 'reasonable efforts')",
+      "source": "Kleinman Jul 2025 (confirm against FERC order)",
+      "weak": true,
+      "ref": "6.4",
+      "applies_to": [
+        "solar",
+        "wind",
+        "storage",
+        "thermal-toll",
+        "merchant",
+        "power-island",
+        "contracted-baseload",
+        "transmission-midstream"
+      ]
+    },
+    {
+      "id": "EN-M42",
+      "metric": "Transmission expansion rate",
+      "acceptable": "~1%/yr historical; must rise ~50% faster for current-policy renewables, ~double for 2035 net zero; at 1%/yr low-carbon share of 2030 generation falls ~75% to ~61%",
+      "source": "Princeton REPEAT via Utility Dive",
+      "weak": false,
+      "ref": "6.4",
+      "applies_to": [
+        "transmission-midstream",
+        "solar",
+        "wind",
+        "merchant"
+      ]
+    },
+    {
+      "id": "EN-M43",
+      "metric": "Transmission macro (frame only, not project demand)",
+      "acceptable": "~2x by 2050 least-cost; ~5x in 100%-renewables; +60% by 2030 high-electrification",
+      "source": "NZA Final Report; Annex F",
+      "weak": false,
+      "ref": "6.4",
+      "applies_to": [
+        "transmission-midstream"
+      ]
+    },
+    {
+      "id": "EN-M44",
+      "metric": "Build-rate realism",
+      "acceptable": "NZA constrained case caps wind+solar at 35 GW/yr (~30% above record); historical peak 21 GW/yr (2015); REPEAT solar need 44-51 GW/yr (2023-2030) vs 19 GW in 2021",
+      "source": "NZA 2021; REPEAT via Utility Dive",
+      "weak": false,
+      "ref": "6.4",
+      "applies_to": [
+        "solar",
+        "wind",
+        "storage"
+      ]
+    },
+    {
+      "id": "EN-M45",
+      "metric": "Build time by technology (CONFLICT for solar)",
+      "acceptable": "Solar+storage 12-18 months | other Kleinman pieces: solar 18-24 months | wind ~2 years | CCGT 3-4 years | construction phase 18-48 months by technology",
+      "source": "Kleinman (Draves Apr 2026; podcast Feb 2026; RE+ 2025)",
+      "weak": true,
+      "ref": "6.1, 6.4",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "EN-M46",
+      "metric": "Data-center build vs grid",
+      "acceptable": "DC build 18-24 months vs grid connection 3-7 years",
+      "source": "ZERO Lab Dec 2025",
+      "weak": false,
+      "ref": "6.4",
+      "applies_to": [
+        "power-island"
+      ]
+    },
+    {
+      "id": "EN-M47",
+      "metric": "Heavy gas turbine lead time (show all)",
+      "acceptable": "3-7 years, OEMs booking into 2028-2029 (nextlerllc/semianalysis) | 4-6 years (Kleinman Feb 2026, WEAK) | 5-7 years (S&P Global May 2025 via Princeton preprint)",
+      "source": "nextlerllc.com; semianalysis.com; Kleinman; S&P via arXiv 2609.08166",
+      "weak": true,
+      "ref": "6.4",
+      "applies_to": [
+        "thermal-toll",
+        "merchant",
+        "power-island"
+      ]
+    },
+    {
+      "id": "EN-M48",
+      "metric": "Aeroderivative turbine lead time",
+      "acceptable": "18-36 months",
+      "source": "semianalysis.com",
+      "weak": true,
+      "ref": "6.4",
+      "applies_to": [
+        "thermal-toll",
+        "merchant",
+        "power-island"
+      ]
+    },
+    {
+      "id": "EN-M49",
+      "metric": "Diesel genset > 2.5 MW lead time",
+      "acceptable": "18-24 months; industry-wide toward ~107 weeks; one OEM sold out of high-hp gensets through 2028",
+      "source": "safeguard.sh; Power Magazine 2026 via savrn.com",
+      "weak": true,
+      "ref": "6.4",
+      "applies_to": [
+        "power-island"
+      ]
+    },
+    {
+      "id": "EN-M50",
+      "metric": "Used vs new gas turbine price",
+      "acceptable": "Used ~$1.5M/MW vs new $2M+/MW",
+      "source": "Reuters via startupfortune.com",
+      "weak": true,
+      "ref": "6.4",
+      "applies_to": [
+        "thermal-toll",
+        "merchant",
+        "power-island"
+      ]
+    },
+    {
+      "id": "EN-M51",
+      "metric": "Pre-FID capital share",
+      "acceptable": "~$185B-$190B of ~$2.6T 2020s supply-side capital (~7%); incurred 2-10 years before COD; 100% at risk",
+      "source": "Princeton Net-Zero America 2021",
+      "weak": false,
+      "ref": "6.1",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "EN-M52",
+      "metric": "Rate sensitivity",
+      "acceptable": "Model at +200 bp on debt and discount rate",
+      "source": "HBS WP 26-096",
+      "weak": false,
+      "ref": "6.4",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "EN-M53",
+      "metric": "Merchant price with optimal investment (ERCOT calibration)",
+      "acceptable": "~$30 to ~$46-$49/MWh over six years with wide distribution; ~2x in a decade with no supply response",
+      "source": "Crosier, Onghai and Sircar, arXiv 2609.08166 (preprint)",
+      "weak": true,
+      "ref": "6.5",
+      "applies_to": [
+        "merchant"
+      ]
+    },
+    {
+      "id": "EN-M54",
+      "metric": "PJM capacity costs (CONFLICT)",
+      "acceptable": "Bills ~$2.2B (2023+2024) to >$14B in one year; ~$40B over three years, ~half data centers (IMM) | NRDC $47B; last auction ~$16B under collar vs ~$26B uncapped; ~6.5 GW/yr DC load through 2030",
+      "source": "Kleinman podcast Feb 2026 (confirm with PJM/IMM)",
+      "weak": true,
+      "ref": "6.5",
+      "applies_to": [
+        "merchant",
+        "power-island"
+      ]
+    },
+    {
+      "id": "EN-M55",
+      "metric": "Scarcity event price levels",
+      "acceptable": "ERCOT cap $9,000/MWh; some ancillary services $25,000/MWh (Uri)",
+      "source": "Yale Insights, Hirs",
+      "weak": false,
+      "ref": "6.4, 6.7",
+      "applies_to": [
+        "merchant",
+        "thermal-toll",
+        "power-island"
+      ]
+    },
+    {
+      "id": "EN-M56",
+      "metric": "Concession renegotiation base rate",
+      "acceptable": "54% of transport and 74% of water contracts renegotiated (~1,000 Latin American concessions)",
+      "source": "World Bank; Gomez-Ibanez 2003",
+      "weak": false,
+      "ref": "6.11",
+      "applies_to": [
+        "concession"
+      ]
+    },
+    {
+      "id": "EN-M57",
+      "metric": "CO2 transport and storage cost",
+      "acceptable": "~$17-$23 per tonne stored (2021$, model-based); national pipeline need >100,000 km, ~$170B-$230B; ~$13B characterization before 2035",
+      "source": "NZA 2021 Pillar 4",
+      "weak": false,
+      "ref": "6.12",
+      "applies_to": [
+        "ccs"
+      ]
+    },
+    {
+      "id": "EN-M58",
+      "metric": "OBBBA policy shock",
+      "acceptable": "~29 GW less solar and 43 GW less wind through 2030 (~140/160 GW through 2035); ~$0.5T less investment 2025-2035; household costs +$165/yr 2030, +$280/yr 2035",
+      "source": "REPEAT, Zenodo July 2025 (not peer reviewed)",
+      "weak": true,
+      "ref": "6.10",
+      "applies_to": [
+        "solar",
+        "wind",
+        "storage",
+        "ccs"
+      ]
+    },
+    {
+      "id": "EN-M59",
+      "metric": "OBBBA deadlines (verify vs Treasury)",
+      "acceptable": "Wind/solar begin construction before July 2026 with four-year window, or placed in service before 2028; phase-out from 2028, end by 2032; transferability preserved; FEOC for construction start after Dec 31, 2025",
+      "source": "Kleinman, Draves Apr 2026 (secondary summary)",
+      "weak": true,
+      "ref": "6.10",
+      "applies_to": [
+        "solar",
+        "wind",
+        "storage",
+        "ccs"
+      ]
+    },
+    {
+      "id": "EN-M60",
+      "metric": "Infrastructure LP stake secondary pricing",
+      "acceptable": "~91% of NAV H1 2026 (all strategies ~87%, buyout 91%, credit 89%, RE 68%)",
+      "source": "Jefferies Global Secondary Market Review July 2026",
+      "weak": false,
+      "ref": "6.5",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "EN-M61",
+      "metric": "Residential bill increase as political trigger",
+      "acceptable": "20% residential bill increase in parts of NJ became a 2025 governor's-race issue",
+      "source": "Princeton arXiv 2609.08166",
+      "weak": false,
+      "ref": "6.10",
+      "applies_to": [
+        "power-island",
+        "contracted-baseload",
+        "merchant"
+      ]
+    },
+    {
+      "id": "EN-M62",
+      "metric": "Data-center pipeline facing grid delays",
+      "acceptable": "~20% of U.S. DC pipeline",
+      "source": "plausity.com (vendor)",
+      "weak": true,
+      "ref": "6.7",
+      "applies_to": [
+        "power-island"
+      ]
+    }
+  ],
+  "third_party_reports": [
+    {
+      "id": "EN-T01",
+      "report": "Independent Engineer report",
+      "provider": "Lender-selected, developer-paid IE",
+      "required_when": "Always",
+      "ref": "6.2, 6.6"
+    },
+    {
+      "id": "EN-T02",
+      "report": "Energy-yield report (P50 and one-year P90, curtailment, basis)",
+      "provider": "Independent energy-yield consultant",
+      "required_when": "Solar, wind, storage",
+      "ref": "6.3, 6.6"
+    },
+    {
+      "id": "EN-T03",
+      "report": "Market advisor report (spark-spread and capture-price distributions, everyone-builds zone case, capacity collar cases)",
+      "provider": "Independent fuel and market advisor",
+      "required_when": "Merchant or partly merchant; any thermal with hedges",
+      "ref": "6.6"
+    },
+    {
+      "id": "EN-T04",
+      "report": "Interconnection and grid review (cluster status, readiness deposits, network-upgrade allocation, withdrawal exposure)",
+      "provider": "Interconnection counsel / RTO specialist / grid consultant",
+      "required_when": "Any grid-connected project",
+      "ref": "6.6"
+    },
+    {
+      "id": "EN-T05",
+      "report": "Tax opinion (begin construction, placed in service, FEOC material assistance, transferability, recapture)",
+      "provider": "Tax counsel",
+      "required_when": "Returns depend on 45Y, 48E, 45X, 45Q or transferability",
+      "ref": "6.6, 6.10"
+    },
+    {
+      "id": "EN-T06",
+      "report": "FEOC supply-chain trace",
+      "provider": "Supply-chain tracing firm",
+      "required_when": "Credit-dependent projects",
+      "ref": "6.6"
+    },
+    {
+      "id": "EN-T07",
+      "report": "Winterization and freeze-event dispatch study",
+      "provider": "Weather and winterization engineer",
+      "required_when": "Any generator in freeze-exposed markets; all gas",
+      "ref": "6.6"
+    },
+    {
+      "id": "EN-T08",
+      "report": "Regulatory and political-risk memo (tariff history, termination compensation, appropriation sweep)",
+      "provider": "Regulatory and political-risk counsel",
+      "required_when": "Concessions, regulated tariffs, public-funding dependencies",
+      "ref": "6.6"
+    },
+    {
+      "id": "EN-T09",
+      "report": "Water-rights opinion",
+      "provider": "Water-rights counsel",
+      "required_when": "Thermal/CCS/any water-dependent project",
+      "ref": "6.6"
+    },
+    {
+      "id": "EN-T10",
+      "report": "Storage geology report (injectivity, capacity, monitoring, Class VI)",
+      "provider": "Storage geologist",
+      "required_when": "CCS",
+      "ref": "6.6, 6.12"
+    },
+    {
+      "id": "EN-T11",
+      "report": "Rating adviser memo (expected OPBA, downside case)",
+      "provider": "Rating adviser",
+      "required_when": "Debt rated or to be rated; recommended otherwise",
+      "ref": "6.6"
+    },
+    {
+      "id": "EN-T12",
+      "report": "Environmental consultant report",
+      "provider": "Environmental consultant",
+      "required_when": "Always",
+      "ref": "6.6"
+    },
+    {
+      "id": "EN-T13",
+      "report": "Insurance program review and bound quotes",
+      "provider": "Insurance advisor",
+      "required_when": "Always",
+      "ref": "6.6"
+    },
+    {
+      "id": "EN-T14",
+      "report": "FAT witness and equipment inspection (serials, load-bank certificates)",
+      "provider": "Equipment inspector",
+      "required_when": "Any generating equipment, mandatory for used/refurbished",
+      "ref": "6.6"
+    },
+    {
+      "id": "EN-T15",
+      "report": "Legal due diligence report on contract suite",
+      "provider": "Project-finance counsel",
+      "required_when": "Always",
+      "ref": "6.6"
+    },
+    {
+      "id": "EN-T16",
+      "report": "Independent model audit",
+      "provider": "Model auditor",
+      "required_when": "Always",
+      "ref": "6.5"
+    }
+  ],
+  "hard_questions": [
+    {
+      "id": "EN-HQ01",
+      "question": "Show the executed interconnection agreement and the substation funding, the network-upgrade cost allocation, the security posted, the milestone schedule and status, the permitting plan and the transformer delivery dates.",
+      "good_answer": "All seven documents produced from the data room within a day, with the in-service date after both transformer deliveries and every milestone met.",
+      "ref": "6.9"
+    },
+    {
+      "id": "EN-HQ02",
+      "question": "Is the power contracted, for how long, and against what debt tenor?",
+      "good_answer": "Executed offtake with tenor at or beyond debt maturity, or a merchant-tail case that still covers debt service.",
+      "ref": "6.9"
+    },
+    {
+      "id": "EN-HQ03",
+      "question": "Is the equipment firm-ordered and inspected, or a reservation?",
+      "good_answer": "Firm POs with serials and FAT/load-bank certificates witnessed by an inspector.",
+      "ref": "6.9"
+    },
+    {
+      "id": "EN-HQ04",
+      "question": "What is the DSCR in the merchant or downside case, and what is the DSRA?",
+      "good_answer": "A downside table already built, DSCR above 1.0x every period, DSRA of at least 6 months (ideally 12).",
+      "ref": "6.9"
+    },
+    {
+      "id": "EN-HQ05",
+      "question": "What OPBA do you expect S&P to assign, and does your minimum DSCR clear the Table 8 range for it? In the downside case, in which year is the DSRA exhausted?",
+      "good_answer": "A rating-adviser memo naming the OPBA, minimum DSCR inside the range, and a DSRA that is never exhausted within tenor.",
+      "ref": "6.9"
+    },
+    {
+      "id": "EN-HQ06",
+      "question": "Is the energy case P50 or one-year P90? Show both DSCRs.",
+      "good_answer": "Both shown; debt sized on one-year P90 clearing Fitch's rating-case minimum.",
+      "ref": "6.9"
+    },
+    {
+      "id": "EN-HQ07",
+      "question": "What does the availability guarantee define as 'available', what is excluded, and what is the LD cap? Does it match the offtake contract's requirement?",
+      "good_answer": "Definition and exclusions quoted, LD cap stated, guarantee at or above offtake requirement every month.",
+      "ref": "6.9"
+    },
+    {
+      "id": "EN-HQ08",
+      "question": "Is the service firm or curtailable? If curtailed, what runs the load, under what permit, and for how many hours?",
+      "good_answer": "Written firm terms, or an hourly curtailment study with backup sized and air-permitted for the hours.",
+      "ref": "6.9"
+    },
+    {
+      "id": "EN-HQ09",
+      "question": "What has the queue done to your cluster? What is your withdrawal-penalty exposure?",
+      "good_answer": "Current cluster status from the RTO and a dollar withdrawal exposure already in the capital-at-risk curve.",
+      "ref": "6.9"
+    },
+    {
+      "id": "EN-HQ10",
+      "question": "Who pays for network upgrades and incremental capacity costs, and is that in the lease or PPA?",
+      "good_answer": "A named party per cost with the clause reference.",
+      "ref": "6.9"
+    },
+    {
+      "id": "EN-HQ11",
+      "question": "How much of your capital is pre-FID, how much pre-COD, and what is the maximum cumulative cash at risk before first revenue?",
+      "good_answer": "A monthly cash-at-risk curve with peak exposure stated and pre-FID priced at venture returns.",
+      "ref": "6.9"
+    },
+    {
+      "id": "EN-HQ12",
+      "question": "How many MW of other generation are announced or in the queue in your zone, and what happens to your capture price if half of it is built?",
+      "good_answer": "A zone queue list and a price deck with the half-built case still servicing debt.",
+      "ref": "6.9"
+    },
+    {
+      "id": "EN-HQ13",
+      "question": "If the tax credit disappears or the FEOC test fails, what is the equity IRR and does the debt still size?",
+      "good_answer": "A no-credit case run before being asked; debt sizes or credit loss is insured/indemnified.",
+      "ref": "6.9"
+    },
+    {
+      "id": "EN-HQ14",
+      "question": "What happens in a Uri-type freeze: where does the fuel come from, and what do you owe on your hedges at the cap?",
+      "good_answer": "Firm transport plus on-site backup for X days, compressors on critical load, and a computed hedge exposure covered by liquidity.",
+      "ref": "6.9"
+    },
+    {
+      "id": "EN-HQ15",
+      "question": "What is the IRR at +200 bp on debt and discount rate?",
+      "good_answer": "Sensitivity table already in the model.",
+      "ref": "6.9"
+    },
+    {
+      "id": "EN-HQ16",
+      "question": "Does the site reuse an existing interconnection? If not, why not?",
+      "good_answer": "Yes with RTO documentation, or a reasoned explanation.",
+      "ref": "6.9"
+    },
+    {
+      "id": "EN-HQ17",
+      "question": "Show every tariff adjustment the counterparty has granted and refused in the last decade.",
+      "good_answer": "A dated list from public records, with the model haircutting increases to that record.",
+      "ref": "6.11"
+    },
+    {
+      "id": "EN-HQ18",
+      "question": "What do we receive on termination for convenience?",
+      "good_answer": "At least senior debt plus a defined equity return, paid from a non-appropriation source.",
+      "ref": "6.11"
+    },
+    {
+      "id": "EN-HQ19",
+      "question": "Which budget line pays, and can it be swept?",
+      "good_answer": "A named line with a counsel opinion that it cannot be swept, or a modelled loss case.",
+      "ref": "6.11"
+    },
+    {
+      "id": "EN-HQ20",
+      "question": "Where does each tonne of CO2 go, under what signed agreement, at what tariff, and who owns the injection permit?",
+      "good_answer": "A signed T&S agreement for full volume at ~$17-$23/t (or justified premium) and a named Class VI permit holder.",
+      "ref": "6.12"
+    },
+    {
+      "id": "EN-HQ21",
+      "question": "Which assumptions of the national model you cite (perfect foresight, unconstrained siting, unlimited transmission) does the project depend on?",
+      "good_answer": "A list and a downside case without them.",
+      "ref": "6.4"
+    }
+  ],
+  "failure_cases": [
+    {
+      "case": "Panda Temple I",
+      "year": "2017",
+      "what_happened": "758 MW ERCOT CCGT financed with ~$377M debt and $375M equity filed Chapter 11 in April 2017 after breaching its DSRA covenant; low spark spreads despite a revenue-put hedge.",
+      "check": "Contracted offtake; merchant-tail stress; DSRA sizing; spark-spread distributions; DSCR at P10 spark spread; model reproduces historical capacity factor.",
+      "ref": "6.7"
+    },
+    {
+      "case": "Homer City Generation",
+      "year": "2017",
+      "what_happened": "Merchant coal plant filed Chapter 11 in January 2017.",
+      "check": "Merchant exposure and fuel economics.",
+      "ref": "6.7"
+    },
+    {
+      "case": "ERCOT Winter Storm Uri",
+      "year": "2021",
+      "what_happened": "~30 GW missing vs ~45 GW non-summer load; prices at $9,000/MWh cap, ancillaries $25,000/MWh; ~$140B losses (~$50B ERCOT charges, ~$90B P&C); gas compression failed as blackouts cut compressor power; winterization not paid for or enforced.",
+      "check": "Firm transport, on-site backup fuel, compressors off curtailable list; winterization standard and cost; two-way scarcity modelling.",
+      "ref": "6.7"
+    },
+    {
+      "case": "Mexico toll-road concessions",
+      "year": "Late 1980s",
+      "what_happened": "Concessions cost taxpayers over $8B after renegotiation.",
+      "check": "Counterparty political turnover; tariff-adjustment track record; termination compensation.",
+      "ref": "6.7, 6.11"
+    },
+    {
+      "case": "Brazilian water concession",
+      "year": "1996",
+      "what_happened": "Abandoned after a new local government refused a contractual tariff adjustment.",
+      "check": "Tariff-adjustment track record; election calendar; termination compensation.",
+      "ref": "6.7, 6.11"
+    },
+    {
+      "case": "Latin American concession base rate",
+      "year": "Various",
+      "what_happened": "Of ~1,000 concessions, 54% of transport and 74% of water were renegotiated, delaying investment, raising tariffs or extending terms.",
+      "check": "Haircut scheduled tariff increases; termination compensation.",
+      "ref": "6.11"
+    },
+    {
+      "case": "Connecticut Green Bank",
+      "year": "2018",
+      "what_happened": "Legislature redirected a substantial part of the green bank's revenue to the general fund.",
+      "check": "Legal sweepability of public funds; model their loss.",
+      "ref": "6.7, 6.10"
+    },
+    {
+      "case": "Large-buyer turbine reservation cancellation (WEAK, unnamed)",
+      "year": "Not stated",
+      "what_happened": "One large buyer cancelled ~13 GW of reservations with a reported ~$3.7B loss.",
+      "check": "Slot reservation vs firm order; equipment provenance and FAT.",
+      "ref": "6.4, 6.7"
+    },
+    {
+      "case": "Signed interconnection agreement, project still dies (base rate)",
+      "year": "2000-2025",
+      "what_happened": "41% of capacity with signed IAs (2000-2022) withdrew by end-2025.",
+      "check": "Network-upgrade cost allocation, posted security, milestones, permitting and transformer schedule.",
+      "ref": "6.7"
+    },
+    {
+      "case": "Interconnection delay (base rate)",
+      "year": "2025",
+      "what_happened": "~20% of U.S. DC pipeline faces grid delays (vendor, WEAK); median 61 months request-to-COD.",
+      "check": "Executed LGIA with funded upgrades; energization stressed against covenants.",
+      "ref": "6.7"
+    },
+    {
+      "case": "Post-agreement delay in PJM (WEAK)",
+      "year": "2025",
+      "what_happened": "Permitting >14 months and transformer procurement ~20 months after agreement.",
+      "check": "Permitting plan and transformer procurement schedule in the data room.",
+      "ref": "6.7"
+    },
+    {
+      "case": "Cannibalization by market response",
+      "year": "2026",
+      "what_happened": "Princeton model: optimal build intensity falls toward zero as capacity accumulates; merchant price path wide.",
+      "check": "'Everyone builds' zone case.",
+      "ref": "6.5, 6.7"
+    },
+    {
+      "case": "No new transmission",
+      "year": "Ongoing",
+      "what_happened": "Transmission expanding ~1%/yr (REPEAT).",
+      "check": "'No new transmission' case with curtailment and basis.",
+      "ref": "6.7"
+    },
+    {
+      "case": "Pre-FID dollars lost",
+      "year": "2020s",
+      "what_happened": "NZA: $185B-$190B of pre-FID capital across the 2020s, total loss if no FID.",
+      "check": "Price pre-FID separately; cash-at-risk curve to COD.",
+      "ref": "6.1, 6.7"
+    },
+    {
+      "case": "Tax credit lost or FEOC failure (OBBBA)",
+      "year": "2025",
+      "what_happened": "OBBBA largely repealed IRA clean-electricity credits; FEOC rules from 2026.",
+      "check": "Begin-construction evidence; FEOC trace; no-credit downside case.",
+      "ref": "6.7, 6.10"
+    },
+    {
+      "case": "Capture plant with no sink",
+      "year": "2021",
+      "what_happened": "NZA: capture without contracted transport/storage is stranded.",
+      "check": "Signed T&S agreement or owned Class VI permit.",
+      "ref": "6.7, 6.12"
+    },
+    {
+      "case": "Curtailable service sold as firm",
+      "year": "2026",
+      "what_happened": "PJM 2026 proposals (connect-and-manage may force switch to diesel).",
+      "check": "Written firm/non-firm terms and hourly curtailment study.",
+      "ref": "6.7, 6A.3"
+    }
+  ]
+}

@@ -1,0 +1,1850 @@
+{
+  "type": "crypto-digital-assets",
+  "name": "Crypto and Digital Assets",
+  "summary": "Equity, debt or fund exposure to crypto businesses and assets: exchanges and custodians, payment-stablecoin issuers, token projects, crypto lenders and levered vehicles, miners, and funds holding crypto. Exchange and custodian failure is a base rate, not a tail (18 of 40 early Bitcoin exchanges closed; Mt. Gox, QuadrigaCX, FTX). The diligence spine is proving solvency, not holdings: proof of reserves AND proof of liabilities at the same block with a challenge string we supply, customer assets segregated at an independent custodian, keys under a tested multi-person quorum, GENIUS Act 1:1 HQLA reserves for payment stablecoins with instrument-level attestation and redemption terms, yield decomposed into organic income vs subsidy, token unlock/emission schedules against real volume, wallet-level user vs speculator analysis, address-level OFAC screening and on-chain tracing of crypto-derived funds, margin/haircut spiral stress for lenders, and governance basics (CFO, controller, audit committee, internal audit, employee census). Absence of an SEC case is not compliance.",
+  "chapters": [
+    "11-niches-crypto.md"
+  ],
+  "one_check": "Prove solvency, not holdings: reserves AND liabilities at the same block, with a challenge string we supplied, customer assets segregated at an independent custodian, and keys under a tested multi-person quorum.",
+  "subtypes": [
+    {
+      "id": "exchange-custodian",
+      "name": "Exchange or custodian",
+      "description": "Holds customer assets; three failure types all observed: bank run on fractional reserves, operator fraud/Ponzi, hack (including insiders). Proof of reserves AND liabilities, segregation and key quorum are gating."
+    },
+    {
+      "id": "stablecoin-issuer",
+      "name": "Stablecoin issuer or tokenized cash / yield-bearing dollar",
+      "description": "Payment stablecoins under the GENIUS Act must be backed 1:1 by HQLA, held for holders, audited, unencumbered. Algorithmic, crypto-collateralized and synthetic designs sit outside the segregated-reserve frameworks and are a higher risk class."
+    },
+    {
+      "id": "token-project",
+      "name": "Token project / protocol",
+      "description": "Token as platform membership; risks are user vs speculator mix, wash trading, unlock/emission schedules, smart-contract security, subsidized yield and pump-and-dump dynamics."
+    },
+    {
+      "id": "crypto-lender",
+      "name": "Crypto lender or levered crypto vehicle",
+      "description": "Margin and loss spirals (Brunnermeier-Pedersen); Celsius and Three Arrows named as failures (no case detail sourced: GAP). Haircut schedules, collateral stress and rehypothecation."
+    },
+    {
+      "id": "mining",
+      "name": "Mining / validator operations",
+      "description": "Power-intensive operations (ERCOT forecasts 33 GW of new DC and crypto-mining demand by 2031). The bible has no mining-specific benchmarks: thin coverage; power items cross-refer to energy-infrastructure.json and data-centers.json, and validator-attack risk to token economics."
+    },
+    {
+      "id": "crypto-fund",
+      "name": "Fund or vehicle holding crypto (including theme vehicles)",
+      "description": "Fund or SPV holding tokens or crypto equity; custody, valuation (last round is not a mark), bubble/theme-launch timing and investor-level crypto source-of-funds tracing."
+    }
+  ],
+  "intake_questions": [
+    {
+      "id": "CRY-Q01",
+      "question": "What is the exposure: equity in an exchange/custodian, stablecoin issuer, token project, lender, miner, or a fund/SPV holding crypto?",
+      "why": "Sets the subtype and which solvency, reserve or token-economics tests apply (11.1).",
+      "sets_subtype": true
+    },
+    {
+      "id": "CRY-Q02",
+      "question": "Does the business hold customer assets? If so, where, under whose keys, and are they segregated at an independent custodian?",
+      "why": "Customer assets at an affiliate is the FTX failure (11.1.8).",
+      "sets_subtype": true
+    },
+    {
+      "id": "CRY-Q03",
+      "question": "Does any product pay a yield? What is its source?",
+      "why": "Terra paid 19.5% from a subsidy (11.1.6).",
+      "sets_subtype": false
+    },
+    {
+      "id": "CRY-Q04",
+      "question": "Is any stablecoin issued, held as treasury or taken as collateral? Is it a regulated payment stablecoin?",
+      "why": "Triggers the GENIUS Act reserve test and run-vulnerability scoring (11.1.6).",
+      "sets_subtype": true
+    },
+    {
+      "id": "CRY-Q05",
+      "question": "Is there a token? What is the full unlock and emission schedule?",
+      "why": "Supply unlocks puncture bubbles (11.1.7).",
+      "sets_subtype": true
+    },
+    {
+      "id": "CRY-Q06",
+      "question": "Does the business lend, borrow or run leverage against crypto collateral?",
+      "why": "Margin/loss spiral stress (11.1.10).",
+      "sets_subtype": true
+    },
+    {
+      "id": "CRY-Q07",
+      "question": "Do any investors, sponsors or counterparties derive wealth or funds from crypto?",
+      "why": "Triggers wallet-control proof and on-chain tracing (11.1.9).",
+      "sets_subtype": false
+    },
+    {
+      "id": "CRY-Q08",
+      "question": "Does the operation consume large amounts of power (mining, validators)?",
+      "why": "Pull in power-contract checks from the energy and data-center libraries.",
+      "sets_subtype": true
+    }
+  ],
+  "requests": [
+    {
+      "id": "CRY-FIN-001",
+      "order": 10,
+      "stage": "screen",
+      "priority": "gating",
+      "workstream": "Financial",
+      "request": "Provide proof of reserves AND proof of liabilities dated to the same block height.",
+      "format": "Signed-message/payment-to-self reserve proof plus Merkle-sum-tree liabilities proof with signed root, same block.",
+      "why": "Proof of reserves alone is half a proof; reserves can be borrowed for the snapshot.",
+      "pass": "Both proofs at the same block; assets >= liabilities per asset.",
+      "fail": "Reserves only; different dates; assets < liabilities.",
+      "verify": "Independent verification in subsequent items.",
+      "applies_to": [
+        "exchange-custodian",
+        "crypto-lender",
+        "stablecoin-issuer",
+        "crypto-fund"
+      ],
+      "ref": "11.1.4 step 1, 11.1.12",
+      "weak": false
+    },
+    {
+      "id": "CRY-OPS-001",
+      "order": 20,
+      "stage": "screen",
+      "priority": "gating",
+      "workstream": "Operational",
+      "request": "Provide the key-control summary: hot/cold wallet split, signer list, quorum (t-of-n), and geographic separation of signers.",
+      "format": "Summary signed by CISO/CFO.",
+      "why": "A single person holding keys (QuadrigaCX).",
+      "pass": "Separate hot and cold keys; cold keys split by threshold sharing or multisig; no single person can move funds.",
+      "fail": "Single key holder or undocumented quorum.",
+      "verify": "Key-ceremony documents and live quorum test (confirmatory).",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "11.1.5",
+      "weak": false
+    },
+    {
+      "id": "CRY-HR-001",
+      "order": 30,
+      "stage": "screen",
+      "priority": "gating",
+      "workstream": "HR & Management",
+      "request": "Identify the CFO, controller, head of internal audit and audit committee members.",
+      "format": "Names, CVs, appointment dates, audit committee charter.",
+      "why": "FTX had no accounting department, internal audit or experienced finance leadership.",
+      "pass": "CFO and controller in-house; internal audit function; audit committee constituted.",
+      "fail": "Any missing; accounting fully outsourced with no in-house controller.",
+      "verify": "Interview each; check board minutes.",
+      "applies_to": [
+        "exchange-custodian",
+        "stablecoin-issuer",
+        "token-project",
+        "crypto-lender",
+        "mining"
+      ],
+      "ref": "11.1.8, 11.1.12",
+      "weak": false
+    },
+    {
+      "id": "CRY-LEG-001",
+      "order": 40,
+      "stage": "screen",
+      "priority": "gating",
+      "workstream": "Corporate & Legal",
+      "request": "Disclose all affiliated trading firms and market makers, with any credit lines, privileged access or exit routes they hold.",
+      "format": "Related-party schedule.",
+      "why": "Customer funds diverted to Alameda; privileged exit routes in Terra.",
+      "pass": "No affiliate with privileged access or credit from customer assets.",
+      "fail": "Affiliated trading firm with credit lines or privileged exit.",
+      "verify": "On-chain flow review and bank records.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "11.1.8, 11.1.6, 11.1.12",
+      "weak": false
+    },
+    {
+      "id": "CRY-REG-001",
+      "order": 50,
+      "stage": "screen",
+      "priority": "core",
+      "workstream": "Regulatory & Compliance",
+      "request": "Provide a regulatory-status memo by jurisdiction, not relying on absence of SEC action.",
+      "format": "Counsel memo listing licences and pending matters.",
+      "why": "'No SEC action' offered as compliance (Coinbase dismissal 'not a judgment on the merits').",
+      "pass": "Licences identified; compliance rests on custody, audit and on-chain verification.",
+      "fail": "Absence of enforcement cited as compliance.",
+      "verify": "Regulator registers.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "11.1.2, 11.1.12",
+      "weak": false
+    },
+    {
+      "id": "CRY-COM-001",
+      "order": 60,
+      "stage": "screen",
+      "priority": "gating",
+      "workstream": "Commercial & Market",
+      "request": "For any yield product, provide a decomposition of yield into organic income versus subsidy/emissions, and the subsidy runway.",
+      "format": "Monthly table with sources of funds.",
+      "why": "Terra: 19.5% yield funded by a subsidy reaching ~$6M/day.",
+      "pass": "Yield covered by organic income, or subsidy runway exceeds hold period and is disclosed.",
+      "fail": "No organic source; subsidy with no runway.",
+      "verify": "Recompute from on-chain and accounting data.",
+      "applies_to": [
+        "token-project",
+        "crypto-lender",
+        "stablecoin-issuer",
+        "exchange-custodian",
+        "crypto-fund"
+      ],
+      "ref": "11.1.6, 11.1.12",
+      "weak": false
+    },
+    {
+      "id": "CRY-FIN-002",
+      "order": 70,
+      "stage": "screen",
+      "priority": "gating",
+      "workstream": "Financial",
+      "request": "For a stablecoin, provide the latest reserve attestation with date, auditor, custodian list and instrument-level composition.",
+      "format": "Attestation by named auditor.",
+      "why": "Undated, unaudited or non-instrument-level reserve claims.",
+      "pass": "Dated attestation by a named auditor; instrument-level; 1:1 HQLA.",
+      "fail": "Self-published or aggregated claims.",
+      "verify": "Contact auditor and custodians.",
+      "applies_to": [
+        "stablecoin-issuer",
+        "crypto-fund"
+      ],
+      "ref": "11.1.6",
+      "weak": false
+    },
+    {
+      "id": "CRY-COM-002",
+      "order": 80,
+      "stage": "screen",
+      "priority": "core",
+      "workstream": "Commercial & Market",
+      "request": "For any token, provide the full unlock and emission schedule (team, investors, treasury, staking rewards) against current float and average daily volume.",
+      "format": "Schedule by month.",
+      "why": "Supply unlocks puncture bubbles.",
+      "pass": "No unlock in the hold period above several days of real volume.",
+      "fail": "Unlock above several days of real volume in hold period.",
+      "verify": "On-chain verification of vesting contracts.",
+      "applies_to": [
+        "token-project",
+        "crypto-fund"
+      ],
+      "ref": "11.1.7, 11.1.12",
+      "weak": false
+    },
+    {
+      "id": "CRY-FIN-003",
+      "order": 10,
+      "stage": "term-sheet",
+      "priority": "gating",
+      "workstream": "Financial",
+      "request": "Provide the balance sheet showing customer assets and matching customer liabilities, reconciled.",
+      "format": "Audited or management balance sheet with reconciliation.",
+      "why": "FTX did not record customer deposits on main entities' balance sheets.",
+      "pass": "Customer assets and liabilities both recorded and reconcile.",
+      "fail": "Customer assets off balance sheet or unreconciled.",
+      "verify": "Auditor confirmation.",
+      "applies_to": [
+        "exchange-custodian",
+        "crypto-lender",
+        "stablecoin-issuer"
+      ],
+      "ref": "11.1.4 step 7",
+      "weak": false
+    },
+    {
+      "id": "CRY-VAL-001",
+      "order": 20,
+      "stage": "term-sheet",
+      "priority": "gating",
+      "workstream": "Valuation & Model",
+      "request": "Provide valuation support not based on the last funding round.",
+      "format": "Valuation memo.",
+      "why": "Last-round valuation is not a mark (FTX $32B).",
+      "pass": "Valuation rests on cash flows, on-chain metrics or comparables.",
+      "fail": "Last round used as mark.",
+      "verify": "Our valuation.",
+      "applies_to": [
+        "exchange-custodian",
+        "stablecoin-issuer",
+        "token-project",
+        "crypto-lender",
+        "mining",
+        "crypto-fund"
+      ],
+      "ref": "11.1.8",
+      "weak": false
+    },
+    {
+      "id": "CRY-VAL-002",
+      "order": 30,
+      "stage": "term-sheet",
+      "priority": "gating",
+      "workstream": "Valuation & Model",
+      "request": "For lenders/levered vehicles, provide the haircut/margin schedule and a stress of a simultaneous 20%-30% collateral price fall plus a haircut increase, showing what is sold first and covenant effects.",
+      "format": "Model.",
+      "why": "Margin and loss spirals.",
+      "pass": "Solvent and liquid through the stress; no cross-covenant breach.",
+      "fail": "Insolvency or forced sales breaching covenants.",
+      "verify": "Re-run.",
+      "applies_to": [
+        "crypto-lender",
+        "crypto-fund"
+      ],
+      "ref": "11.1.10",
+      "weak": false
+    },
+    {
+      "id": "CRY-VAL-003",
+      "order": 40,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Valuation & Model",
+      "request": "Score each money-like product (stablecoin, tokenized MMF, yield-bearing dollar) on the five JFC run-vulnerability features.",
+      "format": "Scoring table.",
+      "why": "Liquidity transformation plus threshold effect plus reactive holders invite runs.",
+      "pass": "Few of the five features present, or mitigants documented.",
+      "fail": "Liquidity transformation plus threshold effect plus reactive investors.",
+      "verify": "Our analysis.",
+      "applies_to": [
+        "stablecoin-issuer",
+        "crypto-lender",
+        "crypto-fund",
+        "exchange-custodian"
+      ],
+      "ref": "11.1.6",
+      "weak": false
+    },
+    {
+      "id": "CRY-VAL-004",
+      "order": 50,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Valuation & Model",
+      "request": "Stress the stablecoin redemption path: what backs the peg (reserves vs sister token) and redemption under a run.",
+      "format": "Model.",
+      "why": "Terra death spiral.",
+      "pass": "Peg backed by HQLA; redemptions met in stress.",
+      "fail": "Sister-token backing.",
+      "verify": "Our analysis.",
+      "applies_to": [
+        "stablecoin-issuer",
+        "crypto-fund"
+      ],
+      "ref": "11.1.6",
+      "weak": false
+    },
+    {
+      "id": "CRY-COM-003",
+      "order": 60,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Commercial & Market",
+      "request": "For theme/crypto vehicles, compare entry valuation to sector history and to the theme's media and fund-launch peak; apply the four-feature bubble test.",
+      "format": "Memo.",
+      "why": "Thematic launches buy at the top (~30% risk-adjusted underperformance over five years).",
+      "pass": "Entry not at theme peak; bubble features absent or priced.",
+      "fail": "Late-cycle entry.",
+      "verify": "Our analysis.",
+      "applies_to": [
+        "crypto-fund",
+        "token-project"
+      ],
+      "ref": "11.1.7, 11.10",
+      "weak": false
+    },
+    {
+      "id": "CRY-COM-004",
+      "order": 70,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Commercial & Market",
+      "request": "State co-investors' exit plans and timing assumptions where a sophisticated investor's participation is cited as validation.",
+      "format": "Memo.",
+      "why": "Rational speculators ride bubbles.",
+      "pass": "Not relied on as evidence of value.",
+      "fail": "Cited as validation.",
+      "verify": "Ask the co-investor.",
+      "applies_to": [
+        "crypto-fund",
+        "token-project"
+      ],
+      "ref": "11.1.7",
+      "weak": false
+    },
+    {
+      "id": "CRY-FIN-004",
+      "order": 10,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Financial",
+      "request": "Sign our (or an independent party's) challenge string with the reserve keys and complete a payment-to-self at the snapshot block.",
+      "format": "Signed messages verifiable on-chain.",
+      "why": "Exchange-supplied challenge strings prove nothing.",
+      "pass": "Valid signatures over our challenge from every reserve address.",
+      "fail": "Exchange-supplied challenge or missing addresses.",
+      "verify": "Verify signatures ourselves.",
+      "applies_to": [
+        "exchange-custodian",
+        "crypto-lender",
+        "stablecoin-issuer",
+        "crypto-fund"
+      ],
+      "ref": "11.1.4 step 2",
+      "weak": false
+    },
+    {
+      "id": "CRY-FIN-005",
+      "order": 20,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Financial",
+      "request": "Provide the Merkle-sum-tree liabilities proof with signed root and enable inclusion checks for a sample of real customer accounts we select.",
+      "format": "Tree data and verification tool.",
+      "why": "Fictitious balances (QuadrigaCX).",
+      "pass": "Sample accounts verify inclusion; every node sums correctly; no negative balances.",
+      "fail": "Failed inclusion, negative balances.",
+      "verify": "Customers we select verify independently.",
+      "applies_to": [
+        "exchange-custodian",
+        "crypto-lender",
+        "stablecoin-issuer"
+      ],
+      "ref": "11.1.4 step 3",
+      "weak": false
+    },
+    {
+      "id": "CRY-FIN-006",
+      "order": 30,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Financial",
+      "request": "Provide on-chain flow history for reserve addresses for 30 days before and after the attestation date.",
+      "format": "Address list; our analytics review.",
+      "why": "Reserves funded just before and drained after the snapshot.",
+      "pass": "No material inflows before or outflows after unexplained.",
+      "fail": "Window dressing.",
+      "verify": "Our on-chain review.",
+      "applies_to": [
+        "exchange-custodian",
+        "crypto-lender",
+        "stablecoin-issuer",
+        "crypto-fund"
+      ],
+      "ref": "11.1.4 step 4, 11.1.12",
+      "weak": false
+    },
+    {
+      "id": "CRY-FIN-007",
+      "order": 40,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Financial",
+      "request": "Provide a liabilities schedule including derivatives, loans and fiat, not just spot crypto.",
+      "format": "Schedule reconciled to ledger.",
+      "why": "Liabilities understated.",
+      "pass": "All liability types included.",
+      "fail": "Spot-only liabilities.",
+      "verify": "Auditor tie-out.",
+      "applies_to": [
+        "exchange-custodian",
+        "crypto-lender",
+        "stablecoin-issuer"
+      ],
+      "ref": "11.1.4 step 5",
+      "weak": false
+    },
+    {
+      "id": "CRY-FUND-001",
+      "order": 50,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Fund Operations",
+      "request": "Provide the independent custodian agreement showing customer-asset segregation.",
+      "format": "Executed custody agreement; custodian confirmation.",
+      "why": "Commingling (FTX).",
+      "pass": "Customer assets at an independent custodian, segregated.",
+      "fail": "Self-custody or affiliate custody of customer assets.",
+      "verify": "Custodian confirmation.",
+      "applies_to": [
+        "exchange-custodian",
+        "crypto-lender",
+        "stablecoin-issuer",
+        "crypto-fund"
+      ],
+      "ref": "11.1.4 step 6, 11.1.8",
+      "weak": false
+    },
+    {
+      "id": "CRY-FIN-008",
+      "order": 60,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Financial",
+      "request": "Provide the auditor's engagement and last audit opinion, demonstrating crypto-custody competence and scope covering customer-asset segregation.",
+      "format": "Audit opinion; engagement letter.",
+      "why": "Auditor without crypto competence.",
+      "pass": "Reputable auditor with crypto-custody experience; segregation in scope.",
+      "fail": "Unqualified auditor or scope gap.",
+      "verify": "Call auditor.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "11.1.4 step 6, 11.1.8",
+      "weak": false
+    },
+    {
+      "id": "CRY-IT-001",
+      "order": 70,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "IT & Cyber",
+      "request": "Provide key-ceremony documentation for all cold wallets.",
+      "format": "Ceremony records, attendees, video/attestations.",
+      "why": "Undocumented key generation.",
+      "pass": "Ceremony documented with independent witnesses.",
+      "fail": "Absent.",
+      "verify": "Interview participants.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "11.1.5",
+      "weak": false
+    },
+    {
+      "id": "CRY-IT-002",
+      "order": 80,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "IT & Cyber",
+      "request": "Perform a live withdrawal test demonstrating the stated quorum is enforced.",
+      "format": "Witnessed test transaction.",
+      "why": "Quorum on paper only.",
+      "pass": "Withdrawal fails below quorum and succeeds at quorum.",
+      "fail": "Single signer can move funds.",
+      "verify": "We witness.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "11.1.5",
+      "weak": false
+    },
+    {
+      "id": "CRY-IT-003",
+      "order": 90,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "IT & Cyber",
+      "request": "Provide the signer list with geographic separation and succession plan.",
+      "format": "Signer register.",
+      "why": "Key-person loss (QuadrigaCX).",
+      "pass": "Signers geographically separated; succession documented.",
+      "fail": "Co-located or no succession.",
+      "verify": "Interview signers.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "11.1.5",
+      "weak": false
+    },
+    {
+      "id": "CRY-TECH-001",
+      "order": 100,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Technical",
+      "request": "Provide smart-contract audit reports for all deployed contracts.",
+      "format": "Third-party audit reports with remediation status.",
+      "why": "Unaudited contracts and exploits.",
+      "pass": "Independent audits; critical findings remediated.",
+      "fail": "Unaudited or open criticals.",
+      "verify": "Verify deployed bytecode matches audited code.",
+      "applies_to": [
+        "token-project",
+        "stablecoin-issuer",
+        "crypto-lender",
+        "exchange-custodian"
+      ],
+      "ref": "11.1.1",
+      "weak": false
+    },
+    {
+      "id": "CRY-IT-004",
+      "order": 110,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "IT & Cyber",
+      "request": "Provide hack/incident history and security controls (insider threat included).",
+      "format": "Incident log; controls summary.",
+      "why": "Hacks including insiders.",
+      "pass": "No unresolved incidents.",
+      "fail": "Undisclosed incidents.",
+      "verify": "On-chain review.",
+      "applies_to": [
+        "exchange-custodian",
+        "crypto-lender",
+        "stablecoin-issuer"
+      ],
+      "ref": "11.1.3",
+      "weak": false
+    },
+    {
+      "id": "CRY-REG-002",
+      "order": 120,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Regulatory & Compliance",
+      "request": "Provide evidence that reserves are 1:1 HQLA (cash, demand deposits, short-dated Treasuries, repo, eligible MMFs), held for holders, and not lent, pledged or rehypothecated (GENIUS Act).",
+      "format": "Custodian statements; legal opinion.",
+      "why": "Encumbered or risky reserves.",
+      "pass": "1:1 HQLA, segregated, unencumbered.",
+      "fail": "Any encumbrance or non-HQLA.",
+      "verify": "Custodian confirmations.",
+      "applies_to": [
+        "stablecoin-issuer"
+      ],
+      "ref": "11.1.2, 11.1.6",
+      "weak": false
+    },
+    {
+      "id": "CRY-LEG-002",
+      "order": 130,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Corporate & Legal",
+      "request": "Provide redemption terms and timing for non-retail holders.",
+      "format": "Terms of service.",
+      "why": "Gated or discretionary redemption.",
+      "pass": "Stated terms and timing.",
+      "fail": "Gated or secondary-market only.",
+      "verify": "Test redemption.",
+      "applies_to": [
+        "stablecoin-issuer",
+        "crypto-fund"
+      ],
+      "ref": "11.1.6",
+      "weak": false
+    },
+    {
+      "id": "CRY-FIN-009",
+      "order": 140,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Provide reserve reports against AICPA reserve-report criteria (March 2025).",
+      "format": "Reports.",
+      "why": "Non-standard reports.",
+      "pass": "Report under AICPA criteria.",
+      "fail": "Non-standard.",
+      "verify": "Confirm on aicpa-cima.com.",
+      "applies_to": [
+        "stablecoin-issuer"
+      ],
+      "ref": "11.1.2",
+      "weak": true
+    },
+    {
+      "id": "CRY-FIN-010",
+      "order": 150,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Provide controls that keep reserves between reports (daily reconciliation, custodian access).",
+      "format": "Controls description and daily recs.",
+      "why": "Reserve report is point-in-time only.",
+      "pass": "Daily reconciliations.",
+      "fail": "None.",
+      "verify": "Sample.",
+      "applies_to": [
+        "stablecoin-issuer"
+      ],
+      "ref": "11.1.6",
+      "weak": false
+    },
+    {
+      "id": "CRY-REG-003",
+      "order": 160,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Regulatory & Compliance",
+      "request": "Confirm regulated payment-stablecoin status, or classify as unregulated/offshore (higher risk class).",
+      "format": "Licence evidence.",
+      "why": "Unregulated coin treated as regulated.",
+      "pass": "Regulated status confirmed.",
+      "fail": "Unregulated with no reserve evidence.",
+      "verify": "Regulator register.",
+      "applies_to": [
+        "stablecoin-issuer",
+        "crypto-fund"
+      ],
+      "ref": "11.1.6",
+      "weak": false
+    },
+    {
+      "id": "CRY-COM-005",
+      "order": 170,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Commercial & Market",
+      "request": "Provide wallet-level analysis separating real users (fees paid for use) from speculators and exchange-to-exchange transfers.",
+      "format": "On-chain analytics report.",
+      "why": "Volume mostly exchange churn has no user floor.",
+      "pass": "Material share of activity from actual platform use.",
+      "fail": "Volume mostly exchange-to-exchange.",
+      "verify": "Our analytics.",
+      "applies_to": [
+        "token-project",
+        "crypto-fund"
+      ],
+      "ref": "11.1.7",
+      "weak": false
+    },
+    {
+      "id": "CRY-COM-006",
+      "order": 180,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Commercial & Market",
+      "request": "Provide on-chain liquidity depth and holder distribution.",
+      "format": "Analytics report.",
+      "why": "Fake liquidity; concentrated holders.",
+      "pass": "Depth and distribution consistent with claims.",
+      "fail": "Concentration; self-dealt liquidity.",
+      "verify": "Our analytics.",
+      "applies_to": [
+        "token-project",
+        "crypto-fund"
+      ],
+      "ref": "11.1.1",
+      "weak": false
+    },
+    {
+      "id": "CRY-COM-007",
+      "order": 190,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Commercial & Market",
+      "request": "Provide wash-trading detection analysis covering market-making wallets (15-25 wallet patterns), anchor swaps, self-dealt liquidity and bundled launches.",
+      "format": "Analytics report.",
+      "why": "Fake market making and rug pulls.",
+      "pass": "No pattern detected.",
+      "fail": "Patterns present.",
+      "verify": "Our analytics.",
+      "applies_to": [
+        "token-project",
+        "exchange-custodian",
+        "crypto-fund"
+      ],
+      "ref": "11.1.1",
+      "weak": true
+    },
+    {
+      "id": "CRY-COM-008",
+      "order": 200,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Commercial & Market",
+      "request": "Provide turnover relative to fundamentals.",
+      "format": "Analysis.",
+      "why": "Turnover far above fundamentals is a bubble signature (Chinese warrants 328%/day).",
+      "pass": "Turnover consistent with use.",
+      "fail": "Extreme turnover.",
+      "verify": "Our analysis.",
+      "applies_to": [
+        "token-project",
+        "crypto-fund"
+      ],
+      "ref": "11.1.7",
+      "weak": false
+    },
+    {
+      "id": "CRY-COM-009",
+      "order": 210,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Commercial & Market",
+      "request": "Provide marketing materials and social-media promotion record.",
+      "format": "Materials.",
+      "why": "Pump-and-dump: high returns with 'no additional risk'.",
+      "pass": "No such claims; product and cash flow identifiable.",
+      "fail": "Claims present.",
+      "verify": "Review.",
+      "applies_to": [
+        "token-project",
+        "crypto-fund"
+      ],
+      "ref": "11.1.7",
+      "weak": false
+    },
+    {
+      "id": "CRY-COM-010",
+      "order": 220,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Commercial & Market",
+      "request": "Provide large-holder flow monitoring and list of privileged exit routes.",
+      "format": "Dashboard; memo.",
+      "why": "Sophisticated wallets exited Terra first.",
+      "pass": "Monitoring in place; no privileged routes.",
+      "fail": "Privileged routes.",
+      "verify": "On-chain.",
+      "applies_to": [
+        "token-project",
+        "stablecoin-issuer",
+        "crypto-fund"
+      ],
+      "ref": "11.1.6",
+      "weak": false
+    },
+    {
+      "id": "CRY-TECH-002",
+      "order": 230,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Technical",
+      "request": "Assess validator/miner attack risk for the network.",
+      "format": "Memo.",
+      "why": "Expected attacks worsen token fragility.",
+      "pass": "Risk assessed.",
+      "fail": "Not assessed.",
+      "verify": "Our analysis.",
+      "applies_to": [
+        "token-project",
+        "mining"
+      ],
+      "ref": "11.1.7",
+      "weak": false
+    },
+    {
+      "id": "CRY-FIN-011",
+      "order": 240,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Financial",
+      "request": "Provide loan book with collateral, rehypothecation status and counterparties.",
+      "format": "Loan tape.",
+      "why": "Hidden rehypothecation.",
+      "pass": "Collateral and reuse documented.",
+      "fail": "Undisclosed reuse.",
+      "verify": "Counterparty confirmations.",
+      "applies_to": [
+        "crypto-lender"
+      ],
+      "ref": "11.1.10",
+      "weak": false
+    },
+    {
+      "id": "CRY-HR-002",
+      "order": 250,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "HR & Management",
+      "request": "Provide an employee census reconciled to payroll.",
+      "format": "Census; payroll register.",
+      "why": "FTX could not list its own employees.",
+      "pass": "Census reconciles to payroll.",
+      "fail": "Unreconciled.",
+      "verify": "Payroll provider records.",
+      "applies_to": [
+        "exchange-custodian",
+        "stablecoin-issuer",
+        "token-project",
+        "crypto-lender",
+        "mining"
+      ],
+      "ref": "11.1.8",
+      "weak": false
+    },
+    {
+      "id": "CRY-FIN-012",
+      "order": 260,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Provide accounting infrastructure description (GL system, close process, who performs it).",
+      "format": "Description.",
+      "why": "No accounting department.",
+      "pass": "In-house accounting with documented close.",
+      "fail": "Outsourced without oversight.",
+      "verify": "Walkthrough.",
+      "applies_to": [
+        "exchange-custodian",
+        "stablecoin-issuer",
+        "token-project",
+        "crypto-lender",
+        "mining"
+      ],
+      "ref": "11.1.8",
+      "weak": false
+    },
+    {
+      "id": "CRY-KYC-001",
+      "order": 270,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "KYC/AML & Sanctions",
+      "request": "Provide address-level OFAC/SDN screening policy and results for all counterparties and treasury addresses.",
+      "format": "Screening logs.",
+      "why": "Name-only screening misses SDN crypto addresses; Lazarus laundering.",
+      "pass": "Address-level screening with no hits or resolved hits.",
+      "fail": "Name-only screening.",
+      "verify": "Our screening.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "11.1.2, 11.1.9",
+      "weak": false
+    },
+    {
+      "id": "CRY-KYC-002",
+      "order": 280,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "KYC/AML & Sanctions",
+      "request": "For any investor or counterparty with crypto-derived funds, provide wallet addresses and a signed message proving control.",
+      "format": "Addresses and signed messages.",
+      "why": "Unverifiable crypto source of wealth.",
+      "pass": "Valid signatures for all addresses.",
+      "fail": "No addresses or signatures.",
+      "verify": "Verify signatures.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "11.1.9",
+      "weak": false
+    },
+    {
+      "id": "CRY-KYC-003",
+      "order": 290,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "KYC/AML & Sanctions",
+      "request": "Provide exchange account statements and KYC records for fiat on-ramps.",
+      "format": "Statements.",
+      "why": "Gaps in the trail to fiat.",
+      "pass": "Trail complete to fiat.",
+      "fail": "Gaps.",
+      "verify": "Exchange confirmation.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "11.1.9",
+      "weak": false
+    },
+    {
+      "id": "CRY-KYC-004",
+      "order": 300,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "KYC/AML & Sanctions",
+      "request": "Document the judgment on any mixer or privacy-protocol exposure as an escalation.",
+      "format": "Memo.",
+      "why": "Mixer history waved away.",
+      "pass": "Escalated and documented.",
+      "fail": "Waved away.",
+      "verify": "Compliance review.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "11.1.9",
+      "weak": false
+    },
+    {
+      "id": "CRY-FIN-013",
+      "order": 310,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Provide bank and fiat relationships and customer fiat balances.",
+      "format": "Bank statements.",
+      "why": "Fiat commingling.",
+      "pass": "Customer fiat segregated.",
+      "fail": "Commingled.",
+      "verify": "Bank confirmation.",
+      "applies_to": [
+        "exchange-custodian",
+        "crypto-lender",
+        "stablecoin-issuer"
+      ],
+      "ref": "11.1.4",
+      "weak": false
+    },
+    {
+      "id": "CRY-OPS-002",
+      "order": 320,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Operational",
+      "request": "For mining, provide power contracts, firm vs curtailable terms and energization schedule (apply data-center and energy power checks).",
+      "format": "Executed power agreements.",
+      "why": "Power is the binding constraint.",
+      "pass": "Executed power by MW and date.",
+      "fail": "Will-serve or queue only.",
+      "verify": "Utility confirmation.",
+      "applies_to": [
+        "mining"
+      ],
+      "ref": "6A.2, 6A.3",
+      "weak": true
+    },
+    {
+      "id": "CRY-TECH-003",
+      "order": 330,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Technical",
+      "request": "For mining, provide equipment (miner) purchase orders and serial-level inventory.",
+      "format": "POs; inventory.",
+      "why": "Phantom equipment.",
+      "pass": "Serial inventory reconciles.",
+      "fail": "Unreconciled.",
+      "verify": "Site inspection.",
+      "applies_to": [
+        "mining"
+      ],
+      "ref": "6.4",
+      "weak": true
+    },
+    {
+      "id": "CRY-KYC-005",
+      "order": 10,
+      "stage": "third-party",
+      "priority": "gating",
+      "workstream": "KYC/AML & Sanctions",
+      "request": "Commission an on-chain tracing report from an analytics vendor covering full history to fiat on-ramps, with mixer, darknet, SDN-address and high-risk exchange exposure.",
+      "format": "Vendor report.",
+      "why": "Low taint score is not proof of clean funds; heuristics produce false positives.",
+      "pass": "No unexplained high-risk exposure.",
+      "fail": "Sanctioned exposure.",
+      "verify": "Our vendor.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "11.1.9",
+      "weak": false
+    },
+    {
+      "id": "CRY-FIN-014",
+      "order": 20,
+      "stage": "third-party",
+      "priority": "gating",
+      "workstream": "Financial",
+      "request": "Commission an independent crypto-custody auditor to review PoR/PoL methodology, liabilities coverage and auditor scope.",
+      "format": "Report.",
+      "why": "PoR standards not settled.",
+      "pass": "Methodology sound.",
+      "fail": "Deficient.",
+      "verify": "Our auditor.",
+      "applies_to": [
+        "exchange-custodian",
+        "crypto-lender",
+        "stablecoin-issuer",
+        "crypto-fund"
+      ],
+      "ref": "11.1.4",
+      "weak": false
+    },
+    {
+      "id": "CRY-TECH-004",
+      "order": 30,
+      "stage": "third-party",
+      "priority": "gating",
+      "workstream": "Technical",
+      "request": "Commission an independent smart-contract audit or review of existing audits.",
+      "format": "Report.",
+      "why": "Exploits.",
+      "pass": "No critical open issues.",
+      "fail": "Open criticals.",
+      "verify": "Our auditor.",
+      "applies_to": [
+        "token-project",
+        "stablecoin-issuer",
+        "crypto-lender",
+        "exchange-custodian"
+      ],
+      "ref": "11.1.1",
+      "weak": false
+    },
+    {
+      "id": "CRY-COM-011",
+      "order": 40,
+      "stage": "third-party",
+      "priority": "core",
+      "workstream": "Commercial & Market",
+      "request": "Commission an on-chain market analytics review (wash trading, user vs speculator, liquidity depth, holder distribution).",
+      "format": "Report.",
+      "why": "Fake volume.",
+      "pass": "Clean.",
+      "fail": "Patterns.",
+      "verify": "Our vendor.",
+      "applies_to": [
+        "token-project",
+        "exchange-custodian",
+        "crypto-fund"
+      ],
+      "ref": "11.1.1, 11.1.7",
+      "weak": false
+    },
+    {
+      "id": "CRY-IT-005",
+      "order": 50,
+      "stage": "third-party",
+      "priority": "core",
+      "workstream": "IT & Cyber",
+      "request": "Commission a key-management/security assessment.",
+      "format": "Report.",
+      "why": "Key compromise.",
+      "pass": "Clean.",
+      "fail": "Material gaps.",
+      "verify": "Our assessor.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "11.1.5",
+      "weak": false
+    },
+    {
+      "id": "CRY-REG-004",
+      "order": 60,
+      "stage": "third-party",
+      "priority": "core",
+      "workstream": "Regulatory & Compliance",
+      "request": "Obtain regulatory counsel opinion on licensing and stablecoin status.",
+      "format": "Opinion.",
+      "why": "Regulatory action.",
+      "pass": "Clean.",
+      "fail": "Unlicensed activity.",
+      "verify": "Our counsel.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "11.1.2",
+      "weak": false
+    },
+    {
+      "id": "CRY-FIN-015",
+      "order": 10,
+      "stage": "closing",
+      "priority": "gating",
+      "workstream": "Financial",
+      "request": "Deliver a fresh PoR + PoL at a block within 5 days of closing, with our challenge string.",
+      "format": "Proofs.",
+      "why": "Deterioration since diligence.",
+      "pass": "Solvent.",
+      "fail": "Shortfall.",
+      "verify": "Our verification.",
+      "applies_to": [
+        "exchange-custodian",
+        "crypto-lender",
+        "stablecoin-issuer",
+        "crypto-fund"
+      ],
+      "ref": "11.1.4",
+      "weak": false
+    },
+    {
+      "id": "CRY-FUND-002",
+      "order": 20,
+      "stage": "closing",
+      "priority": "gating",
+      "workstream": "Fund Operations",
+      "request": "Deliver custody agreement executed and assets transferred to the independent custodian.",
+      "format": "Custodian confirmation.",
+      "why": "Assets not moved.",
+      "pass": "Confirmed.",
+      "fail": "Not moved.",
+      "verify": "Custodian.",
+      "applies_to": [
+        "exchange-custodian",
+        "crypto-lender",
+        "stablecoin-issuer",
+        "crypto-fund"
+      ],
+      "ref": "11.1.8",
+      "weak": false
+    },
+    {
+      "id": "CRY-FIN-016",
+      "order": 10,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Provide quarterly PoR + PoL with independent challenge strings.",
+      "format": "Proofs.",
+      "why": "Solvency drift.",
+      "pass": "Solvent each quarter.",
+      "fail": "Shortfall.",
+      "verify": "Our verification.",
+      "applies_to": [
+        "exchange-custodian",
+        "crypto-lender",
+        "stablecoin-issuer",
+        "crypto-fund"
+      ],
+      "ref": "11.1.4",
+      "weak": false
+    },
+    {
+      "id": "CRY-FIN-017",
+      "order": 20,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Provide monthly stablecoin reserve attestations.",
+      "format": "Attestation.",
+      "why": "Reserve drift.",
+      "pass": "1:1 HQLA.",
+      "fail": "Shortfall.",
+      "verify": "Auditor.",
+      "applies_to": [
+        "stablecoin-issuer"
+      ],
+      "ref": "11.1.6",
+      "weak": false
+    },
+    {
+      "id": "CRY-COM-012",
+      "order": 30,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Commercial & Market",
+      "request": "Provide monthly large-holder flow, unlock and subsidy runway reports.",
+      "format": "Report.",
+      "why": "Run signals (Terra pre-run signals were visible).",
+      "pass": "No adverse signals.",
+      "fail": "Signals.",
+      "verify": "On-chain.",
+      "applies_to": [
+        "token-project",
+        "stablecoin-issuer",
+        "crypto-lender",
+        "crypto-fund"
+      ],
+      "ref": "11.1.6, 11.1.7",
+      "weak": false
+    },
+    {
+      "id": "CRY-IT-006",
+      "order": 40,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "IT & Cyber",
+      "request": "Provide annual quorum re-test and signer changes.",
+      "format": "Test record.",
+      "why": "Quorum decay.",
+      "pass": "Re-tested.",
+      "fail": "Not.",
+      "verify": "Witness.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "11.1.5",
+      "weak": false
+    },
+    {
+      "id": "CRY-FIN-018",
+      "order": 50,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Provide weekly margin/haircut and collateral reports.",
+      "format": "Report.",
+      "why": "Spiral.",
+      "pass": "Within limits.",
+      "fail": "Breach.",
+      "verify": "Data.",
+      "applies_to": [
+        "crypto-lender"
+      ],
+      "ref": "11.1.10",
+      "weak": false
+    }
+  ],
+  "kill_tests": [
+    {
+      "id": "CRY-K01",
+      "test": "Proof of reserves offered without proof of liabilities, or the challenge string is supplied by the exchange.",
+      "ref": "11.1.4, 11.1.12",
+      "applies_to": [
+        "exchange-custodian",
+        "crypto-lender",
+        "stablecoin-issuer",
+        "crypto-fund"
+      ]
+    },
+    {
+      "id": "CRY-K02",
+      "test": "One person can move customer or treasury funds (no tested multi-person quorum).",
+      "ref": "11.1.5",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "CRY-K03",
+      "test": "Customer assets held by an affiliate or commingled, not at an independent custodian.",
+      "ref": "11.1.8",
+      "applies_to": [
+        "exchange-custodian",
+        "crypto-lender",
+        "stablecoin-issuer",
+        "crypto-fund"
+      ]
+    },
+    {
+      "id": "CRY-K04",
+      "test": "No accounting function, no in-house controller/CFO, or no audit committee.",
+      "ref": "11.1.8",
+      "applies_to": [
+        "exchange-custodian",
+        "stablecoin-issuer",
+        "token-project",
+        "crypto-lender",
+        "mining"
+      ]
+    },
+    {
+      "id": "CRY-K05",
+      "test": "Payment stablecoin reserves not 1:1 HQLA, encumbered, or attested undated/unaudited.",
+      "ref": "11.1.6",
+      "applies_to": [
+        "stablecoin-issuer"
+      ]
+    },
+    {
+      "id": "CRY-K06",
+      "test": "Yield with no organic source and no subsidy runway.",
+      "ref": "11.1.6",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "CRY-K07",
+      "test": "Crypto-derived funds with no wallet addresses, no signed message, or unresolved SDN-address exposure.",
+      "ref": "11.1.9",
+      "applies_to": [
+        "all"
+      ]
+    }
+  ],
+  "red_flags": [
+    {
+      "id": "CRY-RF01",
+      "flag": "Proof of reserves with no proof of liabilities, or a challenge string supplied by the exchange.",
+      "check": "Both proofs, same block, our challenge.",
+      "ref": "11.1.12",
+      "applies_to": [
+        "exchange-custodian",
+        "crypto-lender",
+        "stablecoin-issuer",
+        "crypto-fund"
+      ]
+    },
+    {
+      "id": "CRY-RF02",
+      "flag": "Reserve addresses funded just before the attestation and drained after.",
+      "check": "On-chain flow review around attestation.",
+      "ref": "11.1.12",
+      "applies_to": [
+        "exchange-custodian",
+        "crypto-lender",
+        "stablecoin-issuer",
+        "crypto-fund"
+      ]
+    },
+    {
+      "id": "CRY-RF03",
+      "flag": "One person holds the keys.",
+      "check": "Quorum test.",
+      "ref": "11.1.12",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "CRY-RF04",
+      "flag": "No in-house controller or CFO; no internal audit; no employee census.",
+      "check": "Governance requests.",
+      "ref": "11.1.12",
+      "applies_to": [
+        "exchange-custodian",
+        "stablecoin-issuer",
+        "token-project",
+        "crypto-lender",
+        "mining"
+      ]
+    },
+    {
+      "id": "CRY-RF05",
+      "flag": "An affiliated trading firm with privileged exit or credit lines.",
+      "check": "Related-party schedule; flows.",
+      "ref": "11.1.12",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "CRY-RF06",
+      "flag": "A yield with no organic source, or a subsidy with no runway.",
+      "check": "Yield decomposition.",
+      "ref": "11.1.12",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "CRY-RF07",
+      "flag": "A stablecoin backed by a sister token, or a reserve report that is undated, unaudited, or not at instrument level.",
+      "check": "Attestation review.",
+      "ref": "11.1.12",
+      "applies_to": [
+        "stablecoin-issuer",
+        "crypto-fund"
+      ]
+    },
+    {
+      "id": "CRY-RF08",
+      "flag": "Volume that is mostly exchange-to-exchange churn.",
+      "check": "Wallet-level analysis.",
+      "ref": "11.1.12",
+      "applies_to": [
+        "token-project",
+        "crypto-fund"
+      ]
+    },
+    {
+      "id": "CRY-RF09",
+      "flag": "An unlock or emission above several days of real volume inside the hold period.",
+      "check": "Unlock schedule vs volume.",
+      "ref": "11.1.12",
+      "applies_to": [
+        "token-project",
+        "crypto-fund"
+      ]
+    },
+    {
+      "id": "CRY-RF10",
+      "flag": "Returns marketed as high with 'no additional risk'; price moves unexplained by fundamentals; heavy social-media promotion.",
+      "check": "Marketing review.",
+      "ref": "11.1.12",
+      "applies_to": [
+        "token-project",
+        "crypto-fund"
+      ]
+    },
+    {
+      "id": "CRY-RF11",
+      "flag": "'No SEC action' offered as evidence of compliance.",
+      "check": "Regulatory memo.",
+      "ref": "11.1.12",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "CRY-RF12",
+      "flag": "Source-of-wealth story with no wallet addresses, no signed message, or a mixer history waved away.",
+      "check": "Tracing report.",
+      "ref": "11.1.12",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "CRY-RF13",
+      "flag": "Fake market-making through 15 to 25 wallets, speculative 'anchor swaps', self-dealt liquidity, bundled launches, rug pulls (WEAK internal file).",
+      "check": "Wash-trading analytics.",
+      "ref": "11.1.12, 11.1.1",
+      "applies_to": [
+        "token-project",
+        "exchange-custodian",
+        "crypto-fund"
+      ]
+    },
+    {
+      "id": "CRY-RF14",
+      "flag": "Last-round valuation used as the mark.",
+      "check": "Independent valuation.",
+      "ref": "11.1.8",
+      "applies_to": [
+        "exchange-custodian",
+        "stablecoin-issuer",
+        "token-project",
+        "crypto-lender",
+        "mining",
+        "crypto-fund"
+      ]
+    },
+    {
+      "id": "CRY-RF15",
+      "flag": "Customer deposits not recorded on the balance sheet.",
+      "check": "Balance-sheet reconciliation.",
+      "ref": "11.1.4, 11.1.8",
+      "applies_to": [
+        "exchange-custodian",
+        "crypto-lender",
+        "stablecoin-issuer"
+      ]
+    },
+    {
+      "id": "CRY-RF16",
+      "flag": "Sanctions screening at name level only.",
+      "check": "Address-level screening.",
+      "ref": "11.1.9",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "CRY-RF17",
+      "flag": "Secondary trading/redemption mismatch: token or coin redeemable only via secondary market.",
+      "check": "Redemption terms.",
+      "ref": "11.1.6",
+      "applies_to": [
+        "stablecoin-issuer",
+        "crypto-fund"
+      ]
+    },
+    {
+      "id": "CRY-RF18",
+      "flag": "A sophisticated co-investor's presence cited as proof of value.",
+      "check": "Ask their exit plan.",
+      "ref": "11.1.7",
+      "applies_to": [
+        "crypto-fund",
+        "token-project"
+      ]
+    }
+  ],
+  "metrics": [
+    {
+      "id": "CRY-M01",
+      "metric": "Exchange failure base rate",
+      "acceptable": "18 of 40 Bitcoin exchanges closed through failure or inability to pay (2013 study)",
+      "source": "Moore and Christin via Narayanan et al., ch. 4.4",
+      "weak": false,
+      "ref": "11.1.3",
+      "applies_to": [
+        "exchange-custodian"
+      ]
+    },
+    {
+      "id": "CRY-M02",
+      "metric": "Proof of reserves and liabilities timing",
+      "acceptable": "Same block height; assets >= liabilities",
+      "source": "Narayanan et al., ch. 4.4",
+      "weak": false,
+      "ref": "11.1.4",
+      "applies_to": [
+        "exchange-custodian",
+        "crypto-lender",
+        "stablecoin-issuer",
+        "crypto-fund"
+      ]
+    },
+    {
+      "id": "CRY-M03",
+      "metric": "Payment stablecoin reserve ratio",
+      "acceptable": "1:1 HQLA (cash, demand deposits, short-dated Treasuries, repo, certain MMFs), unencumbered",
+      "source": "GENIUS Act (via Circle FY2025 annual report; HLS Forum 2026; confirm against statute)",
+      "weak": true,
+      "ref": "11.1.2",
+      "applies_to": [
+        "stablecoin-issuer"
+      ]
+    },
+    {
+      "id": "CRY-M04",
+      "metric": "Reserve-report criteria",
+      "acceptable": "AICPA criteria issued March 2025",
+      "source": "Wharton BDAP Stablecoin Toolkit 2026 (confirm on aicpa-cima.com)",
+      "weak": true,
+      "ref": "11.1.2",
+      "applies_to": [
+        "stablecoin-issuer"
+      ]
+    },
+    {
+      "id": "CRY-M05",
+      "metric": "Run-vulnerability features (JFC)",
+      "acceptable": "Few of five: liquidity transformation, threshold effects, money-like use, contagion channels, reactive investors",
+      "source": "Journal of Financial Crises 8(3)",
+      "weak": false,
+      "ref": "11.1.6",
+      "applies_to": [
+        "stablecoin-issuer",
+        "crypto-lender",
+        "crypto-fund"
+      ]
+    },
+    {
+      "id": "CRY-M06",
+      "metric": "Collateral stress for lenders",
+      "acceptable": "Simultaneous 20%-30% collateral price fall plus haircut increase; must remain solvent and liquid",
+      "source": "Brunnermeier and Pedersen, RFS 2009",
+      "weak": false,
+      "ref": "11.1.10",
+      "applies_to": [
+        "crypto-lender",
+        "crypto-fund"
+      ]
+    },
+    {
+      "id": "CRY-M07",
+      "metric": "Token unlock tolerance",
+      "acceptable": "No unlock/emission above several days of real average daily volume within hold period",
+      "source": "Xiong, NBER w18905",
+      "weak": false,
+      "ref": "11.1.7",
+      "applies_to": [
+        "token-project",
+        "crypto-fund"
+      ]
+    },
+    {
+      "id": "CRY-M08",
+      "metric": "Bubble turnover signature",
+      "acceptable": "Chinese warrants turned over 328% a day with near-zero fundamental value",
+      "source": "Xiong, NBER w18905",
+      "weak": false,
+      "ref": "11.1.7",
+      "applies_to": [
+        "token-project",
+        "crypto-fund"
+      ]
+    },
+    {
+      "id": "CRY-M09",
+      "metric": "Subsidized yield warning level",
+      "acceptable": "Terra Anchor 19.5% yield; subsidy ~$6M/day by April 2022",
+      "source": "HLS Forum 2023",
+      "weak": false,
+      "ref": "11.1.6",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "CRY-M10",
+      "metric": "Wash-trading wallet pattern",
+      "acceptable": "Fake market making through 15-25 wallets",
+      "source": "'Fraud 2026' internal file",
+      "weak": true,
+      "ref": "11.1.1",
+      "applies_to": [
+        "token-project",
+        "exchange-custodian",
+        "crypto-fund"
+      ]
+    },
+    {
+      "id": "CRY-M11",
+      "metric": "Theme vehicle underperformance",
+      "acceptable": "Thematic ETFs lose ~30% risk-adjusted over first five years",
+      "source": "Ben-David et al., RFS 2023",
+      "weak": false,
+      "ref": "11.10",
+      "applies_to": [
+        "crypto-fund",
+        "token-project"
+      ]
+    },
+    {
+      "id": "CRY-M12",
+      "metric": "Mixer/privacy exposure",
+      "acceptable": "Escalation with documented judgment, not automatic pass/fail",
+      "source": "Narayanan et al., ch. 6",
+      "weak": false,
+      "ref": "11.1.9",
+      "applies_to": [
+        "all"
+      ]
+    }
+  ],
+  "third_party_reports": [
+    {
+      "id": "CRY-T01",
+      "report": "On-chain tracing report (full history to fiat; mixer, darknet, SDN, high-risk exchange exposure)",
+      "provider": "Blockchain analytics vendor",
+      "required_when": "Any crypto-derived funds; all counterparties",
+      "ref": "11.1.9"
+    },
+    {
+      "id": "CRY-T02",
+      "report": "PoR/PoL methodology review and custody audit",
+      "provider": "Auditor with crypto-custody competence",
+      "required_when": "Any entity holding customer assets; funds",
+      "ref": "11.1.4"
+    },
+    {
+      "id": "CRY-T03",
+      "report": "Smart-contract audit",
+      "provider": "Independent smart-contract auditor",
+      "required_when": "Any deployed contracts",
+      "ref": "11.1.1"
+    },
+    {
+      "id": "CRY-T04",
+      "report": "Market analytics (wash trading, user vs speculator, depth, holder distribution)",
+      "provider": "On-chain analytics vendor",
+      "required_when": "Tokens, exchanges, funds",
+      "ref": "11.1.1, 11.1.7"
+    },
+    {
+      "id": "CRY-T05",
+      "report": "Key-management security assessment",
+      "provider": "Security firm",
+      "required_when": "Always",
+      "ref": "11.1.5"
+    },
+    {
+      "id": "CRY-T06",
+      "report": "Reserve attestation",
+      "provider": "Named auditor under AICPA criteria",
+      "required_when": "Stablecoins",
+      "ref": "11.1.6"
+    },
+    {
+      "id": "CRY-T07",
+      "report": "Regulatory opinion",
+      "provider": "Crypto regulatory counsel",
+      "required_when": "Always",
+      "ref": "11.1.2"
+    }
+  ],
+  "hard_questions": [
+    {
+      "id": "CRY-HQ01",
+      "question": "Show proof of reserves and proof of liabilities at the same block height, with our challenge string.",
+      "good_answer": "Both proofs produced at a block we choose, signed over our string, with sample-account inclusion checks passing.",
+      "ref": "11.1.13"
+    },
+    {
+      "id": "CRY-HQ02",
+      "question": "Who holds keys, what is the quorum, and where are the signers? Show the key-ceremony record.",
+      "good_answer": "Named signers in separate locations, t-of-n quorum, ceremony record, and an offer to witness a live test.",
+      "ref": "11.1.13"
+    },
+    {
+      "id": "CRY-HQ03",
+      "question": "Where is the yield coming from, and how long can the subsidy run?",
+      "good_answer": "A monthly decomposition showing organic income covers the yield, or a disclosed runway longer than the hold.",
+      "ref": "11.1.13"
+    },
+    {
+      "id": "CRY-HQ04",
+      "question": "What backs the peg, who audits it, as of what date, and how fast can a non-retail holder redeem?",
+      "good_answer": "1:1 HQLA, named auditor, attestation within the month, redemption T+0/T+1 for non-retail.",
+      "ref": "11.1.13"
+    },
+    {
+      "id": "CRY-HQ05",
+      "question": "Who is your controller, who is on the audit committee, and who audits customer-asset segregation?",
+      "good_answer": "Named in-house controller, independent audit committee members, a crypto-competent auditor with segregation in scope.",
+      "ref": "11.1.13"
+    },
+    {
+      "id": "CRY-HQ06",
+      "question": "What share of volume is from real users rather than transfers between exchanges?",
+      "good_answer": "Wallet-level analysis by a third party.",
+      "ref": "11.1.13"
+    },
+    {
+      "id": "CRY-HQ07",
+      "question": "Show the full unlock and emission schedule against daily volume.",
+      "good_answer": "Schedule with no unlock above several days of real volume in the hold.",
+      "ref": "11.1.13"
+    },
+    {
+      "id": "CRY-HQ08",
+      "question": "For crypto-derived wealth: show the wallets, sign a message, and let us trace to fiat.",
+      "good_answer": "Addresses, signed messages and consent to our vendor tracing.",
+      "ref": "11.1.13"
+    },
+    {
+      "id": "CRY-HQ09",
+      "question": "What happens to the loan book if collateral falls 30% and haircuts rise at the same time?",
+      "good_answer": "A stress showing solvency, sale order and no covenant breach.",
+      "ref": "11.1.10"
+    },
+    {
+      "id": "CRY-HQ10",
+      "question": "Which affiliated firms have privileged exit routes or credit lines?",
+      "good_answer": "None, with a related-party schedule.",
+      "ref": "11.1.6, 11.1.8"
+    }
+  ],
+  "failure_cases": [
+    {
+      "case": "Mt. Gox",
+      "year": "2014",
+      "what_happened": "Largest exchange became insolvent without being able to explain where the coins went.",
+      "check": "Proof of reserves AND liabilities; independent custody.",
+      "ref": "11.1.11"
+    },
+    {
+      "case": "18 of 40 Bitcoin exchanges (Moore and Christin study)",
+      "year": "2013",
+      "what_happened": "Closed through failure or inability to pay customers.",
+      "check": "Treat exchange failure as a base rate, not a tail.",
+      "ref": "11.1.3, 11.1.11"
+    },
+    {
+      "case": "QuadrigaCX",
+      "year": "2019",
+      "what_happened": "CEO and reportedly sole key holder died; OSC found a Ponzi with fictitious balances credited to aliases; at least C$169M client losses.",
+      "check": "Key-ceremony documentation; tested quorum; no single key holder; proof of liabilities.",
+      "ref": "11.1.5, 11.1.11"
+    },
+    {
+      "case": "Terra / Luna",
+      "year": "2022",
+      "what_happened": "Anchor paid 19.5% funded by ~$6M/day subsidy; run began May 7 when two addresses pulled 375M UST; LUNA supply 1B to 6T in three days; sophisticated wallets exited first; Alameda most UST-LUNA swaps; pre-run on-chain signals visible.",
+      "check": "Yield decomposition and subsidy runway; what backs the peg; large-holder flow monitoring; privileged exit routes.",
+      "ref": "11.1.6, 11.1.11"
+    },
+    {
+      "case": "Tether peg break",
+      "year": "2022",
+      "what_happened": "Briefly broke its peg and recovered.",
+      "check": "Instrument-level reserves, custodian, redemption terms and timing.",
+      "ref": "11.1.6, 11.1.11"
+    },
+    {
+      "case": "FTX",
+      "year": "2022",
+      "what_happened": "Customer deposits routed to and used by Alameda; no accounting department, no internal audit, no employee list; customer deposits not on main balance sheets; raised $400M at $32B; SBF sentenced to 25 years (March 2024).",
+      "check": "Proof of liabilities; segregation at independent custodian; crypto-competent auditor; CFO, controller, audit committee; employee census.",
+      "ref": "11.1.8, 11.1.11"
+    },
+    {
+      "case": "Coinbase SEC action dismissed",
+      "year": "2025",
+      "what_happened": "SEC dismissed its case, 'not a judgment on the merits'.",
+      "check": "Do not read an absent enforcement action as compliance.",
+      "ref": "11.1.2, 11.1.11"
+    },
+    {
+      "case": "Celsius and Three Arrows (GAP: no case detail sourced)",
+      "year": "2022",
+      "what_happened": "Named as earlier failures that may have left unrecognized holes.",
+      "check": "Margin/haircut stress; proof of liabilities.",
+      "ref": "11.1.3, 11.1.10"
+    }
+  ]
+}

@@ -1,0 +1,2056 @@
+{
+  "type": "data-centers",
+  "name": "Data Centers and Digital Infrastructure",
+  "summary": "Hyperscale build-to-suit and leased campuses, AI/GPU campuses, powered land and shell development, colocation/retail and edge facilities, plus the SPV/JV financing that now carries much of hyperscaler capex off balance sheet. Three distinct risk products share the label: powered land is option value until power is executed; a build-to-suit campus is a long lease whose credit is whoever actually owes the rent (hyperscaler parent vs SPV/JV); colocation is an operating business valued on EBITDA. Power is the binding constraint: a data center builds in 18 to 24 months while grid connection typically takes 3 to 7 years. The diligence spine is executed power by MW and date (electric service agreement, not a will-serve letter), firm service or curtailment the lease tolerates with BYOC assets in the security package, a lease guaranteed by the investment-grade parent for longer than the debt, delivery dates later than transformer delivery and energization, large-load tariff/ratepayer/moratorium risk, water seniority, and obsolescence (density and cooling). Uses energy-infrastructure.json for the behind-the-meter contract suite, DSCR tables and equipment checks.",
+  "chapters": [
+    "06a-data-centers.md",
+    "06-energy-infrastructure.md"
+  ],
+  "one_check": "Executed power by MW and date, firm or with curtailment the lease tolerates, matched to a lease the hyperscaler PARENT guarantees for longer than the debt; power without a lease is a development bet, a lease without delivered power is a walk right.",
+  "subtypes": [
+    {
+      "id": "hyperscale-bts",
+      "name": "Hyperscale build-to-suit / leased campus",
+      "description": "Long lease to an investment-grade hyperscaler; collateral is the lease and its guaranty; binding risks are who the tenant really is (parent vs SPV/JV), termination and contraction rights, and delivery-date LDs and walk rights. Includes SPV/JV off-balance-sheet structures (e.g., Intel-Apollo ~$11B JV)."
+    },
+    {
+      "id": "colocation",
+      "name": "Colocation / retail / wholesale multi-tenant",
+      "description": "An operating business valued on EBITDA; binding risks are churn, pricing, power pass-through and ratepayer exposure (colocation centers raised consumer costs in the HBS study)."
+    },
+    {
+      "id": "powered-land",
+      "name": "Powered land, shell and development",
+      "description": "Entitlements, interconnection position and power; option value until power is executed; binding risks are power deliverability, energization date and permits."
+    },
+    {
+      "id": "ai-gpu-campus",
+      "name": "AI / GPU campus (high-density, often with on-site power)",
+      "description": "High-density (liquid-cooled) campuses for AI training/inference, often multi-GW and paired with behind-the-meter generation; adds obsolescence and compute-economics risk (DeepSeek) and curtailment/BYOC questions. The bible has no AI-specific benchmarks beyond the general data-center and power material."
+    },
+    {
+      "id": "edge",
+      "name": "Edge / small distributed facilities",
+      "description": "Smaller distributed sites; diligence follows the colocation operating-asset checks (uptime, churn, power pass-through, fiber). The bible has no edge-specific material: thin coverage."
+    }
+  ],
+  "intake_questions": [
+    {
+      "id": "DC-Q01",
+      "question": "Which product is this: powered land/development, hyperscale build-to-suit or leased campus, AI/GPU campus, colocation, or edge?",
+      "why": "Three distinct risk products share the label; underwrite the one you are offered (6A.1).",
+      "sets_subtype": true
+    },
+    {
+      "id": "DC-Q02",
+      "question": "Who signs the lease: the hyperscaler parent, an SPV/JV, or a colocation tenant? Is there a parent guaranty?",
+      "why": "The credit is whoever actually owes the rent (6A.1, 6A.6).",
+      "sets_subtype": true
+    },
+    {
+      "id": "DC-Q03",
+      "question": "What is the power status by MW and date: queue/will-serve letter, facilities study, executed electric service agreement, or energized? Firm or curtailable?",
+      "why": "Power is the binding constraint; a will-serve letter is not an ESA (6A.3).",
+      "sets_subtype": false
+    },
+    {
+      "id": "DC-Q04",
+      "question": "Which utility and RTO serve the site (PJM, ERCOT, other), and which large-load tariff applies?",
+      "why": "PJM 2026 proposals, ERCOT curtailment and tariff/rate-case risk differ by market (6A.3).",
+      "sets_subtype": false
+    },
+    {
+      "id": "DC-Q05",
+      "question": "Is there behind-the-meter or bring-your-own generation? If so, fuel, air permit and equipment status?",
+      "why": "Triggers the energy-infrastructure power-island items (6A.3, 6A.4).",
+      "sets_subtype": false
+    },
+    {
+      "id": "DC-Q06",
+      "question": "What share of the demand case is signed leases, LOIs and forecast, in MW by year?",
+      "why": "Underwrite tenant contracts, not projections (6A.2).",
+      "sets_subtype": false
+    },
+    {
+      "id": "DC-Q07",
+      "question": "What is the water source and cooling design (air vs liquid), and is the site in a Colorado River-dependent market?",
+      "why": "Water curtailment and design obsolescence (6A.3, 6A.6).",
+      "sets_subtype": false
+    },
+    {
+      "id": "DC-Q08",
+      "question": "Is the financing at the asset, an SPV/JV, or corporate level, and what is the debt tenor against lease term?",
+      "why": "Off-balance-sheet financing shifts the credit question to who owes the rent (6A.1).",
+      "sets_subtype": true
+    }
+  ],
+  "requests": [
+    {
+      "id": "DC-COM-001",
+      "order": 10,
+      "stage": "screen",
+      "priority": "gating",
+      "workstream": "Commercial & Market",
+      "request": "Provide the executed lease(s) (or, for colocation/edge, the customer contract schedule), not LOIs, with tenant entity named.",
+      "format": "Executed leases with all amendments; for operating assets, MSA/order-form schedule.",
+      "why": "Tenant LOI presented as a lease.",
+      "pass": "Executed lease(s) covering the MW in the sizing case.",
+      "fail": "LOI, MOU or term sheet only.",
+      "verify": "Confirm with tenant in writing (estoppel).",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6A.4, 6A.10",
+      "weak": false
+    },
+    {
+      "id": "DC-REG-001",
+      "order": 20,
+      "stage": "screen",
+      "priority": "gating",
+      "workstream": "Regulatory & Compliance",
+      "request": "Provide the executed electric service agreement or large-load interconnection agreement with the utility (not a will-serve letter).",
+      "format": "Countersigned utility agreement.",
+      "why": "A will-serve letter presented as an ESA; 'up to X GW' with no executed agreement.",
+      "pass": "Executed agreement covering contracted MW with load ramp schedule.",
+      "fail": "Will-serve letter, queue position or 'up to X GW' marketing.",
+      "verify": "Confirm directly with the utility.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6A.3, 6A.4, 6A.10",
+      "weak": false
+    },
+    {
+      "id": "DC-COM-002",
+      "order": 30,
+      "stage": "screen",
+      "priority": "gating",
+      "workstream": "Commercial & Market",
+      "request": "Provide a schedule of MW contracted versus MW deliverable by date (energization schedule by MW).",
+      "format": "Table tied to the ESA load-ramp schedule and leases.",
+      "why": "Power arrives after the lease requires it.",
+      "pass": "Deliverable MW meets or precedes lease delivery MW at every date.",
+      "fail": "Gap between leased and deliverable MW.",
+      "verify": "Tie to utility ramp schedule.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6A.6, 6A.11",
+      "weak": false
+    },
+    {
+      "id": "DC-COM-003",
+      "order": 40,
+      "stage": "screen",
+      "priority": "gating",
+      "workstream": "Commercial & Market",
+      "request": "State what share of the demand case is signed leases, LOIs and forecast, in MW by year.",
+      "format": "Sponsor table reconciled to executed leases.",
+      "why": "A demand case that is a national forecast (DOE/LBNL 2028 range 325-580 TWh is the demand risk).",
+      "pass": "Sizing case uses signed leases only.",
+      "fail": "Forecast or LOI MW in sizing case.",
+      "verify": "Tie to executed leases.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6A.2, 6A.10",
+      "weak": false
+    },
+    {
+      "id": "DC-COL-001",
+      "order": 50,
+      "stage": "screen",
+      "priority": "gating",
+      "workstream": "Collateral & Title",
+      "request": "Provide site control and zoning evidence confirming data-center use is permitted by right.",
+      "format": "Deed/ground lease; zoning letter or ordinance extract.",
+      "why": "Use not permitted; entitlement risk.",
+      "pass": "Site controlled; DC use by right or entitled.",
+      "fail": "Requires discretionary approval not yet obtained.",
+      "verify": "Zoning verification letter from municipality.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6A.5",
+      "weak": false
+    },
+    {
+      "id": "DC-COM-004",
+      "order": 60,
+      "stage": "screen",
+      "priority": "gating",
+      "workstream": "Commercial & Market",
+      "request": "Confirm whether the site's power is firm or curtailable/non-firm, in writing from the utility.",
+      "format": "Utility tariff/service terms.",
+      "why": "'Secured power' that is non-firm or curtailable.",
+      "pass": "Firm service, or non-firm with written terms the lease tolerates.",
+      "fail": "Non-firm marketed as secured.",
+      "verify": "Utility confirmation.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6A.3, 6A.10",
+      "weak": false
+    },
+    {
+      "id": "DC-STR-001",
+      "order": 70,
+      "stage": "screen",
+      "priority": "core",
+      "workstream": "Structure & Terms",
+      "request": "Provide the structure chart showing the SPV/JV, financing entities, and who owes rent and debt.",
+      "format": "Chart and organizational documents.",
+      "why": "Off-balance-sheet structures obscure who owes the rent.",
+      "pass": "Rent obligor and guarantor identified.",
+      "fail": "Unclear obligor.",
+      "verify": "Corporate searches.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6A.1",
+      "weak": false
+    },
+    {
+      "id": "DC-VAL-001",
+      "order": 10,
+      "stage": "term-sheet",
+      "priority": "gating",
+      "workstream": "Valuation & Model",
+      "request": "Provide the live financial model with lease cash flows, debt sizing, and DSCR mapped to S&P Table 8 logic (OPBA).",
+      "format": "Native Excel.",
+      "why": "Speculative or colocation assets sized like an IG lease.",
+      "pass": "IG long lease with no merchant tail: minimum DSCR within 1.10x-1.40x (OPBA 1-4); speculative/colocation sized with far more coverage per higher OPBA.",
+      "fail": "Colocation or spec sized at IG-lease coverage.",
+      "verify": "Rating adviser view on OPBA mapping.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6A.7",
+      "weak": false
+    },
+    {
+      "id": "DC-VAL-002",
+      "order": 20,
+      "stage": "term-sheet",
+      "priority": "gating",
+      "workstream": "Valuation & Model",
+      "request": "Provide the lease term versus debt tenor schedule including first termination/contraction option dates.",
+      "format": "Model tab.",
+      "why": "Debt outlives the lease.",
+      "pass": "Debt amortizes within the firm lease term (to first termination option) or a re-lease case supports the balloon.",
+      "fail": "Debt tenor beyond first termination option without re-lease case.",
+      "verify": "Read the lease.",
+      "applies_to": [
+        "hyperscale-bts",
+        "ai-gpu-campus"
+      ],
+      "ref": "6A.4, 6A.6",
+      "weak": false
+    },
+    {
+      "id": "DC-VAL-003",
+      "order": 30,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Valuation & Model",
+      "request": "Provide the rate sensitivity at +200 bp on debt and discount rate.",
+      "format": "Model table.",
+      "why": "Financing cost offsets demand.",
+      "pass": "Shown; debt still sizes.",
+      "fail": "Not provided.",
+      "verify": "Re-run.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6A.6",
+      "weak": false
+    },
+    {
+      "id": "DC-VAL-004",
+      "order": 40,
+      "stage": "term-sheet",
+      "priority": "gating",
+      "workstream": "Valuation & Model",
+      "request": "Provide a re-lease / tenant-exit case: rent, downtime, re-leasing party and residual value if the tenant leaves at the first termination option.",
+      "format": "Model case.",
+      "why": "Compute economics fall (cheaper models, DeepSeek) and tenant walks.",
+      "pass": "Case shown; debt survives or is amortized before option.",
+      "fail": "No exit case.",
+      "verify": "Broker/IE view on re-lease rent.",
+      "applies_to": [
+        "hyperscale-bts",
+        "ai-gpu-campus",
+        "colocation"
+      ],
+      "ref": "6A.6, 6A.9, 6A.11",
+      "weak": false
+    },
+    {
+      "id": "DC-VAL-005",
+      "order": 50,
+      "stage": "term-sheet",
+      "priority": "gating",
+      "workstream": "Valuation & Model",
+      "request": "Provide a delivery-delay case: impact of a six-month late delivery on rent commencement, LDs payable and tenant walk rights.",
+      "format": "Model case and clause references.",
+      "why": "Tenant walk right on late delivery.",
+      "pass": "Liquidity covers LDs; walk-right date beyond realistic delivery with buffer.",
+      "fail": "Walk right reachable in a six-month delay.",
+      "verify": "Lease counsel.",
+      "applies_to": [
+        "hyperscale-bts",
+        "ai-gpu-campus",
+        "powered-land"
+      ],
+      "ref": "6A.9, 6A.11",
+      "weak": false
+    },
+    {
+      "id": "DC-VAL-006",
+      "order": 60,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Valuation & Model",
+      "request": "For colocation/edge, provide EBITDA-based valuation and leverage, with churn and renewal-spread assumptions.",
+      "format": "Model.",
+      "why": "Operating business valued as a lease.",
+      "pass": "Leverage consistent with operating-company EBITDA multiples; churn assumptions tie to history.",
+      "fail": "Lease-style leverage on EBITDA asset.",
+      "verify": "QoE.",
+      "applies_to": [
+        "colocation",
+        "edge"
+      ],
+      "ref": "6A.1, 6A.7",
+      "weak": false
+    },
+    {
+      "id": "DC-VAL-007",
+      "order": 70,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Valuation & Model",
+      "request": "For powered land, provide valuation that treats queue position or will-serve letters as option value only.",
+      "format": "Valuation memo.",
+      "why": "Powered-land story without power.",
+      "pass": "No value ascribed to un-executed power beyond option value.",
+      "fail": "Full value on will-serve letter.",
+      "verify": "Appraiser/IE.",
+      "applies_to": [
+        "powered-land"
+      ],
+      "ref": "6A.1, 6A.9",
+      "weak": false
+    },
+    {
+      "id": "DC-VAL-008",
+      "order": 80,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Valuation & Model",
+      "request": "Provide the energization-date stress against debt-service covenants.",
+      "format": "Model case.",
+      "why": "Interconnection delay.",
+      "pass": "Covenants survive 12- and 24-month delay or LDs/funding cover.",
+      "fail": "No case.",
+      "verify": "Utility consultant.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6A.9",
+      "weak": false
+    },
+    {
+      "id": "DC-COM-005",
+      "order": 90,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Commercial & Market",
+      "request": "Provide incremental transmission and capacity cost allocation: who pays and where it sits in the lease.",
+      "format": "Lease clause map and model.",
+      "why": "Unallocated upgrade/capacity costs (PJM capacity costs ~$40B/3 years).",
+      "pass": "Costs allocated to tenant or priced in.",
+      "fail": "Silent.",
+      "verify": "Lease counsel.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6A.3, 6A.6",
+      "weak": false
+    },
+    {
+      "id": "DC-LEG-001",
+      "order": 10,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Corporate & Legal",
+      "request": "Provide the parent guaranty: guarantor entity, scope, caps and release triggers.",
+      "format": "Executed guaranty.",
+      "why": "Lease signed by an SPV with no parent guaranty.",
+      "pass": "IG parent guarantees full rent and obligations for at least debt tenor; no release triggers before maturity.",
+      "fail": "No guaranty, capped guaranty, or release triggers.",
+      "verify": "Confirm guarantor ratings; legal opinion.",
+      "applies_to": [
+        "hyperscale-bts",
+        "ai-gpu-campus"
+      ],
+      "ref": "6A.4, 6A.6, 6A.10",
+      "weak": false
+    },
+    {
+      "id": "DC-LEG-002",
+      "order": 20,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Corporate & Legal",
+      "request": "Provide a lease abstract covering early termination and contraction rights, assignment rights, rent escalators, delivery-date LDs, tenant walk rights and power pass-through.",
+      "format": "Counsel abstract tied to clause references.",
+      "why": "Hidden termination/contraction rights.",
+      "pass": "No convenience termination or contraction before debt maturity, or debt sized to the option.",
+      "fail": "Termination rights inside debt tenor unaddressed.",
+      "verify": "Lease counsel.",
+      "applies_to": [
+        "hyperscale-bts",
+        "ai-gpu-campus",
+        "colocation"
+      ],
+      "ref": "6A.4, 6A.6",
+      "weak": false
+    },
+    {
+      "id": "DC-LEG-003",
+      "order": 30,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Corporate & Legal",
+      "request": "Provide the lease clause stating whether the lease tolerates curtailment, or confirm BYOC assets are in the security package.",
+      "format": "Clause extract; security schedule.",
+      "why": "Non-firm connection is different collateral.",
+      "pass": "Lease tolerates curtailment hours in the study, or BYOC assets pledged.",
+      "fail": "Neither.",
+      "verify": "Lease counsel.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6A.3, 6A.6",
+      "weak": false
+    },
+    {
+      "id": "DC-FIN-001",
+      "order": 40,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Provide tenant/guarantor credit evidence: ratings and latest audited financials.",
+      "format": "Agency reports; audited statements.",
+      "why": "Weak credit behind rent.",
+      "pass": "IG rated or equivalent.",
+      "fail": "Sub-IG without support.",
+      "verify": "Pull ratings.",
+      "applies_to": [
+        "hyperscale-bts",
+        "ai-gpu-campus"
+      ],
+      "ref": "6A.6",
+      "weak": false
+    },
+    {
+      "id": "DC-COM-006",
+      "order": 50,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Commercial & Market",
+      "request": "Provide tenant estoppel certificates.",
+      "format": "Signed estoppels.",
+      "why": "Disputes or side agreements.",
+      "pass": "Clean estoppels matching the abstract.",
+      "fail": "Exceptions.",
+      "verify": "Direct from tenant.",
+      "applies_to": [
+        "hyperscale-bts",
+        "ai-gpu-campus",
+        "colocation"
+      ],
+      "ref": "6A.4",
+      "weak": false
+    },
+    {
+      "id": "DC-REG-002",
+      "order": 60,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Regulatory & Compliance",
+      "request": "Provide the utility facilities study, upgrade cost allocation and evidence of security posted.",
+      "format": "Utility study; allocation letter; receipts.",
+      "why": "Upgrade costs and security gaps.",
+      "pass": "Upgrades quantified, funded and security posted.",
+      "fail": "Unfunded upgrades.",
+      "verify": "Utility confirmation.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6A.4, 6A.5, 6A.6",
+      "weak": false
+    },
+    {
+      "id": "DC-REG-003",
+      "order": 70,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Regulatory & Compliance",
+      "request": "Provide the energization date commitment with LDs in the ESA.",
+      "format": "ESA clause.",
+      "why": "Utility delay uncompensated.",
+      "pass": "Energization date stated with LDs or remedy.",
+      "fail": "No date.",
+      "verify": "Utility confirmation.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6A.4, 6A.6",
+      "weak": false
+    },
+    {
+      "id": "DC-REG-004",
+      "order": 80,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Regulatory & Compliance",
+      "request": "For any non-firm/flexible connection, provide the utility's written flexible/non-firm service terms (hours and MW curtailable, notice, compensation).",
+      "format": "Utility terms.",
+      "why": "'Fast-track' interconnection with no written flexible terms.",
+      "pass": "Written terms exist.",
+      "fail": "Verbal or absent.",
+      "verify": "Utility confirmation.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6A.3, 6A.4, 6A.10",
+      "weak": false
+    },
+    {
+      "id": "DC-TECH-001",
+      "order": 90,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Technical",
+      "request": "Provide the site-specific hourly curtailment study (hours per year, MW curtailed, which hours, all 8,760 hours).",
+      "format": "Study by utility/consultant.",
+      "why": "ZERO Lab result cited as proof for this site.",
+      "pass": "Site-specific study; on-site generation/storage sized to cover the curtailment window.",
+      "fail": "Study absent or only ZERO Lab generic results cited.",
+      "verify": "Our utility consultant.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6A.3, 6A.10",
+      "weak": false
+    },
+    {
+      "id": "DC-TECH-002",
+      "order": 100,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Technical",
+      "request": "Provide backup/BYOC generation details: capacity, fuel, hours, and backup-generation air permit.",
+      "format": "Engineering data; permits.",
+      "why": "Curtailment forces a switch to diesel without permit.",
+      "pass": "Backup sized for study hours and permitted.",
+      "fail": "Unpermitted or undersized backup.",
+      "verify": "Agency records.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6A.3, 6A.5, 6A.6",
+      "weak": false
+    },
+    {
+      "id": "DC-LEG-004",
+      "order": 110,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Corporate & Legal",
+      "request": "For behind-the-meter generation, provide the EPC, LTSA, fuel supply and air permit (apply the energy-infrastructure power-island checklist).",
+      "format": "Executed documents.",
+      "why": "Behind-the-meter gas plan with no air permit.",
+      "pass": "Full contract suite executed; LTSA availability 95%-98%.",
+      "fail": "Missing contracts or permit.",
+      "verify": "Power-island IE.",
+      "applies_to": [
+        "hyperscale-bts",
+        "ai-gpu-campus",
+        "powered-land"
+      ],
+      "ref": "6A.3, 6A.4, 6A.6",
+      "weak": false
+    },
+    {
+      "id": "DC-REG-005",
+      "order": 120,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Regulatory & Compliance",
+      "request": "Provide the applicable large-load tariff and cost-allocation rules.",
+      "format": "Tariff sheets.",
+      "why": "Tariff change and cost shifting.",
+      "pass": "Tariff identified and modelled.",
+      "fail": "Not identified.",
+      "verify": "Commission records.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6A.3, 6A.5",
+      "weak": false
+    },
+    {
+      "id": "DC-REG-006",
+      "order": 130,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Regulatory & Compliance",
+      "request": "Provide a list of pending rate cases for the serving utility and their expected impact.",
+      "format": "Docket list with memo.",
+      "why": "Ratepayer backlash (colocation raised consumer costs).",
+      "pass": "Identified and modelled.",
+      "fail": "No view (especially colocation).",
+      "verify": "Commission dockets.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6A.3, 6A.5, 6A.10",
+      "weak": false
+    },
+    {
+      "id": "DC-REG-007",
+      "order": 140,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Regulatory & Compliance",
+      "request": "Provide local and state moratorium history and current proposals affecting data centers.",
+      "format": "Counsel memo.",
+      "why": "Moratorium blocks expansion.",
+      "pass": "None pending or mitigated.",
+      "fail": "Active moratorium risk.",
+      "verify": "Local records.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6A.3, 6A.5",
+      "weak": false
+    },
+    {
+      "id": "DC-REG-008",
+      "order": 150,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Regulatory & Compliance",
+      "request": "For PJM sites, provide analysis of the PJM January 2026 proposals (BYOG for firm service, connect-and-manage curtailable service, new-supply backstop auction) and FERC status.",
+      "format": "Counsel memo citing the PJM Board letter and FERC filings.",
+      "why": "Rule change alters firm/curtailable status.",
+      "pass": "Impact quantified against final or filed terms.",
+      "fail": "Reliance on proposals without status check.",
+      "verify": "Read the PJM Board letter and FERC filings.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6A.3",
+      "weak": true
+    },
+    {
+      "id": "DC-REG-009",
+      "order": 160,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Regulatory & Compliance",
+      "request": "State whether the site can reuse a brownfield interconnection (surplus interconnection service or retiring-unit replacement).",
+      "format": "RTO documentation.",
+      "why": "Missing fastest route to power.",
+      "pass": "Documented or reasoned.",
+      "fail": "Unsupported claim.",
+      "verify": "RTO.",
+      "applies_to": [
+        "powered-land",
+        "hyperscale-bts",
+        "ai-gpu-campus"
+      ],
+      "ref": "6A.3, 6A.6",
+      "weak": false
+    },
+    {
+      "id": "DC-OPS-001",
+      "order": 170,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Operational",
+      "request": "Provide power pass-through mechanics and percentage.",
+      "format": "Lease/MSA clauses; billing data.",
+      "why": "Power cost absorbed by owner.",
+      "pass": "Pass-through documented; high pass-through percentage.",
+      "fail": "Fixed-price power with no pass-through.",
+      "verify": "Billing reconciliation.",
+      "applies_to": [
+        "colocation",
+        "edge",
+        "hyperscale-bts",
+        "ai-gpu-campus"
+      ],
+      "ref": "6A.5, 6A.6",
+      "weak": false
+    },
+    {
+      "id": "DC-TECH-003",
+      "order": 180,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Technical",
+      "request": "Provide the development agreement and GMP with contingency and the contractor's data-center track record.",
+      "format": "Executed GMP contract; reference list.",
+      "why": "Cost and schedule overrun.",
+      "pass": "GMP executed; contingency adequate per IE; contractor has comparable DC completions.",
+      "fail": "No GMP; inexperienced contractor.",
+      "verify": "IE; references.",
+      "applies_to": [
+        "hyperscale-bts",
+        "ai-gpu-campus",
+        "powered-land",
+        "colocation"
+      ],
+      "ref": "6A.4, 6A.5, 6A.6",
+      "weak": false
+    },
+    {
+      "id": "DC-TECH-004",
+      "order": 190,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Technical",
+      "request": "Provide long-lead equipment purchase orders (transformers, switchgear, generators, chillers) with delivery dates, deposits and serial numbers.",
+      "format": "Executed POs; OEM confirmations.",
+      "why": "Reservation is not an order; speculative orders.",
+      "pass": "Firm POs; delivery before need date.",
+      "fail": "Reservations only.",
+      "verify": "OEM confirmation.",
+      "applies_to": [
+        "hyperscale-bts",
+        "ai-gpu-campus",
+        "powered-land",
+        "colocation"
+      ],
+      "ref": "6A.4, 6A.5, 6A.6",
+      "weak": false
+    },
+    {
+      "id": "DC-TECH-005",
+      "order": 200,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Technical",
+      "request": "Provide a schedule showing the delivery date is later than the transformer delivery date and later than energization.",
+      "format": "Integrated schedule.",
+      "why": "Delivery date earlier than transformer delivery.",
+      "pass": "Lease delivery date after both.",
+      "fail": "Earlier.",
+      "verify": "IE.",
+      "applies_to": [
+        "hyperscale-bts",
+        "ai-gpu-campus",
+        "powered-land",
+        "colocation"
+      ],
+      "ref": "6A.6, 6A.10",
+      "weak": false
+    },
+    {
+      "id": "DC-TECH-006",
+      "order": 210,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Technical",
+      "request": "Provide the commissioning plan (Level 1 to 5).",
+      "format": "Plan.",
+      "why": "Failed commissioning delays delivery.",
+      "pass": "Full L1-L5 plan with owner and schedule.",
+      "fail": "Absent.",
+      "verify": "IE.",
+      "applies_to": [
+        "hyperscale-bts",
+        "ai-gpu-campus",
+        "powered-land",
+        "colocation"
+      ],
+      "ref": "6A.5",
+      "weak": false
+    },
+    {
+      "id": "DC-TECH-007",
+      "order": 220,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Technical",
+      "request": "Provide FAT, serial numbers and load-bank certificates for generators.",
+      "format": "Certificates.",
+      "why": "Undocumented equipment.",
+      "pass": "All units certified.",
+      "fail": "Missing.",
+      "verify": "Equipment inspector.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6A.8",
+      "weak": false
+    },
+    {
+      "id": "DC-TECH-008",
+      "order": 230,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Technical",
+      "request": "Provide an engineer's report on rack density supported, cooling (air vs liquid) and retrofit cost.",
+      "format": "Engineer's report.",
+      "why": "Stranded asset on design obsolescence.",
+      "pass": "Density and cooling match tenant requirements; retrofit cost quantified and in re-lease case.",
+      "fail": "No report.",
+      "verify": "Our IE.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6A.5, 6A.6, 6A.9",
+      "weak": false
+    },
+    {
+      "id": "DC-OPS-002",
+      "order": 240,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Operational",
+      "request": "Provide SLAs and uptime commitments with credits paid history.",
+      "format": "SLAs; credit ledger.",
+      "why": "Revenue leakage via credits.",
+      "pass": "Credits immaterial.",
+      "fail": "Material credits.",
+      "verify": "Customer invoices.",
+      "applies_to": [
+        "colocation",
+        "edge"
+      ],
+      "ref": "6A.4, 6A.5",
+      "weak": false
+    },
+    {
+      "id": "DC-OPS-003",
+      "order": 250,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Operational",
+      "request": "Provide uptime/outage incident history.",
+      "format": "Incident log for 3 years.",
+      "why": "Reliability problems.",
+      "pass": "No material outages unexplained.",
+      "fail": "Repeated outages.",
+      "verify": "Customer references.",
+      "applies_to": [
+        "colocation",
+        "edge"
+      ],
+      "ref": "6A.5, 6A.6",
+      "weak": false
+    },
+    {
+      "id": "DC-OPS-004",
+      "order": 260,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Operational",
+      "request": "Provide PUE trend.",
+      "format": "Monthly PUE for 3 years.",
+      "why": "Inefficiency.",
+      "pass": "Stable or improving trend (no primary benchmark; GAP).",
+      "fail": "Deteriorating.",
+      "verify": "Metering data.",
+      "applies_to": [
+        "colocation",
+        "edge"
+      ],
+      "ref": "6A.6, 6A.7",
+      "weak": true
+    },
+    {
+      "id": "DC-COM-007",
+      "order": 270,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Commercial & Market",
+      "request": "Provide churn and renewal spreads by customer.",
+      "format": "Customer cohort data.",
+      "why": "Churn erodes EBITDA.",
+      "pass": "Churn and spreads support model.",
+      "fail": "Rising churn; negative spreads.",
+      "verify": "QoE.",
+      "applies_to": [
+        "colocation",
+        "edge"
+      ],
+      "ref": "6A.6",
+      "weak": false
+    },
+    {
+      "id": "DC-TECH-009",
+      "order": 280,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Technical",
+      "request": "Provide fiber and carrier agreements demonstrating route diversity.",
+      "format": "Agreements; route maps.",
+      "why": "Single point of failure.",
+      "pass": "At least two diverse routes.",
+      "fail": "Single route.",
+      "verify": "Carrier confirmation.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6A.4, 6A.5",
+      "weak": false
+    },
+    {
+      "id": "DC-ENV-001",
+      "order": 290,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Environmental & ESG",
+      "request": "Provide water rights/permits, source priority and cooling design.",
+      "format": "Rights, permits, design basis.",
+      "why": "Water curtailed (Colorado River 16.5M af allocated vs ~12.5M flow).",
+      "pass": "Senior/firm water or dry/closed-loop cooling.",
+      "fail": "Junior water in a Colorado River-dependent market.",
+      "verify": "Water-rights counsel.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6A.3, 6A.4, 6A.5, 6A.6, 6A.10",
+      "weak": false
+    },
+    {
+      "id": "DC-TAX-001",
+      "order": 300,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Tax",
+      "request": "Provide property tax abatement agreements and clawback conditions.",
+      "format": "Executed agreements.",
+      "why": "Clawback on job/investment conditions.",
+      "pass": "Conditions achievable; clawback modelled.",
+      "fail": "Unmet conditions.",
+      "verify": "Local authority.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6A.4, 6A.5",
+      "weak": false
+    },
+    {
+      "id": "DC-INS-001",
+      "order": 310,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Insurance",
+      "request": "Provide bound insurance quotes for the hold.",
+      "format": "Bound quotes.",
+      "why": "Indication as bound quote.",
+      "pass": "Bound for the hold; 2x premium stress passes.",
+      "fail": "Indications only.",
+      "verify": "Insurance advisor.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6A.5, 6A.6",
+      "weak": false
+    },
+    {
+      "id": "DC-FIN-002",
+      "order": 320,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Provide the development budget with contingency and sources and uses.",
+      "format": "Budget.",
+      "why": "Budget gaps.",
+      "pass": "Reconciles to GMP and equipment.",
+      "fail": "Unreconciled.",
+      "verify": "IE.",
+      "applies_to": [
+        "hyperscale-bts",
+        "ai-gpu-campus",
+        "powered-land",
+        "colocation"
+      ],
+      "ref": "6A.5",
+      "weak": false
+    },
+    {
+      "id": "DC-STR-002",
+      "order": 330,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Structure & Terms",
+      "request": "For SPV/JV financings, provide the JV agreement, sponsor commitments and recourse to the hyperscaler.",
+      "format": "Executed JV docs.",
+      "why": "JV terminable lease with no recourse.",
+      "pass": "Recourse or guaranty clear.",
+      "fail": "None.",
+      "verify": "Counsel.",
+      "applies_to": [
+        "hyperscale-bts",
+        "ai-gpu-campus"
+      ],
+      "ref": "6A.1, 6A.6",
+      "weak": false
+    },
+    {
+      "id": "DC-COM-008",
+      "order": 340,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Commercial & Market",
+      "request": "Provide a memo on whether the tenant is hyperscaler-owned use or colocation and the resulting ratepayer exposure.",
+      "format": "Memo.",
+      "why": "Colocation raised consumer costs.",
+      "pass": "Exposure analysed.",
+      "fail": "Absent.",
+      "verify": "Regulatory counsel.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6A.3, 6A.6",
+      "weak": false
+    },
+    {
+      "id": "DC-TECH-010",
+      "order": 10,
+      "stage": "third-party",
+      "priority": "gating",
+      "workstream": "Technical",
+      "request": "Commission a utility/interconnection consultant review: facilities study, firm vs non-firm terms, hourly curtailment study, upgrade allocation.",
+      "format": "Report.",
+      "why": "Power assumptions wrong.",
+      "pass": "Consultant confirms MW by date and curtailment exposure.",
+      "fail": "Adverse.",
+      "verify": "Our consultant.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6A.8",
+      "weak": false
+    },
+    {
+      "id": "DC-TECH-011",
+      "order": 20,
+      "stage": "third-party",
+      "priority": "gating",
+      "workstream": "Technical",
+      "request": "Commission an independent engineer: construction budget, schedule versus equipment and energization, density and cooling retrofit cost.",
+      "format": "Report.",
+      "why": "Schedule unrealistic.",
+      "pass": "Clean.",
+      "fail": "Adverse.",
+      "verify": "Our IE.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6A.8",
+      "weak": false
+    },
+    {
+      "id": "DC-TECH-012",
+      "order": 30,
+      "stage": "third-party",
+      "priority": "core",
+      "workstream": "Technical",
+      "request": "Commission a power-island IE for behind-the-meter generation (technology, availability, heat rate, air permit).",
+      "format": "Report.",
+      "why": "BTM failure.",
+      "pass": "Clean.",
+      "fail": "Adverse.",
+      "verify": "Our IE.",
+      "applies_to": [
+        "hyperscale-bts",
+        "ai-gpu-campus",
+        "powered-land"
+      ],
+      "ref": "6A.8",
+      "weak": false
+    },
+    {
+      "id": "DC-LEG-005",
+      "order": 40,
+      "stage": "third-party",
+      "priority": "gating",
+      "workstream": "Corporate & Legal",
+      "request": "Commission lease counsel review: guaranty, termination, contraction, delivery LDs, curtailment tolerance.",
+      "format": "Memo.",
+      "why": "Lease defects.",
+      "pass": "Clean.",
+      "fail": "Material defects.",
+      "verify": "Our counsel.",
+      "applies_to": [
+        "hyperscale-bts",
+        "ai-gpu-campus",
+        "colocation"
+      ],
+      "ref": "6A.8",
+      "weak": false
+    },
+    {
+      "id": "DC-REG-010",
+      "order": 50,
+      "stage": "third-party",
+      "priority": "core",
+      "workstream": "Regulatory & Compliance",
+      "request": "Commission regulatory counsel on large-load tariff, rate cases and moratorium risk.",
+      "format": "Memo.",
+      "why": "Policy change.",
+      "pass": "Risks quantified.",
+      "fail": "Unmitigated.",
+      "verify": "Our counsel.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6A.8",
+      "weak": false
+    },
+    {
+      "id": "DC-ENV-002",
+      "order": 60,
+      "stage": "third-party",
+      "priority": "core",
+      "workstream": "Environmental & ESG",
+      "request": "Commission water-rights counsel on source, seniority and curtailment.",
+      "format": "Opinion.",
+      "why": "Water curtailment.",
+      "pass": "Senior/firm.",
+      "fail": "Junior.",
+      "verify": "Our counsel.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6A.8",
+      "weak": false
+    },
+    {
+      "id": "DC-INS-002",
+      "order": 70,
+      "stage": "third-party",
+      "priority": "core",
+      "workstream": "Insurance",
+      "request": "Commission an insurance advisor to confirm bindable quotes for the hold.",
+      "format": "Report.",
+      "why": "Uninsurable.",
+      "pass": "Bindable.",
+      "fail": "Not bindable.",
+      "verify": "Advisor.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6A.8",
+      "weak": false
+    },
+    {
+      "id": "DC-TECH-013",
+      "order": 80,
+      "stage": "third-party",
+      "priority": "core",
+      "workstream": "Technical",
+      "request": "Commission an equipment inspector for FAT, serial numbers and load-bank certificates.",
+      "format": "Report.",
+      "why": "Grey-market equipment.",
+      "pass": "Verified.",
+      "fail": "Discrepancies.",
+      "verify": "Inspector.",
+      "applies_to": [
+        "hyperscale-bts",
+        "ai-gpu-campus",
+        "powered-land",
+        "colocation"
+      ],
+      "ref": "6A.8",
+      "weak": false
+    },
+    {
+      "id": "DC-FIN-003",
+      "order": 90,
+      "stage": "third-party",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Commission a quality-of-earnings review for operating assets.",
+      "format": "QoE report.",
+      "why": "EBITDA overstated.",
+      "pass": "EBITDA confirmed.",
+      "fail": "Material adjustments.",
+      "verify": "Our accountant.",
+      "applies_to": [
+        "colocation",
+        "edge"
+      ],
+      "ref": "6A.1, 6A.7",
+      "weak": false
+    },
+    {
+      "id": "DC-LEG-006",
+      "order": 10,
+      "stage": "closing",
+      "priority": "gating",
+      "workstream": "Corporate & Legal",
+      "request": "Deliver executed parent guaranty and tenant estoppel/SNDA at closing.",
+      "format": "Execution versions.",
+      "why": "Unsupported rent.",
+      "pass": "Executed.",
+      "fail": "Missing.",
+      "verify": "Counsel.",
+      "applies_to": [
+        "hyperscale-bts",
+        "ai-gpu-campus"
+      ],
+      "ref": "6A.4",
+      "weak": false
+    },
+    {
+      "id": "DC-REG-011",
+      "order": 20,
+      "stage": "closing",
+      "priority": "gating",
+      "workstream": "Regulatory & Compliance",
+      "request": "Confirm ESA in force, security posted and energization schedule current at closing.",
+      "format": "Utility letter.",
+      "why": "Lapsed power.",
+      "pass": "Current.",
+      "fail": "Default.",
+      "verify": "Utility.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6A.4",
+      "weak": false
+    },
+    {
+      "id": "DC-INS-003",
+      "order": 30,
+      "stage": "closing",
+      "priority": "gating",
+      "workstream": "Insurance",
+      "request": "Provide bound insurance certificates naming lenders.",
+      "format": "Certificates.",
+      "why": "Gap.",
+      "pass": "Bound.",
+      "fail": "Not bound.",
+      "verify": "Broker.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6A.5",
+      "weak": false
+    },
+    {
+      "id": "DC-OPS-005",
+      "order": 10,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Operational",
+      "request": "Provide monthly construction and equipment delivery reports against energization and lease delivery dates.",
+      "format": "Report.",
+      "why": "Silent slippage toward walk right.",
+      "pass": "On schedule.",
+      "fail": "Slippage near walk-right date.",
+      "verify": "IE.",
+      "applies_to": [
+        "hyperscale-bts",
+        "ai-gpu-campus",
+        "powered-land",
+        "colocation"
+      ],
+      "ref": "6A.6",
+      "weak": false
+    },
+    {
+      "id": "DC-OPS-006",
+      "order": 20,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Operational",
+      "request": "Provide curtailment event logs (hours, MW, backup dispatched).",
+      "format": "Log.",
+      "why": "Curtailment exceeds study.",
+      "pass": "Within study and lease tolerance.",
+      "fail": "Exceeds.",
+      "verify": "Utility data.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6A.3",
+      "weak": false
+    },
+    {
+      "id": "DC-OPS-007",
+      "order": 30,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Operational",
+      "request": "Provide quarterly PUE, uptime, churn and renewal data.",
+      "format": "Report.",
+      "why": "Operating decline.",
+      "pass": "Stable.",
+      "fail": "Decline.",
+      "verify": "Data.",
+      "applies_to": [
+        "colocation",
+        "edge"
+      ],
+      "ref": "6A.6",
+      "weak": false
+    },
+    {
+      "id": "DC-REG-012",
+      "order": 40,
+      "stage": "monitoring",
+      "priority": "supporting",
+      "workstream": "Regulatory & Compliance",
+      "request": "Provide quarterly updates on tariff, rate case, moratorium and RTO rule changes.",
+      "format": "Memo.",
+      "why": "Policy change.",
+      "pass": "Tracked.",
+      "fail": "Untracked.",
+      "verify": "Dockets.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "6A.3",
+      "weak": false
+    },
+    {
+      "id": "DC-FIN-004",
+      "order": 50,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Provide tenant/guarantor credit updates and DSCR compliance.",
+      "format": "Report.",
+      "why": "Credit deterioration.",
+      "pass": "Stable.",
+      "fail": "Downgrade.",
+      "verify": "Ratings.",
+      "applies_to": [
+        "hyperscale-bts",
+        "ai-gpu-campus"
+      ],
+      "ref": "6A.6",
+      "weak": false
+    }
+  ],
+  "kill_tests": [
+    {
+      "id": "DC-K01",
+      "test": "Power evidenced only by a will-serve letter, queue position or 'up to X GW' with no executed electric service agreement (except powered land valued as option only).",
+      "ref": "6A.3, 6A.10",
+      "applies_to": [
+        "hyperscale-bts",
+        "ai-gpu-campus",
+        "colocation",
+        "edge"
+      ]
+    },
+    {
+      "id": "DC-K02",
+      "test": "Lease signed by an SPV/JV with no parent guaranty, financed as if the parent owed the rent.",
+      "ref": "6A.4, 6A.10",
+      "applies_to": [
+        "hyperscale-bts",
+        "ai-gpu-campus"
+      ]
+    },
+    {
+      "id": "DC-K03",
+      "test": "Tenant LOI presented as a lease in the sizing case.",
+      "ref": "6A.10",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "DC-K04",
+      "test": "Lease delivery date earlier than transformer delivery or energization, with a walk right reachable.",
+      "ref": "6A.6, 6A.10",
+      "applies_to": [
+        "hyperscale-bts",
+        "ai-gpu-campus"
+      ]
+    },
+    {
+      "id": "DC-K05",
+      "test": "Non-firm power marketed as firm with no curtailment study and no lease tolerance or BYOC security.",
+      "ref": "6A.3",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "DC-K06",
+      "test": "Behind-the-meter gas plan with no air permit.",
+      "ref": "6A.10",
+      "applies_to": [
+        "all"
+      ]
+    }
+  ],
+  "red_flags": [
+    {
+      "id": "DC-RF01",
+      "flag": "'Up to X GW' of power with no executed agreement.",
+      "check": "Executed ESA by MW and date.",
+      "ref": "6A.10",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "DC-RF02",
+      "flag": "Lease signed by an SPV with no parent guaranty.",
+      "check": "Read the guaranty.",
+      "ref": "6A.10",
+      "applies_to": [
+        "hyperscale-bts",
+        "ai-gpu-campus"
+      ]
+    },
+    {
+      "id": "DC-RF03",
+      "flag": "Tenant LOI presented as a lease.",
+      "check": "Executed lease and estoppel.",
+      "ref": "6A.10",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "DC-RF04",
+      "flag": "Behind-the-meter gas plan with no air permit.",
+      "check": "Agency permit record.",
+      "ref": "6A.10",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "DC-RF05",
+      "flag": "Delivery date earlier than the transformer delivery date.",
+      "check": "Integrated schedule.",
+      "ref": "6A.10",
+      "applies_to": [
+        "hyperscale-bts",
+        "ai-gpu-campus",
+        "powered-land",
+        "colocation"
+      ]
+    },
+    {
+      "id": "DC-RF06",
+      "flag": "'Secured power' that is non-firm or curtailable.",
+      "check": "Utility written terms.",
+      "ref": "6A.10",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "DC-RF07",
+      "flag": "A 'fast-track' interconnection with no written flexible terms and no curtailment study.",
+      "check": "Site-specific hourly study.",
+      "ref": "6A.10",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "DC-RF08",
+      "flag": "The ZERO Lab two-year result cited as proof for this site (six PJM sites, one utility, Google-funded, disputed).",
+      "check": "Site-specific study.",
+      "ref": "6A.3, 6A.10",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "DC-RF09",
+      "flag": "A will-serve letter presented as an electric service agreement.",
+      "check": "Executed ESA.",
+      "ref": "6A.10",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "DC-RF10",
+      "flag": "A demand case that is a national forecast, not signed leases.",
+      "check": "Signed-lease schedule.",
+      "ref": "6A.10",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "DC-RF11",
+      "flag": "A colocation business with no view on its utility's rate case or large-load tariff.",
+      "check": "Rate case memo.",
+      "ref": "6A.10",
+      "applies_to": [
+        "colocation",
+        "edge"
+      ]
+    },
+    {
+      "id": "DC-RF12",
+      "flag": "No water source or seniority in a Colorado River-dependent market.",
+      "check": "Water-rights opinion.",
+      "ref": "6A.10",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "DC-RF13",
+      "flag": "Queue position or will-serve letters given more than option value in a powered-land valuation.",
+      "check": "Option-value-only valuation.",
+      "ref": "6A.9",
+      "applies_to": [
+        "powered-land"
+      ]
+    },
+    {
+      "id": "DC-RF14",
+      "flag": "Speculative equipment reservations presented as firm orders.",
+      "check": "Firm PO, serials, FAT.",
+      "ref": "6A.9",
+      "applies_to": [
+        "hyperscale-bts",
+        "ai-gpu-campus",
+        "powered-land",
+        "colocation"
+      ]
+    },
+    {
+      "id": "DC-RF15",
+      "flag": "Retrospective 'load growth lowers rates' studies used to dismiss ratepayer risk.",
+      "check": "Spare-capacity-era evidence; model tariff change.",
+      "ref": "6A.3",
+      "applies_to": [
+        "all"
+      ]
+    }
+  ],
+  "metrics": [
+    {
+      "id": "DC-M01",
+      "metric": "Minimum DSCR, IG long lease, no merchant tail (S&P OPBA 1-4 mapping, judgment)",
+      "acceptable": "1.10x to 1.40x",
+      "source": "S&P General PF Methodology 2022 Table 8 (mapping is judgment; ask rating adviser)",
+      "weak": false,
+      "ref": "6A.7",
+      "applies_to": [
+        "hyperscale-bts",
+        "ai-gpu-campus"
+      ]
+    },
+    {
+      "id": "DC-M02",
+      "metric": "Minimum DSCR, speculative/colocation",
+      "acceptable": "Higher OPBA: far more coverage (S&P OPBA 5-8: 1.30x-2.50x; 9-10: 2.50x-5.00x)",
+      "source": "S&P 2022 Table 8",
+      "weak": false,
+      "ref": "6A.7",
+      "applies_to": [
+        "colocation",
+        "edge",
+        "powered-land"
+      ]
+    },
+    {
+      "id": "DC-M03",
+      "metric": "Leverage basis",
+      "acceptable": "Build-to-suit tracks tenant credit and lease term; colocation trades on EBITDA like an operating company",
+      "source": "General-lane draft",
+      "weak": true,
+      "ref": "6A.7",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "DC-M04",
+      "metric": "Data-center build time vs grid connection",
+      "acceptable": "Build 18-24 months; grid 3-7 years typical",
+      "source": "Camus/encoord/Princeton ZERO Lab Dec 2025 (Google-funded)",
+      "weak": false,
+      "ref": "6A.1",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "DC-M05",
+      "metric": "Grid connection timeline (CONFLICT, show all)",
+      "acceptable": "8-12 years (Goldman via gi-advisors, WEAK) | 3-7 years (ZERO Lab 2025) | >5, 7+ years (Kleinman 2025, WEAK) | 61-month median request-to-COD (LBNL 2026)",
+      "source": "Per 6.4 table",
+      "weak": true,
+      "ref": "6A.3",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "DC-M06",
+      "metric": "Flexible connection (ZERO Lab): time to full operation",
+      "acceptable": "~2 years with flexible connection + BYOC, 3-5 years faster; grid power >99% of hours; on-site dispatch 40-70 h/yr; transmission curtailment 7-35 h/yr in 4-16 h events, peak up to 281 MW; generation shortfalls ~32 additional h/yr. Six 500 MW sites in one PJM utility only.",
+      "source": "Brancucci, Cutler, Jenkins, ZERO Lab Dec 2025 (Google-funded and reviewed)",
+      "weak": false,
+      "ref": "6A.3",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "DC-M07",
+      "metric": "Firm-only vs flexible system cost per GW (ZERO Lab)",
+      "acceptable": "Firm-only adds ~$764M/yr system supply cost per GW (2.17 GW nameplate); 20% conditional-firm avoids 273 MW ($78M); BYOC internalizes $326M; energy payments $329M; net DC covers ~$733M/GW",
+      "source": "ZERO Lab Dec 2025",
+      "weak": false,
+      "ref": "6A.3, 6A.7",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "DC-M08",
+      "metric": "U.S. DC electricity 2023",
+      "acceptable": "~176 TWh, ~4.4% of U.S. electricity",
+      "source": "DOE/LBNL 2024 Data Center Energy Usage Report",
+      "weak": false,
+      "ref": "6A.2",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "DC-M09",
+      "metric": "U.S. DC electricity 2028 projection",
+      "acceptable": "325-580 TWh, ~6.7%-12% (the width IS the demand risk)",
+      "source": "DOE/LBNL 2024",
+      "weak": false,
+      "ref": "6A.2",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "DC-M10",
+      "metric": "U.S. DC electricity 2018-2025",
+      "acceptable": "76 TWh (1.9%) to >200 TWh (4.8%)",
+      "source": "Crosier, Onghai, Sircar arXiv 2609.08166 (preprint)",
+      "weak": false,
+      "ref": "6A.2",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "DC-M11",
+      "metric": "U.S. DC share 2030",
+      "acceptable": "Up to 15% (secondhand; different horizon from DOE/LBNL 2028)",
+      "source": "LBNL via HBS Working Knowledge",
+      "weak": true,
+      "ref": "6A.2",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "DC-M12",
+      "metric": "Utility peak demand growth from DCs",
+      "acceptable": "+20% to 40%+ over a decade (Midwest, Southeast, Southwest, Texas)",
+      "source": "Princeton arXiv 2609.08166",
+      "weak": false,
+      "ref": "6A.2",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "DC-M13",
+      "metric": "ERCOT DC/crypto load forecast",
+      "acceptable": "33 GW by 2031 (36% of 91 GW peak); 175 GW peak by 2032 floated (forecasts, not contracts)",
+      "source": "Princeton arXiv 2609.08166",
+      "weak": false,
+      "ref": "6A.2",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "DC-M14",
+      "metric": "PJM DC load additions",
+      "acceptable": "~6.5 GW/yr through 2030",
+      "source": "Kleinman podcast Feb 2026",
+      "weak": true,
+      "ref": "6A.2",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "DC-M15",
+      "metric": "Global DC electricity",
+      "acceptable": "~460 TWh, ~2% of global",
+      "source": "HBS AI Institute WP 26-096",
+      "weak": false,
+      "ref": "6A.2",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "DC-M16",
+      "metric": "Campus size distribution",
+      "acceptable": "Right-skewed: most Texas campuses < 0.5 GW, a few multi-GW",
+      "source": "Princeton arXiv 2609.08166",
+      "weak": false,
+      "ref": "6A.2",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "DC-M17",
+      "metric": "Hyperscaler capex",
+      "acceptable": "~$116B (2022) to nearly $200B (2024); 2025 plans ~$80B MSFT, $65B Meta, $75B Alphabet, $100B Amazon; worldwide DC capex +51% to ~$455B (2024)",
+      "source": "Yale Insights (Goldman bankers); HBS WP 26-096",
+      "weak": false,
+      "ref": "6A.1",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "DC-M18",
+      "metric": "Ratepayer impact of data centers",
+      "acceptable": "385 DCs/42 utilities 2020-2025: ~16% of industrial and 4% of residential price increases (~$5.40/MWh industrial, $1.70/MWh residential); colocation raised consumer costs, hyperscaler-owned did not",
+      "source": "HBS Working Knowledge",
+      "weak": false,
+      "ref": "6A.3",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "DC-M19",
+      "metric": "PJM capacity costs (CONFLICT)",
+      "acceptable": "~$40B over three years, ~half DCs (IMM) | NRDC $47B",
+      "source": "Kleinman Feb 2026",
+      "weak": true,
+      "ref": "6A.3",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "DC-M20",
+      "metric": "Colorado River structural deficit",
+      "acceptable": "1922 Compact 16.5M af/yr vs ~12.5M af/yr 2000-2023 flows",
+      "source": "Yale Insights, Cort, May 2026",
+      "weak": false,
+      "ref": "6A.3",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "DC-M21",
+      "metric": "LTSA availability for BTM power island",
+      "acceptable": "95%-98%",
+      "source": "Ch. 6.5 (Entergy 2020; DOE 2023)",
+      "weak": false,
+      "ref": "6A.3, 6A.6",
+      "applies_to": [
+        "hyperscale-bts",
+        "ai-gpu-campus",
+        "powered-land"
+      ]
+    },
+    {
+      "id": "DC-M22",
+      "metric": "Rate sensitivity",
+      "acceptable": "+200 bp on debt and discount rate",
+      "source": "HBS WP 26-096",
+      "weak": false,
+      "ref": "6A.6",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "DC-M23",
+      "metric": "DC pipeline facing grid delays",
+      "acceptable": "~20%",
+      "source": "plausity.com (vendor)",
+      "weak": true,
+      "ref": "6A.9",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "DC-M24",
+      "metric": "PUE benchmark",
+      "acceptable": "GAP: Uptime Institute survey not retrieved; no acceptable threshold set",
+      "source": "General draft",
+      "weak": true,
+      "ref": "6A.7",
+      "applies_to": [
+        "colocation",
+        "edge"
+      ]
+    },
+    {
+      "id": "DC-M25",
+      "metric": "Lease and cap-rate benchmarks",
+      "acceptable": "GAP: no primary source retrieved",
+      "source": "6A.7",
+      "weak": true,
+      "ref": "6A.7",
+      "applies_to": [
+        "all"
+      ]
+    }
+  ],
+  "third_party_reports": [
+    {
+      "id": "DC-T01",
+      "report": "Utility/interconnection review (facilities study, firm vs non-firm, hourly curtailment study, upgrade allocation)",
+      "provider": "Utility / interconnection consultant",
+      "required_when": "Always",
+      "ref": "6A.8"
+    },
+    {
+      "id": "DC-T02",
+      "report": "Independent engineer report (budget, schedule vs equipment and energization, density, cooling retrofit cost)",
+      "provider": "Independent engineer",
+      "required_when": "Always",
+      "ref": "6A.8"
+    },
+    {
+      "id": "DC-T03",
+      "report": "Power-island IE report (technology, availability, heat rate, air permit)",
+      "provider": "Power-island IE",
+      "required_when": "Behind-the-meter generation",
+      "ref": "6A.8"
+    },
+    {
+      "id": "DC-T04",
+      "report": "Lease review (guaranty, termination, contraction, delivery LDs, curtailment tolerance)",
+      "provider": "Lease counsel",
+      "required_when": "Any leased asset",
+      "ref": "6A.8"
+    },
+    {
+      "id": "DC-T05",
+      "report": "Regulatory memo (large-load tariff, rate cases, moratorium)",
+      "provider": "Regulatory counsel",
+      "required_when": "Always",
+      "ref": "6A.8"
+    },
+    {
+      "id": "DC-T06",
+      "report": "Water-rights opinion",
+      "provider": "Water-rights counsel",
+      "required_when": "Always; mandatory in arid/Colorado River markets",
+      "ref": "6A.8"
+    },
+    {
+      "id": "DC-T07",
+      "report": "Bindable insurance quotes for hold",
+      "provider": "Insurance advisor",
+      "required_when": "Always",
+      "ref": "6A.8"
+    },
+    {
+      "id": "DC-T08",
+      "report": "Equipment inspection (FAT, serial numbers, load-bank certificates)",
+      "provider": "Equipment inspector",
+      "required_when": "Construction and BTM generation",
+      "ref": "6A.8"
+    },
+    {
+      "id": "DC-T09",
+      "report": "Quality of earnings",
+      "provider": "Independent accountant",
+      "required_when": "Colocation and edge operating assets",
+      "ref": "6A.1"
+    }
+  ],
+  "hard_questions": [
+    {
+      "id": "DC-HQ01",
+      "question": "Show the executed utility agreement and the energization schedule by MW.",
+      "good_answer": "Executed ESA with load-ramp table matching lease delivery MW.",
+      "ref": "6A.11"
+    },
+    {
+      "id": "DC-HQ02",
+      "question": "Who guarantees the lease?",
+      "good_answer": "The rated hyperscaler parent, full scope, no release before debt maturity.",
+      "ref": "6A.11"
+    },
+    {
+      "id": "DC-HQ03",
+      "question": "What happens if delivery is six months late?",
+      "good_answer": "Clause-referenced answer: LDs payable funded by contingency, walk right not reachable.",
+      "ref": "6A.11"
+    },
+    {
+      "id": "DC-HQ04",
+      "question": "What density does the building support, and what does a liquid-cooling retrofit cost?",
+      "good_answer": "Engineer's figure per MW and a retrofit cost included in the re-lease case.",
+      "ref": "6A.11"
+    },
+    {
+      "id": "DC-HQ05",
+      "question": "Which equipment is on firm order with serial numbers?",
+      "good_answer": "PO list with serials and delivery dates before need dates.",
+      "ref": "6A.11"
+    },
+    {
+      "id": "DC-HQ06",
+      "question": "Is your interconnection firm or flexible? How many hours per year can the utility curtail you, and what carries the load during those hours?",
+      "good_answer": "Written terms, site-specific hourly study, permitted BYOC sized to the hours.",
+      "ref": "6A.11"
+    },
+    {
+      "id": "DC-HQ07",
+      "question": "Who pays for network upgrades and incremental capacity costs, and is that in the lease?",
+      "good_answer": "Tenant, with clause reference.",
+      "ref": "6A.11"
+    },
+    {
+      "id": "DC-HQ08",
+      "question": "Which large-load tariff applies, what rate cases are pending, and has the county or state considered a moratorium?",
+      "good_answer": "Named tariff, docket list and moratorium history with modelled impact.",
+      "ref": "6A.11"
+    },
+    {
+      "id": "DC-HQ09",
+      "question": "If the tenant leaves at the first termination option, who re-leases it, at what rent, and what does the debt look like?",
+      "good_answer": "A re-lease case with downtime and rent haircut, debt amortized or refinanceable.",
+      "ref": "6A.11"
+    },
+    {
+      "id": "DC-HQ10",
+      "question": "What is your water source and its priority?",
+      "good_answer": "Senior right or contract with priority date, or dry/closed-loop cooling.",
+      "ref": "6A.11"
+    },
+    {
+      "id": "DC-HQ11",
+      "question": "What share of the demand case is signed leases, LOIs and forecast, by MW and year?",
+      "good_answer": "Table with sizing on signed leases only.",
+      "ref": "6A.2"
+    },
+    {
+      "id": "DC-HQ12",
+      "question": "What happens to the asset if compute demand per dollar falls (cheaper models)?",
+      "good_answer": "Re-lease and residual-value case.",
+      "ref": "6A.6"
+    }
+  ],
+  "failure_cases": [
+    {
+      "case": "Powered-land story without power (failure mode; no named case sourced, GAP)",
+      "year": "n/a",
+      "what_happened": "Sites marketed on queue positions or will-serve letters.",
+      "check": "Executed utility agreement and energization schedule; queue/will-serve as option value only.",
+      "ref": "6A.9"
+    },
+    {
+      "case": "Tenant walk right on late delivery (failure mode)",
+      "year": "n/a",
+      "what_happened": "Tenant terminates when building is late.",
+      "check": "Read delivery-date and termination clauses against realistic equipment and energization timeline.",
+      "ref": "6A.9"
+    },
+    {
+      "case": "SPV tenant, not the hyperscaler parent (failure mode)",
+      "year": "n/a",
+      "what_happened": "Rent owed by a terminable SPV/JV.",
+      "check": "Obtain and read the guaranty.",
+      "ref": "6A.9"
+    },
+    {
+      "case": "Stranded asset on design obsolescence (failure mode)",
+      "year": "n/a",
+      "what_happened": "Density/cooling unsuited to next tenant.",
+      "check": "Engineer's report on density and retrofit cost.",
+      "ref": "6A.9"
+    },
+    {
+      "case": "Large-buyer turbine reservation cancellation (WEAK)",
+      "year": "Not stated",
+      "what_happened": "~13 GW of reservations cancelled, ~$3.7B reported loss.",
+      "check": "Firm PO, serial numbers, FAT.",
+      "ref": "6A.9, 6.7"
+    },
+    {
+      "case": "Curtailable service sold as firm (PJM 2026 proposals)",
+      "year": "2026",
+      "what_happened": "Connect-and-manage service may force a switch to diesel backup.",
+      "check": "Written firm/non-firm terms; hourly curtailment study; BYOC in security package.",
+      "ref": "6A.9"
+    },
+    {
+      "case": "Ratepayer backlash: New Jersey bills",
+      "year": "2025",
+      "what_happened": "20% residential bill increase in parts of NJ became a governor's-race issue.",
+      "check": "Large-load tariff, cost allocation, rate cases, moratorium history.",
+      "ref": "6A.3, 6A.9"
+    },
+    {
+      "case": "Demand that never shows up (failure mode)",
+      "year": "n/a",
+      "what_happened": "Stranded grid build-out (Kleinman, WEAK); DOE/LBNL 2028 range 325-580 TWh.",
+      "check": "Signed leases vs forecast.",
+      "ref": "6A.9"
+    },
+    {
+      "case": "Compute economics fall (DeepSeek)",
+      "year": "2025",
+      "what_happened": "Falling model costs flagged as risk to DC economics.",
+      "check": "Re-lease case; residual value on tenant exit.",
+      "ref": "6A.9"
+    },
+    {
+      "case": "Merchant generation cannibalized",
+      "year": "2026",
+      "what_happened": "Others build to serve the same load, lowering prices.",
+      "check": "'Everyone builds' price deck.",
+      "ref": "6A.9"
+    },
+    {
+      "case": "Water curtailed (failure mode)",
+      "year": "n/a",
+      "what_happened": "Colorado River structural deficit.",
+      "check": "Source seniority; cooling alternatives.",
+      "ref": "6A.9"
+    },
+    {
+      "case": "Interconnection delay",
+      "year": "2025",
+      "what_happened": "~20% of DC pipeline faces power/grid delays (vendor, WEAK).",
+      "check": "Executed agreement with funded upgrades, milestones, energization stressed against covenants.",
+      "ref": "6A.9"
+    }
+  ]
+}

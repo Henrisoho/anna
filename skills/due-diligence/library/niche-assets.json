@@ -1,0 +1,2013 @@
+{
+  "type": "niche-assets",
+  "name": "Niche Assets and Further Categories",
+  "summary": "Deal types outside the main sector playbooks, from Chapter 11: tokenized real-world assets, life sciences and biotech, agriculture/farmland/water, banks and bank-like specialty lenders, SPACs/de-SPACs/PIPEs, theme vehicles (AI, crypto, climate, space SPVs), plus the category-table niches (healthcare services cross-reference, industrials and regulated manufacturing, sports/media/entertainment, shipping and logistics, insurance and specialty finance, franchise businesses, music royalties, sports franchises, art and collectibles, family-office direct deals). Each uses the universal library plus the nearest sector playbook. The spine for every niche: find the one asset that is not what it appears (a token that is a contract not title, a water right that is junior, a milestone with no efforts covenant, falsified lab data, uninsured deposits funding long duration, net cash per share far below $10, a theme vehicle launched at the peak, a guarantee hidden in an auction) and verify it with an independent party before anything else. Several niches (11.11) are not yet researched in the bible; their items list the primary sources to pull and are marked weak.",
+  "chapters": [
+    "11-niches-crypto.md"
+  ],
+  "one_check": "In every niche, find the one asset that is not what it appears (a token that is a contract and not title, a water right that is junior, a milestone with no efforts covenant, a government payment that can be swept) and verify it with an independent party before anything else.",
+  "subtypes": [
+    {
+      "id": "tokenized-rwa",
+      "name": "Tokenized real-world assets",
+      "description": "Token is usually a contractual or beneficial claim on an off-chain asset held by an issuer, custodian, trust or SPV, not direct title. Trading speed must match the underlying's redemption speed. Underwrite the underlying with its own chapter."
+    },
+    {
+      "id": "life-sciences",
+      "name": "Life sciences and biotech",
+      "description": "IP and patent runway, clinical stage and data, FDA pathway, reimbursement; killer-acquisition exit risk; earnouts (over 80% of private pharma deals); data integrity in regulated manufacturing (Akorn)."
+    },
+    {
+      "id": "agriculture-water",
+      "name": "Agriculture, farmland and water",
+      "description": "Land and water rights, seniority and curtailment (Colorado River structural deficit), commodity price and offtake, crop and weather risk, insurability. Farmland benchmarks are a GAP."
+    },
+    {
+      "id": "bank-lenders",
+      "name": "Banks, credit unions, fintech and bank-like specialty lenders",
+      "description": "Deposit- or short-term-funded lenders: uninsured share, unrealized losses vs equity, IRRBB, 30-day outflow test, Fed collateral pre-positioning (SVB, Signature); plus loan tape, reserves, funding, licensing."
+    },
+    {
+      "id": "spac",
+      "name": "SPACs, de-SPACs and PIPEs (cross-reference Chapter 5)",
+      "description": "Net cash per share is the number: $4.10 mean / $5.70 median per $10 share for 2019-2020 mergers."
+    },
+    {
+      "id": "theme-vehicle",
+      "name": "Theme vehicles (AI, crypto, climate, space SPVs)",
+      "description": "Thematic launches buy at the top (~30% risk-adjusted underperformance over five years); apply bubble tests."
+    },
+    {
+      "id": "healthcare-services",
+      "name": "Healthcare services (cross-reference Healthcare chapter)",
+      "description": "Licensing, reimbursement and payor mix, Stark/AKS, billing quality; PE nursing-home evidence. Full coverage lives in the healthcare roll-ups library; only Chapter 11 items here."
+    },
+    {
+      "id": "industrials",
+      "name": "Industrials and manufacturing (incl. regulated manufacturing)",
+      "description": "Capex, maintenance backlog, Phase I/II, customer concentration, supply chain, equipment condition; data-integrity audit for pharma/food/devices; union and pension liabilities."
+    },
+    {
+      "id": "sports-media",
+      "name": "Sports, media and entertainment",
+      "description": "Rights contracts, revenue durability, talent and key-person risk, residuals and royalties. Thin: primary sources to pull."
+    },
+    {
+      "id": "shipping",
+      "name": "Shipping and logistics",
+      "description": "Asset surveys, charter contracts, counterparty risk, flag and registry, cyclicality. v1 row only; no new findings."
+    },
+    {
+      "id": "insurance-specialty-finance",
+      "name": "Insurance and specialty finance",
+      "description": "Not yet researched: NAIC statutory filings and RBC ratios, AM Best methodology, state exam reports. Thin."
+    },
+    {
+      "id": "franchise",
+      "name": "Franchise businesses",
+      "description": "FTC Franchise Rule and FDD (Items 17, 19, 20, 21); no-poach clauses (58% of 2016 agreements). Thin."
+    },
+    {
+      "id": "music-royalties",
+      "name": "Music royalties and IP catalogs",
+      "description": "CRB Phonorecords IV rates, MLC data, catalog multiples and listed royalty-fund write-downs. Thin."
+    },
+    {
+      "id": "sports-franchise",
+      "name": "Sports franchises",
+      "description": "League ownership and debt rules, leaguewide credit facilities, local media-rights contracts. Thin."
+    },
+    {
+      "id": "art-collectibles",
+      "name": "Art and collectibles",
+      "description": "Auction guarantees and third-party irrevocable bids, title/provenance databases, UCC Article 9 for art lending. Thin."
+    },
+    {
+      "id": "family-office-direct",
+      "name": "Family-office direct deals",
+      "description": "Aggregate exposure across all counterparties, not one prime broker's view (Archegos 2021). Thin."
+    }
+  ],
+  "intake_questions": [
+    {
+      "id": "NI-Q01",
+      "question": "Which niche is this (tokenized RWA, life sciences, agriculture/water, bank or bank-like lender, SPAC/PIPE, theme vehicle, healthcare services, industrials, sports/media, shipping, insurance/specialty finance, franchise, music royalties, sports franchise, art/collectibles, family-office direct)?",
+      "why": "Sets subtype; each niche also uses the nearest sector playbook (11.0).",
+      "sets_subtype": true
+    },
+    {
+      "id": "NI-Q02",
+      "question": "What is the underlying asset, and which sector library applies to it (real estate, credit, PE, healthcare, energy)?",
+      "why": "Tokenization and wrappers change the wrapper, not the credit (11.2).",
+      "sets_subtype": true
+    },
+    {
+      "id": "NI-Q03",
+      "question": "Does the exit thesis rely on a strategic acquirer, an earnout or milestones?",
+      "why": "Killer-acquisition and earnout dispute risk (11.3).",
+      "sets_subtype": true
+    },
+    {
+      "id": "NI-Q04",
+      "question": "Does value depend on water rights, insurance availability, or a government act (lease, appropriation, credit, tariff, market rule)?",
+      "why": "Water seniority, insurability and policy downside (11.4-11.6).",
+      "sets_subtype": false
+    },
+    {
+      "id": "NI-Q05",
+      "question": "Is the business funded by deposits or short-term money?",
+      "why": "Triggers the SVB uninsured-deposit and duration test (11.7).",
+      "sets_subtype": true
+    },
+    {
+      "id": "NI-Q06",
+      "question": "Is this a de-SPAC, PIPE or SPAC-adjacent deal, or a thematic vehicle raised after a hype cycle?",
+      "why": "Net cash per share; theme-launch timing (11.9, 11.10).",
+      "sets_subtype": true
+    },
+    {
+      "id": "NI-Q07",
+      "question": "Is the business regulated manufacturing (pharma, food, devices)?",
+      "why": "Independent data-integrity audit (11.3).",
+      "sets_subtype": true
+    }
+  ],
+  "requests": [
+    {
+      "id": "NI-LEG-001",
+      "order": 10,
+      "stage": "screen",
+      "priority": "gating",
+      "workstream": "Corporate & Legal",
+      "request": "Provide a legal opinion on what right the token conveys (title, beneficial or contractual claim) and its enforceability, including the governing court.",
+      "format": "Opinion from qualified counsel in the asset's jurisdiction.",
+      "why": "'Ownership' language for what is a contractual claim.",
+      "pass": "Right clearly defined and enforceable against the asset holder.",
+      "fail": "Ownership claimed but only a contractual claim exists; enforceability unclear.",
+      "verify": "Our counsel review.",
+      "applies_to": [
+        "tokenized-rwa"
+      ],
+      "ref": "11.2",
+      "weak": false
+    },
+    {
+      "id": "NI-COL-001",
+      "order": 20,
+      "stage": "screen",
+      "priority": "gating",
+      "workstream": "Collateral & Title",
+      "request": "Identify the custodian/trust/SPV holding the asset and provide evidence it is bankruptcy-remote from the sponsor.",
+      "format": "Custody/trust agreement; true-sale/non-consolidation opinion.",
+      "why": "No bankruptcy-remote holder.",
+      "pass": "Asset held by an independent custodian/SPV; non-consolidation opinion.",
+      "fail": "Sponsor holds asset on balance sheet.",
+      "verify": "Custodian confirmation.",
+      "applies_to": [
+        "tokenized-rwa"
+      ],
+      "ref": "11.2",
+      "weak": false
+    },
+    {
+      "id": "NI-LEG-003",
+      "order": 30,
+      "stage": "screen",
+      "priority": "gating",
+      "workstream": "Corporate & Legal",
+      "request": "Provide the patent schedule with expiry dates, ownership chain and freedom-to-operate analysis.",
+      "format": "Patent register; FTO opinion.",
+      "why": "IP runway too short for the thesis.",
+      "pass": "Runway covers the value-creation plan; ownership clean.",
+      "fail": "Short runway or ownership gaps.",
+      "verify": "Patent counsel.",
+      "applies_to": [
+        "life-sciences"
+      ],
+      "ref": "11.3",
+      "weak": false
+    },
+    {
+      "id": "NI-TECH-002",
+      "order": 40,
+      "stage": "screen",
+      "priority": "core",
+      "workstream": "Technical",
+      "request": "Provide clinical-trial stage, data package and FDA pathway/correspondence.",
+      "format": "Trial registrations; data; FDA letters.",
+      "why": "Stage and pathway overstated.",
+      "pass": "Stage confirmed; pathway agreed with FDA.",
+      "fail": "Undisclosed FDA concerns.",
+      "verify": "ClinicalTrials.gov; expert review.",
+      "applies_to": [
+        "life-sciences"
+      ],
+      "ref": "11.3",
+      "weak": false
+    },
+    {
+      "id": "NI-COL-002",
+      "order": 50,
+      "stage": "screen",
+      "priority": "gating",
+      "workstream": "Collateral & Title",
+      "request": "Provide water source, seniority (priority date) and curtailment priority for every acre and facility.",
+      "format": "Water-right decrees, permits, contracts.",
+      "why": "Junior water rights carried at full value.",
+      "pass": "Every acre mapped to a right with priority date; junior rights impaired in valuation.",
+      "fail": "Junior rights at full value.",
+      "verify": "State water records; counsel.",
+      "applies_to": [
+        "agriculture-water"
+      ],
+      "ref": "11.4",
+      "weak": false
+    },
+    {
+      "id": "NI-FIN-002",
+      "order": 60,
+      "stage": "screen",
+      "priority": "gating",
+      "workstream": "Financial",
+      "request": "Provide uninsured share of deposits/funding (FDIC limit $250,000).",
+      "format": "Call report / funding schedule.",
+      "why": "SVB: ~94% uninsured.",
+      "pass": "Uninsured share low and diversified.",
+      "fail": "High uninsured concentration.",
+      "verify": "Call reports.",
+      "applies_to": [
+        "bank-lenders"
+      ],
+      "ref": "11.7",
+      "weak": false
+    },
+    {
+      "id": "NI-FIN-003",
+      "order": 70,
+      "stage": "screen",
+      "priority": "gating",
+      "workstream": "Financial",
+      "request": "Provide unrealized losses on securities against equity.",
+      "format": "Securities schedule; call report.",
+      "why": "SVB: ~$17B MTM losses exceeded $15B equity.",
+      "pass": "Unrealized losses well below equity.",
+      "fail": "Losses approaching or exceeding equity.",
+      "verify": "Public filings.",
+      "applies_to": [
+        "bank-lenders"
+      ],
+      "ref": "11.7",
+      "weak": false
+    },
+    {
+      "id": "NI-VAL-008",
+      "order": 80,
+      "stage": "screen",
+      "priority": "gating",
+      "workstream": "Valuation & Model",
+      "request": "Compute net cash per share: cash minus merger costs minus warrant value, over shares (after redemptions, sponsor promote, warrants, fees).",
+      "format": "Calculation with sources.",
+      "why": "Headline EV unreliable; 2019-2020 mergers delivered $4.10 mean / $5.70 median per $10 share.",
+      "pass": "Net cash per share computed and used for valuation.",
+      "fail": "Headline EV used.",
+      "verify": "Recompute from filings.",
+      "applies_to": [
+        "spac"
+      ],
+      "ref": "11.9",
+      "weak": false
+    },
+    {
+      "id": "NI-COM-004",
+      "order": 90,
+      "stage": "screen",
+      "priority": "gating",
+      "workstream": "Commercial & Market",
+      "request": "Compare entry valuation to the sector's own history and to the date the theme peaked in media and fund-launch counts.",
+      "format": "Memo with data.",
+      "why": "Thematic launches buy at the top (~30% risk-adjusted underperformance over 5 years).",
+      "pass": "Entry not at peak; valuation within history.",
+      "fail": "Wave of new vehicles in theme; entry at peak.",
+      "verify": "Our analysis.",
+      "applies_to": [
+        "theme-vehicle"
+      ],
+      "ref": "11.10",
+      "weak": false
+    },
+    {
+      "id": "NI-COM-002",
+      "order": 10,
+      "stage": "term-sheet",
+      "priority": "gating",
+      "workstream": "Commercial & Market",
+      "request": "Provide an overlap map of likely acquirers' pipelines and the exit thesis dependence on any single strategic buyer.",
+      "format": "Map.",
+      "why": "Killer acquisitions (~6%, 6.4% in WP) cluster below HSR thresholds; buyer may shelve the asset.",
+      "pass": "Multiple non-overlapping exit routes.",
+      "fail": "Exit depends on one overlapping strategic buyer.",
+      "verify": "Our pipeline research.",
+      "applies_to": [
+        "life-sciences"
+      ],
+      "ref": "11.3",
+      "weak": false
+    },
+    {
+      "id": "NI-STR-001",
+      "order": 20,
+      "stage": "term-sheet",
+      "priority": "gating",
+      "workstream": "Structure & Terms",
+      "request": "Provide earnout/milestone terms tested against the drafting checklist: objective definitions with worked examples, efforts standard or fixed spend, buyer reporting/audit rights, acceleration on shelving or sale, expert-not-arbitrator scope, records of efforts.",
+      "format": "Draft/executed agreement and checklist.",
+      "why": "Milestones with no efforts covenant; disputes rise with earnout share and length.",
+      "pass": "All six checklist items present.",
+      "fail": "Missing efforts covenant or acceleration triggers.",
+      "verify": "Our counsel.",
+      "applies_to": [
+        "life-sciences"
+      ],
+      "ref": "11.3",
+      "weak": false
+    },
+    {
+      "id": "NI-VAL-003",
+      "order": 30,
+      "stage": "term-sheet",
+      "priority": "gating",
+      "workstream": "Valuation & Model",
+      "request": "Provide a curtailment case (Colorado River basin) with yield impact of junior-right curtailment.",
+      "format": "Model case.",
+      "why": "No curtailment case (structural deficit ~4M af/yr; 20%-30% further flow declines projected).",
+      "pass": "Case shown; value survives.",
+      "fail": "No case.",
+      "verify": "Re-run.",
+      "applies_to": [
+        "agriculture-water"
+      ],
+      "ref": "11.4",
+      "weak": false
+    },
+    {
+      "id": "NI-VAL-004",
+      "order": 40,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Valuation & Model",
+      "request": "Provide water cost per acre-foot for the last five years and stress at post-2026 tiered pricing.",
+      "format": "History and model.",
+      "why": "Water cost understated.",
+      "pass": "Stress shown.",
+      "fail": "Not provided.",
+      "verify": "Water district records.",
+      "applies_to": [
+        "agriculture-water"
+      ],
+      "ref": "11.4",
+      "weak": false
+    },
+    {
+      "id": "NI-VAL-006",
+      "order": 50,
+      "stage": "term-sheet",
+      "priority": "gating",
+      "workstream": "Valuation & Model",
+      "request": "Provide IRRBB: economic value of equity under rate shocks.",
+      "format": "IRRBB report.",
+      "why": "Basel IRRBB would have flagged SVB 10 quarters early.",
+      "pass": "EVE within regulatory outlier thresholds.",
+      "fail": "Outlier.",
+      "verify": "Recompute.",
+      "applies_to": [
+        "bank-lenders"
+      ],
+      "ref": "11.7",
+      "weak": false
+    },
+    {
+      "id": "NI-VAL-007",
+      "order": 60,
+      "stage": "term-sheet",
+      "priority": "gating",
+      "workstream": "Valuation & Model",
+      "request": "Provide an LCR-style 30-day outflow test.",
+      "format": "Calculation.",
+      "why": "$42B one-day run.",
+      "pass": "Liquid assets cover 30-day stressed outflows.",
+      "fail": "Shortfall.",
+      "verify": "Recompute.",
+      "applies_to": [
+        "bank-lenders"
+      ],
+      "ref": "11.7",
+      "weak": false
+    },
+    {
+      "id": "NI-COM-005",
+      "order": 70,
+      "stage": "term-sheet",
+      "priority": "core",
+      "workstream": "Commercial & Market",
+      "request": "Apply Xiong's four-feature bubble test (innovation, frenzied new-investor trading, supply increases, bursts without warning).",
+      "format": "Memo.",
+      "why": "Bubble entry.",
+      "pass": "Features absent or priced.",
+      "fail": "All present.",
+      "verify": "Our analysis.",
+      "applies_to": [
+        "theme-vehicle"
+      ],
+      "ref": "11.10, 11.1.7",
+      "weak": false
+    },
+    {
+      "id": "NI-LEG-002",
+      "order": 10,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Corporate & Legal",
+      "request": "Provide redemption mechanics, timing and gates, and secondary-trading terms.",
+      "format": "Offering documents.",
+      "why": "Token trades 24/7 on an asset that redeems quarterly (liquidity mismatch).",
+      "pass": "Trading speed matches redemption speed, or gates disclosed.",
+      "fail": "Secondary trading faster than redemption with no gate disclosure.",
+      "verify": "Test redemption.",
+      "applies_to": [
+        "tokenized-rwa"
+      ],
+      "ref": "11.2, 11.1.6",
+      "weak": false
+    },
+    {
+      "id": "NI-TECH-001",
+      "order": 20,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Technical",
+      "request": "Provide oracle design, governance and fallback rules for NAV and collateral prices.",
+      "format": "Technical documentation.",
+      "why": "A single oracle with no fallback.",
+      "pass": "Multiple sources with fallback and governance.",
+      "fail": "Single oracle.",
+      "verify": "Technical review.",
+      "applies_to": [
+        "tokenized-rwa"
+      ],
+      "ref": "11.2",
+      "weak": false
+    },
+    {
+      "id": "NI-FIN-001",
+      "order": 30,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Financial",
+      "request": "Provide an independent audit or attestation of the reserves or underlying assets.",
+      "format": "Auditor report.",
+      "why": "Reserves attested by the sponsor.",
+      "pass": "Independent auditor.",
+      "fail": "Sponsor attestation.",
+      "verify": "Contact auditor.",
+      "applies_to": [
+        "tokenized-rwa"
+      ],
+      "ref": "11.2",
+      "weak": false
+    },
+    {
+      "id": "NI-VAL-001",
+      "order": 40,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Valuation & Model",
+      "request": "Underwrite the underlying asset with its own sector library (real estate, credit) and attach that packet.",
+      "format": "Underlying-asset packet.",
+      "why": "Tokenization changes the wrapper, not the credit.",
+      "pass": "Underlying passes its own sector checks.",
+      "fail": "Underlying not diligenced.",
+      "verify": "Per sector library.",
+      "applies_to": [
+        "tokenized-rwa"
+      ],
+      "ref": "11.2",
+      "weak": false
+    },
+    {
+      "id": "NI-VAL-002",
+      "order": 50,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Valuation & Model",
+      "request": "Score the token on the five JFC run-vulnerability features.",
+      "format": "Scoring table.",
+      "why": "Money-like products run.",
+      "pass": "Few features present.",
+      "fail": "Liquidity transformation plus threshold effect plus reactive holders.",
+      "verify": "Our analysis.",
+      "applies_to": [
+        "tokenized-rwa"
+      ],
+      "ref": "11.1.6, 11.2",
+      "weak": false
+    },
+    {
+      "id": "NI-COM-001",
+      "order": 60,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Commercial & Market",
+      "request": "Provide reimbursement analysis.",
+      "format": "Payer analysis.",
+      "why": "No reimbursement path.",
+      "pass": "Credible coverage path.",
+      "fail": "None.",
+      "verify": "Expert.",
+      "applies_to": [
+        "life-sciences"
+      ],
+      "ref": "11.3",
+      "weak": false
+    },
+    {
+      "id": "NI-REG-001",
+      "order": 70,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Regulatory & Compliance",
+      "request": "Provide all FDA 483s and warning letters with close-out and remediation status.",
+      "format": "FDA correspondence; remediation evidence.",
+      "why": "Unreconciled 483s.",
+      "pass": "Every item closed or remediated.",
+      "fail": "Open or unreconciled items.",
+      "verify": "FDA databases.",
+      "applies_to": [
+        "life-sciences",
+        "industrials"
+      ],
+      "ref": "11.3",
+      "weak": false
+    },
+    {
+      "id": "NI-HR-001",
+      "order": 80,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "HR & Management",
+      "request": "Provide evidence management has read and responded to internal and external audit reports (board minutes, responses).",
+      "format": "Minutes; responses.",
+      "why": "Akorn's CEO never read audit reports.",
+      "pass": "Documented review and response.",
+      "fail": "No evidence.",
+      "verify": "Interview management.",
+      "applies_to": [
+        "life-sciences",
+        "industrials"
+      ],
+      "ref": "11.3",
+      "weak": false
+    },
+    {
+      "id": "NI-COM-003",
+      "order": 90,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Commercial & Market",
+      "request": "Provide commodity price exposure, hedges and offtake contracts.",
+      "format": "Contracts.",
+      "why": "Price and offtake risk.",
+      "pass": "Offtake covers base case.",
+      "fail": "Spot only.",
+      "verify": "Counterparty.",
+      "applies_to": [
+        "agriculture-water"
+      ],
+      "ref": "11.4",
+      "weak": false
+    },
+    {
+      "id": "NI-OPS-001",
+      "order": 100,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Operational",
+      "request": "Provide crop yield and weather history.",
+      "format": "10-year history.",
+      "why": "Weather risk.",
+      "pass": "Yields consistent with model.",
+      "fail": "Inflated.",
+      "verify": "USDA data.",
+      "applies_to": [
+        "agriculture-water"
+      ],
+      "ref": "11.4",
+      "weak": false
+    },
+    {
+      "id": "NI-INS-001",
+      "order": 110,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Insurance",
+      "request": "Provide bindable crop and property insurance quotes for the hold, not historical premiums.",
+      "format": "Bound quotes.",
+      "why": "Crop insurance assumed at historical premiums.",
+      "pass": "Bound quote; 2x stress passes.",
+      "fail": "Historical premium assumed.",
+      "verify": "Broker.",
+      "applies_to": [
+        "agriculture-water"
+      ],
+      "ref": "11.4, 11.5",
+      "weak": false
+    },
+    {
+      "id": "NI-VAL-005",
+      "order": 120,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Valuation & Model",
+      "request": "Benchmark land value and cash rent against USDA NASS Land Values and Cash Rents and NCREIF Farmland Index.",
+      "format": "Benchmark table.",
+      "why": "Overpaying.",
+      "pass": "Within benchmark or justified.",
+      "fail": "Above without justification.",
+      "verify": "Pull USDA/NCREIF (GAP: not yet retrieved).",
+      "applies_to": [
+        "agriculture-water"
+      ],
+      "ref": "11.4, 11.11",
+      "weak": true
+    },
+    {
+      "id": "NI-FIN-004",
+      "order": 130,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Financial",
+      "request": "Provide evidence of collateral pre-positioned at the Fed (discount window) and FHLB capacity.",
+      "format": "Fed/FHLB statements.",
+      "why": "Signature Bank lacked pre-positioned collateral.",
+      "pass": "Collateral pre-positioned and tested.",
+      "fail": "None.",
+      "verify": "Fed/FHLB confirmation.",
+      "applies_to": [
+        "bank-lenders"
+      ],
+      "ref": "11.7",
+      "weak": false
+    },
+    {
+      "id": "NI-FIN-005",
+      "order": 140,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Financial",
+      "request": "Provide the loan tape for independent audit, loss reserves and methodology.",
+      "format": "Tape; reserve memo.",
+      "why": "Collateral integrity (First Brands, Tricolor).",
+      "pass": "Tape audit clean; reserves adequate.",
+      "fail": "Exceptions.",
+      "verify": "Third-party tape audit.",
+      "applies_to": [
+        "bank-lenders",
+        "insurance-specialty-finance"
+      ],
+      "ref": "11.7, 11.0",
+      "weak": false
+    },
+    {
+      "id": "NI-REG-002",
+      "order": 150,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Regulatory & Compliance",
+      "request": "Provide licences and regulatory exam history.",
+      "format": "Licences; exam letters.",
+      "why": "Unlicensed activity.",
+      "pass": "All required licences.",
+      "fail": "Gaps.",
+      "verify": "Regulator.",
+      "applies_to": [
+        "bank-lenders",
+        "insurance-specialty-finance"
+      ],
+      "ref": "11.7",
+      "weak": false
+    },
+    {
+      "id": "NI-FIN-006",
+      "order": 160,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Provide funding stability: sources, tenor and concentration.",
+      "format": "Schedule.",
+      "why": "Run risk.",
+      "pass": "Diversified, termed.",
+      "fail": "Concentrated short-term.",
+      "verify": "Data.",
+      "applies_to": [
+        "bank-lenders"
+      ],
+      "ref": "11.7",
+      "weak": false
+    },
+    {
+      "id": "NI-STR-002",
+      "order": 170,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Structure & Terms",
+      "request": "Provide sponsor promote, warrant terms and redemption levels.",
+      "format": "Filings.",
+      "why": "Dilution hidden.",
+      "pass": "Fully disclosed.",
+      "fail": "Undisclosed.",
+      "verify": "SEC filings.",
+      "applies_to": [
+        "spac"
+      ],
+      "ref": "11.9",
+      "weak": false
+    },
+    {
+      "id": "NI-OPS-002",
+      "order": 180,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Operational",
+      "request": "Provide staffing ratios and CMS Five-Star trend after any acquisition.",
+      "format": "CMS data; staffing reports.",
+      "why": "PE nursing homes: mortality up ~10%-11%, frontline staffing down ~3%.",
+      "pass": "Staffing and ratings stable or improving.",
+      "fail": "Declines.",
+      "verify": "CMS Care Compare.",
+      "applies_to": [
+        "healthcare-services"
+      ],
+      "ref": "11.0, 11.8",
+      "weak": false
+    },
+    {
+      "id": "NI-FIN-007",
+      "order": 190,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Provide fees and leases paid to related parties or landlords, and rent coverage after any sale-leaseback.",
+      "format": "Schedule.",
+      "why": "Costs shifted to fees, interest and leases.",
+      "pass": "Arm's-length; rent coverage adequate.",
+      "fail": "Related-party extraction.",
+      "verify": "Lease review.",
+      "applies_to": [
+        "healthcare-services"
+      ],
+      "ref": "11.0, 11.8",
+      "weak": false
+    },
+    {
+      "id": "NI-REG-003",
+      "order": 200,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Regulatory & Compliance",
+      "request": "Provide licensing, payor mix, Stark/AKS compliance and billing-quality review (government payors ~75% of revenue in nursing homes).",
+      "format": "Compliance documents; QoE.",
+      "why": "Reimbursement and compliance risk.",
+      "pass": "Clean.",
+      "fail": "Exposures.",
+      "verify": "Use healthcare library.",
+      "applies_to": [
+        "healthcare-services"
+      ],
+      "ref": "11.0, 11.8",
+      "weak": false
+    },
+    {
+      "id": "NI-ENV-001",
+      "order": 210,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Environmental & ESG",
+      "request": "Provide Phase I and Phase II environmental reports.",
+      "format": "Reports.",
+      "why": "Contamination.",
+      "pass": "No unmitigated RECs.",
+      "fail": "Material RECs.",
+      "verify": "Our consultant.",
+      "applies_to": [
+        "industrials",
+        "agriculture-water"
+      ],
+      "ref": "11.0",
+      "weak": false
+    },
+    {
+      "id": "NI-TECH-005",
+      "order": 220,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Technical",
+      "request": "Provide capex history, maintenance backlog and equipment condition survey.",
+      "format": "Schedules; survey.",
+      "why": "Deferred maintenance.",
+      "pass": "Backlog funded.",
+      "fail": "Unfunded backlog.",
+      "verify": "Site visit.",
+      "applies_to": [
+        "industrials"
+      ],
+      "ref": "11.0",
+      "weak": false
+    },
+    {
+      "id": "NI-COM-006",
+      "order": 230,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Commercial & Market",
+      "request": "Provide customer concentration and supply-chain dependencies.",
+      "format": "Schedules.",
+      "why": "Concentration.",
+      "pass": "No single customer dominant or contracted.",
+      "fail": "Concentrated.",
+      "verify": "Customer calls.",
+      "applies_to": [
+        "industrials"
+      ],
+      "ref": "11.0",
+      "weak": false
+    },
+    {
+      "id": "NI-HR-002",
+      "order": 240,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "HR & Management",
+      "request": "Provide union contracts, open grievances and pension/withdrawal liability estimates.",
+      "format": "Contracts; actuarial letters.",
+      "why": "Labor and withdrawal liabilities.",
+      "pass": "Quantified and priced.",
+      "fail": "Unquantified.",
+      "verify": "Actuary.",
+      "applies_to": [
+        "industrials"
+      ],
+      "ref": "11.0",
+      "weak": false
+    },
+    {
+      "id": "NI-COM-007",
+      "order": 250,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Commercial & Market",
+      "request": "Provide all rights contracts (media, sponsorship, distribution) with terms and renewal dates.",
+      "format": "Contracts.",
+      "why": "Revenue durability.",
+      "pass": "Rights cover hold.",
+      "fail": "Expiring rights.",
+      "verify": "Counterparty.",
+      "applies_to": [
+        "sports-media",
+        "sports-franchise"
+      ],
+      "ref": "11.0, 11.11",
+      "weak": true
+    },
+    {
+      "id": "NI-HR-003",
+      "order": 260,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "HR & Management",
+      "request": "Provide talent and key-person agreements.",
+      "format": "Agreements.",
+      "why": "Key-person risk.",
+      "pass": "Locked up through hold.",
+      "fail": "Exposed.",
+      "verify": "Review.",
+      "applies_to": [
+        "sports-media"
+      ],
+      "ref": "11.0",
+      "weak": true
+    },
+    {
+      "id": "NI-FIN-008",
+      "order": 270,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Provide residuals and royalty obligations schedule.",
+      "format": "Schedule.",
+      "why": "Hidden obligations.",
+      "pass": "Quantified.",
+      "fail": "Unquantified.",
+      "verify": "Guild/union statements.",
+      "applies_to": [
+        "sports-media"
+      ],
+      "ref": "11.0",
+      "weak": true
+    },
+    {
+      "id": "NI-TECH-006",
+      "order": 280,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Technical",
+      "request": "Provide independent asset (vessel) surveys and class records.",
+      "format": "Surveys.",
+      "why": "Asset condition.",
+      "pass": "Satisfactory.",
+      "fail": "Deficiencies.",
+      "verify": "Our surveyor.",
+      "applies_to": [
+        "shipping"
+      ],
+      "ref": "11.0",
+      "weak": true
+    },
+    {
+      "id": "NI-COM-008",
+      "order": 290,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Commercial & Market",
+      "request": "Provide charter contracts and charterer credit.",
+      "format": "Charters; financials.",
+      "why": "Counterparty risk; cyclicality.",
+      "pass": "Creditworthy charters covering debt.",
+      "fail": "Spot exposure.",
+      "verify": "Counterparty.",
+      "applies_to": [
+        "shipping"
+      ],
+      "ref": "11.0",
+      "weak": true
+    },
+    {
+      "id": "NI-REG-004",
+      "order": 300,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Regulatory & Compliance",
+      "request": "Provide flag and registry documents.",
+      "format": "Registry.",
+      "why": "Flag risk.",
+      "pass": "Reputable flag.",
+      "fail": "Sanction-risk flag.",
+      "verify": "Registry check.",
+      "applies_to": [
+        "shipping"
+      ],
+      "ref": "11.0",
+      "weak": true
+    },
+    {
+      "id": "NI-FIN-009",
+      "order": 310,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Provide NAIC statutory filings and RBC ratios, AM Best rating reports, and state insurance department exam reports.",
+      "format": "Statutory filings; reports.",
+      "why": "Capital inadequacy.",
+      "pass": "RBC above regulatory action levels; no adverse exam findings.",
+      "fail": "Adverse.",
+      "verify": "NAIC/state records.",
+      "applies_to": [
+        "insurance-specialty-finance"
+      ],
+      "ref": "11.11",
+      "weak": true
+    },
+    {
+      "id": "NI-LEG-005",
+      "order": 320,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Corporate & Legal",
+      "request": "Provide the Franchise Disclosure Document (Item 19 FPR, Item 20 outlet turnover, Item 21 audited financials).",
+      "format": "FDD.",
+      "why": "Outlet churn and unsupported FPRs.",
+      "pass": "Turnover and FPR support the model.",
+      "fail": "High churn.",
+      "verify": "State filings.",
+      "applies_to": [
+        "franchise"
+      ],
+      "ref": "11.11",
+      "weak": true
+    },
+    {
+      "id": "NI-REG-005",
+      "order": 330,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Regulatory & Compliance",
+      "request": "Review FDD Item 17 and franchise agreements for no-poach and wage-fixing clauses.",
+      "format": "Agreements.",
+      "why": "58% of 2016 major franchisor agreements had no-poach clauses; AG and class action exposure.",
+      "pass": "None present.",
+      "fail": "Present.",
+      "verify": "Our counsel.",
+      "applies_to": [
+        "franchise"
+      ],
+      "ref": "11.11",
+      "weak": true
+    },
+    {
+      "id": "NI-VAL-009",
+      "order": 340,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Valuation & Model",
+      "request": "Provide catalog income history tied to MLC data and CRB Phonorecords IV mechanical rates, and benchmark multiple against listed royalty funds' NAV disclosures and write-downs.",
+      "format": "Royalty statements; benchmarks.",
+      "why": "Overpaying for catalogs.",
+      "pass": "Income verified; multiple within benchmarks.",
+      "fail": "Unverified.",
+      "verify": "MLC/PRO statements.",
+      "applies_to": [
+        "music-royalties"
+      ],
+      "ref": "11.11",
+      "weak": true
+    },
+    {
+      "id": "NI-COL-003",
+      "order": 350,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Collateral & Title",
+      "request": "Provide chain of title for compositions and masters.",
+      "format": "Assignments; registrations.",
+      "why": "Title gaps.",
+      "pass": "Clean.",
+      "fail": "Gaps.",
+      "verify": "Copyright Office.",
+      "applies_to": [
+        "music-royalties"
+      ],
+      "ref": "11.11",
+      "weak": true
+    },
+    {
+      "id": "NI-REG-006",
+      "order": 360,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Regulatory & Compliance",
+      "request": "Provide league constitution ownership and debt rules, league approval requirements and leaguewide credit facility terms.",
+      "format": "League documents.",
+      "why": "League rules restrict control and leverage.",
+      "pass": "Deal complies.",
+      "fail": "Breach.",
+      "verify": "League confirmation.",
+      "applies_to": [
+        "sports-franchise"
+      ],
+      "ref": "11.11",
+      "weak": true
+    },
+    {
+      "id": "NI-COL-004",
+      "order": 370,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Collateral & Title",
+      "request": "Provide title and provenance searches (stolen-art and provenance databases) and UCC Article 9 lien searches.",
+      "format": "Search results.",
+      "why": "Title defects; existing liens.",
+      "pass": "Clean.",
+      "fail": "Hits.",
+      "verify": "Our searches.",
+      "applies_to": [
+        "art-collectibles"
+      ],
+      "ref": "11.11",
+      "weak": true
+    },
+    {
+      "id": "NI-VAL-010",
+      "order": 380,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Valuation & Model",
+      "request": "Disclose auction-house guarantees and third-party irrevocable bids behind comparable sales used for valuation.",
+      "format": "Auction disclosures.",
+      "why": "Guaranteed sales inflate comps.",
+      "pass": "Comps adjusted.",
+      "fail": "Undisclosed.",
+      "verify": "Auction records.",
+      "applies_to": [
+        "art-collectibles"
+      ],
+      "ref": "11.11",
+      "weak": true
+    },
+    {
+      "id": "NI-FIN-010",
+      "order": 390,
+      "stage": "confirmatory",
+      "priority": "gating",
+      "workstream": "Financial",
+      "request": "Provide aggregate exposure across ALL counterparties and prime brokers, not one broker's view.",
+      "format": "Consolidated exposure report.",
+      "why": "Archegos 2021.",
+      "pass": "Aggregate exposure within limits.",
+      "fail": "Partial view.",
+      "verify": "Counterparty confirmations.",
+      "applies_to": [
+        "family-office-direct"
+      ],
+      "ref": "11.11",
+      "weak": true
+    },
+    {
+      "id": "NI-REG-007",
+      "order": 400,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Regulatory & Compliance",
+      "request": "For every revenue line depending on a government act (lease, appropriation, credit, tariff, market rule), name the act, the date it could change and the modelled downside.",
+      "format": "Policy register.",
+      "why": "Government payments swept or changed.",
+      "pass": "Every line named and modelled.",
+      "fail": "Unmodelled.",
+      "verify": "Counsel.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "11.6",
+      "weak": false
+    },
+    {
+      "id": "NI-LEG-006",
+      "order": 410,
+      "stage": "confirmatory",
+      "priority": "core",
+      "workstream": "Corporate & Legal",
+      "request": "For any government lease, provide early-termination and termination-for-convenience rights and the exercise case; cap single-agency share of NOI.",
+      "format": "Leases; model.",
+      "why": "DOGE listed 793 federal leases for cancellation (2025).",
+      "pass": "Exercise case modelled; concentration capped.",
+      "fail": "Unmodelled.",
+      "verify": "Read leases.",
+      "applies_to": [
+        "all"
+      ],
+      "ref": "11.6",
+      "weak": false
+    },
+    {
+      "id": "NI-TECH-003",
+      "order": 10,
+      "stage": "third-party",
+      "priority": "gating",
+      "workstream": "Technical",
+      "request": "Commission an independent data-integrity audit of quality systems: raw lab data vs reported data, audit trails, FDA submissions.",
+      "format": "Audit report.",
+      "why": "Akorn falsified data.",
+      "pass": "Raw data reconciles to reported.",
+      "fail": "Discrepancies.",
+      "verify": "Our auditor.",
+      "applies_to": [
+        "life-sciences",
+        "industrials"
+      ],
+      "ref": "11.3",
+      "weak": false
+    },
+    {
+      "id": "NI-TECH-004",
+      "order": 20,
+      "stage": "third-party",
+      "priority": "core",
+      "workstream": "Technical",
+      "request": "Commission expert scientific diligence.",
+      "format": "Expert report.",
+      "why": "Science overstated.",
+      "pass": "Supports thesis.",
+      "fail": "Adverse.",
+      "verify": "Our expert.",
+      "applies_to": [
+        "life-sciences"
+      ],
+      "ref": "11.3",
+      "weak": false
+    },
+    {
+      "id": "NI-LEG-008",
+      "order": 30,
+      "stage": "third-party",
+      "priority": "core",
+      "workstream": "Corporate & Legal",
+      "request": "Commission water-rights counsel opinion on seniority and curtailment priority.",
+      "format": "Opinion.",
+      "why": "Junior rights.",
+      "pass": "Senior.",
+      "fail": "Junior unmitigated.",
+      "verify": "Counsel.",
+      "applies_to": [
+        "agriculture-water"
+      ],
+      "ref": "11.4",
+      "weak": false
+    },
+    {
+      "id": "NI-FIN-013",
+      "order": 40,
+      "stage": "third-party",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Commission an independent loan-tape audit.",
+      "format": "Report.",
+      "why": "Collateral fraud.",
+      "pass": "Clean.",
+      "fail": "Exceptions.",
+      "verify": "Auditor.",
+      "applies_to": [
+        "bank-lenders",
+        "insurance-specialty-finance"
+      ],
+      "ref": "11.7",
+      "weak": false
+    },
+    {
+      "id": "NI-LEG-009",
+      "order": 50,
+      "stage": "third-party",
+      "priority": "core",
+      "workstream": "Corporate & Legal",
+      "request": "Commission a legal opinion on token rights and bankruptcy remoteness.",
+      "format": "Opinion.",
+      "why": "Contract not title.",
+      "pass": "Clean.",
+      "fail": "Qualified.",
+      "verify": "Counsel.",
+      "applies_to": [
+        "tokenized-rwa"
+      ],
+      "ref": "11.2",
+      "weak": false
+    },
+    {
+      "id": "NI-LEG-004",
+      "order": 10,
+      "stage": "closing",
+      "priority": "gating",
+      "workstream": "Corporate & Legal",
+      "request": "Draft specific closing conditions or indemnities for every known regulatory issue rather than relying on a general MAE.",
+      "format": "Agreement clauses.",
+      "why": "Diligence-disclosed matters not carved out (Akorn).",
+      "pass": "Specific CP/indemnity per issue.",
+      "fail": "General MAE reliance.",
+      "verify": "Our counsel.",
+      "applies_to": [
+        "life-sciences",
+        "industrials"
+      ],
+      "ref": "11.3",
+      "weak": false
+    },
+    {
+      "id": "NI-FIN-011",
+      "order": 10,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Provide quarterly uninsured-deposit share, unrealized losses, EVE and 30-day outflow metrics.",
+      "format": "Report.",
+      "why": "Liquidity deterioration.",
+      "pass": "Within limits.",
+      "fail": "Breach.",
+      "verify": "Call reports.",
+      "applies_to": [
+        "bank-lenders"
+      ],
+      "ref": "11.7",
+      "weak": false
+    },
+    {
+      "id": "NI-LEG-007",
+      "order": 20,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Corporate & Legal",
+      "request": "Provide quarterly earnout/milestone efforts reports and buyer audit-right exercise.",
+      "format": "Reports.",
+      "why": "Buyer shelves program.",
+      "pass": "Efforts documented.",
+      "fail": "Shelving.",
+      "verify": "Audit rights.",
+      "applies_to": [
+        "life-sciences"
+      ],
+      "ref": "11.3",
+      "weak": false
+    },
+    {
+      "id": "NI-COL-005",
+      "order": 30,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Collateral & Title",
+      "request": "Provide annual water-right status and curtailment notices.",
+      "format": "Notices.",
+      "why": "Curtailment.",
+      "pass": "None or modelled.",
+      "fail": "Unmodelled.",
+      "verify": "State records.",
+      "applies_to": [
+        "agriculture-water"
+      ],
+      "ref": "11.4",
+      "weak": false
+    },
+    {
+      "id": "NI-FIN-012",
+      "order": 40,
+      "stage": "monitoring",
+      "priority": "core",
+      "workstream": "Financial",
+      "request": "Provide monthly reserve/underlying-asset attestations and redemption queue data for tokens.",
+      "format": "Attestations.",
+      "why": "Mismatch.",
+      "pass": "Clean.",
+      "fail": "Queue builds.",
+      "verify": "Auditor.",
+      "applies_to": [
+        "tokenized-rwa"
+      ],
+      "ref": "11.2",
+      "weak": false
+    }
+  ],
+  "kill_tests": [
+    {
+      "id": "NI-K01",
+      "test": "Token holders hold only a contractual claim against a non-bankruptcy-remote sponsor, marketed as ownership.",
+      "ref": "11.2",
+      "applies_to": [
+        "tokenized-rwa"
+      ]
+    },
+    {
+      "id": "NI-K02",
+      "test": "Data integrity cannot be verified (raw lab data does not reconcile to reported data) in regulated manufacturing.",
+      "ref": "11.3",
+      "applies_to": [
+        "life-sciences",
+        "industrials"
+      ]
+    },
+    {
+      "id": "NI-K03",
+      "test": "Junior water rights carried at full value with no curtailment case in an over-allocated basin.",
+      "ref": "11.4",
+      "applies_to": [
+        "agriculture-water"
+      ]
+    },
+    {
+      "id": "NI-K04",
+      "test": "Unrealized securities losses exceed equity, or uninsured funding concentration with no 30-day outflow coverage.",
+      "ref": "11.7",
+      "applies_to": [
+        "bank-lenders"
+      ]
+    },
+    {
+      "id": "NI-K05",
+      "test": "De-SPAC/PIPE valued on headline EV with no net-cash-per-share computation.",
+      "ref": "11.9",
+      "applies_to": [
+        "spac"
+      ]
+    },
+    {
+      "id": "NI-K06",
+      "test": "Family-office counterparty refuses aggregate exposure across all brokers.",
+      "ref": "11.11",
+      "applies_to": [
+        "family-office-direct"
+      ]
+    }
+  ],
+  "red_flags": [
+    {
+      "id": "NI-RF01",
+      "flag": "'Ownership' language for what is a contractual claim.",
+      "check": "Legal opinion on rights.",
+      "ref": "11.2",
+      "applies_to": [
+        "tokenized-rwa"
+      ]
+    },
+    {
+      "id": "NI-RF02",
+      "flag": "No bankruptcy-remote holder.",
+      "check": "Custody/SPV docs.",
+      "ref": "11.2",
+      "applies_to": [
+        "tokenized-rwa"
+      ]
+    },
+    {
+      "id": "NI-RF03",
+      "flag": "Secondary trading faster than redemption with no gate disclosure.",
+      "check": "Redemption terms.",
+      "ref": "11.2",
+      "applies_to": [
+        "tokenized-rwa"
+      ]
+    },
+    {
+      "id": "NI-RF04",
+      "flag": "A single oracle with no fallback.",
+      "check": "Oracle docs.",
+      "ref": "11.2",
+      "applies_to": [
+        "tokenized-rwa"
+      ]
+    },
+    {
+      "id": "NI-RF05",
+      "flag": "Reserves attested by the sponsor.",
+      "check": "Independent audit.",
+      "ref": "11.2",
+      "applies_to": [
+        "tokenized-rwa"
+      ]
+    },
+    {
+      "id": "NI-RF06",
+      "flag": "Exit thesis dependent on one overlapping strategic buyer.",
+      "check": "Acquirer overlap map.",
+      "ref": "11.3",
+      "applies_to": [
+        "life-sciences"
+      ]
+    },
+    {
+      "id": "NI-RF07",
+      "flag": "Milestones with no efforts covenant.",
+      "check": "Earnout checklist.",
+      "ref": "11.3",
+      "applies_to": [
+        "life-sciences"
+      ]
+    },
+    {
+      "id": "NI-RF08",
+      "flag": "FDA 483s or warning letters not reconciled to remediation.",
+      "check": "483 close-out list.",
+      "ref": "11.3",
+      "applies_to": [
+        "life-sciences",
+        "industrials"
+      ]
+    },
+    {
+      "id": "NI-RF09",
+      "flag": "Management that has not read its own audit reports.",
+      "check": "Minutes; interviews.",
+      "ref": "11.3",
+      "applies_to": [
+        "life-sciences",
+        "industrials"
+      ]
+    },
+    {
+      "id": "NI-RF10",
+      "flag": "Junior water rights carried at full value.",
+      "check": "Seniority mapping.",
+      "ref": "11.4",
+      "applies_to": [
+        "agriculture-water"
+      ]
+    },
+    {
+      "id": "NI-RF11",
+      "flag": "A farmland or water-dependent thesis in the Colorado River basin with no curtailment case.",
+      "check": "Curtailment case.",
+      "ref": "11.4",
+      "applies_to": [
+        "agriculture-water"
+      ]
+    },
+    {
+      "id": "NI-RF12",
+      "flag": "Crop insurance assumed at historical premiums.",
+      "check": "Bound quotes.",
+      "ref": "11.4",
+      "applies_to": [
+        "agriculture-water"
+      ]
+    },
+    {
+      "id": "NI-RF13",
+      "flag": "Insurance expense held flat in a coastal or wildfire market; coverage only from a state insurer of last resort; an indication presented as a bound quote.",
+      "check": "Bound quote; premium history.",
+      "ref": "11.5",
+      "applies_to": [
+        "agriculture-water",
+        "industrials",
+        "shipping",
+        "tokenized-rwa"
+      ]
+    },
+    {
+      "id": "NI-RF14",
+      "flag": "High uninsured deposit share; unrealized losses near equity; no collateral pre-positioned at the Fed.",
+      "check": "SVB tests.",
+      "ref": "11.7",
+      "applies_to": [
+        "bank-lenders"
+      ]
+    },
+    {
+      "id": "NI-RF15",
+      "flag": "Headline EV used for a de-SPAC.",
+      "check": "Net cash per share.",
+      "ref": "11.9",
+      "applies_to": [
+        "spac"
+      ]
+    },
+    {
+      "id": "NI-RF16",
+      "flag": "A wave of new vehicles in the same theme at entry.",
+      "check": "Theme-peak comparison.",
+      "ref": "11.10",
+      "applies_to": [
+        "theme-vehicle"
+      ]
+    },
+    {
+      "id": "NI-RF17",
+      "flag": "PE-owned healthcare with declining staffing and Five-Star ratings, and related-party fees/leases.",
+      "check": "CMS and lease checks.",
+      "ref": "11.8",
+      "applies_to": [
+        "healthcare-services"
+      ]
+    },
+    {
+      "id": "NI-RF18",
+      "flag": "No-poach or wage-fixing clauses in franchise agreements.",
+      "check": "FDD Item 17 review.",
+      "ref": "11.11",
+      "applies_to": [
+        "franchise"
+      ]
+    },
+    {
+      "id": "NI-RF19",
+      "flag": "Comparable art sales backed by undisclosed guarantees or irrevocable bids.",
+      "check": "Auction disclosures.",
+      "ref": "11.11",
+      "applies_to": [
+        "art-collectibles"
+      ]
+    },
+    {
+      "id": "NI-RF20",
+      "flag": "Exposure view from a single prime broker only.",
+      "check": "Aggregate exposure.",
+      "ref": "11.11",
+      "applies_to": [
+        "family-office-direct"
+      ]
+    },
+    {
+      "id": "NI-RF21",
+      "flag": "Government lease ETOs not modelled.",
+      "check": "Read leases; exercise case.",
+      "ref": "11.6",
+      "applies_to": [
+        "all"
+      ]
+    }
+  ],
+  "metrics": [
+    {
+      "id": "NI-M01",
+      "metric": "Tokenized RWA market size",
+      "acceptable": "~$29B on public chains (ex ~$300B stablecoins) plus $16.9B Figure Provenance private credit = ~$46B (Apr 2026); from ~$2.9B (2022), ~$12B (end-2024)",
+      "source": "Cong, Mayer and Rabetti, WFFI 2026",
+      "weak": false,
+      "ref": "11.2",
+      "applies_to": [
+        "tokenized-rwa"
+      ]
+    },
+    {
+      "id": "NI-M02",
+      "metric": "Killer acquisitions share",
+      "acceptable": "~6% of pharma acquisitions (6.4% in WP); up to ~50/yr; cluster below HSR thresholds",
+      "source": "Cunningham, Ederer, Ma, JPE 2021",
+      "weak": false,
+      "ref": "11.3",
+      "applies_to": [
+        "life-sciences"
+      ]
+    },
+    {
+      "id": "NI-M03",
+      "metric": "Earnout prevalence (CONFLICT by sector/year)",
+      "acceptable": "Non-life-sciences: ~1 in 5 private deals (15% 2019, peak 30%-37% 2023, ~22% 2024) | life sciences: >80% of private pharma deals, median ~61% of consideration, 3-5 years",
+      "source": "HLS Forum 2025",
+      "weak": false,
+      "ref": "11.3",
+      "applies_to": [
+        "life-sciences"
+      ]
+    },
+    {
+      "id": "NI-M04",
+      "metric": "Colorado River structural deficit",
+      "acceptable": "Compact 16.5M af/yr vs ~12.5M af/yr flows (2000-2023); ~4M af/yr deficit; Mead/Powell ~1/3 of 2000 levels; 20%-30% further declines projected; ~80% of allocations to agriculture",
+      "source": "Yale Insights, Cort, May 2026",
+      "weak": false,
+      "ref": "11.4",
+      "applies_to": [
+        "agriculture-water"
+      ]
+    },
+    {
+      "id": "NI-M05",
+      "metric": "Farmland cap rates and cash-rent yields",
+      "acceptable": "GAP: not sourced; pull USDA NASS and NCREIF",
+      "source": "11.4",
+      "weak": true,
+      "ref": "11.4",
+      "applies_to": [
+        "agriculture-water"
+      ]
+    },
+    {
+      "id": "NI-M06",
+      "metric": "Premium stress",
+      "acceptable": "2x premium stress; avg homeowner premiums +33% 2020-2023 ($1,902 to $2,530); FL +90%, TX +50% vs 2018; reinsurance ~2x 2017-2023",
+      "source": "Keys and Mulder NBER w32579; Yale Insights",
+      "weak": false,
+      "ref": "11.5",
+      "applies_to": [
+        "agriculture-water",
+        "industrials",
+        "shipping"
+      ]
+    },
+    {
+      "id": "NI-M07",
+      "metric": "Uninsured deposit share (SVB failure level)",
+      "acceptable": "SVB ~94% uninsured (FDIC limit $250,000) = failure benchmark",
+      "source": "Metrick, JEP 2024",
+      "weak": false,
+      "ref": "11.7",
+      "applies_to": [
+        "bank-lenders"
+      ]
+    },
+    {
+      "id": "NI-M08",
+      "metric": "Unrealized loss vs equity (SVB failure level)",
+      "acceptable": "SVB ~$17B MTM losses vs $15B equity; losses must be well below equity",
+      "source": "Metrick, JEP 2024",
+      "weak": false,
+      "ref": "11.7",
+      "applies_to": [
+        "bank-lenders"
+      ]
+    },
+    {
+      "id": "NI-M09",
+      "metric": "IRRBB/LCR early warning",
+      "acceptable": "Basel IRRBB would have flagged SVB 10 quarters before failure; LCR would have forced tens of billions more liquidity 4+ quarters before",
+      "source": "JFC 7(2)",
+      "weak": false,
+      "ref": "11.7",
+      "applies_to": [
+        "bank-lenders"
+      ]
+    },
+    {
+      "id": "NI-M10",
+      "metric": "Net cash per $10 SPAC share",
+      "acceptable": "$4.10 mean / $5.70 median (Jan 2019-Jun 2020 mergers); $7.50 before redemptions; later deals higher but far below $10 (Harvard Forum critique disputes predictive power)",
+      "source": "Klausner, Ohlrogge, Ruan, Yale J. Reg. 2022",
+      "weak": false,
+      "ref": "11.9",
+      "applies_to": [
+        "spac"
+      ]
+    },
+    {
+      "id": "NI-M11",
+      "metric": "Thematic vehicle underperformance",
+      "acceptable": "~30% risk-adjusted loss over first five years",
+      "source": "Ben-David et al., RFS 2023",
+      "weak": false,
+      "ref": "11.10",
+      "applies_to": [
+        "theme-vehicle"
+      ]
+    },
+    {
+      "id": "NI-M12",
+      "metric": "PE nursing-home outcomes",
+      "acceptable": "Short-term mortality +10%-11%; frontline staffing -3%; govt payors ~75% of revenue",
+      "source": "Gupta et al., NBER w28474",
+      "weak": false,
+      "ref": "11.0, 11.8",
+      "applies_to": [
+        "healthcare-services"
+      ]
+    },
+    {
+      "id": "NI-M13",
+      "metric": "Franchise no-poach prevalence",
+      "acceptable": "~58% of major franchisors' 2016 agreements",
+      "source": "Krueger and Ashenfelter, NBER w24831",
+      "weak": false,
+      "ref": "11.11",
+      "applies_to": [
+        "franchise"
+      ]
+    },
+    {
+      "id": "NI-M14",
+      "metric": "Government lease termination (DOGE)",
+      "acceptable": "793 federal leases (~9M sq ft) listed 2025, 384 still listed Aug 2025; GSA leases avg 14 years; ETOs after year 5 on 90-120 days; D.C. NOI -5%; junk CMBS ~4% worse; ~$12B CMBS exposure",
+      "source": "LaPoint and Choi via Yale Insights",
+      "weak": false,
+      "ref": "11.6",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "NI-M15",
+      "metric": "Infrastructure/secondary LP stake pricing",
+      "acceptable": "~91% of NAV H1 2026",
+      "source": "Jefferies July 2026",
+      "weak": false,
+      "ref": "11.0",
+      "applies_to": [
+        "all"
+      ]
+    },
+    {
+      "id": "NI-M16",
+      "metric": "Insurance RBC, music multiples, sports league debt limits, art guarantees",
+      "acceptable": "GAP: not sourced; primary sources to pull listed in 11.11",
+      "source": "11.11",
+      "weak": true,
+      "ref": "11.11",
+      "applies_to": [
+        "insurance-specialty-finance",
+        "music-royalties",
+        "sports-franchise",
+        "art-collectibles"
+      ]
+    }
+  ],
+  "third_party_reports": [
+    {
+      "id": "NI-T01",
+      "report": "Legal opinion on token rights, enforceability and bankruptcy remoteness",
+      "provider": "Counsel in asset jurisdiction",
+      "required_when": "Tokenized RWA",
+      "ref": "11.2"
+    },
+    {
+      "id": "NI-T02",
+      "report": "Independent reserve/underlying audit",
+      "provider": "Independent auditor",
+      "required_when": "Tokenized RWA",
+      "ref": "11.2"
+    },
+    {
+      "id": "NI-T03",
+      "report": "Independent data-integrity audit",
+      "provider": "Quality-systems auditor",
+      "required_when": "Life sciences and regulated manufacturing",
+      "ref": "11.3"
+    },
+    {
+      "id": "NI-T04",
+      "report": "Expert scientific diligence",
+      "provider": "Scientific/clinical expert",
+      "required_when": "Life sciences",
+      "ref": "11.3"
+    },
+    {
+      "id": "NI-T05",
+      "report": "Patent/FTO opinion",
+      "provider": "Patent counsel",
+      "required_when": "Life sciences",
+      "ref": "11.3"
+    },
+    {
+      "id": "NI-T06",
+      "report": "Water-rights opinion",
+      "provider": "Water-rights counsel",
+      "required_when": "Agriculture/water",
+      "ref": "11.4"
+    },
+    {
+      "id": "NI-T07",
+      "report": "Bindable insurance quotes",
+      "provider": "Insurance advisor",
+      "required_when": "Real-asset niches",
+      "ref": "11.5"
+    },
+    {
+      "id": "NI-T08",
+      "report": "Loan-tape audit",
+      "provider": "Independent tape auditor",
+      "required_when": "Lenders and specialty finance",
+      "ref": "11.7"
+    },
+    {
+      "id": "NI-T09",
+      "report": "Vessel survey",
+      "provider": "Marine surveyor",
+      "required_when": "Shipping",
+      "ref": "11.0"
+    },
+    {
+      "id": "NI-T10",
+      "report": "Phase I/II environmental",
+      "provider": "Environmental consultant",
+      "required_when": "Industrials, agriculture",
+      "ref": "11.0"
+    },
+    {
+      "id": "NI-T11",
+      "report": "Title/provenance search",
+      "provider": "Provenance database / art counsel",
+      "required_when": "Art and collectibles",
+      "ref": "11.11"
+    },
+    {
+      "id": "NI-T12",
+      "report": "Actuarial review of statutory reserves",
+      "provider": "Independent actuary",
+      "required_when": "Insurance",
+      "ref": "11.11"
+    }
+  ],
+  "hard_questions": [
+    {
+      "id": "NI-HQ01",
+      "question": "If the issuer fails, what do token holders own and in which court do they enforce it?",
+      "good_answer": "A named bankruptcy-remote holder, a defined beneficial right, and a governing court, with an opinion.",
+      "ref": "11.2"
+    },
+    {
+      "id": "NI-HQ02",
+      "question": "Who holds the asset, and is it off the sponsor's balance sheet?",
+      "good_answer": "Independent custodian/SPV with a non-consolidation opinion.",
+      "ref": "11.2"
+    },
+    {
+      "id": "NI-HQ03",
+      "question": "How long does a redemption actually take, and when can it be gated?",
+      "good_answer": "Stated timing matching underlying liquidity, gate terms disclosed.",
+      "ref": "11.2"
+    },
+    {
+      "id": "NI-HQ04",
+      "question": "Who sets the NAV the token trades on?",
+      "good_answer": "Independent administrator with multi-source oracles and fallback.",
+      "ref": "11.2"
+    },
+    {
+      "id": "NI-HQ05",
+      "question": "Which likely acquirers have an overlapping program, and what happens to our milestones if they shelve this one?",
+      "good_answer": "An overlap map plus efforts covenant and acceleration on shelving.",
+      "ref": "11.3"
+    },
+    {
+      "id": "NI-HQ06",
+      "question": "Show raw lab data against reported data for the pivotal studies.",
+      "good_answer": "Raw data provided for independent reconciliation.",
+      "ref": "11.3"
+    },
+    {
+      "id": "NI-HQ07",
+      "question": "List every 483 and warning letter and its close-out.",
+      "good_answer": "Complete list with close-out evidence.",
+      "ref": "11.3"
+    },
+    {
+      "id": "NI-HQ08",
+      "question": "What priority date does each water right carry, and what happens to yield if junior rights are curtailed?",
+      "good_answer": "Per-acre priority mapping and a curtailment case.",
+      "ref": "11.4"
+    },
+    {
+      "id": "NI-HQ09",
+      "question": "What did water cost per acre-foot in each of the last five years, and what is the tiered price after 2026?",
+      "good_answer": "Five-year history and tiered-price stress.",
+      "ref": "11.4"
+    },
+    {
+      "id": "NI-HQ10",
+      "question": "What is the bound insurance quote today against the pro forma, and what did premiums do over the last three renewals?",
+      "good_answer": "Bound quote within pro forma and three-year history.",
+      "ref": "11.5"
+    },
+    {
+      "id": "NI-HQ11",
+      "question": "What share of funding is uninsured, and what are unrealized losses against equity?",
+      "good_answer": "Low uninsured share; losses a small fraction of equity; collateral pre-positioned at the Fed.",
+      "ref": "11.7"
+    },
+    {
+      "id": "NI-HQ12",
+      "question": "What is net cash per share after redemptions, promote, warrants and fees?",
+      "good_answer": "A computed figure from filings.",
+      "ref": "11.9"
+    },
+    {
+      "id": "NI-HQ13",
+      "question": "For each revenue line that depends on a government act, what is the act, when could it change, and what is the downside?",
+      "good_answer": "A policy register with modelled downsides.",
+      "ref": "11.6"
+    }
+  ],
+  "failure_cases": [
+    {
+      "case": "Fresenius / Akorn",
+      "year": "2017-2018",
+      "what_happened": "Fresenius flagged testing/manufacturing deficiencies but signed; whistleblowers led to findings of falsified data and FDA submissions; Delaware Chancery let Fresenius walk under the MAE (first ruling) but noted diligence-disclosed matters were not carved out; Akorn CEO never read audit reports.",
+      "check": "Independent data-integrity audit; specific closing conditions/indemnities per known regulatory issue.",
+      "ref": "11.3"
+    },
+    {
+      "case": "Silicon Valley Bank",
+      "year": "2023",
+      "what_happened": "~94% uninsured deposits; ~$17B MTM securities losses exceeded $15B equity; $42B one-day run.",
+      "check": "Uninsured share, unrealized loss to equity, IRRBB, 30-day outflow test.",
+      "ref": "11.7"
+    },
+    {
+      "case": "Signature Bank",
+      "year": "2023",
+      "what_happened": "Lacked collateral pre-positioned at the Fed.",
+      "check": "Fed collateral pre-positioning.",
+      "ref": "11.7"
+    },
+    {
+      "case": "SPAC net cash shortfall",
+      "year": "2019-2020",
+      "what_happened": "Mergers delivered $4.10 mean / $5.70 median net cash per $10 share.",
+      "check": "Compute net cash per share.",
+      "ref": "11.9"
+    },
+    {
+      "case": "Killer acquisitions",
+      "year": "Various",
+      "what_happened": "~6% of pharma acquisitions bought to shut down overlapping projects.",
+      "check": "Acquirer overlap map; efforts covenants.",
+      "ref": "11.3"
+    },
+    {
+      "case": "Archegos",
+      "year": "2021",
+      "what_happened": "Family office exposure invisible across prime brokers.",
+      "check": "Aggregate exposure across all counterparties.",
+      "ref": "11.11"
+    },
+    {
+      "case": "PE nursing homes",
+      "year": "Various",
+      "what_happened": "Mortality up ~10%-11%, staffing down ~3%, costs shifted to fees and leases.",
+      "check": "Staffing ratios, Five-Star trend, related-party fees and leases.",
+      "ref": "11.0, 11.8"
+    },
+    {
+      "case": "DOGE federal lease cancellations",
+      "year": "2025",
+      "what_happened": "793 leases listed; D.C. landlord NOI -5%.",
+      "check": "Read ETOs; model exercise; cap agency share.",
+      "ref": "11.6"
+    },
+    {
+      "case": "First Brands and Tricolor (cross-ref Chapters 3 and 4)",
+      "year": "Not stated in chapter",
+      "what_happened": "Collateral integrity failures at specialty lenders.",
+      "check": "Loan-tape audit and collateral verification.",
+      "ref": "11.0"
+    }
+  ]
+}
