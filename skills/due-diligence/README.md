@@ -22,13 +22,40 @@ sources. They include academic work from Harvard, Wharton, Yale and Princeton, r
 FinCEN, OFAC), rating-agency criteria, ILPA, NVCA, ABA deal-point studies, and court and enforcement records.
 Benchmarks resting on weak sourcing are marked WEAK. Where sources disagree, both figures are kept.
 
-## Deal types
+## Deal types and coverage
 
-`real-estate` · `business-debt` · `credit` · `tech-venture` · `pe-ma` · `growth-equity` · `cpg-consumer` ·
-`cannabis-hemp` · `energy-infrastructure` · `data-centers` · `crypto-digital-assets` · `niche-assets` · `fund` ·
-`secondaries` · `nav-lending` · `evergreen` · `search-fund` · `healthcare` · `litigation-finance`, plus `universal`,
-which applies to every deal (sponsor background, KYC/AML and sanctions, source of funds and wealth, proof of cash,
-segregation of duties, valuation, fraud red flags).
+`universal` applies to every deal: sponsor background, KYC/AML and sanctions, source of funds and wealth, proof of
+cash, segregation of duties, valuation, and fraud red flags. Its "subtypes" are deal conditions, such as
+`operating-company`, `levered-vehicle` and `earnout`, that switch on the items relevant to the deal. Run
+`python3 scripts/dd.py types` to list every subtype.
+
+| Type | Name | Requests | Kill tests | Red flags | Benchmarks | Hard questions | Failure cases |
+|---|---|---|---|---|---|---|---|
+| `business-debt` | Debt to Businesses | 84 (14 gating) | 7 | 18 | 42 | 16 | 19 |
+| `cannabis-hemp` | Cannabis and Hemp | 48 (11 gating) | 6 | 12 | 11 | 9 | 4 |
+| `cpg-consumer` | CPG and Consumer Brands | 48 (7 gating) | 5 | 16 | 16 | 13 | 8 |
+| `credit` | Credit of All Kinds | 89 (18 gating) | 8 | 19 | 44 | 17 | 18 |
+| `crypto-digital-assets` | Crypto and Digital Assets | 61 (13 gating) | 7 | 18 | 12 | 10 | 8 |
+| `data-centers` | Data Centers and Digital Infrastructure | 67 (11 gating) | 6 | 15 | 25 | 12 | 12 |
+| `energy-infrastructure` | Energy and Infrastructure | 126 (29 gating) | 14 | 31 | 62 | 21 | 17 |
+| `evergreen` | Evergreen and Semi-Liquid Vehicles | 57 (16 gating) | 5 | 14 | 24 | 9 | 8 |
+| `fund` | Funds, Co-Investments and Manager Selection | 162 (45 gating) | 14 | 34 | 69 | 25 | 29 |
+| `growth-equity` | Operating Company Growth Equity | 43 (7 gating) | 6 | 16 | 16 | 10 | 8 |
+| `healthcare` | Healthcare Services and Physician Practice Roll-Ups | 68 (22 gating) | 6 | 13 | 12 | 8 | 12 |
+| `litigation-finance` | Litigation Finance | 35 (12 gating) | 4 | 7 | 4 | 6 | 6 |
+| `nav-lending` | NAV Lending and Fund Finance | 55 (10 gating) | 6 | 12 | 15 | 8 | 9 |
+| `niche-assets` | Niche Assets and Further Categories | 67 (15 gating) | 6 | 21 | 16 | 13 | 9 |
+| `pe-ma` | Private Equity and M&A | 98 (16 gating) | 8 | 28 | 54 | 22 | 28 |
+| `real-estate` | Real Estate | 92 (16 gating) | 12 | 25 | 57 | 21 | 19 |
+| `search-fund` | Search Funds and Entrepreneurship Through Acquisition | 54 (16 gating) | 6 | 10 | 20 | 7 | 7 |
+| `secondaries` | Secondaries and GP-Led Continuation Vehicles | 56 (17 gating) | 7 | 12 | 16 | 10 | 8 |
+| `tech-venture` | Tech and Venture | 103 (19 gating) | 9 | 23 | 42 | 20 | 11 |
+| `universal` | Universal (applies to every deal) | 206 (49 gating) | 25 | 74 | 113 | 60 | 57 |
+| **Total** | | **1619** | **167** | **418** | **670** | **317** | **297** |
+
+Gating items (16 to 30% of each library) are the ones where a failure alone ends the deal: title, existence of the
+cash or collateral, legal ability to do the deal, direct-verification access, and each type's single most important
+check.
 
 ## Install
 
