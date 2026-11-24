@@ -155,7 +155,7 @@ CHECK: ask every GP raising today for the ILPA Performance Template for each pri
 *Operations*
 - The 10.3 base-rate scorecard, the 12 SEC test steps, and direct service-provider calls.
 - For any fund-of-funds or OCIO: who can terminate a manager and how fast, and is the decision-maker paid on assets retained (PRINCO Organizational Model, https://princo.princeton.edu/about/organizational-model; Chapter 12).
-- Insurer-affiliated managers: when the manager's permanent capital is an affiliated insurer, obtain statutory statements, Schedule S and an affiliated-transaction policy (Chapter 4; Koijen and Yogo, NBER w19568, https://www.nber.org/papers/w19568).
+- Insurer-affiliated managers: when the manager's permanent capital is an affiliated insurer, the manager is lending policyholders' money into its own platform's deals. Life-insurer private-placement lending reached about $849B (14% of balance sheets) in 2024, driven by PE-owned insurers, whose private placements in ABS and financial borrowers rose from 2% to 8% of assets, 2017-2024 (Meisenzahl, Overpeck and Polacek, Chicago Fed WP 2025-09, https://www.chicagofed.org/publications/working-papers/2025/2025-09). Affiliated "shadow" reinsurance grew from about $11B (2002) to $370B (2013); adjusting for it cut average risk-based capital by about 53 points (Koijen and Yogo, NBER w19568, https://www.nber.org/papers/w19568; industry critics, e.g. Harrington for ACLI, argue the effect is overstated). CHECK: statutory statements (not GAAP), Schedule S, consolidated RBC including affiliated captives, affiliated-transaction policy, independent valuation of affiliated private placements (Chapter 4).
 
 *Fund-level LP failure-avoidance checklist (HLS lane synthesis of the cases in 10.6):* (a) fee/expense allocation policy and 3-year schedule of portfolio-company fees with offsets; (b) NAV-facility and sub-line terms, plus performance ex-facilities; (c) carry/ownership split by partner; (d) co-invest allocation policy and the list of co-invests offered and to whom; (e) any SEC deficiency letters or Wells notices in the last 5 years.
 
@@ -1202,3 +1202,256 @@ Named public search-fund failure case files were not sourced in the research set
 5. What is the return at exit multiple equal to entry multiple?
 6. What is fixed-charge coverage if revenue falls 20%?
 7. How many LOIs have you signed, and why did the others die?
+
+---
+
+# 17 Healthcare Services and Physician Practice Roll-Ups
+
+*Physician practice management (PPM) platforms, MSO structures, nursing homes and post-acute care, hospital sale-leasebacks. Revenue is set by payors, so diligence centers on reimbursement durability, billing compliance, referral law, and state ownership rules. Extends the v1 Chapter 11 healthcare row (licensing, reimbursement and payor mix, Stark and anti-kickback compliance, billing quality; QoE must test payor concentration and revenue-cycle quality).*
+
+## 17.1 How it works
+
+- **Roll-up model.** A sponsor buys a "platform" practice (dermatology, anesthesia, GI, dental, behavioral, home health, etc.) and adds on smaller practices at lower multiples (multiple arbitrage), centralizing billing and administration in a management services organization (MSO), because many states bar non-physicians from owning medical practices (corporate practice of medicine, CPOM). The physician-owned practice ("friendly physician" or professional entity) contracts with the sponsor-owned MSO (general lane draft).
+- **Payors set price.** Revenue comes from Medicare, Medicaid and commercial payors; government payors are about 75% of nursing-home revenue (Gupta, Howell, Yannelis and Gupta, NBER w28474, https://www.nber.org/papers/w28474; KaW, July 22, 2024, https://knowledge.wharton.upenn.edu/article/how-to-align-private-equity-motives-with-nursing-home-outcomes/).
+- **The evidence on PE ownership of care providers is adverse in nursing homes.** Across 1,674 acquisitions in 128 deals among about 12,400 for-profit homes, PE ownership raised short-term patient mortality by about 10% to 11% (about 1.7 percentage points); frontline nursing-assistant hours per patient-day fell about 3%; costs shifted toward non-patient items (monitoring fees, interest, lease payments) (Gupta et al., NBER w28474; KaW, July 2024). Expect regulatory and reputational exposure to track staffing and quality.
+- **Control brings liability.** The False Claims Act can reach a sponsor involved in the conduct: DOJ named PE sponsor Riordan, Lewis & Haden alongside its portfolio pharmacy Diabetic Care Rx for financing a kickback scheme (HLS Forum, "Secondary Liability Risks for Private Funds," 2019, https://corpgov.law.harvard.edu/2019/10/09/secondary-liability-risks-for-private-funds-recent-developments/). Date conflict: the HBS lane (HLS Forum 2019) says settled 2019 for $21.36M; the general lane draft referred to it as a 2021 matter and flagged it [VERIFY]. The HLS Forum post is dated Oct. 2019, which supports 2019; confirm on justice.gov.
+
+## 17.2 Data room index
+
+1. Payor mix by revenue and by visit; top payor contracts with rates and renewal dates.
+2. CPT-level volume and reimbursement trend.
+3. Revenue-cycle KPIs by month: days in A/R, initial denial rate, net collection rate, A/R over 90 days.
+4. Remittance files (835) and bank deposits for revenue rebuild.
+5. Billing and coding audit results; compliance program; hotline log; prior self-disclosures and overpayment refunds.
+6. OIG exclusion and SAM checks for every provider.
+7. Provider employment agreements, compensation formulas, noncompetes; production by provider.
+8. MSO agreement and fee formula; friendly-physician ownership and succession agreements.
+9. Licenses, DEA registrations, accreditation.
+10. Malpractice history and tail coverage.
+11. Add-on purchase agreements with fair-market-value (FMV) opinions; medical directorship and other referral-source arrangements with FMV and commercial-reasonableness support.
+12. State CPOM analysis and state transaction-notice filings.
+13. Real estate: leases, sale-leaseback agreements, landlord identity and relationships.
+14. For nursing homes and post-acute: staffing ratios, CMS Five-Star history, survey deficiencies, related-party fees, leases and interest.
+
+## 17.3 Diligence checklist by workstream
+
+*Revenue and reimbursement*
+- Rebuild net revenue from remittances (835 files) and bank deposits, not gross charges; test contractual allowance estimates against cash.
+- Payor concentration: largest commercial payor as % of revenue; renewal dates.
+- Medicare physician fee schedule changes (annual CMS rule).
+- In-network status by payor and share of revenue from out-of-network billing. Out-of-network economics changed with the No Surprises Act arbitration process from 2022 (general lane draft; not primary-sourced) **WEAK**.
+
+*Coding and billing*
+- Independent coding audit on a statistically valid sample per provider; outlier billing versus peers.
+- Escrow or special indemnity for pre-close billing.
+
+*Fraud-and-abuse compliance*
+- The Anti-Kickback Statute (42 U.S.C. 1320a-7b(b)) and Stark (42 U.S.C. 1395nn) govern referral relationships, MSO fee structures (percentage-of-revenue fees are a known risk area) and add-on purchase prices (paying above FMV for a referral source) (general lane draft).
+- FMV and commercial-reasonableness support for every compensation arrangement with referral sources; OIG/SAM exclusion screening; prior overpayments refunded within 60 days.
+- DOJ's Evaluation of Corporate Compliance Programs asks whether the acquirer performed comprehensive pre-acquisition compliance diligence, integrates the target into its controls promptly, and audits acquired entities post-close (HLS Forum, 2020, https://corpgov.law.harvard.edu/2020/06/29/justice-department-updates-its-guidance-on-corporate-compliance-programs/). Document compliance diligence scope and gaps in the IC memo; put a 100-day compliance integration plan in the value-creation plan.
+- Diligence billing and referral practices before close in any government-reimbursed target; confirm D&O coverage at fund and company level (HLS Forum 2019).
+
+*Providers*
+- Post-close compensation versus pre-close; noncompetes (void in some states, 17.6); number of providers producing the top 50% of revenue.
+- Rollover equity and vesting tied to tenure.
+
+*Structure*
+- CPOM-compliant ownership; the friendly physician's agreements; what happens if he or she leaves.
+- MSO fee formula: flat or cost-plus versus percentage of collections.
+
+*Integration (the thesis)*
+- The platform-versus-add-on multiple spread is the thesis; test whether add-ons have actually been integrated (one billing system, one payor contract).
+
+*Antitrust*
+- Local market share by specialty; state notice requirements. Serial add-ons below HSR thresholds are not safe from challenge (FTC v. U.S. Anesthesia Partners and Welsh Carson, 17.7). In pharma, about 6% of acquisitions (6.4% in the working paper) were "killer acquisitions" clustered just below HSR thresholds, up to about 50 a year, and FTC/DOJ scrutiny of sub-threshold deals is growing (Cunningham, Ederer and Ma, JPE 2021, SSRN 3241707; Yale Insights, https://insights.som.yale.edu/insights/when-corporate-acquisitions-affect-healthcare).
+
+*Real estate*
+- Sale-leasebacks used to fund dividends weaken hospitals and practices. Model rent coverage after any sale-leaseback, with escalators, and trace where the proceeds went (Steward, 17.7).
+- Related-party landlords: the friendly physician or sponsor affiliate as landlord.
+
+*Quality (nursing homes and post-acute)*
+- Staffing ratios and nursing-assistant hours per patient-day; CMS Five-Star trend after acquisition; fees, leases and interest paid to related parties or landlords (Gupta et al.).
+
+## 17.4 The numbers
+
+| Metric | Value | Source |
+|---|---|---|
+| Government payor share, nursing homes | About 75% of revenue | Gupta et al., NBER w28474 |
+| PE nursing-home mortality effect | About +10% to +11% short-term mortality (about 1.7 pp) | Same |
+| Frontline staffing effect | Nursing-assistant hours per patient-day about -3% | Same |
+| Sample | 1,674 acquisitions in 128 deals among about 12,400 for-profit homes | Same |
+| Killer acquisitions (pharma) | About 6% (6.4% WP); up to about 50 a year; cluster below HSR | Cunningham, Ederer and Ma, JPE 2021 |
+| Riordan, Lewis & Haden / Diabetic Care Rx FCA settlement | $21.36M (2019 per HLS Forum) | HLS Forum 2019 |
+| Steward Massachusetts sale-leaseback | $1.25B to MPT (2016); Chapter 11 May 2024 | Brookings via Wharton lane |
+| Revenue-cycle benchmarks | Days in A/R, denial rates against HFMA MAP Keys peer data | Practitioner standard **WEAK** (confirm) |
+| Provider productivity | wRVUs per FTE against MGMA benchmarks | Practitioner **WEAK** |
+
+Specific numeric thresholds for days in A/R, denial rates and wRVUs were not sourced: **GAP**. Resolve with HFMA and MGMA primary data or operator interviews.
+
+## 17.5 Third parties
+
+- Healthcare regulatory counsel (AKS, Stark, CPOM, state notice laws).
+- Independent coding auditor.
+- FMV and commercial-reasonableness appraiser for physician compensation and add-on prices.
+- Revenue-cycle QoE provider (remittance-to-cash rebuild).
+- Antitrust counsel for serial add-ons.
+- Real estate appraiser and lease reviewer for sale-leasebacks.
+- Malpractice and tail-coverage broker.
+
+## 17.6 Legal and structure
+
+- **Corporate practice of medicine (CPOM).** Oregon SB 951 (2025 Reg. Sess., enacted as Ch. 295, emergency clause): an MSO, and its shareholders, directors, officers and employees, may not own or control shares in, serve as director or officer of, be employed by, or manage a professional medical entity with which the MSO has a management services contract; voids most noncompetition, nondisclosure and nondisparagement agreements between such entities and medical professionals; voids agreements violating the control prohibitions (Oregon Legislature, https://olis.oregonlegislature.gov/liz/2025R1/Measures/Overview/SB951). This is the template for the strictest CPOM regime.
+- **State PE-healthcare notice and oversight laws.** Several other states (e.g. California, Massachusetts) enacted PE-healthcare notice or oversight laws in 2024-25 (general lane draft) **WEAK** [VERIFY current statutes per deal].
+- **Federal fraud and abuse.** Anti-Kickback Statute (42 U.S.C. 1320a-7b(b)); Stark (42 U.S.C. 1395nn); False Claims Act liability can reach the sponsor when the sponsor is involved in the conduct (general lane; HLS Forum 2019).
+- **Other sponsor liabilities:** ERISA multiemployer pension withdrawal liability (Sun Capital funds held to be a trade or business under common control with a bankrupt portfolio company, D. Mass. 2018, because of active management, GP control of hiring and pay, and board control); control-person liability; veil-piercing. Keep fund ownership structured to avoid 80% common control where withdrawal liability exists; observe corporate formalities (HLS Forum 2019).
+- **Antitrust:** HSR thresholds are not a safe harbor for serial add-ons (17.7).
+- **Deal protections:** escrow or special indemnity for pre-close billing; R&W exclusions for known billing issues (Chapter 5).
+
+## 17.7 Failure modes and the check that catches each
+
+| Firm or case | Year | What happened | CHECK |
+|---|---|---|---|
+| Steward Health Care / Cerberus | 2016 sale-leaseback; Chapter 11 May 2024 | Sale-leaseback of hospital real estate to MPT ($1.25B for Massachusetts) funded dividends and left escalating rents (Brookings, https://www.brookings.edu/articles/lessons-from-the-collapse-of-steward-health-care/, via Wharton lane) | Model rent coverage after any sale-leaseback; trace where the proceeds went |
+| Riordan, Lewis & Haden / Diabetic Care Rx | Settled 2019 (HLS Forum) | DOJ named the PE sponsor alongside its portfolio pharmacy for financing a kickback scheme; $21.36M (HLS Forum 2019) | Pre-close billing and referral diligence; sponsor involvement in marketing practices |
+| U.S. Anesthesia Partners / Welsh Carson | FTC suit 2023 | Serial roll-up of Texas anesthesia practices followed by price increases; Welsh Carson later entered an FTC consent order requiring prior notice of certain acquisitions (general lane draft) **WEAK** [VERIFY dates and order terms on ftc.gov] | Local market share by specialty; price increases after add-ons; state notice requirements |
+| PE-owned nursing homes (aggregate) | Study period in NBER w28474 | Mortality up about 10% to 11%; staffing down about 3%; costs shifted to fees, interest, leases (Gupta et al.) | Staffing ratios; Five-Star trend; related-party fees and leases; rent coverage |
+
+**Generic failure modes:**
+
+| Failure | CHECK |
+|---|---|
+| Upcoding or medically unnecessary services inflating EBITDA | Independent coding audit and peer-benchmark outlier analysis before close; escrow or special indemnity |
+| Kickback-tainted referral relationships (above-FMV medical directorships, MSO percentage fees) | FMV opinions; healthcare regulatory counsel review |
+| Payor rate cuts or out-of-network revenue collapse | In-network status by payor; out-of-network share of revenue |
+| Physicians leaving after earn-outs | Rollover equity and vesting tied to tenure; production concentration |
+| Antitrust or state-law block of add-ons | Local share by specialty; state notice requirements |
+| Add-ons never integrated | One billing system and one payor contract test |
+| CPOM structure unwinds (friendly physician leaves; Oregon-style law) | Friendly-physician succession agreements; state-by-state CPOM analysis |
+
+> **THE ONE CHECK (healthcare roll-ups).** Rebuild revenue from remittances and bank deposits and run an independent coding audit per provider before close. Payor-set revenue that cannot be traced to cash, or that depends on outlier coding or above-FMV referral arrangements, is the liability, not the asset.
+
+## 17.8 Red flags
+
+- EBITDA growth driven by price in concentrated local markets.
+- MSO fee as a % of collections.
+- No billing audit in three years.
+- Large out-of-network revenue.
+- Providers with prior exclusions.
+- Friendly physician who also owns the MSO's landlord.
+- Sale-leaseback proceeds used for dividends; escalating rents.
+- Staffing ratios falling after acquisition; Five-Star rating declining.
+- Fees, interest and rent paid to sponsor affiliates or related landlords.
+- Add-ons on separate billing systems years after acquisition.
+
+## 17.9 Hard questions
+
+1. What share of revenue comes from the top payor, and when does that contract renew?
+2. What did the last external coding audit find?
+3. Show FMV support for every arrangement with a referral source.
+4. Which add-ons are still on separate billing systems?
+5. Which state laws require notice or approval for this deal, and does any state's CPOM law reach the MSO structure?
+6. Who is the friendly physician, and what happens if he or she leaves?
+7. After the sale-leaseback, what is rent coverage, and where did the proceeds go?
+8. What happened to staffing ratios and quality ratings at prior acquisitions?
+
+---
+
+# 18 Litigation Finance
+
+*Outline-level chapter. The research set supports the structure and the regulatory baseline, not market numbers or case files; what is missing is listed in 18.10. Extends the v1 Chapter 4.2 row (case merits by independent legal opinion, duration, capital adequacy to see cases through, portfolio diversification, non-recourse to claimant) and 4.4 (independent legal opinion).*
+
+## 18.1 How it works
+
+- A funder advances non-recourse capital to a claimant or law firm (single case or portfolio) in exchange for a share of recoveries, typically a multiple of capital or a percentage of proceeds, whichever is greater. Returns depend on win rate, collection and DURATION (general lane draft).
+- Commercial deals run into the millions; consumer advances are usually under $10,000 (GAO-23-105210, Dec. 2022, https://www.gao.gov/products/gao-23-105210).
+- No federal statute specifically regulates litigation funding; there is no nationwide requirement to disclose funding agreements to courts or opposing parties; some courts require it case by case; some states cap fees or rates in consumer funding; GAO found public data on volumes and returns too limited to size the market (GAO-23-105210).
+- Investor positions: (a) LP in a litigation-finance fund; (b) direct single-case or portfolio funding; (c) lender to a funder or law firm. Each uses Chapter 10 (fund diligence) or Chapter 4 (credit) plus this chapter.
+
+## 18.2 Data room index
+
+1. Funding agreement(s): return waterfall (multiple vs percentage), priority against counsel fees, termination and withdrawal rights.
+2. Independent merits opinion by counsel not involved in the case.
+3. Damages model and the defendant's collectability analysis (assets, insurance, jurisdiction, sovereign status).
+4. Case timeline and procedural history; expected and stressed duration, including appeals.
+5. Budget to trial and appeal; who funds overruns.
+6. Engagement letter between claimant and counsel (contingency terms, conflicts).
+7. For a funder or fund: portfolio list with cost, marks, status and expected resolution; valuation policy and the auditor's approach to Level 3 case assets; commitments versus uncalled capital; cross-collateralization terms.
+8. Any court disclosure orders that apply.
+
+## 18.3 Diligence checklist by workstream
+
+- **Merits:** independent merits opinion by counsel not involved in the case (v1 4.2; general lane).
+- **Damages and collection:** damages model; collectability of the defendant (judgment-proof or sovereign defendants carry enforcement risk).
+- **Duration:** model the duration distribution; appeals add years. Model IRR at 1.5x the expected duration (general lane draft heuristic, not sourced to data) **WEAK**.
+- **Control and ethics:** the funder must not control litigation strategy where state ethics rules forbid it; check who controls settlement decisions.
+- **Portfolio:** diversification and cross-collateralization across cases.
+- **Funder capacity:** the funder's own capital adequacy and commitments versus uncalled capital. Can it fund through trial? (v1 4.2.)
+- **Valuation:** fair-value marks of case assets are Level 3; read the policy and the auditor's approach. Apply Chapter 10.3 ODD (who has write access to marks; independent valuation; Infinity Q and SQN lessons).
+- **Disclosure exposure:** court-level disclosure is spreading (e.g. standing orders in the U.S. District Court for the District of Delaware since 2022) (general lane draft) **WEAK** [VERIFY current federal rulemaking status].
+
+## 18.4 The numbers
+
+- Market size, win rates, loss rates, duration distributions and realized returns: not sourced. GAO found public data too limited to size the market (GAO-23-105210). **GAP**.
+- Report returns as both MOIC and IRR, with duration; MOIC alone hides duration risk (general lane draft).
+- Consumer advances usually under $10,000; commercial deals in the millions (GAO-23-105210).
+
+## 18.5 Third parties
+
+- Independent merits counsel (v1 4.4).
+- Damages expert.
+- Collection and enforcement counsel (especially cross-border or sovereign).
+- Valuation agent for Level 3 case marks; auditor.
+- ODD provider for funder or fund (Chapter 10.3).
+
+## 18.6 Legal and structure
+
+- Non-recourse to the claimant (v1 4.2; GAO).
+- No federal statute; no nationwide disclosure requirement; state consumer-funding caps in some states; case-by-case court disclosure (GAO-23-105210).
+- Champerty, usury and state ethics rules on funder control: state-by-state analysis required; primary sources not retrieved in the research set **GAP**.
+- Funding-agreement priority against counsel's contingency fee and any insurer.
+
+## 18.7 Failure modes and the check that catches each
+
+| Failure | What happens | CHECK |
+|---|---|---|
+| Win but cannot collect | Judgment against a judgment-proof or sovereign defendant | Collectability analysis; enforcement counsel |
+| Duration blowout | IRR collapses while MOIC looks fine | Duration distribution with appeals; IRR at stressed duration |
+| Marks move with headlines | Level 3 marks above cost on unresolved cases | Valuation policy; marks vs cost without a judgment; auditor approach |
+| Funder liquidity squeeze | Cases left unfunded mid-stream | Funder commitments vs uncalled capital; budget to trial |
+| Funder controls settlement | Ethics and enforceability problems; conflict with claimant | Read control provisions against state rules |
+| Single-case concentration | One loss wipes out the fund | Portfolio diversification; cross-collateralization terms |
+
+No named litigation-finance failure case file was sourced: **GAP**.
+
+> **THE ONE CHECK (litigation finance).** Underwrite collection and duration, not just merits. Ask what the IRR is if the case takes twice as long and the defendant pays late, and who funds the case until then.
+
+## 18.8 Red flags
+
+- Marks above cost on cases without a judgment.
+- Returns quoted in MOIC only.
+- Single-case concentration.
+- A funder that also controls settlement decisions.
+- Merits opinion from the counsel running the case.
+- Funder whose commitments exceed its uncalled capital.
+
+## 18.9 Hard questions
+
+1. Who wrote the merits opinion, and do they have any role in the case?
+2. If you win, how and from what assets do you collect?
+3. What is the IRR at 1.5x and 2x the expected duration?
+4. Who decides whether to settle?
+5. How are unresolved cases marked, and who signs the valuation?
+6. Can the funder fund every case through trial and appeal from committed capital?
+
+## 18.10 What is missing (research gaps)
+
+- Market size and growth from a primary source (GAO says public data are too limited).
+- Realized returns, win/loss rates and duration distributions by case type (commercial, patent, international arbitration, mass tort, consumer).
+- Named failure case files (funder insolvencies, collection failures, disputes over funder control).
+- Current federal and state disclosure rules beyond GAO (Dec. 2022) and the Delaware standing orders ([VERIFY]).
+- State champerty, usury and ethics rules on funder control.
+- Fair-value accounting practice for case assets and auditor approaches.
+- Insurance products (e.g. judgment-preservation or after-the-event cover) and their effect on underwriting.
+- Secondary market for case interests and its pricing.
+
+Resolve by interviewing 3 to 5 funders, litigation counsel and fund LPs (B.1).
