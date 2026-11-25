@@ -1,0 +1,120 @@
+{
+  "theme": "navy",
+  "kicker": "Confidential  |  Opening due diligence",
+  "title": "Opening Due Diligence Packet",
+  "subtitle": "Biotechnology company: equity raise",
+  "amount": "$9,000,000",
+  "prepared_for": "The CEO and management team",
+  "date": "November 25, 2026",
+
+  "welcome_title": "Thanks for sharing the opportunity",
+  "intro": [
+    "One of your current investors introduced us to your $9 million raise, and we'd like to learn more. This packet is the first step: a focused set of questions about the round, the science and the NVIDIA relationship, plus a short list of documents, so we can understand the company before asking for more of your time.",
+    "This is a first screen, not full due diligence. Nothing here is a commitment on either side. If the opening review goes well, we'll meet your team, and then move into detailed diligence before we agree terms. In detailed diligence we verify the financials, the cap table, the science, the intellectual property and the key relationships.",
+    "We ask every company the same core questions, whatever the stage. Biotechnology adds a few of its own: the data, the regulatory path, the patents and the partnerships carry most of the value, so that's where we focus first."
+  ],
+  "steps": [
+    {"name": "Opening packet", "desc": "You answer the questions and send the documents in this packet."},
+    {"name": "Review and call", "desc": "We read everything and meet your team to talk through the company and the round."},
+    {"name": "Detailed diligence", "desc": "We verify financials, cap table, data, IP and partnerships, with your consent."},
+    {"name": "Terms and closing", "desc": "We agree terms, sign the documents and fund."}
+  ],
+  "contents": [
+    ["Part A", "19 questions about the round, the science and the NVIDIA relationship, the business, and the team."],
+    ["Part B", "17 documents: 13 essential, 4 requested."],
+    ["What matters most", "The three areas we focus on first in a biotechnology raise, and how we'll check them."],
+    ["How to send", "How to get your answers and documents to us."]
+  ],
+
+  "questions": {
+    "kicker": "Part A",
+    "title": "Tell us about the company and the round",
+    "intro": "Answer in your own words, in an email or a short document. A few sentences per question is plenty at this stage. If something isn't settled yet, say so; that's useful too.",
+    "groups": [
+      {"title": "The round", "items": [
+        {"q": "In a sentence or two, what does the company do, and what will the $9 million accomplish?", "why": "If the science and the ask fit in a few lines, everything else is easier to evaluate.", "ref": "U-Q01"},
+        {"q": "What are investors buying: preferred or common stock, a SAFE, or a convertible note? Which series is this, and on what model documents are the terms based?", "why": "The instrument and series set what investors actually own and where they sit in the capital stack.", "ref": "TV-Q01, TV-Q02"},
+        {"q": "New investors are offered shares at $1.00. What pre-money valuation and fully diluted share count does that price imply, and how was the price set?", "why": "Price per share only means something next to the full share count and the valuation behind it.", "ref": "TV-VAL-003, TV-VAL-001"},
+        {"q": "Existing investors are offered shares at $0.80. Who qualifies, how much of the round is available at that price, and did the board approve both prices?", "why": "When a round has two prices, every investor should understand who gets which and why.", "ref": "TV-Q06"},
+        {"q": "How much of the $9 million is committed today, who is leading the round, and what is the minimum investment?", "why": "Tells us how the round is built and what the lead has already reviewed.", "ref": "U-Q04, U-Q10"},
+        {"q": "How will the money be spent, and which milestones will it reach before the company needs to raise again?", "why": "In biotech the next financing depends on the milestones this round funds.", "ref": "TV-FIN-004"},
+        {"q": "What were the dates, prices and lead investors of each prior round, including any bridges or notes?", "why": "The round history shows how the valuation has moved and why.", "ref": "TV-Q08"},
+        {"q": "Which securities exemption is the round made under (for example Rule 506(b) or 506(c)), and who is your securities counsel?", "why": "Private raises must follow securities rules, and the exemption decides how investors are verified.", "ref": "U-Q14"}
+      ]},
+      {"title": "The science and the NVIDIA relationship", "items": [
+        {"q": "What is the lead program or platform: modality, target, indication, and what makes it different from what already exists?", "why": "Helps us understand what the company's value rests on.", "ref": "TV-Q05"},
+        {"q": "What stage is the lead program at (discovery, preclinical, IND filed, or in clinical trials), and what has the FDA said so far?", "why": "Development stage and regulatory path drive both risk and timeline.", "ref": "NI-TECH-002"},
+        {"q": "What exactly is the relationship with NVIDIA? For example: a signed commercial or co-development agreement, an equity investment, a startup or compute program, or something else. When did it start, who signed it, and what does each side commit to?", "why": "Strategic partnerships come in many forms with very different value, so we want to understand the specific terms.", "ref": "TV-Q07, TV-COR-005"},
+        {"q": "May we speak directly with your contact at NVIDIA, and with any other partners, collaborators or grant agencies you work with?", "why": "We confirm every named partnership directly with the partner. It's standard for every company we review.", "ref": "TV-COM-009"},
+        {"q": "What intellectual property does the company own or license? Who are the inventors, and has every founder and inventor assigned their rights to the company?", "why": "In biotech, the patents and who owns them are a large part of the value.", "ref": "NI-LEG-003, TV-COR-016"}
+      ]},
+      {"title": "The business", "items": [
+        {"q": "How much cash does the company have today, what is the monthly burn, and how many months of runway does it have before and after this round?", "why": "Runway sets how much the company can prove before it needs more capital.", "ref": "TV-FIN-002"},
+        {"q": "Does the company have any revenue, grants, loans, convertible notes or SAFEs outstanding today?", "why": "Existing obligations and instruments that convert affect what new investors own.", "ref": "U-Q16"},
+        {"q": "How do you expect investors to earn a return: acquisition by a larger company, an IPO, licensing deals? Who are the likely buyers, and over what time frame?", "why": "Biotech exits often depend on a small number of strategic buyers, so the plan matters early.", "ref": "NI-Q03"}
+      ]},
+      {"title": "The team", "items": [
+        {"q": "Who are the founders, executives and scientific advisors, and what happened at the companies they built or worked at before?", "why": "Track record is one of the best predictors we have.", "ref": "TV-HR-001"},
+        {"q": "Who owns the company today, who sits on the board, and does any investor hold a veto or special consent right?", "why": "We need to understand control as well as ownership.", "ref": "TV-COR-004"},
+        {"q": "Has the company, any founder or any executive ever been involved in a lawsuit, regulatory action, IP dispute, bankruptcy or criminal matter? Please include anything pending.", "why": "Telling us up front is always better than us finding it later in a background check.", "ref": "U-Q26"}
+      ]}
+    ]
+  },
+
+  "documents": {
+    "kicker": "Part B",
+    "title": "Documents to send",
+    "intro": "This is a short list on purpose. Send what already exists; you don't need to create anything new for us. If a document doesn't exist, tell us.",
+    "groups": [
+      {"title": "The round", "items": [
+        {"doc": "Investor deck and materials", "essential": true, "detail": "The deck and any written materials you have sent to other investors for this round.", "why": "Lets us start from the same information other investors have.", "ref": "TV-COR-001"},
+        {"doc": "Term sheet or offering terms", "essential": true, "detail": "The current terms for the round, showing both the $1.00 and the $0.80 price and who each applies to.", "why": "Sets out exactly what investors are being offered.", "ref": "TV-STR-001"},
+        {"doc": "Fully diluted cap table", "essential": true, "detail": "Every share, option, warrant, SAFE and convertible note, before and after this round, at both prices.", "why": "Shows what each investor will own after the round.", "ref": "TV-COR-002"},
+        {"doc": "Use of proceeds and milestones", "essential": true, "detail": "How the $9 million will be spent and the milestones it funds.", "why": "Connects the raise to what it will prove.", "ref": "TV-FIN-004"},
+        {"doc": "Financial model", "essential": true, "detail": "Your forecast with its assumptions, in Excel with formulas intact rather than a PDF.", "why": "We rebuild the numbers ourselves, which needs the live file.", "ref": "TV-FIN-001"},
+        {"doc": "Prior financing history", "essential": false, "detail": "Each prior round, bridge or note with its date, price, lead investor and key terms.", "why": "Shows how the valuation has moved over time.", "ref": "TV-VAL-006"},
+        {"doc": "Board approval of the round", "essential": false, "detail": "The board consent or minutes approving the round and its pricing.", "why": "Confirms the terms were properly approved.", "ref": "TV-COR-008"}
+      ]},
+      {"title": "The science, IP and partnerships", "items": [
+        {"doc": "NVIDIA agreement", "essential": true, "detail": "The signed agreement, program acceptance letter or term sheet that sets out the NVIDIA relationship, plus the name of your contact there.", "why": "We review the terms and confirm the relationship directly with NVIDIA.", "ref": "TV-COR-005, TV-COM-009"},
+        {"doc": "Data package and regulatory status", "essential": true, "detail": "A summary of the key data behind the lead program, its development stage, and any FDA correspondence or meeting minutes.", "why": "The data and the regulatory path are where most of the value sits.", "ref": "NI-TECH-002"},
+        {"doc": "Patent schedule", "essential": true, "detail": "Every patent and application, owned or licensed, with its status, expiry date, owner and any license terms.", "why": "Confirms the company owns or controls what it is building on.", "ref": "NI-LEG-003"},
+        {"doc": "Founder IP assignments", "essential": false, "detail": "The signed invention-assignment agreements for each founder.", "why": "Confirms the founders' inventions belong to the company.", "ref": "TV-COR-016"}
+      ]},
+      {"title": "Financials and the company", "items": [
+        {"doc": "Financial statements", "essential": true, "detail": "Income statement, balance sheet and cash flow for the last two to three years (or since founding) and year to date. Audited if available.", "why": "The base for everything else we review.", "ref": "U-FIN-001"},
+        {"doc": "Cash and runway", "essential": true, "detail": "Current cash balance, monthly burn for the last 12 months, and the forecast to the next financing.", "why": "Shows how far this round takes the company.", "ref": "TV-FIN-002"},
+        {"doc": "Formation documents", "essential": true, "detail": "Certificate of incorporation with all amendments, bylaws, and a current certificate of good standing.", "why": "Confirms the company exists and the share classes it can issue.", "ref": "U-LEG-001"},
+        {"doc": "Beneficial owners", "essential": true, "detail": "The name of every person who owns 25% or more of the company, plus the person who controls it.", "why": "Required for the identity and sanctions checks every investor runs.", "ref": "U-KYC-001"}
+      ]},
+      {"title": "The team", "items": [
+        {"doc": "Team bios and track record", "essential": false, "detail": "A short background for each founder, executive and key scientific advisor, including prior companies and how they turned out.", "why": "Helps us understand who is building the company.", "ref": "TV-HR-001"},
+        {"doc": "Background disclosure statement", "essential": true, "detail": "A short signed statement from each founder and executive listing any lawsuits, regulatory actions, IP disputes, bankruptcies or criminal matters in the last ten years, or confirming there are none.", "why": "Lets us match what you tell us with the background checks we run later, with your consent.", "ref": "U-SPN-003"}
+      ]}
+    ]
+  },
+
+  "callout": {
+    "title": "Three things that matter most in a biotechnology raise",
+    "items": [
+      {"title": "The partnerships, confirmed at the source", "text": "Strategic relationships with major companies can mean anything from a startup-program membership to a co-development deal with an equity investment. We read the agreement and confirm the relationship directly with the partner, as we do for every company we review."},
+      {"title": "The science and the IP", "text": "Most of a biotech company's value sits in its data, its regulatory path and its patents. In detailed diligence an independent scientific reviewer looks at the data, and IP counsel confirms the company owns or controls the patents it relies on."},
+      {"title": "The price, the terms and the cap table", "text": "With two prices in this round, we'll look at the full cap table, the rights attached to each class of stock, and how the prices were set and approved, so every investor knows exactly what they own."}
+    ]
+  },
+
+  "how_title": "Sending your answers and documents",
+  "how_to_send": [
+    "Reply to the email this packet came with. You can put your answers to Part A in the email itself or attach a short document, and attach the Part B documents or share a data room link.",
+    "- Name each file so we can tell what it is, for example \"Cap table post-money.xlsx\" or \"Patent schedule.pdf\".",
+    "- Send spreadsheets as spreadsheets, so we can work with the numbers.",
+    "- If something is confidential enough that you'd like a mutual NDA first, tell us and we'll send one.",
+    "- If something doesn't exist or doesn't apply, a one-line note saying so is all we need."
+  ],
+  "closing_title": "After you send this",
+  "closing": [
+    "We'll review everything, come back with any follow-up questions, and set up a call with your team to talk through the science, the partnership and the round.",
+    "If we both want to keep going, we'll send a detailed diligence request and the consent forms for the verification and background checks every deal goes through. Terms come after that."
+  ],
+  "confidentiality": "Confidential. This packet and anything you send in response will be used only to evaluate the proposed investment and kept confidential. It is not an offer, commitment or agreement to invest. Any investment is subject to completion of due diligence, approval and signed definitive documents."
+}
