@@ -13,6 +13,7 @@ Commands
   bulk     --tracker FILE --json FILE     apply many updates: [{"id":..,"status":..,"evidence":..,"note":..}]
   status   --tracker FILE                 progress summary and what is blocking approval
   report   --tracker FILE [--out FILE]    write the diligence report and the decision
+  opening  --spec FILE [--out FILE]       render a styled first-screen opening packet PDF from a JSON spec
   validate                                check every library file against the schema
 
 Decision rules (report)
@@ -553,6 +554,34 @@ def cmd_report(a):
     print(f"{decision}  -> {out}")
 
 
+def cmd_opening(a):
+    import re
+    spec = json.loads(Path(a.spec).read_text())
+    text = json.dumps(spec)
+    holes = sorted(set(re.findall(r"\[[A-Za-z][^\]]{0,40}\]", text)))
+    if holes:
+        sys.exit(f"Spec still has placeholders {holes}. The opening packet must have no blanks: fill or reword them.")
+    known = set()
+    for p_ in LIB.glob("*.json"):
+        lib = json.loads(p_.read_text())
+        for k in ("requests", "intake_questions"):
+            known |= {i["id"] for i in lib.get(k, [])}
+    refs = [it.get("ref") for sec in ("questions", "documents") for g in spec.get(sec, {}).get("groups", [])
+            for it in g["items"]]
+    bad = [r for r in refs if r and any(x.strip() not in known for x in r.split(","))]
+    if bad:
+        sys.exit(f"Unknown library refs in spec: {bad}")
+    try:
+        import opening
+    except ImportError:
+        sys.exit("The opening packet needs reportlab: pip install reportlab")
+    out = Path(a.out or Path(a.spec).with_suffix(".pdf"))
+    opening.build(spec, out)
+    nq = sum(len(g["items"]) for g in spec.get("questions", {}).get("groups", []))
+    nd = sum(len(g["items"]) for g in spec.get("documents", {}).get("groups", []))
+    print(f"wrote {out}  ({nq} questions, {nd} documents, {len(refs) - refs.count(None)} items traced to the library)")
+
+
 def cmd_validate(a):
     ok = True
     ids = {}
@@ -623,6 +652,7 @@ def main():
     s = sp.add_parser("bulk"); s.add_argument("--tracker", required=True); s.add_argument("--json", required=True)
     s = sp.add_parser("status"); s.add_argument("--tracker", required=True); s.add_argument("--limit", type=int, default=25)
     s = sp.add_parser("report"); s.add_argument("--tracker", required=True); s.add_argument("--out")
+    s = sp.add_parser("opening"); s.add_argument("--spec", required=True); s.add_argument("--out")
     sp.add_parser("validate")
     a = ap.parse_args()
     globals()[f"cmd_{a.cmd}"](a)

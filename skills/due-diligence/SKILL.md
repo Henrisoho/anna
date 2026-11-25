@@ -26,6 +26,27 @@ One triggered kill test or one failed gating item is a decline.
 
 Run the CLI from anywhere: `python3 <skill-dir>/scripts/dd.py <command>`. `dd.py types` lists every deal type and subtype.
 
+## Mode 0: Opening packet (first screen)
+
+When the user wants a first-touch packet ("opening packet", "first screen", "just asking what the deal is"), send a
+short, styled PDF instead of the full request list. It asks what the deal is, requests a focused set of documents,
+explains the process, and has **no blanks**: no placeholders, answer boxes or blank lines.
+
+1. Classify the deal as in Mode 1 (type, subtypes, conditions) from what the user said. Don't interrogate the user;
+   use what you know (amount, industry) and phrase around what you don't (e.g. "the founders and management team"
+   instead of a name you don't have).
+2. Pick 12 to 20 questions from the universal and type `intake_questions`, and 10 to 16 documents from the
+   screen-stage `requests` (gating ones become "essential", the rest "requested"). Rewrite each in plain, friendly
+   language, keep a one-line "why we ask", and keep the library id in `ref`. Skip anything that doesn't fit the deal
+   (fund-sponsor items for an operating company, for example) and anything heavy that belongs in detailed diligence.
+3. Add a callout with the two or three things that matter most for the deal type, from its THE ONE CHECK, kill
+   tests and failure cases, written for the sponsor.
+4. Write the spec (schema in the docstring of `scripts/opening.py`; example:
+   `examples/opening_spec_cannabis.json`) and render it:
+   `dd.py opening --spec spec.json --out Opening_Due_Diligence_Packet.pdf`. The command refuses specs that still
+   contain `[placeholders]` and checks every `ref` against the library.
+5. Render the pages to images and look at them before handing the PDF over.
+
 ## Mode 1: Someone reached out. Build their packet.
 
 1. **Intake.** Ask the intake questions conversationally, not as a wall. Start with the universal ones

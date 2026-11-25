@@ -1,0 +1,118 @@
+{
+  "theme": "forest",
+  "kicker": "Confidential  |  Opening due diligence",
+  "title": "Opening Due Diligence Packet",
+  "subtitle": "Medical cannabis dispensary company: equity raise",
+  "amount": "$450,000",
+  "prepared_for": "The founders and management team",
+  "date": "November 25, 2026",
+
+  "welcome_title": "Thanks for bringing us this opportunity",
+  "intro": [
+    "We're glad you're considering us for your $450,000 raise. This packet is the first step: a short set of questions about the deal and a focused list of documents, so we can understand the business before we spend your time on anything heavier.",
+    "This is a first screen, not full due diligence. Nothing here is a commitment on either side. If the opening review goes well, we'll schedule a call with your team and then move into detailed diligence, where we verify the financials, the licenses and the people, before agreeing terms.",
+    "We ask every company the same core questions, whatever the size of the raise. Cannabis businesses get a few more, because federal tax, state licensing and cash handling work differently from most industries. None of it is a reflection on you; it's how we protect every investor in the syndicate, including you once we're partners."
+  ],
+  "steps": [
+    {"name": "Opening packet", "desc": "You answer the questions and send the documents in this packet."},
+    {"name": "Review and call", "desc": "We read everything and meet your team to talk through the deal."},
+    {"name": "Detailed diligence", "desc": "We verify financials, licenses, banking and backgrounds, with your consent."},
+    {"name": "Terms and closing", "desc": "We agree terms, sign the documents and fund."}
+  ],
+  "contents": [
+    ["Part A", "19 questions about the raise, the business, money and banking, and the team."],
+    ["Part B", "15 documents: 10 essential, 5 requested."],
+    ["Cannabis notes", "The three things that matter most in a cannabis deal, and how we'll check them."],
+    ["How to send", "How to get your answers and documents to us."]
+  ],
+
+  "questions": {
+    "kicker": "Part A",
+    "title": "Tell us about the deal",
+    "intro": "Answer in your own words, in an email or a short document. A few sentences per question is plenty at this stage. If you don't know an answer yet, say so; that's useful too.",
+    "groups": [
+      {"title": "The raise", "items": [
+        {"q": "In a sentence or two, what does the company do, and what is the $450,000 for?", "why": "If the business and the ask fit in one line, everything else is easier to evaluate.", "ref": "U-Q01"},
+        {"q": "Is $450,000 the whole round? What is the minimum investment, and how much is already committed?", "why": "Tells us how the round is built and how much of it depends on us.", "ref": "U-Q04"},
+        {"q": "What are investors buying: common or preferred equity, a SAFE, a convertible note, or something else? At what valuation, and with what rights or preferences?", "why": "The instrument and valuation set what investors actually own.", "ref": "U-Q05"},
+        {"q": "How will the money be spent, line by line? Will any of it go to founders or insiders, or repay existing loans?", "why": "We want to see every dollar go to growing the business.", "ref": "U-Q07"},
+        {"q": "When do you need the money, and is anything setting that deadline?", "why": "Helps us plan the review so it fits your timeline.", "ref": "U-Q08"},
+        {"q": "Who else is investing, and is anyone leading the round?", "why": "Other investors and the work they have done help us calibrate our own review.", "ref": "U-Q10"},
+        {"q": "Are you and the other owners putting your own money into this round? If so, how much?", "why": "Founders investing alongside us is the strongest signal of conviction.", "ref": "U-Q11"},
+        {"q": "Which securities exemption is the raise made under (for example Rule 506(b) or 506(c)), and who is your securities lawyer?", "why": "Private raises must follow securities rules, and the exemption decides how investors are verified.", "ref": "U-Q14"}
+      ]},
+      {"title": "The business", "items": [
+        {"q": "Where do you operate: how many dispensaries, in which state and city, and how long has each been open?", "why": "Cannabis is licensed state by state, so location shapes everything else.", "ref": "U-Q03, CAN-Q04"},
+        {"q": "Do you sell medical cannabis only, or adult-use as well? Roughly what share of revenue is each?", "why": "Medical and adult-use sales are taxed and regulated differently.", "ref": "CAN-Q02"},
+        {"q": "Are you retail only, or do you also cultivate, manufacture or distribute?", "why": "Each activity carries its own license and its own risks.", "ref": "CAN-Q01"},
+        {"q": "What were revenue and profit (or loss) over the last twelve months and the last full year?", "why": "A first read on scale and profitability before we see the statements.", "ref": "U-Q25"},
+        {"q": "Will this raise change who owns or controls any licensed entity?", "why": "Most states require regulator approval before ownership of a cannabis license changes.", "ref": "CAN-Q06"}
+      ]},
+      {"title": "Money, tax and banking", "items": [
+        {"q": "Who do you bank with, for how long, and has an account ever been closed on you? How do you handle cash: vault, armored car, deposit schedule?", "why": "Banking access and cash controls are central to any cannabis business.", "ref": "CAN-Q07"},
+        {"q": "How do you treat federal Section 280E in your tax returns and projections, and do you claim any relief (for example for medical sales or Schedule III)?", "why": "280E is usually the single largest line in a cannabis company's economics.", "ref": "CAN-Q03, CAN-Q08"},
+        {"q": "Does the company have any loans, credit lines, or other debt or financing today?", "why": "Existing obligations come ahead of new equity.", "ref": "U-Q16"}
+      ]},
+      {"title": "The team and the track record", "items": [
+        {"q": "Who owns the company and in what percentages, and who runs it day to day?", "why": "We need to know everyone behind the business, including anyone who will control the money.", "ref": "U-Q09"},
+        {"q": "Has the company, any owner or any manager ever been involved in a lawsuit, regulatory or license action, bankruptcy or criminal matter? Please include anything pending.", "why": "Telling us up front is always better than us finding it later in a background check.", "ref": "U-Q26"},
+        {"q": "How do you expect investors to earn a return: distributions, a future sale, a buyback, or something else? Over what time frame?", "why": "In cannabis the pool of legal buyers is limited, so the exit plan matters early.", "ref": "U-Q25, CAN-VAL-001"}
+      ]}
+    ]
+  },
+
+  "documents": {
+    "kicker": "Part B",
+    "title": "Documents to send",
+    "intro": "This is a short list on purpose. Send what exists today; don't create anything new just for us, except the one-page summary and the use-of-funds table. If a document doesn't exist, tell us.",
+    "groups": [
+      {"title": "The deal", "items": [
+        {"doc": "One-page summary of the raise", "essential": true, "detail": "What the company does, the amount, the instrument and valuation, how the money will be used, and the timeline.", "why": "Gives everyone who reviews the deal the same starting point.", "ref": "U-STR-001"},
+        {"doc": "Use-of-funds table", "essential": true, "detail": "Every dollar of the $450,000 and where it goes, including any fees or payments to owners, insiders or affiliates.", "why": "Shows the money goes where the summary says.", "ref": "U-STR-002"},
+        {"doc": "Investor deck", "essential": false, "detail": "Whatever presentation you already use with investors.", "why": "Saves you repeating what you've already written.", "ref": "U-COM-001"},
+        {"doc": "Projections, in Excel", "essential": true, "detail": "Your forecast for the next three to five years with the assumptions visible, in the spreadsheet itself with formulas intact rather than a PDF.", "why": "We rebuild the numbers ourselves, which needs the live file.", "ref": "U-VAL-001"},
+        {"doc": "Federal tax line under full Section 280E", "essential": true, "detail": "In the projections, a version that shows federal tax as if no ordinary business deductions were allowed. It can be a second tab.", "why": "This is how we underwrite every cannabis business, so it's best if both of us see that number from day one.", "ref": "CAN-TAX-001"}
+      ]},
+      {"title": "Financials and banking", "items": [
+        {"doc": "Financial statements", "essential": true, "detail": "Income statement, balance sheet and cash flow for the last three years (or since opening) and year to date. Audited or CPA-reviewed if you have them; internal statements are fine if not.", "why": "The base for everything else we review.", "ref": "U-FIN-001"},
+        {"doc": "Revenue by medical and adult-use", "essential": false, "detail": "Monthly or quarterly revenue split between medical and adult-use sales (if you sell both), for the same periods.", "why": "Medical and adult-use revenue are treated differently for tax.", "ref": "CAN-COM-001"},
+        {"doc": "Banking summary", "essential": false, "detail": "Your bank or credit union, the accounts you hold, how long you've banked there, any past account closures, and how cash moves from the register to the bank.", "why": "Cash handling is one of the first things we look at in any cannabis company.", "ref": "CAN-FIN-002"}
+      ]},
+      {"title": "Licenses and the company", "items": [
+        {"doc": "License schedule", "essential": true, "detail": "Every state and local cannabis license and registration: number, type, holder entity, address, issue and expiration dates, and current status.", "why": "The licenses are the business. We confirm them directly with the state regulator later in the process.", "ref": "CAN-REG-001"},
+        {"doc": "Formation documents", "essential": true, "detail": "Articles or certificate of formation, operating agreement or bylaws with all amendments, and a current certificate of good standing for each entity.", "why": "Confirms the company exists and who is allowed to act for it.", "ref": "U-LEG-001"},
+        {"doc": "Ownership chart and cap table", "essential": true, "detail": "Who owns what, from each individual owner down to the entity that holds the licenses, including any options, SAFEs or notes that convert into equity.", "why": "Shows exactly what investors are buying into.", "ref": "U-LEG-002"},
+        {"doc": "Beneficial owners", "essential": true, "detail": "The name of every person who owns 25% or more of any entity in the chain, plus the person who controls the company.", "why": "Required for the identity and sanctions checks every investor runs.", "ref": "U-KYC-001"}
+      ]},
+      {"title": "The team", "items": [
+        {"doc": "Bios of owners and key managers", "essential": false, "detail": "A short background for each: past roles, relevant experience, and any professional licenses.", "why": "Helps us understand who is running the business.", "ref": "U-SPN-002"},
+        {"doc": "Background disclosure statement", "essential": true, "detail": "A short signed statement from each owner and manager listing any lawsuits, regulatory or license actions, bankruptcies, liens or criminal matters in the last ten years, or confirming there are none.", "why": "Lets us match what you tell us with the background checks we run later, with your consent.", "ref": "U-SPN-003"},
+        {"doc": "Current investors and lenders", "essential": false, "detail": "Anyone who has invested in or lent to the company, with amounts and terms.", "why": "Completes the picture of who has a claim on the business.", "ref": "U-COM-003"}
+      ]}
+    ]
+  },
+
+  "callout": {
+    "title": "Three things that matter most in a cannabis deal",
+    "items": [
+      {"title": "Federal tax under Section 280E", "text": "Most cannabis businesses can't deduct ordinary operating expenses for federal tax, which often makes tax the largest cost in the business. We look at every plan at full 280E first. Relief is credited only for medical sales backed by the right registration, a tax opinion and a clean split between medical and adult-use. Adult-use cannabis is still Schedule I federally."},
+      {"title": "Licenses and change of control", "text": "Licenses are the core asset. Later in the process we confirm each one directly with the state regulator, including whether this raise needs approval for any change in ownership."},
+      {"title": "Cash and banking", "text": "Cannabis is often a cash business. In detailed diligence we reconcile sales to bank deposits and confirm balances directly with your bank. Good cash controls make this quick."}
+    ]
+  },
+
+  "how_title": "Sending your answers and documents",
+  "how_to_send": [
+    "Reply to the email this packet came with. You can put your answers to Part A in the email itself or attach a short document, and attach the Part B documents or share a folder link.",
+    "- Name each file so we can tell what it is, for example \"Financial statements 2023-2025.pdf\" or \"License schedule.xlsx\".",
+    "- Send spreadsheets as spreadsheets, so we can work with the numbers.",
+    "- If something doesn't exist or doesn't apply, a one-line note saying so is all we need.",
+    "- Questions about anything in this packet are welcome at any point."
+  ],
+  "closing_title": "After you send this",
+  "closing": [
+    "We'll review everything and come back with any follow-up questions, then set up a call with your team to talk through the business and the raise.",
+    "If we both want to keep going, we'll send a detailed diligence request and the consent forms for the verification and background checks every deal goes through. Terms come after that."
+  ],
+  "confidentiality": "Confidential. This packet and anything you send in response will be used only to evaluate the proposed investment and kept confidential. It is not an offer, commitment or agreement to invest. Any investment is subject to completion of due diligence, approval and signed definitive documents."
+}
