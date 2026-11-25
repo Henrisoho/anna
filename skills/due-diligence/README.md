@@ -105,6 +105,7 @@ references/         the full playbook, one Markdown file per chapter, with citat
 scripts/dd.py       packet builder, tracker and decision engine
 scripts/pdf.py      PDF rendering (ReportLab)
 templates/          reply emails, data room folder index, red-team prompt
+examples/           example opening-packet spec
 ```
 
 ## Contributing
